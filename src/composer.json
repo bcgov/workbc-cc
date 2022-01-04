@@ -23,7 +23,8 @@
         "drupal/core-recommended": "^9.3",
         "drupal/paragraphs": "^1.12",
         "drupal/pathauto": "^1.8",
-        "drupal/twig_tweak": "^3.1"
+        "drupal/twig_tweak": "^3.1",
+        "drush/drush": "^10.6"
     },
     "conflict": {
         "drupal/drupal": "*"
