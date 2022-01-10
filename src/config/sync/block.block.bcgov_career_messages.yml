@@ -1,0 +1,22 @@
+uuid: 4d22784e-0c69-44f8-a00d-f06fc176e96d
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - bcgov_career
+_core:
+  default_config_hash: KC12e0aosUnBBs5bd374JVcQjJaFNOSIHzu0dUGf22o
+id: bcgov_career_messages
+theme: bcgov_career
+region: header
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  label_display: '0'
+  provider: system
+visibility: {  }

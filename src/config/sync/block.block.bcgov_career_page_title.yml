@@ -1,0 +1,20 @@
+uuid: f339c5e5-ee7d-43d1-b824-8e274c2cf3de
+langcode: en
+status: true
+dependencies:
+  theme:
+    - bcgov_career
+_core:
+  default_config_hash: ItFhhiUOoeR7oIq73ZaCV7PAYrOwXZ-9fazMzF5DJXM
+id: bcgov_career_page_title
+theme: bcgov_career
+region: content
+weight: -50
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility: {  }

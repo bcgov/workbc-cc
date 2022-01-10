@@ -1,0 +1,25 @@
+uuid: 8a8db42d-e16a-4c8f-9de1-c014a409b72b
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - bcgov_career
+_core:
+  default_config_hash: d-0emr1mEq7sFKDu5RHUJckvNk62hvIZdRwPEfnJyGg
+id: bcgov_career_branding
+theme: bcgov_career
+region: header
+weight: 0
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: true
+visibility: {  }

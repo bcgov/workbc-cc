@@ -1,0 +1,22 @@
+uuid: cb7fc2bb-a399-414b-b270-636d5ce28b62
+langcode: en
+status: true
+dependencies:
+  theme:
+    - bcgov_career
+_core:
+  default_config_hash: Qf2BoIzd9py5AYXZj8fJzCYDyVk1-AWXcu-AqQeDZKA
+id: bcgov_career_local_tasks
+theme: bcgov_career
+region: content
+weight: -40
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: true
+visibility: {  }

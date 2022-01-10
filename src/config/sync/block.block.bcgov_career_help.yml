@@ -1,0 +1,22 @@
+uuid: 5deaef4a-8b3f-4580-8444-0ee0821a6360
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - bcgov_career
+_core:
+  default_config_hash: '-laWx8WA-ikiIEH3NJQ0hVbjqk3iEuBms91LB0B4IQU'
+id: bcgov_career_help
+theme: bcgov_career
+region: content
+weight: -30
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }
