@@ -45,6 +45,9 @@ src/web/sites/README.txt
 src/web/update.php
 src/web/web.config
 
+# private
+src/private
+
 
 # Ignore Drupal's file directory
 src/web/sites/*/files
