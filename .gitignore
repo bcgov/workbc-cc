@@ -12,6 +12,8 @@ src/web/profiles/contrib/
 src/web/profiles/README.txt
 /console/
 
+# ddev congfig
+src/.ddev
 # Ignore local service.yml
 *services.local.yml
 *settings.*.php
