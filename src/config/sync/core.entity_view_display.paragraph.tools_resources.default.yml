@@ -1,0 +1,33 @@
+uuid: 243b86fd-a16a-49fd-81de-29b0e4244a3f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.tools_resources.field_t_r_items
+    - field.field.paragraph.tools_resources.field_title
+    - paragraphs.paragraphs_type.tools_resources
+  module:
+    - entity_reference_revisions
+id: paragraph.tools_resources.default
+targetEntityType: paragraph
+bundle: tools_resources
+mode: default
+content:
+  field_t_r_items:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

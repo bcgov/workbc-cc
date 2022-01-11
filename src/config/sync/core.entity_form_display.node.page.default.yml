@@ -4,8 +4,10 @@ status: true
 dependencies:
   config:
     - field.field.node.page.body
+    - field.field.node.page.field_component
     - node.type.page
   module:
+    - paragraphs
     - path
     - text
 _core:
@@ -30,6 +32,18 @@ content:
     weight: 10
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_component:
+    type: entity_reference_paragraphs
+    weight: 121
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
     third_party_settings: {  }
   path:
     type: path

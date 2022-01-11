@@ -1,0 +1,10 @@
+uuid: 89e9641b-0571-4755-9d98-534a23184e60
+langcode: en
+status: true
+dependencies: {  }
+id: tools_resources
+label: 'Tools & Resources'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

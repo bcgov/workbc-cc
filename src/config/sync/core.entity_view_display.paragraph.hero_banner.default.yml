@@ -1,0 +1,66 @@
+uuid: 6da02280-7853-44b6-9300-299d919f3ff7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.hero_banner.field_banner_img_desktop
+    - field.field.paragraph.hero_banner.field_banner_img_mobile
+    - field.field.paragraph.hero_banner.field_button
+    - field.field.paragraph.hero_banner.field_sub_title
+    - field.field.paragraph.hero_banner.field_title
+    - paragraphs.paragraphs_type.hero_banner
+  module:
+    - image
+    - link
+id: paragraph.hero_banner.default
+targetEntityType: paragraph
+bundle: hero_banner
+mode: default
+content:
+  field_banner_img_desktop:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_banner_img_mobile:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_button:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_sub_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden: {  }

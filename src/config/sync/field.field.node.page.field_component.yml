@@ -1,0 +1,44 @@
+uuid: 55b95773-2677-45e8-ba44-67b7ac8965e2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_component
+    - node.type.page
+    - paragraphs.paragraphs_type.hero_banner
+    - paragraphs.paragraphs_type.rich_text
+    - paragraphs.paragraphs_type.tools_resources
+  module:
+    - entity_reference_revisions
+id: node.page.field_component
+field_name: field_component
+entity_type: node
+bundle: page
+label: Component
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      hero_banner: hero_banner
+      rich_text: rich_text
+      tools_resources: tools_resources
+    negate: 0
+    target_bundles_drag_drop:
+      hero_banner:
+        weight: 2
+        enabled: true
+      rich_text:
+        weight: 4
+        enabled: true
+      tools_resources:
+        weight: 7
+        enabled: true
+      tools_resources_items:
+        weight: 8
+        enabled: false
+field_type: entity_reference_revisions

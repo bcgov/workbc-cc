@@ -1,0 +1,46 @@
+uuid: 09b85171-d8a5-4302-8066-80a17e077dc1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.tools_resources_items.field_description
+    - field.field.paragraph.tools_resources_items.field_icon
+    - field.field.paragraph.tools_resources_items.field_title
+    - paragraphs.paragraphs_type.tools_resources_items
+  module:
+    - svg_image
+id: paragraph.tools_resources_items.default
+targetEntityType: paragraph
+bundle: tools_resources_items
+mode: default
+content:
+  field_description:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_icon:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

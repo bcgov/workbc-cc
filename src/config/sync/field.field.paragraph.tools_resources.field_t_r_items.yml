@@ -1,0 +1,40 @@
+uuid: ea9ae1e8-0afc-40dd-84d7-7478b4175da3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_t_r_items
+    - paragraphs.paragraphs_type.tools_resources
+    - paragraphs.paragraphs_type.tools_resources_items
+  module:
+    - entity_reference_revisions
+id: paragraph.tools_resources.field_t_r_items
+field_name: field_t_r_items
+entity_type: paragraph
+bundle: tools_resources
+label: 'T&R items'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      tools_resources_items: tools_resources_items
+    negate: 0
+    target_bundles_drag_drop:
+      hero_banner:
+        weight: 5
+        enabled: false
+      rich_text:
+        weight: 6
+        enabled: false
+      tools_resources:
+        weight: 7
+        enabled: false
+      tools_resources_items:
+        weight: 8
+        enabled: true
+field_type: entity_reference_revisions

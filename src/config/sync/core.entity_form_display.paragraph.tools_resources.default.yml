@@ -1,0 +1,38 @@
+uuid: 31f67142-52ca-4109-8cb2-5e631220a7f2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.tools_resources.field_t_r_items
+    - field.field.paragraph.tools_resources.field_title
+    - paragraphs.paragraphs_type.tools_resources
+  module:
+    - paragraphs
+id: paragraph.tools_resources.default
+targetEntityType: paragraph
+bundle: tools_resources
+mode: default
+content:
+  field_t_r_items:
+    type: entity_reference_paragraphs
+    weight: 1
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
