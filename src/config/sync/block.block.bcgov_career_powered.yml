@@ -1,0 +1,22 @@
+uuid: 6cfea704-139a-4364-97be-e4dd6c669c47
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - bcgov_career
+_core:
+  default_config_hash: I6Esh8cDlPdl2POZg4MOSRUrQNYA1UNCJCxL2yqT_wc
+id: bcgov_career_powered
+theme: bcgov_career
+region: header
+weight: 10
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }

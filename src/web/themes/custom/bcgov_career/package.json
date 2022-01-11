@@ -1,0 +1,26 @@
+{
+  "name": "bcgov_career",
+  "version": "1.0.0",
+  "description": "Bootstrap 4 subthem for bcgov",
+  "main": "gulpfile.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gurjinder Singh",
+  "license": "ISC",
+  "devDependencies": {
+    "create-require": "^1.1.1",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-eslint": "^6.0.0",
+    "gulp-if": "^3.0.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "sass": "^1.47.0"
+  },
+  "dependencies": {
+    "module": "^1.2.5"
+  }
+}

@@ -1,0 +1,22 @@
+uuid: 0f7f65ab-2da6-4cc2-8453-9b788e705abc
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - bcgov_career
+_core:
+  default_config_hash: y0bXRvKYQQKkf_RVxA3aOPGpIfKKsDOzzrWYCgjxJ9Y
+id: bcgov_career_breadcrumbs
+theme: bcgov_career
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

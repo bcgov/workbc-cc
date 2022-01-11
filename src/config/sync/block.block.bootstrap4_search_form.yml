@@ -1,0 +1,23 @@
+uuid: 15ee27e9-d270-4f31-9303-d8cc6c84fb5e
+langcode: en
+status: true
+dependencies:
+  module:
+    - search
+  theme:
+    - bootstrap4
+_core:
+  default_config_hash: Ja6tDzYId0ZPQE1SEJTQNb0ZNv5ttB1iO5xv6hIToQ8
+id: bootstrap4_search_form
+theme: bootstrap4
+region: nav_additional
+weight: 0
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: 'Search form'
+  label_display: '0'
+  provider: search
+  page_id: ''
+visibility: {  }
