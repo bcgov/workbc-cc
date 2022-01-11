@@ -1,0 +1,14 @@
+header{
+    padding: 35px 0;
+    .navbar-brand{
+        a.site-logo{
+            img{
+                width: 260px;
+                height: auto;
+            }
+            + div{
+                display: none;
+            }
+        }
+    }
+}
