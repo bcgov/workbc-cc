@@ -48,6 +48,9 @@ src/web/web.config
 # private
 src/private
 
+# node_module
+node_modules/
+
 
 # Ignore Drupal's file directory
 src/web/sites/*/files
