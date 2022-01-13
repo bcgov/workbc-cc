@@ -1,0 +1,43 @@
+// Banner
+
+.banner-main-wrapper{
+    .desktop-banner{
+        min-height: 480px;
+        .banner-content{
+            &.flex-content{
+                min-height: 480px;
+                display: flex;
+                align-items: center;
+            }
+            .sub-title{
+                font-family: "BC Sans",sans-serif;
+                font-weight: 400;
+                font-style: normal;
+                font-size: 2.5rem;
+                line-height: 3.0rem;
+                max-width: 380px;
+                margin-bottom: 35px;
+            }
+        }
+    }
+}
+
+// Intro text
+.intro-text-wrapper{
+    min-height: 180px;
+    background: #234075;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    .intro-content{
+        p{
+            font-family: 'BC Sans', sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 21px;
+            color: #FFFFFF;
+            text-align: center;
+            line-height: 30px;
+        }
+    }
+}
