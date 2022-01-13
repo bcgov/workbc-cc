@@ -11,7 +11,7 @@ _core:
 id: bcgov_career_messages
 theme: bcgov_career
 region: content
-weight: -1
+weight: -4
 provider: null
 plugin: system_messages_block
 settings:
