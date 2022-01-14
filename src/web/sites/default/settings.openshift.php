@@ -1,7 +1,7 @@
 <?php
 
 $databases['default']['default'] = array (
-    'database' => getenv('POSTGRES_DB2'),
+    'database' => getenv('POSTGRES_DB'),
     'username' => getenv('POSTGRES_USER'),
     'password' => getenv('POSTGRES_PASSWORD'),
     'prefix' => '',
