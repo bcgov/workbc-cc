@@ -775,7 +775,11 @@ $settings['file_public_path'] = 'sites/default/files';
 $settings['file_private_path'] = '../private';
 $settings['file_tmp_path'] = '/tmp';
 
-if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
+
+// Ensure it all works from the CLI too (i.e. drush)
+if (file_exists($app_root . '/' . $site_path . '/settings.openshift.php') && getenv('OPENSHIFT_BUILD_NAME') != '') {
+  include $app_root . '/' . $site_path . '/settings.openshift.php';
+} else if (file_exists($app_root . '/' . $site_path . '/settings.local.php') {
   include $app_root . '/' . $site_path . '/settings.local.php';
 }
 
