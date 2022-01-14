@@ -17,6 +17,7 @@ src/.ddev
 src/.lando.yml
 # Ignore local service.yml
 *services.local.yml
+*settings.local.php
 #*settings.*.php
 
 # Ignore scaffold files
