@@ -41,3 +41,45 @@
         }
     }
 }
+
+// Tools and Resources
+.tools-resource-wrapper{
+    background: rgba(35, 64, 117, 1);
+    border-bottom: 4px solid rgba(252, 181, 21, 1);
+    padding: 45px 0 80px;
+    margin: 30px 0;
+    .field--name-field-title{
+        display: none;
+    }
+    .title{
+        margin-bottom: 55px;
+        h2{
+            color: #fff;
+        }
+    }
+    .tools-resource-item{
+        text-align: center;
+        position: relative;
+        &::after{
+            content: '';
+            height: 100%;
+            width: 1px;
+            position: absolute;
+            background: rgba(125, 144, 167, 0.462745098039216);
+            right: -7px;
+            bottom: -30px;
+        }
+        img{
+            min-height: 80px;
+            width: auto;
+            margin-bottom: 25px;
+        }
+        h3{
+            color: #fff;
+            margin-bottom: 30px;
+        }
+        p.description{
+            color: #fff;
+        }
+    }
+}

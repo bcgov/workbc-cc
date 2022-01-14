@@ -46,10 +46,16 @@
     not paragraph.isPublished() ? 'paragraph--unpublished'
   ]
 %}
-{% block paragraph %}
+{# {% block paragraph %}
   <div{{ attributes.addClass(classes) }}>
     {% block content %}
       {{ content }}
     {% endblock %}
   </div>
-{% endblock paragraph %}
+{% endblock paragraph %} #}
+
+<div class="tools-resource-item">
+  <img class="image-icon" src="{{ file_url(paragraph.field_icon.entity.uri.value) }}"/>
+  <h3>{{ paragraph.field_title.value }}</h3>
+  <p class="description">{{ paragraph.field_description.value }}</p>
+</div>
