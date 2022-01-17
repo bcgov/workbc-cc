@@ -1,0 +1,31 @@
+kind: BuildConfig
+apiVersion: build.openshift.io/v1
+metadata:
+  name: workbc-cc-build
+spec:
+  output:
+    to:
+      kind: ImageStreamTag
+      namespace: bdaa18-tools
+      name: 'wdst-ocp-drupal-cc:latest'
+  resources:
+    limits:
+      memory: 4Gi
+    requests:
+      memory: 1Gi
+  strategy:
+    type: Docker
+    dockerStrategy:
+      from:
+        kind: ImageStreamTag
+        name: 'wdst-ocp-drupal-base:2.3'
+  source:
+    type: Git
+    git:
+      uri: 'https://github.com/bcgov/workbc-cc.git'
+      ref: master
+  triggers:
+    - type: GitHub
+      github:
+        secret: <secret>
+  runPolicy: Serial
