@@ -2,3 +2,7 @@ global-styling:
   css:
     theme:
       css/style.css: {}
+  
+  js:
+    src/js/slick.min.js: {}
+    src/js/custom.js: {}

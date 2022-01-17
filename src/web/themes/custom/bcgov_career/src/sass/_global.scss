@@ -28,6 +28,10 @@ h1, .h1{
     line-height: 5.4rem;
     color: #234075;
     margin-bottom: 35px;
+    @media all and (max-width: 767.98px){
+        font-size: 4.0rem;
+        line-height: 4.3rem;
+    }
 }
 
 h2, .h2{
@@ -38,6 +42,10 @@ h2, .h2{
     line-height: 3.6rem;
     color: #234075;
     text-align: center;
+    @media all and (max-width: 767.98px){
+        font-size: 3.0rem;
+        line-height: normal;
+    }
 }
 
 h3, .h3{
