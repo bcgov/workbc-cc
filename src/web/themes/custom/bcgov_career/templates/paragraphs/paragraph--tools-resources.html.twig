@@ -46,10 +46,27 @@
     not paragraph.isPublished() ? 'paragraph--unpublished'
   ]
 %}
-{% block paragraph %}
+{# {% block paragraph %}
   <div{{ attributes.addClass(classes) }}>
     {% block content %}
       {{ content }}
     {% endblock %}
   </div>
-{% endblock paragraph %}
+{% endblock paragraph %} #}
+
+<div{{ attributes.addClass(classes) }}>
+  <div class="tools-resource-wrapper">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="title">
+            <h2>{{ paragraph.field_title.value }}</h2>
+          </div>
+          {% block content %}
+            {{ content }}
+          {% endblock %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

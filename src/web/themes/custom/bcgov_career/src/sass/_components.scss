@@ -1,0 +1,182 @@
+// Banner
+
+.banner-main-wrapper{
+    .desktop-banner{
+        min-height: 480px;
+        background-size: cover;
+        background-position: center right;
+        @media all and (max-width: 767.98px){
+            display: none;
+        }
+        .banner-content{
+            &.flex-content{
+                min-height: 480px;
+                display: flex;
+                align-items: center;
+            }
+            .sub-title{
+                font-family: "BC Sans",sans-serif;
+                font-weight: 400;
+                font-style: normal;
+                font-size: 2.5rem;
+                line-height: 3.0rem;
+                max-width: 380px;
+                margin-bottom: 35px;
+            }
+        }
+    }
+    .mobile-banner{
+        display: none;
+        @media all and (max-width: 767.98px){
+            display: block;
+            min-height: 435px;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            padding-top: 20px;
+            .banner-content{
+                &.flex-content{
+                    min-height: 435px;
+                    display: flex;
+                    text-align: center;
+                    max-width: 350px;
+                    margin: 0 auto;
+                }
+                p.sub-title{
+                    font-size: 2.1rem;
+                    line-height: 2.6rem;
+                    margin-bottom: 25px;
+                }
+            }
+        }
+    }
+}
+
+// Intro text
+.intro-text-wrapper{
+    min-height: 180px;
+    background: #234075;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    @media all and (max-width: 767.98px){
+        min-height: 160px;
+    }
+    .intro-content{
+        p{
+            font-family: 'BC Sans', sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 2.1rem;
+            color: #FFFFFF;
+            text-align: center;
+            line-height: 3.0rem;
+            @media all and (max-width: 767.98px){
+                font-size: 1.8rem;
+                line-height: 2.5rem;
+            }
+        }
+    }
+}
+
+// Tools and Resources
+.tools-resource-items-wrapper{
+    > .field__items{
+        > .col-12{
+            &:last-child{
+                .tools-resource-item::after{
+                    display: none;
+                }
+            }
+        }
+    }
+}
+.tools-resource-wrapper{
+    background: rgba(35, 64, 117, 1);
+    border-bottom: 4px solid rgba(252, 181, 21, 1);
+    padding: 45px 0 80px;
+    margin: 30px 0 0;
+    @media all and (max-width: 767.98px){
+        padding: 45px 0 30px;
+    }
+    .field--name-field-title{
+        display: none;
+    }
+    .title{
+        margin-bottom: 55px;
+        @media all and (max-width: 767.98px){
+            margin-bottom: 30px;
+        }
+        h2{
+            color: #fff;
+        }
+    }
+    .tools-resource-item{
+        text-align: center;
+        position: relative;
+        &::after{
+            content: '';
+            height: 100%;
+            width: 1px;
+            position: absolute;
+            background: rgba(125, 144, 167, 0.462745098039216);
+            right: -7px;
+            bottom: -30px;
+            @media all and (max-width: 767.98px){
+                display: none;
+            }
+        }
+        img{
+            min-height: 80px;
+            width: auto;
+            margin-bottom: 25px;
+            @media all and(max-width: 767.98px){
+                margin: 0 auto 25px auto;
+                height: 95px;
+            }
+        }
+        h3{
+            color: #fff;
+            margin-bottom: 30px;
+        }
+        p.description{
+            color: #fff;
+            font-size: 1.5rem;
+            line-height: 1.8rem;
+        }
+        @media all and(max-width: 767.98px){
+            text-align: center;
+            position: relative;
+            max-width: 350px;
+            margin: 0 auto;
+        }
+    }
+    .slick-arrow{
+        display: none !important;
+    }
+    .slick-dots{
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        justify-content: center;
+        margin-top: 50px;
+        > li{
+            > button{
+                padding: 0;
+                font-size: 0;
+                width: 10px;
+                height: 10px;
+                border: 0;
+                border-radius: 50%;
+                margin-left: 15px;
+                background: #979696;
+            }
+            &.slick-active{
+                > button{
+                    background: #fff;
+                }
+            }
+        }
+    }
+}

@@ -8,9 +8,15 @@
 // Include bootstrap.
 @import '../../../../../themes/contrib/bootstrap4/scss/style';
 
+//Slick
+@import 'slick';
+
 // Global
 @import 'global';
 
 // Header Footer
 @import 'header_footer';
+
+// Components
+@import 'components';
 

@@ -12,3 +12,137 @@ header{
         }
     }
 }
+
+footer{
+    padding: 50px 0;
+    @media all and (max-width: 991.98px){
+        padding: 30px 0;
+    }
+    .footer-top-wrapper{
+        padding-bottom: 60px;
+        @media all and (max-width: 991.98px){
+            padding-bottom: 40px;
+        }
+        > .container-fluid{
+            position: relative;
+            &::before{
+                content: "";
+                height: 1px;
+                width: calc(100% - 30px);
+                background: #dbdbdb;
+                position: absolute;
+                left: 15px;
+                right: 0;
+                bottom: -20px;
+                @media all and (max-width: 991.98px){
+                    bottom: -10px;
+                }
+            }
+        }
+        .region-footer-left{
+            margin-top: 13px;
+        }
+    }
+    .footer-bottom-wrapper{
+        .col-12{
+            display: flex;
+            align-items: center;
+        }
+        .region-footer-bottom-right{
+            width: 100%;
+        }
+    }
+    #block-socialnetwork{
+        .social-icons{
+            text-align: right;
+            @media all and (max-width: 991.98px){
+                text-align: left;
+            }
+            a{
+                display: inline-block;
+                overflow: hidden;
+                width: 40px;
+                height: 40px;
+                margin-left: 5px;
+                border-radius: 50%;
+                text-align: center;
+                line-height: 40px;
+                color: #fff;
+                &.social-twitter {
+                    background: #009cd8;
+                }
+                &.social-youtube {
+                    background: #d21c22;
+                }
+                &.social-linkedin {
+                    background: #006caa;
+                }
+                &.social-facebook {
+                    background: #3d5b98;
+                }
+            }
+            span {
+                text-indent: -9999px;
+                overflow: hidden;
+                display: inline-block;
+            }
+        }
+    }
+    nav#block-bcgov-career-footer{
+        @media all and (max-width: 991.98px){
+            margin-bottom: 30px;
+        }
+        > #block-bcgov-career-footer-menu{
+            display: none;
+        }
+        .navbar-nav{
+            display: flex;
+            flex-direction: row;
+            .nav-item{
+                .nav-link{
+                    font-family: 'BC Sans', sans-serif;
+                    font-size: 1.4rem;
+                    color: rgb(35, 64, 117);
+                    border-right: 1px solid #1F9BDE;
+                    padding: 0 7px;
+                    line-height: normal;
+                    &:hover{
+                        color: rgb(0, 156, 222);
+                        text-decoration: underline;
+                    }
+                }
+                &:last-child .nav-link{
+                    border-right: 0;
+                }
+            }
+        }
+    }
+    #block-copyrights{
+        @media all and (max-width: 991.98px){
+            margin-bottom: 30px;
+        }
+        p{
+            font-family: 'BC Sans', sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            color: #002855;
+            font-size: 1.4rem;
+            a{
+                color: #002855;
+                text-decoration: underline;
+            }
+        }
+    }
+    #block-footerbclogo{
+        img{
+            width: 174px;
+            height: auto;
+        }
+        p{
+            text-align: right;
+            @media all and (max-width: 991.98px){
+                text-align: left;
+            }
+        }
+    }
+}

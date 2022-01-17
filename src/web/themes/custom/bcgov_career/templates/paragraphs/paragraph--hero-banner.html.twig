@@ -46,10 +46,39 @@
     not paragraph.isPublished() ? 'paragraph--unpublished'
   ]
 %}
-{% block paragraph %}
-  <div{{ attributes.addClass(classes) }}>
-    {% block content %}
-      {{ content }}
-    {% endblock %}
+
+<div{{ attributes.addClass(classes) }}>
+  <div class="banner-main-wrapper">
+    <div class="desktop-banner" style="background-image:url({{ file_url(paragraph.field_banner_img_desktop.entity.uri.value) }});">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="banner-content flex-content">
+              <div class="banner-inner">
+                <h1>{{ paragraph.field_title.value }}</h1>
+                <p class="sub-title">{{ paragraph.field_sub_title.value }}</p>
+                <a class="cta-btn-blue" href="/">View Quizzes</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mobile-banner" style="background-image:url({{ file_url(paragraph.field_banner_img_mobile.entity.uri.value) }});">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="banner-content flex-content">
+              <div class="banner-inner">
+                <h1>{{ paragraph.field_title.value }}</h1>
+                <p class="sub-title">{{ paragraph.field_sub_title.value }}</p>
+                <a class="cta-btn-blue" href="/">View Quizzes</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-{% endblock paragraph %}
+</div>
