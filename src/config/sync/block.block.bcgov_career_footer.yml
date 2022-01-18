@@ -12,8 +12,8 @@ _core:
   default_config_hash: pnCK21YFjH7iB4XDeokSq3N3XSr6qX8BsqMs9nmip6E
 id: bcgov_career_footer
 theme: bcgov_career
-region: footer
-weight: -6
+region: footer_left
+weight: -4
 provider: null
 plugin: 'system_menu_block:footer'
 settings:
