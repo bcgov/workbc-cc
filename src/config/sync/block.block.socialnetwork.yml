@@ -1,0 +1,25 @@
+uuid: be6cf95d-3791-4b97-995f-e1aba259410a
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:ae8ff104-d6ed-4ab2-ace8-e3016f544684'
+  module:
+    - block_content
+  theme:
+    - bcgov_career
+id: socialnetwork
+theme: bcgov_career
+region: footer_right
+weight: 0
+provider: null
+plugin: 'block_content:ae8ff104-d6ed-4ab2-ace8-e3016f544684'
+settings:
+  id: 'block_content:ae8ff104-d6ed-4ab2-ace8-e3016f544684'
+  label: socialnetwork
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

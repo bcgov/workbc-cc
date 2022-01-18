@@ -1,0 +1,25 @@
+uuid: db6d240c-18a2-4c63-bbe8-ea95331c6ef6
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:2f64dfde-5d39-4b99-bd8a-dd09b609d6d5'
+  module:
+    - block_content
+  theme:
+    - bcgov_career
+id: footerbclogo
+theme: bcgov_career
+region: footer_bottom_right
+weight: 0
+provider: null
+plugin: 'block_content:2f64dfde-5d39-4b99-bd8a-dd09b609d6d5'
+settings:
+  id: 'block_content:2f64dfde-5d39-4b99-bd8a-dd09b609d6d5'
+  label: footerbclogo
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

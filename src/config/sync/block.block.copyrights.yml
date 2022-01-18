@@ -1,0 +1,25 @@
+uuid: b9b2a71a-5536-4892-bf53-50133136411e
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:f81fc884-71fc-4315-afc4-8984bb7be1cf'
+  module:
+    - block_content
+  theme:
+    - bcgov_career
+id: copyrights
+theme: bcgov_career
+region: footer_bottom_left
+weight: 0
+provider: null
+plugin: 'block_content:f81fc884-71fc-4315-afc4-8984bb7be1cf'
+settings:
+  id: 'block_content:f81fc884-71fc-4315-afc4-8984bb7be1cf'
+  label: copyrights
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }
