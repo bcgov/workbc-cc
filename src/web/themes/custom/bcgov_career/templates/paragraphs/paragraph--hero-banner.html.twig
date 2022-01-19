@@ -57,7 +57,9 @@
               <div class="banner-inner">
                 <h1>{{ paragraph.field_title.value }}</h1>
                 <p class="sub-title">{{ paragraph.field_sub_title.value }}</p>
-                <a class="cta-btn-blue" href="/">View Quizzes</a>
+                {% if paragraph.field_button.value.0 is not empty %}
+                  <a class="cta-btn-blue" href="{{ paragraph.field_button.value.0['uri'] }}">{{ paragraph.field_button.value.0['title'] }}</a>
+                {% endif %}
               </div>
             </div>
           </div>
@@ -73,7 +75,6 @@
               <div class="banner-inner">
                 <h1>{{ paragraph.field_title.value }}</h1>
                 <p class="sub-title">{{ paragraph.field_sub_title.value }}</p>
-                <a class="cta-btn-blue" href="/">View Quizzes</a>
               </div>
             </div>
           </div>
