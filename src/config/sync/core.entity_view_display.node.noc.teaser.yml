@@ -1,0 +1,24 @@
+uuid: 711eddfe-95d0-4a9b-a7b8-e9825fc5bdc9
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.noc.field_description
+    - field.field.node.noc.field_year
+    - node.type.noc
+  module:
+    - user
+id: node.noc.teaser
+targetEntityType: node
+bundle: noc
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_description: true
+  field_year: true

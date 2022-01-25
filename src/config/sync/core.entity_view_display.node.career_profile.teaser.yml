@@ -1,0 +1,38 @@
+uuid: d1fde753-a2da-433e-b537-5280b68e8811
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.career_profile.field_education_level
+    - field.field.node.career_profile.field_image
+    - field.field.node.career_profile.field_job_openings
+    - field.field.node.career_profile.field_job_summary
+    - field.field.node.career_profile.field_median_salary
+    - field.field.node.career_profile.field_noc
+    - field.field.node.career_profile.field_opening_from_to
+    - field.field.node.career_profile.field_video_link
+    - field.field.node.career_profile.field_workbc_link
+    - node.type.career_profile
+  module:
+    - user
+id: node.career_profile.teaser
+targetEntityType: node
+bundle: career_profile
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_education_level: true
+  field_image: true
+  field_job_openings: true
+  field_job_summary: true
+  field_median_salary: true
+  field_noc: true
+  field_opening_from_to: true
+  field_video_link: true
+  field_workbc_link: true
