@@ -1,0 +1,23 @@
+uuid: 89ea5d59-a0c1-48e7-a97a-35c5147e7774
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_median_salary
+    - node.type.career_profile
+id: node.career_profile.field_median_salary
+field_name: field_median_salary
+entity_type: node
+bundle: career_profile
+label: 'Median Salary'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: $
+  suffix: ''
+field_type: integer

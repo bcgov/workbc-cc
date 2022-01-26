@@ -1,0 +1,22 @@
+uuid: bed1fe76-6e2b-4e35-bc91-8f4b5d22dd94
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.noc
+id: node.noc.promote
+field_name: promote
+entity_type: node
+bundle: noc
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,17 @@
+uuid: 3178ca0b-6abe-49dc-acf8-72e0086881cc
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Career Profile'
+type: career_profile
+description: ''
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: true
