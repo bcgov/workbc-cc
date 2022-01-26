@@ -1,0 +1,8 @@
+uuid: 293ed858-ac0f-4e1d-951c-8624c672395e
+langcode: en
+status: true
+dependencies: {  }
+name: 'Multiple Intelligence Categories'
+vid: multiple_intelligence_categories
+description: ''
+weight: 0

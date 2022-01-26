@@ -1,0 +1,38 @@
+uuid: adf762b1-82b6-4f1c-bb34-a8ac685aa393
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_svg_icon
+    - taxonomy.vocabulary.multiple_intelligence_categories
+  module:
+    - image
+id: taxonomy_term.multiple_intelligence_categories.field_svg_icon
+field_name: field_svg_icon
+entity_type: taxonomy_term
+bundle: multiple_intelligence_categories
+label: 'SVG Icon'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: quiz-result-icons
+  file_extensions: svg
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: false
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+field_type: image

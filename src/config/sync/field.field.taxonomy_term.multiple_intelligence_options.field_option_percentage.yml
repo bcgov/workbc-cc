@@ -1,0 +1,23 @@
+uuid: 73775a93-3a0f-4bab-ba09-ecec58f181a1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_option_percentage
+    - taxonomy.vocabulary.multiple_intelligence_options
+id: taxonomy_term.multiple_intelligence_options.field_option_percentage
+field_name: field_option_percentage
+entity_type: taxonomy_term
+bundle: multiple_intelligence_options
+label: 'Option Percentage'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: !!float 0
+  max: !!float 100
+  prefix: ''
+  suffix: '%'
+field_type: float

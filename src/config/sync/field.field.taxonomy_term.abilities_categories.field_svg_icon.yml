@@ -1,27 +1,27 @@
-uuid: 2a6f6d31-b066-4036-8004-c6090f2ce7ce
+uuid: bc537b28-99e7-42d8-b183-b13da118b514
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_image
-    - node.type.career_profile
+    - field.storage.taxonomy_term.field_svg_icon
+    - taxonomy.vocabulary.abilities_categories
   module:
     - image
-id: node.career_profile.field_image
-field_name: field_image
-entity_type: node
-bundle: career_profile
-label: Image
+id: taxonomy_term.abilities_categories.field_svg_icon
+field_name: field_svg_icon
+entity_type: taxonomy_term
+bundle: abilities_categories
+label: 'SVG Icon'
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
   handler: 'default:file'
   handler_settings: {  }
-  file_directory: '[date:custom:Y]-[date:custom:m]'
-  file_extensions: 'png gif jpg jpeg'
+  file_directory: ''
+  file_extensions: 'png gif jpg jpeg svg'
   max_filesize: ''
   max_resolution: ''
   min_resolution: ''

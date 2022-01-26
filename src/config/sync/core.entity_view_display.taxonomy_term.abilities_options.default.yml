@@ -1,0 +1,33 @@
+uuid: e480fa74-7529-4e05-833a-1c913783ec17
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.abilities_options.field_option_percentage
+    - taxonomy.vocabulary.abilities_options
+  module:
+    - text
+id: taxonomy_term.abilities_options.default
+targetEntityType: taxonomy_term
+bundle: abilities_options
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_option_percentage:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

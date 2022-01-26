@@ -1,0 +1,52 @@
+uuid: ee4db379-e710-4531-b020-a75f4435da11
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.multiple_intelligence_options.field_option_percentage
+    - taxonomy.vocabulary.multiple_intelligence_options
+  module:
+    - path
+    - text
+id: taxonomy_term.multiple_intelligence_options.default
+targetEntityType: taxonomy_term
+bundle: multiple_intelligence_options
+mode: default
+content:
+  description:
+    type: text_textarea
+    weight: 2
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_option_percentage:
+    type: number
+    weight: 1
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 4
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+hidden: {  }

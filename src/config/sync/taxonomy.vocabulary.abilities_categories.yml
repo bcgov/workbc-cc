@@ -1,0 +1,8 @@
+uuid: a569b474-bec6-41b2-94fd-ccc6c424153c
+langcode: en
+status: true
+dependencies: {  }
+name: 'Abilities Categories'
+vid: abilities_categories
+description: ''
+weight: 0

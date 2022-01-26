@@ -1,0 +1,52 @@
+uuid: 12b79f73-aca8-48b5-bc17-5635f97f1f7b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.abilities_options.field_option_percentage
+    - taxonomy.vocabulary.abilities_options
+  module:
+    - path
+    - text
+id: taxonomy_term.abilities_options.default
+targetEntityType: taxonomy_term
+bundle: abilities_options
+mode: default
+content:
+  description:
+    type: text_textarea
+    weight: 2
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_option_percentage:
+    type: number
+    weight: 1
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 4
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+hidden: {  }
