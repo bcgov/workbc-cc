@@ -1,0 +1,11 @@
+uuid: 3a931b10-5341-4025-9742-4f9b01fe3ba7
+langcode: en
+status: true
+dependencies: {  }
+id: career
+label: Career
+add_link_text: 'Add to comparison list'
+remove_link_text: 'Remove from the comparison'
+limit: 3
+entity_type: node
+bundle_type: career_profile
