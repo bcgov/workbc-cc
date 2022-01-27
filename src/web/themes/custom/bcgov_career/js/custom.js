@@ -16,7 +16,9 @@
             dots: true,
           });
         } else {
-          $(".tools-resource-items-wrapper > .field__items").filter('.slick-initialized').slick('unslick');
+          $(".tools-resource-items-wrapper > .field__items")
+            .filter(".slick-initialized")
+            .slick("unslick");
         }
       });
     },

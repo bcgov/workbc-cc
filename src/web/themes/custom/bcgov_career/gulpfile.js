@@ -3,10 +3,10 @@ var gulp = require('gulp'),
   gulpIf = require('gulp-if'),
   eslint = require('gulp-eslint'),
   autoprefixer = require('gulp-autoprefixer'),
-  sourcemaps = require('gulp-sourcemaps');
-// sass = require('gulp-sass'),
+  sourcemaps = require('gulp-sourcemaps'),
+  sass = require('gulp-sass');
 
-const sass = require('gulp-sass')(require('sass'));
+// const sass = require('gulp-sass')(require('node-sass'));
 
 gulp.task('sass', function () {
   gulp.src('./src/sass/*.scss')
@@ -30,18 +30,18 @@ gulp.task('eslint', function () {
       "env": {
         "browser": true
       },
-      "globals": {
-        "Drupal": true,
-        "drupalSettings": true,
-        "drupalTranslations": true,
-        "domready": true,
-        "jQuery": true,
-        "_": true,
-        "matchMedia": true,
-        "Backbone": true,
-        "Modernizr": true,
-        "CKEDITOR": true
-      },
+      "globals": [
+        "Drupal",
+        "drupalSettings",
+        "drupalTranslations",
+        "domready",
+        "jQuery",
+        "_",
+        "matchMedia",
+        "Backbone",
+        "Modernizr",
+        "CKEDITOR"
+      ],
       "rules": {
         // Errors.
         "array-bracket-spacing": [2, "never"],
@@ -132,7 +132,7 @@ gulp.task('watch', function () {
   livereload.listen();
 
   gulp.watch('./src/sass/*.scss', ['sass']);
-  gulp.watch('./src/js/**/*.js', ['eslint']);
+  gulp.watch('./src/js/*.js', ['eslint']);
   gulp.watch(['./css/style.css', './**/*.html.twig', './js/*.js'], function (files) {
     livereload.changed(files)
   });
