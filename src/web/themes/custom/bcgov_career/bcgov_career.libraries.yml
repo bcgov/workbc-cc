@@ -2,7 +2,11 @@ global-styling:
   css:
     theme:
       css/style.css: {}
-  
+
   js:
-    src/js/slick.min.js: {}
-    src/js/custom.js: {}
+    js/slick.min.js: {}
+    js/custom.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/jquery.once

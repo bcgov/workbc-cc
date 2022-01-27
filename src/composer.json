@@ -16,7 +16,7 @@
     ],
     "require": {
         "composer/installers": "^1.9",
-        "drupal/admin_toolbar": "^3.0",
+        "drupal/admin_toolbar": "^3.1",
         "drupal/backup_migrate": "^5.0",
         "drupal/bootstrap4": "^2.1",
         "drupal/core-composer-scaffold": "^9.3",
