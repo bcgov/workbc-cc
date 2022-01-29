@@ -1,0 +1,10 @@
+uuid: 748726cd-605f-404b-b052-7de45bfbbf64
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.career_profile_career
+label: Career
+targetEntityType: node
+cache: true
