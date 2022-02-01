@@ -27,6 +27,7 @@
         "drupal/pathauto": "^1.8",
         "drupal/svg_image": "^1.15",
         "drupal/twig_tweak": "^3.1",
+        "drupal/viewsreference": "^1.7",
         "drush/drush": "^10.6"
     },
     "conflict": {

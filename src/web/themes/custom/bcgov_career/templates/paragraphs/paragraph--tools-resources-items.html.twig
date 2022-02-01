@@ -56,6 +56,14 @@
 
 <div class="tools-resource-item">
   <img class="image-icon" src="{{ file_url(paragraph.field_icon.entity.uri.value) }}"/>
-  <h3>{{ paragraph.field_title.value }}</h3>
+  <h3>
+    {%if paragraph.field_link.value.0 is not empty %}
+      <a href="{{ paragraph.field_link.value.0['uri'] }}">
+        {{ paragraph.field_title.value }}
+      </a>
+    {% else %}
+      {{ paragraph.field_title.value }}
+    {% endif %}
+  </h3>
   <p class="description">{{ paragraph.field_description.value }}</p>
 </div>

@@ -4,3 +4,27 @@
  * @file
  * BC gov career theme file.
  */
+
+function bcgov_career_preprocess_views_view_table(&$variables) {
+  $view = $variables['view'];
+  if ($view->id() == 'career_matches' && $view->current_display == 'block_1') {
+    $result = $variables['result'] = $variables['rows'];
+    $fields =& $view->field;
+    $handler = $view->style_plugin;
+    // Render each field into its appropriate column.
+    foreach ($result as $num => $row) {
+      $raw = NULL;
+      foreach ($fields as $key => $value) {
+        $raw[$key] = $handler->getFieldValue($num, $key);
+        if ($key == 'field_image' && $handler->getFieldValue($num, $key)) {
+          $image_file = \Drupal\file\Entity\File::load($handler->getFieldValue($num, $key));
+          $uri = $image_file->uri->value;
+          // $variables['url']=file_create_url($uri);
+          $raw['field_image'] = (file_create_url($uri));
+        }
+      }
+      $result[$num]['raw'] = $raw;
+    }
+    $variables['result'] = $variables['rows'] = $result;
+  }
+}
