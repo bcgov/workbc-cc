@@ -1,0 +1,45 @@
+uuid: 2450766a-8bbe-4e11-a0b4-fc0931bd0219
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_view_reference
+    - paragraphs.paragraphs_type.block
+  module:
+    - viewsreference
+id: paragraph.block.field_view_reference
+field_name: field_view_reference
+entity_type: paragraph
+bundle: block
+label: 'View reference'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:view'
+  handler_settings:
+    target_bundles: null
+    auto_create: 0
+  plugin_types:
+    block: block
+    default: 0
+    page: 0
+    feed: 0
+  preselect_views:
+    block_content: 0
+    career_matches: 0
+    comment: 0
+    comments_recent: 0
+    content: 0
+    content_recent: 0
+    files: 0
+    frontpage: 0
+    taxonomy_term: 0
+    temp_quiz_taxonomy_check: 0
+    user_admin_people: 0
+    watchdog: 0
+    who_s_new: 0
+    who_s_online: 0
+field_type: viewsreference
