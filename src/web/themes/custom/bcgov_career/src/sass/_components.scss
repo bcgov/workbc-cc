@@ -179,3 +179,123 @@
         }
     }
 }
+
+/* CAREER */
+
+.careers-main-wrapper{
+    table{
+        thead{
+            th{
+                border: 0;
+                background: #ddd;
+                font-size: 1.4rem;
+                line-height: 1.8rem;
+                color: #333;
+                padding: 20px 15px;
+                a{
+                    border: 0;
+                    background: #ddd;
+                    font-size: 1.4rem;
+                    line-height: 1.8rem;
+                    color: #333;
+                }
+            }
+        }
+        tbody{
+            tr{
+                &.career-table-row{
+                    &.active{
+                        td{
+                            background: rgba(238, 238, 238, 1);
+                            &:first-child{
+                                > a{
+                                    color: rgb(42, 125, 226);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            td{
+                background: #fff;
+                padding: 20px 15px;
+                &:first-child{
+                    > a{
+                        color: #333;
+                        text-decoration: none;
+                        font-weight: 700;
+                        &:hover{
+                            color: rgb(42, 125, 226);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.career-content-main-wrapper{
+    .career-content-item{
+        display: none;
+        &.active{
+            display: block;
+        }
+        .career-content-item-inner{
+            .career-inner-content{
+                border: 1px solid rgb(230, 234, 233);
+                padding: 20px;
+            }
+            .title{
+                background: rgba(81, 11, 118, 1);
+                p{
+                    color: #fff;
+                    font-family: 'BC Sans Bold', 'BC Sans Regular', 'BC Sans', sans-serif;
+                    font-style: normal;
+                    font-size: 1.5rem;
+                    line-height: 1.8rem;
+                    margin: 0;
+                    padding: 20px;
+                    font-weight: 700;
+                }
+            }
+            .image-video{
+                width: 100%;
+                margin-bottom: 20px;
+                iframe{
+                    width: 100%;
+                    max-height: 200px;
+                }
+                img{
+                    width: 100%;
+                    height: auto;
+                }
+            }
+            .data{
+                margin-bottom: 30px;
+                .data-item {
+                    border-bottom: 2px solid rgba(51, 51, 51, 0.2);
+                    padding-bottom: 5px;
+                    font-family: 'BC Sans Bold', 'BC Sans Regular', 'BC Sans', sans-serif;
+                    font-style: normal;
+                    font-size: 1.5rem;
+                    line-height: 1.8rem;
+                    span{
+                        display: inline-block;
+                        width: 50%;
+                    }
+                    .s-d{
+                        font-weight: 700;
+                    }
+                }
+            }
+            .description{
+                p{
+                    font-family: 'BC Sans Bold', 'BC Sans Regular', 'BC Sans', sans-serif;
+                    font-style: normal;
+                    font-size: 1.4rem;
+                    line-height: 1.8rem;
+                }
+            }
+        }
+    }
+}

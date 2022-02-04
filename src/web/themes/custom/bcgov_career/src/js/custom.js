@@ -19,6 +19,14 @@
           $(".tools-resource-items-wrapper > .field__items").filter('.slick-initialized').slick('unslick');
         }
       });
+
+      $(".career-table-link > a").on("click", function(){
+        var getCarDataId = $(this).parent().parent().data("id");
+        $(".career-table-row").removeClass("active");
+        $(this).parent().parent().addClass("active");
+        $(".career-content-main-wrapper .career-content-item").removeClass("active");
+        $(".career-content-main-wrapper .career-content-item#"+getCarDataId).addClass("active");
+      });
     },
   };
 })(jQuery, Drupal, drupalSettings);
