@@ -16,6 +16,10 @@ function bcgov_career_preprocess_views_view_table(&$variables) {
       $raw = NULL;
       foreach ($fields as $key => $value) {
         $raw[$key] = $handler->getFieldValue($num, $key);
+        if ($key == 'field_noc') {
+          $noc_code = $handler->getField($num, $key);
+          $raw['field_noc'] = $noc_code;
+        }
         if ($key == 'field_image' && $handler->getFieldValue($num, $key)) {
           $image_file = \Drupal\file\Entity\File::load($handler->getFieldValue($num, $key));
           $uri = $image_file->uri->value;

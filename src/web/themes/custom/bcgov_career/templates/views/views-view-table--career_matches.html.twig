@@ -42,7 +42,22 @@
   ]
 %}
 <div class="careers-main-wrapper">
+
   <div class="container-fluid">
+    <div class="row">
+      <h3>Top Career Matches</h3>
+      <div class="description">
+        <p>Select a career below to find out more information.</p>
+        <p>
+          <strong>Compare up to three careers</strong> by selecting the</br>
+          checkboxes and clicking on the Compare Careers button.
+        </p>
+      </div>
+      <div class="top-btn">
+        <a>Clear Compare</a>
+        <a href="/compare/career">Compare Careers</a>
+      </div>
+    </div>
     <div class="row">
       <div class="col-12 col-md-8">
         <table{{ attributes.addClass(classes) }}>
@@ -113,6 +128,9 @@
                 <td>
                     {{ row.raw.field_education_level }}
                 </td>
+                <td>
+                  <div class="compare-career checked" data-career="{{ row.raw.entity_comparison_link_career }}">Checkbox</div>
+                </td>
               </tr>
           {% endfor %}
           </tbody>
@@ -123,7 +141,7 @@
           {% for rowkey, row in rows %}
             <div id="career-item-{{ rowkey }}" class="career-content-item {% if rowkey == "0" %}active{% endif %}">
               <div class="career-content-item-inner">
-                <div class="title"><p>{{ row.raw.title }}</p></div>
+                <div class="title"><p>{{ row.raw.title }}</p><span class='noc-code'>(NOC {{ row.raw.field_noc }})</span></div>
                 <div class="career-inner-content">
                   <div class="image-video">
                     {% if row.raw.field_video_link != false %}
@@ -140,11 +158,15 @@
                       <p class="data-item"><span class="f-d">Education Level</span><span class="s-d">{{ row.raw.field_education_level }}</span></p>
                     {% endif %}
                     {% if row.raw.field_job_openings is not empty %}
-                      <p class="data-item"><span class="f-d">Job Openings</span><span class="s-d">{{ row.raw.field_job_openings }}</span></p>
+                      <p class="data-item"><span class="f-d">Job Openings<span>{{ row.raw.field_opening_from_to }}</span></span><span class="s-d">{{ row.raw.field_job_openings }}</span></p>
                     {% endif %}
                   </div>
                   <div class="description">
                     {{ row.raw.field_job_summary | raw }}
+                  </div>
+                  <div class="bottom-btn">
+                    <a class="btn btn-career-profile" href="{{ row.raw.field_workbc_link }}" target='_blank'>View Career Profile</a>
+                    <a class="btn btn-find-job" href="" target='_blank'>Find Jobs</a>
                   </div>
                 </div>
               </div>
