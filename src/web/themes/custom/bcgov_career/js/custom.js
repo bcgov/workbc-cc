@@ -33,6 +33,16 @@
           `.career-content-main-wrapper .career-content-item#${getCarDataId}`
         ).addClass("active");
       });
+
+      $(".career-checkbox").change(function () {
+        const checkedNum = $(".career-checkbox:checked").length;
+        if (checkedNum > 1) {
+          $(".top-btn > a").removeClass("disable");
+        }
+ else {
+          $(".top-btn > a").addClass("disable");
+        }
+      });
     },
   };
 })(jQuery, Drupal, drupalSettings);

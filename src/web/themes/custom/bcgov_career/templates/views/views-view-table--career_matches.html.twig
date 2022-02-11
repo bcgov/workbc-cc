@@ -42,24 +42,30 @@
   ]
 %}
 <div class="careers-main-wrapper">
-
   <div class="container-fluid">
     <div class="row">
-      <h3>Top Career Matches</h3>
-      <div class="description">
-        <p>Select a career below to find out more information.</p>
-        <p>
-          <strong>Compare up to three careers</strong> by selecting the</br>
-          checkboxes and clicking on the Compare Careers button.
-        </p>
-      </div>
-      <div class="top-btn">
-        <a>Clear Compare</a>
-        <a href="/compare/career">Compare Careers</a>
+      <div class="col-12 col-md-8">
+        <div class="top-career-content">
+          <h3>Top Career Matches</h3>
+          <div class="content">
+            <div class="description">
+              <p>Select a career below to find out more information.</p>
+              <p>
+                <strong>Compare up to three careers</strong> by selecting the</br>
+                checkboxes and clicking on the Compare Careers button.
+              </p>
+            </div>
+            <div class="top-btn">
+              <a href="javascript:;" class="clear-compare disable">Clear Compare</a>
+              <a href="/compare/career" class="compare-career disable">Compare Careers</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="row">
       <div class="col-12 col-md-8">
+        <div class="careers-table-main-wrapper">
         <table{{ attributes.addClass(classes) }}>
           {% if caption_needed %}
           <caption>
@@ -117,10 +123,7 @@
           {% for rowkey, row in rows %}
               <tr class="career-table-row {% if rowkey == "0" %}active{% endif %}" data-id="career-item-{{ rowkey }}">
                 <td class="career-table-link">
-                    <a href="javascript:;" class="career-table-row-link">{{ row.raw.title }}</a>
-                </td>
-                <td>
-                    {{ row.raw.field_noc }}
+                    <a href="javascript:;" class="career-table-row-link">{{ row.raw.title }} <span class="noc">(NOC {{ row.raw.field_noc }})</span></a>
                 </td>
                 <td>
                     ${{ row.raw.field_median_salary }}
@@ -129,19 +132,23 @@
                     {{ row.raw.field_education_level }}
                 </td>
                 <td>
-                  <div class="compare-career checked" data-career="{{ row.raw.entity_comparison_link_career }}">Checkbox</div>
+                  <label class="compare-career" data-career="{{ row.raw.entity_comparison_link_career }}">
+                    <input type="checkbox" class="career-checkbox">
+                    <span class="checkmark"></span>
+                  </label>
                 </td>
               </tr>
           {% endfor %}
           </tbody>
       </table>
       </div>
+      </div>
       <div class="col-12 col-md-4">
         <div class="career-content-main-wrapper">
           {% for rowkey, row in rows %}
             <div id="career-item-{{ rowkey }}" class="career-content-item {% if rowkey == "0" %}active{% endif %}">
               <div class="career-content-item-inner">
-                <div class="title"><p>{{ row.raw.title }}</p><span class='noc-code'>(NOC {{ row.raw.field_noc }})</span></div>
+                <div class="title"><p>{{ row.raw.title }}</br><span class='noc-code'>(NOC {{ row.raw.field_noc }})</span></p></div>
                 <div class="career-inner-content">
                   <div class="image-video">
                     {% if row.raw.field_video_link != false %}
