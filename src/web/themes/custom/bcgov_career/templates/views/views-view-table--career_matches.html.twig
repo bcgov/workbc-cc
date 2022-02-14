@@ -41,7 +41,7 @@
     sticky ? 'sticky-enabled',
   ]
 %}
-<div class="careers-main-wrapper">
+<div class="careers-main-wrapper small-device-hide">
   <div class="container-fluid">
     <div class="row">
       <div class="col-12 col-md-8">
@@ -179,6 +179,54 @@
               </div>
             </div>
           {%  endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="careers-mobi-main-wrapper small-device-show">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="top-career-mobi-content">
+          <h3>Top Career Matches</h3>
+          <div class="content">
+            <div class="description">
+              <p>Select a career below to find out more information.</p>
+              <p>
+                <strong>Compare up to three careers</strong> by selecting the</br>
+                checkboxes and clicking on the Compare Careers button.
+              </p>
+            </div>
+            <div class="top-btn">
+              <a href="javascript:;" class="clear-compare disable">Clear Compare</a>
+              <a href="/compare/career" class="compare-career disable">Compare Careers</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="careers-mobi-table-wrapper">
+          <div class="thead">
+            <div class="thead-main">
+              <p class="head">Career Matches</p>
+              <p class="head">Compare Careers</p>
+            </div>
+          </div>
+          <div class="tbody">
+          {% for rowkey, row in rows %}
+            <div class="tbody-main" data-id="career-item-{{ rowkey }}">
+              <p class="body"><a href="#career-item-{{ rowkey }}" class="career-table-mobi-row-link">{{ row.raw.title }} </br><span class="noc">(NOC {{ row.raw.field_noc }})</span></a></p>
+              <p class="body">
+                <label class="compare-career-mobi" data-career="{{ row.raw.entity_comparison_link_career }}">
+                  <input type="checkbox" class="career-mobi-checkbox">
+                  <span class="checkmark"></span>
+                </label>
+              </p>
+            </div>
+          {% endfor %}
+          </div>
         </div>
       </div>
     </div>

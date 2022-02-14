@@ -5,6 +5,7 @@ global-styling:
 
   js:
     js/slick.min.js: {}
+    js/magnific-popup.js: {}
     js/custom.js: {}
   dependencies:
     - core/jquery

@@ -184,6 +184,11 @@
 /* CAREER */
 
 .careers-main-wrapper{
+    &.small-device-hide{
+        @media all and (max-width: 767.98px){
+            display: none;
+        }
+    }
     .top-career-content{
         h3{
             font-family: 'BC Sans', sans-serif;
@@ -355,8 +360,180 @@
     }
 }
 
-.career-content-main-wrapper{
+.careers-mobi-main-wrapper{
+    display: none;
+    @media all and (max-width: 767.98px) {
+        display: block;
+    }
+    .top-career-mobi-content{
+        h3{
+            font-family: 'BC Sans', sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 2.7rem;
+            line-height: 3.2rem;
+            color: #333333;
+        }
+        .content{
+            .description{
+                p{
+                    font-family: 'BC Sans', sans-serif;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-size: 15px;
+                    color: #555555;
+                }
+            }
+            .top-btn{
+                >a.disable{
+                    color: rgba(0, 0, 0, 0.298039215686275);
+                    background: #f2f2f2;
+                    border: 2px solid rgba(0, 0, 0, 0.298039215686275);
+                    pointer-events: none;
+                    &:hover{
+                        color: rgba(0, 0, 0, 0.298039215686275);
+                        background: #f2f2f2;
+                        border: 2px solid rgba(0, 0, 0, 0.298039215686275);
+                    }
+                }
+                .clear-compare{
+                    color: #510B76;
+                    border: 2px solid #510B76;
+                    display: inline-block;
+                    padding: 8px 13px;
+                    text-decoration: none;
+                    &:hover{
+                        background: #ececec;
+                    }
+                }
+                .compare-career{
+                    color: #fff;
+                    border: 2px solid rgba(227, 168, 43, 1);
+                    background: rgba(227, 168, 43, 1);
+                    display: inline-block;
+                    padding: 8px 13px;
+                    text-decoration: none;
+                    &:hover{
+                        background: #510B76;
+                        border: 2px solid #510B76;
+                    }
+                }
+            }
+        }
+    }
+    .careers-mobi-table-wrapper{
+        margin-top: 30px;
+        border: 1px solid #e6eae9;
+        .thead{
+            background: rgba(221, 221, 221, 1);
+            .thead-main{
+                display: flex;
+                p{
+                    padding: 20px;
+                    margin: 0;
+                    &:first-child{
+                        flex: 0 0 70%;
+                    }
+                    &:last-child{
+                        flex: 0 0 30%;
+                    }
+                }
+            }
+        }
+        .tbody{
+            .tbody-main{
+                display: flex;
+                p{
+                    padding: 20px;
+                    margin: 0;
+                    &:first-child{
+                        flex: 0 0 70%;
+                        a{
+                            color: #333;
+                            text-decoration: none;
+                            font-weight: 700;
+                            span.noc{
+                                font-weight: 400;
+                            }
+                        }
+                    }
+                    &:last-child{
+                        flex: 0 0 30%;
+                        text-align: center;
+                    }
+                }
+                .compare-career-mobi{
+                    display: block;
+                    position: relative;
+                    padding-left: 35px;
+                    margin-bottom: 12px;
+                    cursor: pointer;
+                    font-size: 22px;
+                    -webkit-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
+                    input{
+                        position: absolute;
+                        opacity: 0;
+                        cursor: pointer;
+                        height: 20px;
+                        width: 20px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        ~ .checkmark {
+                            background-color: #fff;
+                            border: 1px solid #797979;
+                        }
+                        &:checked ~ .checkmark {
+                            background-color: #fff;
+                            border: 1px solid #510b76;
+                        }
+                        &:checked ~ .checkmark:after {
+                            display: block;
+                        }
+                    }
+                    .checkmark {
+                        position: absolute;
+                        top: 0;
+                        height: 20px;
+                        width: 20px;
+                        background-color: #eee;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        &:after {
+                            content: "";
+                            position: absolute;
+                            display: none;
+                            left: 7px;
+                            top: 3px;
+                            width: 5px;
+                            height: 10px;
+                            border: solid #510b76;
+                            border-width: 0 2px 2px 0;
+                            -webkit-transform: rotate(45deg);
+                            -ms-transform: rotate(45deg);
+                            transform: rotate(45deg);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.mfp-container .mfp-content{
     .career-content-item{
+        display: block !important;
+    }
+    .mfp-close{
+        background: #fff;
+    }
+}
+
+.career-content-main-wrapper, .mfp-content{
+    .career-content-item{
+        background: #fff;
         display: none;
         &.active{
             display: block;

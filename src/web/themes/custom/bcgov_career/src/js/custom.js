@@ -28,6 +28,10 @@
         $(".career-content-main-wrapper .career-content-item#"+getCarDataId).addClass("active");
       });
 
+      $(".career-table-mobi-row-link").on("click", function(){
+        //var getCarDataId = $(this).parent().parent().data("id");
+      });
+
       $('.career-checkbox').change(function() {
         var checkedNum = $(".career-checkbox:checked").length;
         if(checkedNum > 1){
@@ -36,6 +40,22 @@
         else{
           $(".top-btn > a").addClass("disable");
         }
+      });
+
+      $(".career-mobi-checkbox").change(function() {
+        var checkedNum = $(".career-mobi-checkbox:checked").length;
+        if(checkedNum > 1){
+          $(".top-career-mobi-content .top-btn > a").removeClass("disable");
+        }
+        else{
+          $(".top-career-mobi-content .top-btn > a").addClass("disable");
+        }
+      });
+
+      $(".career-table-mobi-row-link").magnificPopup({
+        type: 'inline',
+        midClick: true,
+        mainClass: 'mfp-fade'
       });
     },
   };
