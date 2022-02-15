@@ -66,11 +66,11 @@
         arrows:false
       });
 
-      $(".career-table-mobi-row-link").magnificPopup({
-        type: 'inline',
-        midClick: true,
-        mainClass: 'mfp-fade'
-      });
+      // $(".career-table-mobi-row-link").magnificPopup({
+      //   type: 'inline',
+      //   midClick: true,
+      //   mainClass: 'mfp-fade'
+      // });
     },
   };
 })(jQuery, Drupal, drupalSettings);

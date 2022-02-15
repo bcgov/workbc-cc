@@ -88,42 +88,55 @@
   {% endif %}
   {{ title_suffix }}
 
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
   <div{{ content_attributes.addClass('node__content') }}>
     <div class="career-content-main-wrapper">
-      <div class="back-link"><a href='javascript:history.back()'>Back to Quiz Results</a></div>
-      <div class="career-content-item-inner">
-        <div class="title">
-          <p>{{ node.label }}</br><span class='noc-code'>(NOC {{ node.field_noc.entity.title.value }})</span></p>
-        </div>
-        <div class="career-inner-content container">
-          <div class="image-video">
-            {% if node.field_video_link.isempty() %}
-              <img src="{{ node.field_image|file_url }}" alt=""/>
-            {% else %}
-              <iframe width="420" height="345" src="{{ node.field_video_link.0.uri }}"></iframe>
-            {% endif %}
+      <div class="back-link"><a href='javascript:history.back()'><img src="../../../../themes/custom/bcgov_career/assets/arrow-left.svg"/> Back to Quiz Results</a></div>
+      <div class="career-content-item active">
+        <div class="career-content-item-inner">
+          <div class="title">
+            <p>{{ node.label }}</br><span class='noc-code'>(NOC {{ node.field_noc.entity.title.value }})</span></p>
           </div>
-          <div class="data">
-            {% if node.field_median_salary.value is not empty %}
-              <p class="data-item"><span class="f-d">Annual Salary</span><span class="s-d">${{ node.field_median_salary.value }}</span></p>
-            {% endif %}
-            {% if node.field_education_level.value is not empty %}
-              <p class="data-item"><span class="f-d">Education Level</span><span class="s-d">{{ node.field_education_level.entity.name.value }}</span></p>
-            {% endif %}
-            {% if node.field_job_openings.value is not empty %}
-              <p class="data-item"><span class="f-d">Job Openings<span>{{ node.field_opening_from_to.value }}</span></span><span class="s-d">{{ node.field_job_openings.value }}</span></p>
-            {% endif %}
-          </div>
-          <div class="description">
-            {{ content.field_job_summary }}
-          </div>
-          <div class="bottom-btn">
-            <a class="btn btn-career-profile" href="{{ node.field_workbc_link.0.uri }}" target='_blank'>View Career Profile</a>
-            <a class="btn btn-find-job" href="" target='_blank'>Find Jobs</a>
+          <div class="career-inner-content page">
+            <div class="image-video">
+              {% if node.field_video_link.isempty() %}
+                <img src="{{ node.field_image|file_url }}" alt=""/>
+              {% else %}
+                <iframe width="420" height="345" src="{{ node.field_video_link.0.uri }}"></iframe>
+              {% endif %}
+            </div>
+            <div class="data">
+              {% if node.field_median_salary.value is not empty %}
+                <p class="data-item"><span class="f-d">Annual Salary</span><span class="s-d">${{ node.field_median_salary.value }}</span></p>
+              {% endif %}
+              {% if node.field_education_level.value is not empty %}
+                <p class="data-item"><span class="f-d">Education Level</span><span class="s-d">{{ node.field_education_level.entity.name.value }}</span></p>
+              {% endif %}
+              {% if node.field_job_openings.value is not empty %}
+                <p class="data-item"><span class="f-d">Job Openings<span>{{ node.field_opening_from_to.value }}</span></span><span class="s-d">{{ node.field_job_openings.value }}</span></p>
+              {% endif %}
+            </div>
+            <div class="description">
+              {{ content.field_job_summary }}
+            </div>
+            <div class="bottom-btn">
+              <a class="btn btn-career-profile" href="{{ node.field_workbc_link.0.uri }}" target='_blank'>View Career Profile</a>
+              <a class="btn btn-find-job" href="" target='_blank'>Find Jobs</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <div class="career-bottom-notes">
+      <div class="career-bottom-inner-notes">
+        <p>This quiz has been reproduced with permission from the <a href="/">Government of Canada’s National Job Bank</a></p>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
   </div>
 
 </article>
