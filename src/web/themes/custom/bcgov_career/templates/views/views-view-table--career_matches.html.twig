@@ -41,6 +41,7 @@
     sticky ? 'sticky-enabled',
   ]
 %}
+{% set currentPath = url("<current>")|render|render %}
 <div class="careers-main-wrapper small-device-hide">
   <div class="container-fluid">
     <div class="row">
@@ -98,23 +99,25 @@
                       ]
                   %}
                   {% endif %}
-                  <th{{ column.attributes.addClass(column_classes).setAttribute('scope', 'col') }}>
-                  {%- if column.wrapper_element -%}
-                      <{{ column.wrapper_element }}>
-                      {%- if column.url -%}
-                          <a href="{{ column.url }}" title="{{ column.title }}">{{ column.content }}{{ column.sort_indicator }}</a>
-                      {%- else -%}
-                          {{ column.content }}{{ column.sort_indicator }}
-                      {%- endif -%}
-                      </{{ column.wrapper_element }}>
-                  {%- else -%}
-                      {%- if column.url -%}
-                      <a href="{{ column.url }}" title="{{ column.title }}">{{ column.content }}{{ column.sort_indicator }}</a>
-                      {%- else -%}
-                      {{- column.content }}{{ column.sort_indicator }}
-                      {%- endif -%}
-                  {%- endif -%}
-                  </th>
+                  {% if column.content != 'NOC' %}
+                    <th{{ column.attributes.addClass(column_classes).setAttribute('scope', 'col') }}>
+                    {%- if column.wrapper_element -%}
+                        <{{ column.wrapper_element }}>
+                        {%- if column.url -%}
+                            <a href="{{ column.url }}" title="{{ column.title }}">{{ column.content }}{{ column.sort_indicator }}</a>
+                        {%- else -%}
+                            {{ column.content }}{{ column.sort_indicator }}
+                        {%- endif -%}
+                        </{{ column.wrapper_element }}>
+                    {%- else -%}
+                        {%- if column.url -%}
+                        <a href="{{ column.url }}" title="{{ column.title }}">{{ column.content }}{{ column.sort_indicator }}</a>
+                        {%- else -%}
+                        {{- column.content }}{{ column.sort_indicator }}
+                        {%- endif -%}
+                    {%- endif -%}
+                    </th>
+                  {% endif %}
               {% endfor %}
               </tr>
           </thead>
@@ -122,8 +125,10 @@
           <tbody>
           {% for rowkey, row in rows %}
               <tr class="career-table-row {% if rowkey == "0" %}active{% endif %}" data-id="career-item-{{ rowkey }}">
-                <td class="career-table-link">
-                    <a href="javascript:;" class="career-table-row-link">{{ row.raw.title }} <span class="noc">(NOC {{ row.raw.field_noc }})</span></a>
+              {% set nodeURL =  url('entity.node.canonical', {'node': row.raw.nid}) %}
+
+                <td class="career-table-link" data-node-url="{{ nodeURL }}">
+                    <a href="javascript:;" class="career-table-row-link">{{ row.raw.title }}</br> <span class="noc">(NOC {{ row.raw.field_noc }})</span></a>
                 </td>
                 <td>
                     ${{ row.raw.field_median_salary }}
@@ -132,7 +137,7 @@
                     {{ row.raw.field_education_level }}
                 </td>
                 <td>
-                  <label class="compare-career" data-career="{{ row.raw.entity_comparison_link_career }}">
+                  <label class="compare-career" data-career="/entity-comparison/career/{{ row.raw.entity_comparison_link_career }}?destination=/node/{{ currentPath }}">
                     <input type="checkbox" class="career-checkbox">
                     <span class="checkmark"></span>
                   </label>
@@ -146,7 +151,7 @@
       <div class="col-12 col-md-4">
         <div class="career-content-main-wrapper">
           {% for rowkey, row in rows %}
-            <div id="career-item-{{ rowkey }}" class="career-content-item {% if rowkey == "0" %}active{% endif %}">
+            <div id="career-item-{{ rowkey }}" class="career-content-item {% if rowkey == "0" %}active{% endif %}" data-url="">
               <div class="career-content-item-inner">
                 <div class="title"><p>{{ row.raw.title }}</br><span class='noc-code'>(NOC {{ row.raw.field_noc }})</span></p></div>
                 <div class="career-inner-content">
