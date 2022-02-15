@@ -58,6 +58,24 @@
         }
       });
 
+      $(".tbody-main").each(function (i) {
+        if (i % 5 == 0) {
+          $(this)
+            .nextAll()
+            .addBack()
+            .slice(0, 5)
+            .wrapAll('<div class="slide-tbody-main"></div>');
+        }
+      });
+
+      $(".careers-mobi-table-wrapper > .tbody").slick({
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: true,
+        arrows: false,
+      });
+
       $(".career-table-mobi-row-link").magnificPopup({
         type: "inline",
         midClick: true,
