@@ -84,3 +84,12 @@ h3, .h3{
         display: none;
     }
 }
+.region-sidebar-first, .region-sidebar-second, .region-footer, .region-content{
+    padding: 0 !important;
+}
+
+.no-padding-device{
+    @media  all and(max-width: 767.98px){
+        padding: 0;
+    }
+}
