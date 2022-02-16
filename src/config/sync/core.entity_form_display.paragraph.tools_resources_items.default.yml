@@ -5,10 +5,12 @@ dependencies:
   config:
     - field.field.paragraph.tools_resources_items.field_description
     - field.field.paragraph.tools_resources_items.field_icon
+    - field.field.paragraph.tools_resources_items.field_link
     - field.field.paragraph.tools_resources_items.field_title
     - image.style.thumbnail
     - paragraphs.paragraphs_type.tools_resources_items
   module:
+    - link
     - svg_image
 id: paragraph.tools_resources_items.default
 targetEntityType: paragraph
@@ -30,6 +32,14 @@ content:
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_link:
+    type: link_default
+    weight: 3
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
     third_party_settings: {  }
   field_title:
     type: string_textfield
