@@ -1,7 +1,0 @@
-name: Work BC Quiz
-type: module
-description: 'Provides a field that holds two reference fields.'
-core_version_requirement: ^8 || ^9
-
-libraries:
-  - work_bc_quiz/work-bc-lib

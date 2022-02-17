@@ -81,12 +81,11 @@ class WorkBcQuizLabelFormatter extends EntityReferenceLabelFormatter {
 
       // Get the target entity for the added reference.
       $ar_target_id = $values[$delta]['ar_target_id'];
-	  /* print_r($ar_target_id);
-	  die; */
+      /* print_r($ar_target_id);
+      die; */
       $entity = \Drupal::entityTypeManager()->getStorage($ar_target_type)->load($ar_target_id);
 
       $label = $entity->label();
-     
 
       // If the link is to be displayed and the entity has a uri, display a
       // link.
