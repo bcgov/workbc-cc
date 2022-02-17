@@ -1,0 +1,6 @@
+work-bc-lib:
+  css:
+    theme:
+        css/custom.css: {}
+        css/bootstrap.min.css: {}
+    
