@@ -3,4 +3,3 @@ work-bc-lib:
     theme:
         css/custom.css: {}
         css/bootstrap.min.css: {}
-    

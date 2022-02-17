@@ -29,41 +29,37 @@ class WorkBcQuizAutocompleteSelectWidget extends EntityReferenceAutocompleteWidg
    */
   public function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state) {
     $widget = parent::formElement($items, $delta, $element, $form, $form_state);
-	
-	
-	
+
     // Get the reference target entity type from the storage settings.
     $ar_target_type = $this->getFieldSetting('ar_target_type');
 
     // Get the field settings.
     $settings = $this->fieldDefinition->getSettings();
-	
+
     // Set the label on the primary reference field, if one is in settings.
-   
-	if (!empty($settings['pr_field_hide'])) {
-		$widget['target_id']['#attributes']['class'][] = 'visually-hidden-node';
-	}
+    if (!empty($settings['pr_field_hide'])) {
+      $widget['target_id']['#attributes']['class'][] = 'visually-hidden-node';
+    }
 
     // Get the settings for the added reference field.
     $ar_bundles = $settings['added_reference']['ar_bundles'];
     $ar_label = !empty($settings['added_reference']['ar_label']) ? $settings['added_reference']['ar_label'] : $widget['target_id']['#title'];
     $ar_weight = !empty($settings['added_reference']['ar_weight']) ? $settings['added_reference']['ar_weight'] : -50;
     $ar_required = !empty($settings['added_reference']['ar_required']) ? $settings['added_reference']['ar_required'] : FALSE;
-	 
-	 
-	$widget['target_id']['#title'] = ($settings['pr_label']) ? $settings['pr_label'] :"";
-		  //Remove Target Id Label 
-	$widget['target_id']['#title_display'] = 'before';
-	
+
+    $widget['target_id']['#title'] = ($settings['pr_label']) ? $settings['pr_label'] : "";
+    // Remove Target Id Label.
+    $widget['target_id']['#title_display'] = 'before';
+
     // Get the existing value, if any, for the added reference field.
-    $default = isset($items[$delta]) ? $items[$delta]->ar_target_id : null;
-    
-	if (!empty($default)) {
-		$default1 = \Drupal::entityTypeManager()->getStorage($ar_target_type)->load($default);
-    } 
-	/* print_r($default);
-	die; */
-	
+    $default = isset($items[$delta]) ? $items[$delta]->ar_target_id : NULL;
+
+    if (!empty($default)) {
+      $default1 = \Drupal::entityTypeManager()->getStorage($ar_target_type)->load($default);
+    }
+    /* print_r($default);
+    die; */
+
     // Get the options.
     $options = $this->getTaxonomyOptions((array) $ar_bundles);
 
@@ -82,7 +78,7 @@ class WorkBcQuizAutocompleteSelectWidget extends EntityReferenceAutocompleteWidg
       $widget['ar_target_id']['#title'] = $ar_label;
       $widget['ar_target_id']['#title_display'] = 'before';
     }
- 
+
     return $widget;
   }
 
@@ -100,8 +96,8 @@ class WorkBcQuizAutocompleteSelectWidget extends EntityReferenceAutocompleteWidg
    */
   protected function getTaxonomyOptions(array $vocabularies) {
     // Start off with empty so the field can be left empty.
-	$options = [ null => 'Please Select'];
-	$options = [];
+    $options = [NULL => 'Please Select'];
+    $options = [];
 
     /** @var \Drupal\taxonomy\TermStorageInterface $storage */
     $storage = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
