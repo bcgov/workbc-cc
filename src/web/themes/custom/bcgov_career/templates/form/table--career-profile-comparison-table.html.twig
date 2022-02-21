@@ -45,11 +45,18 @@
     <div class="col-12">
       <div class="back-link"><a href='javascript:history.back()'><img src="../../../../themes/custom/bcgov_career/assets/arrow-left.svg"/> Back to Quiz Results</a></div>
     </div>
-    <div>
-      {% if header %}
-        {{dd(header)}}
-      {% endif %}
-    </div>
+  </div>
+  <div class="row">
+    {% if header %}
+      {% for cell in header %}
+        {% if loop.index0 > 0 %}
+          <div class="col">
+            {{- cell.content -}}
+          </div>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  </div>
   </div>
   <table{{ attributes.addClass('table') }}>
 
