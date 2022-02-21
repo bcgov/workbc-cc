@@ -4,9 +4,12 @@ status: true
 dependencies:
   config:
     - field.field.node.noc.field_description
+    - field.field.node.noc.field_image
+    - field.field.node.noc.field_video_id
     - field.field.node.noc.field_year
     - node.type.noc
   module:
+    - svg_image
     - text
     - user
 id: node.noc.default
@@ -20,6 +23,27 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 101
+    region: content
+  field_image:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_video_id:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 103
     region: content
   field_year:
     type: number_integer

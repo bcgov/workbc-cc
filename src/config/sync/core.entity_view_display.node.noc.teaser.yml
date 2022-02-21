@@ -5,6 +5,8 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.noc.field_description
+    - field.field.node.noc.field_image
+    - field.field.node.noc.field_video_id
     - field.field.node.noc.field_year
     - node.type.noc
   module:
@@ -21,4 +23,6 @@ content:
     region: content
 hidden:
   field_description: true
+  field_image: true
+  field_video_id: true
   field_year: true

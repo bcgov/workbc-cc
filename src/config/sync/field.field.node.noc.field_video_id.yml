@@ -1,21 +1,19 @@
-uuid: 157cb3bd-456f-4e20-a2df-46747ff7646d
+uuid: bc221f10-4466-43d0-b360-1411f2bee228
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_description
+    - field.storage.node.field_video_id
     - node.type.noc
-  module:
-    - text
-id: node.noc.field_description
-field_name: field_description
+id: node.noc.field_video_id
+field_name: field_video_id
 entity_type: node
 bundle: noc
-label: Description
+label: 'Video ID'
 description: ''
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: text_long
+field_type: string

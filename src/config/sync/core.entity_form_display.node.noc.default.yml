@@ -4,10 +4,14 @@ status: true
 dependencies:
   config:
     - field.field.node.noc.field_description
+    - field.field.node.noc.field_image
+    - field.field.node.noc.field_video_id
     - field.field.node.noc.field_year
+    - image.style.thumbnail
     - node.type.noc
   module:
     - path
+    - svg_image
     - text
 id: node.noc.default
 targetEntityType: node
@@ -26,6 +30,22 @@ content:
     region: content
     settings:
       rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_image:
+    type: image_image
+    weight: 124
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_video_id:
+    type: string_textfield
+    weight: 123
+    region: content
+    settings:
+      size: 60
       placeholder: ''
     third_party_settings: {  }
   field_year:
