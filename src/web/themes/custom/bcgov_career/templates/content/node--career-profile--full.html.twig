@@ -109,7 +109,7 @@
             </div>
             <div class="data">
               {% if node.field_median_salary.value is not empty %}
-                <p class="data-item"><span class="f-d">Annual Salary</span><span class="s-d">${{ node.field_median_salary.value }}</span></p>
+                <p class="data-item"><span class="f-d">Annual Salary</span><span class="s-d">${{ node.field_median_salary.value|number_format }}</span></p>
               {% endif %}
               {% if node.field_education_level.value is not empty %}
                 <p class="data-item"><span class="f-d">Education Level</span><span class="s-d">{{ node.field_education_level.entity.name.value }}</span></p>
