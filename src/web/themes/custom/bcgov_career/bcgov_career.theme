@@ -31,12 +31,13 @@ function bcgov_career_preprocess_views_view_table(&$variables) {
         if ($key == 'field_image' && $handler->getFieldValue($num, $key)) {
           $image_file = \Drupal\file\Entity\File::load($handler->getFieldValue($num, $key));
           $uri = $image_file->uri->value;
-          // $variables['url']=file_create_url($uri);
+          $variables['url']=file_create_url($uri);
           $raw['field_image'] = (file_create_url($uri));
+          // $raw['field_image'] = $handler->getField($num, $key);
         }
 
       }
-
+// dd($raw);
       $result[$num]['raw'] = $raw;
     }
     $variables['result'] = $variables['rows'] = $result;

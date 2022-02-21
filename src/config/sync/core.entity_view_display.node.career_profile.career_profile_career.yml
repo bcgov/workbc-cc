@@ -5,18 +5,15 @@ dependencies:
   config:
     - core.entity_view_mode.node.career_profile_career
     - field.field.node.career_profile.field_education_level
-    - field.field.node.career_profile.field_image
     - field.field.node.career_profile.field_job_openings
     - field.field.node.career_profile.field_job_summary
     - field.field.node.career_profile.field_median_salary
     - field.field.node.career_profile.field_noc
     - field.field.node.career_profile.field_opening_from_to
-    - field.field.node.career_profile.field_video_link
     - field.field.node.career_profile.field_workbc_link
     - node.type.career_profile
   module:
     - link
-    - svg_image
     - text
     - user
 id: node.career_profile.career_profile_career
@@ -31,19 +28,6 @@ content:
       link: false
     third_party_settings: {  }
     weight: 3
-    region: content
-  field_image:
-    type: image
-    label: above
-    settings:
-      image_link: ''
-      image_style: ''
-      svg_attributes:
-        width: null
-        height: null
-      svg_render_as_image: true
-    third_party_settings: {  }
-    weight: 2
     region: content
   field_job_openings:
     type: number_integer
@@ -86,18 +70,6 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 7
-    region: content
-  field_video_link:
-    type: link
-    label: above
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
-    third_party_settings: {  }
-    weight: 1
     region: content
   field_workbc_link:
     type: link

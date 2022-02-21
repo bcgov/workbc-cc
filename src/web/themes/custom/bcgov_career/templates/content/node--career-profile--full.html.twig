@@ -102,9 +102,9 @@
           <div class="career-inner-content page">
             <div class="image-video">
               {% if node.field_video_link.isempty() %}
-                <img src="{{ node.field_image|file_url }}" alt=""/>
+                <img src="{{ node.field_noc.entity.field_image|file_url }}" alt=""/>
               {% else %}
-                <iframe width="420" height="345" src="{{ node.field_video_link.0.uri }}"></iframe>
+                <iframe width="420" height="345" src="{{ 'https://www.youtube.com/embed/' ~ node.field_noc.entity.field_video_id.value }}"></iframe>
               {% endif %}
             </div>
             <div class="data">
