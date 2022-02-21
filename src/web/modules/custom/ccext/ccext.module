@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function ccext_theme($existing, $type, $theme, $path) {
+  return [
+    'career_profile_comparison' => [
+      'variables' => [
+        'id' => NULL,
+        'rows' => NULL,
+        '#empty' => NULL
+      ],
+    ],
+  ];
+}
