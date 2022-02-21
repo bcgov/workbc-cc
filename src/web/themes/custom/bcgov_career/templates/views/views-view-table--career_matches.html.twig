@@ -138,8 +138,8 @@
                 </td>
                 <td>
                   {{ row.columns.entity_comparison_link_career }}
-                  <label class="compare-career" data-career="/entity-comparison/career/{{ row.raw.entity_comparison_link_career }}?destination=/node/{{ currentPath }}">
-                    <input type="checkbox" class="career-checkbox">
+                  <label class="compare-career compare-carr" data-career="/entity-comparison/career/{{ row.raw.entity_comparison_link_career }}?destination=/node/{{ currentPath }}">
+                    <input type="checkbox" class="career-checkbox career-chkk">
                     <span class="checkmark"></span>
                   </label>
                 </td>
@@ -226,8 +226,9 @@
             <div class="tbody-main" data-id="career-item-{{ rowkey }}">
               <p class="body"><a href="{{ nodeURL }}" class="career-table-mobi-row-link">{{ row.raw.title }} </br><span class="noc">(NOC {{ row.raw.field_noc }})</span></a></p>
               <p class="body">
-                <label class="compare-career-mobi" data-career="{{ row.raw.entity_comparison_link_career }}">
-                  <input type="checkbox" class="career-mobi-checkbox">
+                {{ row.columns.entity_comparison_link_career }}
+                <label class="compare-career-mobi compare-carr" data-career="{{ row.raw.entity_comparison_link_career }}">
+                  <input type="checkbox" class="career-mobi-checkbox career-chkk">
                   <span class="checkmark"></span>
                 </label>
               </p>

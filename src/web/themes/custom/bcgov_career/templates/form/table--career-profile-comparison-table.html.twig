@@ -40,97 +40,51 @@
  */
 
 #}
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-12">
-      <div class="back-link"><a href='javascript:history.back()'><img src="../../../../themes/custom/bcgov_career/assets/arrow-left.svg"/> Back to Quiz Results</a></div>
+<div class="compare-career-main-wrapper">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="back-link"><a href='javascript:history.back()'><img src="../../../../themes/custom/bcgov_career/assets/arrow-left.svg"/> Back to Quiz Results</a></div>
+      </div>
     </div>
   </div>
-  <div class="row">
-    {% if header %}
-      {% for cell in header %}
-        {% if loop.index0 > 0 %}
-          <div class="col">
-            {{- cell.content -}}
-          </div>
-        {% endif %}
-      {% endfor %}
-    {% endif %}
-  </div>
-  </div>
-  <table{{ attributes.addClass('table') }}>
-
-    <!-- what's up?! -->
-
-    {% if caption %}
-      <caption>{{ caption }}</caption>
-    {% endif %}
-
-    {% for colgroup in colgroups %}
-      {% if colgroup.cols %}
-        <colgroup{{ colgroup.attributes }}>
-          {% for col in colgroup.cols %}
-            <col{{ col.attributes }} />
-          {% endfor %}
-        </colgroup>
-      {% else %}
-        <colgroup{{ colgroup.attributes }} />
-      {% endif %}
-    {% endfor %}
-
-    {% if header %}
-      <thead>
-        <tr>
-          {% for cell in header %}
-            {%
-              set cell_classes = [
-                cell.active_table_sort ? 'is-active',
-              ]
-            %}
-            <{{ cell.tag }}{{ cell.attributes.addClass(cell_classes) }}>
-              {{- cell.content -}}
-            </{{ cell.tag }}>
-          {% endfor %}
-        </tr>
-      </thead>
-    {% endif %}
-
-    {% if rows %}
-      <tbody>
-        {% for row in rows %}
-          {%
-            set row_classes = [
-              not no_striping ? cycle(['odd', 'even'], loop.index0),
-            ]
-          %}
-          <tr{{ row.attributes.addClass(row_classes) }}>
-            {% for cell in row.cells %}
-              <{{ cell.tag }}{{ cell.attributes }}>
-                {{- cell.content -}}
-              </{{ cell.tag }}>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        {# {{ dd(rows) }} #}
+        <div class="career-content-compare career-content-main-wrapper">
+          {% if header %}
+            {% for cell in header %}
+              {% if loop.index0 > 0 %}
+                <div class="career-content-item active">
+                  <div class="career-content-item-inner">
+                    <div class="title">
+                      <p>{{- cell.content -}} </br><span class="noc-code">(NOC 1111)</span></p>
+                    </div>
+                    <div class="career-inner-content">
+                      <div class="image-video">
+                        <iframe src="https://www.youtube.com/embed/" width="420" height="345"></iframe>
+                      </div>
+                      <div class="data">
+                        <p class="data-item"><span class="f-d">Annual Salary</span><span class="s-d">$62,568</span></p>
+                        <p class="data-item"><span class="f-d">Education Level</span><span class="s-d">Degree</span></p>
+                        <p class="data-item"><span class="f-d">Job Openings<span>(2019-2029)</span></span><span class="s-d">10480</span></p>
+                      </div>
+                      <div class="description">
+                        <p><span>Accountants and financial auditors organize, review and manage financial records and transactions for companies and people. They make sure that information is accurate and meets established accounting standards. This group includes…</span></p>
+                      </div>
+                      <div class="bottom-btn">
+                        <a class="btn btn-career-profile" href="https://google.com" target="_blank">View Career Profile</a>
+                        <a class="btn btn-find-job" href="" target="_blank">Find Jobs</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              {% endif %}
             {% endfor %}
-          </tr>
-        {% endfor %}
-      </tbody>
-    {% elseif empty %}
-      <tbody>
-        <tr class="odd">
-          <td colspan="{{ header_columns }}" class="empty message">{{ empty }}</td>
-        </tr>
-      </tbody>
-    {% endif %}
-    {% if footer %}
-      <tfoot>
-        {% for row in footer %}
-          <tr{{ row.attributes }}>
-            {% for cell in row.cells %}
-              <{{ cell.tag }}{{ cell.attributes }}>
-                {{- cell.content -}}
-              </{{ cell.tag }}>
-            {% endfor %}
-          </tr>
-        {% endfor %}
-      </tfoot>
-    {% endif %}
-  </table>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -256,12 +256,13 @@
         height: 100%;
         border: 1px solid #e6eae9;
         max-height: 772px;
-        overflow: scroll;
+        overflow-y: scroll;
     }
     table{
         thead{
             position: sticky;
             top: 0;
+            z-index: 1;
             th{
                 border: 0;
                 background: #ddd;
@@ -308,6 +309,9 @@
                             color: rgb(42, 125, 226);
                         }
                     }
+                }
+                .use-ajax{
+                    display: none;
                 }
             }
             .compare-career{
@@ -469,6 +473,9 @@
                         flex: 0 0 30%;
                         text-align: center;
                     }
+                    .use-ajax{
+                        display: none;
+                    }
                 }
                 .compare-career-mobi{
                     display: block;
@@ -611,6 +618,11 @@
                     margin: 0;
                     padding: 20px;
                     font-weight: 700;
+                    text-decoration: none;
+                    a{
+                        color: #fff;
+                        text-decoration: none;
+                    }
                     span.noc-code{
                         font-weight: 400;
                     }
@@ -666,7 +678,7 @@
                     border: 2px solid #510B76;
                     background: #510B76;
                     display: inline-block;
-                    padding: 8px 13px;
+                    padding: 8px 4px;
                     text-decoration: none;
                     font-size: 1.5rem;
                     line-height: 1.8rem;
@@ -696,6 +708,89 @@
         padding: 16px;
         p{
             margin: 0;
+        }
+    }
+}
+
+/*=== CAREER COMPARE CSS ===*/
+
+.compare-career-main-wrapper{
+    .back-link{
+        padding: 20px 0;
+        a{
+            font-family: 'BC Sans', sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 18px;
+            color: #073573;
+            display: flex;
+            align-items: center;
+            img{
+                height: 14px;
+                margin-right: 10px;
+            }
+        }
+    }
+    background: rgba(230, 234, 233, 1);
+    padding-bottom: 40px;
+    .career-content-compare{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        background: #fff;
+        padding: 100px 0;
+        border-bottom: 4px solid rgba(35, 64, 117, 1);
+        .career-content-item {
+            max-width: 375px;
+            margin: 0 10px;
+            @media all and (max-width: 767.98px){
+                max-width: 100%;
+                margin: 0;
+            }
+            .career-content-item-inner{
+                .title{
+                    background: rgba(35, 64, 117, 1);
+                }
+                .bottom-btn{
+                    a.btn{
+                        border: rgba(35, 64, 117, 1);
+                        background: rgba(35, 64, 117, 1);
+                        color: #fff;
+                        &:hover{
+                            background: rgba(0, 40, 85, 1);
+                        }
+                    }
+                }
+                .career-inner-content{
+                    min-height: 575px;
+                }
+            }
+        }
+        .slick-dots{
+            position: absolute;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            top: 60px;
+            width: 100%;
+            list-style: none;
+            > li{
+                margin: 0 5px;
+                button{
+                    padding: 0;
+                    background: #000;
+                    border: 0;
+                    width: 10px;
+                    height: 10px;
+                    font-size: 0;
+                    border-radius: 50%;
+                }
+                &:not(.slick-active){
+                    button{
+                        background: #979696;
+                    }
+                }
+            }
         }
     }
 }
