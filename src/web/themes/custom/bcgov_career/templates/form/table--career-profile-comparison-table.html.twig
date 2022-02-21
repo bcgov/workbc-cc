@@ -53,35 +53,41 @@
       <div class="col-12">
         {# {{ dd(rows) }} #}
         <div class="career-content-compare career-content-main-wrapper">
-          {% if header %}
-            {% for cell in header %}
-              {% if loop.index0 > 0 %}
-                <div class="career-content-item active">
-                  <div class="career-content-item-inner">
-                    <div class="title">
-                      <p>{{- cell.content -}} </br><span class="noc-code">(NOC 1111)</span></p>
-                    </div>
-                    <div class="career-inner-content">
-                      <div class="image-video">
-                        <iframe src="https://www.youtube.com/embed/" width="420" height="345"></iframe>
-                      </div>
-                      <div class="data">
-                        <p class="data-item"><span class="f-d">Annual Salary</span><span class="s-d">$62,568</span></p>
-                        <p class="data-item"><span class="f-d">Education Level</span><span class="s-d">Degree</span></p>
-                        <p class="data-item"><span class="f-d">Job Openings<span>(2019-2029)</span></span><span class="s-d">10480</span></p>
-                      </div>
-                      <div class="description">
-                        <p><span>Accountants and financial auditors organize, review and manage financial records and transactions for companies and people. They make sure that information is accurate and meets established accounting standards. This group includes…</span></p>
-                      </div>
-                      <div class="bottom-btn">
-                        <a class="btn btn-career-profile" href="https://google.com" target="_blank">View Career Profile</a>
-                        <a class="btn btn-find-job" href="" target="_blank">Find Jobs</a>
-                      </div>
-                    </div>
+          {% if rows %}
+            {% for row in rows %}
+            <div class="career-content-item active">
+              <div class="career-content-item-inner">
+                <div class="title"><p>{{ row.title }}</br><span class='noc-code'>(NOC {{ row.field_noc }})</span></p></div>
+                <div class="career-inner-content">
+                  <div class="image-video">
+                    {% if row.field_noc_video_id != '' %}
+                      <iframe width="420" height="345" src="{{ 'https://www.youtube.com/embed/' ~ row.field_noc_video_id }}"></iframe>
+                    {% else %}
+                      <img src="{{ row.field_noc_field_image }}" alt=""/>
+                    {% endif %}
+                  </div>
+                  <div class="data">
+                    {% if row.field_median_salary is not empty %}
+                      <p class="data-item"><span class="f-d">Annual Salary</span><span class="s-d">{{ row.field_median_salary }}</span></p>
+                    {% endif %}
+                    {% if row.field_education_level is not empty %}
+                      <p class="data-item"><span class="f-d">Education Level</span><span class="s-d">{{ row.field_education_level }}</span></p>
+                    {% endif %}
+                    {% if row.field_job_openings is not empty %}
+                      <p class="data-item"><span class="f-d">Job Openings<span>{{ row.field_opening_from_to }}</span></span><span class="s-d">{{ row.field_job_openings }}</span></p>
+                    {% endif %}
+                  </div>
+                  <div class="description">
+                    {{ row.field_job_summary | raw }}
+                  </div>
+                  <div class="bottom-btn">
+                    <a class="btn btn-career-profile" href="{{ row.field_workbc_link }}" target='_blank'>View Career Profile</a>
+                    <a class="btn btn-find-job" href="" target='_blank'>Find Jobs</a>
                   </div>
                 </div>
-              {% endif %}
-            {% endfor %}
+              </div>
+            </div>
+          {%  endfor %}
           {% endif %}
         </div>
       </div>
