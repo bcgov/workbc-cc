@@ -1,10 +1,18 @@
-ccext.action:
-  path: '/entity-comparison/{entity_comparison_id}/{entity_id}'
+# ccext.action:
+#   path: '/entity-comparison/{entity_comparison_id}/{entity_id}'
+#   defaults:
+#     _controller: '\Drupal\ccext\Controller\CcextComparisonController::action'
+#   requirements:
+#     _permission: 'access content'
+
+# # Dynamic routes for the compare pages
+# route_callbacks:
+#   - '\Drupal\ccext\Routing\CcextComparisonRoutes::routes'
+
+ccext.career:
+  path: '/career-compare/career'
   defaults:
-    _controller: '\Drupal\ccext\Controller\CcextComparisonController::action'
+    _controller: '\Drupal\ccext\Controller\CcextComparisonController::compare'
+    _title_callback: '\Drupal\ccext\Controller\CcextComparisonController::title'
   requirements:
     _permission: 'access content'
-
-# Dynamic routes for the compare pages
-route_callbacks:
-  - '\Drupal\ccext\Routing\CcextComparisonRoutes::routes'

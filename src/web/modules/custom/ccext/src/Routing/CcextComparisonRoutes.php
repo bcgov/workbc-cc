@@ -24,7 +24,7 @@ class CcextComparisonRoutes {
     foreach ($entity_comparisons as $id => $entity_comparison) {
       $routes['entity_comparison.compare.' . $id] = new Route(
       // Path to attach this route to:
-        '/comparesion/' . str_replace('_', '-', $id),
+        '/career-compare/' . str_replace('_', '-', $id),
         // Route defaults:
         [
           '_controller' => '\Drupal\ccext\Controller\CcextComparisonController::compare',

@@ -175,7 +175,7 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
       $response->addCommand($replace);
 
       // Update compare table.
-      if (strpos($destination, '/comparesion/')) {
+      if (strpos($destination, '/career-compare/')) {
         $compare_content = $this->compare($entity_comparison_id);
         $updateTable = new ReplaceCommand('#comparison-table', $this->renderer->renderPlain($compare_content));
         $response->addCommand($updateTable);
