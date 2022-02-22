@@ -64,7 +64,10 @@
         }
       });
       $(".clear-compare").click(function(){
-        $(".remove-link + .compare-carr > .career-chkk").click();
+        $(".remove-link").each(function(){
+          $(this).next().find(".career-chkk").prop('checked', false);
+          $(this).click();
+        });
       });
 
       $(".career-mobi-checkbox").change(function() {
