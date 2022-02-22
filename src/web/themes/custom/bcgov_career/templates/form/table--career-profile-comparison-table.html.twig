@@ -23,7 +23,7 @@
  *   - data: Table cells.
  *   - no_striping: A flag indicating that the row should receive no
  *     'even / odd' styling. Defaults to FALSE.
- *   - cells: Table cells of the row. Each cell contains the following keys:
+ *   - cells: Table cells of the row.cells. Each cell contains the following keys:
  *     - tag: The HTML tag name to use; either 'th' or 'td'.
  *     - attributes: Any HTML attributes, such as "colspan", to apply to the
  *       table cell.
@@ -55,33 +55,34 @@
         <div class="career-content-compare career-content-main-wrapper">
           {% if rows %}
             {% for row in rows %}
+            {# {{ dd(row) }} #}
             <div class="career-content-item active">
               <div class="career-content-item-inner">
-                <div class="title"><p>{{ row.title }}</br><span class='noc-code'>(NOC {{ row.field_noc }})</span></p></div>
+                <div class="title"><p>{{ row.cells.title.content }}</br><span class='noc-code'>(NOC {{ row.cells.field_noc.content }})</span></p></div>
                 <div class="career-inner-content">
                   <div class="image-video">
-                    {% if row.field_noc_video_id != '' %}
-                      <iframe width="420" height="345" src="{{ 'https://www.youtube.com/embed/' ~ row.field_noc_video_id }}"></iframe>
+                    {% if row.cells.field_noc_video_id.content != '' %}
+                      <iframe width="420" height="345" src="{{ 'https://www.youtube.com/embed/' ~ row.cells.field_noc_video_id.content }}"></iframe>
                     {% else %}
-                      <img src="{{ row.field_noc_field_image }}" alt=""/>
+                      <img src="{{ file_url(row.cells.field_noc_field_image.content) }}" alt=""/>
                     {% endif %}
                   </div>
                   <div class="data">
-                    {% if row.field_median_salary is not empty %}
-                      <p class="data-item"><span class="f-d">Annual Salary</span><span class="s-d">{{ row.field_median_salary }}</span></p>
+                    {% if row.cells.field_median_salary.content is not empty %}
+                      <p class="data-item"><span class="f-d">Annual Salary</span><span class="s-d">{{ row.cells.field_median_salary.content }}</span></p>
                     {% endif %}
-                    {% if row.field_education_level is not empty %}
-                      <p class="data-item"><span class="f-d">Education Level</span><span class="s-d">{{ row.field_education_level }}</span></p>
+                    {% if row.cells.field_education_level.content is not empty %}
+                      <p class="data-item"><span class="f-d">Education Level</span><span class="s-d">{{ row.cells.field_education_level.content }}</span></p>
                     {% endif %}
-                    {% if row.field_job_openings is not empty %}
-                      <p class="data-item"><span class="f-d">Job Openings<span>{{ row.field_opening_from_to }}</span></span><span class="s-d">{{ row.field_job_openings }}</span></p>
+                    {% if row.cells.field_job_openings.content is not empty %}
+                      <p class="data-item"><span class="f-d">Job Openings<span>{{ row.cells.field_opening_from_to.content }}</span></span><span class="s-d">{{ row.cells.field_job_openings.content }}</span></p>
                     {% endif %}
                   </div>
                   <div class="description">
-                    {{ row.field_job_summary | raw }}
+                    {{ row.cells.field_job_summary.content | slice(0, 250) | raw }}
                   </div>
                   <div class="bottom-btn">
-                    <a class="btn btn-career-profile" href="{{ row.field_workbc_link }}" target='_blank'>View Career Profile</a>
+                    <a class="btn btn-career-profile" href="{{ row.cells.field_workbc_link.content }}" target='_blank'>View Career Profile</a>
                     <a class="btn btn-find-job" href="" target='_blank'>Find Jobs</a>
                   </div>
                 </div>

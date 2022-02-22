@@ -630,11 +630,13 @@
             }
             .image-video{
                 width: 100%;
-                margin-bottom: 20px;
+                margin-bottom: 0;
+                max-height: 185px;
                 min-height: 185px;
+                overflow: hidden;
                 iframe{
                     width: 100%;
-                    max-height: 200px;
+                    max-height: 185px;
                 }
                 img{
                     width: 100%;
@@ -643,6 +645,7 @@
             }
             .data{
                 margin-bottom: 30px;
+                margin-top: 30px;
                 .data-item {
                     border-bottom: 2px solid rgba(51, 51, 51, 0.2);
                     padding-bottom: 5px;
@@ -748,10 +751,19 @@
                 margin: 0;
             }
             .career-content-item-inner{
+                .career-inner-content{
+                    position: relative;
+                }
                 .title{
                     background: rgba(35, 64, 117, 1);
                 }
                 .bottom-btn{
+                    position: absolute;
+                    width: 90%;
+                    bottom: 25px;
+                    left: 10px;
+                    right: 0;
+                    margin: 0 auto;
                     a.btn{
                         border: rgba(35, 64, 117, 1);
                         background: rgba(35, 64, 117, 1);
@@ -762,7 +774,8 @@
                     }
                 }
                 .career-inner-content{
-                    min-height: 575px;
+                    min-height: 600px;
+                    padding: 20px 20px 90px;
                 }
             }
         }

@@ -440,7 +440,7 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
     return [
       '#type' => 'table',
       '#id' => $bundle_type . '-' . $entity_type . '-comparison-table',
-      '#rows' => $rows,
+      '#rows' => $raw,
       '#header' => $header,
       '#empty' => $this->t('No content available to compare.'),
       '#cache' => [
