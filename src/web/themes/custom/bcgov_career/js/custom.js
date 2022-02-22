@@ -19,9 +19,11 @@
           $(".compare-career-main-wrapper .career-content-compare").slick({
             slidesToShow: 1,
             slidesToScroll: 1,
-            infinite: true,
+            infinite: false,
             dots: true,
-            arrows: false
+            arrows: true,
+            nextArrow: $(".next-true"),
+            prevArrow: $(".prev-true")
           });
         } else {
           $(".tools-resource-items-wrapper > .field__items")
