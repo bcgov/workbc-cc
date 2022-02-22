@@ -1,16 +1,16 @@
-uuid: 48d50097-2940-4430-a0ea-d7a5d2b99965
+uuid: ced61b5c-77f4-4fcb-beb2-c2a2a3526ca6
 langcode: en
 status: true
 dependencies:
   module:
+    - link
     - node
-id: node.field_noc
-field_name: field_noc
+id: node.field_find_job
+field_name: field_find_job
 entity_type: node
-type: entity_reference
-settings:
-  target_type: node
-module: core
+type: link
+settings: {  }
+module: link
 locked: false
 cardinality: 1
 translatable: true

@@ -69,7 +69,7 @@ class NocCareerImporterForm extends FormBase {
     $form['importer']['entity_type'] = [
       '#type' => 'radios',
       '#title' => $this->t('Select entity type'),
-      '#options' => ['career_profile' => t('Career Profile'), 'noc' => t('NOC'),],
+      '#options' => ['career_profile' => t('Career Profile'), 'noc' => t('NOC Image'),],
       '#empty_value' => '_none',
       '#required' => TRUE,
     ];
@@ -110,34 +110,40 @@ class NocCareerImporterForm extends FormBase {
     ];
     return $form;
   }
+  /**
+   * {@inheritdoc}
+   */
+  public function validateForm(array &$form, FormStateInterface $form_state) {
+    if ($form_state->getValue('entity_type') == 'career_profile' && empty($form_state->getValue('career_profile_opening_year'))) {
+      $form_state->setErrorByName('career_profile_opening_year', $this->t('Opening (from-to) year is empty. Please enter.'));
+    }
+  }
 
   /**
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    if ($form_state->getValue('entity_type') == 'noc') {
-      $csv = current($form_state->getValue('csv'));
-      $csvData = $this->getCsvById($csv, ',');
+    $entity_type = $form_state->getValue('entity_type');
+    $csv = current($form_state->getValue('csv'));
+    $csvData = $this->getCsvById($csv, ',');
 
-      foreach ($csvData as $key => $value) {
-        if ($key != 0) {
-          $title = trim(str_replace('#', '', $value[0]));
-          $field_description = trim($value[1]);
+    foreach ($csvData as $key => $value) {
+      if ($key != 0) {
+        $title = trim(str_replace('#', '', $value[0]));
+
+        $query = $this->getNodeId($title);
+        $Noc_node = NULL;
+        if (empty($query)) {
+          $Noc_node = Node::create(['type' => 'career_profile']);
+          $Noc_node->enforceIsNew();
+          $Noc_node->set('title', $title);
+        }
+        else {
+          $Noc_node = Node::load(reset($query));
+        }
+        if ($entity_type == 'noc') {
           $field_image = trim($value[2]);
           $field_video_id = trim($value[3]) != 'NULL' ? trim($value[3]) : '';
-          $query = \Drupal::entityQuery('node')
-            ->condition('type', 'noc')
-            ->condition('title', $title)->execute();
-          $Noc_node = NULL;
-          if (empty($query)) {
-            $Noc_node = Node::create(['type' => 'noc']);
-            $Noc_node->enforceIsNew();
-            $Noc_node->set('title', $title);
-          }
-          else {
-            $Noc_node = Node::load(reset($query));
-          }
-          $Noc_node->set('field_description', ['format' =>'basic_html', 'value' => $field_description]);
           $Noc_node->set('field_video_id', $field_video_id);
           // Make sure the directory exists and is writable.
           if (!empty($field_image)) {
@@ -151,10 +157,48 @@ class NocCareerImporterForm extends FormBase {
               $Noc_node->set('field_image', ['target_id' => $file->id()]);
             }
           }
-          $Noc_node->save();
         }
+        if ($entity_type == 'career_profile') {
+          $field_noc_name = trim($value[1]);
+          $field_job_summary = trim($value[2]);
+          $field_job_openings = trim($value[3]);
+          $field_education_level = $this->getTermByName(trim($value[4]), 'education_level');
+          $field_median_salary = trim($value[5]);
+          $field_workbc_link = trim($value[6]);
+          $field_find_job = trim($value[7]);
+          $field_opening_from_to = $form_state->getValue('career_profile_opening_year');
+
+          $Noc_node->set('field_job_summary', ['format' =>'basic_html', 'value' => $field_job_summary]);
+          $Noc_node->set('field_noc_name', $field_noc_name);
+          $Noc_node->set('field_job_openings', $field_job_openings);
+          $Noc_node->set('field_education_level', $field_education_level);
+          $Noc_node->set('field_median_salary', $field_median_salary);
+          $Noc_node->set('field_opening_from_to', $field_opening_from_to);
+          $Noc_node->set('field_workbc_link',  ["uri" => $field_workbc_link]);
+          $Noc_node->set('field_find_job', ["uri" => $field_find_job]);
+        }
+        $Noc_node->save();
       }
     }
+  }
+
+  /**
+   * Get Node Id.
+   *
+   * Node existing in data.
+   */
+  public function getNodeId($title = NULL) {
+
+    if (empty($title) && $type) {
+      return;
+    }
+
+    $entityStorage = $this->entityTypeManager->getStorage('node');
+    $query = $entityStorage->getQuery();
+    $query->condition('type', 'career_profile');
+    $query->condition('title', $title);
+    $result = $query->accessCheck(FALSE)->execute();
+    return $result;
   }
 
   /**
@@ -174,5 +218,57 @@ class NocCareerImporterForm extends FormBase {
     }
 
     return $return;
+  }
+
+    /**
+   * To find term by name and vid.
+   *
+   * @param string $name
+   *   Term name.
+   * @param string $vid
+   *   Term vid.
+   * @param string $pid
+   *   Term parent id.
+   *
+   * @return int
+   *   Term id or 0.
+   */
+  public function getTermByName($name = NULL, $vid = NULL, $pid = NULL) {
+    $properties = [];
+    if (empty($name) && empty($vid)) {
+      return [];
+    }
+    if (!empty($name)) {
+      $properties['name'] = $name;
+    }
+    if (!empty($vid)) {
+      $properties['vid'] = $vid;
+    }
+    if (!empty($pid)) {
+      $properties['parent'] = $pid;
+    }
+
+    // Load term.
+    $terms = $this->entityTypeManager->getStorage('taxonomy_term')
+      ->loadByProperties($properties);
+    $term = reset($terms);
+    if (empty($term)) {
+      // Set term data.
+      $data = [
+        'name' => $name,
+        'vid' => $vid,
+      ];
+
+      // Create a term.
+      $term = Term::create($data);
+      if (!empty($pid)) {
+        $term->set('parent', $pid);
+      }
+
+      $term->save();
+      // $tid = $term->id();
+    }
+
+    return !empty($term) ? $term->id() : 0;
   }
 }

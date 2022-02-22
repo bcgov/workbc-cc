@@ -1,16 +1,16 @@
-uuid: 6a09885c-9f52-4df7-887b-d9ccf094f203
+uuid: 4723ee2b-7a9e-40e5-a22a-e4f6d5a315b5
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_image
-    - node.type.noc
+    - node.type.career_profile
   module:
     - image
-id: node.noc.field_image
+id: node.career_profile.field_image
 field_name: field_image
 entity_type: node
-bundle: noc
+bundle: career_profile
 label: Image
 description: ''
 required: false

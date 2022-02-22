@@ -1,13 +1,13 @@
-uuid: 5017f473-8df9-4538-a565-11f720160b54
+uuid: 63cc9266-03e1-484b-ae6c-e3b549e7828d
 langcode: en
 status: true
 dependencies:
   config:
-    - node.type.noc
-id: node.noc.title
+    - node.type.career_profile
+id: node.career_profile.title
 field_name: title
 entity_type: node
-bundle: noc
+bundle: career_profile
 label: 'NOC code'
 description: ''
 required: true

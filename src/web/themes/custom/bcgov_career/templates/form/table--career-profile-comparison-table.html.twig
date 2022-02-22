@@ -55,16 +55,37 @@
         <div class="career-content-compare career-content-main-wrapper">
           {% if rows %}
             {% for rowkey, row in rows %}
-            {# {{ dd(row) }} #}
             <div class="career-content-item active">
               <div class="career-content-item-inner">
-                <div class="title"><p>{{ row.cells.title.content }}</br><span class='noc-code'>(NOC {{ row.cells.field_noc.content }})</span></p><div class="slide-next-prev">{% if rowkey == "0" %}<a href="javascript:;" class="next-true"><img src="../../../../themes/custom/bcgov_career/assets/arrow-left.svg"/></a>{% elseif rowkey == "1" %} <a href="javascript:;" class="next-true"><img src="../../../../themes/custom/bcgov_career/assets/arrow-left.svg"/></a><a href="javascript:;" class="prev-true"><img src="../../../../themes/custom/bcgov_career/assets/arrow-left.svg"/></a> {% elseif rowkey == "2" %} <a href="javascript:;" class="prev-true"><img src="../../../../themes/custom/bcgov_career/assets/arrow-left.svg"/></a> {% endif %}</div></div>
+                <div class="title">
+                  <p>{{ row.cells.field_noc_name.content }}
+                    </br><span class='noc-code'>(NOC {{ row.cells.title.content }})</span>
+                  </p>
+                  <div class="slide-next-prev">
+                    {% if rowkey == "0" %}
+                      <a href="javascript:;" class="next-true">
+                        <img src="../../../../themes/custom/bcgov_career/assets/arrow-left.svg"/>
+                      </a>
+                    {% elseif rowkey == "1" %}
+                      <a href="javascript:;" class="next-true">
+                        <img src="../../../../themes/custom/bcgov_career/assets/arrow-left.svg"/>
+                      </a>
+                      <a href="javascript:;" class="prev-true">
+                        <img src="../../../../themes/custom/bcgov_career/assets/arrow-left.svg"/>
+                      </a>
+                    {% elseif rowkey == "2" %}
+                      <a href="javascript:;" class="prev-true">
+                        <img src="../../../../themes/custom/bcgov_career/assets/arrow-left.svg"/>
+                      </a>
+                    {% endif %}
+                  </div>
+                </div>
                 <div class="career-inner-content">
                   <div class="image-video">
-                    {% if row.cells.field_noc_video_id.content != '' %}
-                      <iframe width="420" height="345" src="{{ 'https://www.youtube.com/embed/' ~ row.cells.field_noc_video_id.content }}"></iframe>
+                    {% if row.cells.field_video_id.content != '' and row.cells.field_video_id.content != '#NAME?' %}
+                      <iframe width="420" height="345" src="{{ 'https://www.youtube.com/embed/' ~ row.cells.field_video_id.content }}"></iframe>
                     {% else %}
-                      <img src="{{ file_url(row.cells.field_noc_field_image.content) }}" alt=""/>
+                      <img src="{{ file_url(row.cells.field_image.content) }}" alt=""/>
                     {% endif %}
                   </div>
                   <div class="data">
@@ -83,7 +104,7 @@
                   </div>
                   <div class="bottom-btn">
                     <a class="btn btn-career-profile" href="{{ row.cells.field_workbc_link.content }}" target='_blank'>View Career Profile</a>
-                    <a class="btn btn-find-job" href="" target='_blank'>Find Jobs</a>
+                    <a class="btn btn-find-job" href="{{ row.cells.field_find_job.content }}" target='_blank'>Find Jobs</a>
                   </div>
                 </div>
               </div>

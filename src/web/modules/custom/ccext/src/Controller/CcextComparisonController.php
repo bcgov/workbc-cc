@@ -344,54 +344,52 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
       foreach ($entity_comparison_list[$entity_type][$bundle_type][$entity_comparison_id] as $entity_id) {
         // Get entity.
         $entity = $this->entityTypeManager->getStorage($entity_type)->load($entity_id);
-        if ($entity->hasTranslation($this->languageManager->getCurrentLanguage()->getId())) {
-          $entity = $entity->getTranslation($this->languageManager->getCurrentLanguage()->getId());
-        }
+        if ($entity) {
+          if ($entity->hasTranslation($this->languageManager->getCurrentLanguage()->getId())) {
+            $entity = $entity->getTranslation($this->languageManager->getCurrentLanguage()->getId());
+          }
 
-        // Get view builder.
-        $view_builder = $this->entityTypeManager->getViewBuilder($entity_type);
+          // Get view builder.
+          $view_builder = $this->entityTypeManager->getViewBuilder($entity_type);
 
-        $entities[$entity_id] = $entity;
-        $comparison_fields[$entity_id] = [];
+          $entities[$entity_id] = $entity;
+          $comparison_fields[$entity_id] = [];
 
-        // Add entity's label to the header.
-        if ($entity->hasLinkTemplate('canonical')) {
-          $header[] = [
-            'data' => $entity->toLink($entity->label())->toRenderable(),
-          ];
+          // Add entity's label to the header.
+          if ($entity->hasLinkTemplate('canonical')) {
+            $header[] = [
+              'data' => $entity->toLink($entity->label())->toRenderable(),
+            ];
 
-        }
-        $field_value = [];
-        foreach ($fields as $field_name => $display_component) {
-          if (isset($entity->{$field_name}) && $field = $entity->{$field_name}) {
-            $field_value[$field_name] = $entity->get($field_name)->value;
-            switch ($field_name) {
-              case 'field_education_level':
-                $field_value[$field_name] = !$entity->get('field_education_level')->isEmpty() ? $entity->get('field_education_level')->referencedEntities()[0]->name->value : '';
-                break;
+          }
+          $field_value = [];
+          foreach ($fields as $field_name => $display_component) {
+            if (isset($entity->{$field_name}) && $field = $entity->{$field_name}) {
+              $field_value[$field_name] = $entity->get($field_name)->value;
+              switch ($field_name) {
+                case 'field_education_level':
+                  $field_value[$field_name] = !$entity->get('field_education_level')->isEmpty() ? $entity->get('field_education_level')->referencedEntities()[0]->name->value : '';
+                  break;
 
-              case 'field_noc':
-                $noc_value = !$entity->get('field_noc')->isEmpty() ? $entity->get('field_noc')->referencedEntities() : '';
+                case 'field_image':
+                  $field_value[$field_name] = !$entity->field_image->isEmpty() ? $entity->field_image->entity->getFileUri() : '';
+                  break;
+                case 'field_workbc_link':
+                  $field_value[$field_name] = !$entity->get('field_workbc_link')->isEmpty() ? $entity->get('field_workbc_link')->first()->uri : '';
+                  break;
+                case 'field_find_job':
+                  $field_value[$field_name] = !$entity->get('field_find_job')->isEmpty() ? $entity->get('field_find_job')->first()->uri : '';
+                  break;
 
-                if ($noc_value) {
-                  $field_value[$field_name] = $noc_value[0]->title->value;
-                  $field_value[$field_name . '_video_id'] = !$noc_value[0]->field_video_id->isEmpty() ? $noc_value[0]->field_video_id->value : '';
-                  $field_value[$field_name . '_field_image'] = !$noc_value[0]->field_image->isEmpty() ? $noc_value[0]->field_image->entity->getFileUri() : '';
-                }
-                break;
-              case 'field_workbc_link':
-                $field_value[$field_name] = !$entity->get('field_workbc_link')->isEmpty() ? $entity->get('field_workbc_link')->first()->uri : '';
-                break;
-
-
-              default:
-                $field_value[$field_name] = $entity->get($field_name)->value;
-                break;
+                default:
+                  $field_value[$field_name] = $entity->get($field_name)->value;
+                  break;
+              }
             }
           }
+          $node_title = ['title' => $entity->label()];
+          $raw[] = array_merge($node_title, $field_value);
         }
-        $node_title = ['title' => $entity->label()];
-        $raw[] = array_merge($node_title, $field_value);
       }
 
       // If there are at least one entity in the list.
@@ -436,7 +434,6 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
     ];
     $this->moduleHandler
       ->alter('entity_comparison_rows', $header, $rows, $context);
-
     return [
       '#type' => 'table',
       '#id' => $bundle_type . '-' . $entity_type . '-comparison-table',

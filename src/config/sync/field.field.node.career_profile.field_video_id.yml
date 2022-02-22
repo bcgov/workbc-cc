@@ -1,18 +1,18 @@
-uuid: bc221f10-4466-43d0-b360-1411f2bee228
+uuid: 1f373c0c-ede5-4756-8b32-02052f537d63
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_video_id
-    - node.type.noc
-id: node.noc.field_video_id
+    - node.type.career_profile
+id: node.career_profile.field_video_id
 field_name: field_video_id
 entity_type: node
-bundle: noc
+bundle: career_profile
 label: 'Video ID'
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

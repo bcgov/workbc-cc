@@ -79,11 +79,6 @@
                 "type:drupal-custom-theme"
             ]
         },
-        "patches": {
-            "drupal/entity_comparison": {
-                "Controller table id": "patches/entity_comparison-table-id.patch"
-            }
-        },
         "drupal-core-project-message": {
             "include-keys": [
                 "homepage",

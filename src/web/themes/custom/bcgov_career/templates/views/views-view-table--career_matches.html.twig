@@ -58,7 +58,7 @@
             </div>
             <div class="top-btn">
               <a href="javascript:;" class="clear-compare disable">Clear Compare</a>
-              <a href="/compare/career" class="compare-career disable">Compare Careers</a>
+              <a href="/career-compare/career" class="compare-career disable">Compare Careers</a>
             </div>
           </div>
         </div>
@@ -128,7 +128,7 @@
               {% set nodeURL =  url('entity.node.canonical', {'node': row.raw.nid}) %}
 
                 <td class="career-table-link" data-node-url="{{ nodeURL }}">
-                    <a href="javascript:;" class="career-table-row-link">{{ row.raw.title }}</br> <span class="noc">(NOC {{ row.raw.field_noc }})</span></a>
+                    <a href="javascript:;" class="career-table-row-link">{{ row.raw.field_noc_name }}</br> <span class="noc">(NOC {{ row.raw.title }})</span></a>
                 </td>
                 <td>
                     {{ row.columns.field_median_salary }}
@@ -154,7 +154,7 @@
           {% for rowkey, row in rows %}
             <div id="career-item-{{ rowkey }}" class="career-content-item {% if rowkey == "0" %}active{% endif %}" data-url="">
               <div class="career-content-item-inner">
-                <div class="title"><p>{{ row.raw.title }}</br><span class='noc-code'>(NOC {{ row.raw.field_noc }})</span></p></div>
+                <div class="title"><p>{{ row.raw.field_noc_name }}</br><span class='noc-code'>(NOC {{ row.raw.title }})</span></p></div>
                 <div class="career-inner-content">
                   <div class="image-video">
                     {% if row.raw.field_video_id != false %}
@@ -179,7 +179,7 @@
                   </div>
                   <div class="bottom-btn">
                     <a class="btn btn-career-profile" href="{{ row.raw.field_workbc_link }}" target='_blank'>View Career Profile</a>
-                    <a class="btn btn-find-job" href="" target='_blank'>Find Jobs</a>
+                    <a class="btn btn-find-job" href="{{ row.raw.field_find_job }}" target='_blank'>Find Jobs</a>
                   </div>
                 </div>
               </div>
@@ -224,7 +224,7 @@
           {% for rowkey, row in rows %}
           {% set nodeURL =  url('entity.node.canonical', {'node': row.raw.nid}) %}
             <div class="tbody-main" data-id="career-item-{{ rowkey }}">
-              <p class="body"><a href="{{ nodeURL }}" class="career-table-mobi-row-link">{{ row.raw.title }} </br><span class="noc">(NOC {{ row.raw.field_noc }})</span></a></p>
+              <p class="body"><a href="{{ nodeURL }}" class="career-table-mobi-row-link">{{ row.raw.field_noc_name }} </br><span class="noc">(NOC {{ row.raw.title }})</span></a></p>
               <p class="body">
                 {{ row.columns.entity_comparison_link_career }}
                 <label class="compare-career-mobi compare-carr" data-career="{{ row.raw.entity_comparison_link_career }}">

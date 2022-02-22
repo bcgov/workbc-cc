@@ -18,10 +18,6 @@ function bcgov_career_preprocess_views_view_table(&$variables) {
       foreach ($fields as $key => $value) {
         $raw[$key] = $handler->getFieldValue($num, $key);
         switch ($key) {
-          case 'field_noc':
-            $noc_code = $handler->getField($num, $key);
-            $raw['field_noc'] = $noc_code;
-            break;
 
           case 'field_job_summary':
             $raw[$key] = $handler->getField($num, $key);
@@ -33,11 +29,9 @@ function bcgov_career_preprocess_views_view_table(&$variables) {
           $uri = $image_file->uri->value;
           $variables['url']=file_create_url($uri);
           $raw['field_image'] = (file_create_url($uri));
-          // $raw['field_image'] = $handler->getField($num, $key);
         }
 
       }
-// dd($raw);
       $result[$num]['raw'] = $raw;
     }
     $variables['result'] = $variables['rows'] = $result;
