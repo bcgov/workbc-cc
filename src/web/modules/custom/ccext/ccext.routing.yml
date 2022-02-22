@@ -1,14 +1,3 @@
-# ccext.action:
-#   path: '/entity-comparison/{entity_comparison_id}/{entity_id}'
-#   defaults:
-#     _controller: '\Drupal\ccext\Controller\CcextComparisonController::action'
-#   requirements:
-#     _permission: 'access content'
-
-# # Dynamic routes for the compare pages
-# route_callbacks:
-#   - '\Drupal\ccext\Routing\CcextComparisonRoutes::routes'
-
 ccext.career:
   path: '/career-compare/career'
   defaults:
@@ -16,3 +5,11 @@ ccext.career:
     _title_callback: '\Drupal\ccext\Controller\CcextComparisonController::title'
   requirements:
     _permission: 'access content'
+
+ccext.form:
+  path: '/admin/config/development/csv-importer'
+  defaults:
+    _form: '\Drupal\ccext\Form\NocCareerImporterForm'
+    _title: 'NOC & Career Profile Import CSV'
+  requirements:
+    _permission: 'access csv importer'

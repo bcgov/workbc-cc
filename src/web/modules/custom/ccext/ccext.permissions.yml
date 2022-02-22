@@ -1,0 +1,4 @@
+access csv importer:
+  title: 'Access CSV Importer'
+  description: 'Import content with CSV Importer'
+  restrict access: true
