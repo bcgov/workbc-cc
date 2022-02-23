@@ -2,187 +2,331 @@
 
 /**
  * @file
- * Work BC Quiz module to create Double Reference field .
+ *  Work BC Quiz module to create Double Reference field 
  */
 
-use Drupal\taxonomy\Entity\Term;
-use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
-use Drupal\Core\Entity\EntityInterface;
 
-/**
- * Use Drupal\Core\Url;
- * use Drupal\Component\Utility\Html;.
- */
-function work_bc_quiz_page_attachments_alter(array &$attachments) {
-  $attachments['#attached']['library'][] = 'work_bc_quiz/work-bc-lib';
+#use Drupal\Core\Url;
+#use Drupal\Component\Utility\Html;
+
+
+function work_bc_quiz_page_attachments_alter(array &$attachments) {  
+	$attachments['#attached']['library'][] = 'work_bc_quiz/work-bc-lib';
 }
 
-/**
- *
- */
 function work_bc_quiz_theme($existing, $type, $theme, $path) {
   return [
-    'node__quiz' => [
-      'template' => 'node--quiz',
-      'base hook' => 'node',
+   'page__abilities_quiz' => [
+      'template' => 'page--quiz-custom-template',
+      'base hook' => 'page'
     ],
-    'node__abilities_quiz__full' => [
-      'template' => 'node--quiz--full',
-      'base hook' => 'node',
+	'page__quiz__abilities_quiz' => [
+      'template' => 'page--quiz-custom-template',
+      'base hook' => 'page'
     ],
-    'views_view__career_quizzes__page_1' => [
-      'template' => 'views-view--career-quizzes--page-1',
-      'base hook' => 'view',
+	'node__abilities_quiz_full' => [
+      'template' => 'node--custom-quiz-full-template',
+      'base hook' => 'node'
     ],
-    'views_bootstrap_grid' => [
-      'template' => 'views-bootstrap-grid--career-quizzes-block-1',
-      'base hook' => 'view',
+	'node__abilities_quiz' => [
+      'template' => 'node--custom-quiz-full-template',
+      'base hook' => 'node'
     ],
-    'views_bootstrap_grid__career_quizzes' => [
-      'template' => 'views-bootstrap-grid--career-quizzes-block-1',
-      'base hook' => 'views',
+	'views_view__quiz__page_1' => [
+      'template' => 'views-view--quiz-page-1',
+      'base hook' => 'view'
     ],
-    'node_edit_form' => [
+	'views_view_unformatted__career_quizzes' => [
+      'template' => 'views-unformatted--career_quizzes-block-1',
+      'base hook' => 'view'
+    ],
+	'views_bootstrap_grid__career_quizzes' => [
+      'template' => 'views-bootstrap-grid--quiz-block-1',
+      'base hook' => 'views'
+    ],
+	'node_edit_form' => [
       'render element' => 'form',
       'template' => 'node_edit_form',
-      'base hook' => 'node_edit_form',
+      'base hook' => 'node_edit_form'
+    ],
+	'views_view_unformatted__step_form_pagination' => [
+      'template' => 'views-view-unformatted--step_form_pagination--block-1',
+      'base hook' => 'view'
+    ],
+	'block__forms_steps_progress_bar' => [
+      'template' => 'block--forms-steps-progress-bar', 
+      'base hook' => 'block'
     ],
   ];
 }
 
-/**
- * Add title default value in title intput box.
- */
+ function work_bc_quiz_theme_suggestions_page_alter(array &$suggestions, array $variables)
+{
+	if ($view = \Drupal::routeMatch()->getParameter('view_id')) {
+		$display_id = \Drupal::routeMatch()->getParameter('display_id');
+		$suggestions[] = 'page__' . $view . '--' . $display_id;
+	}
+	if ($node = \Drupal::routeMatch()->getParameter('node')) {
+		$suggestions[] = 'page__' . $node->bundle().'_'.$node->id();
+		$suggestions[] = 'page__' . $node->bundle();
+	}
+
+}
+ // Add title default value in title intput box
 function work_bc_quiz_form_node_form_alter(&$form, $formState, $form_id) {
-  $nodeTypeToHideTitle = ["multiple_intelligence_quiz", "multiple_intelligence_quiz_step_1", "abilities_quiz", "abilities_quiz_step_1"];
-  $form_id = str_replace(["node_", "_form", "_step_1"], [''], $form_id);
-  if (in_array($form_id, $nodeTypeToHideTitle)) {
-    $form['title']['widget'][0]['value']['#value'] = ucwords(str_replace("_", " ", $form_id));
-    $form['title']['widget'][0]['#attributes']['class'] = ['wrapper-class'];
-    unset($form['preview']);
-    // \Drupal::messenger()->addMessage(t('You\'re creating a Basic Quiz node.'), 'info');
-  }
+	
+	// print_r($session);
+	$nodeTypeToHideTitle = ["multiple_intelligence_quiz", "multiple_intelligence_quiz_step_1", "abilities_quiz", "abilities_quiz_step_1"];
+	$form_id = str_replace(["node_", "_form", "_step_1"],[''],$form_id);
+	if(in_array($form_id, $nodeTypeToHideTitle)){
+		$form['title']['widget'][0]['value']['#value'] = ucwords(str_replace("_", " ", $form_id));
+		$form['title']['widget'][0]['#attributes']['class'] = ['wrapper-class'];
+		unset ($form['preview']);
+		//\Drupal::messenger()->addMessage(t('You\'re creating a Basic Quiz node.'), 'info');
+	}
 }
 
-/**
- * Set default value of title before saving node.
- */
-function work_bc_quiz_entity_presave(EntityInterface $entity) {
-  switch ($entity->bundle()) {
-    case 'multiple_intelligence_quiz':
-      // Setting the title with the value of field_date.
-      $autoTitle = ucwords(str_replace("_", " ", $entity->bundle())) . " - Results";
-      $entity->setTitle($autoTitle);
-      break;
-
-    case 'abilities_quiz':
-      // Setting the title with the value of field_date.
-      $autoTitle = ucwords(str_replace("_", " ", $entity->bundle())) . " - Results";
-      $entity->setTitle($autoTitle);
-      break;
-  }
+// Set default value of title before saving node.
+function work_bc_quiz_entity_presave(Drupal\Core\Entity\EntityInterface $entity) {
+  $session = \Drupal::request()->getSession();
+  $SaveToSession =  false;
+  $autoTitle = "";
+	switch ($entity->bundle()) {
+		case 'multiple_intelligence_quiz':
+		  // Setting the title with the value of field_date.
+			$autoTitle = ucwords(str_replace("_", " ", $entity->bundle())) ;
+			$entity->setTitle($autoTitle . " - Results");
+			$SaveToSession = true;
+		 break;
+		case 'abilities_quiz':
+		  // Setting the title with the value of field_date.
+		  $autoTitle = ucwords(str_replace("_", " ", $entity->bundle()));
+		  $entity->setTitle($autoTitle . " - Results");
+		  $SaveToSession = true;
+		 break;
+	}
+	
+	if($SaveToSession == true){
+		  $SavedQuiz = ($session->get('SavedQuiz')) ? $session->get('SavedQuiz') : '';
+			 
+			if(!is_array($SavedQuiz)) $SavedQuiz = []; 
+			$i = 0; 
+			foreach($SavedQuiz as $value){
+				if($value['title'] == $autoTitle) $i++; break;
+			}
+			if($i == 0) {
+				$SavedQuiz[] = ['title'=> $autoTitle, 'uuid' => $entity->uuid()];
+				$session->set('SavedQuiz', $SavedQuiz);
+				$_SESSION['SavedQuiz'] = $SavedQuiz;
+			}
+		
+	}
 }
-
-/**
- *
- */
-function work_bc_quiz_node_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+function work_bc_quiz_node_view(array &$build, \Drupal\Core\Entity\EntityInterface $entity, \Drupal\Core\Entity\Display\EntityViewDisplayInterface $display, $view_mode) {
 
   $node = $entity;
-  if ($node->bundle() === 'multiple_intelligence_quiz' || $node->bundle() === 'abilities_quiz') {
-    if ($view_mode === 'full' || $view_mode === 'quiz') {
-      // var_dump($node->getFieldDefinitions());
-      // $fields = \Drupal::entityManager()->getFieldDefinitions('node', 'article');.
-      $fields = \Drupal::service('entity_field.manager')->getFieldDefinitions('node', $node->bundle());
-      $bundleFields = [];
-
-      $groupedResult = [];
-      foreach ($fields as $field_name => $field_definition) {
-        if (!empty($field_definition->getTargetBundle())) {
-          if ($field_definition->getType() == "work_bc_quiz") {
-            $answer = $node->get($field_name)->getValue();
-
-            if ($answer[0]['ar_target_id']) {
-
-            }
-            else {
-              $answer[0]['ar_target_id'] = 10;
-            }
-            if ($answer[0]['target_id']) {
-              // print_r($answer[0]['target_id']);
-              // echo "<br/>";.
-            }
-            else {
-              // die;.
-              $answer[0]['target_id'] = 4;
-            }
-            $options_weight = Term::load($answer[0]['ar_target_id'])->get('field_weightage')->value;
-            $category_name = Term::load($answer[0]['target_id'])->get('name')->value;
-            $category_weight = Term::load($answer[0]['target_id'])->get('field_weightage')->value;
-            $category_svg = Term::load($answer[0]['target_id'])->get('field_svg_icon')->entity->uri->value;
-
-            $category_description = Term::load($answer[0]['target_id'])->get('description')->value;
-
-            if (array_key_exists($category_name, $groupedResult)) {
-              array_push($groupedResult[$category_name]['score'], $options_weight);
-            }
-            else {
-              $groupedResult[$category_name]['score'] = [$options_weight];
-              $groupedResult[$category_name]['name'] = $category_name;
-              $groupedResult[$category_name]['weight'] = $category_weight;
-              $groupedResult[$category_name]['icon'] = $category_svg;
-              $groupedResult[$category_name]['description'] = $category_description;
-            }
-            if ($entity_type_id) {
-              $bundleFields[$entity_type_id][$field_name]['type'] = $field_definition->getType();
-              $bundleFields[$entity_type_id][$field_name]['label'] = $field_definition->getLabel();
-
-              $bundleFields[$entity_type_id][$field_name]['answer']['target_id'] = $answer[0]['target_id'];
-              $bundleFields[$entity_type_id][$field_name]['answer']['target_name'] = Term::load($answer[0]['target_id'])->get('name')->value;
-              $bundleFields[$entity_type_id][$field_name]['answer']['ar_target_id'] = $answer[0]['ar_target_id'];
-              $bundleFields[$entity_type_id][$field_name]['answer']['ar_target_name'] = ($answer[0]['ar_target_id']) ? Term::load($answer[0]['ar_target_id'])->get('name')->value : '';
-              $bundleFields[$entity_type_id][$field_name]['answer']['field_weightage'] = ($answer[0]['ar_target_id']) ? Term::load($answer[0]['ar_target_id'])->get('field_weightage')->value : '';
-            }
-          }
-        }
-      }
-      // print_r($groupedResult);
-      $bundleFields = $bundleFields[''];
-
-      $build['an_additional_field']['#quiz_result'] = $groupedResult;
-      // $build['body'][0]['#text'] = 'this is a new altered content body ';
-      // $build['title'][0]['#context']['value'] = 'Test';
-      // $build['quiz_result'] = ['Test'];
-      /* $someText="  ";
-      $build['tradesteps_markup'] = array(
-      '#markup' => $someText,
-      '#prefix' => '<div class="addition-text-markup">Top Wrapper Markup...',
-      '#suffix' => '</div>'
-      );
-      $build['tradesteps_container'] = array(
-      '#type' => 'container',
-      '#prefix' => '<div class="addition-text-container">Top Wrapper Container...',
-      '#suffix' => '</div>'
-      ); */
-      // dump($build['title'][0]['#context']['value']);
-      // print_r($bundleFields);
-      // return $build;.
-    }
-    elseif ($view_mode === 'default') {
-      // Print "Test2";
-      // die;.
-    }
-  }
+	if ($node->bundle() === 'multiple_intelligence_quiz' || $node->bundle() === 'abilities_quiz') {
+		if ($view_mode === 'full' || $view_mode === 'quiz') {
+			// var_dump($node->getFieldDefinitions());
+			
+			// $fields = \Drupal::entityManager()->getFieldDefinitions('node', 'article');
+			$fields = \Drupal::service('entity_field.manager')->getFieldDefinitions('node', $node->bundle());
+			$bundleFields = [];
+			
+			$groupedResult = [];
+			  foreach ($fields as $field_name => $field_definition) {
+				if (!empty($field_definition->getTargetBundle())) {
+					if($field_definition->getType() == "work_bc_quiz"){
+						$answer = $node->get($field_name)->getValue(); 
+						
+						$options_weight = \Drupal\taxonomy\Entity\Term::load($answer[0]['ar_target_id'])->get('field_weightage')->value;
+						$category_name = \Drupal\taxonomy\Entity\Term::load($answer[0]['target_id'])->get('name')->value;
+						$category_weight = \Drupal\taxonomy\Entity\Term::load($answer[0]['target_id'])->get('field_weightage')->value;
+						$category_svg = \Drupal\taxonomy\Entity\Term::load($answer[0]['target_id'])->get('field_svg_icon')->entity->uri->value;
+						
+						$category_description = \Drupal\taxonomy\Entity\Term::load($answer[0]['target_id'])->get('description')->value;
+						
+						if(array_key_exists($category_name, $groupedResult)){
+							array_push($groupedResult[$category_name]['score'], $options_weight);
+						}else {
+							$groupedResult[$category_name]['score'] =[$options_weight];
+							$groupedResult[$category_name]['name'] = $category_name;
+							$groupedResult[$category_name]['weight'] = $category_weight;
+							$groupedResult[$category_name]['icon'] = $category_svg;
+							$groupedResult[$category_name]['description'] = $category_description;
+						}
+						
+						$bundleFields[$entity_type_id][$field_name]['type'] = $field_definition->getType();
+						$bundleFields[$entity_type_id][$field_name]['label'] = $field_definition->getLabel();
+						
+						$bundleFields[$entity_type_id][$field_name]['answer']['target_id'] = $answer[0]['target_id'];
+						$bundleFields[$entity_type_id][$field_name]['answer']['target_name'] =   \Drupal\taxonomy\Entity\Term::load($answer[0]['target_id'])->get('name')->value;
+						$bundleFields[$entity_type_id][$field_name]['answer']['ar_target_id'] = $answer[0]['ar_target_id'];
+						$bundleFields[$entity_type_id][$field_name]['answer']['ar_target_name'] =   \Drupal\taxonomy\Entity\Term::load($answer[0]['ar_target_id'])->get('name')->value;
+						$bundleFields[$entity_type_id][$field_name]['answer']['field_weightage'] =   \Drupal\taxonomy\Entity\Term::load($answer[0]['ar_target_id'])->get('field_weightage')->value;
+					}
+				}
+			  } 
+			//print_r($groupedResult);
+			$bundleFields = $bundleFields['']; 
+			
+			$build['an_additional_field']['#quiz_result'] = $groupedResult;
+			// $build['body'][0]['#text'] = 'this is a new altered content body ';
+			/* $build['title'][0]['#context']['value'] = 'Test';
+			$build['quiz_result'] = ['Test']; */
+			
+			/* $someText="  ";
+			$build['tradesteps_markup'] = array(
+					'#markup' => $someText,
+					'#prefix' => '<div class="addition-text-markup">Top Wrapper Markup...',
+					'#suffix' => '</div>'
+				);
+			$build['tradesteps_container'] = array(
+					'#type' => 'container',
+					'#prefix' => '<div class="addition-text-container">Top Wrapper Container...',
+					'#suffix' => '</div>'
+				); */
+			// dump($build['title'][0]['#context']['value']);
+			//print_r($bundleFields);
+			// return $build;
+			
+		}
+		elseif ($view_mode === 'default') {
+			/* print "Test2";
+			die; */
+			
+		}
+	}
 }
 
-/**
- *
- */
-function work_bc_quiz_node_view_alter(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display) {
-  if (isset($build['_title'])) {
+use \Drupal\views\ViewExecutable; 
 
-    $field_group = $build['#group_children']['title'];
-    $build['#group_children']['_title'] = $field_group;
-    $build['#fieldgroups'][$field_group]->children[] = '_title';
-  }
+function work_bc_quiz_views_pre_view(ViewExecutable $view, $display_id, array &$args) {
+	
+	// Modify contextual filters for my_special_view if user has 'my special permission'.
+	$account = \Drupal::currentUser();
+	if ($view->id() == 'career_quizzes' && $display_id == 'page_1') {
+		$args[0] = 'custom value';
+		$current_user = \Drupal::currentUser();
+		$user = \Drupal\user\Entity\User::load($current_user->id());
+		$user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+		$session = \Drupal::request()->getSession();
+	
+	}
+	
+}
+
+function work_bc_quiz_views_pre_render(ViewExecutable &$view) {
+	$session = \Drupal::request()->getSession();
+	if ($view->id() == 'career_quizzes'  ) {
+		
+		$results = $view->result;
+		$filteredResults = [];
+		
+		foreach ($results as $k => $row) {
+			$row->_entity->get('nid')->setValue(0, TRUE);
+			$nodeTitle = $row->_entity->get('title')->value;
+			if($session->get('SavedQuiz')){
+				$SavedQuiz = $session->get('SavedQuiz');
+				$SavedQuiz1 = $_SESSION['SavedQuiz'];
+				
+				
+				if(is_array($SavedQuiz)) {	
+					
+					foreach($SavedQuiz as $value){
+						
+						 if($value['title'] == $nodeTitle){
+							$field_quiz_link = $row->_entity->get('field_quiz_link');
+							$field_value = $field_quiz_link->getValue();
+							
+							
+							
+							$quizLink = strtolower(str_replace(" ","_", $nodeTitle));
+
+							$query = \Drupal::database()->select('node', 'n')->fields('sf', ['instance_id', 'entity_id']);
+							$query->leftJoin('forms_steps_workflow', 'sf', 'sf.entity_id = n.nid'); 
+							$query->condition('n.uuid', $value['uuid']);
+							$results = $query->execute()->fetchAll();
+							$instance_id = $results[0]->instance_id;
+							$entity_id = $results[0]->entity_id;
+
+							$field_value[0]['uri'] = "internal:/quiz/$quizLink/step1/preview/".$instance_id;
+							$field_value[0]['title'] = 'Modify Your Answers';
+						  
+							$row->_entity->get('field_quiz_link')->setValue($field_value, TRUE);
+							
+							
+							$row->_entity->get('nid')->setValue($entity_id, TRUE);
+							#print $view_node = $row->_entity->get('view_node')->value;
+							/* $view_node_link = $row->_entity->get('view_node');
+							$view_node_value = $view_node_link->getValue();
+							print_R($view_node_link); */
+							
+							/* $view_node_value[0]['uri'] = "node/".$entity_id;
+							$view_node_value[0]['title'] = 'View Your Results';
+						  
+							$row->_entity->get('view_node')->setValue($view_node_value, TRUE); */
+							
+						}else {
+							
+						}
+					}
+				}
+			}else {
+				# print "no sessions";
+			}
+			 $result[$k] = $row;
+			$filteredResults[] = $result;			
+		}
+
+
+		foreach ($filteredResults as $key => $row) {
+			$row->index = $key;
+		}
+
+		$view->result = $result;
+		$view->total_rows = count($filteredResults);
+		
+	}
+	else if ($view->id() == 'step_form_pagination') {
+		 
+		$results = $view->result;
+		$filteredResults = [];
+						  
+		$bundle = $results[0]->_entity->get('bundle')->value;
+		$entity_type = $results[0]->_entity->get('entity_type')->value;
+		$instance_id = $results[0]->_entity->get('instance_id')->value;
+		
+		$fields = \Drupal::service('entity_field.manager')->getFieldDefinitions('node', $bundle);
+		$bundleFields = [];
+		$total_fields =0;
+		$current_path = \Drupal::service('path.current')->getPath();
+		$path = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
+		
+		//print_r($path);
+		
+		foreach ($fields as $field_name => $field_definition) {
+			if (!empty($field_definition->getTargetBundle())) {
+				if($field_definition->getType() == "work_bc_quiz"){
+					$total_fields++;
+				}
+			}
+		}
+		  
+		#$newPath = str_replace("step1","step".$j, $path);
+		$results[0]->_entity->get('bundle')->setValue($path);
+		$results[0]->_entity->get('entity_type')->setValue(ceil($total_fields/10));
+		//$results[0]->_entity->get('entity_type')->setValue($j);
+		$result[0] = $results[0];
+		$filteredResults[] = $result;
+			 
+
+		foreach ($filteredResults as $key => $row) {
+			$row->index = $key;
+		}
+
+		$view->result = $result;
+		$view->total_rows = count($filteredResults);
+	
+	}
 }

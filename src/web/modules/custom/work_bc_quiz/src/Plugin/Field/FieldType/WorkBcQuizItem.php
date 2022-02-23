@@ -163,8 +163,8 @@ class WorkBcQuizItem extends EntityReferenceItem {
       '#default_value' => $settings['pr_label'],
       '#description' => $this->t('Label for the primary reference field.'),
     ];
-
-    $form['pr_field_hide'] = [
+	
+	$form['pr_field_hide'] = [
       '#type' => 'checkbox',
       '#title' => $this->t('Hide reference field'),
       '#default_value' => ($settings['pr_field_hide']) ? $settings['pr_field_hide'] : '',

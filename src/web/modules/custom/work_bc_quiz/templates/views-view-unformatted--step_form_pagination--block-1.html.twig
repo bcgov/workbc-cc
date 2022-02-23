@@ -1,0 +1,54 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ *
+ * @ingroup themeable
+ */
+#}
+{% if title %}
+  <h3>{{ title }}</h3>
+{% endif %}
+{% for row in rows %}
+  {%
+    set row_classes = [
+      default_row_class ? 'views-row',
+      'row',
+    ]
+  %}
+	<div class="container">
+	  <div{{ row.attributes.addClass(row_classes) }}>
+		{% set k = (row.content['#row']._entity.entity_type[0].value - 1) %}
+		{% set path = row.content['#row']._entity.bundle[0].value %}
+			<div class="col-md-3"></div>
+			<div class="col-md-6">
+				<ul class="pagging">
+				{% for i in 0..k %}
+					{% set j = i+1 %}
+					
+						{% if "step"~j in path %}
+						<li class="pag active"> 
+							<a href="{{path|replace({'step1': "step"~j, 'step2': "step"~j, 'step3': "step"~j, 'step4': "step"~j, 'step5': "step"~j, 'step6': "step"~j, 'step7': "step"~j, 'step8': "step"~j})}}" class="page-item active"> {{ j }}</a>
+						{% else %}
+						<li class="pag"> 
+							<a href="{{path|replace({'step1': "step"~j, 'step2': "step"~j, 'step3': "step"~j, 'step4': "step"~j, 'step5': "step"~j, 'step6': "step"~j, 'step7': "step"~j, 'step8': "step"~j})}}" class="page-item"> {{ j }}</a>
+						{% endif %}
+					</li>
+				{% endfor %}
+				</ul>
+			</div>
+			<div class="col-md-3"></div>
+		</div>
+	</div>
+{% endfor %}

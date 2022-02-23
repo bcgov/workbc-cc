@@ -37,10 +37,10 @@ class WorkBcQuizAutocompleteWidget extends EntityReferenceAutocompleteWidget {
       $widget['target_id']['#title'] = $settings['pr_label'];
       $widget['target_id']['#title_display'] = 'before';
     }
-
-    if (!empty($settings['pr_field_hide'])) {
-      $widget['target_id']['#attributes']['class'][] = 'visually-hidden-node';
-    }
+	
+	if (!empty($settings['pr_field_hide'])) {
+		$widget['target_id']['#attributes']['class'][] = 'visually-hidden-node';
+	}
 
     // Get the settings for the added reference field.
     $ar_bundles = $settings['added_reference']['ar_bundles'];

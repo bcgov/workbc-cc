@@ -5,3 +5,9 @@ core_version_requirement: ^8 || ^9
 
 libraries:
   - work_bc_quiz/work-bc-lib
+  
+# Information added by Drupal.org packaging script on 2021-05-03
+#Information modified on 2022-01-21
+version: '8.x-1.x-dev'
+project: 'work_bc_quiz'
+datestamp: 1642750517

@@ -87,6 +87,9 @@
 			<h2{{ title_attributes }}>
 			  <a href="{{ url }}" rel="bookmark">{{ label }}</a>
 			</h2>
+			<div class="head-desc">
+				<p>Find out about your key aptitudes and see what types of job you are more likely to be good at based on your current skill set. </p>
+			</div>
 		  {% endif %}
 		  {{ title_suffix }}
 
@@ -101,38 +104,62 @@
 		  {% endif %}
 
 		  <div{{ content_attributes.addClass('node__content') }}>
-			<div class="container" >
+			<div class="" >
 				<div class="row">
-					{% for item in content.an_additional_field['#quiz_result'] %}
-						{% set sum = 0 %}    
-						{% set variation = item.score|length * item.weight %}    
-						{% set loopOutput %}               
-							{% for r in item.score %}            
-							   {% set sum = sum + r %}        
-							{% endfor %}    
-						{% endset %}
-						<div class="col-1 col-sm-1 col-md-6 col-lg-4 col-xl-4 itm">
-							<div class="quiz-list">
-								<div>
-									<div class="item field-match">
-										{{ (sum / variation * 100) |number_format(0)}}% Match 
+					<div class="col-md-12">
+						<div class="result-heading">
+							<h2>Top Aptitudes</h2>
+						</div>
+					</div>
+				</div>
+				  
+				<div id="myResult" data-ride="carousel" class="carousel slide">
+					<ol class="carousel-indicators">
+						{% for item in content.an_additional_field['#quiz_result'] %}
+							<li data-target="#myResult" data-slide-to="{{ loop.index }}" class="active"></li>
+					  {% endfor %}
+					</ol>
+					<div class="carousel-inner"> 
+						<div class="row carousel-item active">
+							{% for item in content.an_additional_field['#quiz_result'] %}
+								{% set sum = 0 %}    
+								{% set variation = item.score|length * item.weight %}    
+								{% set loopOutput %}               
+									{% for r in item.score %}            
+									   {% set sum = sum + r %}        
+									{% endfor %}    
+								{% endset %}
+								{% set classes1 = [
+									'col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 itm',
+									(loop.index > 3) ? 'hide'
+								  ]
+								%}
+								<div{{ attributes.addClass(classes1) }}>
+									<div class="quiz-list">								
+										<div class="item field-match">
+											{{ (sum / variation * 100)|round }}% Match 
+										</div>
+										<div class="item img-field">
+											<img src="{{ file_url(item.icon) }}" />
+											<!-- <svg class="footer-icon-web">
+												<use xlink:href=""></use>
+											</svg> -->
+										</div>
+										<div class="item title-field">
+											{{ item.name }}
+										</div>
+										<div class="item title-description">
+											{{ item.description|render|striptags}}
+										</div>
 									</div>
 								</div>
-								<div class="item img-field">
-									<img src="{{ file_url(item.icon) }}" />
-									<!-- <svg class="footer-icon-web">
-										<use xlink:href=""></use>
-									</svg> -->
-								</div>
-								<div class="item title-field">
-									{{ item.name }}
-								</div>
-								<div class="item title-description">
-									{{ item.description|render|striptags}}
-								</div>
+							{% endfor %}
+							
+							<div class="hideshow">
+								<span class="vaa">View All Aptitudes</span> <span>+</span>
 							</div>
 						</div>
-					{% endfor %}
+					</div>
 					</div>
 				</div>
 			</div>
