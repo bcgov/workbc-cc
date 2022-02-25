@@ -1,0 +1,12 @@
+diff --git a/src/Controller/EntityComparisonController.php b/src/Controller/EntityComparisonController.php
+index 2032f42..487ab65 100755
+--- a/src/Controller/EntityComparisonController.php
++++ b/src/Controller/EntityComparisonController.php
+@@ -416,6 +416,7 @@ class EntityComparisonController extends ControllerBase implements ContainerInje
+
+     return [
+       '#type' => 'table',
++      '#id' => $bundle_type . '-' . $entity_type . '-comparison-table',
+       '#rows' => $rows,
+       '#header' => $header,
+       '#empty' => $this->t('No content available to compare.'),

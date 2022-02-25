@@ -1,0 +1,118 @@
+{#
+/**
+ * @file
+ * Theme override to display a table.
+ *
+ * Available variables:
+ * - attributes: HTML attributes to apply to the <table> tag.
+ * - caption: A localized string for the <caption> tag.
+ * - colgroups: Column groups. Each group contains the following properties:
+ *   - attributes: HTML attributes to apply to the <col> tag.
+ *     Note: Drupal currently supports only one table header row, see
+ *     https://www.drupal.org/node/893530 and
+ *     http://api.drupal.org/api/drupal/includes!theme.inc/function/theme_table/7#comment-5109.
+ * - header: Table header cells. Each cell contains the following properties:
+ *   - tag: The HTML tag name to use; either 'th' or 'td'.
+ *   - attributes: HTML attributes to apply to the tag.
+ *   - content: A localized string for the title of the column.
+ *   - field: Field name (required for column sorting).
+ *   - sort: Default sort order for this column ("asc" or "desc").
+ * - sticky: A flag indicating whether to use a "sticky" table header.
+ * - rows: Table rows. Each row contains the following properties:
+ *   - attributes: HTML attributes to apply to the <tr> tag.
+ *   - data: Table cells.
+ *   - no_striping: A flag indicating that the row should receive no
+ *     'even / odd' styling. Defaults to FALSE.
+ *   - cells: Table cells of the row.cells. Each cell contains the following keys:
+ *     - tag: The HTML tag name to use; either 'th' or 'td'.
+ *     - attributes: Any HTML attributes, such as "colspan", to apply to the
+ *       table cell.
+ *     - content: The string to display in the table cell.
+ *     - active_table_sort: A boolean indicating whether the cell is the active
+         table sort.
+ * - footer: Table footer rows, in the same format as the rows variable.
+ * - empty: The message to display in an extra row if table does not have
+ *   any rows.
+ * - no_striping: A boolean indicating that the row should receive no striping.
+ * - header_columns: The number of columns in the header.
+ *
+ * @see template_preprocess_table()
+ */
+
+#}
+<div class="compare-career-main-wrapper">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="back-link"><a href='javascript:history.back()'><img src="../../../../themes/custom/bcgov_career/assets/arrow-left.svg"/> Back to Quiz Results</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        {# {{ dd(rows) }} #}
+        <div class="career-content-compare career-content-main-wrapper">
+          {% if rows %}
+            {% for rowkey, row in rows %}
+            <div class="career-content-item active">
+              <div class="career-content-item-inner">
+                <div class="title">
+                  <p>{{ row.cells.field_noc_name.content }}
+                    </br><span class='noc-code'>(NOC {{ row.cells.title.content }})</span>
+                  </p>
+                  <div class="slide-next-prev">
+                    {% if rowkey == "0" %}
+                      <a href="javascript:;" class="next-true">
+                        <img src="../../../../themes/custom/bcgov_career/assets/arrow-left.svg"/>
+                      </a>
+                    {% elseif rowkey == "1" %}
+                      <a href="javascript:;" class="next-true">
+                        <img src="../../../../themes/custom/bcgov_career/assets/arrow-left.svg"/>
+                      </a>
+                      <a href="javascript:;" class="prev-true">
+                        <img src="../../../../themes/custom/bcgov_career/assets/arrow-left.svg"/>
+                      </a>
+                    {% elseif rowkey == "2" %}
+                      <a href="javascript:;" class="prev-true">
+                        <img src="../../../../themes/custom/bcgov_career/assets/arrow-left.svg"/>
+                      </a>
+                    {% endif %}
+                  </div>
+                </div>
+                <div class="career-inner-content">
+                  <div class="image-video">
+                    {% if row.cells.field_video_id.content != '' and row.cells.field_video_id.content != '#NAME?' %}
+                      <iframe width="420" height="345" src="{{ 'https://www.youtube.com/embed/' ~ row.cells.field_video_id.content }}"></iframe>
+                    {% else %}
+                      <img src="{{ file_url(row.cells.field_image.content) }}" alt=""/>
+                    {% endif %}
+                  </div>
+                  <div class="data">
+                    {% if row.cells.field_median_salary.content is not empty %}
+                      <p class="data-item"><span class="f-d">Annual Salary</span><span class="s-d">{{ row.cells.field_median_salary.content }}</span></p>
+                    {% endif %}
+                    {% if row.cells.field_education_level.content is not empty %}
+                      <p class="data-item"><span class="f-d">Education Level</span><span class="s-d">{{ row.cells.field_education_level.content }}</span></p>
+                    {% endif %}
+                    {% if row.cells.field_job_openings.content is not empty %}
+                      <p class="data-item"><span class="f-d">Job Openings<span>{{ row.cells.field_opening_from_to.content }}</span></span><span class="s-d">{{ row.cells.field_job_openings.content }}</span></p>
+                    {% endif %}
+                  </div>
+                  <div class="description">
+                    {{ row.cells.field_job_summary.content | slice(0, 250) | raw }}
+                  </div>
+                  <div class="bottom-btn">
+                    <a class="btn btn-career-profile" href="{{ row.cells.field_workbc_link.content }}" target='_blank'>View Career Profile</a>
+                    <a class="btn btn-find-job" href="{{ row.cells.field_find_job.content }}" target='_blank'>Find Jobs</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {%  endfor %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

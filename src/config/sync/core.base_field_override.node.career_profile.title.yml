@@ -1,0 +1,18 @@
+uuid: 63cc9266-03e1-484b-ae6c-e3b549e7828d
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.career_profile
+id: node.career_profile.title
+field_name: title
+entity_type: node
+bundle: career_profile
+label: 'NOC code'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

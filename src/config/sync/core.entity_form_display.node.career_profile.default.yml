@@ -4,13 +4,14 @@ status: true
 dependencies:
   config:
     - field.field.node.career_profile.field_education_level
+    - field.field.node.career_profile.field_find_job
     - field.field.node.career_profile.field_image
     - field.field.node.career_profile.field_job_openings
     - field.field.node.career_profile.field_job_summary
     - field.field.node.career_profile.field_median_salary
-    - field.field.node.career_profile.field_noc
+    - field.field.node.career_profile.field_noc_name
     - field.field.node.career_profile.field_opening_from_to
-    - field.field.node.career_profile.field_video_link
+    - field.field.node.career_profile.field_video_id
     - field.field.node.career_profile.field_workbc_link
     - image.style.thumbnail
     - node.type.career_profile
@@ -40,9 +41,17 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_find_job:
+    type: link_default
+    weight: 26
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
   field_image:
     type: image_image
-    weight: 8
+    weight: 27
     region: content
     settings:
       progress_indicator: throbber
@@ -70,13 +79,11 @@ content:
     settings:
       placeholder: ''
     third_party_settings: {  }
-  field_noc:
-    type: entity_reference_autocomplete
-    weight: 1
+  field_noc_name:
+    type: string_textfield
+    weight: 29
     region: content
     settings:
-      match_operator: CONTAINS
-      match_limit: 10
       size: 60
       placeholder: ''
     third_party_settings: {  }
@@ -88,13 +95,13 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_video_link:
-    type: link_default
-    weight: 7
+  field_video_id:
+    type: string_textfield
+    weight: 28
     region: content
     settings:
-      placeholder_url: ''
-      placeholder_title: ''
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_workbc_link:
     type: link_default

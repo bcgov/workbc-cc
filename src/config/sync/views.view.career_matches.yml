@@ -4,13 +4,14 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_education_level
+    - field.storage.node.field_find_job
     - field.storage.node.field_image
     - field.storage.node.field_job_openings
     - field.storage.node.field_job_summary
     - field.storage.node.field_median_salary
-    - field.storage.node.field_noc
+    - field.storage.node.field_noc_name
     - field.storage.node.field_opening_from_to
-    - field.storage.node.field_video_link
+    - field.storage.node.field_video_id
     - field.storage.node.field_workbc_link
     - node.type.career_profile
   module:
@@ -35,6 +36,69 @@ display:
     position: 0
     display_options:
       fields:
+        field_noc_name:
+          id: field_noc_name
+          table: node__field_noc_name
+          field: field_noc_name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: 'Career Matches'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
         title:
           id: title
           table: node_field_data
@@ -45,7 +109,7 @@ display:
           entity_type: node
           entity_field: title
           plugin_id: field
-          label: 'Career Matches'
+          label: NOC
           exclude: false
           alter:
             alter_text: false
@@ -91,69 +155,6 @@ display:
           settings:
             link_to_entity: false
           group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        field_noc:
-          id: field_noc
-          table: node__field_noc
-          field: field_noc
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: NOC
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: false
-          group_column: target_id
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -593,73 +594,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_video_link:
-          id: field_video_link
-          table: node__field_video_link
-          field: field_video_link
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: uri
-          type: link
-          settings:
-            trim_length: 80
-            url_only: true
-            url_plain: true
-            rel: '0'
-            target: '0'
-          group_column: ''
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
         field_workbc_link:
           id: field_workbc_link
           table: node__field_workbc_link
@@ -793,10 +727,141 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+        field_video_id:
+          id: field_video_id
+          table: node__field_video_id
+          field: field_video_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_find_job:
+          id: field_find_job
+          table: node__field_find_job
+          field: field_find_job
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: uri
+          type: link
+          settings:
+            trim_length: 80
+            url_only: true
+            url_plain: true
+            rel: '0'
+            target: '0'
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
       pager:
-        type: none
+        type: some
         options:
           offset: 0
+          items_per_page: 20
       exposed_form:
         type: basic
         options:
@@ -943,13 +1008,14 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_education_level'
+        - 'config:field.storage.node.field_find_job'
         - 'config:field.storage.node.field_image'
         - 'config:field.storage.node.field_job_openings'
         - 'config:field.storage.node.field_job_summary'
         - 'config:field.storage.node.field_median_salary'
-        - 'config:field.storage.node.field_noc'
+        - 'config:field.storage.node.field_noc_name'
         - 'config:field.storage.node.field_opening_from_to'
-        - 'config:field.storage.node.field_video_link'
+        - 'config:field.storage.node.field_video_id'
         - 'config:field.storage.node.field_workbc_link'
   block_1:
     id: block_1
@@ -969,11 +1035,12 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_education_level'
+        - 'config:field.storage.node.field_find_job'
         - 'config:field.storage.node.field_image'
         - 'config:field.storage.node.field_job_openings'
         - 'config:field.storage.node.field_job_summary'
         - 'config:field.storage.node.field_median_salary'
-        - 'config:field.storage.node.field_noc'
+        - 'config:field.storage.node.field_noc_name'
         - 'config:field.storage.node.field_opening_from_to'
-        - 'config:field.storage.node.field_video_link'
+        - 'config:field.storage.node.field_video_id'
         - 'config:field.storage.node.field_workbc_link'

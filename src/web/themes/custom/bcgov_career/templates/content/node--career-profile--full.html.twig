@@ -102,20 +102,20 @@
           <div class="career-inner-content page">
             <div class="image-video">
               {% if node.field_video_link.isempty() %}
-                <img src="{{ node.field_image|file_url }}" alt=""/>
+                <img src="{{ node.field_noc.entity.field_image|file_url }}" alt=""/>
               {% else %}
-                <iframe width="420" height="345" src="{{ node.field_video_link.0.uri }}"></iframe>
+                <iframe width="420" height="345" src="{{ 'https://www.youtube.com/embed/' ~ node.field_noc.entity.field_video_id.value }}"></iframe>
               {% endif %}
             </div>
             <div class="data">
               {% if node.field_median_salary.value is not empty %}
-                <p class="data-item"><span class="f-d">Annual Salary</span><span class="s-d">${{ node.field_median_salary.value }}</span></p>
+                <p class="data-item"><span class="f-d">Annual Salary</span><span class="s-d">${{ node.field_median_salary.value|number_format(0, '.', ',') }}</span></p>
               {% endif %}
               {% if node.field_education_level.value is not empty %}
                 <p class="data-item"><span class="f-d">Education Level</span><span class="s-d">{{ node.field_education_level.entity.name.value }}</span></p>
               {% endif %}
               {% if node.field_job_openings.value is not empty %}
-                <p class="data-item"><span class="f-d">Job Openings<span>{{ node.field_opening_from_to.value }}</span></span><span class="s-d">{{ node.field_job_openings.value }}</span></p>
+                <p class="data-item"><span class="f-d">Job Openings</br><span>{{ node.field_opening_from_to.value }}</span></span><span class="s-d">{{ node.field_job_openings.value }}</span></p>
               {% endif %}
             </div>
             <div class="description">

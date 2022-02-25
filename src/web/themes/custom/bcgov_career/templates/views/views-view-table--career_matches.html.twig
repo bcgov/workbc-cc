@@ -58,7 +58,7 @@
             </div>
             <div class="top-btn">
               <a href="javascript:;" class="clear-compare disable">Clear Compare</a>
-              <a href="/compare/career" class="compare-career disable">Compare Careers</a>
+              <a href="/career-compare/career" class="compare-career disable">Compare Careers</a>
             </div>
           </div>
         </div>
@@ -128,17 +128,18 @@
               {% set nodeURL =  url('entity.node.canonical', {'node': row.raw.nid}) %}
 
                 <td class="career-table-link" data-node-url="{{ nodeURL }}">
-                    <a href="javascript:;" class="career-table-row-link">{{ row.raw.title }}</br> <span class="noc">(NOC {{ row.raw.field_noc }})</span></a>
+                    <a href="javascript:;" class="career-table-row-link">{{ row.raw.field_noc_name }}</br> <span class="noc">(NOC {{ row.raw.title }})</span></a>
                 </td>
                 <td>
-                    ${{ row.raw.field_median_salary }}
+                    {{ row.columns.field_median_salary }}
                 </td>
                 <td>
-                    {{ row.raw.field_education_level }}
+                    {{ row.columns.field_education_level }}
                 </td>
                 <td>
-                  <label class="compare-career" data-career="/entity-comparison/career/{{ row.raw.entity_comparison_link_career }}?destination=/node/{{ currentPath }}">
-                    <input type="checkbox" class="career-checkbox">
+                  {{ row.columns.entity_comparison_link_career }}
+                  <label class="compare-career compare-carr" data-career="/entity-comparison/career/{{ row.raw.entity_comparison_link_career }}?destination=/node/{{ currentPath }}">
+                    <input type="checkbox" class="career-checkbox career-chkk">
                     <span class="checkmark"></span>
                   </label>
                 </td>
@@ -153,32 +154,32 @@
           {% for rowkey, row in rows %}
             <div id="career-item-{{ rowkey }}" class="career-content-item {% if rowkey == "0" %}active{% endif %}" data-url="">
               <div class="career-content-item-inner">
-                <div class="title"><p>{{ row.raw.title }}</br><span class='noc-code'>(NOC {{ row.raw.field_noc }})</span></p></div>
+                <div class="title"><p>{{ row.raw.field_noc_name }}</br><span class='noc-code'>(NOC {{ row.raw.title }})</span></p></div>
                 <div class="career-inner-content">
                   <div class="image-video">
-                    {% if row.raw.field_video_link != false %}
-                      <iframe width="420" height="345" src="{{ row.raw.field_video_link }}"></iframe>
-                    {% elseif  row.raw.field_video_link == false %}
+                    {% if row.raw.field_video_id != false %}
+                      <iframe width="420" height="345" src="{{ 'https://www.youtube.com/embed/' ~ row.raw.field_video_link }}"></iframe>
+                    {% elseif  row.raw.field_video_id == false %}
                       <img src="{{ row.raw.field_image }}" alt=""/>
                     {% endif %}
                   </div>
                   <div class="data">
                     {% if row.raw.field_median_salary is not empty %}
-                      <p class="data-item"><span class="f-d">Annual Salary</span><span class="s-d">{{ row.raw.field_median_salary }}</span></p>
+                      <p class="data-item"><span class="f-d">Annual Salary</span><span class="s-d">{{ row.columns.field_median_salary }}</span></p>
                     {% endif %}
                     {% if row.raw.field_education_level is not empty %}
-                      <p class="data-item"><span class="f-d">Education Level</span><span class="s-d">{{ row.raw.field_education_level }}</span></p>
+                      <p class="data-item"><span class="f-d">Education Level</span><span class="s-d">{{ row.columns.field_education_level }}</span></p>
                     {% endif %}
                     {% if row.raw.field_job_openings is not empty %}
                       <p class="data-item"><span class="f-d">Job Openings<span>{{ row.raw.field_opening_from_to }}</span></span><span class="s-d">{{ row.raw.field_job_openings }}</span></p>
                     {% endif %}
                   </div>
                   <div class="description">
-                    {{ row.raw.field_job_summary | raw }}
+                    {{ row.raw.field_job_summary }}
                   </div>
                   <div class="bottom-btn">
                     <a class="btn btn-career-profile" href="{{ row.raw.field_workbc_link }}" target='_blank'>View Career Profile</a>
-                    <a class="btn btn-find-job" href="" target='_blank'>Find Jobs</a>
+                    <a class="btn btn-find-job" href="{{ row.raw.field_find_job }}" target='_blank'>Find Jobs</a>
                   </div>
                 </div>
               </div>
@@ -223,10 +224,11 @@
           {% for rowkey, row in rows %}
           {% set nodeURL =  url('entity.node.canonical', {'node': row.raw.nid}) %}
             <div class="tbody-main" data-id="career-item-{{ rowkey }}">
-              <p class="body"><a href="{{ nodeURL }}" class="career-table-mobi-row-link">{{ row.raw.title }} </br><span class="noc">(NOC {{ row.raw.field_noc }})</span></a></p>
+              <p class="body"><a href="{{ nodeURL }}" class="career-table-mobi-row-link">{{ row.raw.field_noc_name }} </br><span class="noc">(NOC {{ row.raw.title }})</span></a></p>
               <p class="body">
-                <label class="compare-career-mobi" data-career="{{ row.raw.entity_comparison_link_career }}">
-                  <input type="checkbox" class="career-mobi-checkbox">
+                {{ row.columns.entity_comparison_link_career }}
+                <label class="compare-career-mobi compare-carr" data-career="{{ row.raw.entity_comparison_link_career }}">
+                  <input type="checkbox" class="career-mobi-checkbox career-chkk">
                   <span class="checkmark"></span>
                 </label>
               </p>

@@ -11,26 +11,41 @@ function bcgov_career_preprocess_views_view_table(&$variables) {
     $result = $variables['result'] = $variables['rows'];
     $fields =& $view->field;
     $handler = $view->style_plugin;
+
     // Render each field into its appropriate column.
     foreach ($result as $num => $row) {
       $raw = NULL;
       foreach ($fields as $key => $value) {
         $raw[$key] = $handler->getFieldValue($num, $key);
-        if ($key == 'field_noc') {
-          $noc_code = $handler->getField($num, $key);
-          $raw['field_noc'] = $noc_code;
+        switch ($key) {
+
+          case 'field_job_summary':
+            $raw[$key] = $handler->getField($num, $key);
+
+            break;
         }
         if ($key == 'field_image' && $handler->getFieldValue($num, $key)) {
           $image_file = \Drupal\file\Entity\File::load($handler->getFieldValue($num, $key));
           $uri = $image_file->uri->value;
-          // $variables['url']=file_create_url($uri);
+          $variables['url']=file_create_url($uri);
           $raw['field_image'] = (file_create_url($uri));
         }
-      }
 
-      // dd($raw);
+      }
       $result[$num]['raw'] = $raw;
     }
     $variables['result'] = $variables['rows'] = $result;
   }
 }
+
+/**
+ * Implements hook_theme_suggestions_alter().
+ */
+function bcgov_career_theme_suggestions_table_alter(array &$suggestions, array $variables, $hook) {
+  if ($variables['attributes']['id'] == 'career_profile-node-comparison-table') {
+    $suggestions[] = $hook . '__' . 'career_profile_comparison_table';
+  }
+}
+
+
+
