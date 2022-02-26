@@ -16,7 +16,7 @@
  *
  * @ingroup themeable
  */
-#}
+#} 
 {%
   set classes = [
     'views-view-grid',
@@ -26,12 +26,10 @@
 %}
 {%
   set row_class = [
-    'col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4',
+    'col-md-6 col-xl-4',
   ]
 %}
-{% if title %}
-  <h3>{{ title }}</h3>
-{% endif %}
+ 
 	{% set counter = 0%}
 	{% for row in rows %}
 		{% if row.content['#row']._entity.field_quiz_link.value[0].title == 'Modify Your Answers'%}
@@ -43,25 +41,28 @@
 		'views-view-grid',
 		'container',
 		'carousel',
+		'cari_quiz',
 		'slide',
 	  ]
 	%}
+	{% set quiz_type = (view.current_display == "block_1")? "Career" : "Personality" %}
+	{% set Carousel = (view.current_display == "block_1")? "myCarousel" : "myCarousel1" %}
 <div {{ attributes.addClass(classes) }}>
 	<div class="row">
 		<div class="col-md-12">
 			<div class="all-quiz-status">
-				<span class="q-done">{{counter}}</span> of <span class="q-total">3</span> <span class="label">Career Quizzes Completed</span>
+				<span class="q-done">{{counter}}</span> of <span class="q-total">3</span> <span class="label">{{quiz_type}} Quizzes Completed</span>
 			</div>
 		</div>
 	</div>
 </div>
 
   
-<div id="myCarousel" data-ride="carousel" {{ attributes.addClass(classes1) }}>
+<div id="{{Carousel}}" data-ride="carousel" {{ attributes.addClass(classes1) }}>
 	<ol class="carousel-indicators {{display_id}} {{id}}">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#{{Carousel}}" data-slide-to="0" class="active"></li>
+      <li data-target="#{{Carousel}}" data-slide-to="1"></li>
+      <li data-target="#{{Carousel}}" data-slide-to="2"></li>
     </ol>
   <div class="carousel-inner"> 
 	  <div class="row carousel-item active">
@@ -89,7 +90,9 @@
 						<div class="col-6 col-md-6 float-right quiz-questions"> <span></span>{{ row.content['#row']._entity.field_number_of_questions[0].value|replace({".00" : ""}) }} questions</div>
 					</div>
 				{% endif %}
-				<p>{{ row.content['#row']._entity.body[0].value|raw }}</p>
+				<div class="quiz-description">
+					<p>{{ row.content['#row']._entity.body[0].value|raw }}</p>
+				</div>
 				{% if row.content['#row']._entity.nid[0].value != 0 %}
 					{{ row.content['#row']._entity.nid[0].value is empty }}
 					<div class="views-field views-field-field-quiz-link quiz_link">

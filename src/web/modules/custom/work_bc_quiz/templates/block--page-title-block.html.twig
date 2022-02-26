@@ -20,7 +20,7 @@
  * - title_prefix: Additional output populated by modules, intended to be
  *   displayed in front of the main title tag that appears in the template.
  * - title_suffix: Additional output populated by modules, intended to be
- *   displayed after the main title tag that appears in the template. 
+ *   displayed after the main title tag that appears in the template.
  *
  * @see template_preprocess_block()
  */
@@ -33,42 +33,12 @@
   ]
 %}
 <div{{ attributes.addClass(classes) }}>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-1"></div>
-			<div class="col-md-2 progress-title">
-			  <h6>Your Progress</h6>
-			  {{ title_prefix }}
-			  {% if label %}
-				<h2{{ title_attributes }}>{{ label }}</h2>
-			  {% endif %}
-			  {{ title_suffix }}
-			</div>
-			<div class="col-md-6">
-				<div class="p-bar">
-					{% block content %}
-						{{ content }}
-					{% endblock %}
-				</div>
-			</div>
-			<div class="col-md-2 qs">
-				<div class="status-bar">
-					{% set qs = 0 %}
-					{% set url = url('<current>')|render|render %}
-					{% if 'step' in url|render|render %}
-						
-						{% set url = url|slice(-38) %}
-						{% set url = url|slice(0,1) %}
-						{% if url > 0%}
-							{% set qs = ((url*1) - 1)*5 %}
-						{% endif %}
-					{% else %}
-					
-					{% endif %}
-					<span class="Question-status">{{qs}}</span>/<span class="total-question">39</span> <span class="label">questions</span>
-				</div>
-			</div>
-			<div class="col-md-1"></div>
-		</div>
-	</div>
+  {{ title_prefix }}
+  {% if label %}
+    <h2{{ title_attributes }}>{{ label }}</h2>
+  {% endif %}
+  {{ title_suffix }}
+  {% block content %}
+    {{ content }}
+  {% endblock %}
 </div>

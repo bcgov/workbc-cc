@@ -10,6 +10,8 @@ CONTENTS OF THIS FILE
 
 INTRODUCTION
 ------------
+
+This is a heavily customized fork of Double Reference module.
 Double Reference provides a single field item that contains two entity
 reference fields.
 
@@ -20,21 +22,21 @@ The two fields work together to form one field.
  * For a full description of the module, visit the project page:
    https://www.drupal.org/project/double_reference
 
- * To submit bug reports and feature suggestions, or to track changes:
-   https://www.drupal.org/project/issues/search/double_reference
-
 
 REQUIREMENTS
 ------------
 
 Core Entity Reference.
+Forms Steps
+SVG Image
+Views
+Views Bootstrap
 
 
 INSTALLATION
 ------------
 
  * Install as you would normally install a contributed Drupal module.
-   See: https://www.drupal.org/node/895232 for further information.
 
 
 CONFIGURATION
@@ -48,4 +50,4 @@ has additional configuration for the added reference field.
 MAINTAINERS
 -----------
 
-Current maintainer: Michelle Cox ( https://www.drupal.org/u/michelle )
+Customizations for Work-BC-Quiz By: Anurag Parihar (Anurag@Parihar.ca)

@@ -4,12 +4,22 @@
 	{
 		max-width:966px;
 	}
-	
 }
 
 @media(max-width:991px)
 {
 	
+}
+@media(min-width:576px)
+{
+    .carrer
+    {
+        display:none;
+    }
+    .carousel-indicators
+    {
+        display:none;
+    }
 }
 @media(max-width:767px){
 	.all-quiz-status{
@@ -22,6 +32,9 @@
 	.carousel .carousel-indicators{
 		bottom:10px;
 		display:flex;
+	}
+	.cari_quiz.carousel .carousel-indicators{
+		bottom:40px;
 	}
 	.carousel-indicators li {
 		background: #000 !important;
@@ -51,10 +64,137 @@
 		color: #FFFFFF;
 		line-height: 31px;
 	}
+	.bottom-links .links-inner{justify-content:center;}
+	.bottom-links .links-inner .link_1{    flex: 1;}
+	.bottom-links .links-inner .link_2{    flex: 1;padding-left: 15px;}
+	.bottom-links .link.link_1 a{margin-right:0px;    width: 100%; display: block;     text-align: center;margin-top:0px;padding:8px 8px;}
+	.bottom-links .link.link_2 a{display:block;text-align:center;margin-top:0px;}
+	.node-questions{justify-content:flex-start;margin-bottom:25px;}
+	.path-quiz .region-content .field--type-double-reference fieldset legend, .field--type-work-bc-quiz fieldset legend{float:none;    line-height: 20px; margin-bottom: 10px; width: 100% !important;}
+	.path-quiz .region-content .field--type-double-reference fieldset .fieldset-wrapper, .field--type-work-bc-quiz fieldset .fieldset-wrapper{float:none;}
+	.path-quiz .form-radios .form-item{display: block; text-align: left;margin-left:100px;display:flex;align-items:center;margin-bottom:12px;}
+	.path-quiz .region-content .form-radios label{position:relative;display: inline-block; margin-left: 5px; font-family: 'BC Sans', sans-serif; font-weight: 400; font-style: normal; font-size: 14px; color: #666666; max-width: inherit;margin-bottom:0px;text-align: left; display: block; width: unset;}
+	.path-quiz .form-actions.form-actions{    margin-top: 20px;  margin-bottom: 100px;  display: flex;}
+	.block-forms-steps{margin-top:-110px;}
+	.progress-title h6{text-align:left;}
+	.progress-title{}
+	.status-bar {
+		text-align: right;
+		margin-top: -60px;
+	}
+	.path-quiz .form-actions input[name=op]{width: 90%; margin: auto;float:none;text-align:center;}
+	.overlay-content .block-system-main-block{margin-top:0px;padding-top:0px;}
+	.path-quiz .layout-node-form, .path-quiz .node-form{padding-top:0px;}
+	.path-quiz .entity-content-form-revision-information{display:none;}
+
+	.path-quiz .form-actions input[name=previous_action]{width: 90%; DISPLAY: BLOCK; float: none; margin-bottom: 0px; margin: auto;  margin-bottom: 10px;}
+	.path-quiz .form-actions input[name=op], .path-quiz .form-actions input[name=previous_action]{margin-top:0px;flex:1;margin-left:15px;padding: 10px 0px; font-size: 15px; color: #FFFFFF;}
+	.path-quiz .form-actions input[name=op]{margin-right:15px;    }
+	span.question-prefix{line-height:18px;}
+	.sub-title{padding-right:25px;}
 }
 @media(max-width:575px)
 {
-	
+	.nfq .carousel-indicators div.extradots
+    {
+        display: none;
+    }
+    .nfq .carousel-inner .extradivs
+    {
+        display: none;
+    }
+   .nfq .carousel-item
+    {
+        padding: 0;
+    }
+   .nfq .desktop-view
+    {
+        display: none;
+    }
+   .nfq .mobile-view
+    {
+        display: block;
+    }
+    .nfq .text-right
+    {
+        display: none;
+    }
+    body.overlay
+    {
+        overflow: hidden;
+    }
+   .nfq .dropdown
+    {
+        position:fixed;
+        top:0;
+        background:#909ebb8a;
+        left:0;
+        bottom:0;
+        z-index: -100;
+        width: 100%;
+        opacity: 0;
+        transition: all 0.3s ease;
+        height:100%;
+        display: block;
+    }
+    body.overlay .dropdown
+    {
+        opacity: 1;
+        z-index: 999;
+    }
+    .nfq .dropdown-inner
+    {
+        position: absolute;
+        bottom:-100%;
+        transition: all 0.5s ease 0.2s;
+        width: 100%;
+        background: #fff;
+        padding:10px 0px;
+        border-top: 4px solid #374866;
+    }
+    body.overlay .dropdown-inner
+    {
+        bottom:0%;
+    }
+    .dropdown-inner .cross-button
+    {
+        padding: 0px 15px;
+        font-size: 25px;
+        line-height: 30px;
+        text-align: right;
+    }
+    .dropdown-inner .cross-button span
+    {
+        display: inline-block;
+    }
+    .nfq .dropdown-inner ul
+    {
+        padding:0;
+        margin: 0px;
+    }
+   .nfq .dropdown-inner ul li
+    {
+        font-size: 15px;
+        cursor:pointer;
+        line-height:20px;
+        font-weight: 400;
+        padding:12px 15px;
+        transition: all 0.3s ease;
+    }
+    .nfq .dropdown-inner ul li.active
+    {
+        font-weight: 600;
+    }
+    .nfq .dropdown-inner ul li:first-child
+    {
+        border-bottom: 1px solid #cccccc70;
+    } 
+	.row.rh{align-items:center;    margin-top: 15px; margin-bottom: 25px;}
+	.row.rh .col-4{position:inherit;}
+	.row.rh .result-heading{margin:0px;}
+	.nfq .drop-demo-head-right{justify-content:flex-end;}
+	.carousel-indicators li{margin-right:9px;}
+	.path-quiz .region-content .form-radios input{margin-right:10px;}
 }
 @media(max-width:480px)
 {
@@ -68,5 +208,6 @@
 		transition: -webkit-transform .6s ease-in-out;
 		transition: transform .6s ease-in-out;
 		transition: transform .6s ease-in-out, -webkit-transform .6s ease-in-out;
+		background:#fff;
 	}
 }

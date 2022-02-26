@@ -2,12 +2,12 @@ name: Work BC Quiz
 type: module
 description: 'Provides a field that holds two reference fields.'
 core_version_requirement: ^8 || ^9
-
+dependencies:
+  - drupal:views
+  - drupal:forms_steps
+  - drupal:svg_image
+  - drupal:views_bootstrap
+  
 libraries:
   - work_bc_quiz/work-bc-lib
   
-# Information added by Drupal.org packaging script on 2021-05-03
-#Information modified on 2022-01-21
-version: '8.x-1.x-dev'
-project: 'work_bc_quiz'
-datestamp: 1642750517
