@@ -1,0 +1,22 @@
+uuid: bc7f342f-0236-407b-9a40-ef02453038f4
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.quiz_list
+id: node.quiz_list.promote
+field_name: promote
+entity_type: node
+bundle: quiz_list
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

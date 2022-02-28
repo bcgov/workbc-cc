@@ -1,0 +1,19 @@
+uuid: 549b1a77-5e8c-47f0-8a34-1f36af305afb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_quiz_duration
+    - node.type.quiz_list
+id: node.quiz_list.field_quiz_duration
+field_name: field_quiz_duration
+entity_type: node
+bundle: quiz_list
+label: 'Quiz Duration'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

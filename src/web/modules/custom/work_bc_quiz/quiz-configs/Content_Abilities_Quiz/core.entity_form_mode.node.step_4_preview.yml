@@ -1,0 +1,10 @@
+uuid: ccc44571-689c-460e-951a-90ae460c6947
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.step_4_preview
+label: 'Step 4 Preview'
+targetEntityType: node
+cache: true

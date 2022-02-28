@@ -1,0 +1,30 @@
+uuid: 75d472a0-fc18-486a-8722-0f0a014c8990
+langcode: en
+status: true
+dependencies:
+  module:
+    - forms_steps
+    - user
+  theme:
+    - bcgov_career
+id: formsstepsabilitiesquizprogressbar
+theme: bcgov_career
+region: content
+weight: 2
+provider: null
+plugin: 'forms_steps_progress_bar:abilities_quiz'
+settings:
+  id: 'forms_steps_progress_bar:abilities_quiz'
+  label: 'Forms Steps - Abilities Quiz (Progress bar)'
+  label_display: visible
+  provider: forms_steps
+  progress_bar_settings: null
+visibility:
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      anonymous: anonymous
+      authenticated: authenticated

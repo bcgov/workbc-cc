@@ -1,0 +1,23 @@
+uuid: 1956a7fd-a500-45d1-8c8c-2b5ab07dbdca
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_weightage
+    - taxonomy.vocabulary.abilities_categories
+id: taxonomy_term.abilities_categories.field_weightage
+field_name: field_weightage
+entity_type: taxonomy_term
+bundle: abilities_categories
+label: 'Max Option Score'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: float

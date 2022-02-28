@@ -1,0 +1,21 @@
+uuid: 935a168b-243e-432e-882b-dcc1ec3e078a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_color
+    - taxonomy.vocabulary.abilities_categories
+id: taxonomy_term.abilities_categories.field_color
+field_name: field_color
+entity_type: taxonomy_term
+bundle: abilities_categories
+label: color
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: '#000000'
+default_value_callback: ''
+settings: {  }
+field_type: string

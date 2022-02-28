@@ -1,0 +1,30 @@
+uuid: d60c4aa9-6bd3-402d-852c-14969c75e763
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.step_form_pagination
+  module:
+    - system
+    - views
+  theme:
+    - bcgov_career
+id: views_block__step_form_pagination_block_1
+theme: bcgov_career
+region: content
+weight: 1
+provider: null
+plugin: 'views_block:step_form_pagination-block_1'
+settings:
+  id: 'views_block:step_form_pagination-block_1'
+  label: ''
+  label_display: '0'
+  provider: views
+  context_mapping: {  }
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '*/preview/*'

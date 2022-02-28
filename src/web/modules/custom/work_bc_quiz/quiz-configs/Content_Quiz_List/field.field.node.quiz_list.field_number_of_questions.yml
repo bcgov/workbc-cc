@@ -1,0 +1,25 @@
+uuid: 0a980866-c4ad-4c57-99ff-19856870247f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_number_of_questions
+    - node.type.quiz_list
+id: node.quiz_list.field_number_of_questions
+field_name: field_number_of_questions
+entity_type: node
+bundle: quiz_list
+label: 'Number of Questions'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: !!float 84
+default_value_callback: ''
+settings:
+  min: !!float 0
+  max: !!float 100
+  prefix: ''
+  suffix: ''
+field_type: decimal

@@ -1,0 +1,23 @@
+uuid: 2ac2f1d7-fc9c-420c-af7b-fc22c9d42f5e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_option_percentage
+    - taxonomy.vocabulary.abilities_options
+id: taxonomy_term.abilities_options.field_option_percentage
+field_name: field_option_percentage
+entity_type: taxonomy_term
+bundle: abilities_options
+label: 'Option Score'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: !!float 0
+  max: !!float 5
+  prefix: ''
+  suffix: ''
+field_type: float
