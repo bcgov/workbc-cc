@@ -9,6 +9,7 @@ function bcgov_career_preprocess_views_view_table(&$variables) {
   $view = $variables['view'];
   if ($view->id() == 'career_matches' && $view->current_display == 'block_1') {
     $result = $variables['result'] = $variables['rows'];
+    // dd($result);
     $fields =& $view->field;
     $handler = $view->style_plugin;
 
@@ -16,6 +17,7 @@ function bcgov_career_preprocess_views_view_table(&$variables) {
     foreach ($result as $num => $row) {
       $raw = NULL;
       foreach ($fields as $key => $value) {
+        $raw['match'] = '88%';
         $raw[$key] = $handler->getFieldValue($num, $key);
         switch ($key) {
 

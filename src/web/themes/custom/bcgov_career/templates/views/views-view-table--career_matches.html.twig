@@ -90,6 +90,7 @@
           {% if header %}
           <thead>
               <tr>
+              <th><span class="match-per">%</span></br>{{ 'Match'|t }}</th>
               {% for key, column in header %}
                   {% if column.default_classes %}
                   {%
@@ -126,7 +127,9 @@
           {% for rowkey, row in rows %}
               <tr class="career-table-row {% if rowkey == "0" %}active{% endif %}" data-id="career-item-{{ rowkey }}">
               {% set nodeURL =  url('entity.node.canonical', {'node': row.raw.nid}) %}
-
+                <td>
+                  {{ row.raw.match }}
+                </td>
                 <td class="career-table-link" data-node-url="{{ nodeURL }}">
                     <a href="javascript:;" class="career-table-row-link">{{ row.raw.field_noc_name }}</br> <span class="noc">(NOC {{ row.raw.title }})</span></a>
                 </td>
