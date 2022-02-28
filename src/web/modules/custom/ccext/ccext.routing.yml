@@ -13,3 +13,10 @@ ccext.form:
     _title: 'NOC & Career Profile Import CSV'
   requirements:
     _permission: 'access csv importer'
+
+ccext.compate_action_remove:
+  path: '/career-compare/remove'
+  defaults:
+    _controller: '\Drupal\ccext\Controller\CcextComparisonController::actionRemove'
+  requirements:
+    _permission: 'access content'

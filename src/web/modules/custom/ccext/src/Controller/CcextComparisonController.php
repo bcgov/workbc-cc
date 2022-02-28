@@ -213,6 +213,20 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
   }
 
   /**
+   * Clear all entity_comparison value.
+   */
+  public function actionRemove() {
+    // Get current user's id.
+    $uid = $this->currentUser->id();
+    $this->session->set('entity_comparison_' . $uid, NULL);
+
+    return [
+      '#type' => 'markup',
+      '#markup' => $this->t('Clear all entity from comparison'),
+    ];
+  }
+
+  /**
    * Process the request.
    *
    * @param \Drupal\entity_comparison\Entity\EntityComparisonInterface $entity_comparison

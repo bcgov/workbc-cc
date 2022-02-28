@@ -25,6 +25,6 @@ function ccext_theme($existing, $type, $theme, $path) {
  */
 function ccext_views_query_alter(ViewExecutable $view, QueryPluginBase $query) {
   if ($view->id() == 'career_matches' && 'block_1' == $view->current_display) {
-    $query->addWhere('0', 'node_field_data.title', ['4421','0012', '0011'], 'IN');
+    // $query->addWhere('0', 'node_field_data.title', ['4421','0012', '0011'], 'IN');
   }
 }
