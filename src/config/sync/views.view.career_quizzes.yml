@@ -667,6 +667,20 @@ display:
     position: 1
     display_options:
       title: 'Career Quizzes'
+      sorts:
+        field_quiz_order_value:
+          id: field_quiz_order_value
+          table: node__field_quiz_order
+          field: field_quiz_order_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: standard
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: ''
+          exposed: false
       filters:
         type:
           id: type
@@ -728,6 +742,7 @@ display:
       defaults:
         title: false
         css_class: false
+        sorts: false
         filters: false
         filter_groups: false
         header: false
@@ -1260,6 +1275,20 @@ display:
         options:
           offset: 0
           items_per_page: 3
+      sorts:
+        field_quiz_order_value:
+          id: field_quiz_order_value
+          table: node__field_quiz_order
+          field: field_quiz_order_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: standard
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: ''
+          exposed: false
       style:
         type: default
         options:
@@ -1284,6 +1313,7 @@ display:
         style: false
         row: false
         fields: false
+        sorts: false
         header: false
       css_class: personality_quiz
       header:
@@ -1321,6 +1351,7 @@ display:
     display_plugin: page
     position: 2
     display_options:
+      enabled: false
       display_extenders: {  }
       path: quiz
     cache_metadata:

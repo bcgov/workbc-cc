@@ -7,7 +7,7 @@ dependencies:
     - node.type.abilities_quiz
     - taxonomy.vocabulary.abilities_categories
   content:
-    - 'taxonomy_term:abilities_categories:fae2857d-4276-4535-81f3-9db96808fb1d'
+    - 'taxonomy_term:abilities_categories:2c522140-655e-4be9-969c-e832441e3805'
   module:
     - work_bc_quiz
 id: node.abilities_quiz.field_abilities_10
@@ -21,7 +21,7 @@ translatable: false
 default_value:
   -
     ar_target_id: null
-    target_uuid: fae2857d-4276-4535-81f3-9db96808fb1d
+    target_uuid: 2c522140-655e-4be9-969c-e832441e3805
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'

@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.quiz_list.field_quiz_duration
     - field.field.node.quiz_list.field_quiz_icon
     - field.field.node.quiz_list.field_quiz_link
+    - field.field.node.quiz_list.field_quiz_order
     - field.field.node.quiz_list.field_quiz_type
     - node.type.quiz_list
   module:
@@ -37,4 +38,5 @@ hidden:
   field_quiz_duration: true
   field_quiz_icon: true
   field_quiz_link: true
+  field_quiz_order: true
   field_quiz_type: true

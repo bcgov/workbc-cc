@@ -1,0 +1,23 @@
+uuid: 5fdb1a99-3669-4168-90b1-0d98e80dca65
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_quiz_order
+    - node.type.quiz_list
+id: node.quiz_list.field_quiz_order
+field_name: field_quiz_order
+entity_type: node
+bundle: quiz_list
+label: 'quiz order'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

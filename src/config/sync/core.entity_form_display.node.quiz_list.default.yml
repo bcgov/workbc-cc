@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.quiz_list.field_quiz_duration
     - field.field.node.quiz_list.field_quiz_icon
     - field.field.node.quiz_list.field_quiz_link
+    - field.field.node.quiz_list.field_quiz_order
     - field.field.node.quiz_list.field_quiz_type
     - image.style.thumbnail
     - node.type.quiz_list
@@ -67,6 +68,13 @@ content:
     settings:
       placeholder_url: ''
       placeholder_title: ''
+    third_party_settings: {  }
+  field_quiz_order:
+    type: number
+    weight: 27
+    region: content
+    settings:
+      placeholder: ''
     third_party_settings: {  }
   field_quiz_type:
     type: options_select

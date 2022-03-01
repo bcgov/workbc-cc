@@ -69,7 +69,7 @@ content:
     third_party_settings: {  }
   field_abilities_10:
     type: double_reference_autocomplete_select
-    weight: 44
+    weight: 16
     region: content
     settings:
       match_operator: CONTAINS
@@ -79,7 +79,7 @@ content:
     third_party_settings: {  }
   field_abilities_11:
     type: double_reference_autocomplete_select
-    weight: 16
+    weight: 17
     region: content
     settings:
       match_operator: CONTAINS
@@ -89,7 +89,7 @@ content:
     third_party_settings: {  }
   field_abilities_12:
     type: double_reference_autocomplete_select
-    weight: 17
+    weight: 18
     region: content
     settings:
       match_operator: CONTAINS
@@ -99,7 +99,7 @@ content:
     third_party_settings: {  }
   field_abilities_13:
     type: double_reference_autocomplete_select
-    weight: 18
+    weight: 19
     region: content
     settings:
       match_operator: CONTAINS
@@ -109,7 +109,7 @@ content:
     third_party_settings: {  }
   field_abilities_14:
     type: double_reference_autocomplete_select
-    weight: 19
+    weight: 20
     region: content
     settings:
       match_operator: CONTAINS
@@ -119,7 +119,7 @@ content:
     third_party_settings: {  }
   field_abilities_15:
     type: double_reference_autocomplete_select
-    weight: 20
+    weight: 21
     region: content
     settings:
       match_operator: CONTAINS
@@ -129,7 +129,7 @@ content:
     third_party_settings: {  }
   field_abilities_16:
     type: double_reference_autocomplete_select
-    weight: 21
+    weight: 22
     region: content
     settings:
       match_operator: CONTAINS
@@ -139,7 +139,7 @@ content:
     third_party_settings: {  }
   field_abilities_17:
     type: double_reference_autocomplete_select
-    weight: 22
+    weight: 23
     region: content
     settings:
       match_operator: CONTAINS
@@ -149,7 +149,7 @@ content:
     third_party_settings: {  }
   field_abilities_18:
     type: double_reference_autocomplete_select
-    weight: 23
+    weight: 24
     region: content
     settings:
       match_operator: CONTAINS
@@ -159,7 +159,7 @@ content:
     third_party_settings: {  }
   field_abilities_19:
     type: double_reference_autocomplete_select
-    weight: 24
+    weight: 25
     region: content
     settings:
       match_operator: CONTAINS
@@ -179,7 +179,7 @@ content:
     third_party_settings: {  }
   field_abilities_20:
     type: double_reference_autocomplete_select
-    weight: 25
+    weight: 26
     region: content
     settings:
       match_operator: CONTAINS
@@ -189,7 +189,7 @@ content:
     third_party_settings: {  }
   field_abilities_21:
     type: double_reference_autocomplete_select
-    weight: 26
+    weight: 27
     region: content
     settings:
       match_operator: CONTAINS
@@ -199,7 +199,7 @@ content:
     third_party_settings: {  }
   field_abilities_22:
     type: double_reference_autocomplete_select
-    weight: 27
+    weight: 28
     region: content
     settings:
       match_operator: CONTAINS
@@ -209,7 +209,7 @@ content:
     third_party_settings: {  }
   field_abilities_23:
     type: double_reference_autocomplete_select
-    weight: 28
+    weight: 29
     region: content
     settings:
       match_operator: CONTAINS
@@ -219,7 +219,7 @@ content:
     third_party_settings: {  }
   field_abilities_24:
     type: double_reference_autocomplete_select
-    weight: 29
+    weight: 30
     region: content
     settings:
       match_operator: CONTAINS
@@ -229,7 +229,7 @@ content:
     third_party_settings: {  }
   field_abilities_25:
     type: double_reference_autocomplete_select
-    weight: 30
+    weight: 31
     region: content
     settings:
       match_operator: CONTAINS
@@ -239,7 +239,7 @@ content:
     third_party_settings: {  }
   field_abilities_26:
     type: double_reference_autocomplete_select
-    weight: 31
+    weight: 32
     region: content
     settings:
       match_operator: CONTAINS
@@ -249,7 +249,7 @@ content:
     third_party_settings: {  }
   field_abilities_27:
     type: double_reference_autocomplete_select
-    weight: 32
+    weight: 33
     region: content
     settings:
       match_operator: CONTAINS
@@ -259,7 +259,7 @@ content:
     third_party_settings: {  }
   field_abilities_28:
     type: double_reference_autocomplete_select
-    weight: 33
+    weight: 34
     region: content
     settings:
       match_operator: CONTAINS
@@ -269,7 +269,7 @@ content:
     third_party_settings: {  }
   field_abilities_29:
     type: double_reference_autocomplete_select
-    weight: 34
+    weight: 35
     region: content
     settings:
       match_operator: CONTAINS
@@ -289,7 +289,7 @@ content:
     third_party_settings: {  }
   field_abilities_30:
     type: double_reference_autocomplete_select
-    weight: 35
+    weight: 36
     region: content
     settings:
       match_operator: CONTAINS
@@ -299,7 +299,7 @@ content:
     third_party_settings: {  }
   field_abilities_31:
     type: double_reference_autocomplete_select
-    weight: 36
+    weight: 37
     region: content
     settings:
       match_operator: CONTAINS
@@ -309,7 +309,7 @@ content:
     third_party_settings: {  }
   field_abilities_32:
     type: double_reference_autocomplete_select
-    weight: 37
+    weight: 38
     region: content
     settings:
       match_operator: CONTAINS
@@ -319,7 +319,7 @@ content:
     third_party_settings: {  }
   field_abilities_33:
     type: double_reference_autocomplete_select
-    weight: 38
+    weight: 39
     region: content
     settings:
       match_operator: CONTAINS
@@ -329,7 +329,7 @@ content:
     third_party_settings: {  }
   field_abilities_34:
     type: double_reference_autocomplete_select
-    weight: 39
+    weight: 40
     region: content
     settings:
       match_operator: CONTAINS
@@ -339,7 +339,7 @@ content:
     third_party_settings: {  }
   field_abilities_35:
     type: double_reference_autocomplete_select
-    weight: 40
+    weight: 41
     region: content
     settings:
       match_operator: CONTAINS
@@ -349,7 +349,7 @@ content:
     third_party_settings: {  }
   field_abilities_36:
     type: double_reference_autocomplete_select
-    weight: 41
+    weight: 42
     region: content
     settings:
       match_operator: CONTAINS
@@ -359,7 +359,7 @@ content:
     third_party_settings: {  }
   field_abilities_37:
     type: double_reference_autocomplete_select
-    weight: 42
+    weight: 43
     region: content
     settings:
       match_operator: CONTAINS
@@ -369,7 +369,17 @@ content:
     third_party_settings: {  }
   field_abilities_38:
     type: double_reference_autocomplete_select
-    weight: 43
+    weight: 44
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_abilities_39:
+    type: double_reference_autocomplete_select
+    weight: 45
     region: content
     settings:
       match_operator: CONTAINS
@@ -417,9 +427,19 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_abilities_9:
+  field_abilities_8:
     type: double_reference_autocomplete_select
     weight: 14
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_abilities_9:
+    type: double_reference_autocomplete_select
+    weight: 15
     region: content
     settings:
       match_operator: CONTAINS
@@ -472,6 +492,4 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-hidden:
-  field_abilities_39: true
-  field_abilities_8: true
+hidden: {  }
