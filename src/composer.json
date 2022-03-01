@@ -23,12 +23,20 @@
         "drupal/core-project-message": "^9.3",
         "drupal/core-recommended": "^9.3",
         "drupal/entity_comparison": "^3.0",
+<<<<<<< HEAD
 		"drupal/forms_steps": "^1.5",
+=======
+        "drupal/forms_steps": "^1.5",
+>>>>>>> 40074ddb3a312fb7167ba87187883675b06d6eac
         "drupal/paragraphs": "^1.12",
         "drupal/pathauto": "^1.8",
         "drupal/svg_image": "^1.15",
         "drupal/twig_tweak": "^3.1",
+<<<<<<< HEAD
 		"drupal/views_bootstrap": "^4.3",
+=======
+        "drupal/views_bootstrap": "^4.3",
+>>>>>>> 40074ddb3a312fb7167ba87187883675b06d6eac
         "drush/drush": "^10.6"
     },
     "conflict": {
