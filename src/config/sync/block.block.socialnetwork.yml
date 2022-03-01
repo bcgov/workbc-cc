@@ -2,6 +2,10 @@ uuid: e52a5eba-7612-46f8-8a76-49bd5c5df790
 langcode: en
 status: true
 dependencies:
+  content:
+    - 'block_content:basic:eb859f33-ef43-4345-a4fa-cec853fe8423'
+  module:
+    - block_content
   theme:
     - bcgov_career
 id: socialnetwork
