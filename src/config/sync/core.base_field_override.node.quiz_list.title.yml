@@ -1,0 +1,18 @@
+uuid: 8a36dc54-f887-4893-92c1-cdf568a08513
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.quiz_list
+id: node.quiz_list.title
+field_name: title
+entity_type: node
+bundle: quiz_list
+label: 'Quiz Name'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

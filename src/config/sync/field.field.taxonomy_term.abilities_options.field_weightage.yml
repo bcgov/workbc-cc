@@ -1,0 +1,23 @@
+uuid: 32c5a940-bc6c-4461-a28e-3841b887b23e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_weightage
+    - taxonomy.vocabulary.abilities_options
+id: taxonomy_term.abilities_options.field_weightage
+field_name: field_weightage
+entity_type: taxonomy_term
+bundle: abilities_options
+label: 'Option Score'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: !!float 0
+  max: 12.5
+  prefix: ''
+  suffix: ''
+field_type: float

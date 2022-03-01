@@ -1,0 +1,49 @@
+uuid: dd5a5d88-7133-490c-af9a-d77342ed3d49
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_abilities_23
+    - node.type.abilities_quiz
+    - taxonomy.vocabulary.abilities_categories
+  content:
+    - 'taxonomy_term:abilities_categories:be0e10e6-4c19-4189-a157-46f7ffc1bd17'
+  module:
+    - work_bc_quiz
+id: node.abilities_quiz.field_abilities_23
+field_name: field_abilities_23
+entity_type: node
+bundle: abilities_quiz
+label: 'Understanding and applying principles of geometry. '
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    ar_target_id: null
+    target_uuid: be0e10e6-4c19-4189-a157-46f7ffc1bd17
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      abilities_categories: abilities_categories
+    sort:
+      field: name
+      direction: asc
+    auto_create: 0
+    auto_create_bundle: ''
+  pr_label: ''
+  pr_field_hide: 1
+  added_reference:
+    ar_bundles:
+      abilities_options: abilities_options
+      abilities_categories: 0
+      education_level: 0
+      multiple_intelligence_categories: 0
+      multiple_intelligence_options: 0
+      tags: 0
+    ar_label: ''
+    ar_weight: '23'
+    ar_required: 1
+field_type: work_bc_quiz

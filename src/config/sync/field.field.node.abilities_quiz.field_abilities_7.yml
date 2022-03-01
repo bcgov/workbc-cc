@@ -1,0 +1,49 @@
+uuid: a8856aac-79cf-4240-ad7c-a2cae854a79c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_abilities_7
+    - node.type.abilities_quiz
+    - taxonomy.vocabulary.abilities_categories
+  content:
+    - 'taxonomy_term:abilities_categories:f3a213c6-1daa-4a61-ae4a-712c11a37ddc'
+  module:
+    - work_bc_quiz
+id: node.abilities_quiz.field_abilities_7
+field_name: field_abilities_7
+entity_type: node
+bundle: abilities_quiz
+label: 'Solving math problems.'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    ar_target_id: null
+    target_uuid: f3a213c6-1daa-4a61-ae4a-712c11a37ddc
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      abilities_categories: abilities_categories
+    sort:
+      field: name
+      direction: asc
+    auto_create: 0
+    auto_create_bundle: ''
+  pr_label: ''
+  pr_field_hide: 1
+  added_reference:
+    ar_bundles:
+      abilities_options: abilities_options
+      abilities_categories: 0
+      education_level: 0
+      multiple_intelligence_categories: 0
+      multiple_intelligence_options: 0
+      tags: 0
+    ar_label: ''
+    ar_weight: '7'
+    ar_required: 1
+field_type: work_bc_quiz
