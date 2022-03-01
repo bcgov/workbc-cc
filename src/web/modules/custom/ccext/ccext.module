@@ -31,8 +31,8 @@ function ccext_views_query_alter(ViewExecutable $view, QueryPluginBase $query) {
     $nid = $node->id();
     $session = \Drupal::request()->getSession();
     $quiz_result = $session->get('save_quiz_' . $node->bundle() . "_$nid");
-    if (isset($quiz_result) && !empty($quiz_result)) {
-      foreach ($quiz_result as $key => $value) {
+    if (isset($quiz_result) && !empty($quiz_result['result'])) {
+      foreach ($quiz_result['result'] as $key => $value) {
         $title[] = $key;
       }
     }
