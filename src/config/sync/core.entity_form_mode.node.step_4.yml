@@ -1,0 +1,10 @@
+uuid: 59028edf-4516-4000-b585-81c0378bfd4d
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.step_4
+label: 'Step 4'
+targetEntityType: node
+cache: true

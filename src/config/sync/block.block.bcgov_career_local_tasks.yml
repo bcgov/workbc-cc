@@ -2,6 +2,8 @@ uuid: cb7fc2bb-a399-414b-b270-636d5ce28b62
 langcode: en
 status: true
 dependencies:
+  module:
+    - user
   theme:
     - bcgov_career
 _core:
@@ -9,7 +11,7 @@ _core:
 id: bcgov_career_local_tasks
 theme: bcgov_career
 region: content
-weight: -2
+weight: -5
 provider: null
 plugin: local_tasks_block
 settings:
@@ -19,4 +21,11 @@ settings:
   provider: core
   primary: true
   secondary: true
-visibility: {  }
+visibility:
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      authenticated: authenticated

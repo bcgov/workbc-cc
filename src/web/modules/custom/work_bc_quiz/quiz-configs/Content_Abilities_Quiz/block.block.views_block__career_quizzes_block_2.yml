@@ -1,0 +1,29 @@
+uuid: 83aeba63-7fcd-4103-8dfb-33074950c903
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.career_quizzes
+  module:
+    - system
+    - views
+  theme:
+    - bcgov_career
+id: views_block__career_quizzes_block_2
+theme: bcgov_career
+region: content
+weight: -2
+provider: null
+plugin: 'views_block:career_quizzes-block_2'
+settings:
+  id: 'views_block:career_quizzes-block_2'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /lab

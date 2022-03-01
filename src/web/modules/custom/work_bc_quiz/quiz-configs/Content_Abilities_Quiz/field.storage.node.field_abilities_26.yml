@@ -1,0 +1,22 @@
+uuid: 91813fc3-724b-4447-aa16-b08ab14eb5ed
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+    - work_bc_quiz
+id: node.field_abilities_26
+field_name: field_abilities_26
+entity_type: node
+type: work_bc_quiz
+settings:
+  target_type: taxonomy_term
+  ar_target_type: taxonomy_term
+module: work_bc_quiz
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

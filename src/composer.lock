@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "39d9dbd04eea700b7f26504b2e89d9e7",
+    "content-hash": "32969f79b731ea77dac97e245783181f",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2120,6 +2120,102 @@
             }
         },
         {
+            "name": "drupal/form_display_field_machine_name",
+            "version": "1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/form_display_field_machine_name.git",
+                "reference": "8.x-1.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/form_display_field_machine_name-8.x-1.3.zip",
+                "reference": "8.x-1.3",
+                "shasum": "1ee13e6da317913f56a8c86dd2a18cbca2b5cd45"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.3",
+                    "datestamp": "1600958657",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "phthlaap",
+                    "homepage": "https://www.drupal.org/user/3579545"
+                }
+            ],
+            "description": "This module support to show field machine name in form display.",
+            "homepage": "https://www.drupal.org/project/form_display_field_machine_name",
+            "support": {
+                "source": "https://git.drupalcode.org/project/form_display_field_machine_name"
+            }
+        },
+        {
+            "name": "drupal/forms_steps",
+            "version": "1.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/forms_steps.git",
+                "reference": "8.x-1.5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/forms_steps-8.x-1.5.zip",
+                "reference": "8.x-1.5",
+                "shasum": "1d3bee7da9a86b8496e6293f79b4e31f0b177a07"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.5",
+                    "datestamp": "1615748294",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "HakimR",
+                    "homepage": "https://www.drupal.org/user/3008327"
+                },
+                {
+                    "name": "christophe.klein",
+                    "homepage": "https://www.drupal.org/user/1724590"
+                },
+                {
+                    "name": "nicoloye",
+                    "homepage": "https://www.drupal.org/user/315225"
+                }
+            ],
+            "description": "Provides Drupal multiple forms steps capability using forms views.",
+            "homepage": "https://www.drupal.org/project/forms_steps",
+            "support": {
+                "source": "https://git.drupalcode.org/project/forms_steps"
+            }
+        },
+        {
             "name": "drupal/paragraphs",
             "version": "1.12.0",
             "source": {
@@ -2442,6 +2538,66 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/twig_tweak",
                 "issues": "https://www.drupal.org/project/issues/twig_tweak"
+            }
+        },
+        {
+            "name": "drupal/views_bootstrap",
+            "version": "4.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/views_bootstrap.git",
+                "reference": "8.x-4.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/views_bootstrap-8.x-4.3.zip",
+                "reference": "8.x-4.3",
+                "shasum": "8eebf7b7e95e9a56cce96c4ae11944c5d5852b46"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-4.3",
+                    "datestamp": "1590086605",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "aburrows",
+                    "homepage": "https://www.drupal.org/user/577844"
+                },
+                {
+                    "name": "ericpugh",
+                    "homepage": "https://www.drupal.org/user/130084"
+                },
+                {
+                    "name": "ikeigenwijs",
+                    "homepage": "https://www.drupal.org/user/583238"
+                },
+                {
+                    "name": "mrded",
+                    "homepage": "https://www.drupal.org/user/556088"
+                },
+                {
+                    "name": "shelane",
+                    "homepage": "https://www.drupal.org/user/2674989"
+                }
+            ],
+            "description": "Allows for different styles to be used in views to work with Bootstrap 4 components.",
+            "homepage": "https://www.drupal.org/project/views_bootstrap",
+            "support": {
+                "source": "https://git.drupalcode.org/project/views_bootstrap"
             }
         },
         {
@@ -3051,12 +3207,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "GuzzleHttp\\Promise\\": "src/"
-                },
                 "files": [
                     "src/functions_include.php"
-                ]
+                ],
+                "psr-4": {
+                    "GuzzleHttp\\Promise\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -5536,12 +5692,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Ctype\\": ""
-                },
                 "files": [
                     "bootstrap.php"
-                ]
+                ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Ctype\\": ""
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [

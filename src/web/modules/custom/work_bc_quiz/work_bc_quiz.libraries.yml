@@ -1,0 +1,9 @@
+work-bc-lib:
+  css:
+    theme:
+        css/custom.css: {}
+        css/responsive.css: {}
+        css/bootstrap.min.css: {}
+  js:
+    js/work_bc_quiz.js:
+  

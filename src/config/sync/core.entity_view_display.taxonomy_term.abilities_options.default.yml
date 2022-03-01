@@ -19,15 +19,6 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-  field_option_percentage:
-    type: number_decimal
-    label: above
-    settings:
-      thousand_separator: ''
-      decimal_separator: .
-      scale: 2
-      prefix_suffix: true
-    third_party_settings: {  }
-    weight: 1
-    region: content
-hidden: {  }
+hidden:
+  field_option_percentage: true
+  field_weightage: true

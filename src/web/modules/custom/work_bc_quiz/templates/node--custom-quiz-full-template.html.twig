@@ -1,0 +1,202 @@
+{#
+/**
+ * @file
+ * Theme override to display a node.
+ *
+ * Available variables:
+ * - node: The node entity with limited access to object properties and methods.
+ *   Only method names starting with "get", "has", or "is" and a few common
+ *   methods such as "id", "label", and "bundle" are available. For example:
+ *   - node.getCreatedTime() will return the node creation timestamp.
+ *   - node.hasField('field_example') returns TRUE if the node bundle includes
+ *     field_example. (This does not indicate the presence of a value in this
+ *     field.)
+ *   - node.isPublished() will return whether the node is published or not.
+ *   Calling other methods, such as node.delete(), will result in an exception.
+ *   See \Drupal\node\Entity\Node for a full list of public properties and
+ *   methods for the node object.
+ * - label: (optional) The title of the node.
+ * - content: All node items. Use {{ content }} to print them all,
+ *   or print a subset such as {{ content.field_example }}. Use
+ *   {{ content|without('field_example') }} to temporarily suppress the printing
+ *   of a given child element.
+ * - author_picture: The node author user entity, rendered using the "compact"
+ *   view mode.
+ * - metadata: Metadata for this node.
+ * - date: (optional) Themed creation date field.
+ * - author_name: (optional) Themed author name field.
+ * - url: Direct URL of the current node.
+ * - display_submitted: Whether submission information should be displayed.
+ * - attributes: HTML attributes for the containing element.
+ *   The attributes.class element may contain one or more of the following
+ *   classes:
+ *   - node: The current template type (also known as a "theming hook").
+ *   - node--type-[type]: The current node type. For example, if the node is an
+ *     "Article" it would result in "node--type-article". Note that the machine
+ *     name will often be in a short form of the human readable label.
+ *   - node--view-mode-[view_mode]: The View Mode of the node; for example, a
+ *     teaser would result in: "node--view-mode-teaser", and
+ *     full: "node--view-mode-full".
+ *   The following are controlled through the node publishing options.
+ *   - node--promoted: Appears on nodes promoted to the front page.
+ *   - node--sticky: Appears on nodes ordered above other non-sticky nodes in
+ *     teaser listings.
+ *   - node--unpublished: Appears on unpublished nodes visible only to site
+ *     admins.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - content_attributes: Same as attributes, except applied to the main
+ *   content tag that appears in the template.
+ * - author_attributes: Same as attributes, except applied to the author of
+ *   the node tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ * - view_mode: View mode; for example, "teaser" or "full".
+ * - teaser: Flag for the teaser state. Will be true if view_mode is 'teaser'.
+ * - page: Flag for the full page state. Will be true if view_mode is 'full'.
+ * - readmore: Flag for more state. Will be true if the teaser content of the
+ *   node cannot hold the main body content.
+ * - logged_in: Flag for authenticated user status. Will be true when the
+ *   current user is a logged-in member.
+ * - is_admin: Flag for admin user status. Will be true when the current user
+ *   is an administrator.
+ *
+ * @see template_preprocess_node()
+ *
+ */
+#}
+{%
+  set classes = [
+    'node',
+    'nfq',
+    'container-fluid',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  ]
+%}
+{{ attach_library('seven/classy.node') }}
+<article{{ attributes.addClass(classes) }}>
+	<div class="row">
+		<div class="col-md-12">
+		  {{ title_prefix }}
+		  {% if label and not page %}
+			<h2{{ title_attributes }}>
+			  <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+			</h2>
+		  {% endif %}
+		  {{ title_suffix }}
+
+		  {% if display_submitted %}
+			<footer class="node__meta">
+			  {{ author_picture }}
+			  <div {{ author_attributes.addClass('node__submitted') }}>
+				{% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
+				{{ metadata }}
+			  </div>
+			</footer>
+		  {% endif %}
+
+		  <div {{ content_attributes.addClass('node__content') }}>
+			<div class="" >
+				<div class="row rh">
+					<div class="col-8">
+						<div class="result-heading">
+							<h2>Top Aptitudes</h2>
+						</div>
+					</div>
+					<div class="col-4">
+						<div class="drop-demo-head-right">
+							<div class="desktop-view">
+								<!-- <span>1</span>
+								<span>2</span> -->
+							</div>
+							<div class="mobile-view">
+								<svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="24" height="24" viewBox="0 0 64.000000 64.000000"><g transform="translate(0.000000,64.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none"><path d="M10 485 c-7 -8 -10 -25 -7 -37 10 -36 289 -308 317 -308 28 0 307 272 317 308 3 12 0 29 -7 37 -27 32 -54 16 -182 -112 l-128 -128 -128 128 c-128 128 -155 144 -182 112z"/></g></svg>
+								<div class="dropdown">
+									<div class="dropdown-inner">
+										<div class="cross-button"><span><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="14.6px" height="14.6px" viewBox="0 0 14.6 14.6" style="overflow:visible;enable-background:new 0 0 14.6 14.6;" xml:space="preserve"><path class="st0" fill-rule="evenodd" clip-rule="evenodd" fill="#333333" d="M0.3,12.9c-0.4,0.4-0.4,1,0,1.4c0.4,0.4,1,0.4,1.4,0l5.6-5.6l5.6,5.6c0.4,0.4,1,0.4,1.4,0c0.4-0.4,0.4-1,0-1.4 L8.7,7.3l5.6-5.6c0.4-0.4,0.4-1,0-1.4c-0.4-0.4-1-0.4-1.4,0L7.3,5.9L1.7,0.3c-0.4-0.4-1-0.4-1.4,0c-0.4,0.4-0.4,1,0,1.4l5.6,5.6 L0.3,12.9z"/></svg></span></div>
+										<ul>
+											<li class="active" id="items_03">
+												<span>Show Your Top Smarts</span>
+											</li>
+											<li id="items_09">
+												<span>Show All Types of Smarts</span>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				  
+				<div id="myResult" data-ride="carousel" class="carousel slide">
+					<ol class="carousel-indicators">
+						{% for item in content.an_additional_field['#quiz_result'] %}
+							{% set classes1 =  (loop.index == 1) ? 'active' %}
+							{% if loop.index == 4%}
+								<div class="extradots">
+							{% endif %}
+							<li class="{{classes1}}" data-target="#myResult" data-slide-to="{{ loop.index - 1}}" ></li>
+					  {% endfor %}
+								</div>
+					</ol>
+					<div class="carousel-inner"> 
+						<div class="row carousel-item active">
+							{% for item in content.an_additional_field['#quiz_result'] %}
+								{% if loop.index > 3%}
+									{% set classes = 'col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 itm hide' %}
+								{% else %}
+									{% set classes = 'col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 itm' %}
+								{% endif %}
+								{% if loop.index == 4%}
+									<div class="row extradivs hide">
+								{% endif %}
+								<div class="{{classes}}">
+									<div class="quiz-list">								
+										<div class="item field-match">
+											{{ item.percentage }}% Match 
+										</div>
+										<div class="item img-field">
+											<img src="{{ file_url(item.icon) }}" />
+											<!-- <svg class="footer-icon-web">
+												<use xlink:href=""></use>
+											</svg> -->
+										</div>
+										<div class="item title-field" style="color:{{ item.color|raw }}">
+											{{ item.name }}
+										</div>
+										<div class="item title-description">
+											{{ item.description|render|striptags}}
+										</div>
+									</div>
+								</div>
+							{% endfor %}
+							</div>
+							<div class="hideshow">
+								<span class="vaa">View All Aptitudes</span> <span>+</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="bottom-links">
+					<div class="links-inner">
+						{% for item in content.an_additional_field['#result_link'] %}
+							<div class="link link_{{loop.index}}">
+								<a href="{{item.uri}}">
+									{{item.title}}
+								</a>
+							</div>
+						{% endfor%}
+					</div>
+				</div>
+			</div>
+			</div>
+		</div>
+	</div>
+</article>

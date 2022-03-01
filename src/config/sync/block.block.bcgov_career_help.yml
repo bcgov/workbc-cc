@@ -11,7 +11,7 @@ _core:
 id: bcgov_career_help
 theme: bcgov_career
 region: content
-weight: -1
+weight: -4
 provider: null
 plugin: help_block
 settings:

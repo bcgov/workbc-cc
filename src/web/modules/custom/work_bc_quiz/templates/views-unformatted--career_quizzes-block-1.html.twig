@@ -1,0 +1,119 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ *
+ * @ingroup themeable
+ */
+#} 
+{%
+  set classes = [
+    'views-view-grid',
+    'container',
+    'slide',
+  ]
+%}
+{%
+  set row_class = [
+    'col-md-6 col-xl-4',
+  ]
+%}
+ 
+	{% set counter = 0%}
+	{% for row in rows %}
+		{% if row.content['#row']._entity.field_quiz_link.value[0].title == 'Modify Your Answers'%}
+			{% set counter = ( counter | default(0) ) + 1 %}
+		{% endif %}
+	{% endfor %}
+   {%
+	  set classes1 =[
+		'views-view-grid',
+		'container',
+		'carousel',
+		'cari_quiz',
+		'slide',
+	  ]
+	%}
+	{% set quiz_type = (view.current_display == "block_1")? "Career" : "Personality" %}
+	{% set Carousel = (view.current_display == "block_1")? "myCarousel" : "myCarousel1" %}
+<div {{ attributes.addClass(classes) }}>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="all-quiz-status">
+				<span class="q-done">{{counter}}</span> of <span class="q-total">3</span> <span class="label">{{quiz_type}} Quizzes Completed</span>
+			</div>
+		</div>
+	</div>
+</div>
+
+  
+<div id="{{Carousel}}" data-ride="carousel" {{ attributes.addClass(classes1) }}>
+	<ol class="carousel-indicators {{display_id}} {{id}}">
+      <li data-target="#{{Carousel}}" data-slide-to="0" class="active"></li>
+      <li data-target="#{{Carousel}}" data-slide-to="1"></li>
+      <li data-target="#{{Carousel}}" data-slide-to="2"></li>
+    </ol>
+  <div class="carousel-inner"> 
+	  <div class="row carousel-item active">
+		{% for row in rows %}
+		
+		  <div{{ row.attributes.addClass(row_class) }}>
+			<div class="quiz-list item_{{ loop.index }}">
+				<div class="img-field">
+					<img src="{{file_url(row.content['#row']._entity.field_quiz_icon[0].entity.fileuri)}}" />
+				</div>
+				<div class="title-field">
+					<h4>{{ row.content['#row']._entity.title[0].value }}</h4>
+				</div>
+				{% if row.content['#row']._entity.field_quiz_link.value[0].title == 'Modify Your Answers'%}
+					<div class="row">
+						<div class="col-md-12 complete"> 
+							<div class="cq">
+								<span></span> Quiz Complete
+							</div>
+						</div>
+					</div>
+				{% else %}
+					<div class="row">
+						<div class="col-6 col-md-6 float-left quiz-duration"> <span></span>{{ row.content['#row']._entity.field_quiz_duration[0].value|replace({".00" : ""}) }}</div>
+						<div class="col-6 col-md-6 float-right quiz-questions"> <span></span>{{ row.content['#row']._entity.field_number_of_questions[0].value|replace({".00" : ""}) }} questions</div>
+					</div>
+				{% endif %}
+				<div class="quiz-description">
+					<p>{{ row.content['#row']._entity.body[0].value|raw }}</p>
+				</div>
+				{% if row.content['#row']._entity.nid[0].value != 0 %}
+					{{ row.content['#row']._entity.nid[0].value is empty }}
+					<div class="views-field views-field-field-quiz-link quiz_link">
+						<a href="/node/{{ row.content['#row']._entity.nid[0].value }}" class="quiz-link">View your result</a> 
+					 
+						<a href="{{ row.content['#row']._entity.field_quiz_link.value[0].uri|replace({'internal:': ""}) }}" class="result-link">
+							{{ row.content['#row']._entity.field_quiz_link.value[0].title }}
+						</a>
+					</div>
+				{% else %}
+					<div class="views-field views-field-field-quiz-link quiz_link">
+						<a href="{{ row.content['#row']._entity.field_quiz_link.value[0].uri|replace({'internal:': ""}) }}" class="quiz-link">
+							{{ row.content['#row']._entity.field_quiz_link.value[0].title }}
+						</a>
+					</div>
+				{% endif %}
+				
+			</div>
+		  </div>
+		{% endfor %}
+	  </div>
+  </div>
+
+</div>

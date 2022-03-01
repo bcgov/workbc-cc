@@ -1,0 +1,49 @@
+uuid: 688944bf-ba53-4068-a675-0715eee98044
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_abilities_39
+    - node.type.abilities_quiz
+    - taxonomy.vocabulary.abilities_categories
+  content:
+    - 'taxonomy_term:abilities_categories:98ed2ac7-0fac-44f2-972c-63903eacc557'
+  module:
+    - work_bc_quiz
+id: node.abilities_quiz.field_abilities_39
+field_name: field_abilities_39
+entity_type: node
+bundle: abilities_quiz
+label: 'Recognizing small parts of machinery, equipment, or products.'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    ar_target_id: null
+    target_uuid: 98ed2ac7-0fac-44f2-972c-63903eacc557
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      abilities_categories: abilities_categories
+    sort:
+      field: name
+      direction: asc
+    auto_create: 0
+    auto_create_bundle: ''
+  pr_label: ''
+  pr_field_hide: 1
+  added_reference:
+    ar_bundles:
+      abilities_options: abilities_options
+      abilities_categories: 0
+      education_level: 0
+      multiple_intelligence_categories: 0
+      multiple_intelligence_options: 0
+      tags: 0
+    ar_label: ''
+    ar_weight: '39'
+    ar_required: 1
+field_type: work_bc_quiz

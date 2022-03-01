@@ -1,0 +1,284 @@
+uuid: 89a7f2dd-aa19-4114-84f3-1e3886c79be2
+langcode: en
+status: true
+dependencies: {  }
+id: abilities_quiz
+label: 'Abilities Quiz'
+description: ''
+progress_steps_links_saved_only: true
+progress_steps_links_saved_only_next: true
+redirection_policy: route
+redirection_target: forms_steps.abilities_quiz_preview.abilities_quiz_preview_step_1
+steps:
+  abilities_quiz_step_1:
+    label: 'Abilities Quiz'
+    weight: 0
+    entity_type: node
+    entity_bundle: abilities_quiz
+    form_mode: node.step_1
+    url: /quiz/abilities-quiz/step1
+    submitLabel: Next
+    cancelLabel: null
+    hideDelete: 1
+    displayPrevious: 0
+  abilities_quiz_step_2:
+    label: 'Abilities Quiz'
+    weight: 1
+    entity_type: node
+    entity_bundle: abilities_quiz
+    form_mode: node.step_2
+    url: /quiz/abilities-quiz/step2
+    submitLabel: Next
+    cancelLabel: null
+    previousLabel: Previous
+    hideDelete: 1
+    displayPrevious: 1
+  abilities_quiz_step_3:
+    label: 'Abilities Quiz'
+    weight: 2
+    entity_type: node
+    entity_bundle: abilities_quiz
+    form_mode: node.step_3
+    url: /quiz/abilities-quiz/step3
+    submitLabel: Next
+    cancelLabel: null
+    previousLabel: Previous
+    hideDelete: 1
+    displayPrevious: 1
+  abilities_quiz_step_4:
+    label: 'Abilities Quiz'
+    weight: 3
+    entity_type: node
+    entity_bundle: abilities_quiz
+    form_mode: node.step_4
+    url: /quiz/abilities-quiz/step4
+    submitLabel: Next
+    cancelLabel: null
+    previousLabel: Previous
+    hideDelete: 1
+    displayPrevious: 1
+  abilities_quiz_step_5:
+    label: 'Abilities Quiz'
+    weight: 4
+    entity_type: node
+    entity_bundle: abilities_quiz
+    form_mode: node.step_5
+    url: '/quiz/abilities-quiz/step 5'
+    submitLabel: Next
+    cancelLabel: null
+    previousLabel: Previous
+    hideDelete: 1
+    displayPrevious: 1
+  abilities_quiz_step_6:
+    label: 'Abilities Quiz'
+    weight: 5
+    entity_type: node
+    entity_bundle: abilities_quiz
+    form_mode: node.step_6
+    url: /quiz/abilities-quiz/step6
+    submitLabel: Next
+    cancelLabel: null
+    previousLabel: Previous
+    hideDelete: 1
+    displayPrevious: 1
+  abilities_quiz_step_7:
+    label: 'Abilities Quiz'
+    weight: 6
+    entity_type: node
+    entity_bundle: abilities_quiz
+    form_mode: node.step_7
+    url: /quiz/abilities-quiz/step7
+    submitLabel: Next
+    cancelLabel: null
+    previousLabel: Previous
+    hideDelete: 1
+    displayPrevious: 1
+  abilities_quiz_step_8:
+    label: 'Abilities Quiz'
+    weight: 7
+    entity_type: node
+    entity_bundle: abilities_quiz
+    form_mode: node.step_8
+    url: /quiz/abilities-quiz/step8
+    submitLabel: Next
+    cancelLabel: null
+    previousLabel: Previous
+    hideDelete: 1
+    displayPrevious: 1
+progress_steps:
+  step_1:
+    label: 'Step 1'
+    weight: 0
+    routes:
+      abilities_quiz_step_1: abilities_quiz_step_1
+      abilities_quiz_step_2: 0
+      abilities_quiz_step_3: 0
+      abilities_quiz_step_4: 0
+      abilities_quiz_step_5: 0
+      abilities_quiz_step_6: 0
+      abilities_quiz_step_7: 0
+      abilities_quiz_step_8: 0
+    link: ''
+    link_visibility:
+      abilities_quiz_step_1: 0
+      abilities_quiz_step_2: 0
+      abilities_quiz_step_3: 0
+      abilities_quiz_step_4: 0
+      abilities_quiz_step_5: 0
+      abilities_quiz_step_6: 0
+      abilities_quiz_step_7: 0
+      abilities_quiz_step_8: 0
+  step_2:
+    label: 'Step 2'
+    weight: 1
+    routes:
+      abilities_quiz_step_2: abilities_quiz_step_2
+      abilities_quiz_step_1: 0
+      abilities_quiz_step_3: 0
+      abilities_quiz_step_4: 0
+      abilities_quiz_step_5: 0
+      abilities_quiz_step_6: 0
+      abilities_quiz_step_7: 0
+      abilities_quiz_step_8: 0
+    link: ''
+    link_visibility:
+      abilities_quiz_step_1: 0
+      abilities_quiz_step_2: 0
+      abilities_quiz_step_3: 0
+      abilities_quiz_step_4: 0
+      abilities_quiz_step_5: 0
+      abilities_quiz_step_6: 0
+      abilities_quiz_step_7: 0
+      abilities_quiz_step_8: 0
+  step_3:
+    label: 'Step 3'
+    weight: 2
+    routes:
+      abilities_quiz_step_3: abilities_quiz_step_3
+      abilities_quiz_step_1: 0
+      abilities_quiz_step_2: 0
+      abilities_quiz_step_4: 0
+      abilities_quiz_step_5: 0
+      abilities_quiz_step_6: 0
+      abilities_quiz_step_7: 0
+      abilities_quiz_step_8: 0
+    link: ''
+    link_visibility:
+      abilities_quiz_step_1: 0
+      abilities_quiz_step_2: 0
+      abilities_quiz_step_3: 0
+      abilities_quiz_step_4: 0
+      abilities_quiz_step_5: 0
+      abilities_quiz_step_6: 0
+      abilities_quiz_step_7: 0
+      abilities_quiz_step_8: 0
+  step_4:
+    label: 'Step 4'
+    weight: 3
+    routes:
+      abilities_quiz_step_4: abilities_quiz_step_4
+      abilities_quiz_step_1: 0
+      abilities_quiz_step_2: 0
+      abilities_quiz_step_3: 0
+      abilities_quiz_step_5: 0
+      abilities_quiz_step_6: 0
+      abilities_quiz_step_7: 0
+      abilities_quiz_step_8: 0
+    link: ''
+    link_visibility:
+      abilities_quiz_step_1: 0
+      abilities_quiz_step_2: 0
+      abilities_quiz_step_3: 0
+      abilities_quiz_step_4: 0
+      abilities_quiz_step_5: 0
+      abilities_quiz_step_6: 0
+      abilities_quiz_step_7: 0
+      abilities_quiz_step_8: 0
+  step_5:
+    label: 'Step 5'
+    weight: 4
+    routes:
+      abilities_quiz_step_5: abilities_quiz_step_5
+      abilities_quiz_step_1: 0
+      abilities_quiz_step_2: 0
+      abilities_quiz_step_3: 0
+      abilities_quiz_step_4: 0
+      abilities_quiz_step_6: 0
+      abilities_quiz_step_7: 0
+      abilities_quiz_step_8: 0
+    link: ''
+    link_visibility:
+      abilities_quiz_step_1: 0
+      abilities_quiz_step_2: 0
+      abilities_quiz_step_3: 0
+      abilities_quiz_step_4: 0
+      abilities_quiz_step_5: 0
+      abilities_quiz_step_6: 0
+      abilities_quiz_step_7: 0
+      abilities_quiz_step_8: 0
+  step_6:
+    label: 'Step 6'
+    weight: 5
+    routes:
+      abilities_quiz_step_6: abilities_quiz_step_6
+      abilities_quiz_step_1: 0
+      abilities_quiz_step_2: 0
+      abilities_quiz_step_3: 0
+      abilities_quiz_step_4: 0
+      abilities_quiz_step_5: 0
+      abilities_quiz_step_7: 0
+      abilities_quiz_step_8: 0
+    link: ''
+    link_visibility:
+      abilities_quiz_step_1: 0
+      abilities_quiz_step_2: 0
+      abilities_quiz_step_3: 0
+      abilities_quiz_step_4: 0
+      abilities_quiz_step_5: 0
+      abilities_quiz_step_6: 0
+      abilities_quiz_step_7: 0
+      abilities_quiz_step_8: 0
+  step_7:
+    label: 'Step 7'
+    weight: 6
+    routes:
+      abilities_quiz_step_7: abilities_quiz_step_7
+      abilities_quiz_step_1: 0
+      abilities_quiz_step_2: 0
+      abilities_quiz_step_3: 0
+      abilities_quiz_step_4: 0
+      abilities_quiz_step_5: 0
+      abilities_quiz_step_6: 0
+      abilities_quiz_step_8: 0
+    link: ''
+    link_visibility:
+      abilities_quiz_step_1: 0
+      abilities_quiz_step_2: 0
+      abilities_quiz_step_3: 0
+      abilities_quiz_step_4: 0
+      abilities_quiz_step_5: 0
+      abilities_quiz_step_6: 0
+      abilities_quiz_step_7: 0
+      abilities_quiz_step_8: 0
+  step_8:
+    label: 'Step 8'
+    weight: 7
+    routes:
+      abilities_quiz_step_8: abilities_quiz_step_8
+      abilities_quiz_step_1: 0
+      abilities_quiz_step_2: 0
+      abilities_quiz_step_3: 0
+      abilities_quiz_step_4: 0
+      abilities_quiz_step_5: 0
+      abilities_quiz_step_6: 0
+      abilities_quiz_step_7: 0
+    link: ''
+    link_visibility:
+      abilities_quiz_step_1: 0
+      abilities_quiz_step_2: 0
+      abilities_quiz_step_3: 0
+      abilities_quiz_step_4: 0
+      abilities_quiz_step_5: 0
+      abilities_quiz_step_6: 0
+      abilities_quiz_step_7: 0
+      abilities_quiz_step_8: 0

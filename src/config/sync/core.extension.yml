@@ -26,6 +26,8 @@ module:
   field_ui: 0
   file: 0
   filter: 0
+  form_display_field_machine_name: 0
+  forms_steps: 0
   help: 0
   history: 0
   image: 0
@@ -50,8 +52,10 @@ module:
   twig_tweak: 0
   update: 0
   user: 0
+  views_bootstrap: 0
   views_ui: 0
   viewsreference: 0
+  work_bc_quiz: 0
   pathauto: 1
   views: 10
   paragraphs: 11

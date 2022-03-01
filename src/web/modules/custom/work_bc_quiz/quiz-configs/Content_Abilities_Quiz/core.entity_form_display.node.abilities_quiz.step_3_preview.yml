@@ -1,0 +1,190 @@
+uuid: d8a1999e-fcd6-4aea-8e9d-e48112c4fbf7
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.node.step_3_preview
+    - field.field.node.abilities_quiz.field_abilities_1
+    - field.field.node.abilities_quiz.field_abilities_10
+    - field.field.node.abilities_quiz.field_abilities_11
+    - field.field.node.abilities_quiz.field_abilities_12
+    - field.field.node.abilities_quiz.field_abilities_13
+    - field.field.node.abilities_quiz.field_abilities_14
+    - field.field.node.abilities_quiz.field_abilities_15
+    - field.field.node.abilities_quiz.field_abilities_16
+    - field.field.node.abilities_quiz.field_abilities_17
+    - field.field.node.abilities_quiz.field_abilities_18
+    - field.field.node.abilities_quiz.field_abilities_19
+    - field.field.node.abilities_quiz.field_abilities_2
+    - field.field.node.abilities_quiz.field_abilities_20
+    - field.field.node.abilities_quiz.field_abilities_21
+    - field.field.node.abilities_quiz.field_abilities_22
+    - field.field.node.abilities_quiz.field_abilities_23
+    - field.field.node.abilities_quiz.field_abilities_24
+    - field.field.node.abilities_quiz.field_abilities_25
+    - field.field.node.abilities_quiz.field_abilities_26
+    - field.field.node.abilities_quiz.field_abilities_27
+    - field.field.node.abilities_quiz.field_abilities_28
+    - field.field.node.abilities_quiz.field_abilities_29
+    - field.field.node.abilities_quiz.field_abilities_3
+    - field.field.node.abilities_quiz.field_abilities_30
+    - field.field.node.abilities_quiz.field_abilities_31
+    - field.field.node.abilities_quiz.field_abilities_32
+    - field.field.node.abilities_quiz.field_abilities_33
+    - field.field.node.abilities_quiz.field_abilities_34
+    - field.field.node.abilities_quiz.field_abilities_35
+    - field.field.node.abilities_quiz.field_abilities_36
+    - field.field.node.abilities_quiz.field_abilities_37
+    - field.field.node.abilities_quiz.field_abilities_38
+    - field.field.node.abilities_quiz.field_abilities_39
+    - field.field.node.abilities_quiz.field_abilities_4
+    - field.field.node.abilities_quiz.field_abilities_5
+    - field.field.node.abilities_quiz.field_abilities_6
+    - field.field.node.abilities_quiz.field_abilities_7
+    - field.field.node.abilities_quiz.field_abilities_8
+    - field.field.node.abilities_quiz.field_abilities_9
+    - node.type.abilities_quiz
+  module:
+    - work_bc_quiz
+id: node.abilities_quiz.step_3_preview
+targetEntityType: node
+bundle: abilities_quiz
+mode: step_3_preview
+content:
+  field_abilities_21:
+    type: double_reference_autocomplete_select
+    weight: 26
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_abilities_22:
+    type: double_reference_autocomplete_select
+    weight: 27
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_abilities_23:
+    type: double_reference_autocomplete_select
+    weight: 28
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_abilities_24:
+    type: double_reference_autocomplete_select
+    weight: 29
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_abilities_25:
+    type: double_reference_autocomplete_select
+    weight: 30
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_abilities_26:
+    type: double_reference_autocomplete_select
+    weight: 31
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_abilities_27:
+    type: double_reference_autocomplete_select
+    weight: 32
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_abilities_28:
+    type: double_reference_autocomplete_select
+    weight: 33
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_abilities_29:
+    type: double_reference_autocomplete_select
+    weight: 34
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_abilities_30:
+    type: double_reference_autocomplete_select
+    weight: 35
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_abilities_1: true
+  field_abilities_10: true
+  field_abilities_11: true
+  field_abilities_12: true
+  field_abilities_13: true
+  field_abilities_14: true
+  field_abilities_15: true
+  field_abilities_16: true
+  field_abilities_17: true
+  field_abilities_18: true
+  field_abilities_19: true
+  field_abilities_2: true
+  field_abilities_20: true
+  field_abilities_3: true
+  field_abilities_31: true
+  field_abilities_32: true
+  field_abilities_33: true
+  field_abilities_34: true
+  field_abilities_35: true
+  field_abilities_36: true
+  field_abilities_37: true
+  field_abilities_38: true
+  field_abilities_39: true
+  field_abilities_4: true
+  field_abilities_5: true
+  field_abilities_6: true
+  field_abilities_7: true
+  field_abilities_8: true
+  field_abilities_9: true
+  path: true
+  promote: true
+  status: true
+  sticky: true
+  title: true
+  uid: true

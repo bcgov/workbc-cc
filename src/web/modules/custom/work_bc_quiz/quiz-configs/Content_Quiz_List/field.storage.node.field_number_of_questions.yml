@@ -1,0 +1,20 @@
+uuid: e85d0740-a4c0-45e4-baf4-a327c35d99b7
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_number_of_questions
+field_name: field_number_of_questions
+entity_type: node
+type: decimal
+settings:
+  precision: 10
+  scale: 2
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

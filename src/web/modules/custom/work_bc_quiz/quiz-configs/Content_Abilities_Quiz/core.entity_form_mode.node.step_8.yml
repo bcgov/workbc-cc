@@ -1,0 +1,10 @@
+uuid: 9e6ea804-9571-4394-97f3-1b0f2de4b0bc
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.step_8
+label: 'Step 8'
+targetEntityType: node
+cache: true

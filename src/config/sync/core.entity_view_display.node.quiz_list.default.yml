@@ -1,0 +1,77 @@
+uuid: 8910685e-c9d5-423a-92b2-5d846dcb88e5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.quiz_list.body
+    - field.field.node.quiz_list.field_number_of_questions
+    - field.field.node.quiz_list.field_quiz_duration
+    - field.field.node.quiz_list.field_quiz_icon
+    - field.field.node.quiz_list.field_quiz_link
+    - field.field.node.quiz_list.field_quiz_type
+    - node.type.quiz_list
+  module:
+    - link
+    - options
+    - svg_image
+    - text
+    - user
+id: node.quiz_list.default
+targetEntityType: node
+bundle: quiz_list
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_quiz_duration:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_quiz_icon:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_quiz_link:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_quiz_type:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_number_of_questions: true
