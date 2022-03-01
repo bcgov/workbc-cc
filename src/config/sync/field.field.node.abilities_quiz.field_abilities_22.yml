@@ -1,0 +1,49 @@
+uuid: 4f016d86-dc3d-4f16-90d1-fb74a02f20ae
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_abilities_22
+    - node.type.abilities_quiz
+    - taxonomy.vocabulary.abilities_categories
+  content:
+    - 'taxonomy_term:abilities_categories:38ee3b6a-8d7f-493c-98ae-92381d0a4bb1'
+  module:
+    - work_bc_quiz
+id: node.abilities_quiz.field_abilities_22
+field_name: field_abilities_22
+entity_type: node
+bundle: abilities_quiz
+label: 'Using hand tools to adjust machines and repair things.'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    ar_target_id: null
+    target_uuid: 38ee3b6a-8d7f-493c-98ae-92381d0a4bb1
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      abilities_categories: abilities_categories
+    sort:
+      field: name
+      direction: asc
+    auto_create: 0
+    auto_create_bundle: ''
+  pr_label: ''
+  pr_field_hide: 1
+  added_reference:
+    ar_bundles:
+      abilities_options: abilities_options
+      abilities_categories: 0
+      education_level: 0
+      multiple_intelligence_categories: 0
+      multiple_intelligence_options: 0
+      tags: 0
+    ar_label: ''
+    ar_weight: '22'
+    ar_required: 1
+field_type: work_bc_quiz

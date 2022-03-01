@@ -1,10 +1,10 @@
-uuid: 748726cd-605f-404b-b052-7de45bfbbf64
+uuid: 32a1f604-28b9-48ae-be6a-9a10c9671e48
 langcode: en
 status: true
 dependencies:
   module:
     - node
-id: node.career_profile_career
-label: Career
+id: node.step_2
+label: 'Step 2'
 targetEntityType: node
 cache: true

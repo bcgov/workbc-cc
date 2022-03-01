@@ -1,0 +1,49 @@
+uuid: f91cbb31-1574-4e1d-8174-84a2aaded545
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_abilities_10
+    - node.type.abilities_quiz
+    - taxonomy.vocabulary.abilities_categories
+  content:
+    - 'taxonomy_term:abilities_categories:fae2857d-4276-4535-81f3-9db96808fb1d'
+  module:
+    - work_bc_quiz
+id: node.abilities_quiz.field_abilities_10
+field_name: field_abilities_10
+entity_type: node
+bundle: abilities_quiz
+label: 'Learning and understanding things quickly.'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    ar_target_id: null
+    target_uuid: fae2857d-4276-4535-81f3-9db96808fb1d
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      abilities_categories: abilities_categories
+    sort:
+      field: name
+      direction: asc
+    auto_create: 0
+    auto_create_bundle: abilities_categories
+  pr_label: ''
+  pr_field_hide: 1
+  added_reference:
+    ar_bundles:
+      abilities_options: abilities_options
+      abilities_categories: 0
+      education_level: 0
+      multiple_intelligence_categories: 0
+      multiple_intelligence_options: 0
+      tags: 0
+    ar_label: ''
+    ar_weight: '10'
+    ar_required: 1
+field_type: work_bc_quiz

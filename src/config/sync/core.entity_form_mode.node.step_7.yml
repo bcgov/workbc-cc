@@ -1,0 +1,10 @@
+uuid: 713ad1ba-41c6-479f-ac43-62d28e4bd30f
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.step_7
+label: 'Step 7'
+targetEntityType: node
+cache: true

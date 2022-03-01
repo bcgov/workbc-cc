@@ -3,7 +3,9 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.taxonomy_term.abilities_categories.field_color
     - field.field.taxonomy_term.abilities_categories.field_svg_icon
+    - field.field.taxonomy_term.abilities_categories.field_weightage
     - image.style.thumbnail
     - taxonomy.vocabulary.abilities_categories
   module:
@@ -23,6 +25,14 @@ content:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
+  field_color:
+    type: string_textfield
+    weight: 6
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_svg_icon:
     type: image_image
     weight: 1
@@ -30,6 +40,13 @@ content:
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_weightage:
+    type: number
+    weight: 5
+    region: content
+    settings:
+      placeholder: ''
     third_party_settings: {  }
   name:
     type: string_textfield

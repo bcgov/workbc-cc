@@ -4,10 +4,12 @@ status: true
 dependencies:
   config:
     - filter.format.restricted_html
+    - node.type.abilities_quiz
   module:
     - comment
     - contact
     - filter
+    - node
     - search
     - system
 _core:
@@ -20,5 +22,7 @@ permissions:
   - 'access comments'
   - 'access content'
   - 'access site-wide contact form'
+  - 'create abilities_quiz content'
+  - 'edit own abilities_quiz content'
   - 'search content'
   - 'use text format restricted_html'

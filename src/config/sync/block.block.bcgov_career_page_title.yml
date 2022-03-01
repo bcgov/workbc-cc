@@ -9,7 +9,7 @@ _core:
 id: bcgov_career_page_title
 theme: bcgov_career
 region: content
-weight: -3
+weight: -7
 provider: null
 plugin: page_title_block
 settings:
