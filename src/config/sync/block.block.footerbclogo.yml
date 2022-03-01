@@ -2,10 +2,6 @@ uuid: 9290e493-5f3a-46d6-8a25-95bac2fbbe1e
 langcode: en
 status: true
 dependencies:
-  content:
-    - 'block_content:basic:a55e0efe-369a-4ad6-a648-c43ea862f527'
-  module:
-    - block_content
   theme:
     - bcgov_career
 id: footerbclogo

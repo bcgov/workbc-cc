@@ -4,10 +4,12 @@ status: true
 dependencies:
   config:
     - filter.format.basic_html
+    - node.type.abilities_quiz
   module:
     - comment
     - contact
     - filter
+    - node
     - search
     - shortcut
     - system
@@ -22,6 +24,8 @@ permissions:
   - 'access content'
   - 'access shortcuts'
   - 'access site-wide contact form'
+  - 'create abilities_quiz content'
+  - 'edit own abilities_quiz content'
   - 'post comments'
   - 'search content'
   - 'skip comment approval'

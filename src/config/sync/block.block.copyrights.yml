@@ -2,10 +2,6 @@ uuid: 97834e0e-9791-463f-b60b-fdcad82a33d5
 langcode: en
 status: true
 dependencies:
-  content:
-    - 'block_content:basic:da438690-6437-4b0f-af43-5e2e24bf75ae'
-  module:
-    - block_content
   theme:
     - bcgov_career
 id: copyrights
