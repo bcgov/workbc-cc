@@ -18,9 +18,10 @@ function bcgov_career_preprocess_views_view_table(&$variables) {
       // You can get nid and anything else you need from the node object.
       $nid = $node->id();
       $session = \Drupal::request()->getSession();
-      $quiz_result = $session->get('save_quiz_' . $node->bundle() . "_$nid");
-      if (!empty($quiz_result) && isset($quiz_result['result'])) {
-        $match = $quiz_result['result'];
+      $save_quiz = $session->get('SavedQuiz');
+      $quiz_result = $save_quiz['save_quiz_' . $node->bundle() . "_$nid"];
+      if (!empty($save_quiz) && isset($quiz_result) && !empty($quiz_result->result)) {
+        $match = $quiz_result->result;
       }
     }
 
