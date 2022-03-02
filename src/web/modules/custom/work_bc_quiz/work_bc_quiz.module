@@ -124,18 +124,30 @@ function work_bc_quiz_entity_presave(Drupal\Core\Entity\EntityInterface $entity)
 		$SavedQuiz = ($session->get('SavedQuiz')) ? $session->get('SavedQuiz') : '';
 
 		 // Check if sessions array is already exists.
-		if(!is_array($SavedQuiz)) $SavedQuiz = [];
+		if(!is_array($SavedQuiz)) $SavedQuiz = []; 
+		//$SavedQuiz1 = [];
 		$i = 0;
 
 		// If node title already exists in sessions array, than break the loop and increase the counter to prevent adding node title to sessions array.
-		foreach($SavedQuiz as $value){
-			if($value['title'] == $autoTitle) $i++; break;
+		foreach($SavedQuiz as $key => $value){
+			$arguments = explode('_', $key);
+			$arguments = end($arguments);
+			
+			$arguments = $value->uuid;
+			
+			//if($value['title'] == $autoTitle) $i++; break;
+			if($arguments == $entity->uuid()) $i++; break;
 		}
+		
 		//Check if count is 0 => quiz not created yet for this user, add node into sessions array.
 		if($i == 0) {
-			$SavedQuiz[] = ['title'=> $autoTitle, 'uuid' => $entity->uuid()];
+			$key = 'save_quiz_'.$entity->bundle()."_A100";
+			//$SavedQuiz[] = ['title'=> $autoTitle, 'uuid' => $entity->uuid()];
+			$SavedQuiz[$key]->uuid = $entity->uuid();
+			$SavedQuiz[$key]->result = [];
+		
 			$session->set('SavedQuiz', $SavedQuiz);
-			$_SESSION['SavedQuiz'] = $SavedQuiz;
+			//$_SESSION['SavedQuiz'] = $SavedQuiz1;
 		}
 	}
 }
@@ -177,6 +189,9 @@ function work_bc_quiz_preprocess_page_title(&$variables) {
  */
 function work_bc_quiz_node_view(array &$build, \Drupal\Core\Entity\EntityInterface $entity, \Drupal\Core\Entity\Display\EntityViewDisplayInterface $display, $view_mode) {
 	$session = \Drupal::request()->getSession();
+	
+	$SavedQuiz = ($session->get('SavedQuiz')) ? $session->get('SavedQuiz') : '';
+	
 	// Filter which Content Types would use this node view
 	$node = $entity;
 	$all_quizes = ['abilities_quiz','multiple_intelligence_quiz'];
@@ -325,26 +340,35 @@ function work_bc_quiz_node_view(array &$build, \Drupal\Core\Entity\EntityInterfa
 						usort($data, fn($b, $a) => strcmp($a->percentage, $b->percentage));
 						$final_1 = array_chunk($data, 20)[0];
 						$tmp_cnt = 1000;
+						$result = [];
 						foreach($final_1 as $key => $value){
 							if($value->NOCCode == 0)  $value->NOCCode = $tmp_cnt++;
 							$result[$value->NOCCode] = $value->percentage;
 						}
 
 						$SavedQuiz = ($session->get('SavedQuiz')) ? $session->get('SavedQuiz') : '';
+						
 						foreach($SavedQuiz as $key => $value){
-							if($value['uuid'] == $uuid) {
-								$SavedQuiz[$key]['quiz_type'] = $node->bundle();
-								$SavedQuiz[$key]['id'] = $entity_id;
-								$SavedQuiz[$key]['result'] = $result;
+							
+							if($value->uuid == $uuid) {
+								$arguments = explode('_', $key);
+								$arguments = end($arguments);
+								if($arguments == "A100"){
+									unset($SavedQuiz[$key]);
+									$key = str_replace($arguments, $entity_id, $key);
+								}
+								$SavedQuiz[$key]->uuid = $uuid;
+								$SavedQuiz[$key]->result = $result;
 							}
 						}
-						$_SESSION['SavedQuiz'] = $SavedQuiz;
+						$session->set('SavedQuiz', $SavedQuiz);			
 					}
 				}
 			}
 			catch (RequestException $e) {
 			  return FALSE;
 			}
+			//print_r($SavedQuiz);
 		}
 	}
 }
@@ -360,64 +384,66 @@ function work_bc_quiz_views_pre_render(ViewExecutable &$view) {
 	$session = \Drupal::request()->getSession();
 	if ($view->id() == 'career_quizzes'  ) {
 		// check view idate
+		
+			$results = $view->result;
+			$filteredResults = [];
 
-		$results = $view->result;
-		$filteredResults = [];
+			foreach ($results as $k => $row) {
+				$row->_entity->get('nid')->setValue(0, TRUE);
 
-		foreach ($results as $k => $row) {
-			$row->_entity->get('nid')->setValue(0, TRUE);
+				$nodeTitle = $row->_entity->get('title')->value;
+				
+				// check if session already exists.
+				if($session->get('SavedQuiz')){
+					//Get quiz session into an array.
+					$SavedQuiz = $session->get('SavedQuiz');
+					
 
-			$nodeTitle = $row->_entity->get('title')->value;
+					if(is_array($SavedQuiz)) {
 
-			// check if session already exists.
-			if($session->get('SavedQuiz')){
-				//Get quiz session into an array.
-				$SavedQuiz = $session->get('SavedQuiz');
-				$SavedQuiz1 = $_SESSION['SavedQuiz'];
+						foreach($SavedQuiz as $key =>  $value){
+							$NId = end(explode("_",$key));
+							$SavedQuizTitle  = str_replace("_", " ", str_replace("_".$NId, "", str_replace("save_quiz_", "", $key)));
+							if(strtolower($SavedQuizTitle) == strtolower($nodeTitle)){
+								$field_quiz_link = $row->_entity->get('field_quiz_link');
+								$field_value = $field_quiz_link->getValue();
 
-				if(is_array($SavedQuiz)) {
+								// current item is available in sessions => remove new quiz link and replace with the existing link.
+								$quizLink = strtolower(str_replace(" ","_", $nodeTitle));
 
-					foreach($SavedQuiz as $value){
+								$query = \Drupal::database()->select('node', 'n')->fields('sf', ['instance_id', 'entity_id']);
+								$query->leftJoin('forms_steps_workflow', 'sf', 'sf.entity_id = n.nid');
+								$query->condition('n.uuid', $value->uuid);
+								$results = $query->execute()->fetchAll();
+								$instance_id = $results[0]->instance_id;
+								$entity_id = $results[0]->entity_id;
 
-						if($value['title'] == $nodeTitle){
-							$field_quiz_link = $row->_entity->get('field_quiz_link');
-							$field_value = $field_quiz_link->getValue();
+								$field_value[0]['uri'] = "internal:/quiz/$quizLink/step1/preview/".$instance_id;
+								$field_value[0]['title'] = 'Modify Your Answers';
 
-							// current item is available in sessions => remove new quiz link and replace with the existing link.
-							$quizLink = strtolower(str_replace(" ","_", $nodeTitle));
+								$row->_entity->get('field_quiz_link')->setValue($field_value, TRUE);
 
-							$query = \Drupal::database()->select('node', 'n')->fields('sf', ['instance_id', 'entity_id']);
-							$query->leftJoin('forms_steps_workflow', 'sf', 'sf.entity_id = n.nid');
-							$query->condition('n.uuid', $value['uuid']);
-							$results = $query->execute()->fetchAll();
-							$instance_id = $results[0]->instance_id;
-							$entity_id = $results[0]->entity_id;
+								$row->_entity->get('nid')->setValue($entity_id, TRUE);
+							}
+							else {
 
-							$field_value[0]['uri'] = "internal:/quiz/$quizLink/step1/preview/".$instance_id;
-							$field_value[0]['title'] = 'Modify Your Answers';
-
-							$row->_entity->get('field_quiz_link')->setValue($field_value, TRUE);
-
-							$row->_entity->get('nid')->setValue($entity_id, TRUE);
-						}
-						else {
-
+							}
 						}
 					}
 				}
+				else {
+					# print "no sessions";
+				}
+				$result[$k] = $row;
+				$filteredResults[] = $result;
 			}
-			else {
-				# print "no sessions";
-			}
-			$result[$k] = $row;
-			$filteredResults[] = $result;
-		}
 
-		foreach ($filteredResults as $key => $row) {
-			$row->index = $key;
-		}
-		$view->result = $result;
-		$view->total_rows = count($filteredResults);
+			foreach ($filteredResults as $key => $row) {
+				$row->index = $key;
+			}
+			$view->result = $result;
+			$view->total_rows = count($filteredResults);
+		
 	}
 	// This view is for pagination. It gets Bundle and Entity type using uuid of steps forms
 	elseif ($view->id() == 'step_form_pagination') {
