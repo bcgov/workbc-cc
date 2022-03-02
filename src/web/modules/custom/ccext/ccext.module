@@ -24,22 +24,20 @@ function ccext_theme($existing, $type, $theme, $path) {
  * Implements hook_views_query_alter().
  */
 function ccext_views_query_alter(ViewExecutable $view, QueryPluginBase $query) {
-  $title = NULL;
-  $node = \Drupal::routeMatch()->getParameter('node');
-  if ($node instanceof \Drupal\node\NodeInterface) {
-    // You can get nid and anything else you need from the node object.
-    $nid = $node->id();
-    $session = \Drupal::request()->getSession();
-    $quiz_result = $session->get('save_quiz_' . $node->bundle() . "_$nid");
-    if (isset($quiz_result) && !empty($quiz_result['result'])) {
-      foreach ($quiz_result['result'] as $key => $value) {
-        $title[] = $key;
+  if ($view->id() == 'career_matches' && 'block_1' == $view->current_display) {
+    $title = NULL;
+    $node = \Drupal::routeMatch()->getParameter('node');
+    if ($node instanceof \Drupal\node\NodeInterface) {
+      // You can get nid and anything else you need from the node object.
+      $nid = $node->id();
+      $session = \Drupal::request()->getSession();
+      $quiz_result = $session->get('save_quiz_' . $node->bundle() . "_$nid");
+      if (isset($quiz_result) && !empty($quiz_result['result'])) {
+        foreach ($quiz_result['result'] as $key => $value) {
+          $title[] = $key;
+        }
       }
     }
-  }
-
-
-  if ($view->id() == 'career_matches' && 'block_1' == $view->current_display) {
     $query->addWhere('0', 'node_field_data.title', $title, 'IN');
   }
 }

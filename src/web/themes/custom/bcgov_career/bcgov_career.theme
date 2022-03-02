@@ -27,8 +27,7 @@ function bcgov_career_preprocess_views_view_table(&$variables) {
     // Render each field into its appropriate column.
     foreach ($result as $num => $row) {
       $raw = NULL;
-      // $raw['match'] = $match[$handler->getFieldValue($num, 'title')];
-      $raw['match'] = '%0';
+      $raw['match'] = $match[$handler->getFieldValue($num, 'title')] . '%';
 
       foreach ($fields as $key => $value) {
         $raw[$key] = $handler->getFieldValue($num, $key);
