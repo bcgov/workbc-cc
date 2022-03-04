@@ -4,6 +4,7 @@ global-styling:
       css/style.css: {}
 
   js:
+    http://www.youtube.com/player_api: {}
     js/slick.min.js: {}
     js/magnific-popup.js: {}
     js/custom.js: {}

@@ -57,7 +57,7 @@
             {% for rowkey, row in rows %}
             <div class="career-content-item active">
               <div class="career-content-item-inner">
-                <div class="title">
+                <div class="title equalHeight">
                   <p>{{ row.cells.field_noc_name.content }}
                     </br><span class='noc-code'>(NOC {{ row.cells.title.content }})</span>
                   </p>
@@ -83,7 +83,7 @@
                 <div class="career-inner-content">
                   <div class="image-video">
                     {% if row.cells.field_video_id.content != '' and row.cells.field_video_id.content != '#NAME?' %}
-                      <iframe width="420" height="345" src="{{ 'https://www.youtube.com/embed/' ~ row.cells.field_video_id.content }}"></iframe>
+                      <iframe id="player{{ rowkey }}" class="yt_players" width="420" height="345" src="{{ 'https://www.youtube.com/embed/' ~ row.cells.field_video_id.content ~ '?rel=0&wmode=Opaque&enablejsapi=1;showinfo=0;controls=0'}}"></iframe>
                     {% else %}
                       <img src="{{ file_url(row.cells.field_image.content) }}" alt=""/>
                     {% endif %}

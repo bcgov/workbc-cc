@@ -31,6 +31,62 @@
         }
       });
 
+      players = new Array();
+
+      function onYouTubeIframeAPIReady() {
+          var temp = $("iframe.yt_players");
+          for (var i = 0; i < temp.length; i++) {
+              var t = new YT.Player($(temp[i]).attr('id'), {
+                  events: {
+                      'onStateChange': onPlayerStateChange
+                  }
+              });
+              players.push(t);
+          }
+      }
+      function onPlayerStateChange(event) {
+          if (event.data == YT.PlayerState.PLAYING) {
+              alert(players[0].getVideoUrl());
+            // alert(players[0].getVideoUrl());
+              var temp = event.target.getVideoUrl();
+              var tempPlayers = $("iframe.yt_players");
+              for (var i = 0; i < players.length; i++) {
+                  if (players[i].getVideoUrl() != temp) players[i].stopVideo();
+
+              }
+          }
+      }
+      setTimeout(function(){
+        onYouTubeIframeAPIReady();
+      }, 1500);
+
+      equalHeight(false);
+
+      window.onresize = function(){
+        equalHeight(true);
+      }
+      
+      function equalHeight(resize) {
+        var elements = document.getElementsByClassName("equalHeight"),
+            allHeights = [],
+            i = 0;
+        if(resize === true){
+          for(i = 0; i < elements.length; i++){
+            elements[i].style.height = 'auto';
+          }
+        }
+        for(i = 0; i < elements.length; i++){
+          var elementHeight = elements[i].clientHeight;
+          allHeights.push(elementHeight);
+        }
+        for(i = 0; i < elements.length; i++){
+          elements[i].style.height = Math.max.apply( Math, allHeights) + 'px';
+          if(resize === false){
+            elements[i].className = elements[i].className + " show";
+          }
+        }
+      }
+
       $(".career-table-link > a").on("click", function(){
         var getCarDataId = $(this).parent().parent().data("id");
         $(".career-table-row").removeClass("active");
