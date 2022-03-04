@@ -288,7 +288,7 @@ function work_bc_quiz_node_view(array &$build, \Drupal\Core\Entity\EntityInterfa
 			$field_value[0]['uri'] = "/quiz/$quizLink/step1/preview/".$instance_id;
 			$field_value[0]['title'] = t('Modify Your Answers');
 			// Next quiz link
-			$field_value[1]['uri'] = "/quiz/$quizLink/step1/preview/".$instance_id;
+			$field_value[1]['uri'] = "/"; //quiz/$quizLink/step1/preview/".$instance_id;
 			$field_value[1]['title'] = t('Take Next Quiz');
 
 			// Calculate the percentage value.
