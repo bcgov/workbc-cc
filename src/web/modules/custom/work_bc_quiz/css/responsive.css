@@ -10,7 +10,7 @@
 {
 	
 }
-@media(min-width:576px)
+@media(min-width:768px)
 {
     .carrer
     {
@@ -21,7 +21,7 @@
         display:none;
     }
 }
-@media(max-width:767px){
+@media(max-width:768px){
 	.all-quiz-status{
 		text-align:center;
 	}
