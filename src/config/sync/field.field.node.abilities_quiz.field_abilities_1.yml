@@ -7,21 +7,21 @@ dependencies:
     - node.type.abilities_quiz
     - taxonomy.vocabulary.abilities_categories
   content:
-    - 'taxonomy_term:abilities_categories:103407e8-8260-4dc3-bd4b-db240698b3af'
+    - 'taxonomy_term:abilities_categories:2c522140-655e-4be9-969c-e832441e3805'
   module:
     - work_bc_quiz
 id: node.abilities_quiz.field_abilities_1
 field_name: field_abilities_1
 entity_type: node
 bundle: abilities_quiz
-label: 'Seeing fine details in objects.'
+label: 'I learn and understand things quickly.'
 description: ''
 required: false
 translatable: false
 default_value:
   -
     ar_target_id: null
-    target_uuid: 103407e8-8260-4dc3-bd4b-db240698b3af
+    target_uuid: 2c522140-655e-4be9-969c-e832441e3805
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'

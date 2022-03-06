@@ -14,7 +14,7 @@ id: node.abilities_quiz.field_abilities_30
 field_name: field_abilities_30
 entity_type: node
 bundle: abilities_quiz
-label: 'Repairing small objects using your fingers.'
+label: 'Taking things apart and putting them back together properly.'
 description: ''
 required: false
 translatable: false

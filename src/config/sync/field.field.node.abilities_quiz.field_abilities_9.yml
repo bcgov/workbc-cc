@@ -7,21 +7,21 @@ dependencies:
     - node.type.abilities_quiz
     - taxonomy.vocabulary.abilities_categories
   content:
-    - 'taxonomy_term:abilities_categories:103407e8-8260-4dc3-bd4b-db240698b3af'
+    - 'taxonomy_term:abilities_categories:773c434d-052a-4b1d-87eb-3b8d39fc3d73'
   module:
     - work_bc_quiz
 id: node.abilities_quiz.field_abilities_9
 field_name: field_abilities_9
 entity_type: node
 bundle: abilities_quiz
-label: 'Inspecting things for details such as colouring, scratches, dust, and flaws.'
+label: 'I can make change when working with money.'
 description: ''
 required: false
 translatable: false
 default_value:
   -
     ar_target_id: null
-    target_uuid: 103407e8-8260-4dc3-bd4b-db240698b3af
+    target_uuid: 773c434d-052a-4b1d-87eb-3b8d39fc3d73
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'

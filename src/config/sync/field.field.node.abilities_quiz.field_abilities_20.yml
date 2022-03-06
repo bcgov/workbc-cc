@@ -7,21 +7,21 @@ dependencies:
     - node.type.abilities_quiz
     - taxonomy.vocabulary.abilities_categories
   content:
-    - 'taxonomy_term:abilities_categories:11e21527-ae63-4e06-886b-211fdc713e80'
+    - 'taxonomy_term:abilities_categories:773c434d-052a-4b1d-87eb-3b8d39fc3d73'
   module:
     - work_bc_quiz
 id: node.abilities_quiz.field_abilities_20
 field_name: field_abilities_20
 entity_type: node
 bundle: abilities_quiz
-label: 'Understanding and using new words easily.'
+label: 'I make accurate measurements.'
 description: ''
 required: false
 translatable: false
 default_value:
   -
     ar_target_id: null
-    target_uuid: 11e21527-ae63-4e06-886b-211fdc713e80
+    target_uuid: 773c434d-052a-4b1d-87eb-3b8d39fc3d73
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'

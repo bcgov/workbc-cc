@@ -24,6 +24,7 @@ permissions:
   - 'access content'
   - 'access site-wide contact form'
   - 'create abilities_quiz content'
+  - 'edit own abilities_quiz content'
   - 'search content'
   - 'use career entity comparison'
   - 'use text format restricted_html'

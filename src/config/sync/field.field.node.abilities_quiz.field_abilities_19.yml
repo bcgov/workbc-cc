@@ -7,21 +7,21 @@ dependencies:
     - node.type.abilities_quiz
     - taxonomy.vocabulary.abilities_categories
   content:
-    - 'taxonomy_term:abilities_categories:4c4d73c1-1bf1-45ab-8d8c-70bb125cfc51'
+    - 'taxonomy_term:abilities_categories:4d86c4c8-29e5-4a9b-b513-342d8dddc802'
   module:
     - work_bc_quiz
 id: node.abilities_quiz.field_abilities_19
 field_name: field_abilities_19
 entity_type: node
 bundle: abilities_quiz
-label: 'Moving and turning objects.'
+label: 'I can pick up tiny objects.'
 description: ''
 required: false
 translatable: false
 default_value:
   -
     ar_target_id: null
-    target_uuid: 4c4d73c1-1bf1-45ab-8d8c-70bb125cfc51
+    target_uuid: 4d86c4c8-29e5-4a9b-b513-342d8dddc802
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'
