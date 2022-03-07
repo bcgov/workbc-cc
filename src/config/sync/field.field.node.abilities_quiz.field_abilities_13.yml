@@ -14,7 +14,7 @@ id: node.abilities_quiz.field_abilities_13
 field_name: field_abilities_13
 entity_type: node
 bundle: abilities_quiz
-label: 'Hitting a moving object, such as a baseball with a bat.'
+label: 'I can thread a needle.'
 description: ''
 required: false
 translatable: false

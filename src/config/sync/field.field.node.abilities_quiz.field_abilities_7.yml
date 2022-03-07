@@ -7,21 +7,21 @@ dependencies:
     - node.type.abilities_quiz
     - taxonomy.vocabulary.abilities_categories
   content:
-    - 'taxonomy_term:abilities_categories:773c434d-052a-4b1d-87eb-3b8d39fc3d73'
+    - 'taxonomy_term:abilities_categories:4c4d73c1-1bf1-45ab-8d8c-70bb125cfc51'
   module:
     - work_bc_quiz
 id: node.abilities_quiz.field_abilities_7
 field_name: field_abilities_7
 entity_type: node
 bundle: abilities_quiz
-label: 'Solving math problems.'
+label: 'I sort things quickly.'
 description: ''
 required: false
 translatable: false
 default_value:
   -
     ar_target_id: null
-    target_uuid: 773c434d-052a-4b1d-87eb-3b8d39fc3d73
+    target_uuid: 4c4d73c1-1bf1-45ab-8d8c-70bb125cfc51
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'

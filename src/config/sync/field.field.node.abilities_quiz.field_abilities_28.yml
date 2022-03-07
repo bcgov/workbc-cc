@@ -7,21 +7,21 @@ dependencies:
     - node.type.abilities_quiz
     - taxonomy.vocabulary.abilities_categories
   content:
-    - 'taxonomy_term:abilities_categories:103407e8-8260-4dc3-bd4b-db240698b3af'
+    - 'taxonomy_term:abilities_categories:6aa0e0aa-8f9e-49d2-bb89-2d837d8debda'
   module:
     - work_bc_quiz
 id: node.abilities_quiz.field_abilities_28
 field_name: field_abilities_28
 entity_type: node
 bundle: abilities_quiz
-label: 'Identifying differences between two similar images.'
+label: 'Imagining what something would look like from seeing a diagram of it.'
 description: ''
 required: false
 translatable: false
 default_value:
   -
     ar_target_id: null
-    target_uuid: 103407e8-8260-4dc3-bd4b-db240698b3af
+    target_uuid: 6aa0e0aa-8f9e-49d2-bb89-2d837d8debda
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'

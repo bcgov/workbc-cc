@@ -7,7 +7,7 @@ label: 'Abilities Quiz'
 description: ''
 progress_steps_links_saved_only: true
 progress_steps_links_saved_only_next: true
-redirection_policy: route
+redirection_policy: entity
 redirection_target: forms_steps.abilities_quiz_preview.abilities_quiz_preview_step_1
 steps:
   abilities_quiz_step_1:
@@ -100,7 +100,7 @@ steps:
     entity_bundle: abilities_quiz
     form_mode: node.step_8
     url: /quiz/abilities-quiz/step8
-    submitLabel: Next
+    submitLabel: Submit
     cancelLabel: null
     previousLabel: Previous
     hideDelete: 1

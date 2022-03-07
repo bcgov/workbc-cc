@@ -7,21 +7,21 @@ dependencies:
     - node.type.abilities_quiz
     - taxonomy.vocabulary.abilities_categories
   content:
-    - 'taxonomy_term:abilities_categories:773c434d-052a-4b1d-87eb-3b8d39fc3d73'
+    - 'taxonomy_term:abilities_categories:4d86c4c8-29e5-4a9b-b513-342d8dddc802'
   module:
     - work_bc_quiz
 id: node.abilities_quiz.field_abilities_4
 field_name: field_abilities_4
 entity_type: node
 bundle: abilities_quiz
-label: 'Giving the exact change when working with money.'
+label: 'I use equipment such as a computer keyboard or a cash register.'
 description: ''
 required: false
 translatable: false
 default_value:
   -
     ar_target_id: null
-    target_uuid: 773c434d-052a-4b1d-87eb-3b8d39fc3d73
+    target_uuid: 4d86c4c8-29e5-4a9b-b513-342d8dddc802
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'

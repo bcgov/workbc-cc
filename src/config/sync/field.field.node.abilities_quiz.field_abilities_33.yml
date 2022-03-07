@@ -7,21 +7,21 @@ dependencies:
     - node.type.abilities_quiz
     - taxonomy.vocabulary.abilities_categories
   content:
-    - 'taxonomy_term:abilities_categories:773c434d-052a-4b1d-87eb-3b8d39fc3d73'
+    - 'taxonomy_term:abilities_categories:b617b2d0-969d-4c1e-8f9a-888bb5262252'
   module:
     - work_bc_quiz
 id: node.abilities_quiz.field_abilities_33
 field_name: field_abilities_33
 entity_type: node
 bundle: abilities_quiz
-label: 'Understanding mathematical concepts.'
+label: 'Using hand tools to adjust machines and repair things.'
 description: ''
 required: false
 translatable: false
 default_value:
   -
     ar_target_id: null
-    target_uuid: 773c434d-052a-4b1d-87eb-3b8d39fc3d73
+    target_uuid: b617b2d0-969d-4c1e-8f9a-888bb5262252
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'

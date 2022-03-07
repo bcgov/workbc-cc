@@ -7,21 +7,21 @@ dependencies:
     - node.type.abilities_quiz
     - taxonomy.vocabulary.abilities_categories
   content:
-    - 'taxonomy_term:abilities_categories:6aa0e0aa-8f9e-49d2-bb89-2d837d8debda'
+    - 'taxonomy_term:abilities_categories:773c434d-052a-4b1d-87eb-3b8d39fc3d73'
   module:
     - work_bc_quiz
 id: node.abilities_quiz.field_abilities_32
 field_name: field_abilities_32
 entity_type: node
 bundle: abilities_quiz
-label: 'Imagining what something would look like from seeing a diagram of it. '
+label: 'Collecting data and analyzing statistics.'
 description: ''
 required: false
 translatable: false
 default_value:
   -
     ar_target_id: null
-    target_uuid: 6aa0e0aa-8f9e-49d2-bb89-2d837d8debda
+    target_uuid: 773c434d-052a-4b1d-87eb-3b8d39fc3d73
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'

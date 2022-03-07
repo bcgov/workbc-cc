@@ -7,21 +7,21 @@ dependencies:
     - node.type.abilities_quiz
     - taxonomy.vocabulary.abilities_categories
   content:
-    - 'taxonomy_term:abilities_categories:1a1f8e9d-50d6-458c-a2fc-52dd711d41c3'
+    - 'taxonomy_term:abilities_categories:4d86c4c8-29e5-4a9b-b513-342d8dddc802'
   module:
     - work_bc_quiz
 id: node.abilities_quiz.field_abilities_18
 field_name: field_abilities_18
 entity_type: node
 bundle: abilities_quiz
-label: 'Understanding signs at the bus terminal, in the subway, at the train station or at the airport.'
+label: 'I can sort small objects into trays.'
 description: ''
 required: false
 translatable: false
 default_value:
   -
     ar_target_id: null
-    target_uuid: 1a1f8e9d-50d6-458c-a2fc-52dd711d41c3
+    target_uuid: 4d86c4c8-29e5-4a9b-b513-342d8dddc802
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'
