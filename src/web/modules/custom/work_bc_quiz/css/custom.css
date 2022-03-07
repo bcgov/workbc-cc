@@ -53,44 +53,6 @@ body.path-quiz{
     color: rgb(102, 102, 102);
 }
 
-
-
-
-.head-des {
-    margin: 30px 0px;
-	margin-bottom:0px;
-	text-align:center;
-}
-.title-field{
-	text-align: center;
-    margin-bottom: 25px;
-    font-size: 20px;
-    color: rgb(35, 64, 117);
-    text-align: center;
-}
-.title-field h4{
-	font-family: "BC Sans Bold", "BC Sans Regular", "BC Sans", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-    font-size: 24px;
-}
-.quiz_link {
-	margin-top:55px;
-}
-a.quiz-link {
-    border: 1px solid #3db2e3;
-    padding: 8px 10px;
-    color:  #3db2e3;
-    text-decoration: none;
-    text-align: center;
-    width: 230px;
-	max-width:100%;
-    margin: auto;
-    text-align: center;
-    display: block;
-	font-size:15px;
-}
-
 .path-quiz .region-content {
     position: relative;
     padding-top: 50px;
@@ -185,43 +147,7 @@ span.question-prefix {
 }
 span.question-prefix:after{    content: '.';}
 .itm{margin-bottom:30px;}
-.quiz-list .row {     background: rgb(242, 242, 242); padding: 10px; margin: 0px;}
-.quiz-list p{text-align:center;}
-.quiz-list .breadcrumb{margin-bottom:0px;}
-.quiz-list a.quiz-link:hover{
-	text-decoration:none;
-}
 .quiz-description{padding-top:5px;}
-
-.item_1.quiz-list{/* border-color:var(--aq); */}
-.item_1 .title-field h4{    color: var(--aq);}
-.item_1 a.quiz-link{background: var(--aq); color: #fff; border-color:var(--aq); }
-.item_1 a.quiz-link:hover{background:var(--aq_h);}
-
-.item_2.quiz-list{/* border-color:var(--wpq); */}
-.item_2 .title-field h4{    color: var(--wpq);}
-.item_2 a.quiz-link{background: var(--wpq); color: #fff; border-color:var(--wpq); }
-.item_2 a.quiz-link:hover{background:var(--wpq_h);}
-
-.item_3.quiz-list{/* border-color:var(--iq); */}
-.item_3 .title-field h4{    color: var(--iq);}
-.item_3 a.quiz-link{background: var(--iq); color: #fff; border-color:var(--iq); }
-.item_3 a.quiz-link:hover{background:var(--iq_h);}
-
-.personality .item_1.quiz-list{/* border-color:var(--aq); */}
-.personality .item_1 .title-field h4{    color: var(--miq);}
-.personality .item_1 a.quiz-link{background: var(--miq); color: #fff; border-color:var(--miq); }
-.personality .item_1 a.quiz-link:hover{background:var(--miq_h);}
-
-.personality .item_2.quiz-list{/* border-color:var(--wpq); */}
-.personality .item_2 .title-field h4{    color: var(--lsq);}
-.personality .item_2 a.quiz-link{background: var(--lsq); color: #fff; border-color:var(--lsq); }
-.personality .item_2 a.quiz-link:hover{background:var(--lsq_h);}
-
-.personality .item_3.quiz-list{/* border-color:var(--iq); */}
-.personality .item_3 .title-field h4{    color: var(--wvq);}
-.personality .item_3 a.quiz-link{background: var(--wvq); color: #fff; border-color:var(--wvq); }
-.personality .item_3 a.quiz-link:hover{background:var(--wvq_h);}
 
 
 
