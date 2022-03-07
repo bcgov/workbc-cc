@@ -14,7 +14,7 @@ id: node.abilities_quiz.field_abilities_26
 field_name: field_abilities_26
 entity_type: node
 bundle: abilities_quiz
-label: 'Picking up tiny objects.'
+label: 'Repairing small objects using my fingers.'
 description: ''
 required: false
 translatable: false

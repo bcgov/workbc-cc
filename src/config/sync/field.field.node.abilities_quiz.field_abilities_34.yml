@@ -7,21 +7,21 @@ dependencies:
     - node.type.abilities_quiz
     - taxonomy.vocabulary.abilities_categories
   content:
-    - 'taxonomy_term:abilities_categories:b617b2d0-969d-4c1e-8f9a-888bb5262252'
+    - 'taxonomy_term:abilities_categories:6aa0e0aa-8f9e-49d2-bb89-2d837d8debda'
   module:
     - work_bc_quiz
 id: node.abilities_quiz.field_abilities_34
 field_name: field_abilities_34
 entity_type: node
 bundle: abilities_quiz
-label: 'Taking things apart and putting them back together properly.'
+label: 'Understanding and applying principles of geometry.'
 description: ''
 required: false
 translatable: false
 default_value:
   -
     ar_target_id: null
-    target_uuid: b617b2d0-969d-4c1e-8f9a-888bb5262252
+    target_uuid: 6aa0e0aa-8f9e-49d2-bb89-2d837d8debda
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'

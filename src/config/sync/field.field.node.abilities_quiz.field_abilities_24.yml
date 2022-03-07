@@ -7,21 +7,21 @@ dependencies:
     - node.type.abilities_quiz
     - taxonomy.vocabulary.abilities_categories
   content:
-    - 'taxonomy_term:abilities_categories:11e21527-ae63-4e06-886b-211fdc713e80'
+    - 'taxonomy_term:abilities_categories:4c4d73c1-1bf1-45ab-8d8c-70bb125cfc51'
   module:
     - work_bc_quiz
 id: node.abilities_quiz.field_abilities_24
 field_name: field_abilities_24
 entity_type: node
 bundle: abilities_quiz
-label: 'Expressing information and ideas easily and clearly.'
+label: 'Moving and turning objects.'
 description: ''
 required: false
 translatable: false
 default_value:
   -
     ar_target_id: null
-    target_uuid: 11e21527-ae63-4e06-886b-211fdc713e80
+    target_uuid: 4c4d73c1-1bf1-45ab-8d8c-70bb125cfc51
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'

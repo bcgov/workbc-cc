@@ -1,6 +1,7 @@
 (function ($, Drupal) {
 	Drupal.behaviors.workbc = { 
 		attach: function (context, settings) {
+			//alert($(window).width()+'-'+$('body').width());
 			$('.hideshow', context).once('workbc').on('click', function (){
 				if($('.hideshow').hasClass('hide')){
 					$(this).removeClass("hide");
@@ -15,7 +16,7 @@
 					$('.hideshow span.vaa').text("Show Top Aptitudes");
 				}
 			});
-			  if ( $(window).width() < 576 ) {
+			  if ( $(window).width() < 768 ) {
 				  $('#block-views-block-career-quizzes-block-1 #myCarousel', context).once('workbc').carousel({
 						pause: true,
 						interval: false
@@ -35,7 +36,7 @@
 				   
 				   
 				}
-				 if($('body').width()<576)
+				 if($('body').width()<768)
 				{
 				  $('.dropdown-inner ul li').click(function(){
 					$('.dropdown-inner ul li').removeClass('active');

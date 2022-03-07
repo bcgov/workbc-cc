@@ -7,21 +7,21 @@ dependencies:
     - node.type.abilities_quiz
     - taxonomy.vocabulary.abilities_categories
   content:
-    - 'taxonomy_term:abilities_categories:773c434d-052a-4b1d-87eb-3b8d39fc3d73'
+    - 'taxonomy_term:abilities_categories:2c522140-655e-4be9-969c-e832441e3805'
   module:
     - work_bc_quiz
 id: node.abilities_quiz.field_abilities_27
 field_name: field_abilities_27
 entity_type: node
 bundle: abilities_quiz
-label: 'Making accurate measurements.'
+label: 'Doing well at school.'
 description: ''
 required: false
 translatable: false
 default_value:
   -
     ar_target_id: null
-    target_uuid: 773c434d-052a-4b1d-87eb-3b8d39fc3d73
+    target_uuid: 2c522140-655e-4be9-969c-e832441e3805
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'

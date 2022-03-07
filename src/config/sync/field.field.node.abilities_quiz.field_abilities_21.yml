@@ -7,21 +7,21 @@ dependencies:
     - node.type.abilities_quiz
     - taxonomy.vocabulary.abilities_categories
   content:
-    - 'taxonomy_term:abilities_categories:773c434d-052a-4b1d-87eb-3b8d39fc3d73'
+    - 'taxonomy_term:abilities_categories:103407e8-8260-4dc3-bd4b-db240698b3af'
   module:
     - work_bc_quiz
 id: node.abilities_quiz.field_abilities_21
 field_name: field_abilities_21
 entity_type: node
 bundle: abilities_quiz
-label: 'Collecting data and analyzing statistics.'
+label: 'I am good at picking out differences in two similar pictures.'
 description: ''
 required: false
 translatable: false
 default_value:
   -
     ar_target_id: null
-    target_uuid: 773c434d-052a-4b1d-87eb-3b8d39fc3d73
+    target_uuid: 103407e8-8260-4dc3-bd4b-db240698b3af
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'

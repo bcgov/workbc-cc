@@ -7,21 +7,21 @@ dependencies:
     - node.type.abilities_quiz
     - taxonomy.vocabulary.abilities_categories
   content:
-    - 'taxonomy_term:abilities_categories:4d86c4c8-29e5-4a9b-b513-342d8dddc802'
+    - 'taxonomy_term:abilities_categories:2c522140-655e-4be9-969c-e832441e3805'
   module:
     - work_bc_quiz
 id: node.abilities_quiz.field_abilities_35
 field_name: field_abilities_35
 entity_type: node
 bundle: abilities_quiz
-label: 'Quickly and precisely writing a text message.'
+label: 'Understanding instructions or ideas that are explained to me.'
 description: ''
 required: false
 translatable: false
 default_value:
   -
     ar_target_id: null
-    target_uuid: 4d86c4c8-29e5-4a9b-b513-342d8dddc802
+    target_uuid: 2c522140-655e-4be9-969c-e832441e3805
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'

@@ -7,21 +7,21 @@ dependencies:
     - node.type.abilities_quiz
     - taxonomy.vocabulary.abilities_categories
   content:
-    - 'taxonomy_term:abilities_categories:2c522140-655e-4be9-969c-e832441e3805'
+    - 'taxonomy_term:abilities_categories:4d86c4c8-29e5-4a9b-b513-342d8dddc802'
   module:
     - work_bc_quiz
 id: node.abilities_quiz.field_abilities_31
 field_name: field_abilities_31
 entity_type: node
 bundle: abilities_quiz
-label: 'Finding the information I need.'
+label: 'Making small finger movements like playing a violin.'
 description: ''
 required: false
 translatable: false
 default_value:
   -
     ar_target_id: null
-    target_uuid: 2c522140-655e-4be9-969c-e832441e3805
+    target_uuid: 4d86c4c8-29e5-4a9b-b513-342d8dddc802
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'
