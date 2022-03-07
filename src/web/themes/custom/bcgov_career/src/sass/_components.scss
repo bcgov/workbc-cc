@@ -981,14 +981,16 @@
         background: #fff;
         padding-top: 30px;
 
+        h3 {
+            color: $color-dark;
+        }
+
         ul {
             list-style-type: none;
+
             li {
                 display: inline;
-                img {
-                    width: 32px;
-                    height: 29px;
-                }
+                cursor: pointer;
             }
         }
     }
@@ -1138,5 +1140,19 @@
                 }
             }
         }
+    }
+}
+
+
+.icon {
+    display: inline-block;
+    width: 32px;
+    height: 29px;
+    background: $color-dark;
+    mask-size: cover;
+
+    &.icon-message {
+        width: 33px;
+        height: 22px;
     }
 }

@@ -18,3 +18,40 @@ $nav-tabs-link-active-bg-sm: #dee2e6 !default;
 
 $local-tasks-primary-margin: 1rem 0 !default;
 $local-tasks-secondary-margin: 0 0 1rem 0 !default;
+
+h1 {
+  font-family: 'BC Sans', sans-serif !important;
+  font-size: 45px !important;
+}
+
+h2 {
+  font-family: 'BC Sans', sans-serif !important;
+  font-size: 40px !important;
+}
+
+h3 {
+  font-family: 'BC Sans', sans-serif !important;
+  font-size: 27px !important;
+}
+
+@media all and (max-width: 767.98px) {
+  h1 {
+    font-size: 36px !important;
+  }
+
+  h2 {
+    font-size: 24px !important;
+  }
+
+  h3 {
+    font-size: 24px !important;
+  }
+}
+
+.icon-message {
+  mask: url(../src/icons/message.svg);
+}
+
+.icon-print {
+  mask: url(../src/icons/print.svg);
+}
