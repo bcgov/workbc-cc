@@ -26,8 +26,8 @@
                 margin-bottom: 35px;
             }
 
-            .banner-inner{
-                h1{
+            .banner-inner {
+                h1 {
                     font-size: 5.4rem;
                     line-height: 5.4rem;
                     font-family: 'BC Sans Bold', sans-serif;
@@ -102,8 +102,8 @@
 
 //Quizzes
 
-.head-des{
-    h2{
+.head-des {
+    h2 {
         font-family: 'BC Sans Regular', sans-serif;
         font-weight: normal;
         font-size: 4.5rem;
@@ -113,84 +113,95 @@
         margin-bottom: 30px;
     }
 }
+
 .all-quiz-status {
     background: rgb(230, 234, 233);
     margin: 20px 0px;
     padding: 7px 30px;
     text-align: right;
     margin-bottom: 30px;
-	font-family: "BC Sans Bold" sans-serif;
+    font-family: "BC Sans Bold"sans-serif;
     font-weight: 700;
     font-style: normal;
     font-size: 1.5rem;
     text-align: right;
     line-height: 3.0rem;
 }
-.quiz-list{
-	padding: 0px 20px 30px 20px;
+
+.quiz-list {
+    padding: 0px 20px 30px 20px;
     border: 2px solid rgb(238, 238, 238);
-	height: 100%;
-	position: relative;
-	font-family: "BC Sans", sans-serif;
+    height: 100%;
+    position: relative;
+    font-family: "BC Sans", sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size: 14px;
     color: rgb(102, 102, 102);
+
     .img-field {
         text-align: center;
         margin-bottom: 20px;
         margin-top: 20px;
-        min-height:100px;
+        min-height: 100px;
         display: flex;
         align-items: center;
         justify-content: center;
     }
-    .quiz-questions{
-        padding:0px;
+
+    .quiz-questions {
+        padding: 0px;
         font-weight: bold;
-        span{
+
+        span {
             float: left;
             width: 34px;
             height: 25px;
             background: url(../src/icons/list.svg) no-repeat;
         }
     }
-    .quiz-duration{
-        padding:0px;
+
+    .quiz-duration {
+        padding: 0px;
         font-weight: bold;
-        span{
+
+        span {
             float: left;
             width: 34px;
             height: 25px;
             background: url(../src/icons/time.svg) no-repeat;
         }
     }
-    .complete{
-        span{
+
+    .complete {
+        span {
             float: left;
             width: 34px;
             height: 25px;
             background: url(../src/icons/check.svg) no-repeat;
             background-position: 0px;
         }
-        .cq{
+
+        .cq {
             text-align: center;
             margin: auto;
             width: 140px;
-            color:#277a0f;
+            color: #277a0f;
         }
     }
 }
-.node-questions{
-    .quiz-questions{
-        span{
+
+.node-questions {
+    .quiz-questions {
+        span {
             display: inline-block;
             width: 34px;
             height: 25px;
         }
     }
-    .quiz-duration{
-        span{
+
+    .quiz-duration {
+        span {
             display: inline-block;
             width: 34px;
             height: 25px;
@@ -966,6 +977,22 @@
         }
     }
 
+    .career-wrapper-top {
+        background: #fff;
+        padding-top: 30px;
+
+        ul {
+            list-style-type: none;
+            li {
+                display: inline;
+                img {
+                    width: 32px;
+                    height: 29px;
+                }
+            }
+        }
+    }
+
     background: rgba(230, 234, 233, 1);
     padding-bottom: 40px;
 
@@ -974,7 +1001,7 @@
         display: flex;
         justify-content: center;
         background: #fff;
-        padding: 100px 0;
+        padding: 30px 0;
         border-bottom: 4px solid rgba(35, 64, 117, 1);
 
         .slick-slide:last-child {
