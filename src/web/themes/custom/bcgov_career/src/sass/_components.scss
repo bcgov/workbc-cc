@@ -343,6 +343,13 @@ a.quiz-link {
         }
     }
 }
+.sub-title{
+    max-width:580px;
+    p{
+        font-size: 16px;
+        color: #FFFFFF;
+    }
+}
 
 //Quiz start
 .overlay-content{
@@ -355,7 +362,7 @@ a.quiz-link {
     }
     .block-system-main-block{
         background: #fff; 
-        padding-top: 65px; 
+        padding-top: 35px; 
         border-top: 9px solid rgb(0, 40, 85); 
         border-bottom: 5px solid rgb(0, 40, 85);
         padding-bottom:300px;
@@ -376,6 +383,13 @@ body.path-quiz{
     .block.block-core.block-page-title-block{
         display:block;
         margin-top: 60px;
+        padding-bottom: 90px;
+        position: relative;
+        .node-questions{
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
     }
     .form-actions{
         &.form-actions{
@@ -802,6 +816,9 @@ span.question-prefix {
             font-size: 2.0rem;
             line-height: 2.6rem;
             font-family: 'BC Sans Bold', 'BC Sans Regular', 'BC Sans', sans-serif;
+            max-width: 180px;
+            margin: 0 auto 25px;
+            min-height: 52px;
             a {
                 color: #fff;
             }
