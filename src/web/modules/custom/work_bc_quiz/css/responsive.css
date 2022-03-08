@@ -69,13 +69,11 @@
 	.bottom-links .links-inner .link_2{    flex: 1;padding-left: 15px;}
 	.bottom-links .link.link_1 a{margin-right:0px;    width: 100%; display: block;     text-align: center;margin-top:0px;padding:8px 8px;}
 	.bottom-links .link.link_2 a{display:block;text-align:center;margin-top:0px;}
-	.node-questions{justify-content:flex-start;margin-bottom:25px;}
+
 	.path-quiz .region-content .field--type-double-reference fieldset legend, .field--type-work-bc-quiz fieldset legend{float:none;    line-height: 20px; margin-bottom: 10px; width: 100% !important;}
 	.path-quiz .region-content .field--type-double-reference fieldset .fieldset-wrapper, .field--type-work-bc-quiz fieldset .fieldset-wrapper{float:none;}
 	.path-quiz .form-radios .form-item{display: block; text-align: left;margin-left:100px;display:flex;align-items:center;margin-bottom:12px;}
 	.path-quiz .region-content .form-radios label{position:relative;display: inline-block; margin-left: 5px; font-family: 'BC Sans', sans-serif; font-weight: 400; font-style: normal; font-size: 14px; color: #666666; max-width: inherit;margin-bottom:0px;text-align: left; display: block; width: unset;}
-	.path-quiz .form-actions.form-actions{    margin-top: 20px;  margin-bottom: 100px;  display: flex;}
-	.block-forms-steps{margin-top:-110px;}
 	.progress-title h6{text-align:left;}
 	.progress-title{}
 	.status-bar {

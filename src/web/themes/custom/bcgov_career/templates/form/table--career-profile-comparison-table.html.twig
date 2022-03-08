@@ -120,7 +120,7 @@
                     {% endif %}
                   </div>
                   <div class="description">
-                    {{ row.cells.field_job_summary.content | slice(0, 250) | raw }}
+                    {{ row.cells.field_job_summary.content | striptags | truncate(250) | raw }}
                   </div>
                   <div class="bottom-btn">
                     <a class="btn btn-career-profile" href="{{ row.cells.field_workbc_link.content }}" target='_blank'>View Career Profile</a>
