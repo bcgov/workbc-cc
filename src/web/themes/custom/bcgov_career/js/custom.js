@@ -1,119 +1,204 @@
-(function ($, Drupal, drupalSettings) {
-  Drupal.behaviors.customJs = {
-    attach(context, settings) {
-      $(window).on("load resize", function () {
-        const $window = $(this).width();
-        if (
-          $window < 768 &&
-          !$(".tools-resource-items-wrapper > .field__items").hasClass(
-            "slick-initialized"
-          )
-        ) {
-          $(".tools-resource-items-wrapper > .field__items").slick({
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            infinite: true,
-            dots: true,
-          });
+(function($, Drupal, drupalSettings) {
+	Drupal.behaviors.customJs = {
+		attach(context, settings) {
+			$(window).on("load resize", function() {
+				const $window = $(this).width();
+				if (
+					$window < 768 &&
+					!$(".tools-resource-items-wrapper > .field__items").hasClass(
+						"slick-initialized"
+					)
+				) {
+					$(".tools-resource-items-wrapper > .field__items").slick({
+						slidesToShow: 1,
+						slidesToScroll: 1,
+						infinite: true,
+						dots: true,
+					});
 
-          $(".compare-career-main-wrapper .career-content-compare").slick({
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            infinite: false,
-            dots: true,
-            arrows: true,
-            nextArrow: $(".next-true"),
-            prevArrow: $(".prev-true")
-          });
-        } else {
-          $(".tools-resource-items-wrapper > .field__items")
-            .filter(".slick-initialized")
-            .slick("unslick");
-          $(".compare-career-main-wrapper .career-content-compare")
-            .filter(".slick-initialized")
-            .slick("unslick");
-        }
-      });
+					$(".compare-career-main-wrapper .career-content-compare").slick({
+						slidesToShow: 1,
+						slidesToScroll: 1,
+						infinite: false,
+						dots: true,
+						arrows: true,
+						nextArrow: $(".next-true"),
+						prevArrow: $(".prev-true")
+					});
+				} else {
+					$(".tools-resource-items-wrapper > .field__items")
+						.filter(".slick-initialized")
+						.slick("unslick");
+					$(".compare-career-main-wrapper .career-content-compare")
+						.filter(".slick-initialized")
+						.slick("unslick");
+				}
+			});
 
-      $(".career-table-link > a").on("click", function () {
-        const getCarDataId = $(this).parent().parent().data("id");
-        $(".career-table-row").removeClass("active");
-        $(this).parent().parent().addClass("active");
-        $(".career-content-main-wrapper .career-content-item").removeClass(
-          "active"
-        );
-        $(
-          `.career-content-main-wrapper .career-content-item#${getCarDataId}`
-        ).addClass("active");
-      });
+			$(".career-table-link > a").on("click", function() {
+				const getCarDataId = $(this).parent().parent().data("id");
+				$(".career-table-row").removeClass("active");
+				$(this).parent().parent().addClass("active");
+				$(".career-content-main-wrapper .career-content-item").removeClass(
+					"active"
+				);
+				$(
+					`.career-content-main-wrapper .career-content-item#${getCarDataId}`
+				).addClass("active");
+			});
 
-      $(".career-table-mobi-row-link").on("click", function () {
-        // var getCarDataId = $(this).parent().parent().data("id");
-      });
+			$(".career-table-mobi-row-link").on("click", function() {
+				// var getCarDataId = $(this).parent().parent().data("id");
+			});
 
-      setTimeout(function () {
-        $(".remove-link + .compare-carr > .career-chkk").prop("checked", true);
-        const checkedLoadNum = $(
-          ".remove-link + .compare-carr > .career-chkk:checked"
-        ).length;
-        if (checkedLoadNum > 1) {
-          $(".top-btn > a").removeClass("disable");
-        }
- else {
-          $(".top-btn > a").addClass("disable");
-        }
-      }, 1500);
-      $(".career-checkbox").change(function (e) {
-        const checkedNum = $(".career-checkbox:checked").length;
-        $(this).parent().prev().click();
-        if (checkedNum > 1) {
-          $(".top-btn > a").removeClass("disable");
-        }
- else {
-          $(".top-btn > a").addClass("disable");
-        }
-      });
-      $(".clear-compare").click(function () {
-        $(".remove-link").each(function () {
-          $(this).next().find(".career-chkk").prop("checked", false);
-          $(this).click();
-        });
-      });
+			setTimeout(function() {
+				$(".remove-link + .compare-carr > .career-chkk").prop("checked", true);
+				const checkedLoadNum = $(
+					".remove-link + .compare-carr > .career-chkk:checked"
+				).length;
+				if (checkedLoadNum > 1) {
+					$(".top-btn > a").removeClass("disable");
+				} else {
+					$(".top-btn > a").addClass("disable");
+				}
+			}, 1500);
+			$(".career-checkbox").change(function(e) {
+				const checkedNum = $(".career-checkbox:checked").length;
+				$(this).parent().prev().click();
+				if (checkedNum > 1) {
+					$(".top-btn > a").removeClass("disable");
+				} else {
+					$(".top-btn > a").addClass("disable");
+				}
+			});
+			$(".clear-compare").click(function() {
+				$(".remove-link").each(function() {
+					$(this).next().find(".career-chkk").prop("checked", false);
+					$(this).click();
+				});
+			});
 
-      $(".career-mobi-checkbox").change(function () {
-        const checkedNum = $(".career-mobi-checkbox:checked").length;
-        $(this).parent().prev().click();
-        if (checkedNum > 1) {
-          $(".top-career-mobi-content .top-btn > a").removeClass("disable");
-        }
- else {
-          $(".top-career-mobi-content .top-btn > a").addClass("disable");
-        }
-      });
+			$(".career-mobi-checkbox").change(function() {
+				const checkedNum = $(".career-mobi-checkbox:checked").length;
+				$(this).parent().prev().click();
+				if (checkedNum > 1) {
+					$(".top-career-mobi-content .top-btn > a").removeClass("disable");
+				} else {
+					$(".top-career-mobi-content .top-btn > a").addClass("disable");
+				}
+			});
 
-      $(".tbody-main").each(function (i) {
-        if (i % 5 == 0) {
-          $(this)
-            .nextAll()
-            .addBack()
-            .slice(0, 5)
-            .wrapAll('<div class="slide-tbody-main"></div>');
+			$(".tbody-main").each(function(i) {
+				if (i % 5 == 0) {
+					$(this)
+						.nextAll()
+						.addBack()
+						.slice(0, 5)
+						.wrapAll('<div class="slide-tbody-main"></div>');
+				}
+			});
+
+			$(".careers-mobi-table-wrapper > .tbody").slick({
+				infinite: true,
+				slidesToShow: 1,
+				slidesToScroll: 1,
+				dots: true,
+				arrows: false,
+			});
+
+			$(".path-quiz form .field--widget-double-reference-autocomplete-select").each(function(i) {
+        if(!$(this).find(".form-type-radio > .radio").length){
+          $(this).find(".form-type-radio").append("<span class='radio'></span>");
         }
-      });
+				if (i === 0) {
+					$(this).addClass('first-item');
+				}
+			});
 
-      $(".careers-mobi-table-wrapper > .tbody").slick({
-        infinite: true,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        dots: true,
-        arrows: false,
-      });
 
-      // $(".career-table-mobi-row-link").magnificPopup({
-      //   type: 'inline',
-      //   midClick: true,
-      //   mainClass: 'mfp-fade'
-      // });
-    },
-  };
+			//// QUIZ ////
+			$('.hideshow', context).once('workbc').on('click', function() {
+				if ($('.hideshow').hasClass('hide')) {
+					$(this).removeClass("hide");
+					$('.hideshow span').text("+");
+					$('.hideshow span.vaa').text("View All Aptitudes");
+
+					$('.itm.hide').hide();
+				} else {
+					$(this).addClass("hide");
+					$('.itm.hide').show();
+					$('.hideshow span').text("-");
+					$('.hideshow span.vaa').text("Show Top Aptitudes");
+				}
+			});
+			if ($(window).width() < 768) {
+				$('#block-views-block-career-quizzes-block-1 #myCarousel', context).once('workbc').carousel({
+					pause: true,
+					interval: false
+				});
+				$('#block-views-block-career-quizzes-block-2 #myCarousel1', context).once('workbc').carousel({
+					pause: true,
+					interval: false
+				});
+				if ($('#block-views-block-career-quizzes-block-1 #myCarousel .career').parent().hasClass("row")) {
+					$('#block-views-block-career-quizzes-block-1 #myCarousel .career').unwrap().addClass('carousel-item');
+					$('#block-views-block-career-quizzes-block-1 #myCarousel .career:first').addClass('active');
+				}
+				if ($('#block-views-block-career-quizzes-block-2 #myCarousel1 .personality').parent().hasClass("row")) {
+					$('#block-views-block-career-quizzes-block-2 #myCarousel1 .personality').unwrap().addClass('carousel-item');
+					$('#block-views-block-career-quizzes-block-2 #myCarousel1 .personality:first').addClass('active');
+				}
+			}
+			if ($('body').width() < 768) {
+				$('.dropdown-inner ul li').click(function() {
+					$('.dropdown-inner ul li').removeClass('active');
+					$(this).addClass('active 0');
+				});
+				$('.dropdown-inner ul li#items_03').click(function() {
+					$('body').removeClass('overlay');
+					$('.carousel-item.itm').removeClass("active");
+					$('#myResult .carousel-inner>.itm:first').addClass('active');
+					$('.carousel-indicators li').removeClass("active");
+					$('.carousel-indicators li:first').addClass("active");
+					$(".itm").slice(3, 9).removeClass('carousel-item');
+
+					$('#myResult .carousel-inner>.itm:first').addClass('active 1')
+					$(".itm").slice(3, 9).wrapAll("<div class='row extradivs'></div>");
+					$(".carousel-indicators li").slice(3, 9).wrapAll("<div class='extradots'></div>");
+				});
+				$('.dropdown-inner ul li#items_09').click(function() {
+					$('body').removeClass('overlay');
+
+					$('.carousel-item.itm').removeClass("active");
+					$('#myResult .carousel-inner>.itm:first').addClass('active');
+					$('.carousel-indicators li').removeClass("active");
+					$('.carousel-indicators li:first').addClass("active");
+					if ($('.carousel-indicators li').parent().hasClass("extradots")) {
+						$('.carousel-indicators .extradots li').unwrap();
+					}
+					if ($('#myResult .itm').parent().hasClass("extradivs")) {
+						$('#myResult .extradivs .itm').unwrap();
+						$('#myResult .itm').addClass('carousel-item');
+					}
+				});
+
+				$('.mobile-view svg').click(function() {
+					$('body').addClass('overlay');
+				});
+				$('.cross-button span').click(function() {
+					$('body').removeClass('overlay');
+				});
+
+				$('#myResult', context).once('workbc').carousel({
+					pause: true,
+					interval: false
+				});
+				if ($('#myResult .itm').parent().hasClass("row")) {
+					$('#myResult .carousel-item>.itm').unwrap();
+					$('#myResult .carousel-inner>.itm').addClass('carousel-item');
+					$('#myResult .carousel-inner>.itm:first').addClass('active');
+				}
+			}
+		},
+	};
 })(jQuery, Drupal, drupalSettings);
