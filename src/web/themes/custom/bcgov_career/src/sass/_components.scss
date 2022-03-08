@@ -358,6 +358,11 @@ a.quiz-link {
             color: #fff;
             text-align: left !important;
             font-size:4.0rem;
+            @media all and (max-width: 767.98px) {
+                font-size: 2.4rem;
+                line-height: 3.6rem;
+                margin-bottom: 15px;
+            }
         }
     }
     .block-system-main-block{
@@ -366,6 +371,9 @@ a.quiz-link {
         border-top: 9px solid rgb(0, 40, 85); 
         border-bottom: 5px solid rgb(0, 40, 85);
         padding-bottom:300px;
+        @media all and (max-width: 767.98px){
+            padding-top: 0;
+        }
     }
 }
 body.path-quiz{
@@ -385,10 +393,18 @@ body.path-quiz{
         margin-top: 60px;
         padding-bottom: 90px;
         position: relative;
+        @media all and (max-width: 767.98px) {
+            padding-bottom: 70px;
+            margin-top: 35px;
+        }
         .node-questions{
             position: absolute;
             bottom: 0;
             right: 0;
+            @media all and (max-width: 767.98px) {
+                right: auto;
+                left: 25px;
+            }
         }
     }
     .form-actions{
@@ -400,6 +416,10 @@ body.path-quiz{
             right: 0;
             bottom: -230px; 
             width: 100%;
+            @media all and (max-width: 767.98px){
+                bottom: -90px;
+                display: flex;
+            }
         }
         input[name=op]{
             background: $aq;
@@ -484,6 +504,11 @@ body.path-quiz{
             }
         }
         .form-radios{
+            @media all and (max-width: 767.98px) {
+                display: flex;
+                flex-direction: column;
+                padding-left: 70px;
+            }
             input{
                 width: 20px;
                 height: 20px;
@@ -501,6 +526,10 @@ body.path-quiz{
                     margin: 0 auto;
                     position: relative;
                     bottom: 16px;
+                    @media all and (max-width: 767.98px){
+                        margin: 0;
+                        bottom: 40px;
+                    }
                     &::before{
                         content: '';
                         background: $aq;
@@ -532,6 +561,17 @@ body.path-quiz{
                 text-align: center;
                 width: 85px;
                 letter-spacing: normal;
+                @media all and (max-width: 767.98px){
+                    position: relative;
+                    top: -18px;
+                    font-size: 14px;
+                    font-weight: normal;
+                    display: block;
+                    text-align: left;
+                    width: auto;
+                    letter-spacing: normal;
+                    left: 30px;
+                }
             }
             .form-item {
                 display: inline-block;
@@ -539,6 +579,11 @@ body.path-quiz{
                 min-width: 80px;
                 text-align: center;
                 margin: auto;
+                @media all and (max-width: 767.98px){
+                    min-width: 100%;
+                    text-align: left;
+                    max-height: 35px;
+                }
             }
         }
         .form-item.form-type-entity-autocomplete{
@@ -579,6 +624,9 @@ body.path-quiz{
         margin:auto;
         position:relative;
         padding-top:40px;
+        @media all and (max-width: 767.98px){
+            padding-top: 0;
+        }
     }
     .layout-region.layout-region-node-secondary {
         display:none;
@@ -591,6 +639,9 @@ body.path-quiz{
             &:not(.first-item){
                 label{
                     display: none;
+                    @media all and (max-width: 767.98px){
+                        display: block;
+                    }
                 }
             }
         }
@@ -637,6 +688,9 @@ body.path-quiz{
             font-size: 1.5rem;
             line-height: 3.1rem;
             color: #333333;
+            @media all and (max-width: 767.98px){
+                width: 100% !important;
+            }
         }
         .fieldset-wrapper {
             float: right;
@@ -645,6 +699,10 @@ body.path-quiz{
     }
     .form-item {
         margin:0px;
+        @media all and (max-width: 767.98px){
+            display: flex;
+            flex-direction: column;
+        }
     }
 }
 span.question-prefix {
@@ -652,6 +710,9 @@ span.question-prefix {
     margin-right: 10px;
     margin-top: 4px;
     color: #333333;
+    @media all and (max-width: 767.98px){
+        margin-top: 8px;
+    }
     &:after{
         content: '.';
         color: #333333;
@@ -669,6 +730,13 @@ span.question-prefix {
     position: absolute;
     bottom: 220px;
     width: 100%;
+    @media all and (max-width: 767.98px){
+        margin-top: 0;
+        bottom: 140px;
+        > .container{
+            max-width: 100%;
+        }
+    }
     ol{
         display: block; 
         margin: auto; 
@@ -702,7 +770,7 @@ span.question-prefix {
     }
 }
 .status-bar{
-    padding-top:5px;
+    padding-top:0;
     span{
         font-size: 1.5rem; 
         text-align: center; 
@@ -1042,6 +1110,7 @@ span.question-prefix {
                     height: 20px;
                     width: 20px;
                     left: 0;
+                    z-index: 1;
 
                     ~.checkmark {
                         background-color: #fff;
@@ -1235,7 +1304,7 @@ span.question-prefix {
                         width: 20px;
                         left: 50%;
                         transform: translateX(-50%);
-
+                        z-index: 1;
                         ~.checkmark {
                             background-color: #fff;
                             border: 1px solid #797979;
@@ -1351,11 +1420,12 @@ span.question-prefix {
         }
 
         .career-content-item-inner {
+            height: calc(100% - 75px);
             .career-inner-content {
                 border: 1px solid rgb(230, 234, 233);
                 padding: 20px;
                 min-height: 695px;
-
+                height: 100%;
                 &.page {
                     border: 0;
                     padding: 20px 40px;

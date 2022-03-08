@@ -51,41 +51,86 @@
 				// var getCarDataId = $(this).parent().parent().data("id");
 			});
 
-			setTimeout(function() {
-				$(".remove-link + .compare-carr > .career-chkk").prop("checked", true);
-				const checkedLoadNum = $(
-					".remove-link + .compare-carr > .career-chkk:checked"
-				).length;
-				if (checkedLoadNum > 1) {
-					$(".top-btn > a").removeClass("disable");
-				} else {
-					$(".top-btn > a").addClass("disable");
-				}
-			}, 1500);
-			$(".career-checkbox").change(function(e) {
-				const checkedNum = $(".career-checkbox:checked").length;
-				$(this).parent().prev().click();
-				if (checkedNum > 1) {
-					$(".top-btn > a").removeClass("disable");
-				} else {
-					$(".top-btn > a").addClass("disable");
-				}
-			});
-			$(".clear-compare").click(function() {
-				$(".remove-link").each(function() {
-					$(this).next().find(".career-chkk").prop("checked", false);
-					$(this).click();
-				});
-			});
+			// setTimeout(function() {
+			// 	$(".remove-link + .compare-carr > .career-chkk").prop("checked", true);
+			// 	const checkedLoadNum = $(
+			// 		".remove-link + .compare-carr > .career-chkk:checked"
+			// 	).length;
+			// 	if (checkedLoadNum > 1) {
+			// 		$(".top-btn > a").removeClass("disable");
+			// 	} else {
+			// 		$(".top-btn > a").addClass("disable");
+			// 	}
+			// }, 1500);
 
-			$(".career-mobi-checkbox").change(function() {
-				const checkedNum = $(".career-mobi-checkbox:checked").length;
-				$(this).parent().prev().click();
-				if (checkedNum > 1) {
-					$(".top-career-mobi-content .top-btn > a").removeClass("disable");
-				} else {
+			// $('.career-checkbox').change(function(){
+			// 	var checkedNum = $(".career-checkbox:checked").length;
+			// 	console.log(checkedNum);
+			// 	$(this).parent().prev().click();
+			// 	if (checkedNum >= 2) {
+			// 		$(".top-btn > a").removeClass("disable");
+			// 	} else {
+			// 		$(".top-btn > a").addClass("disable");
+			// 	}
+			// });
+
+			$(".careers-table-main-wrapper .use-ajax.remove-link").next().find(".career-chkk").prop("checked", true);
+			console.log($(".careers-table-main-wrapper .use-ajax.remove-link").length);
+			if($(".careers-table-main-wrapper .use-ajax.remove-link").length > 1){
+				$(".top-career-content .top-btn > a").removeClass("disable");
+			}
+			else{
+				if(!$(".top-career-content .top-btn > a").hasClass("disable")){
+					$(".top-career-content .top-btn > a").addClass("disable");
+				}
+			}
+
+			$(".careers-mobi-table-wrapper .use-ajax.remove-link").next().find(".career-chkk").prop("checked", true);
+			console.log($(".careers-mobi-table-wrapper .use-ajax.remove-link").length);
+			if($(".careers-mobi-table-wrapper .use-ajax.remove-link").length > 1){
+				$(".top-career-mobi-content .top-btn > a").removeClass("disable");
+			}
+			else{
+				if(!$(".top-career-mobi-content .top-btn > a").hasClass("disable")){
 					$(".top-career-mobi-content .top-btn > a").addClass("disable");
 				}
+			}
+
+			$('.career-checkbox').change(function(){
+				$(this).parent().prev().click();
+				if($(".career-checkbox:cheked").length >= 2){
+					$(".career-checkbox:not(:cheked)").prop("disabled", $(this).is(":checked"));
+				}
+			});
+			$('.career-mobi-checkbox').change(function(){
+				$(this).parent().prev().click();
+				if($(".career-mobi-checkbox:cheked").length >= 2){
+					$(".career-mobi-checkbox:not(:cheked)").prop("disabled", $(this).is(":checked"));
+				}
+			});
+			
+			$(".top-career-content .clear-compare").click(function(){
+				$(this).parents(".careers-main-wrapper").find(".career-chkk").prop("checked", false);
+				$(this).parents(".careers-main-wrapper").find(".use-ajax.remove-link").each(function(){
+					setTimeout(function(){
+						$(this).trigger("click");
+						if(!$(".top-career-content .top-btn > a").hasClass("disable")){
+							$(".top-career-content .top-btn > a").addClass("disable");
+						}
+					}, 500);
+				});
+			});
+			$(".top-career-mobi-content .clear-compare").click(function(){
+				$(this).parents(".careers-mobi-main-wrapper").find(".career-chkk").prop("checked", false);
+				$(this).parents(".careers-mobi-main-wrapper").find(".use-ajax.remove-link").each(function(){
+					console.log($(this).text());
+					setTimeout(function(){
+						$(this).click();
+						if(!$(".top-career-mobi-content .top-btn > a").hasClass("disable")){
+							$(".top-career-mobi-content .top-btn > a").addClass("disable");
+						}
+					}, 1000);
+				});
 			});
 
 			$(".tbody-main").each(function(i) {
