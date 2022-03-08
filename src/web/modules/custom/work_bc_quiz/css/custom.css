@@ -56,112 +56,7 @@ body.path-quiz{
 
 
 
-.head-des {
-    margin: 30px 0px;
-	margin-bottom:0px;
-	text-align:center;
-}
-.title-field{
-	text-align: center;
-    margin-bottom: 25px;
-    font-size: 20px;
-    color: rgb(35, 64, 117);
-    text-align: center;
-}
-.title-field h4{
-	font-family: "BC Sans Bold", "BC Sans Regular", "BC Sans", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-    font-size: 24px;
-}
-.quiz_link {
-	margin-top:55px;
-}
-a.quiz-link {
-    border: 1px solid #3db2e3;
-    padding: 8px 10px;
-    color:  #3db2e3;
-    text-decoration: none;
-    text-align: center;
-    width: 230px;
-	max-width:100%;
-    margin: auto;
-    text-align: center;
-    display: block;
-	font-size:15px;
-}
 
-.path-quiz .region-content {
-    position: relative;
-    padding-top: 50px;
-	margin-top:20px;
-}
-.path-quiz .region-content .field--type-double-reference, .field--type-work-bc-quiz {
-    /* margin-bottom: 1px; */
-    padding-top: 15px;
-    padding-left: 15px;
-    padding-bottom: 15px;
-    /* border: 1px solid #ccc; */
-    border-bottom: 0px;
-}
-
-.path-quiz .region-content .form-item.form-type-entity-autocomplete{    padding: 0px; margin: 0px; line-height: 0px;}
-.path-quiz .region-content .field--type-double-reference fieldset, .field--type-work-bc-quiz fieldset {margin:0px;}
-.path-quiz .region-content .field--type-double-reference .form-item, .field--type-work-bc-quiz .form-item {margin:0px;}
-
-.path-quiz .region-content .field--type-double-reference fieldset legend, .field--type-work-bc-quiz fieldset legend {
-    float: left !important;
-    width: 50% !important;
-	 width: 100%;
-    height: 2em;font-family: 'BC Sans', sans-serif;
-    font-weight: 400;
-    font-style: normal;
-	font-size: 15px;
-    line-height: 24px;
-}
-.path-admin .field--type-work-bc-quiz fieldset legend, .path-admin .field--type-work-bc-quiz fieldset .fieldset-wrapper{float:inherit; width:auto;}
-.path-quiz .region-content .field--type-double-reference fieldset .fieldset-wrapper, .field--type-work-bc-quiz fieldset .fieldset-wrapper {
-    float: right;
-	margin-right:35px;
-}
-
-.path-quiz .region-content .form-radios {}
-
-.path-quiz .region-content .form-radios input {width:19px;height:19px;}
-
-.path-quiz .region-content .form-radios label {
-	position: absolute;
-    top: 0px;
-    font-size: 12px;
-    font-weight: normal;
-    display: block;
-    text-align: center;
-    width: 80px;
-}
-
-.path-quiz .form-radios .form-item {
-    display: inline-block;
-    margin-right: 10px;
-    min-width: 80px;
-    text-align: center;
-    margin: auto;
-}
-.path-node .visually-hidden-node, .visually-hidden-node{display:none !important;}
-.path-admin .visually-hidden-node{display:block !important;}
-
-.path-quiz .form-composite > legend, .label{font-weight:500}
-.path-quiz .layout-region-node-footer__content{margin-top:0px;border-top:0px;}
-.path-quiz .form-actions #edit-preview{display:none;}
-.path-quiz .layout-node-form, .path-quiz .node-form {max-width:1140px;margin:auto;position:relative;padding-top:40px;}
-.path-quiz .layout-node-form .layout-region-node-main, .path-quiz .layout-node-form .layout-region-node-footer {width:100% !important;float:inherit;}
-.path-quiz .layout-node-form .layout-region-node-footer{margin-top:70px;}
-.path-quiz .layout-region.layout-region-node-secondary {display:none;}
-
-.path-quiz .region-content .field--type-double-reference:nth-child, .field--type-work-bc-quiz:nth-child(odd){
-	/* background: #ccc; */
-}
-.path-quiz form .field--widget-double-reference-autocomplete-select:nth-child(odd){background:rgba(242, 242, 242, 1);}
-.path-quiz form .field--widget-double-reference-autocomplete-select:nth-child(even){}
 
 #block-views-block-quiz-3-result-block-1{
 	margin-top:50px;
@@ -179,49 +74,8 @@ a.quiz-link {
     list-style-type: decimal;
 }
 .node--view-mode-full .field--type-double-reference .field__item a:first-child{display:none;}
-span.question-prefix {
-    float: left;
-    margin-right: 10px
-}
-span.question-prefix:after{    content: '.';}
+
 .itm{margin-bottom:30px;}
-.quiz-list .row {     background: rgb(242, 242, 242); padding: 10px; margin: 0px;}
-.quiz-list p{text-align:center;}
-.quiz-list .breadcrumb{margin-bottom:0px;}
-.quiz-list a.quiz-link:hover{
-	text-decoration:none;
-}
-.quiz-description{padding-top:5px;}
-
-.item_1.quiz-list{/* border-color:var(--aq); */}
-.item_1 .title-field h4{    color: var(--aq);}
-.item_1 a.quiz-link{background: var(--aq); color: #fff; border-color:var(--aq); }
-.item_1 a.quiz-link:hover{background:var(--aq_h);}
-
-.item_2.quiz-list{/* border-color:var(--wpq); */}
-.item_2 .title-field h4{    color: var(--wpq);}
-.item_2 a.quiz-link{background: var(--wpq); color: #fff; border-color:var(--wpq); }
-.item_2 a.quiz-link:hover{background:var(--wpq_h);}
-
-.item_3.quiz-list{/* border-color:var(--iq); */}
-.item_3 .title-field h4{    color: var(--iq);}
-.item_3 a.quiz-link{background: var(--iq); color: #fff; border-color:var(--iq); }
-.item_3 a.quiz-link:hover{background:var(--iq_h);}
-
-.personality .item_1.quiz-list{/* border-color:var(--aq); */}
-.personality .item_1 .title-field h4{    color: var(--miq);}
-.personality .item_1 a.quiz-link{background: var(--miq); color: #fff; border-color:var(--miq); }
-.personality .item_1 a.quiz-link:hover{background:var(--miq_h);}
-
-.personality .item_2.quiz-list{/* border-color:var(--wpq); */}
-.personality .item_2 .title-field h4{    color: var(--lsq);}
-.personality .item_2 a.quiz-link{background: var(--lsq); color: #fff; border-color:var(--lsq); }
-.personality .item_2 a.quiz-link:hover{background:var(--lsq_h);}
-
-.personality .item_3.quiz-list{/* border-color:var(--iq); */}
-.personality .item_3 .title-field h4{    color: var(--wvq);}
-.personality .item_3 a.quiz-link{background: var(--wvq); color: #fff; border-color:var(--wvq); }
-.personality .item_3 a.quiz-link:hover{background:var(--wvq_h);}
 
 
 
@@ -264,109 +118,30 @@ li.pag a:hover, li.pag a.active {
     color: #ffffff;
 }
 
-.block-forms-steps{margin-top:-120px;}
-.block-forms-steps ol{    display: block; margin: auto; text-align: center; margin: auto; max-width: 800px;display: flex; margin-left: 0px; padding-left: 0px;}
-.block-forms-steps ol li {    display: inline-block; background: #ffffff; height: 30px; color: #ffffff; border-top: 1px solid var(--aq); border-bottom: 1px solid var(--aq);text-indent: -5001px; width: 67px;    flex: 1;}
-.block-forms-steps ol li.previous-step{background: var(--aq); color: var(--aq);}
-.block-forms-steps ol li.active{}
-.block-forms-steps ol li.next-stap{}
-.block-forms-steps ol li.previous-step {
-    background: var(--aq);
-    color: var(--aq);
-}
-.block-forms-steps ol li:first-child {
-    border-left: 5px solid var(--aq);
-}
-.block-forms-steps ol li:last-child {
-    border-right: 1px solid var(--aq);
-}
 
 
 
 /* New Css */
-.progress-title{text-align:right;}
-.progress-title{}
-.p-bar{}
-.col-md-2.qs{margin-right:0px;margin-left:5px;padding:0px;}
-.status-bar{padding-top:5px;}
-.status-bar span{    font-size: 15px; text-align: center; color: #333333; margin-right: 4px;}
-.status-bar .Question-status{}
-.status-bar .total-question{    margin-left: 4px;}
-.status-bar .label{font-weight:normal;}
-body.path-quiz{    position: relative; background: #e9ecef;}
-.path-quiz .block.block-core.block-page-title-block{display:block;}
-.path-quiz .form-actions input[name=op], .path-quiz .form-actions input[name=previous_action]{
-	border: none;
-    color: #333;
-    text-shadow: none;
-    margin-top: 7px;
-    background: var(--aq);
-    border-radius: 0px;
-    font-size: 14px;
-    padding: 5px 20px;
-	background: var(--aq);
-    color: #fff;
-}
-.path-quiz .form-actions input[name=op]:hover, .path-quiz .form-actions input[name=previous_action]:hover{
-	/* outline:none; */
-}
-.path-quiz .form-actions input[name=op]{float:right;margin-right:40px;}
-.path-quiz .form-actions input[name=previous_action]{float:left;margin-left:40px;}
-.path-quiz .vertical-tabs {display:none;}
+
+
+
+
+
 .result-link {
     text-align: center;
 	width: 100%;
     display: inline-block;
     padding-top: 2px;
 }
-.path-quiz .form-actions.form-actions{
-	width: 100%;
-    min-height: 42px;
-    /* border: 1px solid #ccc; */
-	margin-top:100px;
-}
 
-.path-quiz {
-    background: #e9ecef;
-}
-.path-quiz .alert-success{display:none;}
-.main-bg{}
-.path-quiz div#block-bcgov-career-breadcrumbs, .block-system-breadcrumb-block {
-    background: #e9ecef;
-}
-.path-quiz header{background:#fff;}
-.path-quiz div#block-bcgov-career-breadcrumbs nav,  .block-system-breadcrumb-block nav {
-    max-width: 1400px;
-    margin: auto;
-    padding: 0px 15px;
-}
+
+
 .path-quiz .breadcrumb{margin-bottom: 0px;}
 .path-quiz .aq-breadcrumb nav{}
 .main-bg .overlay-bg{    background: var(--aq); height: 396px;}
 .main-bg .overlay-content{margin-top: -396px;}
-.overlay-content {}
-.overlay-content .block-page-title-block{}
-.overlay-content .block-page-title-block h1 {
-    color: #fff;
-    text-align: left !important;
-	font-size:40px;
-	font-family: 'BC Sans Bold', 'BC Sans Regular', 'BC Sans', sans-serif;
-}
-.overlay-content .block-system-main-block{    background: #fff; padding-top: 45px; border-top: 9px solid rgb(0, 40, 85); border-bottom: 5px solid rgb(0, 40, 85);padding-bottom:30px;}
-.path-quiz .overlay-content .region-content {
-    padding-top: 20px;
-    margin-bottom: 20px;
-}
-.progress-title h6 {
-    font-size: 14px;
-	color: #333333;
-    text-align: left;
-    font-family: 'BC Sans Bold', 'BC Sans Regular', 'BC Sans', sans-serif;
-    font-weight: 700;
-    font-style: normal;
-    font-size: 15px;
-    padding-top: 5px;
-}
+
+
 .itm.hide{display:none;}
 .itm.show{display:block;}
 .hideshow{display: block;
@@ -409,28 +184,17 @@ body.path-quiz{    position: relative; background: #e9ecef;}
     line-height: 24px;
     padding: 0px 5px;}
 .form-required:after{display:none !important;}
-.sub-title{margin-bottom:60px;}
+
 .sub-title p{    font-size: 16px; color: #FFFFFF;max-width:460px;}
 
-.node-questions {
+
+
+
+
+
+
+.bottom-links .links-inner{
     display: flex;
-    justify-content: flex-end;
-	margin-bottom:15px;
-}
-.node-questions .quiz-duration, .node-questions .quiz-questions {
-    color: #fff;
-    font-size: 14px;
-}
-.node-questions .quiz-duration {
-
-}
-.node-questions .quiz-questions{
-	margin-right: 24px;
-}
-.node-questions .quiz-questions span{    background: url(../icons/list-white.svg) no-repeat; }
-.node-questions .quiz-duration span{ background: url(../icons/time-white.svg) no-repeat;}
-
-.bottom-links .links-inner{display: flex;
     justify-content: flex-end;
 	margin-bottom:15px;margin-top:30px;}
 .bottom-links .link a{

@@ -26,8 +26,8 @@
                 margin-bottom: 35px;
             }
 
-            .banner-inner{
-                h1{
+            .banner-inner {
+                h1 {
                     font-size: 5.4rem;
                     line-height: 5.4rem;
                     font-family: 'BC Sans Bold', sans-serif;
@@ -102,8 +102,8 @@
 
 //Quizzes
 
-.head-des{
-    h2{
+.head-des {
+    h2 {
         font-family: 'BC Sans Regular', sans-serif;
         font-weight: normal;
         font-size: 4.5rem;
@@ -113,41 +113,60 @@
         margin-bottom: 30px;
     }
 }
+
 .all-quiz-status {
     background: rgb(230, 234, 233);
     margin: 20px 0px;
     padding: 7px 30px;
     text-align: right;
     margin-bottom: 30px;
-	font-family: "BC Sans Bold" sans-serif;
+    font-family: "BC Sans Bold"sans-serif;
     font-weight: 700;
     font-style: normal;
     font-size: 1.5rem;
     text-align: right;
     line-height: 3.0rem;
 }
-.quiz-list{
-	padding: 0px 20px 30px 20px;
+
+.quiz-list {
+    padding: 45px 12px 30px 12px;
     border: 2px solid rgb(238, 238, 238);
-	height: 100%;
-	position: relative;
-	font-family: "BC Sans", sans-serif;
+    height: 100%;
+    position: relative;
+    font-family: "BC Sans", sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size: 14px;
     color: rgb(102, 102, 102);
+    min-height: 450px;
     .img-field {
         text-align: center;
-        margin-bottom: 20px;
-        margin-top: 20px;
-        min-height:100px;
+        margin-bottom: 30px;
+        margin-top: 0;
+        min-height: 100px;
         display: flex;
         align-items: center;
         justify-content: center;
     }
+    .title-field{
+        margin-bottom: 20px;
+        text-align: center;
+        h4{
+            font-family: "BC Sans Bold", "BC Sans Regular", "BC Sans", sans-serif;
+            font-weight: 700;
+            font-style: normal;
+            font-size: 2.4rem;
+            color: #234075;
+        }
+    }
+    .quiz-description{
+        padding-top:18px;
+    }
     .quiz-questions{
         padding:0px;
-        font-weight: bold;
+        font-family: 'BC Sans Bold', 'BC Sans Regular', 'BC Sans', sans-serif;
+        font-size: 1.6rem;
+        line-height: normal;
         span{
             float: left;
             width: 34px;
@@ -157,7 +176,9 @@
     }
     .quiz-duration{
         padding:0px;
-        font-weight: bold;
+        font-family: 'BC Sans Bold', 'BC Sans Regular', 'BC Sans', sans-serif;
+        font-size: 1.6rem;
+        line-height: normal;
         span{
             float: left;
             width: 34px;
@@ -165,38 +186,541 @@
             background: url(../src/icons/time.svg) no-repeat;
         }
     }
-    .complete{
-        span{
+
+    .complete {
+        span {
             float: left;
             width: 34px;
             height: 25px;
             background: url(../src/icons/check.svg) no-repeat;
             background-position: 0px;
         }
-        .cq{
+
+        .cq {
             text-align: center;
             margin: auto;
             width: 140px;
-            color:#277a0f;
+            color: #277a0f;
         }
     }
+    .row {
+        background: rgb(242, 242, 242);
+        padding: 10px;
+        margin: 0px;
+    }
+    p{
+        text-align:center;
+    }
+    .breadcrumb{
+        margin-bottom:0px;
+    }
+    a.quiz-link:hover{
+        text-decoration:none;
+    }
 }
-.node-questions{
-    .quiz-questions{
-        span{
+
+.node-questions {
+    .quiz-questions {
+        span {
             display: inline-block;
             width: 34px;
             height: 25px;
         }
     }
+
+    .quiz-duration {
+        span {
+            display: inline-block;
+            width: 34px;
+            height: 25px;
+        }
+    }
+}
+
+.head-des {
+    margin: 30px 0px;
+    margin-bottom:0px;
+    text-align:center;
+}
+a.quiz-link {
+    border: 1px solid #3db2e3;
+    padding: 8px 10px;
+    color:  #3db2e3;
+    text-decoration: none;
+    text-align: center;
+    width: 230px;
+    max-width:100%;
+    margin: auto;
+    text-align: center;
+    display: block;
+    font-size:15px;
+}
+.slide.carousel{
+    .quiz_link {
+        margin-top:35px;
+    }
+    .career{
+        .item_1{
+            .title-field h4{
+                color: $aq;
+            }
+            a.quiz-link{
+                background: $aq;
+                color: #fff;
+                border-color:$aq;
+                &:hover{
+                    background:$aq_h;
+                }
+            }
+        }
+        .item_2{
+            .title-field h4{
+                color: $wpq;
+            }
+            a.quiz-link{
+                background: $wpq;
+                color: #fff;
+                border-color:$wpq;
+                &:hover{
+                    background:$wpq_h;
+                }
+            }
+        }
+        .item_3 {
+            .title-field h4{
+                color: $iq;
+            }
+            a.quiz-link{
+                background: $iq;
+                color: #fff;
+                border-color:$iq;
+                &:hover{
+                    background:$iq_h;
+                }
+            }
+        }
+    }
+
+    .personality {
+        .item_1{
+            .title-field h4{
+                color: $miq;
+            }
+            a.quiz-link{
+                background: $miq;
+                color: #fff;
+                border-color:$miq;
+                &:hover{
+                    background:$miq_h;
+                }
+            }
+        }
+        .item_2{
+            .title-field h4{
+                color: $lsq;
+            }
+            a.quiz-link{
+                background: $lsq;
+                color: #fff;
+                border-color:$lsq;
+                &:hover{
+                    background:$lsq_h;
+                }
+            }
+        }
+        .item_3{
+            .title-field h4{
+                color: $wvq;
+            }
+            a.quiz-link{
+                background: $wvq;
+                color: #fff;
+                border-color:$wvq;
+                &:hover{
+                    background:$wvq_h;
+                }
+            }
+        }
+    }
+}
+
+//Quiz start
+.overlay-content{
+    .block-page-title-block{
+        h1 {
+            color: #fff;
+            text-align: left !important;
+            font-size:4.0rem;
+        }
+    }
+    .block-system-main-block{
+        background: #fff; 
+        padding-top: 65px; 
+        border-top: 9px solid rgb(0, 40, 85); 
+        border-bottom: 5px solid rgb(0, 40, 85);
+        padding-bottom:300px;
+    }
+}
+body.path-quiz{
+    position: relative; 
+    background: #e9ecef;
+}
+.path-quiz{
+    background: #e9ecef;
+    header{
+        background:#fff;
+    }
+    .alert-success{
+        display:none;
+    }
+    .block.block-core.block-page-title-block{
+        display:block;
+        margin-top: 60px;
+    }
+    .form-actions{
+        &.form-actions{
+            width: auto;
+            min-height: auto;
+            margin-top: 0;
+            position: absolute;
+            right: 0;
+            bottom: -230px; 
+            width: 100%;
+        }
+        input[name=op]{
+            background: $aq;
+            min-width: 170px;
+            float:right;
+            padding: 15px 10px;
+            text-align: center;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.5rem;
+            line-height: 1.8rem;
+            font-family: 'BC Sans', sans-serif;
+            float: right;
+            &:hover{
+                background: $aq_h;
+            }
+        }
+        input[name=previous_action]{
+            background: transparent;
+            border:  1px solid $aq;
+            min-width: 170px;
+            float:right;
+            padding: 15px 10px;
+            text-align: center;
+            color: $aq;
+            text-decoration: none;
+            font-size: 1.5rem;
+            line-height: 1.8rem;
+            font-family: 'BC Sans', sans-serif;
+            float: left;
+        }
+        #edit-preview{
+            display:none;
+        }
+    }
+    .vertical-tabs {
+        display:none;
+    }
+    div#block-bcgov-career-breadcrumbs{
+        background: #e9ecef;
+        nav{
+            max-width: 1400px;
+            margin: auto;
+            padding: 0px 15px;
+        }
+    }
+    .block-system-breadcrumb-block {
+        background: #e9ecef;
+        nav{
+            max-width: 1400px;
+            margin: auto;
+            padding: 0px 15px;
+        }
+    }
+    .region-content {
+        position: relative;
+        padding-top: 50px;
+        .field--type-double-reference{
+            padding-top: 15px;
+            padding-left: 15px;
+            padding-bottom: 15px;
+            border-bottom: 0px;
+            fieldset{
+                margin:0px;
+                legend{
+                    float: left !important;
+                    width: 50% !important;
+                    width: 100%;
+                    height: 2em;font-family: 'BC Sans', sans-serif;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-size: 15px;
+                    line-height: 24px;
+                }
+                .fieldset-wrapper{
+                    float: right;
+	                margin-right:35px;
+                }
+            }
+            .form-item{
+                margin:0px
+            }
+        }
+        .form-radios{
+            input{
+                width: 20px;
+                height: 20px;
+                position: relative;
+                z-index: 1;
+                top: 9px;
+                opacity: 0;
+                &+label.option+span.radio{
+                    width: 20px;
+                    height: 20px;
+                    display: block;
+                    border: 2px solid #666;
+                    border-radius: 50%;
+                    background: #fff;
+                    margin: 0 auto;
+                    position: relative;
+                    bottom: 16px;
+                    &::before{
+                        content: '';
+                        background: $aq;
+                        width: 12px;
+                        height: 12px;
+                        z-index: 0;
+                        position: absolute;
+                        border-radius: 50%;
+                        left: 2px;
+                        top: 2px;
+                        display: none;
+                    }
+                }
+                &:checked{
+                    &+label.option+span.radio{
+                        border: 2px solid $aq;
+                        &::before{
+                            display: block;
+                        }
+                    }
+                }
+            }
+            label {
+                position: absolute;
+                top: 0px;
+                font-size: 14px;
+                font-weight: normal;
+                display: block;
+                text-align: center;
+                width: 85px;
+                letter-spacing: normal;
+            }
+            .form-item {
+                display: inline-block;
+                margin-right: 10px;
+                min-width: 80px;
+                text-align: center;
+                margin: auto;
+            }
+        }
+        .form-item.form-type-entity-autocomplete{
+            padding: 0px; 
+            margin: 0px; 
+            line-height: 0px;
+        }
+    }
+    .form-composite{
+        > legend{
+            font-weight:500
+        }
+        .label{
+            font-weight:500
+        }
+    }
+    .layout-region-node-footer__content{
+        margin-top:0px;
+        border-top:0px;
+    }
+    .layout-node-form{
+        max-width:1140px;
+        margin:auto;
+        position:relative;
+        padding-top:40px;
+        .layout-region-node-main{
+            width:100% !important;
+            float:inherit;
+        }
+        .layout-region-node-footer{
+            width:100% !important;
+            float:inherit;
+            margin-top:70px
+        }
+    }
+    .node-form{
+        max-width:1140px;
+        margin:auto;
+        position:relative;
+        padding-top:40px;
+    }
+    .layout-region.layout-region-node-secondary {
+        display:none;
+    }
+    form{
+        .field--widget-double-reference-autocomplete-select{
+            &:nth-child(odd){
+                background:rgba(242, 242, 242, 1);
+            }
+            &:not(.first-item){
+                label{
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+.node-questions {
+    display: flex;
+    justify-content: flex-end;
+	margin-bottom:15px;
     .quiz-duration{
+        color: #fff;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
         span{
-            display: inline-block;
-            width: 34px;
-            height: 25px;
+            background: url(../src/icons/time-white.svg) no-repeat;
+        }
+    }
+    .quiz-questions {
+        color: #fff;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        margin-right: 24px;
+        span{
+            background: url(../src/icons/list-white.svg) no-repeat;
         }
     }
 }
+.field--type-work-bc-quiz{
+    padding: 15px;
+    border-bottom: 0px;
+    fieldset{
+        margin:0px;
+        legend{
+            float: left !important;
+            width: 45% !important;
+            width: 100%;
+            min-height: auto;
+            font-family: 'BC Sans', sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 1.5rem;
+            line-height: 3.1rem;
+            color: #333333;
+        }
+        .fieldset-wrapper {
+            float: right;
+            margin-right:35px;
+        }
+    }
+    .form-item {
+        margin:0px;
+    }
+}
+span.question-prefix {
+    float: left;
+    margin-right: 10px;
+    margin-top: 4px;
+    color: #333333;
+    &:after{
+        content: '.';
+        color: #333333;
+    }
+}
+.progress-title h6 {
+	color: #333333;
+    padding-top: 7px;
+    font-family: 'BC Sans Bold', 'BC Sans Regular', 'BC Sans', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 15px;
+}
+.block-forms-steps{
+    position: absolute;
+    bottom: 220px;
+    width: 100%;
+    ol{
+        display: block; 
+        margin: auto; 
+        text-align: center; 
+        margin: auto; 
+        max-width: 800px;
+        display: flex; 
+        margin-left: 0px; 
+        padding-left: 0px;
+        li {
+            display: inline-block; 
+            background: #ffffff; 
+            height: 35px; 
+            color: #ffffff; 
+            border-top: 1px solid $aq; 
+            border-bottom: 1px solid $aq;
+            text-indent: -5001px; 
+            width: 67px;
+            flex: 1;
+            &.previous-step{
+                background: $aq; 
+                color: $aq;
+            }
+            &:first-child {
+                border-left: 5px solid $aq;
+            }
+            &:last-child {
+                border-right: 1px solid $aq;
+            }
+        }
+    }
+}
+.status-bar{
+    padding-top:5px;
+    span{
+        font-size: 1.5rem; 
+        text-align: center; 
+        color: #333333; 
+        margin-right: 4px;
+    }
+    .total-question{
+        margin-left: 4px;
+    }
+    .label{
+        font-weight:normal;
+    }
+}
+
+.path-admin{
+    .field--type-work-bc-quiz{
+        fieldset{
+            legend{
+                float:inherit;
+                width:auto;
+            }
+            .fieldset-wrapper{
+                float:inherit;
+                width:auto;
+            }
+        }
+    }
+    .visually-hidden-node{
+        display:block !important;
+    }
+}
+.path-node .visually-hidden-node, .visually-hidden-node{display:none !important;}   
 
 // Tools and Resources
 .tools-resource-items-wrapper {
@@ -236,6 +760,10 @@
 
         h2 {
             color: #fff;
+            font-family: 'BC Sans Bold', 'BC Sans Regular', 'BC Sans', sans-serif;
+            font-size: 3.6rem;
+            line-height: 4.0rem;
+            font-weight: normal;
         }
     }
 
@@ -270,8 +798,9 @@
 
         h3 {
             color: #fff;
-            margin-bottom: 30px;
-
+            margin-bottom: 25px;
+            font-size: 2.0rem;
+            line-height: 2.6rem;
             a {
                 color: #fff;
             }
@@ -949,7 +1478,6 @@
 .compare-career-main-wrapper {
     .back-link {
         padding: 20px 0;
-
         a {
             font-family: 'BC Sans', sans-serif;
             font-weight: 400;
@@ -966,6 +1494,30 @@
         }
     }
 
+    .career-wrapper-top {
+        background: #fff;
+        padding: 30px 25px 0 25px;
+        h3 {
+            color: $color-dark;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            li {
+                display: inline;
+                cursor: pointer;
+                &.compare-career-print{
+                    margin-right: 30px;
+                }
+                span.icon{
+                    &:hover{
+                        background: #9B9B9B;
+                    }
+                }
+            }
+        }
+    }
+
     background: rgba(230, 234, 233, 1);
     padding-bottom: 40px;
 
@@ -974,7 +1526,7 @@
         display: flex;
         justify-content: center;
         background: #fff;
-        padding: 100px 0;
+        padding: 30px 0;
         border-bottom: 4px solid rgba(35, 64, 117, 1);
 
         .slick-slide:last-child {

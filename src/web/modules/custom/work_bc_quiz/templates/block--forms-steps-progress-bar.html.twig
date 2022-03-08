@@ -35,7 +35,6 @@
 <div{{ attributes.addClass(classes) }}>
 	<div class="container">
 		<div class="row">
-			<div class="col-md-1"></div>
 			<div class="col-md-2 progress-title">
 			  <h6>Your Progress</h6>
 			  {{ title_prefix }}
@@ -44,14 +43,14 @@
 			  {% endif %}
 			  {{ title_suffix }}
 			</div>
-			<div class="col-md-6">
+			<div class="col-md-8">
 				<div class="p-bar">
 					{% block content %}
 						{{ content }}
 					{% endblock %}
 				</div>
 			</div>
-			<div class="col-md-2 qs">
+			<div class="col-md-2">
 				<div class="status-bar">
 					{% set qs = 0 %}
 					{% set url = url('<current>')|render|render %}
@@ -68,7 +67,6 @@
 					<span class="Question-status">{{qs}}</span>/<span class="total-question">39</span> <span class="label">questions</span>
 				</div>
 			</div>
-			<div class="col-md-1"></div>
 		</div>
 	</div>
 </div>

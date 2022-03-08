@@ -51,7 +51,27 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-12">
-        {# {{ dd(rows) }} #}
+        <div class="career-wrapper-top">
+          <div class="row">
+            <div class="col-9">
+              <h3>{{ "Compare Careers"|t }}</h3> 
+            </div>
+            <div class="col-3">
+              <div class="career-top-right">
+                <ul class="float-right">
+                  <li class="compare-career-print"><span class="icon icon-print"></span></li>
+                  <li class="compare-career-email"><span class="icon icon-message"></span></li>
+                </ul>
+              </div> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
         <div class="career-content-compare career-content-main-wrapper">
           {% if rows %}
             {% for rowkey, row in rows %}
