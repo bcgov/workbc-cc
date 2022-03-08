@@ -58,7 +58,7 @@
   <img class="image-icon" src="{{ file_url(paragraph.field_icon.entity.uri.value) }}"/>
   <h3>
     {%if paragraph.field_link.value.0 is not empty %}
-      <a href="{{ paragraph.field_link.value.0['uri'] }}">
+      <a href="{{ paragraph.field_link.value.0['uri'] }}" target="_blank">
         {{ paragraph.field_title.value }}
       </a>
     {% else %}
