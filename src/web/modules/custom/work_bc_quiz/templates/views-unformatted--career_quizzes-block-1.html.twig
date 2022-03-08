@@ -91,7 +91,7 @@
 					</div>
 				{% endif %}
 				<div class="quiz-description">
-					<p>{{ row.content['#row']._entity.body[0].value|raw }}</p>
+					{{ row.content['#row']._entity.body[0].value|raw }}
 				</div>
 				{% if row.content['#row']._entity.nid[0].value != 0 %}
 					{{ row.content['#row']._entity.nid[0].value is empty }}

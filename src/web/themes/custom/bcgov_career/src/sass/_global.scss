@@ -1,3 +1,40 @@
+
+// Theme variables.
+
+$navbar-brand-image-height: 36px !default;
+$navbar-brand-image-height-lg: 60px !default;
+$navbar-brand-image-width: auto !default;
+$navbar-brand-image-margin: 0 1rem 0 0 !default;
+
+$navbar-brand-site-title-text-transform: uppercase !default;
+$navbar-brand-site-title-font-size: 1.5rem !default;
+$navbar-brand-site-title-font-weight: bold !default;
+$navbar-brand-site-title-letter-spacing: 2px !default;
+
+$region-padding: 0 .5rem !default;
+
+$footer-padding: 2rem 0 !default;
+
+$nav-tabs-link-active-bg-sm: #dee2e6 !default;
+
+$local-tasks-primary-margin: 1rem 0 !default;
+$local-tasks-secondary-margin: 0 0 1rem 0 !default;
+
+
+$aq:rgb(7, 53, 115);
+$aq_h:rgb(0, 30, 64);
+$wpq:rgb(81, 11, 118);
+$wpq_h:rgb(49, 5, 70);
+$iq:rgb(38, 113, 202);
+$iq_h:rgb(14, 62, 117);
+
+$miq:rgb(33, 108, 6);
+$miq_h:rgba(22, 76, 3, 1);
+$lsq:rgb(0, 126, 180);
+$lsq_h:rgb(0, 68, 106);
+$wvq:rgb(136, 3, 100);
+$wvq_h:rgb(68, 0, 49);
+
 html {
     -webkit-text-size-adjust: none;
     font-size: 10px;
@@ -49,7 +86,7 @@ h2, .h2{
 }
 
 h3, .h3{
-    font-family: 'BC Sans Bold', 'BC Sans Regular', 'BC Sans', sans-serif;
+    font-family: 'BC Sans Regular', sans-serif;
     font-weight: 700;
     font-style: normal;
     font-size: 2.7rem;
@@ -96,5 +133,26 @@ h3, .h3{
 .no-padding-device{
     @media  all and(max-width: 767.98px){
         padding: 0;
+    }
+}
+
+.icon-message {
+    mask: url(../src/icons/message.svg);
+}
+
+.icon-print {
+    mask: url(../src/icons/print.svg);
+}
+
+.icon {
+    display: inline-block;
+    width: 32px;
+    height: 29px;
+    background: $color-dark;
+    mask-size: cover;
+
+    &.icon-message {
+        width: 33px;
+        height: 22px;
     }
 }
