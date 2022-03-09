@@ -992,6 +992,7 @@ span.question-prefix {
     .tools-resource-item {
         text-align: center;
         position: relative;
+        min-height: 250px;
 
         &::after {
             content: '';
