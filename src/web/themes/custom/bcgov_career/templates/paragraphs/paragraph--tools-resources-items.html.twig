@@ -62,7 +62,7 @@
         {{ paragraph.field_title.value }}
       </a>
     {% else %}
-      {{ paragraph.field_title.value }}
+      {{ paragraph.field_title.value|raw }}
     {% endif %}
   </h3>
   <p class="description">{{ paragraph.field_description.value }}</p>
