@@ -102,7 +102,7 @@
 		  {% endif %}
 
 		  <div {{ content_attributes.addClass('node__content') }}>
-			<div class="" >
+			<div class="myResultHeading" >
 				<div class="row rh">
 					<div class="col-8">
 						<div class="result-heading">
@@ -136,18 +136,18 @@
 				</div>
 
 				<div id="myResult" data-ride="carousel" class="carousel slide">
-					<ol class="carousel-indicators">
+					{# <ol class="carousel-indicators">
 						{% for item in content.an_additional_field['#quiz_result'] %}
 							{% set classes1 =  (loop.index == 1) ? 'active' %}
 							{% if loop.index == 4%}
-								<div class="extradots">
+							<div class="extradots">
 							{% endif %}
-							<li class="{{classes1}}" data-target="#myResult" data-slide-to="{{ loop.index - 1}}" ></li>
-					  {% endfor %}
-								</div>
-					</ol>
+								<li class="{{classes1}}" data-target="#myResult" data-slide-to="{{ loop.index - 1}}" ></li>
+					  	{% endfor %}
+							</div>
+					</ol> #}
 					<div class="carousel-inner">
-						<div class="row carousel-item active">
+						<div class="row">
 							{% for item in content.an_additional_field['#quiz_result'] %}
 								{% if loop.index > 3%}
 									{% set classes = 'col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 itm hide' %}
@@ -155,7 +155,8 @@
 									{% set classes = 'col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 itm' %}
 								{% endif %}
 								{% if loop.index == 4%}
-									<div class="row extradivs hide">
+									<div class="col-12 extradivs hide">
+									<div class="row">
 								{% endif %}
 								<div class="{{classes}}">
 									<div class="quiz-list">

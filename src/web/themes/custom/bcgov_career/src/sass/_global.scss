@@ -47,7 +47,7 @@ body {
     line-height: 2.4rem;
     margin: 0;
 }
-.container-fluid{max-width:1400px;}
+.container-fluid, .container-sm, .container-md, .container-lg, .container-xl{max-width:1200px;}
 
 p{
     font-family: 'BC Sans', sans-serif;
@@ -95,6 +95,33 @@ h3, .h3{
     @media all and (max-width: 767.98px){
         font-size: 2.4rem;
         line-height: 3.1rem;
+    }
+}
+
+ul{
+    &.pagging{
+        text-align: center;
+        padding-left: 0px;
+        max-width: 350px;
+        display: block;
+        float: none;
+        li.pag {
+            display: inline-block;
+            margin: auto;
+            text-align: center;
+            padding: 0px 10px;
+            a {
+                display: block;
+                padding: 5px 15px;
+                text-decoration: none;
+                line-height:18px;
+                font-size:15px;
+                &:hover, &.active {
+                    background: $aq;
+                    color: #ffffff;
+                }
+            }
+        }
     }
 }
 
