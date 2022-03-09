@@ -20,7 +20,7 @@
 {%
   set classes = [
     'views-view-grid',
-    'container',
+    'container-fluid',
     'slide',
   ]
 %}
@@ -39,7 +39,7 @@
    {%
 	  set classes1 =[
 		'views-view-grid',
-		'container',
+		'container-fluid',
 		'carousel',
 		'cari_quiz',
 		'slide',
@@ -58,14 +58,14 @@
 </div>
 
 
-<div id="{{Carousel}}" data-ride="carousel" {{ attributes.addClass(classes1) }}>
-	<ol class="carousel-indicators {{display_id}} {{id}}">
+<div id="{{Carousel}}" {{ attributes.addClass(classes1) }}>
+	{# <ol class="carousel-indicators {{display_id}} {{id}}">
       <li data-target="#{{Carousel}}" data-slide-to="0" class="active"></li>
       <li data-target="#{{Carousel}}" data-slide-to="1"></li>
       <li data-target="#{{Carousel}}" data-slide-to="2"></li>
-    </ol>
+    </ol> #}
   <div class="carousel-inner">
-	  <div class="row carousel-item active">
+	  <div class="row career-item active">
 		{% for row in rows %}
 
 		  <div{{ row.attributes.addClass(row_class) }}>

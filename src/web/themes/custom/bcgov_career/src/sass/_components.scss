@@ -22,7 +22,7 @@
                 font-style: normal;
                 font-size: 2.5rem;
                 line-height: 3.0rem;
-                max-width: 350px;
+                max-width: 380px;
                 margin-bottom: 35px;
             }
 
@@ -128,7 +128,7 @@
     line-height: 3.0rem;
 }
 
-.quiz-list {
+.cari_quiz .quiz-list {
     padding: 45px 12px 30px 12px;
     border: 2px solid rgb(238, 238, 238);
     height: 100%;
@@ -217,6 +217,122 @@
     }
     a.quiz-link:hover{
         text-decoration:none;
+    }
+}
+
+.myResultHeading{
+    .result-heading{
+        margin-bottom: 40px;
+        margin-top:20px;
+        h2{
+            font-family: 'BC Sans', sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 27px;color: #333333;
+            text-align: left;
+        }
+    }
+    .drop-demo-head-right{
+        padding: 0px 15px;
+        display: flex;
+    }
+}
+#myResult{
+    .quiz-list{
+        min-height: 365px;
+        border: 2px solid rgb(238, 238, 238);
+        .field-match{
+            text-align:center;
+            background: #f2f2f2;
+            padding: 2px 0px;
+            color: #333333;
+            font-size: 1.5rem;
+            line-height: 2.1rem;
+        }
+        .img-field{
+            text-align: center;
+            margin-top: 20px;
+            img {
+                height: 72px;
+                width: auto;
+            }
+        }
+        .title-field{
+            text-align: center;
+            font-size: 2.0rem;
+            line-height: 2.8rem;
+            margin: 20px 0 30px;
+        }
+        .title-description{
+            font-size: 1.5rem;
+            line-height: 2.1rem;
+            padding: 0 25px;
+        }
+    }
+    .career-result{
+        margin-top: 25px;
+    }
+    .itm.hide{
+        display:none;
+    }
+    .itm.show{
+        display:block;
+    }
+    .hideshow{
+        display: block;
+        float: right;
+        margin-right: 15px;
+        width: 100%;
+        text-align: right;
+        font-family: 'BC Sans Bold', 'BC Sans Regular', 'BC Sans', sans-serif;
+        font-weight: 700;
+        font-style: normal;
+        font-size: 14px;
+        color: #234075;
+        text-align: right;
+        line-height: 30px;
+    }
+    .bottom-links{
+        margin-top: 60px;
+        .links-inner{
+            display: flex;
+            justify-content: flex-end;
+        }
+        .link {
+            a{
+                color: #333;
+                text-shadow: none;
+                margin-top: 7px;
+                border-radius: 0px;
+                font-size: 14px;
+                padding: 13px 20px;
+                border: 2px solid $aq;
+                &:hover{
+                    text-decoration:none;
+                }
+            }
+            &.link_1{
+                a{
+                    margin-right: 20px;
+                    background: #fff; 
+                    color: $aq !important;
+                    &:hover{
+                        background-color: rgba(230, 234, 233, 1); 
+                        border-color: rgba(35, 64, 117, 1);
+                        text-decoration:none;
+                    }
+                }
+            }
+            &.link_2 {
+                a{
+                    background-color: rgba(35, 64, 117, 1) ;
+                    color: #fff !important;
+                    &:hover{ 
+                        background-color:rgba(0, 40, 85, 1)
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -315,6 +431,9 @@ a.quiz-link {
                     background:$miq_h;
                 }
             }
+            .quiz_link{
+                margin-top: 7px;
+            }
         }
         .item_2{
             .title-field h4{
@@ -353,6 +472,18 @@ a.quiz-link {
 }
 
 //Quiz start
+.main-bg{
+    position: relative;
+    .overlay-bg{
+        background: $aq; 
+        min-height: 396px;
+        position: absolute;
+        z-index: 0;
+        top: 0;
+        width: 100%;
+    }
+}
+
 .overlay-content{
     .block-page-title-block{
         h1 {
@@ -415,7 +546,7 @@ body.path-quiz{
             margin-top: 0;
             position: absolute;
             right: 0;
-            bottom: -230px; 
+            bottom: -170px; 
             width: 100%;
             @media all and (max-width: 767.98px){
                 bottom: -90px;
@@ -425,7 +556,6 @@ body.path-quiz{
         input[name=op]{
             background: $aq;
             min-width: 170px;
-            float:right;
             padding: 15px 10px;
             text-align: center;
             color: #fff;
@@ -433,7 +563,10 @@ body.path-quiz{
             font-size: 1.5rem;
             line-height: 1.8rem;
             font-family: 'BC Sans', sans-serif;
-            float: right;
+            position: absolute;
+            top: -50px;
+            right: 0;
+            z-index: 1;
             &:hover{
                 background: $aq_h;
             }
@@ -442,7 +575,6 @@ body.path-quiz{
             background: transparent;
             border:  1px solid $aq;
             min-width: 170px;
-            float:right;
             padding: 15px 10px;
             text-align: center;
             color: $aq;
@@ -450,7 +582,10 @@ body.path-quiz{
             font-size: 1.5rem;
             line-height: 1.8rem;
             font-family: 'BC Sans', sans-serif;
-            float: left;
+            position: absolute;
+            top: -50px;
+            left: 0;
+            z-index: 1;
         }
         #edit-preview{
             display:none;
@@ -885,7 +1020,7 @@ span.question-prefix {
             font-size: 2.0rem;
             line-height: 2.6rem;
             font-family: 'BC Sans Bold', 'BC Sans Regular', 'BC Sans', sans-serif;
-            max-width: 180px;
+            max-width: 200px;
             margin: 0 auto 25px;
             min-height: 52px;
             a {
@@ -940,6 +1075,19 @@ span.question-prefix {
     }
 }
 
+#block-views-block-step-form-pagination-block-1{
+    position: absolute;
+    width: 100%;
+    bottom: 170px;
+    z-index: 0;
+    .views-row.row{
+        .offset-md-3{
+            display: flex;
+            justify-content: center;
+        }
+    }
+}
+
 /* CAREER */
 
 .careers-main-wrapper {
@@ -957,6 +1105,7 @@ span.question-prefix {
             font-size: 2.7rem;
             line-height: 3.2rem;
             color: #333333;
+            margin-bottom: 25px;
         }
 
         .content {
@@ -972,10 +1121,12 @@ span.question-prefix {
                     font-style: normal;
                     font-size: 15px;
                     color: #555555;
+                    margin-bottom: 20px;
                 }
             }
 
             .top-btn {
+                margin-top: 10px;
                 >a.disable {
                     color: rgba(0, 0, 0, 0.298039215686275);
                     background: #f2f2f2;
@@ -1021,7 +1172,7 @@ span.question-prefix {
     .careers-table-main-wrapper {
         height: 100%;
         border: 1px solid #e6eae9;
-        max-height: 772px;
+        max-height: 800px;
         overflow-y: scroll;
     }
 
@@ -1055,40 +1206,46 @@ span.question-prefix {
                     &.active {
                         td {
                             background: rgba(238, 238, 238, 1);
-
-                            &:first-child {
-                                >a {
+                            &.career-table-link{
+                                >.career-table-row-link {
                                     color: rgb(42, 125, 226);
+                                    .noc{
+                                        color: rgb(42, 125, 226);
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                    td {
+                        vertical-align: middle;
+                        background: #fff;
+                        padding: 20px 15px;
+                        font-size: 1.5rem;
+                        &.career-table-link{
+                            >.career-table-row-link{
+                                font-family: 'BC Sans Bold', 'BC Sans Regular', 'BC Sans', sans-serif;
+                                display: block;
+                                font-weight: bold;
+                                text-decoration: none;
+                                color: #333333;
+                                &:hover{
+                                    color: rgb(42, 125, 226);
+                                    .noc{
+                                        color: rgb(42, 125, 226);
+                                    }
+                                }
+                                .noc{
+                                    font-family: 'BC Sans Regular', 'BC Sans', sans-serif;
+                                    font-weight: normal;
+                                    color: #333333;
                                 }
                             }
                         }
-                    }
-                }
-            }
-
-            td {
-                vertical-align: middle;
-                background: #fff;
-                padding: 20px 15px;
-
-                &:first-child {
-                    >a {
-                        color: #333;
-                        text-decoration: none;
-                        font-weight: 700;
-
-                        span.noc {
-                            font-weight: 400;
-                        }
-
-                        &:hover {
-                            color: rgb(42, 125, 226);
+                        .use-ajax {
+                            display: none;
                         }
                     }
-                }
-
-                .use-ajax {
-                    display: none;
                 }
             }
 
@@ -1391,6 +1548,7 @@ span.question-prefix {
 // }
 
 .career-content-main-wrapper {
+    height: 100%;
     .back-link {
         background: #e6eae9;
         padding: 10px 25px;
@@ -1415,18 +1573,18 @@ span.question-prefix {
     .career-content-item {
         background: #fff;
         display: none;
-
+        height: 100%;
         &.active {
             display: block;
         }
 
         .career-content-item-inner {
-            height: calc(100% - 75px);
+            height: 100%;
             .career-inner-content {
                 border: 1px solid rgb(230, 234, 233);
                 padding: 20px;
                 min-height: 695px;
-                height: 100%;
+                height: calc(100% - 76px);
                 &.page {
                     border: 0;
                     padding: 20px 40px;
@@ -1515,14 +1673,14 @@ span.question-prefix {
 
             .bottom-btn {
                 display: flex;
-                margin-top: 50px;
+                margin-top: 40px;
 
                 a.btn {
                     color: #fff;
                     border: 2px solid #510B76;
                     background: #510B76;
                     display: inline-block;
-                    padding: 8px 4px;
+                    padding: 13px 4px;
                     text-decoration: none;
                     font-size: 1.5rem;
                     line-height: 1.8rem;

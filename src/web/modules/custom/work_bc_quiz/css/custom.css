@@ -6,8 +6,7 @@
 #views-bootstrap-quiz-3-result-block-1 .item.title-description {
     min-height: 200px;
 }
-.item.title-description{min-height:130px;}
-.field-match{text-align:center;background: #f2f2f2; margin: 0px -20px; padding: 2px 0px;    color: #333333;font-size: 15px;}
+
 .node--view-mode-full .field--type-double-reference {
     display: list-item;
     margin-bottom: 20px;
@@ -23,45 +22,6 @@
 .block-views-blockcareer-quizzes-block-1, .block-views-blockcareer-quizzes-block-2{
 	margin-bottom:35px;
 }
-ul.pagging {
-	text-align: center;
-    padding-left: 0px;
-    max-width: 350px;
-    display: block;
-    float: none;
-    margin: auto;
-    margin-top: -85px;
-}
-
-li.pag {
-    display: inline-block;
-    margin: auto;
-    text-align: center;
-    padding: 0px 10px;
-}
-
-li.pag.active {}
-
-li.pag a {
-    display: block;
-    /* background: var(--aq); */
-    padding: 5px 15px;
-    /* color: #fff; */
-    text-decoration: none;
-    /* border: 1px solid var(--aq); */
-	line-height:18px;
-	font-size:15px;
-}
-
-li.pag a:hover, li.pag a.active {
-    background: var(--aq);
-    color: #ffffff;
-}
-
-
-
-
-/* New Css */
 
 
 
@@ -77,30 +37,7 @@ li.pag a:hover, li.pag a.active {
 
 
 .path-quiz .breadcrumb{margin-bottom: 0px;}
-.path-quiz .aq-breadcrumb nav{}
-.main-bg .overlay-bg{    background: var(--aq); height: 396px;}
-.main-bg .overlay-content{margin-top: -396px;}
 
-
-.itm.hide{display:none;}
-.itm.show{display:block;}
-.hideshow{display: block;
-    float: right;
-    margin-right: 15px;
-    width: 100%;
-    text-align: right;
-
-    font-family: 'BC Sans Bold', 'BC Sans Regular', 'BC Sans', sans-serif;
-    font-weight: 700;
-    font-style: normal;
-    font-size: 14px;
-    color: #234075;
-    text-align: right;
-    line-height: 30px;
-	}
-
-#myCarousel .row.carousel-item.active,#myCarousel1 .row.carousel-item.active, .carousel .row.carousel-item.active{    display: flex; margin-right: -15px; width: unset;}
-#myCarousel .career, #myCarousel1 .personality  {margin-bottom:30px;}
 
 .carousel .carousel-indicators{display:none;}
 .hideshow span.vaa {
@@ -110,16 +47,9 @@ li.pag a:hover, li.pag a.active {
 .hideshow span.vaa:hover {
     text-decoration: underline;
 }
-.result-heading{    margin-bottom: 40px;margin-top:20px;}
-.result-heading h2{
-    font-family: 'BC Sans', sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 27px;color: #333333;
-    text-align: left;}
+
 .breadcrumb-item+.breadcrumb-item::before{    color: #073573 !important;
     content: ">" !important;
-    /* background: #ccc; */
     font-weight: bold;
     line-height: 24px;
     padding: 0px 5px;}
@@ -127,29 +57,6 @@ li.pag a:hover, li.pag a.active {
 
 
 
-
-
-
-
-.bottom-links .links-inner{
-    display: flex;
-    justify-content: flex-end;
-	margin-bottom:15px;margin-top:30px;}
-.bottom-links .link a{
-    color: #333;
-    text-shadow: none;
-    margin-top: 7px;
-    border-radius: 0px;
-    font-size: 14px;
-    padding: 8px 20px;
-	border: 2px solid var(--aq);
-    }
-.bottom-links .link a:hover{text-decoration:none;}
-	.bottom-links .link.link_1 a{margin-right: 20px;}
-.bottom-links .link.link_1 a{     background: #fff; color: var(--aq) !important;}
- .bottom-links .link.link_1 a:hover{    background-color: rgba(230, 234, 233, 1); border-color: rgba(35, 64, 117, 1);text-decoration:none;}
-.bottom-links .link.link_2 a{background-color: rgba(35, 64, 117, 1) ;color: #fff !important;}
-.bottom-links .link.link_2 a:hover{ background-color:rgba(0, 40, 85, 1)}
 
 
 
@@ -162,11 +69,6 @@ li.pag a:hover, li.pag a.active {
 .nfq .drop-demo-head-title
 {
 	padding: 0px 15px;
-}
-.nfq .drop-demo-head-right
-{
-	padding: 0px 15px;
-	display: flex;
 }
 .nfq .mobile-view
 {
@@ -194,6 +96,5 @@ li.pag a:hover, li.pag a.active {
 	margin:0px;
 }
 .path-quiz .entity-content-form-revision-information{display:none;}
-/* New Css */
 
 

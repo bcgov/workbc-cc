@@ -35,102 +35,43 @@
 				}
 			});
 
+			console.log($(".careers-main-wrapper a.use-ajax.remove-link").length);
+			if($(".careers-main-wrapper a.use-ajax.remove-link").length > 1){
+				$(".careers-main-wrapper .top-btn > a").removeClass("disable");
+			}
+			else{
+				$(".careers-main-wrapper .top-btn > a").addClass("disable");
+			}
+			$(window).on("load", function() {
+				$(".careers-main-wrapper a.use-ajax.remove-link + .compare-career > .career-checkbox").prop("checked", true);
+				$(".career-checkbox").on("change", function(){
+					$(this).parent().prev().trigger("click");
+				});
+			});
+
+			$(document).ajaxComplete(function() {
+				$(".careers-main-wrapper a.use-ajax.remove-link + .compare-career > .career-checkbox").prop("checked", true);
+				$(".careers-main-wrapper a.use-ajax.add-link + .compare-career > .career-checkbox").prop("checked", false);
+				if($(".careers-main-wrapper a.use-ajax.remove-link").length > 1){
+					console.log("true");
+					$(".careers-main-wrapper .top-btn > a").removeClass("disable");
+				}
+				else{
+					console.log("false");
+					$(".careers-main-wrapper .top-btn > a").addClass("disable");
+				}
+			});
+
 			$(".career-table-link > a").on("click", function() {
 				const getCarDataId = $(this).parent().parent().data("id");
 				$(".career-table-row").removeClass("active");
 				$(this).parent().parent().addClass("active");
-				$(".career-content-main-wrapper .career-content-item").removeClass(
-					"active"
-				);
-				$(
-					`.career-content-main-wrapper .career-content-item#${getCarDataId}`
-				).addClass("active");
-			});
+				$(".career-content-main-wrapper .career-content-item").removeClass("active");
+				$(`.career-content-main-wrapper .career-content-item#${getCarDataId}`).addClass("active");
 
-			$(".career-table-mobi-row-link").on("click", function() {
-				// var getCarDataId = $(this).parent().parent().data("id");
-			});
-
-			// setTimeout(function() {
-			// 	$(".remove-link + .compare-carr > .career-chkk").prop("checked", true);
-			// 	const checkedLoadNum = $(
-			// 		".remove-link + .compare-carr > .career-chkk:checked"
-			// 	).length;
-			// 	if (checkedLoadNum > 1) {
-			// 		$(".top-btn > a").removeClass("disable");
-			// 	} else {
-			// 		$(".top-btn > a").addClass("disable");
-			// 	}
-			// }, 1500);
-
-			// $('.career-checkbox').change(function(){
-			// 	var checkedNum = $(".career-checkbox:checked").length;
-			// 	console.log(checkedNum);
-			// 	$(this).parent().prev().click();
-			// 	if (checkedNum >= 2) {
-			// 		$(".top-btn > a").removeClass("disable");
-			// 	} else {
-			// 		$(".top-btn > a").addClass("disable");
-			// 	}
-			// });
-
-			$(".careers-table-main-wrapper .use-ajax.remove-link").next().find(".career-chkk").prop("checked", true);
-			console.log($(".careers-table-main-wrapper .use-ajax.remove-link").length);
-			if($(".careers-table-main-wrapper .use-ajax.remove-link").length > 1){
-				$(".top-career-content .top-btn > a").removeClass("disable");
-			}
-			else{
-				if(!$(".top-career-content .top-btn > a").hasClass("disable")){
-					$(".top-career-content .top-btn > a").addClass("disable");
-				}
-			}
-
-			$(".careers-mobi-table-wrapper .use-ajax.remove-link").next().find(".career-chkk").prop("checked", true);
-			console.log($(".careers-mobi-table-wrapper .use-ajax.remove-link").length);
-			if($(".careers-mobi-table-wrapper .use-ajax.remove-link").length > 1){
-				$(".top-career-mobi-content .top-btn > a").removeClass("disable");
-			}
-			else{
-				if(!$(".top-career-mobi-content .top-btn > a").hasClass("disable")){
-					$(".top-career-mobi-content .top-btn > a").addClass("disable");
-				}
-			}
-
-			$('.career-checkbox').change(function(){
-				$(this).parent().prev().click();
-				if($(".career-checkbox:cheked").length >= 2){
-					$(".career-checkbox:not(:cheked)").prop("disabled", $(this).is(":checked"));
-				}
-			});
-			$('.career-mobi-checkbox').change(function(){
-				$(this).parent().prev().click();
-				if($(".career-mobi-checkbox:cheked").length >= 2){
-					$(".career-mobi-checkbox:not(:cheked)").prop("disabled", $(this).is(":checked"));
-				}
-			});
-			
-			$(".top-career-content .clear-compare").click(function(){
-				$(this).parents(".careers-main-wrapper").find(".career-chkk").prop("checked", false);
-				$(this).parents(".careers-main-wrapper").find(".use-ajax.remove-link").each(function(){
-					setTimeout(function(){
-						$(this).trigger("click");
-						if(!$(".top-career-content .top-btn > a").hasClass("disable")){
-							$(".top-career-content .top-btn > a").addClass("disable");
-						}
-					}, 500);
-				});
-			});
-			$(".top-career-mobi-content .clear-compare").click(function(){
-				$(this).parents(".careers-mobi-main-wrapper").find(".career-chkk").prop("checked", false);
-				$(this).parents(".careers-mobi-main-wrapper").find(".use-ajax.remove-link").each(function(){
-					console.log($(this).text());
-					setTimeout(function(){
-						$(this).click();
-						if(!$(".top-career-mobi-content .top-btn > a").hasClass("disable")){
-							$(".top-career-mobi-content .top-btn > a").addClass("disable");
-						}
-					}, 1000);
-				});
+				var getHeight = $(`.career-content-main-wrapper .career-content-item#${getCarDataId} .title`).height();
+				console.log(getHeight);
+				$(`.career-content-main-wrapper .career-content-item#${getCarDataId} .career-inner-content`).css("height","calc(100% - "+getHeight+'px'+")")
 			});
 
 			$(".tbody-main").each(function(i) {
@@ -144,7 +85,7 @@
 			});
 
 			$(".careers-mobi-table-wrapper > .tbody").slick({
-				infinite: true,
+				infinite: false,
 				slidesToShow: 1,
 				slidesToScroll: 1,
 				dots: true,
@@ -152,9 +93,9 @@
 			});
 
 			$(".path-quiz form .field--widget-double-reference-autocomplete-select").each(function(i) {
-        if(!$(this).find(".form-type-radio > .radio").length){
-          $(this).find(".form-type-radio").append("<span class='radio'></span>");
-        }
+				if(!$(this).find(".form-type-radio > .radio").length){
+					$(this).find(".form-type-radio").append("<span class='radio'></span>");
+				}
 				if (i === 0) {
 					$(this).addClass('first-item');
 				}
