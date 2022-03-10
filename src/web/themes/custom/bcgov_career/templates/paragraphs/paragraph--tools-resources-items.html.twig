@@ -59,10 +59,10 @@
   <h3>
     {%if paragraph.field_link.value.0 is not empty %}
       <a href="{{ paragraph.field_link.value.0['uri'] }}" target="_blank">
-        {{ paragraph.field_title.value }}
+        {{ paragraph.field_title.value|raw }}
       </a>
     {% else %}
-      {{ paragraph.field_title.value }}
+      {{ paragraph.field_title.value|raw }}
     {% endif %}
   </h3>
   <p class="description">{{ paragraph.field_description.value }}</p>
