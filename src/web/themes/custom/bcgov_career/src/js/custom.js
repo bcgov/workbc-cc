@@ -41,6 +41,7 @@
         }
       });
 
+
       $(".career-table-link > a").on("click", function(){
         var getCarDataId = $(this).parent().parent().data("id");
         $(".career-table-row").removeClass("active");
@@ -63,16 +64,23 @@
           $(".top-btn > a").addClass("disable");
         }
       }, 1500);
-      $('.career-checkbox').change(function(e) {
-        var checkedNum = $(".career-checkbox:checked").length;
-        $(this).parent().prev().click();
-        if(checkedNum > 1){
-          $(".top-btn > a").removeClass("disable");
-        }
-        else{
-          $(".top-btn > a").addClass("disable");
-        }
+
+
+      $(window).on("load", function () {
+        $('.career-checkbox').on("change", function(e) {
+          var checkedNum = $(".career-checkbox:checked").length;
+          //$(this).parents("td").find(".use-ajax").trigger("click");
+          console.log($(this).parents("td").find(".use-ajax"));
+          if(checkedNum > 1){
+            $(".top-btn > a").removeClass("disable");
+          }
+          else{
+            $(".top-btn > a").addClass("disable");
+          }
+        });
       });
+      
+
       $(".clear-compare").click(function(){
         $(".remove-link").each(function(){
           $(this).next().find(".career-chkk").prop('checked', false);

@@ -93,7 +93,7 @@
             color: #FFFFFF;
             text-align: center;
             line-height: 3.0rem;
-            margin-bottom: 5px;
+            margin-bottom: 0;
 
             @media all and (max-width: 767.98px) {
                 font-size: 1.8rem;
@@ -515,6 +515,11 @@ a.quiz-link {
     p{
         font-size: 16px;
         color: #FFFFFF;
+    }
+}
+.block-page-title-block{
+    .sub-title{
+        max-width:680px;
     }
 }
 

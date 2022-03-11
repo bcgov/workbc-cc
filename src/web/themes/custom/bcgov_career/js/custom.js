@@ -90,16 +90,21 @@
           $(".top-btn > a").addClass("disable");
         }
       }, 1500);
-      $(".career-checkbox").change(function (e) {
-        const checkedNum = $(".career-checkbox:checked").length;
-        $(this).parent().prev().click();
-        if (checkedNum > 1) {
-          $(".top-btn > a").removeClass("disable");
-        }
+
+      $(window).on("load", function () {
+        $(".career-checkbox").on("change", function (e) {
+          const checkedNum = $(".career-checkbox:checked").length;
+          // $(this).parents("td").find(".use-ajax").trigger("click");
+          console.log($(this).parents("td").find(".use-ajax"));
+          if (checkedNum > 1) {
+            $(".top-btn > a").removeClass("disable");
+          }
  else {
-          $(".top-btn > a").addClass("disable");
-        }
+            $(".top-btn > a").addClass("disable");
+          }
+        });
       });
+
       $(".clear-compare").click(function () {
         $(".remove-link").each(function () {
           $(this).next().find(".career-chkk").prop("checked", false);
