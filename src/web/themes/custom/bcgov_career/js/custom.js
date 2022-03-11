@@ -35,6 +35,9 @@
 				}
 			});
 
+			if($(".block-forms-steps ol li:last-child").prev().hasClass("previous-step")){
+				$(".path-quiz .form-actions input[name='op']").val("Submit");
+			}
 			console.log($(".careers-main-wrapper a.use-ajax.remove-link").length);
 			if($(".careers-main-wrapper a.use-ajax.remove-link").length > 1){
 				$(".careers-main-wrapper .top-btn > a").removeClass("disable");

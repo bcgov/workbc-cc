@@ -34,8 +34,8 @@
 %}
 <div{{ attributes.addClass(classes) }}>
 	<div class="container">
-		<div class="row">
-			<div class="col-md-2 progress-title">
+		<div class="row progress-bar-row">
+			<div class="progress-title">
 			  <h6>Your Progress</h6>
 			  {{ title_prefix }}
 			  {% if label %}
@@ -43,29 +43,25 @@
 			  {% endif %}
 			  {{ title_suffix }}
 			</div>
-			<div class="col-md-8">
-				<div class="p-bar">
-					{% block content %}
-						{{ content }}
-					{% endblock %}
-				</div>
+			<div class="p-bar">
+				{% block content %}
+					{{ content }}
+				{% endblock %}
 			</div>
-			<div class="col-md-2">
-				<div class="status-bar">
-					{% set qs = 0 %}
-					{% set url = url('<current>')|render|render %}
-					{% if 'step' in url|render|render %}
-						
-						{% set url = url|slice(-38) %}
-						{% set url = url|slice(0,1) %}
-						{% if url > 0%}
-							{% set qs = ((url*1) - 1)*5 %}
-						{% endif %}
-					{% else %}
+			<div class="status-bar">
+				{% set qs = 0 %}
+				{% set url = url('<current>')|render|render %}
+				{% if 'step' in url|render|render %}
 					
+					{% set url = url|slice(-38) %}
+					{% set url = url|slice(0,1) %}
+					{% if url > 0%}
+						{% set qs = ((url*1) - 1)*5 %}
 					{% endif %}
-					<span class="Question-status">{{qs}}</span>/<span class="total-question">39</span> <span class="label">questions</span>
-				</div>
+				{% else %}
+				
+				{% endif %}
+				<span class="Question-status">{{qs}}</span>/<span class="total-question">39</span> <span class="label">questions</span>
 			</div>
 		</div>
 	</div>
