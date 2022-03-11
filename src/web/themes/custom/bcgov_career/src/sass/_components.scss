@@ -285,7 +285,7 @@
     .hideshow{
         display: block;
         float: right;
-        margin-right: 15px;
+        margin-right: 0;
         width: 100%;
         text-align: right;
         font-family: 'BC Sans Bold', 'BC Sans Regular', 'BC Sans', sans-serif;
@@ -311,15 +311,20 @@
                 font-size: 14px;
                 padding: 13px 20px;
                 border: 2px solid $aq;
+                font-family: 'BC Sans Regular', 'BC Sans', sans-serif;
+                font-weight: normal;
                 &:hover{
                     text-decoration:none;
                 }
             }
             &.link_1{
                 a{
-                    margin-right: 20px;
                     background: #fff; 
                     color: $aq !important;
+                    min-width: 174px;
+                    display: inline-block;
+                    margin-top: 0;
+                    margin-right: 10px;
                     &:hover{
                         background-color: rgba(230, 234, 233, 1); 
                         border-color: rgba(35, 64, 117, 1);
@@ -331,6 +336,10 @@
                 a{
                     background-color: rgba(35, 64, 117, 1) ;
                     color: #fff !important;
+                    min-width: 174px;
+                    display: inline-block;
+                    margin: 0;
+                    text-align: center;
                     &:hover{ 
                         background-color:rgba(0, 40, 85, 1)
                     }
@@ -1123,7 +1132,7 @@ span.question-prefix {
             font-size: 2.7rem;
             line-height: 3.2rem;
             color: #333333;
-            margin-bottom: 25px;
+            margin-bottom: 40px;
         }
 
         .content {
@@ -1140,6 +1149,18 @@ span.question-prefix {
                     font-size: 15px;
                     color: #555555;
                     margin-bottom: 20px;
+                    position: relative;
+                    padding-left: 10px;
+                    &::before{
+                        content: '';
+                        background: url(../src/icons/bulb.svg) no-repeat;
+                        width: 14px;
+                        height: 22px;
+                        position: relative;
+                        display: inline-block;
+                        top: 4px;
+                        left: -10px;
+                    }
                 }
             }
 
@@ -1159,12 +1180,14 @@ span.question-prefix {
                 }
 
                 .clear-compare {
-                    color: #510B76;
-                    border: 2px solid #510B76;
+                    color: #234075;
+                    border: 2px solid #234075;
                     display: inline-block;
-                    padding: 8px 13px;
+                    padding: 9px 13px;
                     text-decoration: none;
-
+                    margin-right: 6px;
+                    min-width: 155px;
+                    text-align: center;
                     &:hover {
                         background: #ececec;
                     }
@@ -1172,15 +1195,16 @@ span.question-prefix {
 
                 .compare-career {
                     color: #fff;
-                    border: 2px solid rgba(227, 168, 43, 1);
-                    background: rgba(227, 168, 43, 1);
+                    border: 2px solid #e3a82b;
+                    background: #e3a82b;
                     display: inline-block;
-                    padding: 8px 13px;
+                    padding: 9px 13px;
                     text-decoration: none;
-
+                    min-width: 155px;
+                    text-align: center;
                     &:hover {
-                        background: #510B76;
-                        border: 2px solid #510B76;
+                        background: #002855;
+                        border: 2px solid #002855;
                     }
                 }
             }
@@ -1214,6 +1238,18 @@ span.question-prefix {
                     font-size: 1.4rem;
                     line-height: 1.8rem;
                     color: #333;
+                    position: relative;
+                    display: inline-flex;
+                    align-items: center;
+                    width: 80px;
+                    &::before{
+                        content: '';
+                        background: url(../src/icons/updownarrow.svg) no-repeat;
+                        position: absolute;
+                        width: 10px;
+                        height: 17px;
+                        right: -8px;
+                    }
                 }
             }
         }
@@ -1295,7 +1331,7 @@ span.question-prefix {
 
                     &:checked~.checkmark {
                         background-color: #fff;
-                        border: 1px solid #510b76;
+                        border: 1px solid #234075;
                     }
 
                     &:checked~.checkmark:after {
@@ -1319,7 +1355,7 @@ span.question-prefix {
                         top: 3px;
                         width: 5px;
                         height: 10px;
-                        border: solid #510b76;
+                        border: solid #234075;
                         border-width: 0 2px 2px 0;
                         -webkit-transform: rotate(45deg);
                         -ms-transform: rotate(45deg);
@@ -1374,12 +1410,14 @@ span.question-prefix {
                 }
 
                 .clear-compare {
-                    color: #510B76;
-                    border: 2px solid #510B76;
+                    color: #234075;
+                    border: 2px solid #234075;
                     display: inline-block;
                     padding: 8px 13px;
                     text-decoration: none;
-
+                    margin-right: 6px;
+                    min-width: 155px;
+                    text-align: center;
                     &:hover {
                         background: #ececec;
                     }
@@ -1387,15 +1425,16 @@ span.question-prefix {
 
                 .compare-career {
                     color: #fff;
-                    border: 2px solid rgba(227, 168, 43, 1);
-                    background: rgba(227, 168, 43, 1);
+                    border: 2px solid #e3a82b;
+                    background: #e3a82b;
                     display: inline-block;
-                    padding: 8px 13px;
+                    padding: 9px 13px;
                     text-decoration: none;
-
+                    min-width: 155px;
+                    text-align: center;
                     &:hover {
-                        background: #510B76;
-                        border: 2px solid #510B76;
+                        background: #002855;
+                        border: 2px solid #002855;
                     }
                 }
             }
@@ -1599,19 +1638,19 @@ span.question-prefix {
         .career-content-item-inner {
             height: 100%;
             .career-inner-content {
-                border: 1px solid rgb(230, 234, 233);
+                border: 2px solid rgb(230, 234, 233);
                 padding: 20px;
                 min-height: 695px;
                 height: calc(100% - 76px);
                 &.page {
                     border: 0;
                     padding: 20px 40px;
-                    border-bottom: 4px solid rgba(81, 11, 118, 1);
+                    border-bottom: 4px solid #234075;
                 }
             }
 
             .title {
-                background: rgba(81, 11, 118, 1);
+                background: #234075;
 
                 p {
                     color: #fff;
@@ -1695,28 +1734,26 @@ span.question-prefix {
 
                 a.btn {
                     color: #fff;
-                    border: 2px solid #510B76;
-                    background: #510B76;
+                    border: 2px solid #234075;
+                    background: #234075;
                     display: inline-block;
-                    padding: 13px 4px;
+                    padding: 15px 4px;
                     text-decoration: none;
                     font-size: 1.5rem;
                     line-height: 1.8rem;
                     border-radius: 0;
                     width: 100%;
                     margin-right: 10px;
-
                     &.btn-find-job {
                         background: #fff;
-                        color: #510B76;
-
+                        color: #234075;
                         &:hover {
                             background: #ececec;
                         }
                     }
 
                     &:hover {
-                        background: rgba(49, 5, 70, 1);
+                        background: #002855;
                     }
                 }
             }
@@ -1768,6 +1805,8 @@ span.question-prefix {
         ul {
             list-style-type: none;
             padding: 0;
+            display: flex;
+            align-items: center;
             li {
                 display: inline;
                 cursor: pointer;
@@ -1791,7 +1830,7 @@ span.question-prefix {
         display: flex;
         justify-content: center;
         background: #fff;
-        padding: 30px 0;
+        padding: 30px 15px;
         border-bottom: 4px solid rgba(35, 64, 117, 1);
 
         .slick-slide:last-child {
@@ -1806,7 +1845,7 @@ span.question-prefix {
 
         .career-content-item {
             max-width: 375px;
-            margin: 0 10px;
+            margin: 0 11px;
 
             @media all and (max-width: 767.98px) {
                 max-width: 100%;
@@ -1882,10 +1921,17 @@ span.question-prefix {
                     margin: 0 auto;
 
                     a.btn {
-                        border: rgba(35, 64, 117, 1);
-                        background: rgba(35, 64, 117, 1);
+                        border: 2px solid #234075;
+                        background: #234075;
                         color: #fff;
-
+                        &.btn-find-job{
+                            border: 2px solid #234075;
+                            background: #fff;
+                            color: #234075;
+                            &:hover{
+                                background: #e6eae9;
+                            }
+                        }
                         &:hover {
                             background: rgba(0, 40, 85, 1);
                         }
