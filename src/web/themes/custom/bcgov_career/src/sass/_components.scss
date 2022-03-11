@@ -143,6 +143,9 @@
     font-size: 14px;
     color: rgb(102, 102, 102);
     min-height: 450px;
+    @media all and (max-width: 991.98px){
+        padding: 30px 12px 30px 12px;
+    }
     .img-field {
         text-align: center;
         margin-bottom: 30px;
@@ -166,6 +169,9 @@
     .quiz-description{
         padding-top:18px;
         min-height: 80px;
+        @media all and (max-width: 991.98px){
+            min-height: auto;
+        }
     }
     .quiz-questions{
         padding:0px;
@@ -343,6 +349,34 @@
                     &:hover{ 
                         background-color:rgba(0, 40, 85, 1)
                     }
+                }
+            }
+        }
+    }
+}
+
+.cari_quiz{
+    .slick-dots{
+        display: flex;
+        list-style: none;
+        padding: 0;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        bottom: 40px;
+        li{
+            margin-right: 10px;
+            button{
+                background: #979696;
+                border: 0;
+                font-size: 0;
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+            }
+            &.slick-active{
+                button{
+                    background: #333333;
                 }
             }
         }

@@ -3,19 +3,18 @@
     attach(context, settings) {
       $(window).on("load resize", function () {
         const $window = $(this).width();
-        if (
-          $window < 768 &&
-          !$(".tools-resource-items-wrapper > .field__items").hasClass(
-            "slick-initialized"
-          )
-        ) {
+        if ($window < 768 && !$(".tools-resource-items-wrapper > .field__items").hasClass("slick-initialized")) {
           $(".tools-resource-items-wrapper > .field__items").slick({
             slidesToShow: 1,
             slidesToScroll: 1,
             infinite: true,
             dots: true,
           });
+        } else {
+          $(".tools-resource-items-wrapper > .field__items").filter('.slick-initialized').slick('unslick');
+        }
 
+        if ($window < 768 && !$(".compare-career-main-wrapper .career-content-compare").hasClass("slick-initialized")) {
           $(".compare-career-main-wrapper .career-content-compare").slick({
             slidesToShow: 1,
             slidesToScroll: 1,
@@ -25,9 +24,20 @@
             nextArrow: $('.next-true'),
             prevArrow: $('.prev-true')
           });
-        } else {
-          $(".tools-resource-items-wrapper > .field__items").filter('.slick-initialized').slick('unslick');
+        }else{
           $(".compare-career-main-wrapper .career-content-compare").filter('.slick-initialized').slick('unslick');
+        }
+  
+        if ($window < 992 && !$(".cari_quiz .carousel-inner > .career-item").hasClass("slick-initialized")) {
+          $(".cari_quiz .carousel-inner > .career-item").slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            infinite: false,
+            dots: true,
+            arrows: false
+          });
+        }else{
+          $(".cari_quiz .carousel-inner > .career-item").filter('.slick-initialized').slick('unslick');
         }
       });
 
@@ -95,11 +105,7 @@
         arrows:false
       });
 
-      // $(".career-table-mobi-row-link").magnificPopup({
-      //   type: 'inline',
-      //   midClick: true,
-      //   mainClass: 'mfp-fade'
-      // });
+      
     },
   };
 })(jQuery, Drupal, drupalSettings);
