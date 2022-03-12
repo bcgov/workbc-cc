@@ -1,24 +1,49 @@
 header {
-    padding: 40px 0;
+    padding: 35px 0;
     .navbar-brand {
         a.site-logo {
             img {
-                width: 260px;
+                width: 240px;
                 height: auto;
             }
-            + div {
-                display: none;
+        }
+        .site-name {
+            margin: 4px 0 0 100px;
+            .site-title {
+                font-family: "BC Sans Regular", "BC Sans", sans-serif;
+                font-weight: 400;
+                font-style: normal;
+                font-size: 50px;
+                color: #234075;
+                line-height: 54px;
+                text-transform: none;
             }
         }
     }
     @media all and (max-width: 767.98px) {
-        padding: 15px 0;
+        padding: 0px 0;
+        .navbar-brand {
+            a.site-logo {
+                img {
+                    width: 125px;
+                }
+            }
+            .site-name {
+                margin: 4px 0 0;
+                .site-title {
+                    font-size: 19px;
+                }
+            }
+        }
     }
 }
-
-@media all and (max-width: 767.98px) {
-    .path-frontpage {
+.path-frontpage {
+    .navbar-brand .site-name {
+        display: none;
+    }
+    @media all and (max-width: 767.98px) {
         header {
+            padding: 15px 0;
             .navbar-brand {
                 a.site-logo {
                     img {
