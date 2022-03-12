@@ -4,6 +4,8 @@
         min-height: 480px;
         background-size: 2000px 524px;
         background-position: right bottom;
+        background-repeat: no-repeat;
+        background-color: rgb(242, 244, 243);
 
         @media all and (max-width: 767.98px) {
             display: none;
