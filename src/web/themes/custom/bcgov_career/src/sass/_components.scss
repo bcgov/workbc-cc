@@ -202,10 +202,11 @@
 
     .quiz-questions {
         padding: 0px;
-        font-family: "BC Sans Bold", "BC Sans Regular", "BC Sans", sans-serif;
-        font-size: 1.6rem;
+        font-family: "BC Sans", sans-serif;
+        font-size: 16px;
         line-height: normal;
-
+        font-weight: 700;
+        color: #595959;
         span {
             float: left;
             width: 34px;
@@ -216,10 +217,11 @@
 
     .quiz-duration {
         padding: 0px;
-        font-family: "BC Sans Bold", "BC Sans Regular", "BC Sans", sans-serif;
-        font-size: 1.6rem;
+        font-family: "BC Sans", sans-serif;
+        font-size: 16px;
         line-height: normal;
-
+        font-weight: 700;
+        color: #595959;
         span {
             float: left;
             width: 34px;
@@ -463,6 +465,9 @@
     margin: 30px 0px;
     margin-bottom: 0px;
     text-align: center;
+    @media all and (max-width: 767.98px) {
+        margin: 20px 0px;
+    }
 }
 
 a.quiz-link {
@@ -1216,10 +1221,15 @@ span.question-prefix {
 
         h2 {
             color: #fff;
-            font-family: "BC Sans Bold", "BC Sans Regular", "BC Sans", sans-serif;
+            font-family: "BC Sans", sans-serif;
             font-size: 3.6rem;
             line-height: 4rem;
             font-weight: normal;
+            font-weight: 700;
+            @media all and (max-width: 767.98px) {
+                font-size: 30px;
+            }
+
         }
     }
 
@@ -1262,7 +1272,10 @@ span.question-prefix {
             max-width: 200px;
             margin: 0 auto 25px;
             min-height: 52px;
-
+            font-weight: 700;
+            @media all and (max-width: 767.98px) {
+                font-size: 20px;
+            }
             a {
                 color: #fff;
             }
@@ -1272,6 +1285,9 @@ span.question-prefix {
             color: #fff;
             font-size: 1.5rem;
             line-height: 1.8rem;
+            @media all and(max-width: 767.98px) {
+                padding: 0 30px;
+            }
         }
 
         @media all and(max-width: 767.98px) {
