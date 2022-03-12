@@ -2,8 +2,8 @@
 .banner-main-wrapper {
     .desktop-banner {
         min-height: 480px;
-        background-size: cover;
-        background-position: center right;
+        background-size: 2000px 524px;
+        background-position: right bottom;
 
         @media all and (max-width: 767.98px) {
             display: none;
@@ -325,14 +325,14 @@
             }
             &.link_1{
                 a{
-                    background: #fff; 
+                    background: #fff;
                     color: $aq !important;
                     min-width: 174px;
                     display: inline-block;
                     margin-top: 0;
                     margin-right: 10px;
                     &:hover{
-                        background-color: rgba(230, 234, 233, 1); 
+                        background-color: rgba(230, 234, 233, 1);
                         border-color: rgba(35, 64, 117, 1);
                         text-decoration:none;
                     }
@@ -346,7 +346,7 @@
                     display: inline-block;
                     margin: 0;
                     text-align: center;
-                    &:hover{ 
+                    &:hover{
                         background-color:rgba(0, 40, 85, 1)
                     }
                 }
@@ -527,7 +527,7 @@ a.quiz-link {
 .main-bg{
     position: relative;
     .overlay-bg{
-        background: $aq; 
+        background: $aq;
         min-height: 396px;
         position: absolute;
         z-index: 0;
@@ -550,9 +550,9 @@ a.quiz-link {
         }
     }
     .block-system-main-block{
-        background: #fff; 
-        padding-top: 35px; 
-        border-top: 9px solid rgb(0, 40, 85); 
+        background: #fff;
+        padding-top: 35px;
+        border-top: 9px solid rgb(0, 40, 85);
         border-bottom: 5px solid rgb(0, 40, 85);
         padding-bottom:300px;
         @media all and (max-width: 767.98px){
@@ -561,7 +561,7 @@ a.quiz-link {
     }
 }
 body.path-quiz{
-    position: relative; 
+    position: relative;
     background: #e9ecef;
 }
 .path-quiz{
@@ -598,7 +598,7 @@ body.path-quiz{
             margin-top: 0;
             position: absolute;
             right: 0;
-            bottom: -170px; 
+            bottom: -170px;
             width: 100%;
             @media all and (max-width: 767.98px){
                 bottom: -90px;
@@ -778,8 +778,8 @@ body.path-quiz{
             }
         }
         .form-item.form-type-entity-autocomplete{
-            padding: 0px; 
-            margin: 0px; 
+            padding: 0px;
+            margin: 0px;
             line-height: 0px;
         }
     }
@@ -939,26 +939,26 @@ span.question-prefix {
         margin-left: 10px;
     }
     ol{
-        display: block; 
-        margin: auto; 
-        text-align: center; 
-        margin: auto; 
+        display: block;
+        margin: auto;
+        text-align: center;
+        margin: auto;
         min-width: 620;
-        display: flex; 
-        margin-left: 0px; 
+        display: flex;
+        margin-left: 0px;
         padding-left: 0px;
         li {
-            display: inline-block; 
-            background: #ffffff; 
-            height: 35px; 
-            color: #ffffff; 
-            border-top: 1px solid $aq; 
+            display: inline-block;
+            background: #ffffff;
+            height: 35px;
+            color: #ffffff;
+            border-top: 1px solid $aq;
             border-bottom: 1px solid $aq;
-            text-indent: -5001px; 
+            text-indent: -5001px;
             width: 67px;
             flex: 1;
             &.previous-step{
-                background: $aq; 
+                background: $aq;
                 color: $aq;
             }
             &:first-child {
@@ -973,9 +973,9 @@ span.question-prefix {
 .status-bar{
     padding-top:0;
     span{
-        font-size: 1.5rem; 
-        text-align: center; 
-        color: #333333; 
+        font-size: 1.5rem;
+        text-align: center;
+        color: #333333;
         margin-right: 4px;
     }
     .total-question{
@@ -1003,7 +1003,7 @@ span.question-prefix {
         display:block !important;
     }
 }
-.path-node .visually-hidden-node, .visually-hidden-node{display:none !important;}   
+.path-node .visually-hidden-node, .visually-hidden-node{display:none !important;}
 
 // Tools and Resources
 .tools-resource-items-wrapper {
