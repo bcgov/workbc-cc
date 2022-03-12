@@ -1,32 +1,58 @@
-header{
+header {
     padding: 40px 0;
-    .navbar-brand{
-        a.site-logo{
-            img{
+    .navbar-brand {
+        a.site-logo {
+            img {
                 width: 260px;
                 height: auto;
             }
-            + div{
+            + div {
                 display: none;
+            }
+        }
+    }
+    @media all and (max-width: 767.98px) {
+        padding: 15px 0;
+    }
+}
+
+@media all and (max-width: 767.98px) {
+    .path-frontpage {
+        header {
+            .navbar-brand {
+                a.site-logo {
+                    img {
+                        width: 140px;
+                    }
+                }
             }
         }
     }
 }
 
-footer{
+footer {
+    background-color: #fff;
     padding: 50px 0;
     margin-top: 0;
-    @media all and (max-width: 991.98px){
+
+    @media all and (max-width: 991.98px) {
         padding: 30px 0;
     }
-    .footer-top-wrapper{
+    @media all and (max-width: 767.98px) {
+        padding: 20px 0;
+    }
+
+    .footer-top-wrapper {
         padding-bottom: 60px;
-        @media all and (max-width: 991.98px){
+
+        @media all and (max-width: 991.98px) {
             padding-bottom: 40px;
         }
-        > .container-fluid{
+
+        > .container-fluid {
             position: relative;
-            &::before{
+
+            &::before {
                 content: "";
                 height: 1px;
                 width: calc(100% - 30px);
@@ -35,31 +61,38 @@ footer{
                 left: 15px;
                 right: 0;
                 bottom: -20px;
-                @media all and (max-width: 991.98px){
+
+                @media all and (max-width: 991.98px) {
                     bottom: -10px;
                 }
             }
         }
-        .region-footer-left{
+
+        .region-footer-left {
             margin-top: 13px;
         }
     }
-    .footer-bottom-wrapper{
-        .col-12{
+
+    .footer-bottom-wrapper {
+        .col-12 {
             display: flex;
             align-items: center;
         }
-        .region-footer-bottom-right{
+
+        .region-footer-bottom-right {
             width: 100%;
         }
     }
-    #block-socialnetwork{
-        .social-icons{
+
+    #block-socialnetwork {
+        .social-icons {
             text-align: right;
-            @media all and (max-width: 991.98px){
+
+            @media all and (max-width: 991.98px) {
                 text-align: left;
             }
-            a{
+
+            a {
                 display: inline-block;
                 overflow: hidden;
                 width: 40px;
@@ -69,19 +102,24 @@ footer{
                 text-align: center;
                 line-height: 40px;
                 color: #fff;
+
                 &.social-twitter {
                     background: #009cd8;
                 }
+
                 &.social-youtube {
                     background: #d21c22;
                 }
+
                 &.social-linkedin {
                     background: #006caa;
                 }
+
                 &.social-facebook {
                     background: #3d5b98;
                 }
             }
+
             span {
                 text-indent: -9999px;
                 overflow: hidden;
@@ -89,59 +127,73 @@ footer{
             }
         }
     }
-    nav#block-bcgov-career-footer{
-        @media all and (max-width: 991.98px){
+
+    nav#block-bcgov-career-footer {
+        @media all and (max-width: 991.98px) {
             margin-bottom: 30px;
         }
-        > #block-bcgov-career-footer-menu{
+
+        > #block-bcgov-career-footer-menu {
             display: none;
         }
-        .navbar-nav{
+
+        .navbar-nav {
             display: flex;
             flex-direction: row;
-            .nav-item{
-                .nav-link{
-                    font-family: 'BC Sans', sans-serif;
+
+            .nav-item {
+                .nav-link {
+                    font-family: "BC Sans", sans-serif;
                     font-size: 1.4rem;
                     color: rgb(35, 64, 117);
-                    border-right: 1px solid #1F9BDE;
+                    border-right: 1px solid #1f9bde;
                     padding: 0 7px;
                     line-height: normal;
-                    &:hover{
+
+                    &:hover {
                         color: rgb(0, 156, 222);
                         text-decoration: underline;
                     }
                 }
-                &:last-child .nav-link{
+
+                &:last-child .nav-link {
                     border-right: 0;
                 }
             }
         }
     }
-    #block-copyrights{
-        @media all and (max-width: 991.98px){
+
+    #block-copyrights {
+        @media all and (max-width: 991.98px) {
             margin-bottom: 30px;
         }
-        p{
-            font-family: 'BC Sans', sans-serif;
+        @media all and (max-width: 767.98px) {
+            margin-bottom: 0px;
+            margin-top: 30px;
+        }
+        p {
+            font-family: "BC Sans", sans-serif;
             font-weight: 400;
             font-style: normal;
             color: #002855;
             font-size: 1.4rem;
-            a{
+
+            a {
                 color: #002855;
                 text-decoration: underline;
             }
         }
     }
-    #block-footerbclogo{
-        img{
+
+    #block-footerbclogo {
+        img {
             width: 174px;
             height: auto;
         }
-        p{
+        p {
             text-align: right;
-            @media all and (max-width: 991.98px){
+
+            @media all and (max-width: 991.98px) {
                 text-align: left;
             }
         }

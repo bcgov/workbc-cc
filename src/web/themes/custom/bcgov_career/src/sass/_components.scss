@@ -21,21 +21,22 @@
                 font-weight: 400;
                 font-style: normal;
                 font-size: 2.5rem;
-                line-height: 3.0rem;
+                line-height: 3rem;
                 max-width: 380px;
                 margin-bottom: 35px;
             }
 
             .banner-inner {
                 h1 {
-                    font-size: 5.4rem;
-                    line-height: 5.4rem;
-                    font-family: 'BC Sans Bold', sans-serif;
+                    font-size: 54px;
+                    line-height: 54px;
+                    font-family: "BC Sans Bold", sans-serif;
                     font-weight: 700;
                     font-style: normal;
-                    @media all and (max-width: 991.98px){
-                        font-size: 4.8rem;
-                        line-height: 4.8rem;
+
+                    @media all and (max-width: 991.98px) {
+                        font-size: 40px;
+                        line-height: 40px;
                     }
                 }
             }
@@ -52,6 +53,14 @@
             background-position: center center;
             background-repeat: no-repeat;
             padding-top: 20px;
+            .banner-inner {
+                h1 {
+                    font-size: 40px;
+                    line-height: 40px;
+                    font-family: "BC Sans Bold", sans-serif;
+                    margin-bottom: 10px;
+                }
+            }
 
             .banner-content {
                 &.flex-content {
@@ -63,7 +72,8 @@
                 }
 
                 p.sub-title {
-                    font-size: 2.1rem;
+                    font-size: 21px;
+                    font-family: "BC Sans Bold", sans-serif;
                     line-height: 2.6rem;
                     margin-bottom: 25px;
                 }
@@ -86,13 +96,13 @@
 
     .intro-content {
         p {
-            font-family: 'BC Sans', sans-serif;
+            font-family: "BC Sans", sans-serif;
             font-weight: 400;
             font-style: normal;
             font-size: 2.1rem;
-            color: #FFFFFF;
+            color: #ffffff;
             text-align: center;
-            line-height: 3.0rem;
+            line-height: 3rem;
             margin-bottom: 0;
 
             @media all and (max-width: 767.98px) {
@@ -108,13 +118,20 @@
 
 .head-des {
     h2 {
-        font-family: 'BC Sans Regular', sans-serif;
+        font-family: "BC Sans Regular", sans-serif;
         font-weight: normal;
-        font-size: 4.5rem;
-        line-height: 5.2rem;
+        font-size: 45px;
         color: #333333;
         text-align: center;
         margin-bottom: 30px;
+        @media all and (max-width: 767.98px) {
+            font-size: 36px;
+        }
+    }
+    .description {
+        @media all and (max-width: 767.98px) {
+            padding: 0 30px;
+        }
     }
 }
 
@@ -124,12 +141,15 @@
     padding: 7px 30px;
     text-align: right;
     margin-bottom: 30px;
-    font-family: "BC Sans Bold"sans-serif;
+    font-family: "BC Sans Bold" sans-serif;
     font-weight: 700;
     font-style: normal;
     font-size: 1.5rem;
     text-align: right;
-    line-height: 3.0rem;
+    line-height: 3rem;
+    @media all and (max-width: 767.98px) {
+        text-align: center;
+    }
 }
 
 .cari_quiz .quiz-list {
@@ -143,9 +163,11 @@
     font-size: 14px;
     color: rgb(102, 102, 102);
     min-height: 450px;
-    @media all and (max-width: 991.98px){
+
+    @media all and (max-width: 991.98px) {
         padding: 30px 12px 30px 12px;
     }
+
     .img-field {
         text-align: center;
         margin-bottom: 30px;
@@ -155,10 +177,12 @@
         align-items: center;
         justify-content: center;
     }
-    .title-field{
+
+    .title-field {
         margin-bottom: 20px;
         text-align: center;
-        h4{
+
+        h4 {
             font-family: "BC Sans Bold", "BC Sans Regular", "BC Sans", sans-serif;
             font-weight: 700;
             font-style: normal;
@@ -166,31 +190,37 @@
             color: #234075;
         }
     }
-    .quiz-description{
-        padding-top:18px;
+
+    .quiz-description {
+        padding-top: 18px;
         min-height: 80px;
-        @media all and (max-width: 991.98px){
+
+        @media all and (max-width: 991.98px) {
             min-height: auto;
         }
     }
-    .quiz-questions{
-        padding:0px;
-        font-family: 'BC Sans Bold', 'BC Sans Regular', 'BC Sans', sans-serif;
+
+    .quiz-questions {
+        padding: 0px;
+        font-family: "BC Sans Bold", "BC Sans Regular", "BC Sans", sans-serif;
         font-size: 1.6rem;
         line-height: normal;
-        span{
+
+        span {
             float: left;
             width: 34px;
             height: 25px;
             background: url(../src/icons/list.svg) no-repeat;
         }
     }
-    .quiz-duration{
-        padding:0px;
-        font-family: 'BC Sans Bold', 'BC Sans Regular', 'BC Sans', sans-serif;
+
+    .quiz-duration {
+        padding: 0px;
+        font-family: "BC Sans Bold", "BC Sans Regular", "BC Sans", sans-serif;
         font-size: 1.6rem;
         line-height: normal;
-        span{
+
+        span {
             float: left;
             width: 34px;
             height: 25px;
@@ -214,87 +244,104 @@
             color: #277a0f;
         }
     }
+
     .row {
         background: rgb(242, 242, 242);
         padding: 10px;
         margin: 0px;
     }
-    p{
-        text-align:center;
+
+    p {
+        text-align: center;
     }
-    .breadcrumb{
-        margin-bottom:0px;
+
+    .breadcrumb {
+        margin-bottom: 0px;
     }
-    a.quiz-link:hover{
-        text-decoration:none;
+
+    a.quiz-link:hover {
+        text-decoration: none;
     }
 }
 
-.myResultHeading{
-    .result-heading{
+.myResultHeading {
+    .result-heading {
         margin-bottom: 40px;
-        margin-top:20px;
-        h2{
-            font-family: 'BC Sans', sans-serif;
+        margin-top: 20px;
+
+        h2 {
+            font-family: "BC Sans", sans-serif;
             font-weight: 400;
             font-style: normal;
-            font-size: 27px;color: #333333;
+            font-size: 27px;
+            color: #333333;
             text-align: left;
         }
     }
-    .drop-demo-head-right{
+
+    .drop-demo-head-right {
         padding: 0px 15px;
         display: flex;
     }
 }
-#myResult{
-    .quiz-list{
+
+#myResult {
+    .quiz-list {
         min-height: 365px;
         border: 2px solid rgb(238, 238, 238);
-        .field-match{
-            text-align:center;
+
+        .field-match {
+            text-align: center;
             background: #f2f2f2;
             padding: 2px 0px;
             color: #333333;
             font-size: 1.5rem;
             line-height: 2.1rem;
         }
-        .img-field{
+
+        .img-field {
             text-align: center;
             margin-top: 20px;
+
             img {
                 height: 72px;
                 width: auto;
             }
         }
-        .title-field{
+
+        .title-field {
             text-align: center;
-            font-size: 2.0rem;
+            font-size: 2rem;
             line-height: 2.8rem;
             margin: 20px 0 30px;
         }
-        .title-description{
+
+        .title-description {
             font-size: 1.5rem;
             line-height: 2.1rem;
             padding: 0 25px;
         }
     }
-    .career-result{
+
+    .career-result {
         margin-top: 25px;
     }
-    .itm.hide{
-        display:none;
+
+    .itm.hide {
+        display: none;
     }
-    .itm.show{
-        display:block;
+
+    .itm.show {
+        display: block;
     }
-    .hideshow{
+
+    .hideshow {
         display: block;
         float: right;
         margin-right: 0;
         width: 100%;
         text-align: right;
-        font-family: 'BC Sans Bold', 'BC Sans Regular', 'BC Sans', sans-serif;
+        font-family: "BC Sans Bold", "BC Sans Regular", "BC Sans", sans-serif;
         font-weight: 700;
         font-style: normal;
         font-size: 14px;
@@ -302,14 +349,17 @@
         text-align: right;
         line-height: 30px;
     }
-    .bottom-links{
+
+    .bottom-links {
         margin-top: 60px;
-        .links-inner{
+
+        .links-inner {
             display: flex;
             justify-content: flex-end;
         }
+
         .link {
-            a{
+            a {
                 color: #333;
                 text-shadow: none;
                 margin-top: 7px;
@@ -317,37 +367,42 @@
                 font-size: 14px;
                 padding: 13px 20px;
                 border: 2px solid $aq;
-                font-family: 'BC Sans Regular', 'BC Sans', sans-serif;
+                font-family: "BC Sans Regular", "BC Sans", sans-serif;
                 font-weight: normal;
-                &:hover{
-                    text-decoration:none;
+
+                &:hover {
+                    text-decoration: none;
                 }
             }
-            &.link_1{
-                a{
+
+            &.link_1 {
+                a {
                     background: #fff;
                     color: $aq !important;
                     min-width: 174px;
                     display: inline-block;
                     margin-top: 0;
                     margin-right: 10px;
-                    &:hover{
+
+                    &:hover {
                         background-color: rgba(230, 234, 233, 1);
                         border-color: rgba(35, 64, 117, 1);
-                        text-decoration:none;
+                        text-decoration: none;
                     }
                 }
             }
+
             &.link_2 {
-                a{
-                    background-color: rgba(35, 64, 117, 1) ;
+                a {
+                    background-color: rgba(35, 64, 117, 1);
                     color: #fff !important;
                     min-width: 174px;
                     display: inline-block;
                     margin: 0;
                     text-align: center;
-                    &:hover{
-                        background-color:rgba(0, 40, 85, 1)
+
+                    &:hover {
+                        background-color: rgba(0, 40, 85, 1);
                     }
                 }
             }
@@ -355,8 +410,8 @@
     }
 }
 
-.cari_quiz{
-    .slick-dots{
+.cari_quiz {
+    .slick-dots {
         display: flex;
         list-style: none;
         padding: 0;
@@ -364,9 +419,11 @@
         align-items: center;
         position: relative;
         bottom: 40px;
-        li{
+
+        li {
             margin-right: 10px;
-            button{
+
+            button {
                 background: #979696;
                 border: 0;
                 font-size: 0;
@@ -374,8 +431,9 @@
                 height: 10px;
                 border-radius: 50%;
             }
-            &.slick-active{
-                button{
+
+            &.slick-active {
+                button {
                     background: #333333;
                 }
             }
@@ -403,130 +461,154 @@
 
 .head-des {
     margin: 30px 0px;
-    margin-bottom:0px;
-    text-align:center;
+    margin-bottom: 0px;
+    text-align: center;
 }
+
 a.quiz-link {
     border: 1px solid #3db2e3;
     padding: 8px 10px;
-    color:  #3db2e3;
+    color: #3db2e3;
     text-decoration: none;
     text-align: center;
     width: 230px;
-    max-width:100%;
+    max-width: 100%;
     margin: auto;
     text-align: center;
     display: block;
-    font-size:15px;
+    font-size: 15px;
 }
-.slide.carousel{
+
+.slide.carousel {
     .quiz_link {
-        margin-top:35px;
+        margin-top: 35px;
     }
-    .career{
-        .item_1{
-            .title-field h4{
+
+    .career {
+        .item_1 {
+            .title-field h4 {
                 color: $aq;
             }
-            a.quiz-link{
+
+            a.quiz-link {
                 background: $aq;
                 color: #fff;
-                border-color:$aq;
-                &:hover{
-                    background:$aq_h;
+                border-color: $aq;
+
+                &:hover {
+                    background: $aq_h;
                 }
             }
         }
-        .item_2{
-            .title-field h4{
+
+        .item_2 {
+            .title-field h4 {
                 color: $wpq;
             }
-            a.quiz-link{
+
+            a.quiz-link {
                 background: $wpq;
                 color: #fff;
-                border-color:$wpq;
-                &:hover{
-                    background:$wpq_h;
+                border-color: $wpq;
+
+                &:hover {
+                    background: $wpq_h;
                 }
             }
         }
+
         .item_3 {
-            .title-field h4{
+            .title-field h4 {
                 color: $iq;
             }
-            a.quiz-link{
+
+            a.quiz-link {
                 background: $iq;
                 color: #fff;
-                border-color:$iq;
-                &:hover{
-                    background:$iq_h;
+                border-color: $iq;
+
+                &:hover {
+                    background: $iq_h;
                 }
             }
         }
     }
 
     .personality {
-        .item_1{
-            .title-field h4{
+        .item_1 {
+            .title-field h4 {
                 color: $miq;
             }
-            a.quiz-link{
+
+            a.quiz-link {
                 background: $miq;
                 color: #fff;
-                border-color:$miq;
-                &:hover{
-                    background:$miq_h;
+                border-color: $miq;
+
+                &:hover {
+                    background: $miq_h;
                 }
             }
-            .quiz_link{
+
+            .quiz_link {
                 margin-top: 7px;
             }
         }
-        .item_2{
-            .title-field h4{
+
+        .item_2 {
+            .title-field h4 {
                 color: $lsq;
             }
-            a.quiz-link{
+
+            a.quiz-link {
                 background: $lsq;
                 color: #fff;
-                border-color:$lsq;
-                &:hover{
-                    background:$lsq_h;
+                border-color: $lsq;
+
+                &:hover {
+                    background: $lsq_h;
                 }
             }
         }
-        .item_3{
-            .title-field h4{
+
+        .item_3 {
+            .title-field h4 {
                 color: $wvq;
             }
-            a.quiz-link{
+
+            a.quiz-link {
                 background: $wvq;
                 color: #fff;
-                border-color:$wvq;
-                &:hover{
-                    background:$wvq_h;
+                border-color: $wvq;
+
+                &:hover {
+                    background: $wvq_h;
                 }
             }
         }
     }
 }
-.sub-title{
-    max-width:580px;
-    p{
+
+.sub-title {
+    max-width: 580px;
+
+    p {
         font-size: 16px;
-        color: #FFFFFF;
+        color: #ffffff;
     }
 }
-.block-page-title-block{
-    .sub-title{
-        max-width:680px;
+
+.block-page-title-block {
+    .sub-title {
+        max-width: 680px;
     }
 }
 
 //Quiz start
-.main-bg{
+.main-bg {
     position: relative;
-    .overlay-bg{
+
+    .overlay-bg {
         background: $aq;
         min-height: 396px;
         position: absolute;
@@ -536,12 +618,13 @@ a.quiz-link {
     }
 }
 
-.overlay-content{
-    .block-page-title-block{
+.overlay-content {
+    .block-page-title-block {
         h1 {
             color: #fff;
             text-align: left !important;
-            font-size:4.0rem;
+            font-size: 4rem;
+
             @media all and (max-width: 767.98px) {
                 font-size: 2.4rem;
                 line-height: 3.6rem;
@@ -549,50 +632,61 @@ a.quiz-link {
             }
         }
     }
-    .block-system-main-block{
+
+    .block-system-main-block {
         background: #fff;
         padding-top: 35px;
         border-top: 9px solid rgb(0, 40, 85);
         border-bottom: 5px solid rgb(0, 40, 85);
-        padding-bottom:300px;
-        @media all and (max-width: 767.98px){
+        padding-bottom: 300px;
+
+        @media all and (max-width: 767.98px) {
             padding-top: 0;
         }
     }
 }
-body.path-quiz{
+
+body.path-quiz {
     position: relative;
     background: #e9ecef;
 }
-.path-quiz{
+
+.path-quiz {
     background: #e9ecef;
-    header{
-        background:#fff;
+
+    header {
+        background: #fff;
     }
-    .alert-success{
-        display:none;
+
+    .alert-success {
+        display: none;
     }
-    .block.block-core.block-page-title-block{
-        display:block;
+
+    .block.block-core.block-page-title-block {
+        display: block;
         margin-top: 60px;
         padding-bottom: 90px;
         position: relative;
+
         @media all and (max-width: 767.98px) {
             padding-bottom: 70px;
             margin-top: 35px;
         }
-        .node-questions{
+
+        .node-questions {
             position: absolute;
             bottom: 0;
             right: 0;
+
             @media all and (max-width: 767.98px) {
                 right: auto;
                 left: 25px;
             }
         }
     }
-    .form-actions{
-        &.form-actions{
+
+    .form-actions {
+        &.form-actions {
             width: auto;
             min-height: auto;
             margin-top: 0;
@@ -600,12 +694,14 @@ body.path-quiz{
             right: 0;
             bottom: -170px;
             width: 100%;
-            @media all and (max-width: 767.98px){
+
+            @media all and (max-width: 767.98px) {
                 bottom: -90px;
                 display: flex;
             }
         }
-        input[name=op]{
+
+        input[name="op"] {
             background: $aq;
             min-width: 170px;
             padding: 15px 10px;
@@ -614,18 +710,20 @@ body.path-quiz{
             text-decoration: none;
             font-size: 1.5rem;
             line-height: 1.8rem;
-            font-family: 'BC Sans', sans-serif;
+            font-family: "BC Sans", sans-serif;
             position: absolute;
             top: 0;
             right: 0;
             z-index: 1;
-            &:hover{
+
+            &:hover {
                 background: $aq_h;
             }
         }
-        input[name=previous_action]{
+
+        input[name="previous_action"] {
             background: transparent;
-            border:  1px solid $aq;
+            border: 1px solid $aq;
             min-width: 170px;
             padding: 15px 10px;
             text-align: center;
@@ -633,81 +731,98 @@ body.path-quiz{
             text-decoration: none;
             font-size: 1.5rem;
             line-height: 1.8rem;
-            font-family: 'BC Sans', sans-serif;
+            font-family: "BC Sans", sans-serif;
             position: absolute;
             top: 0;
             left: 0;
             z-index: 1;
-            &:hover{
+
+            &:hover {
                 background: rgba(242, 242, 242, 1);
             }
         }
-        #edit-preview{
-            display:none;
+
+        #edit-preview {
+            display: none;
         }
     }
+
     .vertical-tabs {
-        display:none;
+        display: none;
     }
-    div#block-bcgov-career-breadcrumbs{
+
+    div#block-bcgov-career-breadcrumbs {
         background: #e9ecef;
-        nav{
+
+        nav {
             max-width: 1400px;
             margin: auto;
             padding: 0px 15px;
         }
     }
+
     .block-system-breadcrumb-block {
         background: #e9ecef;
-        nav{
+
+        nav {
             max-width: 1400px;
             margin: auto;
             padding: 0px 15px;
         }
     }
+
     .region-content {
         position: relative;
         padding-top: 50px;
-        .field--type-double-reference{
+
+        .field--type-double-reference {
             padding-top: 15px;
             padding-left: 15px;
             padding-bottom: 15px;
             border-bottom: 0px;
-            fieldset{
-                margin:0px;
-                legend{
+
+            fieldset {
+                margin: 0px;
+
+                legend {
                     float: left !important;
                     width: 50% !important;
                     width: 100%;
-                    height: 2em;font-family: 'BC Sans', sans-serif;
+                    height: 2em;
+                    font-family: "BC Sans", sans-serif;
                     font-weight: 400;
                     font-style: normal;
                     font-size: 15px;
                     line-height: 24px;
                 }
-                .fieldset-wrapper{
+
+                .fieldset-wrapper {
                     float: right;
-	                margin-right:35px;
+                    margin-right: 35px;
                 }
             }
-            .form-item{
-                margin:0px
+
+            .form-item {
+                margin: 0px;
             }
         }
-        .form-radios{
+
+        .form-radios {
             @media all and (max-width: 767.98px) {
                 display: flex;
                 flex-direction: column;
                 padding-left: 70px;
             }
-            input{
+
+            input {
                 width: 20px;
                 height: 20px;
                 position: relative;
                 z-index: 1;
                 top: 9px;
                 opacity: 0;
-                &+label.option+span.radio{
+
+                & + label.option + span.radio {
                     width: 20px;
                     height: 20px;
                     display: block;
@@ -717,12 +832,14 @@ body.path-quiz{
                     margin: 0 auto;
                     position: relative;
                     bottom: 16px;
-                    @media all and (max-width: 767.98px){
+
+                    @media all and (max-width: 767.98px) {
                         margin: 0;
                         bottom: 40px;
                     }
-                    &::before{
-                        content: '';
+
+                    &::before {
+                        content: "";
                         background: $aq;
                         width: 12px;
                         height: 12px;
@@ -734,15 +851,18 @@ body.path-quiz{
                         display: none;
                     }
                 }
-                &:checked{
-                    &+label.option+span.radio{
+
+                &:checked {
+                    & + label.option + span.radio {
                         border: 2px solid $aq;
-                        &::before{
+
+                        &::before {
                             display: block;
                         }
                     }
                 }
             }
+
             label {
                 position: absolute;
                 top: 0px;
@@ -752,7 +872,8 @@ body.path-quiz{
                 text-align: center;
                 width: 85px;
                 letter-spacing: normal;
-                @media all and (max-width: 767.98px){
+
+                @media all and (max-width: 767.98px) {
                     position: relative;
                     top: -18px;
                     font-size: 14px;
@@ -764,73 +885,88 @@ body.path-quiz{
                     left: 30px;
                 }
             }
+
             .form-item {
                 display: inline-block;
                 margin-right: 10px;
                 min-width: 80px;
                 text-align: center;
                 margin: auto;
-                @media all and (max-width: 767.98px){
+
+                @media all and (max-width: 767.98px) {
                     min-width: 100%;
                     text-align: left;
                     max-height: 35px;
                 }
             }
         }
-        .form-item.form-type-entity-autocomplete{
+
+        .form-item.form-type-entity-autocomplete {
             padding: 0px;
             margin: 0px;
             line-height: 0px;
         }
     }
-    .form-composite{
-        > legend{
-            font-weight:500
+
+    .form-composite {
+        > legend {
+            font-weight: 500;
         }
-        .label{
-            font-weight:500
-        }
-    }
-    .layout-region-node-footer__content{
-        margin-top:0px;
-        border-top:0px;
-    }
-    .layout-node-form{
-        max-width:1000px;
-        margin:auto;
-        position:relative;
-        padding-top:40px;
-        .layout-region-node-main{
-            width:100% !important;
-            float:inherit;
-        }
-        .layout-region-node-footer{
-            width:100% !important;
-            float:inherit;
-            margin-top:70px
+
+        .label {
+            font-weight: 500;
         }
     }
-    .node-form{
-        max-width:1000px;
-        margin:auto;
-        position:relative;
-        padding-top:40px;
-        @media all and (max-width: 767.98px){
+
+    .layout-region-node-footer__content {
+        margin-top: 0px;
+        border-top: 0px;
+    }
+
+    .layout-node-form {
+        max-width: 1000px;
+        margin: auto;
+        position: relative;
+        padding-top: 40px;
+
+        .layout-region-node-main {
+            width: 100% !important;
+            float: inherit;
+        }
+
+        .layout-region-node-footer {
+            width: 100% !important;
+            float: inherit;
+            margin-top: 70px;
+        }
+    }
+
+    .node-form {
+        max-width: 1000px;
+        margin: auto;
+        position: relative;
+        padding-top: 40px;
+
+        @media all and (max-width: 767.98px) {
             padding-top: 0;
         }
     }
+
     .layout-region.layout-region-node-secondary {
-        display:none;
+        display: none;
     }
-    form{
-        .field--widget-double-reference-autocomplete-select{
-            &:nth-child(odd){
-                background:rgba(242, 242, 242, 1);
+
+    form {
+        .field--widget-double-reference-autocomplete-select {
+            &:nth-child(odd) {
+                background: rgba(242, 242, 242, 1);
             }
-            &:not(.first-item){
-                label{
+
+            &:not(.first-item) {
+                label {
                     display: none;
-                    @media all and (max-width: 767.98px){
+
+                    @media all and (max-width: 767.98px) {
                         display: block;
                     }
                 }
@@ -842,175 +978,212 @@ body.path-quiz{
 .node-questions {
     display: flex;
     justify-content: flex-end;
-	margin-bottom:15px;
-    .quiz-duration{
+    margin-bottom: 15px;
+
+    .quiz-duration {
         color: #fff;
         font-size: 14px;
         display: flex;
         align-items: center;
-        span{
+
+        span {
             background: url(../src/icons/time-white.svg) no-repeat;
         }
     }
+
     .quiz-questions {
         color: #fff;
         font-size: 14px;
         display: flex;
         align-items: center;
         margin-right: 24px;
-        span{
+
+        span {
             background: url(../src/icons/list-white.svg) no-repeat;
         }
     }
 }
-.field--type-work-bc-quiz{
+
+.field--type-work-bc-quiz {
     padding: 15px;
     border-bottom: 0px;
-    fieldset{
-        margin:0px;
-        legend{
+
+    fieldset {
+        margin: 0px;
+
+        legend {
             float: left !important;
             width: 45% !important;
             width: 100%;
             min-height: auto;
-            font-family: 'BC Sans', sans-serif;
+            font-family: "BC Sans", sans-serif;
             font-weight: 400;
             font-style: normal;
             font-size: 1.5rem;
             line-height: 3.1rem;
             color: #333333;
-            @media all and (max-width: 767.98px){
+
+            @media all and (max-width: 767.98px) {
                 width: 100% !important;
             }
         }
+
         .fieldset-wrapper {
             float: right;
-            margin-right:35px;
+            margin-right: 35px;
         }
     }
+
     .form-item {
-        margin:0px;
-        @media all and (max-width: 767.98px){
+        margin: 0px;
+
+        @media all and (max-width: 767.98px) {
             display: flex;
             flex-direction: column;
         }
     }
 }
+
 span.question-prefix {
     float: left;
     margin-right: 10px;
     margin-top: 4px;
     color: #333333;
-    @media all and (max-width: 767.98px){
+
+    @media all and (max-width: 767.98px) {
         margin-top: 8px;
     }
-    &:after{
-        content: '.';
+
+    &:after {
+        content: ".";
         color: #333333;
     }
 }
+
 .progress-title h6 {
-	color: #333333;
+    color: #333333;
     padding-top: 7px;
-    font-family: 'BC Sans Bold', 'BC Sans Regular', 'BC Sans', sans-serif;
+    font-family: "BC Sans Bold", "BC Sans Regular", "BC Sans", sans-serif;
     font-weight: 700;
     font-style: normal;
     font-size: 15px;
 }
-.block-forms-steps{
+
+.block-forms-steps {
     position: absolute;
     bottom: 220px;
     width: 100%;
-    @media all and (max-width: 767.98px){
+
+    @media all and (max-width: 767.98px) {
         margin-top: 0;
         bottom: 140px;
-        > .container{
+
+        > .container {
             max-width: 100%;
         }
     }
-    .progress-bar-row{
+
+    .progress-bar-row {
         justify-content: center;
         align-items: center;
     }
-    .progress-title{
+
+    .progress-title {
         margin-right: 10px;
     }
-    .status-bar{
+
+    .status-bar {
         margin-left: 10px;
     }
-    ol{
+
+    ol {
         display: block;
         margin: auto;
         text-align: center;
         margin: auto;
-        min-width: 620;
+        min-width: 620px;
+        height: 34px;
         display: flex;
         margin-left: 0px;
         padding-left: 0px;
+        border: 2px #dbdbdb solid;
+
         li {
             display: inline-block;
             background: #ffffff;
-            height: 35px;
             color: #ffffff;
-            border-top: 1px solid $aq;
-            border-bottom: 1px solid $aq;
+            // border-top: 1px solid $aq;
+            // border-bottom: 1px solid $aq;
             text-indent: -5001px;
             width: 67px;
             flex: 1;
-            &.previous-step{
+
+            &.previous-step {
                 background: $aq;
                 color: $aq;
             }
+
             &:first-child {
                 border-left: 5px solid $aq;
             }
+
             &:last-child {
-                border-right: 1px solid $aq;
+                // border-right: 1px solid $aq;
             }
         }
     }
 }
-.status-bar{
-    padding-top:0;
-    span{
+
+.status-bar {
+    padding-top: 0;
+
+    span {
         font-size: 1.5rem;
         text-align: center;
         color: #333333;
         margin-right: 4px;
     }
-    .total-question{
+
+    .total-question {
         margin-left: 4px;
     }
-    .label{
-        font-weight:normal;
+
+    .label {
+        font-weight: normal;
     }
 }
 
-.path-admin{
-    .field--type-work-bc-quiz{
-        fieldset{
-            legend{
-                float:inherit;
-                width:auto;
+.path-admin {
+    .field--type-work-bc-quiz {
+        fieldset {
+            legend {
+                float: inherit;
+                width: auto;
             }
-            .fieldset-wrapper{
-                float:inherit;
-                width:auto;
+
+            .fieldset-wrapper {
+                float: inherit;
+                width: auto;
             }
         }
     }
-    .visually-hidden-node{
-        display:block !important;
+
+    .visually-hidden-node {
+        display: block !important;
     }
 }
-.path-node .visually-hidden-node, .visually-hidden-node{display:none !important;}
+
+.path-node .visually-hidden-node,
+.visually-hidden-node {
+    display: none !important;
+}
 
 // Tools and Resources
 .tools-resource-items-wrapper {
-    >.field__items {
+    > .field__items {
         justify-content: center;
 
-        >.col-12 {
+        > .col-12 {
             &:last-child {
                 .tools-resource-item::after {
                     display: none;
@@ -1043,9 +1216,9 @@ span.question-prefix {
 
         h2 {
             color: #fff;
-            font-family: 'BC Sans Bold', 'BC Sans Regular', 'BC Sans', sans-serif;
+            font-family: "BC Sans Bold", "BC Sans Regular", "BC Sans", sans-serif;
             font-size: 3.6rem;
-            line-height: 4.0rem;
+            line-height: 4rem;
             font-weight: normal;
         }
     }
@@ -1056,7 +1229,7 @@ span.question-prefix {
         min-height: 250px;
 
         &::after {
-            content: '';
+            content: "";
             height: 100%;
             width: 1px;
             position: absolute;
@@ -1083,12 +1256,13 @@ span.question-prefix {
         h3 {
             color: #fff;
             margin-bottom: 25px;
-            font-size: 2.0rem;
+            font-size: 2rem;
             line-height: 2.6rem;
-            font-family: 'BC Sans Bold', 'BC Sans Regular', 'BC Sans', sans-serif;
+            font-family: "BC Sans Bold", "BC Sans Regular", "BC Sans", sans-serif;
             max-width: 200px;
             margin: 0 auto 25px;
             min-height: 52px;
+
             a {
                 color: #fff;
             }
@@ -1120,8 +1294,8 @@ span.question-prefix {
         justify-content: center;
         margin-top: 50px;
 
-        >li {
-            >button {
+        > li {
+            > button {
                 padding: 0;
                 font-size: 0;
                 width: 10px;
@@ -1133,7 +1307,7 @@ span.question-prefix {
             }
 
             &.slick-active {
-                >button {
+                > button {
                     background: #fff;
                 }
             }
@@ -1141,13 +1315,14 @@ span.question-prefix {
     }
 }
 
-#block-views-block-step-form-pagination-block-1{
+#block-views-block-step-form-pagination-block-1 {
     position: absolute;
     width: 100%;
     bottom: 170px;
     z-index: 0;
-    .views-row.row{
-        .offset-md-3{
+
+    .views-row.row {
+        .offset-md-3 {
             display: flex;
             justify-content: center;
         }
@@ -1165,7 +1340,7 @@ span.question-prefix {
 
     .top-career-content {
         h3 {
-            font-family: 'BC Sans', sans-serif;
+            font-family: "BC Sans", sans-serif;
             font-weight: 400;
             font-style: normal;
             font-size: 2.7rem;
@@ -1182,7 +1357,7 @@ span.question-prefix {
 
             .description {
                 p {
-                    font-family: 'BC Sans', sans-serif;
+                    font-family: "BC Sans", sans-serif;
                     font-weight: 400;
                     font-style: normal;
                     font-size: 15px;
@@ -1190,8 +1365,9 @@ span.question-prefix {
                     margin-bottom: 20px;
                     position: relative;
                     padding-left: 10px;
-                    &::before{
-                        content: '';
+
+                    &::before {
+                        content: "";
                         background: url(../src/icons/bulb.svg) no-repeat;
                         width: 14px;
                         height: 22px;
@@ -1205,7 +1381,8 @@ span.question-prefix {
 
             .top-btn {
                 margin-top: 10px;
-                >a.disable {
+
+                > a.disable {
                     color: rgba(0, 0, 0, 0.298039215686275);
                     background: #f2f2f2;
                     border: 2px solid rgba(0, 0, 0, 0.298039215686275);
@@ -1227,6 +1404,7 @@ span.question-prefix {
                     margin-right: 6px;
                     min-width: 155px;
                     text-align: center;
+
                     &:hover {
                         background: #ececec;
                     }
@@ -1241,6 +1419,7 @@ span.question-prefix {
                     text-decoration: none;
                     min-width: 155px;
                     text-align: center;
+
                     &:hover {
                         background: #002855;
                         border: 2px solid #002855;
@@ -1281,8 +1460,9 @@ span.question-prefix {
                     display: inline-flex;
                     align-items: center;
                     width: 80px;
-                    &::before{
-                        content: '';
+
+                    &::before {
+                        content: "";
                         background: url(../src/icons/updownarrow.svg) no-repeat;
                         position: absolute;
                         width: 10px;
@@ -1299,42 +1479,49 @@ span.question-prefix {
                     &.active {
                         td {
                             background: rgba(238, 238, 238, 1);
-                            &.career-table-link{
-                                >.career-table-row-link {
+
+                            &.career-table-link {
+                                > .career-table-row-link {
                                     color: rgb(42, 125, 226);
-                                    .noc{
+
+                                    .noc {
                                         color: rgb(42, 125, 226);
                                     }
                                 }
                             }
-
                         }
                     }
+
                     td {
                         vertical-align: middle;
                         background: #fff;
                         padding: 20px 15px;
                         font-size: 1.5rem;
-                        &.career-table-link{
-                            >.career-table-row-link{
-                                font-family: 'BC Sans Bold', 'BC Sans Regular', 'BC Sans', sans-serif;
+
+                        &.career-table-link {
+                            > .career-table-row-link {
+                                font-family: "BC Sans Bold", "BC Sans Regular", "BC Sans", sans-serif;
                                 display: block;
                                 font-weight: bold;
                                 text-decoration: none;
                                 color: #333333;
-                                &:hover{
+
+                                &:hover {
                                     color: rgb(42, 125, 226);
-                                    .noc{
+
+                                    .noc {
                                         color: rgb(42, 125, 226);
                                     }
                                 }
-                                .noc{
-                                    font-family: 'BC Sans Regular', 'BC Sans', sans-serif;
+
+                                .noc {
+                                    font-family: "BC Sans Regular", "BC Sans", sans-serif;
                                     font-weight: normal;
                                     color: #333333;
                                 }
                             }
                         }
+
                         .use-ajax {
                             display: none;
                         }
@@ -1363,17 +1550,17 @@ span.question-prefix {
                     left: 0;
                     z-index: 1;
 
-                    ~.checkmark {
+                    ~ .checkmark {
                         background-color: #fff;
                         border: 1px solid #797979;
                     }
 
-                    &:checked~.checkmark {
+                    &:checked ~ .checkmark {
                         background-color: #fff;
                         border: 1px solid #234075;
                     }
 
-                    &:checked~.checkmark:after {
+                    &:checked ~ .checkmark:after {
                         display: block;
                     }
                 }
@@ -1415,7 +1602,7 @@ span.question-prefix {
 
     .top-career-mobi-content {
         h3 {
-            font-family: 'BC Sans', sans-serif;
+            font-family: "BC Sans", sans-serif;
             font-weight: 400;
             font-style: normal;
             font-size: 2.7rem;
@@ -1426,7 +1613,7 @@ span.question-prefix {
         .content {
             .description {
                 p {
-                    font-family: 'BC Sans', sans-serif;
+                    font-family: "BC Sans", sans-serif;
                     font-weight: 400;
                     font-style: normal;
                     font-size: 15px;
@@ -1435,7 +1622,7 @@ span.question-prefix {
             }
 
             .top-btn {
-                >a.disable {
+                > a.disable {
                     color: rgba(0, 0, 0, 0.298039215686275);
                     background: #f2f2f2;
                     border: 2px solid rgba(0, 0, 0, 0.298039215686275);
@@ -1457,6 +1644,7 @@ span.question-prefix {
                     margin-right: 6px;
                     min-width: 155px;
                     text-align: center;
+
                     &:hover {
                         background: #ececec;
                     }
@@ -1471,6 +1659,7 @@ span.question-prefix {
                     text-decoration: none;
                     min-width: 155px;
                     text-align: center;
+
                     &:hover {
                         background: #002855;
                         border: 2px solid #002855;
@@ -1559,17 +1748,18 @@ span.question-prefix {
                         left: 50%;
                         transform: translateX(-50%);
                         z-index: 1;
-                        ~.checkmark {
+
+                        ~ .checkmark {
                             background-color: #fff;
                             border: 1px solid #797979;
                         }
 
-                        &:checked~.checkmark {
+                        &:checked ~ .checkmark {
                             background-color: #fff;
                             border: 1px solid #510b76;
                         }
 
-                        &:checked~.checkmark:after {
+                        &:checked ~ .checkmark:after {
                             display: block;
                         }
                     }
@@ -1645,12 +1835,13 @@ span.question-prefix {
 
 .career-content-main-wrapper {
     height: 100%;
+
     .back-link {
         background: #e6eae9;
         padding: 10px 25px;
 
         a {
-            font-family: 'BC Sans', sans-serif;
+            font-family: "BC Sans", sans-serif;
             font-weight: 400;
             font-style: normal;
             font-size: 15px;
@@ -1670,17 +1861,20 @@ span.question-prefix {
         background: #fff;
         display: none;
         height: 100%;
+
         &.active {
             display: block;
         }
 
         .career-content-item-inner {
             height: 100%;
+
             .career-inner-content {
                 border: 2px solid rgb(230, 234, 233);
                 padding: 20px;
                 min-height: 695px;
                 height: calc(100% - 76px);
+
                 &.page {
                     border: 0;
                     padding: 20px 40px;
@@ -1693,7 +1887,7 @@ span.question-prefix {
 
                 p {
                     color: #fff;
-                    font-family: 'BC Sans Bold', 'BC Sans Regular', 'BC Sans', sans-serif;
+                    font-family: "BC Sans Bold", "BC Sans Regular", "BC Sans", sans-serif;
                     font-style: normal;
                     font-size: 1.5rem;
                     line-height: 1.8rem;
@@ -1738,7 +1932,7 @@ span.question-prefix {
                 .data-item {
                     border-bottom: 2px solid rgba(51, 51, 51, 0.2);
                     padding-bottom: 5px;
-                    font-family: 'BC Sans Bold', 'BC Sans Regular', 'BC Sans', sans-serif;
+                    font-family: "BC Sans Bold", "BC Sans Regular", "BC Sans", sans-serif;
                     font-style: normal;
                     font-size: 1.5rem;
                     line-height: 1.8rem;
@@ -1760,7 +1954,7 @@ span.question-prefix {
 
             .description {
                 p {
-                    font-family: 'BC Sans Bold', 'BC Sans Regular', 'BC Sans', sans-serif;
+                    font-family: "BC Sans Bold", "BC Sans Regular", "BC Sans", sans-serif;
                     font-style: normal;
                     font-size: 1.4rem;
                     line-height: 1.8rem;
@@ -1783,9 +1977,11 @@ span.question-prefix {
                     border-radius: 0;
                     width: 100%;
                     margin-right: 10px;
+
                     &.btn-find-job {
                         background: #fff;
                         color: #234075;
+
                         &:hover {
                             background: #ececec;
                         }
@@ -1801,14 +1997,22 @@ span.question-prefix {
 }
 
 .career-bottom-notes {
-    background: #e6eae9;
-    padding: 50px 20px 20px;
+    // background: #e6eae9;
+    padding: 30px 0px;
+    @media all and (max-width: 767.98px) {
+        padding: 20px 0px;
+        margin: 0 10px;
+    }
 
     .career-bottom-inner-notes {
-        background: rgb(242, 242, 242);
-        padding: 16px;
+        background: rgba(242, 242, 242, 1);
+        padding: 16px 80px;
+        @media all and (max-width: 767.98px) {
+            padding: 16px;
+        }
 
         p {
+            font-size: 13px;
             margin: 0;
         }
     }
@@ -1819,8 +2023,9 @@ span.question-prefix {
 .compare-career-main-wrapper {
     .back-link {
         padding: 20px 0;
+
         a {
-            font-family: 'BC Sans', sans-serif;
+            font-family: "BC Sans", sans-serif;
             font-weight: 400;
             font-style: normal;
             font-size: 18px;
@@ -1838,23 +2043,28 @@ span.question-prefix {
     .career-wrapper-top {
         background: #fff;
         padding: 30px 25px 0 25px;
+
         h3 {
             color: $color-dark;
         }
+
         ul {
             list-style-type: none;
             padding: 0;
             display: flex;
             align-items: center;
+
             li {
                 display: inline;
                 cursor: pointer;
-                &.compare-career-print{
+
+                &.compare-career-print {
                     margin-right: 30px;
                 }
-                span.icon{
-                    &:hover{
-                        background: #9B9B9B;
+
+                span.icon {
+                    &:hover {
+                        background: #9b9b9b;
                     }
                 }
             }
@@ -1963,14 +2173,17 @@ span.question-prefix {
                         border: 2px solid #234075;
                         background: #234075;
                         color: #fff;
-                        &.btn-find-job{
+
+                        &.btn-find-job {
                             border: 2px solid #234075;
                             background: #fff;
                             color: #234075;
-                            &:hover{
+
+                            &:hover {
                                 background: #e6eae9;
                             }
                         }
+
                         &:hover {
                             background: rgba(0, 40, 85, 1);
                         }
@@ -1993,7 +2206,7 @@ span.question-prefix {
             width: 100%;
             list-style: none;
 
-            >li {
+            > li {
                 margin: 0 5px;
 
                 button {
