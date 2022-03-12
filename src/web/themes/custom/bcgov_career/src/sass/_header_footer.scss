@@ -1,14 +1,26 @@
 header {
     padding: 35px 0;
+    @media all and (max-width: 767.98px) {
+        padding: 0px 0;
+        min-height: 80px;
+        display: flex;
+        align-items: center;
+    }
     .navbar-brand {
         a.site-logo {
             img {
                 width: 240px;
                 height: auto;
+                @media all and (max-width: 767.98px) {
+                    width: 160px;
+                }
             }
         }
         .site-name {
             margin: 4px 0 0 100px;
+            @media all and (max-width: 767.98px) {
+                margin: 4px 0 0;
+            }
             .site-title {
                 font-family: "BC Sans Regular", "BC Sans", sans-serif;
                 font-weight: 400;
@@ -17,21 +29,9 @@ header {
                 color: #234075;
                 line-height: 54px;
                 text-transform: none;
-            }
-        }
-    }
-    @media all and (max-width: 767.98px) {
-        padding: 0px 0;
-        .navbar-brand {
-            a.site-logo {
-                img {
-                    width: 125px;
-                }
-            }
-            .site-name {
-                margin: 4px 0 0;
-                .site-title {
+                @media all and (max-width: 767.98px) {
                     font-size: 19px;
+                    letter-spacing: normal;
                 }
             }
         }
@@ -47,7 +47,7 @@ header {
             .navbar-brand {
                 a.site-logo {
                     img {
-                        width: 140px;
+                        width: 234px;
                     }
                 }
             }
