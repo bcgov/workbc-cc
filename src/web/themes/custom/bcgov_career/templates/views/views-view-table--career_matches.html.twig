@@ -50,8 +50,7 @@
           <div class="content">
             <div class="description">
               <p>Select a career below to find out more information.</p>
-              <p>
-                <strong>Compare up to three careers</strong> by selecting the</br>
+              <p><strong>Compare up to three careers</strong> by selecting the</br>
                 checkboxes and clicking on the Compare Careers button.
               </p>
             </div>
@@ -167,7 +166,7 @@
                   </div>
                   <div class="data">
                     {% if row.raw.field_median_salary is not empty %}
-                      <p class="data-item"><span class="f-d">Annual Salary</span><span class="s-d">{{ row.columns.field_median_salary }}</span></p>
+                      <p class="data-item"><span class="f-d">Annual Salary</span><span class="s-d">${{ row.columns.field_median_salary|number_format(0, '.', ',') }}</span></p>
                     {% endif %}
                     {% if row.raw.field_education_level is not empty %}
                       <p class="data-item"><span class="f-d">Education Level</span><span class="s-d">{{ row.columns.field_education_level }}</span></p>

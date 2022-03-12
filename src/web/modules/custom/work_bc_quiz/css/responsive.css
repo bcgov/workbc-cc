@@ -8,7 +8,7 @@
 
 @media(max-width:991px)
 {
-	
+
 }
 @media(min-width:768px)
 {
@@ -25,7 +25,6 @@
 	.all-quiz-status{
 		text-align:center;
 	}
-	.head-des h2{font-size:36px;}
 	.quiz-list{
 		padding-bottom:50px;
 	}
@@ -186,7 +185,7 @@
     .nfq .dropdown-inner ul li:first-child
     {
         border-bottom: 1px solid #cccccc70;
-    } 
+    }
 	.row.rh{align-items:center;    margin-top: 15px; margin-bottom: 25px;}
 	.row.rh .col-4{position:inherit;}
 	.row.rh .result-heading{margin:0px;}
@@ -196,7 +195,7 @@
 }
 @media(max-width:480px)
 {
-	
+
 }
 @media (prefers-reduced-motion: reduce){
 	.carousel .carousel-indicators li, .carousel .carousel-item {
