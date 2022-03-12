@@ -35,7 +35,6 @@
 				<ul class="pagging">
 				{% for i in 0..k %}
 					{% set j = i+1 %}
-					
 						{% if "step"~j in path %}
 						<li class="pag active"> 
 							<a href="{{path|replace({'step1': "step"~j, 'step2': "step"~j, 'step3': "step"~j, 'step4': "step"~j, 'step5': "step"~j, 'step6': "step"~j, 'step7': "step"~j, 'step8': "step"~j})}}" class="page-item active"> {{ j }}</a>

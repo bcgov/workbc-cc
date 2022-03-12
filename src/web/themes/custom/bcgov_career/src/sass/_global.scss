@@ -1,3 +1,39 @@
+@font-face {
+    font-family:'BC Sans Regular';
+    src:local('BC Sans Regular'),
+    local('BC Sans Regular'),
+    url('../assets/fonts/BCSans-Regular.woff2') format('woff2'),
+    url('../assets/fonts/BCSans-Regular.woff') format('woff');
+    font-weight:400;
+    font-style:normal
+}
+@font-face {
+    font-family:'BC Sans';
+    src:local('BC Sans'),
+    local('BC Sans'),
+    url('../assets/fonts/BCSans-Regular.woff2') format('woff2'),
+    url('../assets/fonts/BCSans-Regular.woff') format('woff');
+    font-weight:400;
+    font-style:normal
+}
+@font-face {
+    font-family:'BCSans';
+    src:local('BCSans'),
+    local('BCSans'),
+    url('../assets/fonts/BCSans-Regular.woff2') format('woff2'),
+    url('../assets/fonts/BCSans-Regular.woff') format('woff');
+    font-weight:400;
+    font-style:normal
+}
+@font-face {
+    font-family:'BC Sans Bold';
+    src:local('BC Sans Bold'),
+    local('BC Sans Bold'),
+    url('../assets/fonts/BCSans-Bold.woff2') format('woff2'),
+    url('../assets/fonts/BCSans-Bold.woff') format('woff');
+    font-weight:400;
+    font-style:normal
+}
 
 // Theme variables.
 
@@ -59,7 +95,7 @@ body {
 }
 
 p{
-    font-family: 'BC Sans', sans-serif;
+    font-family: 'BC Sans Regular', sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size: 1.6rem;

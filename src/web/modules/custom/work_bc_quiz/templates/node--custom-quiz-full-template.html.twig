@@ -146,7 +146,7 @@
 					  	{% endfor %}
 							</div>
 					</ol> #}
-					<div class="carousel-inner">
+					<div class="carousel-inner carousel-inner-device">
 						<div class="row">
 							{% for item in content.an_additional_field['#quiz_result'] %}
 								{% if loop.index > 3%}
@@ -183,6 +183,31 @@
 								<span class="vaa">View All Aptitudes</span> <span>+</span>
 							</div>
 						</div>
+					</div>
+				</div>
+				<div class="carousel-inner carousel-inner-mobi">
+					<div class="row carousel-slider-mobi-row">
+					{% for item in content.an_additional_field['#quiz_result'] %}
+						<div class="col-12 itm mobi-itm">
+							<div class="quiz-list">
+								<div class="item field-match">
+									{{ item.percentage }}% Match
+								</div>
+								<div class="item img-field">
+									<img src="{{ file_url(item.icon) }}" />
+									<!-- <svg class="footer-icon-web">
+										<use xlink:href=""></use>
+									</svg> -->
+								</div>
+								<div class="item title-field" style="color:{{ item.color|raw }}">
+									{{ item.name }}
+								</div>
+								<div class="item title-description">
+									{{ item.description|render|striptags}}
+								</div>
+							</div>
+						</div>
+					{% endfor %}
 					</div>
 				</div>
 				<div class="career-result">

@@ -39,6 +39,18 @@
         }else{
           $(".cari_quiz .carousel-inner > .career-item").filter('.slick-initialized').slick('unslick');
         }
+
+        if ($window < 768 && !$(".carousel-slider-mobi-row").hasClass("slick-initialized")) {
+          $(".carousel-slider-mobi-row").slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            infinite: false,
+            dots: true,
+            arrows: false,
+          });
+        }else{
+          $(".carousel-slider-mobi-row").filter('.slick-initialized').slick('unslick');
+        }
       });
 
 

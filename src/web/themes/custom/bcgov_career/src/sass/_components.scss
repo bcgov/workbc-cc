@@ -4,6 +4,8 @@
         min-height: 480px;
         background-size: 2000px 524px;
         background-position: right bottom;
+        background-repeat: no-repeat;
+        background-color: rgb(242, 244, 243);
 
         @media all and (max-width: 767.98px) {
             display: none;
@@ -22,7 +24,7 @@
                 font-style: normal;
                 font-size: 2.5rem;
                 line-height: 3rem;
-                max-width: 380px;
+                max-width: 360px;
                 margin-bottom: 35px;
             }
 
@@ -31,7 +33,7 @@
                     font-size: 54px;
                     line-height: 54px;
                     font-family: "BC Sans Bold", sans-serif;
-                    font-weight: 700;
+                    font-weight: normal;
                     font-style: normal;
 
                     @media all and (max-width: 991.98px) {
@@ -73,9 +75,12 @@
 
                 p.sub-title {
                     font-size: 21px;
-                    font-family: "BC Sans Bold", sans-serif;
+                    font-family: "BC Sans Regular", sans-serif;
                     line-height: 2.6rem;
                     margin-bottom: 25px;
+                    padding: 0;
+                    max-width: 305px;
+                    margin: 0 auto;
                 }
             }
         }
@@ -163,7 +168,7 @@
     font-size: 14px;
     color: rgb(102, 102, 102);
     min-height: 450px;
-
+    background: #fff;
     @media all and (max-width: 991.98px) {
         padding: 30px 12px 30px 12px;
     }
@@ -288,6 +293,46 @@
 }
 
 #myResult {
+    .carousel-inner{
+        &.carousel-inner-device{
+            @media all and (max-width: 767.98px){
+                display: none;
+            }
+        }
+        &.carousel-inner-mobi{
+            display: none;
+            @media all and (max-width: 767.98px){
+                display: block;
+            }
+            .slick-dots {
+                display: flex;
+                list-style: none;
+                padding: 0;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                bottom: 0;
+                li {
+                    margin-right: 10px;
+        
+                    button {
+                        background: #979696;
+                        border: 0;
+                        font-size: 0;
+                        width: 10px;
+                        height: 10px;
+                        border-radius: 50%;
+                    }
+        
+                    &.slick-active {
+                        button {
+                            background: #333333;
+                        }
+                    }
+                }
+            }
+        }
+    }
     .quiz-list {
         min-height: 365px;
         border: 2px solid rgb(238, 238, 238);
@@ -304,10 +349,10 @@
         .img-field {
             text-align: center;
             margin-top: 20px;
-
             img {
                 height: 72px;
                 width: auto;
+                margin: 0 auto;
             }
         }
 
@@ -556,7 +601,7 @@ a.quiz-link {
             }
 
             .quiz_link {
-                margin-top: 7px;
+                // margin-top: 7px;
             }
         }
 
@@ -674,7 +719,7 @@ body.path-quiz {
         position: relative;
 
         @media all and (max-width: 767.98px) {
-            padding-bottom: 70px;
+            padding: 0 25px 70px 25px;
             margin-top: 35px;
         }
 
@@ -703,6 +748,7 @@ body.path-quiz {
             @media all and (max-width: 767.98px) {
                 bottom: -90px;
                 display: flex;
+                padding: 0 15px;
             }
         }
 
@@ -720,7 +766,9 @@ body.path-quiz {
             top: 0;
             right: 0;
             z-index: 1;
-
+            @media all and (max-width: 767.98px){
+                position: relative;
+            }
             &:hover {
                 background: $aq_h;
             }
@@ -741,7 +789,9 @@ body.path-quiz {
             top: 0;
             left: 0;
             z-index: 1;
-
+            @media all and (max-width: 767.98px){
+                position: relative;
+            }
             &:hover {
                 background: rgba(242, 242, 242, 1);
             }
@@ -1012,7 +1062,9 @@ body.path-quiz {
 .field--type-work-bc-quiz {
     padding: 15px;
     border-bottom: 0px;
-
+    @media all and (max-width: 767.98px){
+        padding: 15px 25px;
+    }
     fieldset {
         margin: 0px;
 
@@ -1082,7 +1134,6 @@ span.question-prefix {
     @media all and (max-width: 767.98px) {
         margin-top: 0;
         bottom: 140px;
-
         > .container {
             max-width: 100%;
         }
@@ -1091,14 +1142,34 @@ span.question-prefix {
     .progress-bar-row {
         justify-content: center;
         align-items: center;
+        flex-wrap: nowrap;
     }
 
+    .p-bar{
+        @media all and (max-width: 767.98px){
+            padding: 0 25px;
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+    }
     .progress-title {
         margin-right: 10px;
+        @media all and (max-width: 767.98px){
+            position: absolute;
+            top: -32px;
+            left: 30px;
+            margin-right: 0;
+        }
     }
 
     .status-bar {
         margin-left: 10px;
+        @media all and (max-width: 767.98px){
+            position: absolute;
+            top: -32px;
+            right: 30px;
+            margin: 0;
+        }
     }
 
     ol {
@@ -1112,7 +1183,9 @@ span.question-prefix {
         margin-left: 0px;
         padding-left: 0px;
         border: 2px #dbdbdb solid;
-
+        @media all and (max-width: 767.98px) {
+            min-width: 100%;
+        }
         li {
             display: inline-block;
             background: #ffffff;
@@ -1900,7 +1973,9 @@ span.question-prefix {
 
             .title {
                 background: #234075;
-
+                min-height: 95px;
+                display: flex;
+                align-items: center;
                 p {
                     color: #fff;
                     font-family: "BC Sans Bold", "BC Sans Regular", "BC Sans", sans-serif;
@@ -2218,7 +2293,7 @@ span.question-prefix {
             padding: 0;
             display: flex;
             justify-content: center;
-            top: 60px;
+            top: 0;
             width: 100%;
             list-style: none;
 
