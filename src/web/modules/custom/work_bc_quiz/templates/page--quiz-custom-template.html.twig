@@ -55,7 +55,7 @@ set footer_classes = ' ' ~
   (b4_footer_schema != 'none' ? (b4_footer_schema == 'dark' ? ' text-light' : ' text-dark' ) : ' ') ~
   (b4_footer_bg_schema != 'none' ? " bg-#{b4_footer_bg_schema}" : ' ')
 %}
-<div class="path-quiz">
+<div class="path-quiz {{ current_step|clean_class }}">
 <header>
   {{ page.header }}
 

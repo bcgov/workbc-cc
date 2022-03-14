@@ -4,6 +4,13 @@
  * @file
  * BC gov career theme file.
  */
+function bcgov_career_preprocess_page(&$variables) {
+  $query_step = \Drupal::request()->query->get('step');
+  if ($query_step) {
+    $variables['current_step'] = $query_step;
+  }
+
+}
 
 function bcgov_career_preprocess_views_view_table(&$variables) {
   $view = $variables['view'];

@@ -49,13 +49,13 @@
           <h3>Top Career Matches</h3>
           <div class="content">
             <div class="description">
-              <p>Select a career below to find out more information.</p>
-              <p><strong>Compare up to three careers</strong> by selecting the</br>
-                checkboxes and clicking on the Compare Careers button.
+              <p><span class="bulb d-table-cell"></span><span class="dec-text d-table-cell">Select a career below to find out more information.</span></p>
+              <p><span class="bulb d-table-cell"></span><span class="dec-text d-table-cell"><strong>Compare up to three careers</strong> by selecting the</br>
+                checkboxes and clicking on the Compare Careers button.</span>
               </p>
             </div>
             <div class="top-btn">
-              <a href="/career-compare/remove" class="use-ajax clear-compare disable">Clear Compare</a>
+              <a href="/career-compare/remove" class="clear-compare disable">Clear Compare</a>
               <a href="/career-compare/career" class="compare-career disable">Compare Careers</a>
             </div>
           </div>
@@ -139,7 +139,8 @@
                 </td>
                 <td>
                   {{ row.columns.entity_comparison_link_career }}
-                  <label class="compare-career compare-carr" data-career="/entity-comparison/career/{{ row.raw.entity_comparison_link_career }}?destination=/node/{{ currentPath }}">
+                  {# data-career="/entity-comparison/career/{{ row.raw.entity_comparison_link_career }}?destination=/node/{{ currentPath }}" #}
+                  <label class="compare-career compare-carr">
                     <input type="checkbox" class="career-checkbox career-chkk">
                     <span class="checkmark"></span>
                   </label>
@@ -199,10 +200,10 @@
           <h3>Top Career Matches</h3>
           <div class="content">
             <div class="description">
-              <p>Select a career below to find out more information.</p>
-              <p>
+              <p><span class="bulb d-table-cell"></span><span class="dec-text d-table-cell">Select a career below to find out more information.</span></p>
+              <p><span class="bulb d-table-cell"></span><span class="dec-text d-table-cell">
                 <strong>Compare up to three careers</strong> by selecting the</br>
-                checkboxes and clicking on the Compare Careers button.
+                checkboxes and clicking on the Compare Careers button.</span>
               </p>
             </div>
             <div class="top-btn">
