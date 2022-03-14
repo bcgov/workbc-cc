@@ -197,7 +197,7 @@
     }
 
     .quiz-description {
-        padding-top: 18px;
+        padding: 18px;
         min-height: 80px;
 
         @media all and (max-width: 991.98px) {
@@ -314,7 +314,7 @@
                 bottom: 0;
                 li {
                     margin-right: 10px;
-        
+
                     button {
                         background: #979696;
                         border: 0;
@@ -323,7 +323,7 @@
                         height: 10px;
                         border-radius: 50%;
                     }
-        
+
                     &.slick-active {
                         button {
                             background: #333333;
@@ -668,6 +668,7 @@ a.quiz-link {
     }
 }
 
+
 .overlay-content {
     .block-page-title-block {
         h1 {
@@ -689,9 +690,18 @@ a.quiz-link {
         border-top: 9px solid rgb(0, 40, 85);
         border-bottom: 5px solid rgb(0, 40, 85);
         padding-bottom: 300px;
-
         @media all and (max-width: 767.98px) {
             padding-top: 0;
+            padding-bottom: 220px;
+
+        }
+    }
+}
+.abilities-quiz-step-8,
+.abilities-quiz-preview-step-4 {
+    .overlay-content {
+        .block-system-main-block {
+            padding-bottom: 85px;
         }
     }
 }
@@ -766,6 +776,7 @@ body.path-quiz {
             top: 0;
             right: 0;
             z-index: 1;
+            border-radius: 0;
             @media all and (max-width: 767.98px){
                 position: relative;
             }
@@ -927,6 +938,7 @@ body.path-quiz {
                 text-align: center;
                 width: 85px;
                 letter-spacing: normal;
+                color: #666666;
 
                 @media all and (max-width: 767.98px) {
                     position: relative;
@@ -1133,7 +1145,7 @@ span.question-prefix {
 
     @media all and (max-width: 767.98px) {
         margin-top: 0;
-        bottom: 140px;
+        bottom: 70px;
         > .container {
             max-width: 100%;
         }
@@ -1314,7 +1326,7 @@ span.question-prefix {
         &::after {
             content: "";
             height: 100%;
-            width: 1px;
+            width: 2px;
             position: absolute;
             background: rgba(125, 144, 167, 0.462745098039216);
             right: -7px;
@@ -1446,24 +1458,23 @@ span.question-prefix {
 
             .description {
                 p {
-                    font-family: "BC Sans", sans-serif;
-                    font-weight: 400;
-                    font-style: normal;
-                    font-size: 15px;
-                    color: #555555;
-                    margin-bottom: 20px;
-                    position: relative;
-                    padding-left: 10px;
-
-                    &::before {
+                    .dec-text {
+                        font-family: "BC Sans", sans-serif;
+                        font-weight: 400;
+                        font-style: normal;
+                        font-size: 15px;
+                        color: #555555;
+                        position: relative;
+                        padding-left: 10px;
+                    }
+                    .bulb::before {
                         content: "";
                         background: url(../src/icons/bulb.svg) no-repeat;
                         width: 14px;
                         height: 22px;
                         position: relative;
                         display: inline-block;
-                        top: 4px;
-                        left: -10px;
+                        top: 6px;
                     }
                 }
             }
@@ -1702,11 +1713,24 @@ span.question-prefix {
         .content {
             .description {
                 p {
-                    font-family: "BC Sans", sans-serif;
-                    font-weight: 400;
-                    font-style: normal;
-                    font-size: 15px;
-                    color: #555555;
+                    .dec-text {
+                        font-family: "BC Sans", sans-serif;
+                        font-weight: 400;
+                        font-style: normal;
+                        font-size: 15px;
+                        color: #555555;
+                        position: relative;
+                        padding-left: 10px;
+                    }
+                    .bulb::before {
+                        content: "";
+                        background: url(../src/icons/bulb.svg) no-repeat;
+                        width: 14px;
+                        height: 22px;
+                        position: relative;
+                        display: inline-block;
+                        top: 6px;
+                    }
                 }
             }
 
@@ -1984,7 +2008,6 @@ span.question-prefix {
                     line-height: 1.8rem;
                     margin: 0;
                     padding: 20px;
-                    font-weight: 700;
                     text-decoration: none;
 
                     a {
@@ -1993,7 +2016,7 @@ span.question-prefix {
                     }
 
                     span.noc-code {
-                        font-weight: 400;
+                        font-family: "BC Sans Regular", "BC Sans", sans-serif;
                     }
                 }
             }
@@ -2023,7 +2046,7 @@ span.question-prefix {
                 .data-item {
                     border-bottom: 2px solid rgba(51, 51, 51, 0.2);
                     padding-bottom: 5px;
-                    font-family: "BC Sans Bold", "BC Sans Regular", "BC Sans", sans-serif;
+                    font-family: "BC Sans Regular", "BC Sans", sans-serif;
                     font-style: normal;
                     font-size: 1.5rem;
                     line-height: 1.8rem;
@@ -2038,14 +2061,14 @@ span.question-prefix {
                     }
 
                     .s-d {
-                        font-weight: 700;
+                        font-family: "BC Sans Bold", "BC Sans Regular", "BC Sans", sans-serif;
                     }
                 }
             }
 
             .description {
                 p {
-                    font-family: "BC Sans Bold", "BC Sans Regular", "BC Sans", sans-serif;
+                    font-family: "BC Sans Regular", "BC Sans", sans-serif;
                     font-style: normal;
                     font-size: 1.4rem;
                     line-height: 1.8rem;

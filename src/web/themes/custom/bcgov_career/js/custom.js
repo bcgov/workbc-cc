@@ -111,7 +111,7 @@
       $(window).on("load", function () {
         $(".career-checkbox").on("change", function (e) {
           const checkedNum = $(".career-checkbox:checked").length;
-          // $(this).parents("td").find(".use-ajax").trigger("click");
+          $(this).parents("td").find(".use-ajax").trigger("click");
           console.log($(this).parents("td").find(".use-ajax"));
           if (checkedNum > 1) {
             $(".top-btn > a").removeClass("disable");
