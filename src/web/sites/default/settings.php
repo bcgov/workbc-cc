@@ -779,6 +779,17 @@ $settings['file_public_path'] = 'sites/default/files';
 $settings['file_private_path'] = '../private';
 $settings['file_tmp_path'] = '/tmp';
 
+// Trusted host entries.
+$settings['trusted_host_patterns'] = [
+  '^localhost$',
+  '^127\.0\.0\.1$',
+  '^careercompass-dev\.workbc\.ca$',
+  '^careerdiscoveryquizzes-dev\.workbc\.ca$',
+  '^careerdiscoveryquizzes-test\.workbc\.ca$',
+  '^careerdiscoveryquizzes\.workbc\.ca$',
+  '^career\.lndo\.site$',
+  '^career\.ddev\.site$',
+];
 
 // Ensure it all works from the CLI too (i.e. drush)
 if (file_exists($app_root . '/' . $site_path . '/settings.openshift.php') && getenv('OPENSHIFT_BUILD_NAME') != '') {
