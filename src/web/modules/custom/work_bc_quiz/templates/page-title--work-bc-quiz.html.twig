@@ -19,13 +19,13 @@
 {{ title_suffix }}
 {% if description %}
 	<div class="sub-title">
-		<p>{{ description }}</p> 
+		<p>{{ description | raw}}</p> 
 	</div>
 {% endif %}
 
 {% if question %}
 <div class="node-questions">
-	<div class="quiz-questions"> <span></span>{{question}} questions</div>
-	<div class="quiz-duration"> <span></span>{{time}} minutes</div>
+	<div class="quiz-questions"> <span></span>{{question}}</div>
+	<div class="quiz-duration"> <span></span>{{time}}</div>
 </div>
 {% endif %}

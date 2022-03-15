@@ -1,0 +1,19 @@
+uuid: ac40ae6b-9853-4457-b12b-463683eaf733
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_quiz_results_toggle_subhea
+    - node.type.quiz_list
+id: node.quiz_list.field_quiz_results_toggle_subhea
+field_name: field_quiz_results_toggle_subhea
+entity_type: node
+bundle: quiz_list
+label: 'Quiz Results Page Toggle Subheading'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

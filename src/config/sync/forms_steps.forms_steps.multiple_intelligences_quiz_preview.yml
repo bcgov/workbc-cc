@@ -1,0 +1,104 @@
+uuid: e07e6659-4422-4ba6-83be-3ff3938e4d33
+langcode: en
+status: true
+dependencies: {  }
+id: multiple_intelligences_quiz_preview
+label: 'Multiple Intelligences Quiz Preview'
+description: ''
+progress_steps_links_saved_only: true
+progress_steps_links_saved_only_next: true
+redirection_policy: entity
+redirection_target: ''
+steps:
+  multiple_intelligences_quiz_preview_step_2:
+    label: 'Multiple Intelligences Quiz - Summary'
+    weight: 1
+    entity_type: node
+    entity_bundle: multiple_intelligences_quiz
+    form_mode: node.step_2_preview
+    url: /quiz/multiple-intelligences-quiz/step2/preview
+    submitLabel: Next
+    cancelLabel: null
+    previousLabel: Previous
+    hideDelete: 0
+    deleteLabel: null
+    displayPrevious: 1
+  multiple_intelligences_quiz_preview_step_3:
+    label: 'Multiple Intelligences Quiz - Summary'
+    weight: 2
+    entity_type: node
+    entity_bundle: multiple_intelligences_quiz
+    form_mode: node.step_3_preview
+    url: /quiz/multiple-intelligences-quiz/step3/preview
+    submitLabel: Next
+    cancelLabel: null
+    previousLabel: Previous
+    hideDelete: 0
+    deleteLabel: null
+    displayPrevious: 1
+  multiple_intelligences_quiz_preview_step_4:
+    label: 'Multiple Intelligences Quiz - Summary'
+    weight: 3
+    entity_type: node
+    entity_bundle: multiple_intelligences_quiz
+    form_mode: node.step_4_preview
+    url: /quiz/multiple-intelligences-quiz/step4/preview
+    submitLabel: Next
+    cancelLabel: null
+    previousLabel: Previous
+    hideDelete: 0
+    deleteLabel: null
+    displayPrevious: 1
+  multiple_intelligences_quiz_preview_step_5:
+    label: 'Multiple Intelligences Quiz - Summary'
+    weight: 4
+    entity_type: node
+    entity_bundle: multiple_intelligences_quiz
+    form_mode: node.step_5_preview
+    url: /quiz/multiple-intelligences-quiz/step5/preview
+    submitLabel: Next
+    cancelLabel: null
+    previousLabel: Previous
+    hideDelete: 0
+    deleteLabel: null
+    displayPrevious: 1
+  multiple_intelligences_quiz_preview_step_6:
+    label: 'Multiple Intelligences Quiz - Summary'
+    weight: 5
+    entity_type: node
+    entity_bundle: multiple_intelligences_quiz
+    form_mode: node.step_6_preview
+    url: /quiz/multiple-intelligences-quiz/step6/preview
+    submitLabel: Next
+    cancelLabel: null
+    previousLabel: Previous
+    hideDelete: 0
+    deleteLabel: null
+    displayPrevious: 1
+  multiple_intelligences_quiz_preview_step_7:
+    label: 'Multiple Intelligences Quiz - Summary'
+    weight: 6
+    entity_type: node
+    entity_bundle: multiple_intelligences_quiz
+    form_mode: node.step_7_preview
+    url: /quiz/multiple-intelligences-quiz/step7/preview
+    submitLabel: Next
+    cancelLabel: null
+    previousLabel: Previous
+    hideDelete: 0
+    deleteLabel: null
+    displayPrevious: 1
+  multiple_intelligences_quiz_summary:
+    label: 'Multiple Intelligences Quiz - Summary'
+    weight: 0
+    entity_type: node
+    entity_bundle: multiple_intelligences_quiz
+    form_mode: node.step_1_preview
+    url: /quiz/multiple-intelligences-quiz/step1/preview
+    submitLabel: Next
+    cancelLabel: null
+    previousLabel: Previous
+    hideDelete: 0
+    deleteLabel: null
+    displayPrevious: 0
+progress_steps: {  }

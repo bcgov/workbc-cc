@@ -11,7 +11,7 @@ id: node.quiz_list.body
 field_name: body
 entity_type: node
 bundle: quiz_list
-label: 'Quiz Description'
+label: 'Quiz Description (Home Page)'
 description: ''
 required: false
 translatable: true

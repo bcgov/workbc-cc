@@ -86,8 +86,8 @@
 					</div>
 				{% else %}
 					<div class="row">
-						<div class="col-6 col-md-6 float-left quiz-duration"> <span></span>{{ row.content['#row']._entity.field_quiz_duration[0].value|replace({".00" : ""}) }}</div>
-						<div class="col-6 col-md-6 float-right quiz-questions"> <span></span>{{ row.content['#row']._entity.field_number_of_questions[0].value|replace({".00" : ""}) }} questions</div>
+						<div class="col-6 col-md-6 float-left quiz-duration"> <span></span>{{ row.content['#row']._entity.field_quiz_duration[0].value }}</div>
+						<div class="col-6 col-md-6 float-right quiz-questions"> <span></span>{{ row.content['#row']._entity.field_number_of_questions[0].value }} </div>
 					</div>
 				{% endif %}
 				<div class="quiz-description">

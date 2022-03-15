@@ -1,0 +1,17 @@
+uuid: ff9b4d94-5acc-4719-95ae-9a552204e3e2
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Multiple Intelligences Quiz'
+type: multiple_intelligences_quiz
+description: ''
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: false

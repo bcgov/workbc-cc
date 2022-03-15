@@ -1,0 +1,10 @@
+uuid: d05093a0-8a25-48f1-ac5d-7fd7ffaceecb
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.step_7_preview
+label: 'Step 7 Preview'
+targetEntityType: node
+cache: true

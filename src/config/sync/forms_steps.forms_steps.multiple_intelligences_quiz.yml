@@ -1,0 +1,597 @@
+uuid: dfbf8039-ccb1-4219-8c47-24bae5a8ea79
+langcode: en
+status: true
+dependencies: {  }
+id: multiple_intelligences_quiz
+label: 'Multiple Intelligences Quiz'
+description: ''
+progress_steps_links_saved_only: true
+progress_steps_links_saved_only_next: true
+redirection_policy: entity
+redirection_target: ''
+steps:
+  multiple_intelligences_quiz_step_1:
+    label: 'Multiple Intelligences Quiz'
+    weight: -100
+    entity_type: node
+    entity_bundle: multiple_intelligences_quiz
+    form_mode: node.step_1
+    url: /quiz/multiple-intelligences-quiz/step1
+    submitLabel: Next
+    cancelLabel: null
+    hideDelete: 0
+    deleteLabel: null
+    displayPrevious: 0
+  multiple_intelligences_quiz_step_10:
+    label: 'Multiple Intelligences Quiz'
+    weight: 7
+    entity_type: node
+    entity_bundle: multiple_intelligences_quiz
+    form_mode: node.step_10
+    url: /quiz/multiple-intelligences-quiz/step10
+    submitLabel: Next
+    cancelLabel: null
+    previousLabel: Previous
+    hideDelete: 0
+    deleteLabel: null
+    displayPrevious: 1
+  multiple_intelligences_quiz_step_11:
+    label: 'Multiple Intelligences Quiz'
+    weight: 8
+    entity_type: node
+    entity_bundle: multiple_intelligences_quiz
+    form_mode: node.step_11
+    url: /quiz/multiple-intelligences-quiz/step11
+    submitLabel: Next
+    cancelLabel: null
+    previousLabel: Previous
+    hideDelete: 0
+    deleteLabel: null
+    displayPrevious: 1
+  multiple_intelligences_quiz_step_12:
+    label: 'Multiple Intelligences Quiz'
+    weight: 9
+    entity_type: node
+    entity_bundle: multiple_intelligences_quiz
+    form_mode: node.step_12
+    url: /quiz/multiple-intelligences-quiz/step12
+    submitLabel: Next
+    cancelLabel: null
+    previousLabel: Previous
+    hideDelete: 0
+    deleteLabel: null
+    displayPrevious: 1
+  multiple_intelligences_quiz_step_13:
+    label: 'Multiple Intelligences Quiz'
+    weight: 10
+    entity_type: node
+    entity_bundle: multiple_intelligences_quiz
+    form_mode: node.step_13
+    url: /quiz/multiple-intelligences-quiz/step13
+    submitLabel: Submit
+    cancelLabel: null
+    previousLabel: Previous
+    hideDelete: 0
+    deleteLabel: null
+    displayPrevious: 1
+  multiple_intelligences_quiz_step_2:
+    label: 'Multiple Intelligences Quiz'
+    weight: -99
+    entity_type: node
+    entity_bundle: multiple_intelligences_quiz
+    form_mode: node.step_2
+    url: /quiz/multiple-intelligences-quiz/step2
+    submitLabel: Next
+    cancelLabel: null
+    previousLabel: Previous
+    hideDelete: 0
+    deleteLabel: null
+    displayPrevious: 1
+  multiple_intelligences_quiz_step_3:
+    label: 'Multiple Intelligences Quiz'
+    weight: 0
+    entity_type: node
+    entity_bundle: multiple_intelligences_quiz
+    form_mode: node.step_3
+    url: /quiz/multiple-intelligences-quiz/step3
+    submitLabel: Next
+    cancelLabel: null
+    previousLabel: Previous
+    hideDelete: 0
+    deleteLabel: null
+    displayPrevious: 1
+  multiple_intelligences_quiz_step_4:
+    label: 'Multiple Intelligences Quiz'
+    weight: 1
+    entity_type: node
+    entity_bundle: multiple_intelligences_quiz
+    form_mode: node.step_4
+    url: /quiz/multiple-intelligences-quiz/step4
+    submitLabel: Next
+    cancelLabel: null
+    previousLabel: Previous
+    hideDelete: 0
+    deleteLabel: null
+    displayPrevious: 1
+  multiple_intelligences_quiz_step_5:
+    label: 'Multiple Intelligences Quiz'
+    weight: 2
+    entity_type: node
+    entity_bundle: multiple_intelligences_quiz
+    form_mode: node.step_5
+    url: /quiz/multiple-intelligences-quiz/step5
+    submitLabel: Next
+    cancelLabel: null
+    previousLabel: Previous
+    hideDelete: 0
+    deleteLabel: null
+    displayPrevious: 1
+  multiple_intelligences_quiz_step_6:
+    label: 'Multiple Intelligences Quiz'
+    weight: 3
+    entity_type: node
+    entity_bundle: multiple_intelligences_quiz
+    form_mode: node.step_6
+    url: /quiz/multiple-intelligences-quiz/step6
+    submitLabel: Next
+    cancelLabel: null
+    previousLabel: Previous
+    hideDelete: 0
+    deleteLabel: null
+    displayPrevious: 1
+  multiple_intelligences_quiz_step_7:
+    label: 'Multiple Intelligences Quiz'
+    weight: 4
+    entity_type: node
+    entity_bundle: multiple_intelligences_quiz
+    form_mode: node.step_7
+    url: /quiz/multiple-intelligences-quiz/step7
+    submitLabel: Next
+    cancelLabel: null
+    previousLabel: Previous
+    hideDelete: 0
+    deleteLabel: null
+    displayPrevious: 1
+  multiple_intelligences_quiz_step_8:
+    label: 'Multiple Intelligences Quiz'
+    weight: 5
+    entity_type: node
+    entity_bundle: multiple_intelligences_quiz
+    form_mode: node.step_8
+    url: /quiz/multiple-intelligences-quiz/step8
+    submitLabel: Next
+    cancelLabel: null
+    previousLabel: Previous
+    hideDelete: 0
+    deleteLabel: null
+    displayPrevious: 1
+  multiple_intelligences_quiz_step_9:
+    label: 'Multiple Intelligences Quiz'
+    weight: 6
+    entity_type: node
+    entity_bundle: multiple_intelligences_quiz
+    form_mode: node.step_9
+    url: /quiz/multiple-intelligences-quiz/step9
+    submitLabel: Next
+    cancelLabel: null
+    previousLabel: Previous
+    hideDelete: 0
+    deleteLabel: null
+    displayPrevious: 1
+progress_steps:
+  step_1:
+    label: 'Step 1'
+    weight: 0
+    routes:
+      multiple_intelligences_quiz_step_1: multiple_intelligences_quiz_step_1
+      multiple_intelligences_quiz_step_2: 0
+      multiple_intelligences_quiz_step_3: 0
+      multiple_intelligences_quiz_step_4: 0
+      multiple_intelligences_quiz_step_5: 0
+      multiple_intelligences_quiz_step_6: 0
+      multiple_intelligences_quiz_step_7: 0
+      multiple_intelligences_quiz_step_8: 0
+      multiple_intelligences_quiz_step_9: 0
+      multiple_intelligences_quiz_step_10: 0
+      multiple_intelligences_quiz_step_11: 0
+      multiple_intelligences_quiz_step_12: 0
+      multiple_intelligences_quiz_step_13: 0
+    link: ''
+    link_visibility:
+      multiple_intelligences_quiz_step_1: 0
+      multiple_intelligences_quiz_step_2: 0
+      multiple_intelligences_quiz_step_3: 0
+      multiple_intelligences_quiz_step_4: 0
+      multiple_intelligences_quiz_step_5: 0
+      multiple_intelligences_quiz_step_6: 0
+      multiple_intelligences_quiz_step_7: 0
+      multiple_intelligences_quiz_step_8: 0
+      multiple_intelligences_quiz_step_9: 0
+      multiple_intelligences_quiz_step_10: 0
+      multiple_intelligences_quiz_step_11: 0
+      multiple_intelligences_quiz_step_12: 0
+      multiple_intelligences_quiz_step_13: 0
+  step_10:
+    label: 'Step 10'
+    weight: 9
+    routes:
+      multiple_intelligences_quiz_step_10: multiple_intelligences_quiz_step_10
+      multiple_intelligences_quiz_step_1: 0
+      multiple_intelligences_quiz_step_2: 0
+      multiple_intelligences_quiz_step_3: 0
+      multiple_intelligences_quiz_step_4: 0
+      multiple_intelligences_quiz_step_5: 0
+      multiple_intelligences_quiz_step_6: 0
+      multiple_intelligences_quiz_step_7: 0
+      multiple_intelligences_quiz_step_8: 0
+      multiple_intelligences_quiz_step_9: 0
+      multiple_intelligences_quiz_step_11: 0
+      multiple_intelligences_quiz_step_12: 0
+      multiple_intelligences_quiz_step_13: 0
+    link: ''
+    link_visibility:
+      multiple_intelligences_quiz_step_1: 0
+      multiple_intelligences_quiz_step_2: 0
+      multiple_intelligences_quiz_step_3: 0
+      multiple_intelligences_quiz_step_4: 0
+      multiple_intelligences_quiz_step_5: 0
+      multiple_intelligences_quiz_step_6: 0
+      multiple_intelligences_quiz_step_7: 0
+      multiple_intelligences_quiz_step_8: 0
+      multiple_intelligences_quiz_step_9: 0
+      multiple_intelligences_quiz_step_10: 0
+      multiple_intelligences_quiz_step_11: 0
+      multiple_intelligences_quiz_step_12: 0
+      multiple_intelligences_quiz_step_13: 0
+  step_11:
+    label: 'Step 11'
+    weight: 10
+    routes:
+      multiple_intelligences_quiz_step_11: multiple_intelligences_quiz_step_11
+      multiple_intelligences_quiz_step_1: 0
+      multiple_intelligences_quiz_step_2: 0
+      multiple_intelligences_quiz_step_3: 0
+      multiple_intelligences_quiz_step_4: 0
+      multiple_intelligences_quiz_step_5: 0
+      multiple_intelligences_quiz_step_6: 0
+      multiple_intelligences_quiz_step_7: 0
+      multiple_intelligences_quiz_step_8: 0
+      multiple_intelligences_quiz_step_9: 0
+      multiple_intelligences_quiz_step_10: 0
+      multiple_intelligences_quiz_step_12: 0
+      multiple_intelligences_quiz_step_13: 0
+    link: ''
+    link_visibility:
+      multiple_intelligences_quiz_step_1: 0
+      multiple_intelligences_quiz_step_2: 0
+      multiple_intelligences_quiz_step_3: 0
+      multiple_intelligences_quiz_step_4: 0
+      multiple_intelligences_quiz_step_5: 0
+      multiple_intelligences_quiz_step_6: 0
+      multiple_intelligences_quiz_step_7: 0
+      multiple_intelligences_quiz_step_8: 0
+      multiple_intelligences_quiz_step_9: 0
+      multiple_intelligences_quiz_step_10: 0
+      multiple_intelligences_quiz_step_11: 0
+      multiple_intelligences_quiz_step_12: 0
+      multiple_intelligences_quiz_step_13: 0
+  step_12:
+    label: 'Step 12'
+    weight: 11
+    routes:
+      multiple_intelligences_quiz_step_12: multiple_intelligences_quiz_step_12
+      multiple_intelligences_quiz_step_1: 0
+      multiple_intelligences_quiz_step_2: 0
+      multiple_intelligences_quiz_step_3: 0
+      multiple_intelligences_quiz_step_4: 0
+      multiple_intelligences_quiz_step_5: 0
+      multiple_intelligences_quiz_step_6: 0
+      multiple_intelligences_quiz_step_7: 0
+      multiple_intelligences_quiz_step_8: 0
+      multiple_intelligences_quiz_step_9: 0
+      multiple_intelligences_quiz_step_10: 0
+      multiple_intelligences_quiz_step_11: 0
+      multiple_intelligences_quiz_step_13: 0
+    link: ''
+    link_visibility:
+      multiple_intelligences_quiz_step_1: 0
+      multiple_intelligences_quiz_step_2: 0
+      multiple_intelligences_quiz_step_3: 0
+      multiple_intelligences_quiz_step_4: 0
+      multiple_intelligences_quiz_step_5: 0
+      multiple_intelligences_quiz_step_6: 0
+      multiple_intelligences_quiz_step_7: 0
+      multiple_intelligences_quiz_step_8: 0
+      multiple_intelligences_quiz_step_9: 0
+      multiple_intelligences_quiz_step_10: 0
+      multiple_intelligences_quiz_step_11: 0
+      multiple_intelligences_quiz_step_12: 0
+      multiple_intelligences_quiz_step_13: 0
+  step_13:
+    label: 'Step 13'
+    weight: 12
+    routes:
+      multiple_intelligences_quiz_step_13: multiple_intelligences_quiz_step_13
+      multiple_intelligences_quiz_step_1: 0
+      multiple_intelligences_quiz_step_2: 0
+      multiple_intelligences_quiz_step_3: 0
+      multiple_intelligences_quiz_step_4: 0
+      multiple_intelligences_quiz_step_5: 0
+      multiple_intelligences_quiz_step_6: 0
+      multiple_intelligences_quiz_step_7: 0
+      multiple_intelligences_quiz_step_8: 0
+      multiple_intelligences_quiz_step_9: 0
+      multiple_intelligences_quiz_step_10: 0
+      multiple_intelligences_quiz_step_11: 0
+      multiple_intelligences_quiz_step_12: 0
+    link: ''
+    link_visibility:
+      multiple_intelligences_quiz_step_1: 0
+      multiple_intelligences_quiz_step_2: 0
+      multiple_intelligences_quiz_step_3: 0
+      multiple_intelligences_quiz_step_4: 0
+      multiple_intelligences_quiz_step_5: 0
+      multiple_intelligences_quiz_step_6: 0
+      multiple_intelligences_quiz_step_7: 0
+      multiple_intelligences_quiz_step_8: 0
+      multiple_intelligences_quiz_step_9: 0
+      multiple_intelligences_quiz_step_10: 0
+      multiple_intelligences_quiz_step_11: 0
+      multiple_intelligences_quiz_step_12: 0
+      multiple_intelligences_quiz_step_13: 0
+  step_2:
+    label: 'Step 2'
+    weight: 1
+    routes:
+      multiple_intelligences_quiz_step_2: multiple_intelligences_quiz_step_2
+      multiple_intelligences_quiz_step_1: 0
+      multiple_intelligences_quiz_step_3: 0
+      multiple_intelligences_quiz_step_4: 0
+      multiple_intelligences_quiz_step_5: 0
+      multiple_intelligences_quiz_step_6: 0
+      multiple_intelligences_quiz_step_7: 0
+      multiple_intelligences_quiz_step_8: 0
+      multiple_intelligences_quiz_step_9: 0
+      multiple_intelligences_quiz_step_10: 0
+      multiple_intelligences_quiz_step_11: 0
+      multiple_intelligences_quiz_step_12: 0
+      multiple_intelligences_quiz_step_13: 0
+    link: ''
+    link_visibility:
+      multiple_intelligences_quiz_step_1: 0
+      multiple_intelligences_quiz_step_2: 0
+      multiple_intelligences_quiz_step_3: 0
+      multiple_intelligences_quiz_step_4: 0
+      multiple_intelligences_quiz_step_5: 0
+      multiple_intelligences_quiz_step_6: 0
+      multiple_intelligences_quiz_step_7: 0
+      multiple_intelligences_quiz_step_8: 0
+      multiple_intelligences_quiz_step_9: 0
+      multiple_intelligences_quiz_step_10: 0
+      multiple_intelligences_quiz_step_11: 0
+      multiple_intelligences_quiz_step_12: 0
+      multiple_intelligences_quiz_step_13: 0
+  step_3:
+    label: 'Step 3'
+    weight: 2
+    routes:
+      multiple_intelligences_quiz_step_3: multiple_intelligences_quiz_step_3
+      multiple_intelligences_quiz_step_1: 0
+      multiple_intelligences_quiz_step_2: 0
+      multiple_intelligences_quiz_step_4: 0
+      multiple_intelligences_quiz_step_5: 0
+      multiple_intelligences_quiz_step_6: 0
+      multiple_intelligences_quiz_step_7: 0
+      multiple_intelligences_quiz_step_8: 0
+      multiple_intelligences_quiz_step_9: 0
+      multiple_intelligences_quiz_step_10: 0
+      multiple_intelligences_quiz_step_11: 0
+      multiple_intelligences_quiz_step_12: 0
+      multiple_intelligences_quiz_step_13: 0
+    link: ''
+    link_visibility:
+      multiple_intelligences_quiz_step_1: 0
+      multiple_intelligences_quiz_step_2: 0
+      multiple_intelligences_quiz_step_3: 0
+      multiple_intelligences_quiz_step_4: 0
+      multiple_intelligences_quiz_step_5: 0
+      multiple_intelligences_quiz_step_6: 0
+      multiple_intelligences_quiz_step_7: 0
+      multiple_intelligences_quiz_step_8: 0
+      multiple_intelligences_quiz_step_9: 0
+      multiple_intelligences_quiz_step_10: 0
+      multiple_intelligences_quiz_step_11: 0
+      multiple_intelligences_quiz_step_12: 0
+      multiple_intelligences_quiz_step_13: 0
+  step_4:
+    label: 'Step 4'
+    weight: 3
+    routes:
+      multiple_intelligences_quiz_step_4: multiple_intelligences_quiz_step_4
+      multiple_intelligences_quiz_step_1: 0
+      multiple_intelligences_quiz_step_2: 0
+      multiple_intelligences_quiz_step_3: 0
+      multiple_intelligences_quiz_step_5: 0
+      multiple_intelligences_quiz_step_6: 0
+      multiple_intelligences_quiz_step_7: 0
+      multiple_intelligences_quiz_step_8: 0
+      multiple_intelligences_quiz_step_9: 0
+      multiple_intelligences_quiz_step_10: 0
+      multiple_intelligences_quiz_step_11: 0
+      multiple_intelligences_quiz_step_12: 0
+      multiple_intelligences_quiz_step_13: 0
+    link: ''
+    link_visibility:
+      multiple_intelligences_quiz_step_1: 0
+      multiple_intelligences_quiz_step_2: 0
+      multiple_intelligences_quiz_step_3: 0
+      multiple_intelligences_quiz_step_4: 0
+      multiple_intelligences_quiz_step_5: 0
+      multiple_intelligences_quiz_step_6: 0
+      multiple_intelligences_quiz_step_7: 0
+      multiple_intelligences_quiz_step_8: 0
+      multiple_intelligences_quiz_step_9: 0
+      multiple_intelligences_quiz_step_10: 0
+      multiple_intelligences_quiz_step_11: 0
+      multiple_intelligences_quiz_step_12: 0
+      multiple_intelligences_quiz_step_13: 0
+  step_5:
+    label: 'Step 5'
+    weight: 4
+    routes:
+      multiple_intelligences_quiz_step_5: multiple_intelligences_quiz_step_5
+      multiple_intelligences_quiz_step_1: 0
+      multiple_intelligences_quiz_step_2: 0
+      multiple_intelligences_quiz_step_3: 0
+      multiple_intelligences_quiz_step_4: 0
+      multiple_intelligences_quiz_step_6: 0
+      multiple_intelligences_quiz_step_7: 0
+      multiple_intelligences_quiz_step_8: 0
+      multiple_intelligences_quiz_step_9: 0
+      multiple_intelligences_quiz_step_10: 0
+      multiple_intelligences_quiz_step_11: 0
+      multiple_intelligences_quiz_step_12: 0
+      multiple_intelligences_quiz_step_13: 0
+    link: ''
+    link_visibility:
+      multiple_intelligences_quiz_step_1: 0
+      multiple_intelligences_quiz_step_2: 0
+      multiple_intelligences_quiz_step_3: 0
+      multiple_intelligences_quiz_step_4: 0
+      multiple_intelligences_quiz_step_5: 0
+      multiple_intelligences_quiz_step_6: 0
+      multiple_intelligences_quiz_step_7: 0
+      multiple_intelligences_quiz_step_8: 0
+      multiple_intelligences_quiz_step_9: 0
+      multiple_intelligences_quiz_step_10: 0
+      multiple_intelligences_quiz_step_11: 0
+      multiple_intelligences_quiz_step_12: 0
+      multiple_intelligences_quiz_step_13: 0
+  step_6:
+    label: 'Step 6'
+    weight: 5
+    routes:
+      multiple_intelligences_quiz_step_6: multiple_intelligences_quiz_step_6
+      multiple_intelligences_quiz_step_1: 0
+      multiple_intelligences_quiz_step_2: 0
+      multiple_intelligences_quiz_step_3: 0
+      multiple_intelligences_quiz_step_4: 0
+      multiple_intelligences_quiz_step_5: 0
+      multiple_intelligences_quiz_step_7: 0
+      multiple_intelligences_quiz_step_8: 0
+      multiple_intelligences_quiz_step_9: 0
+      multiple_intelligences_quiz_step_10: 0
+      multiple_intelligences_quiz_step_11: 0
+      multiple_intelligences_quiz_step_12: 0
+      multiple_intelligences_quiz_step_13: 0
+    link: ''
+    link_visibility:
+      multiple_intelligences_quiz_step_1: 0
+      multiple_intelligences_quiz_step_2: 0
+      multiple_intelligences_quiz_step_3: 0
+      multiple_intelligences_quiz_step_4: 0
+      multiple_intelligences_quiz_step_5: 0
+      multiple_intelligences_quiz_step_6: 0
+      multiple_intelligences_quiz_step_7: 0
+      multiple_intelligences_quiz_step_8: 0
+      multiple_intelligences_quiz_step_9: 0
+      multiple_intelligences_quiz_step_10: 0
+      multiple_intelligences_quiz_step_11: 0
+      multiple_intelligences_quiz_step_12: 0
+      multiple_intelligences_quiz_step_13: 0
+  step_7:
+    label: 'Step 7'
+    weight: 6
+    routes:
+      multiple_intelligences_quiz_step_7: multiple_intelligences_quiz_step_7
+      multiple_intelligences_quiz_step_1: 0
+      multiple_intelligences_quiz_step_2: 0
+      multiple_intelligences_quiz_step_3: 0
+      multiple_intelligences_quiz_step_4: 0
+      multiple_intelligences_quiz_step_5: 0
+      multiple_intelligences_quiz_step_6: 0
+      multiple_intelligences_quiz_step_8: 0
+      multiple_intelligences_quiz_step_9: 0
+      multiple_intelligences_quiz_step_10: 0
+      multiple_intelligences_quiz_step_11: 0
+      multiple_intelligences_quiz_step_12: 0
+      multiple_intelligences_quiz_step_13: 0
+    link: ''
+    link_visibility:
+      multiple_intelligences_quiz_step_1: 0
+      multiple_intelligences_quiz_step_2: 0
+      multiple_intelligences_quiz_step_3: 0
+      multiple_intelligences_quiz_step_4: 0
+      multiple_intelligences_quiz_step_5: 0
+      multiple_intelligences_quiz_step_6: 0
+      multiple_intelligences_quiz_step_7: 0
+      multiple_intelligences_quiz_step_8: 0
+      multiple_intelligences_quiz_step_9: 0
+      multiple_intelligences_quiz_step_10: 0
+      multiple_intelligences_quiz_step_11: 0
+      multiple_intelligences_quiz_step_12: 0
+      multiple_intelligences_quiz_step_13: 0
+  step_8:
+    label: 'Step 8'
+    weight: 7
+    routes:
+      multiple_intelligences_quiz_step_8: multiple_intelligences_quiz_step_8
+      multiple_intelligences_quiz_step_1: 0
+      multiple_intelligences_quiz_step_2: 0
+      multiple_intelligences_quiz_step_3: 0
+      multiple_intelligences_quiz_step_4: 0
+      multiple_intelligences_quiz_step_5: 0
+      multiple_intelligences_quiz_step_6: 0
+      multiple_intelligences_quiz_step_7: 0
+      multiple_intelligences_quiz_step_9: 0
+      multiple_intelligences_quiz_step_10: 0
+      multiple_intelligences_quiz_step_11: 0
+      multiple_intelligences_quiz_step_12: 0
+      multiple_intelligences_quiz_step_13: 0
+    link: ''
+    link_visibility:
+      multiple_intelligences_quiz_step_1: 0
+      multiple_intelligences_quiz_step_2: 0
+      multiple_intelligences_quiz_step_3: 0
+      multiple_intelligences_quiz_step_4: 0
+      multiple_intelligences_quiz_step_5: 0
+      multiple_intelligences_quiz_step_6: 0
+      multiple_intelligences_quiz_step_7: 0
+      multiple_intelligences_quiz_step_8: 0
+      multiple_intelligences_quiz_step_9: 0
+      multiple_intelligences_quiz_step_10: 0
+      multiple_intelligences_quiz_step_11: 0
+      multiple_intelligences_quiz_step_12: 0
+      multiple_intelligences_quiz_step_13: 0
+  step_9:
+    label: 'Step 9'
+    weight: 8
+    routes:
+      multiple_intelligences_quiz_step_9: multiple_intelligences_quiz_step_9
+      multiple_intelligences_quiz_step_1: 0
+      multiple_intelligences_quiz_step_2: 0
+      multiple_intelligences_quiz_step_3: 0
+      multiple_intelligences_quiz_step_4: 0
+      multiple_intelligences_quiz_step_5: 0
+      multiple_intelligences_quiz_step_6: 0
+      multiple_intelligences_quiz_step_7: 0
+      multiple_intelligences_quiz_step_8: 0
+      multiple_intelligences_quiz_step_10: 0
+      multiple_intelligences_quiz_step_11: 0
+      multiple_intelligences_quiz_step_12: 0
+      multiple_intelligences_quiz_step_13: 0
+    link: ''
+    link_visibility:
+      multiple_intelligences_quiz_step_1: 0
+      multiple_intelligences_quiz_step_2: 0
+      multiple_intelligences_quiz_step_3: 0
+      multiple_intelligences_quiz_step_4: 0
+      multiple_intelligences_quiz_step_5: 0
+      multiple_intelligences_quiz_step_6: 0
+      multiple_intelligences_quiz_step_7: 0
+      multiple_intelligences_quiz_step_8: 0
+      multiple_intelligences_quiz_step_9: 0
+      multiple_intelligences_quiz_step_10: 0
+      multiple_intelligences_quiz_step_11: 0
+      multiple_intelligences_quiz_step_12: 0
+      multiple_intelligences_quiz_step_13: 0

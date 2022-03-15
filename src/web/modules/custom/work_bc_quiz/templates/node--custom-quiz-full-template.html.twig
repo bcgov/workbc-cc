@@ -106,7 +106,8 @@
 				<div class="row rh">
 					<div class="col-8">
 						<div class="result-heading">
-							<h2>Top Aptitudes</h2>
+							<h2 class="vaa">{{ subheading }}</h2>
+							<h2 class="vaa1" style="display:none;">{{ subheading_toggle }}</h2>
 						</div>
 					</div>
 					<div class="col-4">
@@ -122,10 +123,10 @@
 										<div class="cross-button"><span><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="14.6px" height="14.6px" viewBox="0 0 14.6 14.6" style="overflow:visible;enable-background:new 0 0 14.6 14.6;" xml:space="preserve"><path class="st0" fill-rule="evenodd" clip-rule="evenodd" fill="#333333" d="M0.3,12.9c-0.4,0.4-0.4,1,0,1.4c0.4,0.4,1,0.4,1.4,0l5.6-5.6l5.6,5.6c0.4,0.4,1,0.4,1.4,0c0.4-0.4,0.4-1,0-1.4 L8.7,7.3l5.6-5.6c0.4-0.4,0.4-1,0-1.4c-0.4-0.4-1-0.4-1.4,0L7.3,5.9L1.7,0.3c-0.4-0.4-1-0.4-1.4,0c-0.4,0.4-0.4,1,0,1.4l5.6,5.6 L0.3,12.9z"/></svg></span></div>
 										<ul>
 											<li class="active" id="items_03">
-												<span>Show Your Top Smarts</span>
+												<span>{{ toggle_minus }}</span>
 											</li>
 											<li id="items_09">
-												<span>Show All Types of Smarts</span>
+												<span>{{ toggle_plus }}</span>
 											</li>
 										</ul>
 									</div>
@@ -180,7 +181,8 @@
 							{% endfor %}
 							</div>
 							<div class="hideshow">
-								<span class="vaa">View All Aptitudes</span> <span>+</span>
+								<span class="vaa">{{ toggle_plus }} +</span> 
+								<span class="vaa1" style="display:none">{{ toggle_minus }} -</span>
 							</div>
 						</div>
 					</div>

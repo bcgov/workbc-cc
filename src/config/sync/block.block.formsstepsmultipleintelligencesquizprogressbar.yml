@@ -1,0 +1,21 @@
+uuid: fc0dc192-418b-41e3-8c77-2fea0929f8ac
+langcode: en
+status: true
+dependencies:
+  module:
+    - forms_steps
+  theme:
+    - bcgov_career
+id: formsstepsmultipleintelligencesquizprogressbar
+theme: bcgov_career
+region: content
+weight: 2
+provider: null
+plugin: 'forms_steps_progress_bar:multiple_intelligences_quiz'
+settings:
+  id: 'forms_steps_progress_bar:multiple_intelligences_quiz'
+  label: 'Forms Steps - Multiple Intelligences Quiz (Progress bar)'
+  label_display: visible
+  provider: forms_steps
+  progress_bar_settings: null
+visibility: {  }

@@ -172,7 +172,26 @@
       });
 
       // Quiz
-      $(".hideshow", context)
+		$(".hideshow", context)
+		.once("workbc")
+		.on("click", function () {
+			if ($(".hideshow").hasClass("hide")) {
+				$(this).removeClass("hide");
+				$(".hideshow span.vaa1").hide();
+				$(".hideshow span.vaa").show();
+				$(".result-heading h2.vaa1").hide();
+				$(".result-heading h2.vaa").show();
+				$(".itm.hide").hide();
+			} else {
+				$(this).addClass("hide");
+				$(".itm.hide").show();
+				$(".hideshow span.vaa").hide();
+				$(".hideshow span.vaa1").show();
+				$(".result-heading h2.vaa").hide();
+				$(".result-heading h2.vaa1").show();
+			}
+		});
+ /*     $(".hideshow", context)
         .once("workbc")
         .on("click", function () {
           if ($(".hideshow").hasClass("hide")) {
@@ -187,7 +206,7 @@
             $(".hideshow span").text("-");
             $(".hideshow span.vaa").text("Show Top Aptitudes");
           }
-        });
+        }); */
       // if ($(window).width() < 768) {
       //   $('#block-views-block-career-quizzes-block-1 #myCarousel', context).once('workbc').carousel({
       //     pause: true,

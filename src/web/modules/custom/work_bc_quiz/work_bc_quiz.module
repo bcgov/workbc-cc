@@ -35,6 +35,22 @@ function work_bc_quiz_theme($existing, $type, $theme, $path) {
       'template' => 'node--custom-quiz-full-template',
       'base hook' => 'node'
     ],
+	'page__multiple_intelligences_quiz' => [
+      'template' => 'page--quiz-custom-template',
+      'base hook' => 'page'
+    ],
+	'page__quiz__multiple_intelligences_quiz' => [
+      'template' => 'page--quiz-custom-template',
+      'base hook' => 'page'
+    ],
+	'node__multiple_intelligences_quiz_full' => [
+      'template' => 'node--custom-quiz-full-template',
+      'base hook' => 'node'
+    ],
+	'node__multiple_intelligences_quiz' => [
+      'template' => 'node--custom-quiz-full-template',
+      'base hook' => 'node'
+    ],
 	'page_title__work_bc_quiz' => [
       'template' => 'page-title--work-bc-quiz',
       'base hook' => 'page_title'
@@ -91,7 +107,7 @@ function work_bc_quiz_theme_suggestions_page_title_alter(array &$suggestions, ar
  */
 function work_bc_quiz_form_node_form_alter(&$form, $formState, $form_id) {
 
-	$nodeTypeToHideTitle = ["multiple_intelligence_quiz", "multiple_intelligence_quiz_step_1", "abilities_quiz", "abilities_quiz_step_1"];
+	$nodeTypeToHideTitle = ["multiple_intelligences_quiz", "multiple_intelligences_quiz_step_1", "abilities_quiz", "abilities_quiz_step_1"];
 	$form_id = str_replace(["node_", "_form", "_step_1"],[''],$form_id);
 	if(in_array($form_id, $nodeTypeToHideTitle)){
 		$form['title']['widget'][0]['value']['#value'] = ucwords(str_replace("_", " ", $form_id));
@@ -111,7 +127,7 @@ function work_bc_quiz_entity_presave(Drupal\Core\Entity\EntityInterface $entity)
   $SaveToSession =  false;
   $autoTitle = "";
   // Add all other quiz type in switch case.
-  $nodeTypeToHideTitle = ["multiple_intelligence_quiz", "abilities_quiz"];
+  $nodeTypeToHideTitle = ["multiple_intelligences_quiz", "abilities_quiz"];
 	if (in_array($entity->bundle(), $nodeTypeToHideTitle)){
 		$autoTitle = ucwords(str_replace("_", " ", $entity->bundle()));
 		$entity->setTitle($autoTitle . " - Results");
@@ -156,31 +172,54 @@ function work_bc_quiz_entity_presave(Drupal\Core\Entity\EntityInterface $entity)
  * Adds title_description text in the view mode of all thee of the quiz pages.
  *  01. Node view of the quiz
  *  02. Questions pages
- *  03. Summary page of the quiz
+ *  03. Summary pages of the quiz
  */
-
-function work_bc_quiz_preprocess_page_title(&$variables) {
+use Drupal\node\Entity\Node;
+function work_bc_quiz_preprocess(&$variables) {
+	$details_nid =0;
+		
 	if ($node = \Drupal::routeMatch()->getParameter('node')) {
-		if ($node->bundle() == 'abilities_quiz') {
-			$variables['description'] = "Find out about your key aptitudes and see what types of job you are more likely to be good at based on your current skill set.";
-		}
+		if ($node->bundle() == 'abilities_quiz') $details_nid =510;
+		elseif ($node->bundle() == 'work_preferences_quiz') $details_nid =514;
+		elseif ($node->bundle() == 'interests_quiz') $details_nid =511;
+		elseif ($node->bundle() == 'multiple_intelligences_quiz') $details_nid =513;
+		elseif ($node->bundle() == 'learning_styles_quiz') $details_nid =512;
+		elseif ($node->bundle() == 'work_values_quiz') $details_nid =515;
 	}
 	else {
 		$path = \Drupal::request()->getpathInfo();
 		$arg = explode('/', $path);
 		// if page is not node, check url and added title_description for the page.
-
 		if (isset($arg[1]) && isset($arg[2])  && $arg[1] == 'quiz'){
-			if ($arg[2] == 'abilities_quiz') {
-				$variables['description'] = "You can modify your answers below. When you’ve finished, select Save Changes and view your updated quiz results.";
+			if (($arg[2] == 'abilities_quiz')||($arg[2] == 'abilities-quiz')) $details_nid = 510;
+			elseif ($arg[2] == 'work-preferences-quiz') $details_nid = 514;
+			elseif ($arg[2] == 'interests-quiz') $details_nid = 511;
+			elseif ($arg[2] == 'multiple-intelligences-quiz') $details_nid = 513;
+			elseif ($arg[2] == 'learning-styles-quiz') $details_nid = 512;
+			elseif ($arg[2] == 'work-values-quiz') $details_nid = 515;   
 			}
-			elseif ($arg[2] == 'abilities-quiz'){
-				$variables['description'] = "Assess your talents & discover occupations that match.";
-				$variables['question'] = "39";
-				$variables['time'] = "10";
-			}
-		}
 	}
+	
+	if($details_nid>0){
+		$node_details = Node::load($details_nid);
+		//Quiz View Display =  Results Page
+		if (\Drupal::routeMatch()->getParameter('node')){
+			$variables['description'] = $node_details->field_quiz_results_page_descript->value; 
+			$variables['subheading'] = $node_details->field_quiz_results_page_subheadi->value;
+			$variables['subheading_toggle'] = $node_details->field_quiz_results_toggle_subhea->value;
+			$variables['toggle_plus'] = $node_details->field_quiz_results_toggle_plus->value;
+			$variables['toggle_minus'] = $node_details->field_quiz_results_toggle_minus->value;
+		}
+		elseif(isset($arg[4]) && $arg[4] == 'preview'){
+					$variables['description'] = $node_details->field_quiz_summary_page_descript->value; 
+				}
+		//Quiz Form Display
+		else{
+			$variables['description'] = $node_details->field_quiz_page_description->value; 
+			$variables['question'] = $node_details->field_number_of_questions->value;  //"39";
+			$variables['time'] = $node_details->field_quiz_duration->value;  //"10";
+		}
+	} 
 }
 
 /*
@@ -188,14 +227,13 @@ function work_bc_quiz_preprocess_page_title(&$variables) {
  * All categories and their scores showing on the results page are altered in this hook.
  */
 function work_bc_quiz_node_view(array &$build, \Drupal\Core\Entity\EntityInterface $entity, \Drupal\Core\Entity\Display\EntityViewDisplayInterface $display, $view_mode) {
-	$session = \Drupal::request()->getSession();
-	
+	$session = \Drupal::request()->getSession(); 
 	$SavedQuiz = ($session->get('SavedQuiz')) ? $session->get('SavedQuiz') : '';
 	
 	// Filter which Content Types would use this node view
 	$node = $entity;
-	$all_quizes = ['abilities_quiz','multiple_intelligence_quiz'];
-	if ($node->bundle() === 'multiple_intelligence_quiz' || $node->bundle() === 'abilities_quiz') {
+	$all_quizes = ['abilities_quiz','multiple_intelligences_quiz'];
+	if ($node->bundle() === 'multiple_intelligences_quiz' || $node->bundle() === 'abilities_quiz') {
 		// 'quiz' mode isn't active yet
 		if ($view_mode === 'full' || $view_mode === 'quiz') {
 
@@ -203,7 +241,12 @@ function work_bc_quiz_node_view(array &$build, \Drupal\Core\Entity\EntityInterfa
 			$fields = \Drupal::service('entity_field.manager')->getFieldDefinitions('node', $node->bundle());
 
 			// Get all QUIZ_options of this quiz node (i.e. from one of the abilities_options, multiple_intelligence_options etc.), and save them into $options_value array for later use.
-			$vid = str_replace("_quiz", "_options", $node->bundle());
+			
+			$temp_to_replace = array("multiple_intelligences_quiz","_quiz");
+			$temp_replace_by = array("multiple_intelligence_options", "_options");
+			$vid = str_replace($temp_to_replace, $temp_replace_by, $node->bundle());
+			//$vid = str_replace("_quiz", "_options", $node->bundle());
+			
 			$terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid);
 			$max_value =0;
 			$options_value = [];
@@ -212,13 +255,17 @@ function work_bc_quiz_node_view(array &$build, \Drupal\Core\Entity\EntityInterfa
 				$options_value[$term->tid]['name'] = $term->name;
 				$options_value[$term->tid]['description'] = $term->description;
 				$options_value[$term->tid]['tid'] = $term->tid;
-				$options_value[$term->tid]['field_option_percentage'] = $term_obj->get('field_option_percentage')->value[0];
+				$options_value[$term->tid]['field_option_percentage'] = $term_obj->get('field_option_percentage')->value;
 				// Compare max value with next term score and find out the largest score.
-				if($max_value<$term_obj->get('field_option_percentage')->value[0]) $max_value = $term_obj->get('field_option_percentage')->value[0];
+				if($max_value<$term_obj->get('field_option_percentage')->value[0]) $max_value = $term_obj->get('field_option_percentage')->value;
 			}
 
 			// Get all QUIZ_categories of this quiz node(i.e. from one of the abilities_categories, multiple_intelligence_categories etc.), and save them into $category_value array for later use.
-			$vid = str_replace("_quiz", "_categories", $node->bundle());
+			$temp_to_replace = array("multiple_intelligences_quiz","_quiz");
+			$temp_replace_by = array("multiple_intelligence_categories", "_categories");
+			$vid = str_replace($temp_to_replace, $temp_replace_by, $node->bundle());
+			//$vid = str_replace("_quiz", "_categories", $node->bundle());
+			
 			$terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid);
 			$category_value = [];
 			foreach ($terms as $term) {
@@ -235,7 +282,7 @@ function work_bc_quiz_node_view(array &$build, \Drupal\Core\Entity\EntityInterfa
 			foreach ($fields as $field_name => $field_definition) {
 				if (!empty($field_definition->getTargetBundle())) {
 					// Process only if the field type is Double Reference.
-					if($field_definition->getType() == "work_bc_quiz"){
+					if($field_definition->getType() == "work_bc_quiz"){              //work_bc_quiz == Double reference field
 
 						// Get answer for the value and then percentage and category names from answers.
 						$answer = $node->get($field_name)->getValue();
@@ -281,9 +328,11 @@ function work_bc_quiz_node_view(array &$build, \Drupal\Core\Entity\EntityInterfa
 			$query->condition('n.uuid', $uuid);
 			$results = $query->execute()->fetchAll();
 			$instance_id = $results[0]->instance_id;
+			
 			$entity_id = $results[0]->entity_id;
 			$quizLink = $node->bundle();
-
+			if($quizLink !== "abilities_quiz") $quizLink = str_replace("_", "-", $quizLink); 
+			
 			// Modify quiz link
 			$field_value[0]['uri'] = "/quiz/$quizLink/step1/preview/".$instance_id;
 			$field_value[0]['title'] = t('Modify Your Answers');
@@ -291,7 +340,8 @@ function work_bc_quiz_node_view(array &$build, \Drupal\Core\Entity\EntityInterfa
 			$field_value[1]['uri'] = "/"; //quiz/$quizLink/step1/preview/".$instance_id;
 			$field_value[1]['title'] = t('Take Next Quiz');
 
-			// Calculate the percentage value.
+			//print("~~~".$node->bundle()."~~");
+			// Calculate the percentage value for each option.
 			$forCareermatch = [];
 			$normalized = 0;
 			foreach($groupedResult as $key => $value){
@@ -300,6 +350,7 @@ function work_bc_quiz_node_view(array &$build, \Drupal\Core\Entity\EntityInterfa
 				$groupedResult[$key]['percentage'] = $percentage;
 				$normalized = floor((($percentage/100)*4)+1);
 				$forCareermatch[$value['short']]=$normalized;
+				//print(" max_total: ". $max_total. "  array_sum['score']:". array_sum($value['score']). "  percentage:" .$percentage. "<br>");
 			}
 
 			// Sort data using usort php function.
@@ -310,6 +361,7 @@ function work_bc_quiz_node_view(array &$build, \Drupal\Core\Entity\EntityInterfa
 
 
 			//Get occupations data from the JSON file.
+			
 			try {
 				 // Get JSON file url
 				$uri = DRUPAL_ROOT.'/'.drupal_get_path('module', 'work_bc_quiz').'/storage/'.$node->bundle().'.json';
@@ -361,6 +413,7 @@ function work_bc_quiz_node_view(array &$build, \Drupal\Core\Entity\EntityInterfa
 								$SavedQuiz[$key]->result = $result;
 							}
 						}
+						
 						$session->set('SavedQuiz', $SavedQuiz);			
 					}
 				}
@@ -369,6 +422,7 @@ function work_bc_quiz_node_view(array &$build, \Drupal\Core\Entity\EntityInterfa
 			  return FALSE;
 			}
 			//print_r($SavedQuiz);
+			//$session->remove('SavedQuiz');     // Temp to Clear Session
 		}
 	}
 }
@@ -398,16 +452,19 @@ function work_bc_quiz_views_pre_render(ViewExecutable &$view) {
 					//Get quiz session into an array.
 					$SavedQuiz = $session->get('SavedQuiz');
 					
-
+					
+					
 					if(is_array($SavedQuiz)) {
 
 						foreach($SavedQuiz as $key =>  $value){
 							$NId = end(explode("_",$key));
-							$SavedQuizTitle  = str_replace("_", " ", str_replace("_".$NId, "", str_replace("save_quiz_", "", $key)));
-							if(strtolower($SavedQuizTitle) == strtolower($nodeTitle)){
+						
+							$SavedQuizTitle  = str_replace("_A100", "", str_replace("_", " ", str_replace("_".$NId, "", str_replace("save_quiz_", "", $key))));
+							
+							if(trim(strtolower($SavedQuizTitle)) == trim(strtolower($nodeTitle))){
 								$field_quiz_link = $row->_entity->get('field_quiz_link');
 								$field_value = $field_quiz_link->getValue();
-
+								
 								// current item is available in sessions => remove new quiz link and replace with the existing link.
 								$quizLink = strtolower(str_replace(" ","_", $nodeTitle));
 

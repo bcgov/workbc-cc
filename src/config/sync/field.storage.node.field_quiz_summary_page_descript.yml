@@ -1,0 +1,19 @@
+uuid: f6231dd6-2d7b-4b08-b4a4-62603576d94a
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_quiz_summary_page_descript
+field_name: field_quiz_summary_page_descript
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

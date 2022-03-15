@@ -1,0 +1,660 @@
+uuid: 0dd865e0-2380-4a56-a8ad-8b71f1db09fd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_1
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_10
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_11
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_12
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_13
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_14
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_15
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_16
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_17
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_18
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_19
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_2
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_20
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_21
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_22
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_23
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_24
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_25
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_26
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_27
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_28
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_29
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_3
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_30
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_31
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_32
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_33
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_34
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_35
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_36
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_37
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_38
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_39
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_4
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_40
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_41
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_42
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_43
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_44
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_45
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_46
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_47
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_48
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_49
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_5
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_50
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_51
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_52
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_53
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_54
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_55
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_56
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_57
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_58
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_59
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_6
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_60
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_61
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_62
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_63
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_64
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_7
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_8
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_9
+    - node.type.multiple_intelligences_quiz
+  module:
+    - user
+    - work_bc_quiz
+id: node.multiple_intelligences_quiz.default
+targetEntityType: node
+bundle: multiple_intelligences_quiz
+mode: default
+content:
+  field_multi_intel_1:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_multi_intel_10:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  field_multi_intel_11:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 11
+    region: content
+  field_multi_intel_12:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 12
+    region: content
+  field_multi_intel_13:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 13
+    region: content
+  field_multi_intel_14:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 14
+    region: content
+  field_multi_intel_15:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 15
+    region: content
+  field_multi_intel_16:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 16
+    region: content
+  field_multi_intel_17:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 17
+    region: content
+  field_multi_intel_18:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 18
+    region: content
+  field_multi_intel_19:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 19
+    region: content
+  field_multi_intel_2:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_multi_intel_20:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 20
+    region: content
+  field_multi_intel_21:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 21
+    region: content
+  field_multi_intel_22:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 22
+    region: content
+  field_multi_intel_23:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 23
+    region: content
+  field_multi_intel_24:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 24
+    region: content
+  field_multi_intel_25:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 25
+    region: content
+  field_multi_intel_26:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 26
+    region: content
+  field_multi_intel_27:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 27
+    region: content
+  field_multi_intel_28:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 28
+    region: content
+  field_multi_intel_29:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 29
+    region: content
+  field_multi_intel_3:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_multi_intel_30:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 30
+    region: content
+  field_multi_intel_31:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 31
+    region: content
+  field_multi_intel_32:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 32
+    region: content
+  field_multi_intel_33:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 33
+    region: content
+  field_multi_intel_34:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 34
+    region: content
+  field_multi_intel_35:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 35
+    region: content
+  field_multi_intel_36:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 36
+    region: content
+  field_multi_intel_37:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 37
+    region: content
+  field_multi_intel_38:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 38
+    region: content
+  field_multi_intel_39:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 39
+    region: content
+  field_multi_intel_4:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_multi_intel_40:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 40
+    region: content
+  field_multi_intel_41:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 41
+    region: content
+  field_multi_intel_42:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 42
+    region: content
+  field_multi_intel_43:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 43
+    region: content
+  field_multi_intel_44:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 44
+    region: content
+  field_multi_intel_45:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 45
+    region: content
+  field_multi_intel_46:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 46
+    region: content
+  field_multi_intel_47:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 47
+    region: content
+  field_multi_intel_48:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 48
+    region: content
+  field_multi_intel_49:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 49
+    region: content
+  field_multi_intel_5:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_multi_intel_50:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 50
+    region: content
+  field_multi_intel_51:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 51
+    region: content
+  field_multi_intel_52:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 52
+    region: content
+  field_multi_intel_53:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 53
+    region: content
+  field_multi_intel_54:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 54
+    region: content
+  field_multi_intel_55:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 55
+    region: content
+  field_multi_intel_56:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 56
+    region: content
+  field_multi_intel_57:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 57
+    region: content
+  field_multi_intel_58:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 58
+    region: content
+  field_multi_intel_59:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 59
+    region: content
+  field_multi_intel_6:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_multi_intel_60:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 60
+    region: content
+  field_multi_intel_61:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 61
+    region: content
+  field_multi_intel_62:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 62
+    region: content
+  field_multi_intel_63:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 63
+    region: content
+  field_multi_intel_64:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 64
+    region: content
+  field_multi_intel_7:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_multi_intel_8:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_multi_intel_9:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 9
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }
