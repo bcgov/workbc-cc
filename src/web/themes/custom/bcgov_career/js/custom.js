@@ -46,6 +46,33 @@
         });
       });
 
+      $(".carousel-mobi-tabs-trigger").on("click", function () {
+        $(this).next().addClass("active");
+        $("body").addClass("overlayBg");
+      });
+      $(".carousel-mobi-tab-close").on("click", function () {
+        $(this).parent().removeClass("active");
+        $("body").removeClass("overlayBg");
+      });
+      $(".carousel-mobi-tab-item").on("click", function () {
+        $(".carousel-mobi-tab-item").removeClass("active");
+        $(this).addClass("active");
+
+        const getTabItemId = $(this).data("href");
+        $(".carousel-inner-mobi").removeClass("active");
+        $(`.carousel-inner-mobi[data-id=${getTabItemId}]`).addClass("active");
+        $(".active > .carousel-slider-mobi-row").slick(
+          "slickGoTo",
+          parseInt(0),
+          false
+        );
+
+        $(this).parent().parent().removeClass("active");
+        $("body").removeClass("overlayBg");
+
+        $(".carousel-mobi-tabs-trigger > span.text").text($(this).data("text"));
+      });
+
       $(".career-table-link > a").on("click", function () {
         const getCarDataId = $(this).parent().parent().data("id");
         $(".career-table-row").removeClass("active");
@@ -56,10 +83,6 @@
         $(
           `.career-content-main-wrapper .career-content-item#${getCarDataId}`
         ).addClass("active");
-      });
-
-      $(".career-table-mobi-row-link").on("click", function () {
-        // var getCarDataId = $(this).parent().parent().data("id");
       });
 
       setTimeout(function () {
@@ -175,47 +198,6 @@
 
       // }
       if ($("body").width() < 768) {
-        $(".dropdown-inner ul li").click(function () {
-          $(".dropdown-inner ul li").removeClass("active");
-          $(this).addClass("active 0");
-        });
-        $(".dropdown-inner ul li#items_03").click(function () {
-          $("body").removeClass("overlay");
-          $(".carousel-item.itm").removeClass("active");
-          $("#myResult .carousel-inner>.itm:first").addClass("active");
-          $(".carousel-indicators li").removeClass("active");
-          $(".carousel-indicators li:first").addClass("active");
-          $(".itm").slice(3, 9).removeClass("carousel-item");
-
-          $("#myResult .carousel-inner>.itm:first").addClass("active 1");
-          $(".itm").slice(3, 9).wrapAll("<div class='row extradivs'></div>");
-          $(".carousel-indicators li")
-            .slice(3, 9)
-            .wrapAll("<div class='extradots'></div>");
-        });
-        $(".dropdown-inner ul li#items_09").click(function () {
-          $("body").removeClass("overlay");
-
-          $(".carousel-item.itm").removeClass("active");
-          $("#myResult .carousel-inner>.itm:first").addClass("active");
-          $(".carousel-indicators li").removeClass("active");
-          $(".carousel-indicators li:first").addClass("active");
-          if ($(".carousel-indicators li").parent().hasClass("extradots")) {
-            $(".carousel-indicators .extradots li").unwrap();
-          }
-          if ($("#myResult .itm").parent().hasClass("extradivs")) {
-            $("#myResult .extradivs .itm").unwrap();
-            $("#myResult .itm").addClass("carousel-item");
-          }
-        });
-
-        $(".mobile-view svg").click(function () {
-          $("body").addClass("overlay");
-        });
-        $(".cross-button span").click(function () {
-          $("body").removeClass("overlay");
-        });
-
         $("#myResult", context).once("workbc").carousel({
           pause: true,
           interval: false
