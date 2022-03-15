@@ -64,3 +64,15 @@
     </div>
     {% endif %}
 </div>
+
+<div class="tools-resource-items-wrapper mobi-tools-resource">
+    {% if multiple %}
+    <div class="field__items row">
+    {% endif %}
+    {% for item in items %}
+    <div class="col-12 col-md-3">{{ item.content }}</div>
+    {% endfor %}
+    {% if multiple %}
+    </div>
+    {% endif %}
+</div>
