@@ -170,7 +170,8 @@
     min-height: 450px;
     background: #fff;
     @media all and (max-width: 991.98px) {
-        padding: 30px 12px 30px 12px;
+        padding: 30px 12px 70px 12px;
+        min-height: 490px;
     }
 
     .img-field {
@@ -272,6 +273,11 @@
 }
 
 .myResultHeading {
+    .row.rh{
+        @media all and (max-width: 767.98px){
+            display: none;
+        }
+    }
     .result-heading {
         margin-bottom: 40px;
         margin-top: 20px;
@@ -292,6 +298,81 @@
     }
 }
 
+.carousel-mobi-tabs{
+    margin-top: 20px;
+    display: none;
+    @media all and (max-width: 767.98px){
+        display: block;
+    }
+    a.carousel-mobi-tabs-trigger{
+        text-decoration: none;
+        font-family: 'BC Sans Regular';
+        font-weight: normal;
+        font-style: normal;
+        font-size: 2.5rem;
+        line-height: 3.5rem;
+        display: block;
+        color: #333333;
+        margin-bottom: 30px;
+        position: relative;
+        > svg{
+            width: 15px;
+            height: auto;
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+    ul.carousel-mobi-tab-items-wrapper{
+        min-height: 180px;
+        padding: 0;
+        list-style-type: none;
+        margin: 0;
+        position: fixed;
+        z-index: 9999;
+        background: #fff;
+        width: 100%;
+        bottom: -200px;
+        left: 0;
+        border-top: 4px solid rgb(35, 64, 117);
+        padding-top: 50px;
+        transition: all 0.3s ease-in-out;
+        &.active{
+            bottom: 0;
+        }
+        .carousel-mobi-tab-close{
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            > svg{
+                width: 20px;
+                height: auto;
+            }
+        }
+        li{
+            padding: 16px 20px;
+            border-bottom: 1px solid rgba(221, 221, 221, 1);
+            &:last-child{
+                border-bottom: 0;
+            }
+            a{
+                font-family: 'BC Sans Regular';
+                font-weight: normal;
+                font-style: normal;
+                font-size: 1.6rem;
+                line-height: 3.0rem;
+                display: block;
+                text-decoration: none;
+                color: #333333;
+                &.active{
+                    font-family:'BC Sans Bold';
+                }
+            }
+        }
+    }
+}
+
 #myResult {
     .carousel-inner{
         &.carousel-inner-device{
@@ -302,7 +383,9 @@
         &.carousel-inner-mobi{
             display: none;
             @media all and (max-width: 767.98px){
-                display: block;
+                &.active{
+                    display: block;
+                }
             }
             .slick-dots {
                 display: flex;
@@ -465,8 +548,7 @@
         justify-content: center;
         align-items: center;
         position: relative;
-        bottom: 40px;
-
+        bottom: 55px;
         li {
             margin-right: 10px;
 
@@ -484,6 +566,17 @@
                     background: #333333;
                 }
             }
+        }
+    }
+    &.mobi_cari_quiz{
+        display: none;
+        @media all and (max-width: 991.98px) {
+            display: block;
+        }
+    }
+    &:not(.mobi_cari_quiz){
+        @media all and (max-width: 991.98px) {
+            display: none;
         }
     }
 }
@@ -694,6 +787,9 @@ a.quiz-link {
             padding-top: 0;
             padding-bottom: 220px;
 
+        }
+        &#block-bcgov-career-content{
+            padding-bottom: 50px;
         }
     }
 }
@@ -1270,9 +1366,19 @@ span.question-prefix {
 
 // Tools and Resources
 .tools-resource-items-wrapper {
+    &.mobi-tools-resource{
+        display: none;
+        @media all and (max-width: 767.98px){
+            display: block;
+        }
+    }
+    &:not(.mobi-tools-resource){
+        @media all and (max-width: 767.98px){
+            display: none;
+        }
+    }
     > .field__items {
         justify-content: center;
-
         > .col-12 {
             &:last-child {
                 .tools-resource-item::after {
@@ -1532,7 +1638,7 @@ span.question-prefix {
     .careers-table-main-wrapper {
         height: 100%;
         border: 1px solid #e6eae9;
-        max-height: 800px;
+        max-height: 700px;
         overflow-y: scroll;
     }
 
@@ -1548,7 +1654,7 @@ span.question-prefix {
                 font-size: 1.4rem;
                 line-height: 1.8rem;
                 color: #333;
-                padding: 20px 15px;
+                padding: 14px 15px;
 
                 a {
                     border: 0;
@@ -2050,7 +2156,8 @@ span.question-prefix {
                     font-style: normal;
                     font-size: 1.5rem;
                     line-height: 1.8rem;
-
+                    display: flex;
+                    align-items: flex-start;
                     &:last-child {
                         border-bottom: 0;
                     }
@@ -2108,6 +2215,21 @@ span.question-prefix {
             }
         }
     }
+
+    &.career-content-table-item{
+        .career-content-item{
+            .career-content-item-inner{
+                .title{
+                    min-height: 65px;
+                    height: 65px;
+                }
+                .career-inner-content{
+                    height: calc(100% - 65px);
+                    min-height: 635px;
+                }
+            }
+        }
+    }
 }
 
 .career-bottom-notes {
@@ -2137,7 +2259,6 @@ span.question-prefix {
 .compare-career-main-wrapper {
     .back-link {
         padding: 20px 0;
-
         a {
             font-family: "BC Sans", sans-serif;
             font-weight: 400;
@@ -2195,7 +2316,17 @@ span.question-prefix {
         background: #fff;
         padding: 30px 15px;
         border-bottom: 4px solid rgba(35, 64, 117, 1);
-
+        &.mobi-career-content-compare{
+            display: none;
+            @media all and (max-width: 991.98px){
+                display: block;
+            }
+        }
+        &:not(.mobi-career-content-compare){
+            @media all and (max-width: 991.98px){
+                display: none;
+            }
+        }
         .slick-slide:last-child {
             .career-content-item {
                 .slide-next-prev {
@@ -2205,12 +2336,11 @@ span.question-prefix {
                 }
             }
         }
-
         .career-content-item {
             max-width: 375px;
             margin: 0 11px;
 
-            @media all and (max-width: 767.98px) {
+            @media all and (max-width: 991.98px) {
                 max-width: 100%;
                 margin: 0;
             }
@@ -2234,7 +2364,7 @@ span.question-prefix {
                         justify-content: space-between;
                         display: none;
 
-                        @media all and (max-width: 767.98px) {
+                        @media all and (max-width: 991.98px) {
                             display: flex;
                         }
 
@@ -2269,7 +2399,7 @@ span.question-prefix {
                     }
 
                     p {
-                        @media all and (max-width: 767.98px) {
+                        @media all and (max-width: 991.98px) {
                             padding: 20px 45px;
                         }
                     }
@@ -2307,6 +2437,7 @@ span.question-prefix {
                 .career-inner-content {
                     min-height: 600px;
                     padding: 20px 20px 90px;
+                    height: 100%;
                 }
             }
         }
