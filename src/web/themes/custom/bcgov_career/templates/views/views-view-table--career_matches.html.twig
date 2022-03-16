@@ -152,7 +152,7 @@
       </div>
       </div>
       <div class="col-12 col-md-4">
-        <div class="career-content-main-wrapper">
+        <div class="career-content-main-wrapper career-content-table-item">
           {% for rowkey, row in rows %}
             <div id="career-item-{{ rowkey }}" class="career-content-item {% if rowkey == "0" %}active{% endif %}" data-url="">
               <div class="career-content-item-inner">
@@ -177,7 +177,7 @@
                     {% endif %}
                   </div>
                   <div class="description">
-                    {{ row.raw.field_job_summary }}
+                    <p>{{ row.raw.field_job_summary | striptags | truncate(250) | raw }}</p>
                   </div>
                   <div class="bottom-btn">
                     <a class="btn btn-career-profile" href="{{ row.raw.field_workbc_link }}" target='_blank'>View Career Profile</a>
