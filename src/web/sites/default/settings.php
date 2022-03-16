@@ -770,9 +770,9 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
  * Keep this code block at the end of this file to take full effect.
  */
 
-ini_set('session.cache_expire',     86400);
-ini_set('session.cookie_lifetime',  0);
-ini_set('session.gc_maxlifetime',   86400);
+// ini_set('session.cache_expire',     86400);
+// ini_set('session.cookie_lifetime',  0);
+// ini_set('session.gc_maxlifetime',   86400);
 
 $settings['config_sync_directory'] = '../config/sync';
 $settings['file_public_path'] = 'sites/default/files';
