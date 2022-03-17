@@ -1,4 +1,4 @@
-uuid: e7eba8dc-96db-4b69-8dcd-84ecc5cf6016
+uuid: 0a980866-c4ad-4c57-99ff-19856870247f
 langcode: en
 status: true
 dependencies:
@@ -13,7 +13,13 @@ label: 'Number of Questions'
 description: ''
 required: false
 translatable: false
-default_value: {  }
+default_value:
+  -
+    value: !!float 84
 default_value_callback: ''
-settings: {  }
-field_type: string
+settings:
+  min: !!float 0
+  max: !!float 100
+  prefix: ''
+  suffix: ''
+field_type: decimal

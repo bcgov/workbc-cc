@@ -136,3 +136,4 @@ content:
     region: content
 hidden:
   field_number_of_questions: true
+  field_quiz_results_toggle_subhea: true

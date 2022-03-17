@@ -1,4 +1,4 @@
-uuid: b5af9849-c8a2-4431-bff4-250c82060512
+uuid: e85d0740-a4c0-45e4-baf4-a327c35d99b7
 langcode: en
 status: true
 dependencies:
@@ -7,11 +7,10 @@ dependencies:
 id: node.field_number_of_questions
 field_name: field_number_of_questions
 entity_type: node
-type: string
+type: decimal
 settings:
-  max_length: 255
-  case_sensitive: false
-  is_ascii: false
+  precision: 10
+  scale: 2
 module: core
 locked: false
 cardinality: 1

@@ -50,5 +50,6 @@ hidden:
   field_quiz_results_page_subheadi: true
   field_quiz_results_toggle_minus: true
   field_quiz_results_toggle_plus: true
+  field_quiz_results_toggle_subhea: true
   field_quiz_summary_page_descript: true
   field_quiz_type: true
