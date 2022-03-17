@@ -1,0 +1,49 @@
+uuid: 8cb6aefe-e73f-4adf-8932-795a69d6662b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_multi_intel_59
+    - node.type.multiple_intelligences_quiz
+    - taxonomy.vocabulary.multiple_intelligence_categories
+  content:
+    - 'taxonomy_term:multiple_intelligence_categories:46a80d0e-859b-4453-8795-c392d6c09ebb'
+  module:
+    - work_bc_quiz
+id: node.multiple_intelligences_quiz.field_multi_intel_59
+field_name: field_multi_intel_59
+entity_type: node
+bundle: multiple_intelligences_quiz
+label: 'I feel proud of my musical accomplishments.'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    ar_target_id: null
+    target_uuid: 46a80d0e-859b-4453-8795-c392d6c09ebb
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      multiple_intelligence_categories: multiple_intelligence_categories
+    sort:
+      field: name
+      direction: asc
+    auto_create: 0
+    auto_create_bundle: ''
+  pr_label: ''
+  pr_field_hide: 1
+  added_reference:
+    ar_bundles:
+      multiple_intelligence_options: multiple_intelligence_options
+      abilities_categories: 0
+      abilities_options: 0
+      education_level: 0
+      multiple_intelligence_categories: 0
+      tags: 0
+    ar_label: ''
+    ar_weight: '59'
+    ar_required: 1
+field_type: work_bc_quiz

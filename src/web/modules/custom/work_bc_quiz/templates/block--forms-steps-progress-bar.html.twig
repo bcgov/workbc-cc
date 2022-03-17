@@ -53,15 +53,17 @@
 				{% set url = url('<current>')|render|render %}
 				{% if 'step' in url|render|render %}
 					
-					{% set url = url|slice(-38) %}
-					{% set url = url|slice(0,1) %}
+					{% set url = url|slice(-39) %}
+					{% set url = url|slice(0,2) %}
+					{% set url = url| replace({'p': ''}) %}
+	
 					{% if url > 0%}
 						{% set qs = ((url*1) - 1)*5 %}
 					{% endif %}
 				{% else %}
 				
 				{% endif %}
-				<span class="Question-status">{{qs}}</span>/<span class="total-question">39</span> <span class="label">questions</span>
+				<span class="Question-status">{{qs}}</span>/<span class="total-question">{{ question }}</span>
 			</div>
 		</div>
 	</div>

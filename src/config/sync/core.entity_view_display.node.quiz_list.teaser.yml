@@ -10,6 +10,12 @@ dependencies:
     - field.field.node.quiz_list.field_quiz_icon
     - field.field.node.quiz_list.field_quiz_link
     - field.field.node.quiz_list.field_quiz_order
+    - field.field.node.quiz_list.field_quiz_page_description
+    - field.field.node.quiz_list.field_quiz_results_page_descript
+    - field.field.node.quiz_list.field_quiz_results_page_subheadi
+    - field.field.node.quiz_list.field_quiz_results_toggle_minus
+    - field.field.node.quiz_list.field_quiz_results_toggle_plus
+    - field.field.node.quiz_list.field_quiz_summary_page_descript
     - field.field.node.quiz_list.field_quiz_type
     - node.type.quiz_list
   module:
@@ -39,4 +45,11 @@ hidden:
   field_quiz_icon: true
   field_quiz_link: true
   field_quiz_order: true
+  field_quiz_page_description: true
+  field_quiz_results_page_descript: true
+  field_quiz_results_page_subheadi: true
+  field_quiz_results_toggle_minus: true
+  field_quiz_results_toggle_plus: true
+  field_quiz_results_toggle_subhea: true
+  field_quiz_summary_page_descript: true
   field_quiz_type: true

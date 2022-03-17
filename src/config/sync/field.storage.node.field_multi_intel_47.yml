@@ -1,0 +1,22 @@
+uuid: 56b5001f-1acc-4c76-9a85-372d1f1e6b2b
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+    - work_bc_quiz
+id: node.field_multi_intel_47
+field_name: field_multi_intel_47
+entity_type: node
+type: work_bc_quiz
+settings:
+  target_type: taxonomy_term
+  ar_target_type: taxonomy_term
+module: work_bc_quiz
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

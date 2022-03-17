@@ -1,0 +1,21 @@
+uuid: 08099515-9bb1-44d0-acbc-a37246b5fe0e
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_quiz_results_toggle_subhea
+field_name: field_quiz_results_toggle_subhea
+entity_type: node
+type: string
+settings:
+  max_length: 512
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

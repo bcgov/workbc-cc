@@ -1,0 +1,195 @@
+uuid: ac17ebbb-0cd1-4f4a-90d5-91ce89bbb29a
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.node.step_8
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_1
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_10
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_11
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_12
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_13
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_14
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_15
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_16
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_17
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_18
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_19
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_2
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_20
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_21
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_22
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_23
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_24
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_25
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_26
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_27
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_28
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_29
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_3
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_30
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_31
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_32
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_33
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_34
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_35
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_36
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_37
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_38
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_39
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_4
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_40
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_41
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_42
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_43
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_44
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_45
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_46
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_47
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_48
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_49
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_5
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_50
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_51
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_52
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_53
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_54
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_55
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_56
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_57
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_58
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_59
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_6
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_60
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_61
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_62
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_63
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_64
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_7
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_8
+    - field.field.node.multiple_intelligences_quiz.field_multi_intel_9
+    - node.type.multiple_intelligences_quiz
+  module:
+    - work_bc_quiz
+id: node.multiple_intelligences_quiz.step_8
+targetEntityType: node
+bundle: multiple_intelligences_quiz
+mode: step_8
+content:
+  field_multi_intel_36:
+    type: double_reference_autocomplete_select
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_multi_intel_37:
+    type: double_reference_autocomplete_select
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_multi_intel_38:
+    type: double_reference_autocomplete_select
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_multi_intel_39:
+    type: double_reference_autocomplete_select
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_multi_intel_40:
+    type: double_reference_autocomplete_select
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_multi_intel_1: true
+  field_multi_intel_10: true
+  field_multi_intel_11: true
+  field_multi_intel_12: true
+  field_multi_intel_13: true
+  field_multi_intel_14: true
+  field_multi_intel_15: true
+  field_multi_intel_16: true
+  field_multi_intel_17: true
+  field_multi_intel_18: true
+  field_multi_intel_19: true
+  field_multi_intel_2: true
+  field_multi_intel_20: true
+  field_multi_intel_21: true
+  field_multi_intel_22: true
+  field_multi_intel_23: true
+  field_multi_intel_24: true
+  field_multi_intel_25: true
+  field_multi_intel_26: true
+  field_multi_intel_27: true
+  field_multi_intel_28: true
+  field_multi_intel_29: true
+  field_multi_intel_3: true
+  field_multi_intel_30: true
+  field_multi_intel_31: true
+  field_multi_intel_32: true
+  field_multi_intel_33: true
+  field_multi_intel_34: true
+  field_multi_intel_35: true
+  field_multi_intel_4: true
+  field_multi_intel_41: true
+  field_multi_intel_42: true
+  field_multi_intel_43: true
+  field_multi_intel_44: true
+  field_multi_intel_45: true
+  field_multi_intel_46: true
+  field_multi_intel_47: true
+  field_multi_intel_48: true
+  field_multi_intel_49: true
+  field_multi_intel_5: true
+  field_multi_intel_50: true
+  field_multi_intel_51: true
+  field_multi_intel_52: true
+  field_multi_intel_53: true
+  field_multi_intel_54: true
+  field_multi_intel_55: true
+  field_multi_intel_56: true
+  field_multi_intel_57: true
+  field_multi_intel_58: true
+  field_multi_intel_59: true
+  field_multi_intel_6: true
+  field_multi_intel_60: true
+  field_multi_intel_61: true
+  field_multi_intel_62: true
+  field_multi_intel_63: true
+  field_multi_intel_64: true
+  field_multi_intel_7: true
+  field_multi_intel_8: true
+  field_multi_intel_9: true
+  path: true
+  promote: true
+  status: true
+  sticky: true
+  title: true
+  uid: true

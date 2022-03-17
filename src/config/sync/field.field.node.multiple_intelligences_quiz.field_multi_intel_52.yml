@@ -1,0 +1,49 @@
+uuid: aa0c5d4e-264b-45af-9c15-af00dc3ef98c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_multi_intel_52
+    - node.type.multiple_intelligences_quiz
+    - taxonomy.vocabulary.multiple_intelligence_categories
+  content:
+    - 'taxonomy_term:multiple_intelligence_categories:5778b438-dea7-40cc-a8e4-a9fdf882df2a'
+  module:
+    - work_bc_quiz
+id: node.multiple_intelligences_quiz.field_multi_intel_52
+field_name: field_multi_intel_52
+entity_type: node
+bundle: multiple_intelligences_quiz
+label: 'I can anticipate the moves and consequences in a game plan (i.e., hockey sense, chess sense).'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    ar_target_id: null
+    target_uuid: 5778b438-dea7-40cc-a8e4-a9fdf882df2a
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      multiple_intelligence_categories: multiple_intelligence_categories
+    sort:
+      field: name
+      direction: asc
+    auto_create: 0
+    auto_create_bundle: ''
+  pr_label: ''
+  pr_field_hide: 1
+  added_reference:
+    ar_bundles:
+      multiple_intelligence_options: multiple_intelligence_options
+      abilities_categories: 0
+      abilities_options: 0
+      education_level: 0
+      multiple_intelligence_categories: 0
+      tags: 0
+    ar_label: ''
+    ar_weight: '52'
+    ar_required: 1
+field_type: work_bc_quiz

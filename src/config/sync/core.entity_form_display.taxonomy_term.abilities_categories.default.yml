@@ -27,7 +27,7 @@ content:
     third_party_settings: {  }
   field_color:
     type: string_textfield
-    weight: 6
+    weight: 5
     region: content
     settings:
       size: 60
@@ -40,13 +40,6 @@ content:
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
-    third_party_settings: {  }
-  field_weightage:
-    type: number
-    weight: 5
-    region: content
-    settings:
-      placeholder: ''
     third_party_settings: {  }
   name:
     type: string_textfield
@@ -69,4 +62,5 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_weightage: true

@@ -1,0 +1,19 @@
+uuid: 7c865b7e-46ad-4ac3-bc1f-a6b0677ac750
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_quiz_results_toggle_minus
+    - node.type.quiz_list
+id: node.quiz_list.field_quiz_results_toggle_minus
+field_name: field_quiz_results_toggle_minus
+entity_type: node
+bundle: quiz_list
+label: 'Quiz Results Page Toggle Minus'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

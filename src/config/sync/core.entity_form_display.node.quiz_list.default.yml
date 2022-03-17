@@ -9,6 +9,12 @@ dependencies:
     - field.field.node.quiz_list.field_quiz_icon
     - field.field.node.quiz_list.field_quiz_link
     - field.field.node.quiz_list.field_quiz_order
+    - field.field.node.quiz_list.field_quiz_page_description
+    - field.field.node.quiz_list.field_quiz_results_page_descript
+    - field.field.node.quiz_list.field_quiz_results_page_subheadi
+    - field.field.node.quiz_list.field_quiz_results_toggle_minus
+    - field.field.node.quiz_list.field_quiz_results_toggle_plus
+    - field.field.node.quiz_list.field_quiz_summary_page_descript
     - field.field.node.quiz_list.field_quiz_type
     - image.style.thumbnail
     - node.type.quiz_list
@@ -76,6 +82,54 @@ content:
     settings:
       placeholder: ''
     third_party_settings: {  }
+  field_quiz_page_description:
+    type: text_textarea
+    weight: 28
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_quiz_results_page_descript:
+    type: text_textarea
+    weight: 30
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_quiz_results_page_subheadi:
+    type: string_textfield
+    weight: 31
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_quiz_results_toggle_minus:
+    type: string_textfield
+    weight: 33
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_quiz_results_toggle_plus:
+    type: string_textfield
+    weight: 32
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_quiz_summary_page_descript:
+    type: text_textarea
+    weight: 29
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
   field_quiz_type:
     type: options_select
     weight: 26
@@ -127,4 +181,5 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_quiz_results_toggle_subhea: true
