@@ -112,7 +112,22 @@ function work_bc_quiz_form_node_form_alter(&$form, $formState, $form_id) {
 	if(in_array($form_id, $nodeTypeToHideTitle)){
 		$form['title']['widget'][0]['value']['#value'] = ucwords(str_replace("_", " ", $form_id));
 		$form['title']['widget'][0]['#attributes']['class'] = ['wrapper-class'];
-		unset ($form['preview']);
+		//unset ($form['preview']);
+	}
+	if(str_contains($form_id, '_preview')){
+		
+		$form['actions']['preview']['#value'] = t('Save Changes');
+		$form['actions']['preview']['#submit'][] = '_work_bc_quiz_node_form_submit';
+		$form['actions']['preview']['#weight'] = 11;
+		$form['actions']['m_cancel'] = [
+			  '#type' => 'link',
+			  '#title' => t('Cancel'),
+			  '#url' => \Drupal\Core\Url::fromRoute('entity.node.canonical', ['node' =>  $formState->getformObject()->getEntity()->id()]),
+			  '#attributes' => ['class' =>'button js-form-cancel form-submit'],
+			  '#weight' => 10
+			];
+	}else {
+		$form['actions']['preview'] = [];
 	}
 }
 
@@ -226,6 +241,9 @@ function work_bc_quiz_preprocess(&$variables) {
  * Node view is for quiz's results page.
  * All categories and their scores showing on the results page are altered in this hook.
  */
+ 
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Drupal\Core\Url;
 function work_bc_quiz_node_view(array &$build, \Drupal\Core\Entity\EntityInterface $entity, \Drupal\Core\Entity\Display\EntityViewDisplayInterface $display, $view_mode) {
 	$session = \Drupal::request()->getSession(); 
 	$SavedQuiz = ($session->get('SavedQuiz')) ? $session->get('SavedQuiz') : '';
@@ -538,4 +556,25 @@ function work_bc_quiz_views_pre_render(ViewExecutable &$view) {
 		$view->result = $result;
 		$view->total_rows = count($filteredResults);
 	}
+}
+
+function _work_bc_quiz_node_form_submit($form, &$form_state) {
+	$values = $form_state->getValues();
+	$nid = $form_state->getformObject()->getEntity()->id();
+	foreach($values as $field => $values){
+		if(strpos($field, "field_") === 0){
+			if(isset($values[0]['ar_target_id']) && !empty($values[0]['ar_target_id'])){
+				$table = "node__".$field;
+				$table2 = "node_revision__".$field;
+				$field_name = $field."_ar_target_id";
+				$query = \Drupal::database()->update($table)->fields([$field_name => $values[0]['ar_target_id']])->condition('entity_id',$nid, '=');
+				$query->execute();
+				
+				$query2 = \Drupal::database()->update($table2)->fields([$field_name => $values[0]['ar_target_id']])->condition('entity_id',$nid, '=');
+				$query2->execute();
+			}
+		}
+	}
+	$response = new RedirectResponse(\Drupal\Core\Url::fromRoute('entity.node.canonical', ['node' => $nid], ['fragment' => 'conclusion'])->toString());
+	$response->send();
 }

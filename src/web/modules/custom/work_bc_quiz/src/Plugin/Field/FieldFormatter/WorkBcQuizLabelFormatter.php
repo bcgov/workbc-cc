@@ -85,12 +85,12 @@ class WorkBcQuizLabelFormatter extends EntityReferenceLabelFormatter {
 	  die; */
       $entity = \Drupal::entityTypeManager()->getStorage($ar_target_type)->load($ar_target_id);
 
-      $label = $entity->label();
+      $label = (isset($entity))?$entity->label():'';
      
 
       // If the link is to be displayed and the entity has a uri, display a
       // link.
-      if ($output_as_link && !$entity->isNew()) {
+      if ($output_as_link && (isset($entity) && !$entity->isNew())) {
         try {
           $uri = $entity->toUrl();
         }
@@ -122,7 +122,7 @@ class WorkBcQuizLabelFormatter extends EntityReferenceLabelFormatter {
       else {
         $elements[$delta]['added_reference'] = ['#plain_text' => $label];
       }
-      $elements[$delta]['added_reference']['#cache']['tags'] = $entity->getCacheTags();
+      $elements[$delta]['added_reference']['#cache']['tags'] = ($entity)?$entity->getCacheTags():'';
     }
 
     return $elements;
