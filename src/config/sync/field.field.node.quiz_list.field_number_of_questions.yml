@@ -9,7 +9,7 @@ id: node.quiz_list.field_number_of_questions
 field_name: field_number_of_questions
 entity_type: node
 bundle: quiz_list
-label: 'Number of Questions'
+label: 'Number of Questions~'
 description: ''
 required: false
 translatable: false

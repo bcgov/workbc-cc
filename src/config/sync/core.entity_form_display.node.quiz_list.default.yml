@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.quiz_list.body
     - field.field.node.quiz_list.field_number_of_questions
+    - field.field.node.quiz_list.field_number_of_questions_text
     - field.field.node.quiz_list.field_quiz_duration
     - field.field.node.quiz_list.field_quiz_icon
     - field.field.node.quiz_list.field_quiz_link
@@ -14,6 +15,7 @@ dependencies:
     - field.field.node.quiz_list.field_quiz_results_page_subheadi
     - field.field.node.quiz_list.field_quiz_results_toggle_minus
     - field.field.node.quiz_list.field_quiz_results_toggle_plus
+    - field.field.node.quiz_list.field_quiz_results_toggle_subhea
     - field.field.node.quiz_list.field_quiz_summary_page_descript
     - field.field.node.quiz_list.field_quiz_type
     - image.style.thumbnail
@@ -49,6 +51,14 @@ content:
     weight: 9
     region: content
     settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_number_of_questions_text:
+    type: string_textfield
+    weight: 34
+    region: content
+    settings:
+      size: 60
       placeholder: ''
     third_party_settings: {  }
   field_quiz_duration:

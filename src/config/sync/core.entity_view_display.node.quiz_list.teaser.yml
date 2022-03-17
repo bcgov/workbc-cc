@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.quiz_list.body
     - field.field.node.quiz_list.field_number_of_questions
+    - field.field.node.quiz_list.field_number_of_questions_text
     - field.field.node.quiz_list.field_quiz_duration
     - field.field.node.quiz_list.field_quiz_icon
     - field.field.node.quiz_list.field_quiz_link
@@ -15,6 +16,7 @@ dependencies:
     - field.field.node.quiz_list.field_quiz_results_page_subheadi
     - field.field.node.quiz_list.field_quiz_results_toggle_minus
     - field.field.node.quiz_list.field_quiz_results_toggle_plus
+    - field.field.node.quiz_list.field_quiz_results_toggle_subhea
     - field.field.node.quiz_list.field_quiz_summary_page_descript
     - field.field.node.quiz_list.field_quiz_type
     - node.type.quiz_list
@@ -41,6 +43,7 @@ content:
     region: content
 hidden:
   field_number_of_questions: true
+  field_number_of_questions_text: true
   field_quiz_duration: true
   field_quiz_icon: true
   field_quiz_link: true
