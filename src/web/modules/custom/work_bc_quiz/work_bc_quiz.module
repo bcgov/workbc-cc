@@ -231,7 +231,7 @@ function work_bc_quiz_preprocess(&$variables) {
 		//Quiz Form Display
 		else{
 			$variables['description'] = $node_details->field_quiz_page_description->value; 
-			$variables['question'] = $node_details->field_number_of_questions->value;  //"39";
+			$variables['question'] = $node_details->field_number_of_questions_text->value;  //"39";
 			$variables['time'] = $node_details->field_quiz_duration->value;  //"10";
 		}
 	} 
