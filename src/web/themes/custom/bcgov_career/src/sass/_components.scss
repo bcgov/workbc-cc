@@ -2381,16 +2381,14 @@ span.question-prefix {
             }
         }
     }
-
     background: rgba(230, 234, 233, 1);
     padding-bottom: 40px;
-
     .career-content-compare {
         position: relative;
         display: flex;
         justify-content: center;
         background: #fff;
-        padding: 30px 15px;
+        padding: 30px 15px 100px;
         border-bottom: 4px solid rgba(35, 64, 117, 1);
         &.mobi-career-content-compare{
             display: none;
@@ -2513,7 +2511,7 @@ span.question-prefix {
                 .career-inner-content {
                     min-height: 600px;
                     padding: 20px 20px 90px;
-                    height: 100%;
+                    height: calc(100% - 95px);
                 }
             }
         }
