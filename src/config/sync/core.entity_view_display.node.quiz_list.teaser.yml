@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.quiz_list.body
+    - field.field.node.quiz_list.field_color_code
     - field.field.node.quiz_list.field_number_of_questions
     - field.field.node.quiz_list.field_number_of_questions_text
     - field.field.node.quiz_list.field_quiz_duration
@@ -42,6 +43,7 @@ content:
     weight: 100
     region: content
 hidden:
+  field_color_code: true
   field_number_of_questions: true
   field_number_of_questions_text: true
   field_quiz_duration: true

@@ -137,12 +137,12 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
    * @throws \Drupal\Core\Entity\EntityMalformedException
    * @throws \Exception
    */
-  public function action($entity_comparison_id, $entity_id, Request $request) {
+  public function action($entity_comparison_id, $entity_id, $node_id, Request $request) {
     // Load entity comparission entity.
     $entity_comparison = EntityComparison::load($entity_comparison_id);
 
     // Process the current request.
-    $message_list = $this->processRequest($entity_comparison, $entity_id);
+    $message_list = $this->processRequest($entity_comparison, $entity_id, $node_id);
 
     // Get destination.
     $destination = $request->query->get('destination');
@@ -159,7 +159,6 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
     catch (\Exception $e) {
       $redirect_url = Url::fromUri('internal:/');
     }
-
     // Redirect back the user.
     if ($request->get(MainContentViewSubscriber::WRAPPER_FORMAT) == 'drupal_ajax') {
       // Create a new AJAX response.
@@ -168,36 +167,22 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
       $link = $entity_comparison->getLink($entity_id, TRUE);
       $link = $link->toRenderable();
       // Generate a CSS selector to use in a JQuery Replace command.
-      $selector = '[data-entity-comparison=' . $entity_comparison->id() . '-' . $entity_id . ']';
+      $selector = '[data-entity-comparison=' . $entity_comparison->id() . '-' . $entity_id . '-' . $node_id . ']';
 
       // Create a new JQuery Replace command to update the link display.
       $replace = new ReplaceCommand($selector, $this->renderer->renderPlain($link));
       $response->addCommand($replace);
 
-      // Update compare table.
-      if (strpos($destination, '/career-compare/')) {
-        $compare_content = $this->compare($entity_comparison_id);
-        $updateTable = new ReplaceCommand('#comparison-table', $this->renderer->renderPlain($compare_content));
-        $response->addCommand($updateTable);
-      }
+      // // Update compare table.
+      // if (strpos($destination, '/career-compare/')) {
+      //   $compare_content = $this->compare($entity_comparison_id);
+      //   $updateTable = new ReplaceCommand('#comparison-table', $this->renderer->renderPlain($compare_content));
+      //   $response->addCommand($updateTable);
+      // }
 
       // Ajax messages.
       foreach ($message_list as $message) {
         $response->addCommand(new MessageCommand($message['message'], NULL, $message['options']));
-      }
-
-      // Replace block comparison link.
-      $blocks = $this->entityTypeManager->getStorage('block')->loadMultiple();
-      $blocks = array_filter($blocks, function ($block) {
-        $block = $block->toArray();
-        return isset($block['settings']['provider'], $block['settings']['link_text']) && $block['settings']['provider'] == 'entity_comparison';
-      });
-      foreach ($blocks as $block) {
-        $plugin = $block->getPlugin();
-        $build = $plugin->build();
-        $class = $plugin->getLinkClass();
-
-        $response->addCommand(new ReplaceCommand('a.' . $class, $this->renderer->renderPlain($build)));
       }
 
       return $response;
@@ -215,15 +200,27 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
   /**
    * Clear all entity_comparison value.
    */
-  public function actionRemove() {
+  public function actionRemove($node_id, Request $request) {
     // Get current user's id.
     $uid = $this->currentUser->id();
-    $this->session->set('entity_comparison_' . $uid, NULL);
+    $this->session->set("career_comparison_$node_id" . "_" . $uid, NULL);
+    // Get destination.
+    $destination = $request->query->get('destination');
+    $destination = 'internal:' . ($destination ?: '/');
+    // Get route from the uri.
+    try {
+      $redirect_url = Url::fromUri($destination);
+      if (!$redirect_url->isRouted()) {
+        throw new \UnexpectedValueException('External URLs do not have an internal route name.');
+      }
+    }
+    // Catch errors to avoid white screen of death,
+    // It's needed to pass unit tests.
+    catch (\Exception $e) {
+      $redirect_url = Url::fromUri('internal:/');
+    }
 
-    return [
-      '#type' => 'markup',
-      '#markup' => $this->t('Clear all entity from comparison'),
-    ];
+    return $this->redirect($redirect_url->getRouteName(), $redirect_url->getRouteParameters());
   }
 
   /**
@@ -234,7 +231,7 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
    * @param int $entity_id
    *   Entity ID.
    */
-  protected function processRequest(EntityComparisonInterface $entity_comparison, $entity_id) {
+  protected function processRequest(EntityComparisonInterface $entity_comparison, $entity_id, $node_id) {
     // Get current user's id.
     $uid = $this->currentUser->id();
 
@@ -243,7 +240,7 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
     $bundle_type = $entity_comparison->getTargetBundleType();
 
     // Get current entity comparison list.
-    $entity_comparison_list = $this->session->get('entity_comparison_' . $uid);
+    $entity_comparison_list = $this->session->get("career_comparison_$node_id" . "_" . $uid);
 
     // Get entity.
     $entity = $this->entityTypeManager->getStorage($entity_type)->load($entity_id);
@@ -302,15 +299,17 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
       $message_list[] = $message;
     }
 
-    $this->session->set('entity_comparison_' . $uid, $entity_comparison_list);
+    $this->session->set("career_comparison_$node_id" . "_" . $uid, $entity_comparison_list);
     return $message_list;
   }
 
   /**
    * Compare page.
    *
-   * @param int $_entity_comparison_id
+   * @param string $_entity_comparison_id
    *   Entity comparission ID.
+   * @param int $_node_id
+   *   Entity node ID.
    *
    * @return array
    *   Array to render table for the current page.
@@ -319,7 +318,7 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    * @throws \Drupal\Core\Entity\EntityMalformedException
    */
-  public function compare($_entity_comparison_id = NULL) {
+  public function compare($_entity_comparison_id, $node_id) {
     // Load the related entity comparison.
     $entity_comparison = $this->getEntityComparisonEntity($_entity_comparison_id);
     $entity_comparison_id = $entity_comparison->id();
@@ -347,7 +346,7 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
     $fields = $this->getTargetFields($field_definitions, $entity_view_display, $entity_comparison_id);
 
     // Get current entity comparison list.
-    $entity_comparison_list = $this->session->get('entity_comparison_' . $uid);
+    $entity_comparison_list = $this->session->get("career_comparison_$node_id" . "_" . $uid);
 
     $entities = [];
     $comparison_fields = [];

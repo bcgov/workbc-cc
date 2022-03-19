@@ -478,6 +478,12 @@
         color: #234075;
         text-align: right;
         line-height: 30px;
+        > span {
+            cursor: pointer;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
     }
 
     .bottom-links {
@@ -1034,7 +1040,7 @@ body.path-quiz {
                 font-weight: normal;
                 display: block;
                 text-align: center;
-                width: 85px;
+                width: 115px;
                 letter-spacing: normal;
                 color: #666666;
 
@@ -1054,7 +1060,7 @@ body.path-quiz {
             .form-item {
                 display: inline-block;
                 margin-right: 10px;
-                min-width: 80px;
+                min-width: 98px;
                 text-align: center;
                 margin: auto;
 
@@ -1180,7 +1186,7 @@ body.path-quiz {
 
         legend {
             float: left !important;
-            width: 45% !important;
+            width: 35% !important;
             width: 100%;
             min-height: auto;
             font-family: "BC Sans", sans-serif;
@@ -1198,6 +1204,7 @@ body.path-quiz {
         .fieldset-wrapper {
             float: right;
             margin-right: 35px;
+            width: 55%;
         }
     }
 
@@ -1256,6 +1263,7 @@ span.question-prefix {
     }
 
     .p-bar{
+        max-width: 620px;
         @media all and (max-width: 767.98px){
             padding: 0 25px;
             flex: 0 0 100%;
@@ -1525,10 +1533,7 @@ span.question-prefix {
 }
 
 #block-views-block-step-form-pagination-block-1 {
-    position: absolute;
-    width: 100%;
-    bottom: 170px;
-    z-index: 0;
+    background: #fff;
 
     .views-row.row {
         .offset-md-3 {

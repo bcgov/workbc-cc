@@ -40,9 +40,6 @@
 
 
 .carousel .carousel-indicators{display:none;}
-.hideshow span.vaa {
-    cursor: pointer;
-}
 
 .hideshow span.vaa:hover {
     text-decoration: underline;

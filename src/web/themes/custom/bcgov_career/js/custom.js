@@ -90,7 +90,7 @@
         const checkedLoadNum = $(
           ".remove-link + .compare-carr > .career-chkk:checked"
         ).length;
-        if (checkedLoadNum > 1) {
+        if (checkedLoadNum >= 2) {
           $(".top-btn > a").removeClass("disable");
         }
  else {
@@ -103,7 +103,8 @@
           const checkedNum = $(".career-checkbox:checked").length;
           $(this).parents("td").find(".use-ajax").trigger("click");
           console.log($(this).parents("td").find(".use-ajax"));
-          if (checkedNum > 1) {
+          console.log(`Compare count:- ${checkedNum}`);
+          if (checkedNum >= 2) {
             $(".top-btn > a").removeClass("disable");
           }
  else {
@@ -113,10 +114,10 @@
       });
 
       $(".clear-compare").click(function () {
-        $(".remove-link").each(function () {
-          $(this).next().find(".career-chkk").prop("checked", false);
-          $(this).click();
-        });
+        // $(".remove-link").each(function(){
+        //   $(this).next().find(".career-chkk").prop('checked', false);
+        //   $(this).click();
+        // });
       });
 
       $(".career-mobi-checkbox").change(function () {
@@ -131,7 +132,7 @@
       });
 
       $(".tbody-main").each(function (i) {
-        if (i % 5 == 0) {
+        if (i % 5 === 0) {
           $(this)
             .nextAll()
             .addBack()
