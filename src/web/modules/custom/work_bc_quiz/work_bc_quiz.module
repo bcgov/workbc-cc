@@ -116,7 +116,7 @@ function work_bc_quiz_form_node_form_alter(&$form, $formState, $form_id) {
 		//unset ($form['preview']);
 	}
 	if(str_contains($form_id, '_preview')){
-
+    $form['#attributes']['class'][] = 'preview-quiz-form';
 		$form['actions']['preview']['#value'] = t('Save Changes');
 		$form['actions']['preview']['#submit'][] = '_work_bc_quiz_node_form_submit';
 		$form['actions']['preview']['#weight'] = 11;

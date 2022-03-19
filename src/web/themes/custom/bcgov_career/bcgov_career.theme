@@ -1,5 +1,8 @@
 <?php
 
+use Drupal\Core\Url;
+
+
 /**
  * @file
  * BC gov career theme file.
@@ -57,6 +60,14 @@ function bcgov_career_preprocess_views_view_table(&$variables) {
       $result[$num]['raw'] = $raw;
     }
     $variables['result'] = $variables['rows'] = $result;
+    $variables['current_nid'] = $nid;
+    // Get the url object from route.
+    $url = Url::fromRoute('ccext.compate_action_remove', [
+      'node_id' => $nid,
+    ], [
+      'query' => \Drupal::service('redirect.destination')->getAsArray(),
+    ]);
+    $variables['remove_url'] = $url->toString();
   }
 }
 
