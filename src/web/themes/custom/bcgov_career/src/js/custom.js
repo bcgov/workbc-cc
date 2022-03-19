@@ -160,6 +160,10 @@
       //     $('.hideshow span.vaa').text("Show Top Aptitudes");
       //   }
       // });
+
+      // $(".cancel-wrapper, .save-wrapper").wrapAll("<div class='save-cancel-wrapper'/>");
+
+      
       $(".hideshow", context).once("workbc").on("click", function () {
           if ($(".hideshow").hasClass("hide")) {
             $(this).removeClass("hide");

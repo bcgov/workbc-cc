@@ -1144,6 +1144,73 @@ body.path-quiz {
             }
         }
     }
+
+    .preview-quiz-form{
+        .form-actions.form-actions{
+            bottom: -80px;
+            margin: 0;
+            > #edit-submit{
+                background: none;
+                min-width: auto;
+                padding: 0;
+                text-align: center;
+                color: #234075;
+                border: 0;
+                right: 25%;
+                margin: 0;
+                padding: 11px 24px;
+                &:hover{
+                    background: rgb(242, 242, 242);
+                }
+            }
+            > #edit-previous{
+                background: none;
+                min-width: auto;
+                padding: 0;
+                text-align: center;
+                color: #234075;
+                border: 0;
+                left: 25%;
+                margin: 0;
+                padding: 11px 24px;
+                &:hover{
+                    background: rgb(242, 242, 242);
+                }
+            }
+        }
+        #edit-preview{
+            display: block;
+            position: relative;
+        }
+        #edit-m-cancel {
+            background: #073573;
+            min-width: 170px;
+            padding: 15px 10px;
+            text-align: center;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.5rem;
+            line-height: 1.8rem;
+            font-family: "BC Sans", sans-serif;
+            position: relative;
+            top: 0;
+            right: 0;
+            z-index: 1;
+            border-radius: 0;
+            &:hover{
+                background: #001e40;
+            }
+          }
+          .save-cancel {
+            position: absolute;
+            bottom: -125px;
+            left: 0;
+            &.save-wrapper{
+                left: auto;
+                right: 0;
+            }
+          }
+    }
 }
 
 .node-questions {
@@ -1534,7 +1601,7 @@ span.question-prefix {
 
 #block-views-block-step-form-pagination-block-1 {
     background: #fff;
-
+    padding-bottom: 230px;
     .views-row.row {
         .offset-md-3 {
             display: flex;
@@ -1734,9 +1801,11 @@ span.question-prefix {
                                 }
                             }
                         }
-
                         .use-ajax {
                             display: none;
+                            + div{
+                                display: none;
+                            }
                         }
                     }
                 }

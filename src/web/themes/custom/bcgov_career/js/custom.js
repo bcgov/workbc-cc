@@ -176,6 +176,9 @@
       //     $('.hideshow span.vaa').text("Show Top Aptitudes");
       //   }
       // });
+
+      // $(".cancel-wrapper, .save-wrapper").wrapAll("<div class='save-cancel-wrapper'/>");
+
       $(".hideshow", context)
         .once("workbc")
         .on("click", function () {
@@ -186,8 +189,7 @@
             $(".result-heading h2.vaa1").hide();
             $(".result-heading h2.vaa").show();
             $(".itm.hide").hide();
-          }
- else {
+          } else {
             $(this).addClass("hide");
             $(".itm.hide").show();
             $(".hideshow span.vaa").hide();
