@@ -3,6 +3,16 @@
 use Drupal\views\Plugin\views\query\QueryPluginBase;
 use Drupal\views\ViewExecutable;
 
+/**
+ * Implements hook_entity_type_build().
+ *
+ * @param EntityTypeInterface[] $entity_types
+ */
+function ccext_entity_type_build(array &$entity_types) {
+  if (isset($entity_types['entity_comparison'])) {
+    $entity_types['entity_comparison']->setClass('Drupal\ccext\Entity\CcextEntityComparison');
+  }
+}
 
 
 /**
