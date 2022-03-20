@@ -32,7 +32,7 @@
 
 	{% set counter = 0%}
 	{% for row in rows %}
-		{% if row.content['#row']._entity.field_quiz_link.value[0].title == 'Modify Your Answers'%}
+		{% if row.content['#row']._entity.field_quiz_link.value[0].title2 == 'View Your Result'%}
 			{% set counter = ( counter | default(0) ) + 1 %}
 		{% endif %}
 	{% endfor %}
@@ -82,7 +82,7 @@
 				<div class="title-field">
 					<h4>{{ row.content['#row']._entity.title[0].value }}</h4>
 				</div>
-				{% if row.content['#row']._entity.field_quiz_link.value[0].title == 'Modify Your Answers'%}
+				{% if row.content['#row']._entity.field_quiz_link.value[0].title2 == 'View Your Result'%}
 					<div class="row">
 						<div class="col-md-12 complete">
 							<div class="cq">
@@ -102,7 +102,7 @@
 				{% if row.content['#row']._entity.nid[0].value != 0 %}
 					{{ row.content['#row']._entity.nid[0].value is empty }}
 					<div class="views-field views-field-field-quiz-link quiz_link">
-						<a href="/node/{{ row.content['#row']._entity.nid[0].value }}" class="quiz-link text-capitalize">View your result</a>
+						<a href="/node/{{ row.content['#row']._entity.nid[0].value }}" class="quiz-link text-capitalize">{{ row.content['#row']._entity.field_quiz_link.value[0].title2 }}</a>
 
 						<a href="{{ row.content['#row']._entity.field_quiz_link.value[0].uri|replace({'internal:': ""}) }}" class="result-link">
 							{{ row.content['#row']._entity.field_quiz_link.value[0].title }}
@@ -137,7 +137,7 @@
 				<div class="title-field">
 					<h4>{{ row.content['#row']._entity.title[0].value }}</h4>
 				</div>
-				{% if row.content['#row']._entity.field_quiz_link.value[0].title == 'Modify Your Answers'%}
+				{% if row.content['#row']._entity.field_quiz_link.value[0].title2 == 'View Your Result'%}
 					<div class="row">
 						<div class="col-md-12 complete">
 							<div class="cq">
