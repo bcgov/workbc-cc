@@ -530,7 +530,7 @@ function work_bc_quiz_views_pre_render(ViewExecutable &$view) {
 								$row->_entity->get('nid')->setValue($entity_id, TRUE);
 							}
 							else {
-
+								$field_value[0]['title2'] = "Take The Quiz";
 							}
 						}
 					}

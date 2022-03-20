@@ -77,7 +77,7 @@
 			{% if row.content['#row']._entity.nid[0].value != 0 %}
 				{{ row.content['#row']._entity.nid[0].value is empty }}
 				<div class="views-field views-field-field-quiz-link quiz_link">
-					<a href="node/{{ row.content['#row']._entity.nid[0].value }}" class="quiz-link text-capitalize">View your result</a>
+					<a href="node/{{ row.content['#row']._entity.nid[0].value }}" class="quiz-link text-capitalize">{{ row.content['#row']._entity.field_quiz_link.value[0].title2 }}</a>
 
 					<a href="{{ row.content['#row']._entity.field_quiz_link.value[0].uri|replace({'internal:': ""}) }}" class="result-link">
 						{{ row.content['#row']._entity.field_quiz_link.value[0].title }}
