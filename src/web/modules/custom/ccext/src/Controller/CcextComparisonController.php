@@ -203,7 +203,7 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
     }
 
     foreach ($message_list as $message) {
-      $type = isset($message['options']['type']) ? $message['options']['type'] : '';
+      $type = isset($message['options']['type']) ? $message['options']['type'] : NULL;
       $this->messenger->addMessage($message['message'], $type);
     }
 
@@ -243,6 +243,8 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
    *   Entity Comparission entity.
    * @param int $entity_id
    *   Entity ID.
+   * @param int $node_id
+   *   Node ID.
    */
   protected function processRequest(EntityComparisonInterface $entity_comparison, $entity_id, $node_id) {
     // Get current user's id.
@@ -337,20 +339,18 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
     $entity_comparison_id = $entity_comparison->id();
     $quiz_color = NULL;
     if ($node_id) {
-      $storage = \Drupal::entityTypeManager()->getStorage('node');
+      $storage = $this->entityTypeManager->getStorage('node');
       $node_bundle = $storage->load($node_id)->bundle();
       $query = \Drupal::entityQuery('node')
         ->condition('type', 'quiz_list')
         ->condition('field_quiz_content_type', $node_bundle);
       $results = $query->execute();
       if (!empty($results)) {
-        $storage = \Drupal::entityTypeManager()->getStorage('node');
         $quiz_node = $storage->load(reset($results));
         $quiz_color_value = $quiz_node->get('field_quiz_color_selection')->value;
         $quiz_color = Html::cleanCssIdentifier('quiz-color-' . $quiz_color_value);
       }
     }
-
 
     // Declare table header and rows.
     $header = [''];
@@ -390,10 +390,6 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
           if ($entity->hasTranslation($this->languageManager->getCurrentLanguage()->getId())) {
             $entity = $entity->getTranslation($this->languageManager->getCurrentLanguage()->getId());
           }
-          $entity_bundle = $entity->bundle();
-
-          // Get view builder.
-          $view_builder = $this->entityTypeManager->getViewBuilder($entity_type);
 
           $entities[$entity_id] = $entity;
           $comparison_fields[$entity_id] = [];
@@ -417,9 +413,11 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
                 case 'field_image':
                   $field_value[$field_name] = !$entity->field_image->isEmpty() ? $entity->field_image->entity->getFileUri() : '';
                   break;
+
                 case 'field_workbc_link':
                   $field_value[$field_name] = !$entity->get('field_workbc_link')->isEmpty() ? $entity->get('field_workbc_link')->first()->uri : '';
                   break;
+
                 case 'field_find_job':
                   $field_value[$field_name] = !$entity->get('field_find_job')->isEmpty() ? $entity->get('field_find_job')->first()->uri : '';
                   break;

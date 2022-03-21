@@ -11,7 +11,6 @@ use Drupal\node\NodeInterface;
 
 /**
  * Implements hook_entity_type_build().
- *
  */
 function ccext_entity_type_build(array &$entity_types) {
   if (isset($entity_types['entity_comparison'])) {
