@@ -3,13 +3,26 @@ langcode: en
 status: true
 dependencies:
   config:
+    - filter.format.basic_html
+    - filter.format.full_html
+    - node.type.abilities_quiz
     - node.type.article
+    - node.type.career_profile
+    - node.type.multiple_intelligences_quiz
     - node.type.page
+    - node.type.quiz_list
+    - taxonomy.vocabulary.abilities_categories
+    - taxonomy.vocabulary.abilities_options
+    - taxonomy.vocabulary.education_level
+    - taxonomy.vocabulary.multiple_intelligence_categories
+    - taxonomy.vocabulary.multiple_intelligence_options
     - taxonomy.vocabulary.tags
   module:
+    - ccext
     - comment
     - contextual
     - file
+    - filter
     - node
     - path
     - system
@@ -24,13 +37,20 @@ weight: 2
 is_admin: false
 permissions:
   - 'access administration pages'
+  - 'access content'
   - 'access content overview'
   - 'access contextual links'
+  - 'access csv importer'
   - 'access files overview'
+  - 'access taxonomy overview'
   - 'access toolbar'
   - 'access tour'
+  - 'administer taxonomy'
   - 'administer url aliases'
+  - 'change own username'
   - 'create article content'
+  - 'create career_profile content'
+  - 'create multiple_intelligences_quiz content'
   - 'create page content'
   - 'create terms in tags'
   - 'create url aliases'
@@ -38,11 +58,31 @@ permissions:
   - 'delete own article content'
   - 'delete own page content'
   - 'delete page revisions'
+  - 'edit any abilities_quiz content'
+  - 'edit any article content'
+  - 'edit any career_profile content'
+  - 'edit any multiple_intelligences_quiz content'
+  - 'edit any page content'
+  - 'edit any quiz_list content'
+  - 'edit own abilities_quiz content'
   - 'edit own article content'
+  - 'edit own career_profile content'
   - 'edit own comments'
+  - 'edit own multiple_intelligences_quiz content'
   - 'edit own page content'
+  - 'edit own quiz_list content'
+  - 'edit terms in abilities_categories'
+  - 'edit terms in abilities_options'
+  - 'edit terms in education_level'
+  - 'edit terms in multiple_intelligence_categories'
+  - 'edit terms in multiple_intelligence_options'
   - 'edit terms in tags'
   - 'revert all revisions'
+  - 'revert career_profile revisions'
+  - 'revert quiz_list revisions'
+  - 'use text format basic_html'
+  - 'use text format full_html'
   - 'view all revisions'
+  - 'view career_profile revisions'
   - 'view own unpublished content'
   - 'view the administration theme'
