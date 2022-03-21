@@ -21,3 +21,8 @@ regions:
   footer_right: 'Footer Right'
   footer_bottom_left: 'Footer Bottom Left'
   footer_bottom_right: 'Footer Bottom Right'
+#entity
+entity_print:
+ node:
+    # Adds the all-nodes library to all node PDF’s.
+   all: 'bcgov_career/print-styling'

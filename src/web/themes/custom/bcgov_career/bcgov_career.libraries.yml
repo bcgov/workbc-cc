@@ -12,3 +12,8 @@ global-styling:
     - core/jquery
     - core/drupal
     - core/jquery.once
+    
+print-styling:
+  css:
+    theme:
+      css/entity-print.css: {}
