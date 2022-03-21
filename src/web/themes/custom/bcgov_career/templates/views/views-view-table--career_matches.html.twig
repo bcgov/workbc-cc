@@ -156,7 +156,7 @@
           {% for rowkey, row in rows %}
             <div id="career-item-{{ rowkey }}" class="career-content-item {% if rowkey == "0" %}active{% endif %}" data-url="">
               <div class="career-content-item-inner">
-                <div class="title"><p>{{ row.raw.field_noc_name }}</br><span class='noc-code'>(NOC {{ row.raw.title }})</span></p></div>
+                <div class="title"><p>{{ row.raw.field_noc_name }} <span class='noc-code'>(NOC {{ row.raw.title }})</span></p></div>
                 <div class="career-inner-content">
                   <div class="image-video">
                     {% if row.raw.field_video_id != false %}

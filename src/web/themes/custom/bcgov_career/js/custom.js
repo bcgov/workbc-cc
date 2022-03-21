@@ -110,25 +110,35 @@
  else {
             $(".top-btn > a").addClass("disable");
           }
+
+          if (checkedNum > 3) {
+            $(".compare-popup-wrapper").addClass("active");
+            $(this).prop("checked", false);
+          }
         });
-      });
 
-      $(".clear-compare").click(function () {
-        // $(".remove-link").each(function(){
-        //   $(this).next().find(".career-chkk").prop('checked', false);
-        //   $(this).click();
-        // });
-      });
-
-      $(".career-mobi-checkbox").change(function () {
-        const checkedNum = $(".career-mobi-checkbox:checked").length;
-        $(this).parent().prev().click();
-        if (checkedNum > 1) {
-          $(".top-career-mobi-content .top-btn > a").removeClass("disable");
-        }
+        $(".career-mobi-checkbox").change(function () {
+          const checkedNum = $(".career-mobi-checkbox:checked").length;
+          $(this).parent().prev().click();
+          if (checkedNum >= 2) {
+            $(".top-career-mobi-content .top-btn > a").removeClass("disable");
+          }
  else {
-          $(".top-career-mobi-content .top-btn > a").addClass("disable");
-        }
+            $(".top-career-mobi-content .top-btn > a").addClass("disable");
+          }
+
+          if (checkedNum > 3) {
+            $(".compare-popup-wrapper").addClass("active");
+            $(this).prop("checked", false);
+          }
+        });
+
+        $(".compare-popup-close, .close-compare-popup").on(
+          "click",
+          function () {
+            $(".compare-popup-wrapper").removeClass("active");
+          }
+        );
       });
 
       $(".tbody-main").each(function (i) {
@@ -177,6 +187,9 @@
       //     $('.hideshow span.vaa').text("Show Top Aptitudes");
       //   }
       // });
+
+      // $(".cancel-wrapper, .save-wrapper").wrapAll("<div class='save-cancel-wrapper'/>");
+
       $(".hideshow", context)
         .once("workbc")
         .on("click", function () {
@@ -187,8 +200,7 @@
             $(".result-heading h2.vaa1").hide();
             $(".result-heading h2.vaa").show();
             $(".itm.hide").hide();
-          }
- else {
+          } else {
             $(this).addClass("hide");
             $(".itm.hide").show();
             $(".hideshow span.vaa").hide();
