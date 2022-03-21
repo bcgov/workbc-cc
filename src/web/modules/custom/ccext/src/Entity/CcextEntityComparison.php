@@ -3,13 +3,12 @@
 namespace Drupal\ccext\Entity;
 
 use Drupal\entity_comparison\Entity\EntityComparison;
-use Drupal\Core\Config\Entity\ConfigEntityBase;
-use Drupal\Core\Entity\Entity\EntityViewMode;
-use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Link;
 use Drupal\Core\Url;
-use Drupal\field_ui\FieldUI;
 
+/**
+ * The Entity Comparison class extends.
+ */
 class CcextEntityComparison extends EntityComparison {
 
   /**
@@ -31,7 +30,7 @@ class CcextEntityComparison extends EntityComparison {
     $bundle_type = $this->getTargetBundleType();
 
     // Get current entity comparison list.
-    $entity_comparison_list = $session->get("career_comparison_$node_id" . "_" . $uid);
+    $entity_comparison_list = $session->get("career_comparison_$node_id" . "_$uid");
 
     if (empty($entity_comparison_list)) {
       $add_link = TRUE;
@@ -69,4 +68,5 @@ class CcextEntityComparison extends EntityComparison {
     // Return with the link.
     return Link::fromTextAndUrl($link_text, $url);
   }
+
 }

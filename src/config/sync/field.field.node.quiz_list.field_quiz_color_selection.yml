@@ -1,0 +1,23 @@
+uuid: 226e8c83-b7e9-4a63-ad85-88a59f6f7074
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_quiz_color_selection
+    - node.type.quiz_list
+  module:
+    - options
+id: node.quiz_list.field_quiz_color_selection
+field_name: field_quiz_color_selection
+entity_type: node
+bundle: quiz_list
+label: 'Quiz color selection'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: dark_blue
+default_value_callback: ''
+settings: {  }
+field_type: list_string

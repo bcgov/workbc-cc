@@ -16,9 +16,10 @@ use Drupal\Core\Render\Element;
 use Drupal\Core\Session\AccountProxyInterface;
 use Drupal\Core\Url;
 use Drupal\Core\Extension\ModuleHandlerInterface;
-use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\entity_comparison\Entity\EntityComparison;
 use Drupal\entity_comparison\Entity\EntityComparisonInterface;
+use Drupal\Core\Messenger\MessengerInterface;
+use Drupal\Component\Utility\Html;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Render\RendererInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -79,6 +80,13 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
   protected $moduleHandler;
 
   /**
+   * The Messenger service.
+   *
+   * @var \Drupal\Core\Messenger\MessengerInterface
+   */
+  protected $messenger;
+
+  /**
    * Constructor.
    *
    * @param \Drupal\Core\Render\RendererInterface $renderer
@@ -95,8 +103,17 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
    *   Language manager service.
    * @param Drupal\Core\Extension\ModuleHandlerInterface $module_handler
    *   Module handler service.
+   * @param \Drupal\Core\Messenger\MessengerInterface $messenger
+   *   The messenger service.
    */
-  public function __construct(RendererInterface $renderer, Session $session, AccountProxyInterface $current_user, EntityFieldManagerInterface $entity_field_manager, EntityTypeManagerInterface $entity_type_manager, LanguageManagerInterface $language_manager, ModuleHandlerInterface $module_handler) {
+  public function __construct(RendererInterface $renderer,
+                              Session $session,
+                              AccountProxyInterface $current_user,
+                              EntityFieldManagerInterface $entity_field_manager,
+                              EntityTypeManagerInterface $entity_type_manager,
+                              LanguageManagerInterface $language_manager,
+                              ModuleHandlerInterface $module_handler,
+                              MessengerInterface $messenger) {
     $this->renderer = $renderer;
     $this->session = $session;
     $this->currentUser = $current_user;
@@ -104,6 +121,7 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
     $this->entityTypeManager = $entity_type_manager;
     $this->languageManager = $language_manager;
     $this->moduleHandler = $module_handler;
+    $this->messenger = $messenger;
   }
 
   /**
@@ -117,7 +135,8 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
       $container->get('entity_field.manager'),
       $container->get('entity_type.manager'),
       $container->get('language_manager'),
-      $container->get('module_handler')
+      $container->get('module_handler'),
+      $container->get('messenger')
     );
   }
 
@@ -128,6 +147,8 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
    *   Entity comparison ID.
    * @param int $entity_id
    *   Entity ID.
+   * @param int $node_id
+   *   node ID.
    * @param \Symfony\Component\HttpFoundation\Request $request
    *   Page request object.
    *
@@ -173,13 +194,6 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
       $replace = new ReplaceCommand($selector, $this->renderer->renderPlain($link));
       $response->addCommand($replace);
 
-      // // Update compare table.
-      // if (strpos($destination, '/career-compare/')) {
-      //   $compare_content = $this->compare($entity_comparison_id);
-      //   $updateTable = new ReplaceCommand('#comparison-table', $this->renderer->renderPlain($compare_content));
-      //   $response->addCommand($updateTable);
-      // }
-
       // Ajax messages.
       foreach ($message_list as $message) {
         $response->addCommand(new MessageCommand($message['message'], NULL, $message['options']));
@@ -188,10 +202,9 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
       return $response;
     }
 
-    $messenger = \Drupal::messenger();
     foreach ($message_list as $message) {
       $type = isset($message['options']['type']) ? $message['options']['type'] : NULL;
-      $messenger->addMessage($message['message'], $type);
+      $this->messenger->addMessage($message['message'], $type);
     }
 
     return $this->redirect($redirect_url->getRouteName(), $redirect_url->getRouteParameters());
@@ -230,6 +243,8 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
    *   Entity Comparission entity.
    * @param int $entity_id
    *   Entity ID.
+   * @param int $node_id
+   *   Node ID.
    */
   protected function processRequest(EntityComparisonInterface $entity_comparison, $entity_id, $node_id) {
     // Get current user's id.
@@ -308,7 +323,7 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
    *
    * @param string $_entity_comparison_id
    *   Entity comparission ID.
-   * @param int $_node_id
+   * @param int $node_id
    *   Entity node ID.
    *
    * @return array
@@ -322,6 +337,20 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
     // Load the related entity comparison.
     $entity_comparison = $this->getEntityComparisonEntity($_entity_comparison_id);
     $entity_comparison_id = $entity_comparison->id();
+    $quiz_color = NULL;
+    if ($node_id) {
+      $storage = $this->entityTypeManager->getStorage('node');
+      $node_bundle = $storage->load($node_id)->bundle();
+      $query = \Drupal::entityQuery('node')
+        ->condition('type', 'quiz_list')
+        ->condition('field_quiz_content_type', $node_bundle);
+      $results = $query->execute();
+      if (!empty($results)) {
+        $quiz_node = $storage->load(reset($results));
+        $quiz_color_value = $quiz_node->get('field_quiz_color_selection')->value;
+        $quiz_color = Html::cleanCssIdentifier('quiz-color-' . $quiz_color_value);
+      }
+    }
 
     // Declare table header and rows.
     $header = [''];
@@ -362,9 +391,6 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
             $entity = $entity->getTranslation($this->languageManager->getCurrentLanguage()->getId());
           }
 
-          // Get view builder.
-          $view_builder = $this->entityTypeManager->getViewBuilder($entity_type);
-
           $entities[$entity_id] = $entity;
           $comparison_fields[$entity_id] = [];
 
@@ -387,9 +413,11 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
                 case 'field_image':
                   $field_value[$field_name] = !$entity->field_image->isEmpty() ? $entity->field_image->entity->getFileUri() : '';
                   break;
+
                 case 'field_workbc_link':
                   $field_value[$field_name] = !$entity->get('field_workbc_link')->isEmpty() ? $entity->get('field_workbc_link')->first()->uri : '';
                   break;
+
                 case 'field_find_job':
                   $field_value[$field_name] = !$entity->get('field_find_job')->isEmpty() ? $entity->get('field_find_job')->first()->uri : '';
                   break;
@@ -456,7 +484,7 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
       '#cache' => [
         'max-age' => 0,
       ],
-      '#prefix' => '<div id="comparison-table">',
+      '#prefix' => $this->t('<div id="comparison-table" class="@color_class">', ['@color_class' => $quiz_color]),
       '#suffix' => '</div>',
     ];
   }

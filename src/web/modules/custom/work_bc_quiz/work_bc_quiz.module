@@ -385,14 +385,14 @@ function work_bc_quiz_node_view(array &$build, \Drupal\Core\Entity\EntityInterfa
 			usort($groupedResult, fn($b, $a) => strcmp($a['percentage'], $b['percentage']));
 			if($QuizError){
 				$query = \Drupal::database()->select('node', 'n')->fields('sf', ['instance_id', 'entity_id']);
-				$query->leftJoin('forms_steps_workflow', 'sf', 'sf.entity_id = n.nid'); 
+				$query->leftJoin('forms_steps_workflow', 'sf', 'sf.entity_id = n.nid');
 				$query->condition('n.nid', $node->id());
 				$results = $query->execute()->fetchAll();
-				
+
 				$instance_id = $results[0]->instance_id;
 				$entity_id = $results[0]->entity_id;
 				$step = count($results)+1;
-				
+
 				$quizType = str_replace(['_'],["-"], $node->bundle());
 				$nextlink = "/quiz/".$quizType."/step".$step."/".$instance_id;
 			}
@@ -429,7 +429,7 @@ function work_bc_quiz_node_view(array &$build, \Drupal\Core\Entity\EntityInterfa
 							$data[$i]->percentage =round(((36-$sum)/36)*100);
 
 						}
-												
+
 						//usort($data, fn($b, $a) => strcmp($a->percentage, $b->percentage));
 						usort($data, '_work_bc_quiz_usort2');
 						////$final_1 = array_chunk($data, 40)[0];
@@ -504,7 +504,7 @@ function work_bc_quiz_views_pre_render(ViewExecutable &$view) {
 
 						foreach($SavedQuiz as $key =>  $value){
 							$NId = end(explode("_",$key));
-							
+
 							$SavedQuizTitle  = str_replace("_A100", "", str_replace("_", " ", str_replace("_".$NId, "", str_replace("save_quiz_", "", $key))));
 
 							if(trim(strtolower($SavedQuizTitle)) == trim(strtolower($nodeTitle))){
@@ -524,10 +524,10 @@ function work_bc_quiz_views_pre_render(ViewExecutable &$view) {
 
 								$field_value[0]['uri'] = "internal:/quiz/$quizLink/step1/preview/".$instance_id;
 								$field_value[0]['title'] = 'Modify Your Answers';
-								
+
 								if($NId == "A100")$field_value[0]['title2'] = "Continue Quiz";
 								else $field_value[0]['title2'] = "View Your Result";
-									
+
 
 								$row->_entity->get('field_quiz_link')->setValue($field_value, TRUE);
 

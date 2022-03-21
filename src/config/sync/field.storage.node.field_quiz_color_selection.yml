@@ -1,0 +1,39 @@
+uuid: 03b73fb0-2f65-47cd-a58f-480b1ce842dc
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_quiz_color_selection
+field_name: field_quiz_color_selection
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: blue
+      label: Blue
+    -
+      value: light_blue
+      label: 'Light Blue'
+    -
+      value: dark_blue
+      label: 'Dark Blue'
+    -
+      value: purple
+      label: Purple
+    -
+      value: green
+      label: Green
+    -
+      value: pink
+      label: pink
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
