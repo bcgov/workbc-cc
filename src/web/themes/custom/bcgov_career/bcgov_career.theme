@@ -20,34 +20,17 @@ function bcgov_career_preprocess_page(&$variables) {
   }
   $node = \Drupal::routeMatch()->getParameter('node');
   if ($node instanceof NodeInterface) {
-    $query = \Drupal::entityQuery('node')
-      ->condition('type', 'quiz_list')
-      ->condition('field_quiz_content_type', $node->bundle());
-    $results = $query->execute();
-    if (!empty($results)) {
-      $storage = \Drupal::entityTypeManager()->getStorage('node');
-      $quiz_node = $storage->load(reset($results));
-      $quiz_color_value = $quiz_node->get('field_quiz_color_selection')->value;
-      $variables['quiz_color'] = Html::cleanCssIdentifier('quiz-color-' . $quiz_color_value);
-    }
+    $variables['quiz_color'] = _quiz_color_type($node->bundle());
   }
   else {
     $current_path = \Drupal::service('path.current')->getPath();
     $arg = explode('/', $current_path);
     if (isset($arg[1]) && isset($arg[2])  && $arg[1] == 'quiz') {
       $quiz_type = str_replace('-', '_', $arg[2]);
-      $query = \Drupal::entityQuery('node')
-        ->condition('type', 'quiz_list')
-        ->condition('field_quiz_content_type', $quiz_type);
-      $results = $query->execute();
-      if (!empty($results)) {
-        $storage = \Drupal::entityTypeManager()->getStorage('node');
-        $quiz_node = $storage->load(reset($results));
-        $quiz_color_value = $quiz_node->get('field_quiz_color_selection')->value;
-        $variables['quiz_color'] = Html::cleanCssIdentifier('quiz-color-' . $quiz_color_value);
-      }
+      $variables['quiz_color'] = _quiz_color_type($quiz_type);
     }
   }
+
 }
 
 /**
@@ -116,4 +99,22 @@ function bcgov_career_theme_suggestions_table_alter(array &$suggestions, array $
   if ($variables['attributes']['id'] == 'career_profile-node-comparison-table') {
     $suggestions[] = $hook . '__' . 'career_profile_comparison_table';
   }
+}
+
+/**
+ * Function to get color value from current bundle.
+ */
+function _quiz_color_type($bundle) {
+  $query = \Drupal::entityQuery('node')
+    ->condition('type', 'quiz_list')
+    ->condition('field_quiz_content_type', $bundle);
+  $results = $query->execute();
+  $quiz_color = NULL;
+  if (!empty($results)) {
+    $storage = \Drupal::entityTypeManager()->getStorage('node');
+    $quiz_node = $storage->load(reset($results));
+    $quiz_color_value = $quiz_node->get('field_quiz_color_selection')->value;
+    $quiz_color = Html::cleanCssIdentifier('quiz-color-' . $quiz_color_value);
+  }
+  return $quiz_color;
 }
