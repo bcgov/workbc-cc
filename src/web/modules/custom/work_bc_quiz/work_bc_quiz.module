@@ -273,6 +273,8 @@ function work_bc_quiz_node_view(array &$build, \Drupal\Core\Entity\EntityInterfa
 			$terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid);
 			$max_value =0;
 			$options_value = [];
+			$QuizError = 0;
+			$nextlink ='';
 			foreach ($terms as $term) {
 				$term_obj = Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($term->tid);
 				$options_value[$term->tid]['name'] = $term->name;
@@ -309,6 +311,9 @@ function work_bc_quiz_node_view(array &$build, \Drupal\Core\Entity\EntityInterfa
 
 						// Get answer for the value and then percentage and category names from answers.
 						$answer = $node->get($field_name)->getValue();
+						if((empty($answer[0]['ar_target_id']))&&($QuizError==0)){
+							$QuizError++;
+						}
 						$option_id = $answer[0]['ar_target_id'];
 						$field_option_percentage = $options_value[$option_id]['field_option_percentage'];
 						$category_id = $answer[0]['target_id'];
@@ -378,6 +383,21 @@ function work_bc_quiz_node_view(array &$build, \Drupal\Core\Entity\EntityInterfa
 
 			// Sort data using usort php function.
 			usort($groupedResult, fn($b, $a) => strcmp($a['percentage'], $b['percentage']));
+			if($QuizError){
+				$query = \Drupal::database()->select('node', 'n')->fields('sf', ['instance_id', 'entity_id']);
+				$query->leftJoin('forms_steps_workflow', 'sf', 'sf.entity_id = n.nid'); 
+				$query->condition('n.nid', $node->id());
+				$results = $query->execute()->fetchAll();
+				
+				$instance_id = $results[0]->instance_id;
+				$entity_id = $results[0]->entity_id;
+				$step = count($results)+1;
+				
+				$quizType = str_replace(['_'],["-"], $node->bundle());
+				$nextlink = "/quiz/".$quizType."/step".$step."/".$instance_id;
+			}
+			$build['an_additional_field']['#quiz_error']['errors'] = $QuizError;
+			$build['an_additional_field']['#quiz_error']['nextlink'] = $nextlink;
 
 			$build['an_additional_field']['#quiz_result'] = $groupedResult;
 			$build['an_additional_field']['#result_link'] = $field_value;
@@ -397,13 +417,10 @@ function work_bc_quiz_node_view(array &$build, \Drupal\Core\Entity\EntityInterfa
 							$total = 0;
 							$j =0;
 							foreach($values as $key => $value){
-								if($j>1){
+								if($j>2){
 									$sum += abs($value - $forCareermatch[$key]);
-									$total =+ $value;
+									//$total =+ $value;
 									unset($data[$i]->$key);
-
-									//$data[$i]->$key = abs($value - $forCareermatch[$key]);
-
 								}
 								$j++;
 							}
@@ -412,13 +429,19 @@ function work_bc_quiz_node_view(array &$build, \Drupal\Core\Entity\EntityInterfa
 							$data[$i]->percentage =round(((36-$sum)/36)*100);
 
 						}
-						usort($data, fn($b, $a) => strcmp($a->percentage, $b->percentage));
-						$final_1 = array_chunk($data, 20)[0];
-						$tmp_cnt = 1000;
+												
+						//usort($data, fn($b, $a) => strcmp($a->percentage, $b->percentage));
+						usort($data, '_work_bc_quiz_usort2');
+						////$final_1 = array_chunk($data, 40)[0];
+					////	$tmp_cnt = 1000;
 						$result = [];
-						foreach($final_1 as $key => $value){
-							if($value->NOCCode == 0)  $value->NOCCode = $tmp_cnt++;
-							$result[$value->NOCCode] = $value->percentage;
+						foreach($data as $key => $value){
+							if(count($result)<20){
+								////if($value->NOCCode == 0)  $value->NOCCode = $tmp_cnt++;
+							//	if(isset($result[$value->NOCCode])) $result[$value->NOCCode] = ($result[$value->NOCCode]>$value->percentage) ? $result[$value->NOCCode] : $value->percentage;
+								if(!isset($result[$value->NOCCode])) $result[$value->NOCCode] = $value->percentage;
+							}
+							else break;
 						}
 
 						$SavedQuiz = ($session->get('SavedQuiz')) ? $session->get('SavedQuiz') : '';
@@ -481,7 +504,7 @@ function work_bc_quiz_views_pre_render(ViewExecutable &$view) {
 
 						foreach($SavedQuiz as $key =>  $value){
 							$NId = end(explode("_",$key));
-
+							
 							$SavedQuizTitle  = str_replace("_A100", "", str_replace("_", " ", str_replace("_".$NId, "", str_replace("save_quiz_", "", $key))));
 
 							if(trim(strtolower($SavedQuizTitle)) == trim(strtolower($nodeTitle))){
@@ -495,18 +518,23 @@ function work_bc_quiz_views_pre_render(ViewExecutable &$view) {
 								$query->leftJoin('forms_steps_workflow', 'sf', 'sf.entity_id = n.nid');
 								$query->condition('n.uuid', $value->uuid);
 								$results = $query->execute()->fetchAll();
+								//print_r($results);
 								$instance_id = $results[0]->instance_id;
 								$entity_id = $results[0]->entity_id;
 
 								$field_value[0]['uri'] = "internal:/quiz/$quizLink/step1/preview/".$instance_id;
 								$field_value[0]['title'] = 'Modify Your Answers';
+								
+								if($NId == "A100")$field_value[0]['title2'] = "Continue Quiz";
+								else $field_value[0]['title2'] = "View Your Result";
+									
 
 								$row->_entity->get('field_quiz_link')->setValue($field_value, TRUE);
 
 								$row->_entity->get('nid')->setValue($entity_id, TRUE);
 							}
 							else {
-
+								$field_value[0]['title2'] = "Take The Quiz";
 							}
 						}
 					}
@@ -582,4 +610,11 @@ function _work_bc_quiz_node_form_submit($form, &$form_state) {
 	}
 	$response = new RedirectResponse(\Drupal\Core\Url::fromRoute('entity.node.canonical', ['node' => $nid], ['fragment' => 'conclusion'])->toString());
 	$response->send();
+}
+
+function _work_bc_quiz_usort2($a, $b) {
+    if ($a->percentage == $b->percentage) {
+        return strcmp($a->Career, $b->Career);
+    }
+    return ($b->percentage - $a->percentage);
 }
