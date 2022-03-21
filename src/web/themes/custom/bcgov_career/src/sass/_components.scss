@@ -2786,35 +2786,6 @@ span.question-prefix {
                 }
             }
         }
-
-        .compare-career-main-wrapper{
-            .career-content-compare{
-                .career-content-item{
-                    .career-content-item-inner{
-                        .title{
-                            background: $quiz-dark-blue;
-                        }
-                        .bottom-btn{
-                            a.btn{
-                                border: 2px solid $quiz-dark-blue;
-                                background: $quiz-dark-blue;
-                                &:hover{
-                                    background: $quiz-dark-blue-dark;
-                                }
-                                &.btn-find-job{
-                                    border: 2px solid $quiz-dark-blue;
-                                    color: $quiz-dark-blue;
-                                    background: transparent;
-                                    &:hover{
-                                        background: #e6eae9;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
     }
 
     &.quiz-color-purple{
@@ -2987,35 +2958,6 @@ span.question-prefix {
                     &.active, &:hover{
                         background: $quiz-purple;
                         color: #fff;
-                    }
-                }
-            }
-        }
-    
-        .compare-career-main-wrapper{
-            .career-content-compare{
-                .career-content-item{
-                    .career-content-item-inner{
-                        .title{
-                            background: $quiz-purple;
-                        }
-                        .bottom-btn{
-                            a.btn{
-                                border: 2px solid $quiz-purple;
-                                background: $quiz-purple;
-                                &:hover{
-                                    background: $quiz-purple-dark;
-                                }
-                                &.btn-find-job{
-                                    border: 2px solid $quiz-purple;
-                                    color: $quiz-purple;
-                                    background: transparent;
-                                    &:hover{
-                                        background: #e6eae9;
-                                    }
-                                }
-                            }
-                        }
                     }
                 }
             }
@@ -3196,35 +3138,6 @@ span.question-prefix {
                 }
             }
         }
-    
-        .compare-career-main-wrapper{
-            .career-content-compare{
-                .career-content-item{
-                    .career-content-item-inner{
-                        .title{
-                            background: $quiz-blue;
-                        }
-                        .bottom-btn{
-                            a.btn{
-                                border: 2px solid $quiz-blue;
-                                background: $quiz-blue;
-                                &:hover{
-                                    background: $quiz-blue-dark;
-                                }
-                                &.btn-find-job{
-                                    border: 2px solid $quiz-blue;
-                                    color: $quiz-blue;
-                                    background: transparent;
-                                    &:hover{
-                                        background: #e6eae9;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
     }
 
     &.quiz-color-green{
@@ -3397,35 +3310,6 @@ span.question-prefix {
                     &.active, &:hover{
                         background: $quiz-green;
                         color: #fff;
-                    }
-                }
-            }
-        }
-    
-        .compare-career-main-wrapper{
-            .career-content-compare{
-                .career-content-item{
-                    .career-content-item-inner{
-                        .title{
-                            background: $quiz-green;
-                        }
-                        .bottom-btn{
-                            a.btn{
-                                border: 2px solid $quiz-green;
-                                background: $quiz-green;
-                                &:hover{
-                                    background: $quiz-green-dark;
-                                }
-                                &.btn-find-job{
-                                    border: 2px solid $quiz-green;
-                                    color: $quiz-green;
-                                    background: transparent;
-                                    &:hover{
-                                        background: #e6eae9;
-                                    }
-                                }
-                            }
-                        }
                     }
                 }
             }
@@ -3606,35 +3490,6 @@ span.question-prefix {
                 }
             }
         }
-    
-        .compare-career-main-wrapper{
-            .career-content-compare{
-                .career-content-item{
-                    .career-content-item-inner{
-                        .title{
-                            background: $quiz-light-blue;
-                        }
-                        .bottom-btn{
-                            a.btn{
-                                border: 2px solid $quiz-light-blue;
-                                background: $quiz-light-blue;
-                                &:hover{
-                                    background: $quiz-light-blue-dark;
-                                }
-                                &.btn-find-job{
-                                    border: 2px solid $quiz-light-blue;
-                                    color: $quiz-light-blue;
-                                    background: transparent;
-                                    &:hover{
-                                        background: #e6eae9;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
     }
 
     &.quiz-color-pink{
@@ -3811,7 +3666,161 @@ span.question-prefix {
                 }
             }
         }
-    
+    }
+}
+
+#comparison-table{
+    &.quiz-color-dark-blue{
+        .compare-career-main-wrapper{
+            .career-content-compare{
+                .career-content-item{
+                    .career-content-item-inner{
+                        .title{
+                            background: $quiz-dark-blue;
+                        }
+                        .bottom-btn{
+                            a.btn{
+                                border: 2px solid $quiz-dark-blue;
+                                background: $quiz-dark-blue;
+                                &:hover{
+                                    background: $quiz-dark-blue-dark;
+                                }
+                                &.btn-find-job{
+                                    border: 2px solid $quiz-dark-blue;
+                                    color: $quiz-dark-blue;
+                                    background: transparent;
+                                    &:hover{
+                                        background: #e6eae9;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.quiz-color-purple{
+        .compare-career-main-wrapper{
+            .career-content-compare{
+                .career-content-item{
+                    .career-content-item-inner{
+                        .title{
+                            background: $quiz-purple;
+                        }
+                        .bottom-btn{
+                            a.btn{
+                                border: 2px solid $quiz-purple;
+                                background: $quiz-purple;
+                                &:hover{
+                                    background: $quiz-purple-dark;
+                                }
+                                &.btn-find-job{
+                                    border: 2px solid $quiz-purple;
+                                    color: $quiz-purple;
+                                    background: transparent;
+                                    &:hover{
+                                        background: #e6eae9;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.quiz-color-blue{
+        .compare-career-main-wrapper{
+            .career-content-compare{
+                .career-content-item{
+                    .career-content-item-inner{
+                        .title{
+                            background: $quiz-blue;
+                        }
+                        .bottom-btn{
+                            a.btn{
+                                border: 2px solid $quiz-blue;
+                                background: $quiz-blue;
+                                &:hover{
+                                    background: $quiz-blue-dark;
+                                }
+                                &.btn-find-job{
+                                    border: 2px solid $quiz-blue;
+                                    color: $quiz-blue;
+                                    background: transparent;
+                                    &:hover{
+                                        background: #e6eae9;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.quiz-color-green{
+        .compare-career-main-wrapper{
+            .career-content-compare{
+                .career-content-item{
+                    .career-content-item-inner{
+                        .title{
+                            background: $quiz-green;
+                        }
+                        .bottom-btn{
+                            a.btn{
+                                border: 2px solid $quiz-green;
+                                background: $quiz-green;
+                                &:hover{
+                                    background: $quiz-green-dark;
+                                }
+                                &.btn-find-job{
+                                    border: 2px solid $quiz-green;
+                                    color: $quiz-green;
+                                    background: transparent;
+                                    &:hover{
+                                        background: #e6eae9;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.quiz-color-light-blue{
+        .compare-career-main-wrapper{
+            .career-content-compare{
+                .career-content-item{
+                    .career-content-item-inner{
+                        .title{
+                            background: $quiz-light-blue;
+                        }
+                        .bottom-btn{
+                            a.btn{
+                                border: 2px solid $quiz-light-blue;
+                                background: $quiz-light-blue;
+                                &:hover{
+                                    background: $quiz-light-blue-dark;
+                                }
+                                &.btn-find-job{
+                                    border: 2px solid $quiz-light-blue;
+                                    color: $quiz-light-blue;
+                                    background: transparent;
+                                    &:hover{
+                                        background: #e6eae9;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.quiz-color-pink{
         .compare-career-main-wrapper{
             .career-content-compare{
                 .career-content-item{
