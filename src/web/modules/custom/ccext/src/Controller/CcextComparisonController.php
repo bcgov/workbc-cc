@@ -80,6 +80,13 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
   protected $moduleHandler;
 
   /**
+   * The Messenger service.
+   *
+   * @var \Drupal\Core\Messenger\MessengerInterface
+   */
+  protected $messenger;
+
+  /**
    * Constructor.
    *
    * @param \Drupal\Core\Render\RendererInterface $renderer
@@ -96,8 +103,17 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
    *   Language manager service.
    * @param Drupal\Core\Extension\ModuleHandlerInterface $module_handler
    *   Module handler service.
+   * @param \Drupal\Core\Messenger\MessengerInterface $messenger
+   *   The messenger service.
    */
-  public function __construct(RendererInterface $renderer, Session $session, AccountProxyInterface $current_user, EntityFieldManagerInterface $entity_field_manager, EntityTypeManagerInterface $entity_type_manager, LanguageManagerInterface $language_manager, ModuleHandlerInterface $module_handler) {
+  public function __construct(RendererInterface $renderer,
+                              Session $session,
+                              AccountProxyInterface $current_user,
+                              EntityFieldManagerInterface $entity_field_manager,
+                              EntityTypeManagerInterface $entity_type_manager,
+                              LanguageManagerInterface $language_manager,
+                              ModuleHandlerInterface $module_handler,
+                              MessengerInterface $messenger) {
     $this->renderer = $renderer;
     $this->session = $session;
     $this->currentUser = $current_user;
@@ -105,6 +121,7 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
     $this->entityTypeManager = $entity_type_manager;
     $this->languageManager = $language_manager;
     $this->moduleHandler = $module_handler;
+    $this->messenger = $messenger;
   }
 
   /**
@@ -118,7 +135,8 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
       $container->get('entity_field.manager'),
       $container->get('entity_type.manager'),
       $container->get('language_manager'),
-      $container->get('module_handler')
+      $container->get('module_handler'),
+      $container->get('messenger')
     );
   }
 
@@ -129,6 +147,8 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
    *   Entity comparison ID.
    * @param int $entity_id
    *   Entity ID.
+   * @param int $node_id
+   *   node ID.
    * @param \Symfony\Component\HttpFoundation\Request $request
    *   Page request object.
    *
@@ -174,13 +194,6 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
       $replace = new ReplaceCommand($selector, $this->renderer->renderPlain($link));
       $response->addCommand($replace);
 
-      // // Update compare table.
-      // if (strpos($destination, '/career-compare/')) {
-      //   $compare_content = $this->compare($entity_comparison_id);
-      //   $updateTable = new ReplaceCommand('#comparison-table', $this->renderer->renderPlain($compare_content));
-      //   $response->addCommand($updateTable);
-      // }
-
       // Ajax messages.
       foreach ($message_list as $message) {
         $response->addCommand(new MessageCommand($message['message'], NULL, $message['options']));
@@ -189,10 +202,9 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
       return $response;
     }
 
-    $messenger = \Drupal::messenger();
     foreach ($message_list as $message) {
-      $type = isset($message['options']['type']) ? $message['options']['type'] : NULL;
-      $messenger->addMessage($message['message'], $type);
+      $type = isset($message['options']['type']) ? $message['options']['type'] : '';
+      $this->messenger->addMessage($message['message'], $type);
     }
 
     return $this->redirect($redirect_url->getRouteName(), $redirect_url->getRouteParameters());
