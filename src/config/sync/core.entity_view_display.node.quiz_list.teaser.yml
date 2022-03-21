@@ -5,9 +5,10 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.quiz_list.body
-    - field.field.node.quiz_list.field_color_code
     - field.field.node.quiz_list.field_number_of_questions
     - field.field.node.quiz_list.field_number_of_questions_text
+    - field.field.node.quiz_list.field_quiz_color_selection
+    - field.field.node.quiz_list.field_quiz_content_type
     - field.field.node.quiz_list.field_quiz_duration
     - field.field.node.quiz_list.field_quiz_icon
     - field.field.node.quiz_list.field_quiz_link
@@ -43,9 +44,10 @@ content:
     weight: 100
     region: content
 hidden:
-  field_color_code: true
   field_number_of_questions: true
   field_number_of_questions_text: true
+  field_quiz_color_selection: true
+  field_quiz_content_type: true
   field_quiz_duration: true
   field_quiz_icon: true
   field_quiz_link: true

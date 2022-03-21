@@ -1,0 +1,36 @@
+uuid: 4376081b-98f6-4fec-8f5f-2210d8851605
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_quiz_content_type
+field_name: field_quiz_content_type
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: abilities_quiz
+      label: 'Abilities Quiz'
+    -
+      value: interest_profiler_quiz
+      label: 'Interest Profiler Quiz'
+    -
+      value: multiple_intelligences_quiz
+      label: 'Multiple Intelligences Quiz'
+    -
+      value: learning_style_quiz
+      label: 'Learning Style Quiz'
+    -
+      value: work_values_quiz
+      label: 'Work Values Quiz'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
