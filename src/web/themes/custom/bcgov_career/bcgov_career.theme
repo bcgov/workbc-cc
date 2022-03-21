@@ -30,7 +30,6 @@ function bcgov_career_preprocess_page(&$variables) {
       $variables['quiz_color'] = _quiz_color_type($quiz_type);
     }
   }
-
 }
 
 /**

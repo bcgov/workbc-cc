@@ -16,9 +16,10 @@ use Drupal\Core\Render\Element;
 use Drupal\Core\Session\AccountProxyInterface;
 use Drupal\Core\Url;
 use Drupal\Core\Extension\ModuleHandlerInterface;
-use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\entity_comparison\Entity\EntityComparison;
 use Drupal\entity_comparison\Entity\EntityComparisonInterface;
+use Drupal\Core\Messenger\MessengerInterface;
+use Drupal\Component\Utility\Html;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Render\RendererInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -308,7 +309,7 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
    *
    * @param string $_entity_comparison_id
    *   Entity comparission ID.
-   * @param int $_node_id
+   * @param int $node_id
    *   Entity node ID.
    *
    * @return array
@@ -322,6 +323,22 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
     // Load the related entity comparison.
     $entity_comparison = $this->getEntityComparisonEntity($_entity_comparison_id);
     $entity_comparison_id = $entity_comparison->id();
+    $quiz_color = NULL;
+    if ($node_id) {
+      $storage = \Drupal::entityTypeManager()->getStorage('node');
+      $node_bundle = $storage->load($node_id)->bundle();
+      $query = \Drupal::entityQuery('node')
+        ->condition('type', 'quiz_list')
+        ->condition('field_quiz_content_type', $node_bundle);
+      $results = $query->execute();
+      if (!empty($results)) {
+        $storage = \Drupal::entityTypeManager()->getStorage('node');
+        $quiz_node = $storage->load(reset($results));
+        $quiz_color_value = $quiz_node->get('field_quiz_color_selection')->value;
+        $quiz_color = Html::cleanCssIdentifier('quiz-color-' . $quiz_color_value);
+      }
+    }
+
 
     // Declare table header and rows.
     $header = [''];
@@ -361,6 +378,7 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
           if ($entity->hasTranslation($this->languageManager->getCurrentLanguage()->getId())) {
             $entity = $entity->getTranslation($this->languageManager->getCurrentLanguage()->getId());
           }
+          $entity_bundle = $entity->bundle();
 
           // Get view builder.
           $view_builder = $this->entityTypeManager->getViewBuilder($entity_type);
@@ -456,7 +474,7 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
       '#cache' => [
         'max-age' => 0,
       ],
-      '#prefix' => '<div id="comparison-table">',
+      '#prefix' => $this->t('<div id="comparison-table @color_class">', ['@color_class' => $quiz_color]),
       '#suffix' => '</div>',
     ];
   }
