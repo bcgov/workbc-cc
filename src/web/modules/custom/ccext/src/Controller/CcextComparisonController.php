@@ -486,7 +486,7 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
       '#cache' => [
         'max-age' => 0,
       ],
-      '#prefix' => $this->t('<div id="comparison-table @color_class">', ['@color_class' => $quiz_color]),
+      '#prefix' => $this->t('<div id="comparison-table" class="@color_class">', ['@color_class' => $quiz_color]),
       '#suffix' => '</div>',
     ];
   }
