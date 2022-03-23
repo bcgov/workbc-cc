@@ -221,6 +221,22 @@
         }
       }
 
+      $(".compare-career-print > span").on("click", function(){
+        //window.print();
+        // var w = window.open();
+        // var html = $(".path-quiz").html();
+
+        // $(w.document.body).html(html);
+        // w.print();
+
+        var winPrint = window.open();
+        winPrint.document.write($(".path-quiz").html());
+        winPrint.document.close();
+        winPrint.focus();
+        winPrint.print();
+        winPrint.close(); 
+      });
+
 
     },
   };
