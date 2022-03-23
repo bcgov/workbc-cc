@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.quiz_list.body
+    - field.field.node.quiz_list.field_color_code
     - field.field.node.quiz_list.field_number_of_questions
     - field.field.node.quiz_list.field_number_of_questions_text
     - field.field.node.quiz_list.field_quiz_color_selection
@@ -47,6 +48,14 @@ content:
     weight: 2
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_color_code:
+    type: string_textfield
+    weight: 37
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_number_of_questions:
     type: number
