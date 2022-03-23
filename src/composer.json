@@ -86,6 +86,11 @@
                 "type:drupal-custom-theme"
             ]
         },
+        "patches": {
+            "drupal/forms_steps": {
+                "set entity-id to int": "patches/form_state-entity-id-int.patch"
+            }
+        },
         "drupal-core-project-message": {
             "include-keys": [
                 "homepage",

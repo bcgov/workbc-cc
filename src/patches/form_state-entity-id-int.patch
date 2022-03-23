@@ -1,0 +1,13 @@
+diff --git a/forms_steps.module b/forms_steps.module
+index 147d48d..74afbbc 100644
+--- a/forms_steps.module
++++ b/forms_steps.module
+@@ -154,7 +154,7 @@ function forms_steps_theme() {
+ function forms_steps_entity_predelete($entity) {
+   if ($entity->getEntityTypeId() !== 'forms_steps_workflow') {
+     // Get entity id.
+-    $entity_id = $entity->id();
++    $entity_id = (int) $entity->id();
+
+     // EntityQuery on Workflow entities.
+     $query = \Drupal::entityQuery(Workflow::ENTITY_TYPE);

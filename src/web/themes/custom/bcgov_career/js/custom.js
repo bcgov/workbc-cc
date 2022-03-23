@@ -4,6 +4,7 @@
       $(window).on("load resize", function () {
         const $window = $(this).width();
       });
+      console.log('Test G');
 
       $(".mobi_cari_quiz").each(function () {
         $(this).find(".carousel-inner > .career-item").slick({
@@ -239,6 +240,22 @@
           $("#myResult .carousel-inner>.itm:first").addClass("active");
         }
       }
+
+      $(".compare-career-print > span").on("click", function () {
+        // window.print();
+        // var w = window.open();
+        // var html = $(".path-quiz").html();
+
+        // $(w.document.body).html(html);
+        // w.print();
+
+        const winPrint = window.open();
+        winPrint.document.write($(".path-quiz").html());
+        winPrint.document.close();
+        winPrint.focus();
+        winPrint.print();
+        winPrint.close();
+      });
     },
   };
 })(jQuery, Drupal, drupalSettings);

@@ -280,7 +280,7 @@
     }
     .result-heading {
         margin-bottom: 40px;
-        margin-top: 20px;
+        margin-top: 0;
 
         h2 {
             font-family: "BC Sans", sans-serif;
@@ -295,6 +295,30 @@
     .drop-demo-head-right {
         padding: 0px 15px;
         display: flex;
+    }
+
+    .career-top-right{
+        ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            align-items: center;
+
+            li {
+                display: inline;
+                cursor: pointer;
+
+                &.compare-career-print {
+                    margin-right: 30px;
+                }
+
+                span.icon {
+                    &:hover {
+                        background: #9b9b9b;
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -419,7 +443,7 @@
     .quiz-list {
         min-height: 365px;
         border: 2px solid rgb(238, 238, 238);
-
+        height: 100%;
         .field-match {
             text-align: center;
             background: #f2f2f2;
@@ -449,7 +473,7 @@
         .title-description {
             font-size: 1.5rem;
             line-height: 2.1rem;
-            padding: 0 25px;
+            padding: 0 25px 20px;
         }
     }
 
@@ -799,7 +823,7 @@ a.quiz-link {
         &#block-bcgov-career-content{
             padding-bottom: 70px;
             @media all and (max-width: 767.98px) {
-                padding-bottom: 150px;
+                padding-bottom: 30px;
             }
         }
     }
@@ -1618,7 +1642,7 @@ span.question-prefix {
 
 .careers-main-wrapper {
     &.small-device-hide {
-        @media all and (max-width: 767.98px) {
+        @media all and (max-width: 991.98px) {
             display: none;
         }
     }
@@ -1665,7 +1689,8 @@ span.question-prefix {
 
             .top-btn {
                 margin-top: 10px;
-
+                display: flex;
+                margin-left: 25px;
                 > a.disable {
                     color: rgba(0, 0, 0, 0.298039215686275);
                     background: #f2f2f2;
@@ -1682,8 +1707,10 @@ span.question-prefix {
                 .clear-compare {
                     color: #234075;
                     border: 2px solid #234075;
-                    display: inline-block;
-                    padding: 9px 13px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 9px 10px;
                     text-decoration: none;
                     margin-right: 6px;
                     min-width: 155px;
@@ -1698,8 +1725,10 @@ span.question-prefix {
                     color: #fff;
                     border: 2px solid #e3a82b;
                     background: #e3a82b;
-                    display: inline-block;
-                    padding: 9px 13px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 9px 10px;
                     text-decoration: none;
                     min-width: 155px;
                     text-align: center;
@@ -1882,7 +1911,7 @@ span.question-prefix {
 .careers-mobi-main-wrapper {
     display: none;
 
-    @media all and (max-width: 767.98px) {
+    @media all and (max-width: 991.98px) {
         display: block;
     }
 
