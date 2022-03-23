@@ -4,6 +4,7 @@
       $(window).on("load resize", function () {
         const $window = $(this).width();
       });
+      console.log('Test G');
 
       $(".mobi_cari_quiz").each(function () {
         $(this).find(".carousel-inner > .career-item").slick({
