@@ -74,6 +74,7 @@ class WorkBcQuizAutocompleteSelectWidget extends EntityReferenceAutocompleteWidg
       '#options' => $options,
       '#weight' => $widget['target_id']['#weight'] + $ar_weight,
       '#required' => $this->isDefaultValueWidget($form_state) ? FALSE : $ar_required,
+	  '#required_error' => t('Please answer all questions before proceeding.'),
     ];
 
     // Set the label on the added reference field, if one is in settings.
