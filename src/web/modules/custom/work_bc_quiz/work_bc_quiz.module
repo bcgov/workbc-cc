@@ -479,7 +479,7 @@ function work_bc_quiz_node_view(array &$build, \Drupal\Core\Entity\EntityInterfa
  * home page view
  * Step form pagination
  */
-function work_bc_quiz_views_pre_render(ViewExecutable &$view) {
+function work_bc_quiz_views_pre_render(ViewExecutable $view) {
 	// Call sessions class to show modify link, if quiz is already done.
 	$session = \Drupal::request()->getSession();
 	if ($view->id() == 'career_quizzes'  ) {
