@@ -33,7 +33,7 @@
 {% endif %}
 	{% set counter = 0%}
 	{% for row in rows %}
-		{% if row.content['#row']._entity.field_quiz_link.value[0].title2 == 'View Your Result'%}
+		{% if row.content['#row']._entity.field_quiz_link.value[0].title2 == 'View Your Results'%}
 			{% set counter = ( counter | default(0) ) + 1 %}
 		{% endif %}
 	{% endfor %}
@@ -59,7 +59,7 @@
 			<div class="title-field">
 				<h4>{{ row.content['#row']._entity.title[0].value }}</h4>
 			</div>
-			{% if row.content['#row']._entity.field_quiz_link.value[0].title2 == 'View Your Result'%}
+			{% if row.content['#row']._entity.field_quiz_link.value[0].title2 == 'View Your Results'%}
 				<div class="row">
 					<div class="col-md-12 complete">
 						<div class="cq">
