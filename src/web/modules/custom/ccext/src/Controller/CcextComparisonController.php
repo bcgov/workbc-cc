@@ -15,6 +15,7 @@ use Drupal\Core\Language\LanguageManagerInterface;
 use Drupal\Core\Render\Element;
 use Drupal\Core\Session\AccountProxyInterface;
 use Drupal\Core\Url;
+use Drupal\Component\Utility\Unicode;
 use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\entity_comparison\Entity\EntityComparison;
 use Drupal\entity_comparison\Entity\EntityComparisonInterface;
@@ -315,6 +316,7 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
     }
 
     $this->session->set("career_comparison_$node_id" . "_" . $uid, $entity_comparison_list);
+    $message_list = NULL;
     return $message_list;
   }
 
@@ -406,6 +408,11 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
             if (isset($entity->{$field_name}) && $field = $entity->{$field_name}) {
               $field_value[$field_name] = $entity->get($field_name)->value;
               switch ($field_name) {
+                case 'field_job_summary':
+                  $summary_value = $entity->field_job_summary->value;
+                  $field_value[$field_name] = Unicode::truncate($summary_value, 250, TRUE, TRUE);
+                  break;
+
                 case 'field_education_level':
                   $field_value[$field_name] = !$entity->get('field_education_level')->isEmpty() ? $entity->get('field_education_level')->referencedEntities()[0]->name->value : '';
                   break;

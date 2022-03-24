@@ -171,7 +171,7 @@
 							{% endfor %}
 							</div>
 							<div class="hideshow">
-								<span class="vaa">{{ toggle_plus }} +</span> 
+								<span class="vaa">{{ toggle_plus }} +</span>
 								<span class="vaa1" style="display:none">{{ toggle_minus }} -</span>
 							</div>
 						</div>
@@ -246,7 +246,7 @@
 					<div class="links-inner">
 						{% for item in content.an_additional_field['#result_link'] %}
 							<div class="link link_{{loop.index}}">
-								<a href="{{item.uri}}">
+								<a class="btn{%if loop.index == 2 %} btn-prim {% endif %}"href="{{item.uri}}">
 									{{item.title}}
 								</a>
 							</div>

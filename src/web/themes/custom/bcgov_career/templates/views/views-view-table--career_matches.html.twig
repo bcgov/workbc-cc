@@ -156,7 +156,8 @@
           {% for rowkey, row in rows %}
             <div id="career-item-{{ rowkey }}" class="career-content-item {% if rowkey == "0" %}active{% endif %}" data-url="">
               <div class="career-content-item-inner">
-                <div class="title"><p>{{ row.raw.field_noc_name }} <span class='noc-code'>(NOC {{ row.raw.title }})</span></p></div>
+              {% set noc_name = row.raw.field_noc_name ~ ' NOC' ~ '(' ~ row.raw.title ~ ')' %}
+                <div class="title" data-toggle="tip" title="{{ row.raw.field_noc_name }} (NOC {{ row.raw.title }})"><p>{{ noc_name|length > 70 ? noc_name|slice(0, 70) ~ '...' : noc_name}}<span class='noc-code'></span></p></div>
                 <div class="career-inner-content">
                   <div class="image-video">
                     {% if row.raw.field_video_id != false %}
@@ -173,14 +174,14 @@
                       <p class="data-item"><span class="f-d">Education Level</span><span class="s-d">{{ row.columns.field_education_level }}</span></p>
                     {% endif %}
                     {% if row.raw.field_job_openings is not empty %}
-                      <p class="data-item"><span class="f-d">Job Openings<span class="w-100">{{ row.raw.field_opening_from_to }}</span></span><span class="s-d">{{ row.raw.field_job_openings }}</span></p>
+                      <p class="data-item"><span class="f-d">Job Openings<span class="w-100">{{ row.raw.field_opening_from_to }}</span></span><span class="s-d">{{ row.raw.field_job_openings|number_format(0, '.', ',') }}</span></p>
                     {% endif %}
                   </div>
                   <div class="description">
                     <p>{{ row.raw.field_job_summary | striptags | truncate(250) | raw }}</p>
                   </div>
                   <div class="bottom-btn">
-                    <a class="btn btn-career-profile" href="{{ row.raw.field_workbc_link }}" target='_blank'>View Career Profile</a>
+                    <a class="btn btn-prim btn-career-profile" href="{{ row.raw.field_workbc_link }}" target='_blank'>View Career Profile</a>
                     <a class="btn btn-find-job" href="{{ row.raw.field_find_job }}" target='_blank'>Find Jobs</a>
                   </div>
                 </div>
