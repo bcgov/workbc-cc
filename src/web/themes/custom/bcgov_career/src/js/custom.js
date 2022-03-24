@@ -229,12 +229,12 @@
         // $(w.document.body).html(html);
         // w.print();
 
-        var winPrint = window.open();
-        winPrint.document.write($(".path-quiz").html());
-        winPrint.document.close();
-        winPrint.focus();
-        winPrint.print();
-        winPrint.close(); 
+        // var winPrint = window.open();
+        // winPrint.document.write($(".path-quiz").html());
+        // winPrint.document.close();
+        // winPrint.focus();
+        // winPrint.print();
+        // winPrint.close(); 
       });
 
 
