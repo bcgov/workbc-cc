@@ -4,6 +4,8 @@
       $(window).on("load resize", function () {
         const $window = $(this).width();
       });
+      
+      $(".preview-quiz-form").parent().addClass("preview-block-wrapper");
 
       $(".mobi_cari_quiz").each(function(){
         $(this).find(".carousel-inner > .career-item").slick({
