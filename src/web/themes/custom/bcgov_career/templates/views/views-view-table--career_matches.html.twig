@@ -174,14 +174,14 @@
                       <p class="data-item"><span class="f-d">Education Level</span><span class="s-d">{{ row.columns.field_education_level }}</span></p>
                     {% endif %}
                     {% if row.raw.field_job_openings is not empty %}
-                      <p class="data-item"><span class="f-d">Job Openings<span class="w-100">{{ row.raw.field_opening_from_to }}</span></span><span class="s-d">{{ row.raw.field_job_openings }}</span></p>
+                      <p class="data-item"><span class="f-d">Job Openings<span class="w-100">{{ row.raw.field_opening_from_to }}</span></span><span class="s-d">{{ row.raw.field_job_openings|number_format(0, '.', ',') }}</span></p>
                     {% endif %}
                   </div>
                   <div class="description">
                     <p>{{ row.raw.field_job_summary | striptags | truncate(250) | raw }}</p>
                   </div>
                   <div class="bottom-btn">
-                    <a class="btn btn-career-profile" href="{{ row.raw.field_workbc_link }}" target='_blank'>View Career Profile</a>
+                    <a class="btn btn-prim btn-career-profile" href="{{ row.raw.field_workbc_link }}" target='_blank'>View Career Profile</a>
                     <a class="btn btn-find-job" href="{{ row.raw.field_find_job }}" target='_blank'>Find Jobs</a>
                   </div>
                 </div>
