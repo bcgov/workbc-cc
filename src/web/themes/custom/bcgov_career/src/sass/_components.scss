@@ -830,7 +830,12 @@ a.quiz-link {
         &#block-bcgov-career-content{
             padding-bottom: 70px;
             @media all and (max-width: 767.98px) {
-                padding-bottom: 30px;
+                padding-bottom: 150px;
+            }
+            &.preview-block-wrapper{
+                @media all and (max-width: 767.98px) {
+                    padding-bottom: 30px;
+                }
             }
         }
     }
@@ -1185,6 +1190,10 @@ body.path-quiz {
         .form-actions.form-actions{
             bottom: -80px;
             margin: 0;
+            @media all and (max-width:767.98px){
+                display: inline-flex;
+                bottom: -40px;
+            }
             > #edit-submit{
                 background: none;
                 min-width: auto;
@@ -1195,6 +1204,11 @@ body.path-quiz {
                 right: 20%;
                 margin: 0;
                 padding: 11px 24px;
+                @media all and (max-width:767.98px){
+                    right: 40px;
+                    position: absolute;
+                    width: auto;
+                }
                 &:hover{
                     background: rgb(242, 242, 242);
                 }
@@ -1209,6 +1223,11 @@ body.path-quiz {
                 left: 25%;
                 margin: 0;
                 padding: 11px 24px;
+                @media all and (max-width:767.98px){
+                    left: 40px;
+                    position: absolute;
+                    width: auto;
+                }
                 &:hover{
                     background: rgb(242, 242, 242);
                 }
@@ -1355,6 +1374,7 @@ span.question-prefix {
     @media all and (max-width: 767.98px) {
         margin-top: 0;
         position: relative;
+        padding-bottom: 100px;
         > .container {
             max-width: 100%;
         }

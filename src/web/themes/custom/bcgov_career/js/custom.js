@@ -4,7 +4,8 @@
       $(window).on("load resize", function () {
         const $window = $(this).width();
       });
-      console.log('Test G');
+
+      $(".preview-quiz-form").parent().addClass("preview-block-wrapper");
 
       $(".mobi_cari_quiz").each(function () {
         $(this).find(".carousel-inner > .career-item").slick({
@@ -245,16 +246,14 @@
         // window.print();
         // var w = window.open();
         // var html = $(".path-quiz").html();
-
         // $(w.document.body).html(html);
         // w.print();
-
-        const winPrint = window.open();
-        winPrint.document.write($(".path-quiz").html());
-        winPrint.document.close();
-        winPrint.focus();
-        winPrint.print();
-        winPrint.close();
+        // var winPrint = window.open();
+        // winPrint.document.write($(".path-quiz").html());
+        // winPrint.document.close();
+        // winPrint.focus();
+        // winPrint.print();
+        // winPrint.close();
       });
     },
   };
