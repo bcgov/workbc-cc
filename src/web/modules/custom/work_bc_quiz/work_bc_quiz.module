@@ -518,23 +518,25 @@ function work_bc_quiz_views_pre_render(ViewExecutable &$view) {
 								$query->leftJoin('forms_steps_workflow', 'sf', 'sf.entity_id = n.nid');
 								$query->condition('n.uuid', $value->uuid);
 								$results = $query->execute()->fetchAll();
-								//print_r($results);
 								$instance_id = $results[0]->instance_id;
 								$entity_id = $results[0]->entity_id;
 
 								$field_value[0]['uri'] = "internal:/quiz/$quizLink/step1/preview/".$instance_id;
-								$field_value[0]['title'] = 'Modify Your Answers';
+								$field_value[0]['title'] = t('Modify Your Answers');
 
-								if($NId == "A100")$field_value[0]['title2'] = "Continue Quiz";
-								else $field_value[0]['title2'] = "View Your Result";
-
+								if($NId == "A100") {
+									$field_value[0]['title2'] = t("Continue Quiz");
+								}
+								else {
+									$field_value[0]['title2'] = t("View Your Results");
+								}
 
 								$row->_entity->get('field_quiz_link')->setValue($field_value, TRUE);
 
 								$row->_entity->get('nid')->setValue($entity_id, TRUE);
 							}
 							else {
-								$field_value[0]['title2'] = "Take The Quiz";
+								$field_value[0]['title2'] = t("Take The Quiz");
 							}
 						}
 					}

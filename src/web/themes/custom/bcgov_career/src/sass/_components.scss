@@ -239,16 +239,18 @@
     .complete {
         span {
             float: left;
-            width: 34px;
+            width: 25px;
             height: 25px;
-            background: url(../src/icons/check.svg) no-repeat;
+            background: url(../src/icons/check-dark.svg) no-repeat;
             background-position: 0px;
         }
 
         .cq {
+            font-family: "BC Sans", sans-serif;
+            font-size: 1.6rem;
             text-align: center;
             margin: auto;
-            width: 140px;
+            width: 145px;
             color: #277a0f;
         }
     }
@@ -310,6 +312,9 @@
 
                 &.compare-career-print {
                     margin-right: 30px;
+                    @media all and (max-width: 767.98px){
+                        margin-right: 10px;
+                    }
                 }
 
                 span.icon {
@@ -540,6 +545,7 @@
 
             &.link_1 {
                 a {
+                    height: 50px;
                     background: #fff;
                     color: $aq;
                     min-width: 174px;
@@ -557,6 +563,7 @@
 
             &.link_2 {
                 a {
+                    height: 50px;
                     background-color: rgba(35, 64, 117, 1);
                     color: #fff;
                     min-width: 174px;
@@ -919,6 +926,7 @@ body.path-quiz {
         input[name="previous_action"] {
             background: transparent;
             border: 1px solid $aq;
+            border-radius: 0;
             min-width: 170px;
             padding: 15px 10px;
             text-align: center;
@@ -1067,9 +1075,10 @@ body.path-quiz {
                 font-weight: normal;
                 display: block;
                 text-align: center;
-                width: 115px;
+                width: 117px;
                 letter-spacing: normal;
                 color: #666666;
+                font-family: "BC Sans", sans-serif;
 
                 @media all and (max-width: 767.98px) {
                     position: relative;
@@ -2179,7 +2188,7 @@ span.question-prefix {
             color: #073573;
 
             &:hover {
-                text-decoration: underline;
+                text-decoration: none;
             }
 
             img {
@@ -2205,6 +2214,9 @@ span.question-prefix {
                 padding: 20px;
                 min-height: 695px;
                 height: calc(100% - 76px);
+                @media all and (max-width: 767.98px){
+                    border: 0;
+                }
 
                 &.page {
                     border: 0;
@@ -2371,6 +2383,9 @@ span.question-prefix {
 .compare-career-main-wrapper {
     .back-link {
         padding: 20px 0;
+        @media all and (max-width: 767.98px) {
+            padding: 5px 0;
+        }
         a {
             font-family: "BC Sans", sans-serif;
             font-weight: 400;
@@ -2379,6 +2394,12 @@ span.question-prefix {
             color: #073573;
             display: flex;
             align-items: center;
+            &:hover {
+                text-decoration: none;
+            }
+            @media all and (max-width: 767.98px) {
+                padding-left: 15px;
+            }
 
             img {
                 height: 14px;
@@ -2407,6 +2428,9 @@ span.question-prefix {
 
                 &.compare-career-print {
                     margin-right: 30px;
+                     @media all and (max-width: 767.98px){
+                        margin-right: 10px;
+                    }
                 }
 
                 span.icon {
@@ -2426,6 +2450,9 @@ span.question-prefix {
         background: #fff;
         padding: 30px 15px 100px;
         border-bottom: 4px solid rgba(35, 64, 117, 1);
+        @media all and (max-width: 767.98px) {
+            padding: 30px 0 100px;
+        }
         &.mobi-career-content-compare{
             display: none;
             @media all and (max-width: 991.98px){
@@ -2447,8 +2474,8 @@ span.question-prefix {
             }
         }
         .career-content-item {
-            max-width: 375px;
-            margin: 0 11px;
+            // max-width: 375px;
+            // margin: 0 11px;
 
             @media all and (max-width: 991.98px) {
                 max-width: 100%;
@@ -2512,6 +2539,14 @@ span.question-prefix {
                         @media all and (max-width: 991.98px) {
                             padding: 20px 45px;
                         }
+                        @media all and (max-width: 767.98px) {
+                            padding: 0px 15px;
+                            &.career-title-2,
+                            &.career-title-3 {
+                                padding: 0px 30px 0 40px;
+                            }
+                        }
+
                     }
                 }
 
@@ -2673,11 +2708,11 @@ span.question-prefix {
             ol{
                 li{
                     &:first-child{
-                        border-left: 5px solid $quiz-dark-blue-dark;
+                        border-left: 5px solid $quiz-dark-blue;
                     }
                     &.previous-step{
-                        background: $quiz-dark-blue-dark;
-                        color: $quiz-dark-blue-dark;
+                        background: $quiz-dark-blue;
+                        color: $quiz-dark-blue;
                     }
                 }
             }
@@ -2765,7 +2800,7 @@ span.question-prefix {
             .top-career-content{
                 .content{
                     .top-btn{
-                        .clear-compare{
+                        .clear-compare:not(.disable){
                             border: 2px solid $quiz-dark-blue;
                             color: $quiz-dark-blue;
                             background: transparent;
@@ -2849,11 +2884,11 @@ span.question-prefix {
             ol{
                 li{
                     &:first-child{
-                        border-left: 5px solid $quiz-purple-dark;
+                        border-left: 5px solid $quiz-purple;
                     }
                     &.previous-step{
-                        background: $quiz-purple-dark;
-                        color: $quiz-purple-dark;
+                        background: $quiz-purple;
+                        color: $quiz-purple;
                     }
                 }
             }
@@ -2866,13 +2901,13 @@ span.question-prefix {
         .block-forms-steps{
             border-bottom: 5px solid $quiz-purple;
         }
-    
+
         #myResult{
             .hideshow{
                 color: $quiz-purple;
             }
         }
-    
+
         .career-content-main-wrapper{
             .career-content-item{
                 .career-content-item-inner{
@@ -2898,7 +2933,7 @@ span.question-prefix {
                 }
             }
         }
-    
+
         #myResult{
             .bottom-links .link{
                 &.link_1{
@@ -2921,7 +2956,7 @@ span.question-prefix {
                 }
             }
         }
-    
+
         .careers-main-wrapper{
             table{
                 tbody{
@@ -2941,7 +2976,7 @@ span.question-prefix {
             .top-career-content{
                 .content{
                     .top-btn{
-                        .clear-compare{
+                        .clear-compare:not(.disable){
                             border: 2px solid $quiz-purple;
                             color: $quiz-purple;
                             background: transparent;
@@ -2958,7 +2993,7 @@ span.question-prefix {
                 }
             }
         }
-    
+
         .preview-quiz-form{
             #edit-m-cancel{
                 border: 2px solid $quiz-purple;
@@ -2979,7 +3014,7 @@ span.question-prefix {
                 }
             }
         }
-    
+
         ul.pagging{
             li.pag{
                 a{
@@ -3025,11 +3060,11 @@ span.question-prefix {
             ol{
                 li{
                     &:first-child{
-                        border-left: 5px solid $quiz-blue-dark;
+                        border-left: 5px solid $quiz-blue;
                     }
                     &.previous-step{
-                        background: $quiz-blue-dark;
-                        color: $quiz-blue-dark;
+                        background: $quiz-blue;
+                        color: $quiz-blue;
                     }
                 }
             }
@@ -3042,13 +3077,13 @@ span.question-prefix {
         .block-forms-steps{
             border-bottom: 5px solid $quiz-blue;
         }
-    
+
         #myResult{
             .hideshow{
                 color: $quiz-blue;
             }
         }
-    
+
         .career-content-main-wrapper{
             .career-content-item{
                 .career-content-item-inner{
@@ -3074,7 +3109,7 @@ span.question-prefix {
                 }
             }
         }
-    
+
         #myResult{
             .bottom-links .link{
                 &.link_1{
@@ -3097,7 +3132,7 @@ span.question-prefix {
                 }
             }
         }
-    
+
         .careers-main-wrapper{
             table{
                 tbody{
@@ -3117,7 +3152,7 @@ span.question-prefix {
             .top-career-content{
                 .content{
                     .top-btn{
-                        .clear-compare{
+                        .clear-compare:not(.disable){
                             border: 2px solid $quiz-blue;
                             color: $quiz-blue;
                             background: transparent;
@@ -3134,7 +3169,7 @@ span.question-prefix {
                 }
             }
         }
-    
+
         .preview-quiz-form{
             #edit-m-cancel{
                 border: 2px solid $quiz-blue;
@@ -3155,7 +3190,7 @@ span.question-prefix {
                 }
             }
         }
-    
+
         ul.pagging{
             li.pag{
                 a{
@@ -3201,11 +3236,11 @@ span.question-prefix {
             ol{
                 li{
                     &:first-child{
-                        border-left: 5px solid $quiz-green-dark;
+                        border-left: 5px solid $quiz-green;
                     }
                     &.previous-step{
-                        background: $quiz-green-dark;
-                        color: $quiz-green-dark;
+                        background: $quiz-green;
+                        color: $quiz-green;
                     }
                 }
             }
@@ -3218,13 +3253,13 @@ span.question-prefix {
         .block-forms-steps{
             border-bottom: 5px solid $quiz-green;
         }
-    
+
         #myResult{
             .hideshow{
                 color: $quiz-green;
             }
         }
-    
+
         .career-content-main-wrapper{
             .career-content-item{
                 .career-content-item-inner{
@@ -3250,7 +3285,7 @@ span.question-prefix {
                 }
             }
         }
-    
+
         #myResult{
             .bottom-links .link{
                 &.link_1{
@@ -3273,7 +3308,7 @@ span.question-prefix {
                 }
             }
         }
-    
+
         .careers-main-wrapper{
             table{
                 tbody{
@@ -3293,7 +3328,7 @@ span.question-prefix {
             .top-career-content{
                 .content{
                     .top-btn{
-                        .clear-compare{
+                        .clear-compare:not(.disable){
                             border: 2px solid $quiz-green;
                             color: $quiz-green;
                             background: transparent;
@@ -3310,7 +3345,7 @@ span.question-prefix {
                 }
             }
         }
-    
+
         .preview-quiz-form{
             #edit-m-cancel{
                 border: 2px solid $quiz-green;
@@ -3331,7 +3366,7 @@ span.question-prefix {
                 }
             }
         }
-    
+
         ul.pagging{
             li.pag{
                 a{
@@ -3377,11 +3412,11 @@ span.question-prefix {
             ol{
                 li{
                     &:first-child{
-                        border-left: 5px solid $quiz-light-blue-dark;
+                        border-left: 5px solid $quiz-light-blue;
                     }
                     &.previous-step{
-                        background: $quiz-light-blue-dark;
-                        color: $quiz-light-blue-dark;
+                        background: $quiz-light-blue;
+                        color: $quiz-light-blue;
                     }
                 }
             }
@@ -3394,13 +3429,13 @@ span.question-prefix {
         .block-forms-steps{
             border-bottom: 5px solid $quiz-light-blue;
         }
-    
+
         #myResult{
             .hideshow{
                 color: $quiz-light-blue;
             }
         }
-    
+
         .career-content-main-wrapper{
             .career-content-item{
                 .career-content-item-inner{
@@ -3426,7 +3461,7 @@ span.question-prefix {
                 }
             }
         }
-    
+
         #myResult{
             .bottom-links .link{
                 &.link_1{
@@ -3449,7 +3484,7 @@ span.question-prefix {
                 }
             }
         }
-    
+
         .careers-main-wrapper{
             table{
                 tbody{
@@ -3469,7 +3504,7 @@ span.question-prefix {
             .top-career-content{
                 .content{
                     .top-btn{
-                        .clear-compare{
+                        .clear-compare:not(.disable){
                             border: 2px solid $quiz-light-blue;
                             color: $quiz-light-blue;
                             background: transparent;
@@ -3486,7 +3521,7 @@ span.question-prefix {
                 }
             }
         }
-    
+
         .preview-quiz-form{
             #edit-m-cancel{
                 border: 2px solid $quiz-light-blue;
@@ -3507,7 +3542,7 @@ span.question-prefix {
                 }
             }
         }
-    
+
         ul.pagging{
             li.pag{
                 a{
@@ -3553,11 +3588,11 @@ span.question-prefix {
             ol{
                 li{
                     &:first-child{
-                        border-left: 5px solid $quiz-pink-dark;
+                        border-left: 5px solid $quiz-pink;
                     }
                     &.previous-step{
-                        background: $quiz-pink-dark;
-                        color: $quiz-pink-dark;
+                        background: $quiz-pink;
+                        color: $quiz-pink;
                     }
                 }
             }
@@ -3570,13 +3605,13 @@ span.question-prefix {
         .block-forms-steps{
             border-bottom: 5px solid $quiz-pink;
         }
-    
+
         #myResult{
             .hideshow{
                 color: $quiz-pink;
             }
         }
-    
+
         .career-content-main-wrapper{
             .career-content-item{
                 .career-content-item-inner{
@@ -3602,7 +3637,7 @@ span.question-prefix {
                 }
             }
         }
-    
+
         #myResult{
             .bottom-links .link{
                 &.link_1{
@@ -3625,7 +3660,7 @@ span.question-prefix {
                 }
             }
         }
-    
+
         .careers-main-wrapper{
             table{
                 tbody{
@@ -3645,7 +3680,7 @@ span.question-prefix {
             .top-career-content{
                 .content{
                     .top-btn{
-                        .clear-compare{
+                        .clear-compare:not(.disable){
                             border: 2px solid $quiz-pink;
                             color: $quiz-pink;
                             background: transparent;
@@ -3662,7 +3697,7 @@ span.question-prefix {
                 }
             }
         }
-    
+
         .preview-quiz-form{
             #edit-m-cancel{
                 border: 2px solid $quiz-pink;
@@ -3683,7 +3718,7 @@ span.question-prefix {
                 }
             }
         }
-    
+
         ul.pagging{
             li.pag{
                 a{
@@ -3702,6 +3737,7 @@ span.question-prefix {
     &.quiz-color-dark-blue{
         .compare-career-main-wrapper{
             .career-content-compare{
+                border-bottom: 4px solid $quiz-dark-blue;
                 .career-content-item{
                     .career-content-item-inner{
                         .title{
@@ -3732,6 +3768,7 @@ span.question-prefix {
     &.quiz-color-purple{
         .compare-career-main-wrapper{
             .career-content-compare{
+                border-bottom: 4px solid $quiz-purple;
                 .career-content-item{
                     .career-content-item-inner{
                         .title{
@@ -3762,6 +3799,7 @@ span.question-prefix {
     &.quiz-color-blue{
         .compare-career-main-wrapper{
             .career-content-compare{
+                border-bottom: 4px solid $quiz-blue;
                 .career-content-item{
                     .career-content-item-inner{
                         .title{
@@ -3792,6 +3830,7 @@ span.question-prefix {
     &.quiz-color-green{
         .compare-career-main-wrapper{
             .career-content-compare{
+                border-bottom: 4px solid $quiz-green;
                 .career-content-item{
                     .career-content-item-inner{
                         .title{
@@ -3822,6 +3861,7 @@ span.question-prefix {
     &.quiz-color-light-blue{
         .compare-career-main-wrapper{
             .career-content-compare{
+                border-bottom: 4px solid $quiz-light-blue;
                 .career-content-item{
                     .career-content-item-inner{
                         .title{
@@ -3852,6 +3892,7 @@ span.question-prefix {
     &.quiz-color-pink{
         .compare-career-main-wrapper{
             .career-content-compare{
+                border-bottom: 4px solid $quiz-pink;
                 .career-content-item{
                     .career-content-item-inner{
                         .title{
@@ -3879,4 +3920,10 @@ span.question-prefix {
             }
         }
     }
+}
+
+
+.btn-prim {
+    border: none !important;
+    border-radius: 0 !important;
 }
