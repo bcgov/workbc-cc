@@ -215,8 +215,7 @@
 				<div class="carousel-inner carousel-inner-mobi" data-id="bottomcarousel">
 					<div class="row carousel-slider-mobi-row">
 					{% for item in content.an_additional_field['#quiz_result'] %}
-						{% if loop.index > 3%}
-						<div class="col-12 itm mobi-itm">
+						<div class="col-12 itm mobi-itm ">
 							<div class="quiz-list">
 								<div class="item field-match">
 									{{ item.percentage }}% Match
@@ -235,7 +234,6 @@
 								</div>
 							</div>
 						</div>
-						{% endif %}
 					{% endfor %}
 					</div>
 				</div>
