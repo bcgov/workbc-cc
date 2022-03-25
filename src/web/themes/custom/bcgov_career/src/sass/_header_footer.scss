@@ -33,6 +33,10 @@ header {
                     font-size: 18px;
                     letter-spacing: normal;
                 }
+                @media all and (min-width: 768px ) and ( max-width: 1000.98px) {
+                    font-size: 3rem;
+                    letter-spacing: normal;
+                }
             }
         }
     }
