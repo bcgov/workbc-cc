@@ -1,0 +1,23 @@
+uuid: 120d2f8c-db12-4333-a13f-ef44f7470320
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.site_setting_entity.field_learning_styles_quiz_list_
+    - site_settings.site_setting_entity_type.quiz_list_association
+id: site_setting_entity.quiz_list_association.field_learning_styles_quiz_list_
+field_name: field_learning_styles_quiz_list_
+entity_type: site_setting_entity
+bundle: quiz_list_association
+label: 'Learning Styles Quiz List Node ID'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

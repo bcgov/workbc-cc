@@ -1,0 +1,23 @@
+uuid: baa34c3d-6319-4efc-bb7f-3ff629197acb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.site_setting_entity.field_multiple_intelligences_qui
+    - site_settings.site_setting_entity_type.quiz_list_association
+id: site_setting_entity.quiz_list_association.field_multiple_intelligences_qui
+field_name: field_multiple_intelligences_qui
+entity_type: site_setting_entity
+bundle: quiz_list_association
+label: 'Multiple Intelligences Quiz List Node ID'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

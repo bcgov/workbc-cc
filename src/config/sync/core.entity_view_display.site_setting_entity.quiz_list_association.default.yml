@@ -1,0 +1,97 @@
+uuid: 420f300c-a9a3-4595-b84d-61f63241f6bb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.site_setting_entity.quiz_list_association.field_abilities_quiz_list_node_i
+    - field.field.site_setting_entity.quiz_list_association.field_interests_quiz_list_node_i
+    - field.field.site_setting_entity.quiz_list_association.field_learning_styles_quiz_list_
+    - field.field.site_setting_entity.quiz_list_association.field_multiple_intelligences_qui
+    - field.field.site_setting_entity.quiz_list_association.field_work_preferences_quiz_list
+    - field.field.site_setting_entity.quiz_list_association.field_work_values_quiz_list_node
+    - site_settings.site_setting_entity_type.quiz_list_association
+  module:
+    - user
+id: site_setting_entity.quiz_list_association.default
+targetEntityType: site_setting_entity
+bundle: quiz_list_association
+mode: default
+content:
+  field_abilities_quiz_list_node_i:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_interests_quiz_list_node_i:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_learning_styles_quiz_list_:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_multiple_intelligences_qui:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_work_preferences_quiz_list:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_work_values_quiz_list_node:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  fieldset:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: -4
+    region: content
+  name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: -4
+    region: content
+  user_id:
+    type: author
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

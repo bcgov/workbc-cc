@@ -196,28 +196,56 @@ function work_bc_quiz_entity_presave(Drupal\Core\Entity\EntityInterface $entity)
  */
 use Drupal\node\Entity\Node;
 function work_bc_quiz_preprocess(&$variables) {
+	$site_settings = \Drupal::service('site_settings.loader');
+	$settings = $site_settings->loadAll();
+	$settings = $settings['quiz_list_association']['quiz_list_association'];
+
 	$details_nid =0;
 
 	if ($node = \Drupal::routeMatch()->getParameter('node')) {
-		if ($node->bundle() == 'abilities_quiz') $details_nid =510;
-		elseif ($node->bundle() == 'work_preferences_quiz') $details_nid =514;
-		elseif ($node->bundle() == 'interests_quiz') $details_nid =511;
-		elseif ($node->bundle() == 'multiple_intelligences_quiz') $details_nid =513;
-		elseif ($node->bundle() == 'learning_styles_quiz') $details_nid =512;
-		elseif ($node->bundle() == 'work_values_quiz') $details_nid =515;
+		if ($node->bundle() == 'abilities_quiz'){
+			$details_nid = $settings['field_abilities_quiz_list_node_i'];
+		}
+		elseif ($node->bundle() == 'work_preferences_quiz'){
+			$details_nid = $settings['field_work_preferences_quiz_list'];
+		}
+		elseif ($node->bundle() == 'interests_quiz'){
+			$details_nid = $settings['field_interests_quiz_list_node_i'];
+		}
+		elseif ($node->bundle() == 'multiple_intelligences_quiz'){
+			$details_nid = $settings['field_multiple_intelligences_qui'];
+		}
+		elseif ($node->bundle() == 'learning_styles_quiz'){
+			$details_nid = $settings['field_learning_styles_quiz_list_'];
+		}
+		elseif ($node->bundle() == 'work_values_quiz'){
+			$details_nid = $settings['field_work_values_quiz_list_node'];
+		}
 	}
 	else {
 		$path = \Drupal::request()->getpathInfo();
 		$arg = explode('/', $path);
 		// if page is not node, check url and added title_description for the page.
 		if (isset($arg[1]) && isset($arg[2])  && $arg[1] == 'quiz'){
-			if (($arg[2] == 'abilities_quiz')||($arg[2] == 'abilities-quiz')) $details_nid = 510;
-			elseif ($arg[2] == 'work-preferences-quiz') $details_nid = 514;
-			elseif ($arg[2] == 'interests-quiz') $details_nid = 511;
-			elseif ($arg[2] == 'multiple-intelligences-quiz') $details_nid = 513;
-			elseif ($arg[2] == 'learning-styles-quiz') $details_nid = 512;
-			elseif ($arg[2] == 'work-values-quiz') $details_nid = 515;
+			if (($arg[2] == 'abilities_quiz')||($arg[2] == 'abilities-quiz')){
+				$details_nid = $settings['field_abilities_quiz_list_node_i'];
 			}
+			elseif ($arg[2] == 'work-preferences-quiz'){
+				$details_nid = $settings['field_work_preferences_quiz_list'];
+			}
+			elseif ($arg[2] == 'interests-quiz'){
+				$details_nid = $settings['field_interests_quiz_list_node_i'];
+			}
+			elseif ($arg[2] == 'multiple-intelligences-quiz'){
+				$details_nid = $settings['field_multiple_intelligences_qui'];
+			}
+			elseif ($arg[2] == 'learning-styles-quiz'){
+				$details_nid = $settings['field_learning_styles_quiz_list_'];
+			}
+			elseif ($arg[2] == 'work-values-quiz'){
+				$details_nid = $settings['field_work_values_quiz_list_node'];
+			}
+		}
 	}
 
 	if($details_nid>0){
