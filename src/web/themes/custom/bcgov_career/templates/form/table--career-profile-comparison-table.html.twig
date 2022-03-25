@@ -77,8 +77,9 @@
             {% for rowkey, row in rows %}
             <div class="career-content-item col active">
               <div class="career-content-item-inner">
-                <div class="title">
-                  <p>{{ row.cells.field_noc_name.content }} <span class='noc-code'>(NOC {{ row.cells.title.content }})</span>
+                {% set noc_name = row.cells.field_noc_name.content ~ ' NOC' ~ '(' ~ row.cells.title.content ~ ')' %}
+                <div class="title" data-toggle="tip" title="{{ row.cells.field_noc_name.content }} (NOC {{ row.cells.title.content }})">
+                  <p>{{ noc_name|length > 70 ? noc_name|slice(0, 70) ~ '...' : noc_name}}
                   </p>
                   <div class="slide-next-prev">
                     {% if rowkey == "0" %}

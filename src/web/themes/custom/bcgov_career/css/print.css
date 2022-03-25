@@ -4,10 +4,32 @@ body, html {
     margin-top:0%;
     display:block;
 }
-
 header .navbar-brand a.site-logo img {
     width: 163px;
     height: auto;
+}
+header .navbar-brand{
+    flex-direction: column;
+    width: 100%;
+}
+header .navbar-brand a.site-logo{
+    width: 100%;
+    border-bottom: 5px solid #000;
+    padding-bottom: 20px;
+    display: block;
+}
+header .navbar-brand .site-name{
+    width: 100%;
+    margin: 0;
+    padding-top: 20px;
+}
+
+header .navbar-brand .site-name > a{
+    font-family: 'BCSans';
+    font-weight: 700;
+    font-style: normal;
+    font-size: 38pt;
+    line-height: 38pt;
 }
 
 #myResult .carousel-inner.carousel-inner-device{

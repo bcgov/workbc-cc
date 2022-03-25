@@ -157,7 +157,7 @@
             <div id="career-item-{{ rowkey }}" class="career-content-item {% if rowkey == "0" %}active{% endif %}" data-url="">
               <div class="career-content-item-inner">
               {% set noc_name = row.raw.field_noc_name ~ ' NOC' ~ '(' ~ row.raw.title ~ ')' %}
-                <div class="title" data-toggle="tip" title="{{ row.raw.field_noc_name }} (NOC {{ row.raw.title }})"><p>{{ noc_name|length > 70 ? noc_name|slice(0, 70) ~ '...' : noc_name}}<span class='noc-code'></span></p></div>
+                <div class="title" data-toggle="tip" title="{{ row.raw.field_noc_name }} (NOC {{ row.raw.title }})"><p>{{ noc_name|length > 70 ? noc_name|slice(0, 70) ~ '...' : noc_name}}</p></div>
                 <div class="career-inner-content">
                   <div class="image-video">
                     {% if row.raw.field_video_id != false %}
