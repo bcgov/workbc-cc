@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "efc6911998a8a6b2d3b2af0fb9b177c1",
+    "content-hash": "472fc88215b9d01d750373a2a4f9bdc8",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2680,6 +2680,58 @@
                 "source": "https://cgit.drupalcode.org/pathauto",
                 "issues": "https://www.drupal.org/project/issues/pathauto",
                 "documentation": "https://www.drupal.org/docs/8/modules/pathauto"
+            }
+        },
+        {
+            "name": "drupal/site_settings",
+            "version": "1.19.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/site_settings.git",
+                "reference": "8.x-1.19"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/site_settings-8.x-1.19.zip",
+                "reference": "8.x-1.19",
+                "shasum": "93977299549d33c4fbaad7a332fe7d3e1e2648b8"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.19",
+                    "datestamp": "1590234916",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "scott_euser",
+                    "homepage": "https://www.drupal.org/user/3267594"
+                },
+                {
+                    "name": "stuart.wilkes@actionaid.org",
+                    "homepage": "https://www.drupal.org/user/3584735"
+                }
+            ],
+            "description": "Provides a site settings entity",
+            "homepage": "https://www.drupal.org/project/site_settings",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "http://cgit.drupalcode.org/site_settings",
+                "issues": "http://drupal.org/project/issues/site_settings"
             }
         },
         {
@@ -7773,5 +7825,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.2.0"
 }

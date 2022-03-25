@@ -1,0 +1,86 @@
+uuid: 3388539e-66f0-49c2-98b3-36c2cab087e0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.site_setting_entity.quiz_list_association.field_abilities_quiz_list_node_i
+    - field.field.site_setting_entity.quiz_list_association.field_interests_quiz_list_node_i
+    - field.field.site_setting_entity.quiz_list_association.field_learning_styles_quiz_list_
+    - field.field.site_setting_entity.quiz_list_association.field_multiple_intelligences_qui
+    - field.field.site_setting_entity.quiz_list_association.field_work_preferences_quiz_list
+    - field.field.site_setting_entity.quiz_list_association.field_work_values_quiz_list_node
+    - site_settings.site_setting_entity_type.quiz_list_association
+id: site_setting_entity.quiz_list_association.default
+targetEntityType: site_setting_entity
+bundle: quiz_list_association
+mode: default
+content:
+  field_abilities_quiz_list_node_i:
+    type: number
+    weight: 11
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_interests_quiz_list_node_i:
+    type: number
+    weight: 13
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_learning_styles_quiz_list_:
+    type: number
+    weight: 15
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_multiple_intelligences_qui:
+    type: number
+    weight: 14
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_work_preferences_quiz_list:
+    type: number
+    weight: 12
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_work_values_quiz_list_node:
+    type: number
+    weight: 16
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  fieldset:
+    type: string_textfield
+    weight: -4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: -4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  user_id:
+    type: entity_reference_autocomplete
+    weight: 5
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

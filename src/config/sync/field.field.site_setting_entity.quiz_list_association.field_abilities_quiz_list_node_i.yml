@@ -1,0 +1,23 @@
+uuid: 4f7fcccd-7165-45d2-92ee-fb9a9060b286
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.site_setting_entity.field_abilities_quiz_list_node_i
+    - site_settings.site_setting_entity_type.quiz_list_association
+id: site_setting_entity.quiz_list_association.field_abilities_quiz_list_node_i
+field_name: field_abilities_quiz_list_node_i
+entity_type: site_setting_entity
+bundle: quiz_list_association
+label: 'Abilities Quiz List Node ID'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer
