@@ -2060,9 +2060,15 @@ span.question-prefix {
                     }
                     &:nth-child(2) {
                         flex: 0 0 70%;
+                        @media all and (max-width: 640.98px){
+                            flex: 0 0 45%;
+                        }
                     }
                     &:last-child {
                         flex: 0 0 20%;
+                        @media all and (max-width: 640.98px){
+                            flex: 0 0 30%;
+                        }
                     }
                 }
             }
@@ -2082,6 +2088,9 @@ span.question-prefix {
 
                     &:nth-child(2) {
                         flex: 0 0 70%;
+                        @media all and (max-width: 640.98px){
+                            flex: 0 0 50%;
+                        }
                         a {
                             color: #333;
                             text-decoration: none;
@@ -2096,6 +2105,9 @@ span.question-prefix {
                     &:last-child {
                         flex: 0 0 20%;
                         text-align: center;
+                        @media all and (max-width: 640.98px){
+                            flex: 0 0 30%;
+                        }
                     }
 
                     .use-ajax {
