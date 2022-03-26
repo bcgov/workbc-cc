@@ -518,15 +518,11 @@ function work_bc_quiz_views_pre_render(ViewExecutable $view) {
 
 			foreach ($results as $k => $row) {
 				$row->_entity->get('nid')->setValue(0, TRUE);
-
 				$nodeTitle = $row->_entity->get('title')->value;
-
 				// check if session already exists.
 				if($session->get('SavedQuiz')){
 					//Get quiz session into an array.
 					$SavedQuiz = $session->get('SavedQuiz');
-
-
 
 					if(is_array($SavedQuiz)) {
 
