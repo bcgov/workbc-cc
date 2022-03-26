@@ -839,6 +839,7 @@ a.quiz-link {
         }
         &#block-bcgov-career-content{
             padding-bottom: 70px;
+            // border-bottom: 4px solid #002855;
             @media all and (max-width: 767.98px) {
                 padding-bottom: 150px;
             }
@@ -912,6 +913,9 @@ body.path-quiz {
                 bottom: -130px;
                 display: flex;
                 padding: 0 15px;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                justify-content: center;
             }
         }
 
@@ -970,27 +974,6 @@ body.path-quiz {
     .vertical-tabs {
         display: none;
     }
-
-    div#block-bcgov-career-breadcrumbs {
-        background: #e9ecef;
-
-        nav {
-            max-width: 1400px;
-            margin: auto;
-            padding: 0px 15px;
-        }
-    }
-
-    .block-system-breadcrumb-block {
-        background: #e9ecef;
-
-        nav {
-            max-width: 1400px;
-            margin: auto;
-            padding: 0px 15px;
-        }
-    }
-
     .region-content {
         position: relative;
         padding-top: 50px;
@@ -1102,7 +1085,7 @@ body.path-quiz {
                     font-weight: normal;
                     display: block;
                     text-align: left;
-                    width: auto;
+                    width: 130px;
                     letter-spacing: normal;
                     left: 30px;
                 }
@@ -1271,9 +1254,16 @@ body.path-quiz {
             position: absolute;
             bottom: -125px;
             left: 0;
+            height: 50px;
             &.save-wrapper{
                 left: auto;
                 right: 0;
+                @media all and (max-width: 767.98px) {
+                    right: 10px;
+                }
+            }
+            @media all and (max-width: 767.98px) {
+                left: 10px;
             }
           }
     }
@@ -1383,7 +1373,7 @@ span.question-prefix {
     @media all and (max-width: 767.98px) {
         margin-top: 0;
         position: relative;
-        padding-bottom: 100px;
+        padding-bottom: 40px;
         > .container {
             max-width: 100%;
         }
@@ -1675,7 +1665,10 @@ span.question-prefix {
 
 #block-views-block-step-form-pagination-block-1 {
     background: #fff;
-    padding-bottom: 230px;
+    padding-bottom: 150px;
+    @media all and (max-width: 767.98px) {
+        padding-bottom: 130px;
+    }
     .views-row.row {
         .offset-md-3 {
             display: flex;
@@ -2399,7 +2392,7 @@ span.question-prefix {
 
 .career-bottom-notes {
     // background: #e6eae9;
-    padding: 30px 0px;
+    padding: 30px 10px;
     @media all and (max-width: 767.98px) {
         padding: 20px 0px;
         margin: 0 10px;
@@ -2714,3 +2707,70 @@ span.question-prefix {
     }
 }
 
+// Breadcrumb
+.breadcrumb-quiz {
+    height: 58px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background-color: rgba(230, 234, 233, 1);
+    @media all and (max-width: 767.98px) {
+        height: 34px;
+    }
+    #block-bcgov-career-breadcrumbs {
+        .breadcrumb {
+            padding: 16px 0px;
+            position: relative;
+            background: transparent;
+            @media all and (max-width: 767.98px) {
+                padding: 5px 15px;
+            }
+            li {
+                a {
+                    font-family: 'BC Sans', sans-serif;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-size: 18px;
+                    color: #073573;
+                    @media all and (max-width: 767.98px) {
+                        font-size: 15px;
+                    }
+                }
+                &:first-child {
+                    margin-right: 15px;
+                    @media all and (max-width: 767.98px) {
+                        margin-right: 8px;
+                    }
+                }
+                &:last-child {
+                    font-family: 'BC Sans', sans-serif;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-size: 18px;
+                    padding-left: 20px;
+                    color: #696969;
+                    position: relative;
+                    @media all and (max-width: 767.98px) {
+                        font-size: 15px;
+                    }
+                    &::before {
+                        content: "" !important;
+                        background: url(../src/icons/arrow-left.svg) no-repeat;
+                        background-size: 8px 13px;
+                        width: 8px;
+                        height: 13px;
+                        transform: rotate(180deg);
+                        top: 6px;
+                        position: absolute;
+                        left: 0;
+                         @media all and (max-width: 767.98px) {
+                            background-size: 5px 10px;
+                            width: 5px;
+                            height: 10px;
+                            top: 8px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

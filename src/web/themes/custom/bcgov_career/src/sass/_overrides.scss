@@ -357,9 +357,12 @@
             li.pag{
                 a{
                     color: $quiz-dark-blue;
-                    &.active, &:hover{
-                        background: $quiz-dark-blue;
-                        color: #fff;
+                    &.active {
+                      background: $quiz-dark-blue;
+                      color: #fff;
+                    }
+                    &:hover{
+                        background: #f2f2f2;
                     }
                 }
             }
@@ -533,9 +536,12 @@
             li.pag{
                 a{
                     color: $quiz-purple;
-                    &.active, &:hover{
+                    &.active{
                         background: $quiz-purple;
                         color: #fff;
+                    }
+                    &:hover{
+                        background: #f2f2f2;
                     }
                 }
             }
@@ -709,9 +715,12 @@
             li.pag{
                 a{
                     color: $quiz-blue;
-                    &.active, &:hover{
+                    &.active{
                         background: $quiz-blue;
                         color: #fff;
+                    }
+                    &:hover{
+                        background: #f2f2f2;
                     }
                 }
             }
@@ -885,9 +894,12 @@
             li.pag{
                 a{
                     color: $quiz-green;
-                    &.active, &:hover{
+                    &.active{
                         background: $quiz-green;
                         color: #fff;
+                    }
+                    &:hover{
+                        background: #f2f2f2;
                     }
                 }
             }
@@ -1061,9 +1073,12 @@
             li.pag{
                 a{
                     color: $quiz-light-blue;
-                    &.active, &:hover{
+                    &.active{
                         background: $quiz-light-blue;
                         color: #fff;
+                    }
+                    &:hover{
+                        background: #f2f2f2;
                     }
                 }
             }
@@ -1237,9 +1252,12 @@
             li.pag{
                 a{
                     color: $quiz-pink;
-                    &.active, &:hover{
+                    &.active{
                         background: $quiz-pink;
                         color: #fff;
+                    }
+                    &:hover{
+                        background: #f2f2f2;
                     }
                 }
             }

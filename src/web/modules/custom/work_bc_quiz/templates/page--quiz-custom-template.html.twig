@@ -102,43 +102,45 @@ set footer_classes = ' ' ~
 
   <div class="{{ b4_top_container }}">
     {% if page.breadcrumb %}
-      <div class="aq-breadcrumb">
-
-			{{ page.breadcrumb }}
-
-	  </div>
+      <div class="w-100 breadcrumb-quiz">
+        <div class="container-fluid">
+          <div class="row">
+            {{ page.breadcrumb }}
+          </div>
+        </div>
+      </div>
     {% endif %}
-	<div class="main-bg {{ node.bundle | replace({'_': '-'}) }}">
-		<div class="overlay-bg"></div>
-		<div class="overlay-content container-fluid">
-			<div class="row no-gutters">
-			  {% if page.sidebar_first %}
-				<div class="order-2 order-lg-1 {{ sidebar_first_classes }}">
-				  {{ page.sidebar_first }}
-				</div>
-			  {% endif %}
-			  <div class="order-1 order-lg-2 {{ content_classes }}">
-				{{ page.content }}
-			  </div>
-			  {% if page.sidebar_second %}
-				<div class="order-3 {{ sidebar_second_classes }}">
-				  {{ page.sidebar_second }}
-				</div>
-			  {% endif %}
-			</div>
-		</div>
+    <div class="main-bg {{ node.bundle | replace({'_': '-'}) }}">
+      <div class="overlay-bg"></div>
+      <div class="overlay-content container-fluid">
+        <div class="row">
+          {% if page.sidebar_first %}
+          <div class="order-2 order-lg-1 {{ sidebar_first_classes }}">
+            {{ page.sidebar_first }}
+          </div>
+          {% endif %}
+          <div class="order-1 order-lg-2 {{ content_classes }}">
+          {{ page.content }}
+          </div>
+          {% if page.sidebar_second %}
+          <div class="order-3 {{ sidebar_second_classes }}">
+            {{ page.sidebar_second }}
+          </div>
+          {% endif %}
+        </div>
+      </div>
+      </div>
     </div>
-  </div>
-  <div class="container-fluid">
-    <div class="row no-gutters">
-      <div class="career-bottom-notes w-100">
-        <div class="career-bottom-inner-notes">
-          <p>This quiz has been reproduced with permission from the <a href="/">Government of Canada’s National Job Bank</a></p>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="career-bottom-notes w-100">
+          <div class="career-bottom-inner-notes">
+            <p>This quiz has been reproduced with permission from the <a href="/">Government of Canada’s National Job Bank</a></p>
+          </div>
         </div>
       </div>
     </div>
   </div>
-
 </main>
 
 
