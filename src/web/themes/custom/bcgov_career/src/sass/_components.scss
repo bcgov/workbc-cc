@@ -1022,7 +1022,7 @@ body.path-quiz {
                 height: 20px;
                 position: relative;
                 z-index: 1;
-                top: 9px;
+                top: 13px;
                 opacity: 0;
 
                 & + label.option + span.radio {
@@ -1034,7 +1034,7 @@ body.path-quiz {
                     background: #fff;
                     margin: 0 auto;
                     position: relative;
-                    bottom: 16px;
+                    bottom: 10px;
 
                     @media all and (max-width: 767.98px) {
                         margin: 0;
@@ -1306,7 +1306,6 @@ body.path-quiz {
     }
     fieldset {
         margin: 0px;
-
         legend {
             float: left !important;
             width: 37% !important;
@@ -1332,7 +1331,8 @@ body.path-quiz {
 
     .form-item {
         margin: 0px;
-
+        display: flex;
+        align-items: center;
         @media all and (max-width: 767.98px) {
             display: flex;
             flex-direction: column;
@@ -1343,11 +1343,11 @@ body.path-quiz {
 span.question-prefix {
     float: left;
     margin-right: 10px;
-    margin-top: 4px;
+    margin-top: 12px;
     color: #333333;
 
     @media all and (max-width: 767.98px) {
-        margin-top: 8px;
+        margin-top: 1px;
     }
 
     &:after {
@@ -2056,11 +2056,19 @@ span.question-prefix {
                     margin: 0;
 
                     &:first-child {
-                        flex: 0 0 70%;
+                        flex: 0 0 10%;
                     }
-
+                    &:nth-child(2) {
+                        flex: 0 0 70%;
+                        @media all and (max-width: 640.98px){
+                            flex: 0 0 45%;
+                        }
+                    }
                     &:last-child {
-                        flex: 0 0 30%;
+                        flex: 0 0 20%;
+                        @media all and (max-width: 640.98px){
+                            flex: 0 0 30%;
+                        }
                     }
                 }
             }
@@ -2075,8 +2083,14 @@ span.question-prefix {
                     margin: 0;
 
                     &:first-child {
-                        flex: 0 0 70%;
+                        flex: 0 0 10%;
+                    }
 
+                    &:nth-child(2) {
+                        flex: 0 0 70%;
+                        @media all and (max-width: 640.98px){
+                            flex: 0 0 50%;
+                        }
                         a {
                             color: #333;
                             text-decoration: none;
@@ -2089,8 +2103,11 @@ span.question-prefix {
                     }
 
                     &:last-child {
-                        flex: 0 0 30%;
+                        flex: 0 0 20%;
                         text-align: center;
+                        @media all and (max-width: 640.98px){
+                            flex: 0 0 30%;
+                        }
                     }
 
                     .use-ajax {
