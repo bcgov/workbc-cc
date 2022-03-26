@@ -1,0 +1,20 @@
+uuid: 1e3f592e-93e8-4139-afcb-002a6fb020ec
+langcode: en
+status: true
+dependencies:
+  module:
+    - site_settings
+id: site_setting_entity.field_multiple_intelligences_qui
+field_name: field_multiple_intelligences_qui
+entity_type: site_setting_entity
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

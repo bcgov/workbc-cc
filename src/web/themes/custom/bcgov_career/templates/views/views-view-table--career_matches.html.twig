@@ -105,14 +105,14 @@
                         {%- if column.url -%}
                             <a href="{{ column.url }}" title="{{ column.title }}">{{ column.content }}{{ column.sort_indicator }}</a>
                         {%- else -%}
-                            {{ column.content }}{{ column.sort_indicator }}
+                            {{ column.content | raw }}{{ column.sort_indicator }}
                         {%- endif -%}
                         </{{ column.wrapper_element }}>
                     {%- else -%}
                         {%- if column.url -%}
                         <a href="{{ column.url }}" title="{{ column.title }}">{{ column.content }}{{ column.sort_indicator }}</a>
                         {%- else -%}
-                        {{- column.content }}{{ column.sort_indicator }}
+                        {{- column.content | raw }}{{ column.sort_indicator }}
                         {%- endif -%}
                     {%- endif -%}
                     </th>
@@ -157,7 +157,7 @@
             <div id="career-item-{{ rowkey }}" class="career-content-item {% if rowkey == "0" %}active{% endif %}" data-url="">
               <div class="career-content-item-inner">
               {% set noc_name = row.raw.field_noc_name ~ ' NOC' ~ '(' ~ row.raw.title ~ ')' %}
-                <div class="title" data-toggle="tip" title="{{ row.raw.field_noc_name }} (NOC {{ row.raw.title }})"><p>{{ noc_name|length > 70 ? noc_name|slice(0, 70) ~ '...' : noc_name}}<span class='noc-code'></span></p></div>
+                <div class="title" data-toggle="tip" title="{{ row.raw.field_noc_name }} (NOC {{ row.raw.title }})"><p>{{ noc_name|length > 70 ? noc_name|slice(0, 70) ~ '...' : noc_name}}</p></div>
                 <div class="career-inner-content">
                   <div class="image-video">
                     {% if row.raw.field_video_id != false %}
@@ -218,7 +218,8 @@
         <div class="careers-mobi-table-wrapper">
           <div class="thead">
             <div class="thead-main">
-              <p class="head">Career Matches</p>
+              <p class="head">%<br>Match</p>
+              <p class="head">Career<br>Matches</p>
               <p class="head">Compare Careers</p>
             </div>
           </div>
@@ -226,6 +227,7 @@
           {% for rowkey, row in rows %}
           {% set nodeURL =  url('entity.node.canonical', {'node': row.raw.nid}) %}
             <div class="tbody-main" data-id="career-item-{{ rowkey }}">
+            <p class="body">{{ row.raw.match }}</p>
               <p class="body"><a href="{{ nodeURL }}" class="career-table-mobi-row-link">{{ row.raw.field_noc_name }} </br><span class="noc">(NOC {{ row.raw.title }})</span></a></p>
               <p class="body">
                 {{ row.columns.entity_comparison_link_career }}

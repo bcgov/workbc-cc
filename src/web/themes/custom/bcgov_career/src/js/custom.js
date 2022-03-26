@@ -4,7 +4,7 @@
       $(window).on("load resize", function () {
         const $window = $(this).width();
       });
-      
+
       $(".preview-quiz-form").parent().addClass("preview-block-wrapper");
 
       $(".mobi_cari_quiz").each(function(){
@@ -144,8 +144,8 @@
         dots: true,
         arrows:false
       });
-
       $(".path-quiz form .field--widget-double-reference-autocomplete-select").each(function (i) {
+        $(this).addClass(i % 2 ? "work-bc-quiz-even" : "work-bc-quiz-odd");
         if (!$(this).find(".form-type-radio > .radio").length) {
           $(this).find(".form-type-radio").append("<span class='radio'></span>");
         }
@@ -172,7 +172,7 @@
 
       // $(".cancel-wrapper, .save-wrapper").wrapAll("<div class='save-cancel-wrapper'/>");
 
-      
+
       $(".hideshow", context).once("workbc").on("click", function () {
           if ($(".hideshow").hasClass("hide")) {
             $(this).removeClass("hide");
@@ -236,7 +236,7 @@
         // winPrint.document.close();
         // winPrint.focus();
         // winPrint.print();
-        // winPrint.close(); 
+        // winPrint.close();
       });
 
 

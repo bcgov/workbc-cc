@@ -1,0 +1,8 @@
+uuid: 12f33380-d484-4f65-8613-85fddff5832c
+langcode: en
+status: true
+dependencies: {  }
+id: quiz_list_association
+label: 'Quiz List Association'
+fieldset: 'Quiz List Association'
+multiple: false

@@ -101,6 +101,8 @@ body {
     line-height: 2.4rem;
     margin: 0;
     overflow-x: hidden;
+    font-family:'BC Sans';
+    font-weight: 400;
     &.overlayBg{
         overflow: hidden;
         &::before{
@@ -187,6 +189,9 @@ ul{
             margin: auto;
             text-align: center;
             padding: 0px 10px;
+            @media all and (max-width: 767.98px){
+                padding: 0px;
+            }
             a {
                 display: block;
                 padding: 5px 15px;
