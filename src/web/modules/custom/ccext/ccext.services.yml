@@ -1,0 +1,7 @@
+services:
+  ccext.breadcrumb:
+    # The namespace + classname from your BreadcrumbBuilderInterface class
+    class: Drupal\ccext\Breadcrumb\CcextBreadcrumbBuilder
+    # Priority determines the order in which Breadcrumb services run.
+    tags:
+      - { name: breadcrumb_builder, priority: 100 }

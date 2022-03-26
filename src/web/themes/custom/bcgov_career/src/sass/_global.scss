@@ -189,6 +189,9 @@ ul{
             margin: auto;
             text-align: center;
             padding: 0px 10px;
+            @media all and (max-width: 767.98px){
+                padding: 0px;
+            }
             a {
                 display: block;
                 padding: 5px 15px;
