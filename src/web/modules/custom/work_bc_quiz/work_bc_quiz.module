@@ -536,7 +536,8 @@ function work_bc_quiz_views_pre_render(ViewExecutable $view) {
 								$field_value = $field_quiz_link->getValue();
 
 								// current item is available in sessions => remove new quiz link and replace with the existing link.
-								$quizLink = strtolower(str_replace(" ","_", $nodeTitle));
+								$quizLink = strtolower(str_replace(" ","_", trim($nodeTitle)));
+								if($quizLink !== "abilities_quiz") $quizLink = str_replace("_", "-", $quizLink);
 
 								$query = \Drupal::database()->select('node', 'n')->fields('sf', ['instance_id', 'entity_id']);
 								$query->leftJoin('forms_steps_workflow', 'sf', 'sf.entity_id = n.nid');
