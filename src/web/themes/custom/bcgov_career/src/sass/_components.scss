@@ -1343,11 +1343,11 @@ body.path-quiz {
 span.question-prefix {
     float: left;
     margin-right: 10px;
-    margin-top: 9px;
+    margin-top: 12px;
     color: #333333;
 
     @media all and (max-width: 767.98px) {
-        margin-top: 8px;
+        margin-top: 1px;
     }
 
     &:after {
