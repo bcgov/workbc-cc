@@ -2056,11 +2056,13 @@ span.question-prefix {
                     margin: 0;
 
                     &:first-child {
+                        flex: 0 0 10%;
+                    }
+                    &:nth-child(2) {
                         flex: 0 0 70%;
                     }
-
                     &:last-child {
-                        flex: 0 0 30%;
+                        flex: 0 0 20%;
                     }
                 }
             }
@@ -2075,8 +2077,11 @@ span.question-prefix {
                     margin: 0;
 
                     &:first-child {
-                        flex: 0 0 70%;
+                        flex: 0 0 10%;
+                    }
 
+                    &:nth-child(2) {
+                        flex: 0 0 70%;
                         a {
                             color: #333;
                             text-decoration: none;
@@ -2089,7 +2094,7 @@ span.question-prefix {
                     }
 
                     &:last-child {
-                        flex: 0 0 30%;
+                        flex: 0 0 20%;
                         text-align: center;
                     }
 
