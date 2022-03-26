@@ -160,10 +160,10 @@
         dots: true,
         arrows: false,
       });
-
       $(
         ".path-quiz form .field--widget-double-reference-autocomplete-select"
       ).each(function (i) {
+        $(this).addClass(i % 2 ? "work-bc-quiz-even" : "work-bc-quiz-odd");
         if (!$(this).find(".form-type-radio > .radio").length) {
           $(this)
             .find(".form-type-radio")
@@ -202,7 +202,8 @@
             $(".result-heading h2.vaa1").hide();
             $(".result-heading h2.vaa").show();
             $(".itm.hide").hide();
-          } else {
+          }
+ else {
             $(this).addClass("hide");
             $(".itm.hide").show();
             $(".hideshow span.vaa").hide();

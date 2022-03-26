@@ -101,6 +101,8 @@ body {
     line-height: 2.4rem;
     margin: 0;
     overflow-x: hidden;
+    font-family:'BC Sans';
+    font-weight: 400;
     &.overlayBg{
         overflow: hidden;
         &::before{
