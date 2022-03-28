@@ -471,30 +471,30 @@ function work_bc_quiz_node_view(array &$build, \Drupal\Core\Entity\EntityInterfa
 							}
 							else break;
 						}
-
-						$SavedQuiz = ($session->get('SavedQuiz')) ? $session->get('SavedQuiz') : '';
-
-						foreach($SavedQuiz as $key => $value){
-
-							if($value->uuid == $uuid) {
-								$arguments = explode('_', $key);
-								$arguments = end($arguments);
-								if($arguments == "A100"){
-									unset($SavedQuiz[$key]);
-									$key = str_replace($arguments, $entity_id, $key);
-								}
-								$SavedQuiz[$key]->uuid = $uuid;
-								$SavedQuiz[$key]->result = $result;
-							}
-						}
-
-						$session->set('SavedQuiz', $SavedQuiz);
 					}
 				}
 			}
 			catch (RequestException $e) {
 			  return FALSE;
 			}
+			$SavedQuiz = ($session->get('SavedQuiz')) ? $session->get('SavedQuiz') : '';
+
+			foreach($SavedQuiz as $key => $value){
+
+				if($value->uuid == $uuid) {
+					$arguments = explode('_', $key);
+					$arguments = end($arguments);
+					if($arguments == "A100"){
+						unset($SavedQuiz[$key]);
+						$key = str_replace($arguments, $entity_id, $key);
+					}
+						$SavedQuiz[$key]->uuid = $uuid;
+						$SavedQuiz[$key]->result = $result;
+				}
+			}
+
+			$session->set('SavedQuiz', $SavedQuiz);
+				
 			//print_r($SavedQuiz);
 			//$session->remove('SavedQuiz');     // Temp to Clear Session
 		}
