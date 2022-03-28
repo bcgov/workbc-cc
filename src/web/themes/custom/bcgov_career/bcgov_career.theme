@@ -77,9 +77,21 @@ function bcgov_career_preprocess_views_view_table(&$variables) {
         }
 
       }
+      $result[$num]['title'] = $handler->getFieldValue($num, 'title');
       $result[$num]['raw'] = $raw;
     }
-    $variables['result'] = $variables['rows'] = $result;
+
+    // Result order sort by quiz result.
+    $resut_order = NULL;
+    foreach ($match as $title => $per) {
+      foreach ($result as $num => $row) {
+        if ($row['title'] == $title) {
+          $resut_order[] = $row;
+          break;
+        }
+      }
+    }
+    $variables['result'] = $variables['rows'] = $resut_order;
     $variables['current_nid'] = $nid;
     // Get the url object from route.
     $url = Url::fromRoute('ccext.compate_action_remove', [
