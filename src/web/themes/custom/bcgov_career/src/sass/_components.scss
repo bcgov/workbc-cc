@@ -1178,6 +1178,10 @@ body.path-quiz {
                     }
                 }
             }
+            &.error-class{
+                border: 2px solid rgba(205, 27, 33, 1);
+                margin-bottom: 2px;
+            }
         }
     }
 
@@ -2791,6 +2795,34 @@ span.question-prefix {
                         }
                     }
                 }
+            }
+        }
+    }
+}
+
+.main-bg{
+    .overlay-content{
+        .alert-error{
+            position: absolute;
+            z-index: 1;
+            bottom: 130px;
+            left: 85px;
+            padding: 0;
+            background: transparent;
+            border: 0;
+            color: #CD1B21;
+            font-family: 'BCSans';
+            font-weight: 400;
+            font-style: normal;
+            font-size: 1.4rem;
+            &::before{
+                content: url(../src/icons/alert.svg);
+                position: relative;
+                top: 3px;
+                margin-right: 5px;
+            }
+            button.close{
+                display: none;
             }
         }
     }

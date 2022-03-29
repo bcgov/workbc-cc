@@ -245,6 +245,11 @@
         // winPrint.close();
       });
 
+      $("#block-bcgov-career-content > form > div.form-wrapper").each(function(){
+        if($(this).find("> fieldset").hasClass("error")){
+          $(this).addClass("error-class");
+        }
+      });
 
     },
   };
