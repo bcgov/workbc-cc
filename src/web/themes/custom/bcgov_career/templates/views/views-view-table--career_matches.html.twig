@@ -161,7 +161,8 @@
                 <div class="career-inner-content">
                   <div class="image-video">
                     {% if row.raw.field_video_id != false %}
-                      <iframe width="420" height="345" src="{{ 'https://www.youtube.com/embed/' ~ row.raw.field_video_link }}"></iframe>
+                      {% set video_link = 'https://www.youtube.com/embed/' ~ row.raw.field_video_id %}
+                      <iframe width="420" height="345" data-src="{{ video_link }}"src="{% if rowkey == "0" %}{{video_link}}{% endif %}"></iframe>
                     {% elseif  row.raw.field_video_id == false %}
                       <img src="{{ row.raw.field_image }}" alt=""/>
                     {% endif %}

@@ -75,7 +75,7 @@
         <div class="career-content-compare career-content-main-wrapper">
           {% if rows %}
             {% for rowkey, row in rows %}
-            <div class="career-content-item col active">
+            <div class="career-content-item {% if rows|length > 2 %}col{% endif %} active">
               <div class="career-content-item-inner">
                 {% set noc_name = row.cells.field_noc_name.content ~ ' NOC' ~ '(' ~ row.cells.title.content ~ ')' %}
                 <div class="title" data-toggle="tip" title="{{ row.cells.field_noc_name.content }} (NOC {{ row.cells.title.content }})">

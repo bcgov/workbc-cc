@@ -77,6 +77,12 @@
         $(this).parent().parent().addClass("active");
         $(".career-content-main-wrapper .career-content-item").removeClass("active");
         $(".career-content-main-wrapper .career-content-item#"+getCarDataId).addClass("active");
+        // image-video iframe
+        $(".career-content-main-wrapper .career-content-item .image-video iframe").removeAttr("src");
+        var src = $(".career-content-main-wrapper .career-content-item.active .image-video iframe").attr('data-src');
+        $(".career-content-main-wrapper .career-content-item.active .image-video iframe").attr("src", src);
+
+
       });
 
       setTimeout(function(){
