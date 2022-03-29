@@ -21,7 +21,7 @@ steps:
     cancelLabel: null
     cancelRoute: entity.node.canonical
     cancelStepMode: null
-    previousLabel: Back
+    previousLabel: Previous
     hideDelete: 1
     deleteLabel: null
     displayPrevious: 0
@@ -34,7 +34,7 @@ steps:
     url: /quiz/abilities_quiz/step2/preview
     submitLabel: Next
     cancelLabel: null
-    previousLabel: Back
+    previousLabel: Previous
     hideDelete: 0
     deleteLabel: null
     displayPrevious: 1
@@ -47,7 +47,7 @@ steps:
     url: /quiz/abilities_quiz/step3/preview
     submitLabel: Next
     cancelLabel: null
-    previousLabel: Back
+    previousLabel: Previous
     hideDelete: 1
     deleteLabel: null
     displayPrevious: 1
@@ -60,7 +60,7 @@ steps:
     url: /quiz/abilities_quiz/step4/preview
     submitLabel: 'View Results'
     cancelLabel: null
-    previousLabel: Back
+    previousLabel: Previous
     hideDelete: 1
     deleteLabel: null
     displayPrevious: 1
