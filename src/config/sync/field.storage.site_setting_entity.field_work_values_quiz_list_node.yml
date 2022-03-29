@@ -1,0 +1,20 @@
+uuid: dbc4047e-f646-426b-9b1d-b2233ed933ea
+langcode: en
+status: true
+dependencies:
+  module:
+    - site_settings
+id: site_setting_entity.field_work_values_quiz_list_node
+field_name: field_work_values_quiz_list_node
+entity_type: site_setting_entity
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

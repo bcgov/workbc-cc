@@ -196,28 +196,56 @@ function work_bc_quiz_entity_presave(Drupal\Core\Entity\EntityInterface $entity)
  */
 use Drupal\node\Entity\Node;
 function work_bc_quiz_preprocess(&$variables) {
+	$site_settings = \Drupal::service('site_settings.loader');
+	$settings = $site_settings->loadAll();
+	$settings = $settings['quiz_list_association']['quiz_list_association'];
+
 	$details_nid =0;
 
 	if ($node = \Drupal::routeMatch()->getParameter('node')) {
-		if ($node->bundle() == 'abilities_quiz') $details_nid =510;
-		elseif ($node->bundle() == 'work_preferences_quiz') $details_nid =514;
-		elseif ($node->bundle() == 'interests_quiz') $details_nid =511;
-		elseif ($node->bundle() == 'multiple_intelligences_quiz') $details_nid =513;
-		elseif ($node->bundle() == 'learning_styles_quiz') $details_nid =512;
-		elseif ($node->bundle() == 'work_values_quiz') $details_nid =515;
+		if ($node->bundle() == 'abilities_quiz'){
+			$details_nid = $settings['field_abilities_quiz_list_node_i'];
+		}
+		elseif ($node->bundle() == 'work_preferences_quiz'){
+			$details_nid = $settings['field_work_preferences_quiz_list'];
+		}
+		elseif ($node->bundle() == 'interests_quiz'){
+			$details_nid = $settings['field_interests_quiz_list_node_i'];
+		}
+		elseif ($node->bundle() == 'multiple_intelligences_quiz'){
+			$details_nid = $settings['field_multiple_intelligences_qui'];
+		}
+		elseif ($node->bundle() == 'learning_styles_quiz'){
+			$details_nid = $settings['field_learning_styles_quiz_list_'];
+		}
+		elseif ($node->bundle() == 'work_values_quiz'){
+			$details_nid = $settings['field_work_values_quiz_list_node'];
+		}
 	}
 	else {
 		$path = \Drupal::request()->getpathInfo();
 		$arg = explode('/', $path);
 		// if page is not node, check url and added title_description for the page.
 		if (isset($arg[1]) && isset($arg[2])  && $arg[1] == 'quiz'){
-			if (($arg[2] == 'abilities_quiz')||($arg[2] == 'abilities-quiz')) $details_nid = 510;
-			elseif ($arg[2] == 'work-preferences-quiz') $details_nid = 514;
-			elseif ($arg[2] == 'interests-quiz') $details_nid = 511;
-			elseif ($arg[2] == 'multiple-intelligences-quiz') $details_nid = 513;
-			elseif ($arg[2] == 'learning-styles-quiz') $details_nid = 512;
-			elseif ($arg[2] == 'work-values-quiz') $details_nid = 515;
+			if (($arg[2] == 'abilities_quiz')||($arg[2] == 'abilities-quiz')){
+				$details_nid = $settings['field_abilities_quiz_list_node_i'];
 			}
+			elseif ($arg[2] == 'work-preferences-quiz'){
+				$details_nid = $settings['field_work_preferences_quiz_list'];
+			}
+			elseif ($arg[2] == 'interests-quiz'){
+				$details_nid = $settings['field_interests_quiz_list_node_i'];
+			}
+			elseif ($arg[2] == 'multiple-intelligences-quiz'){
+				$details_nid = $settings['field_multiple_intelligences_qui'];
+			}
+			elseif ($arg[2] == 'learning-styles-quiz'){
+				$details_nid = $settings['field_learning_styles_quiz_list_'];
+			}
+			elseif ($arg[2] == 'work-values-quiz'){
+				$details_nid = $settings['field_work_values_quiz_list_node'];
+			}
+		}
 	}
 
 	if($details_nid>0){
@@ -443,30 +471,30 @@ function work_bc_quiz_node_view(array &$build, \Drupal\Core\Entity\EntityInterfa
 							}
 							else break;
 						}
-
-						$SavedQuiz = ($session->get('SavedQuiz')) ? $session->get('SavedQuiz') : '';
-
-						foreach($SavedQuiz as $key => $value){
-
-							if($value->uuid == $uuid) {
-								$arguments = explode('_', $key);
-								$arguments = end($arguments);
-								if($arguments == "A100"){
-									unset($SavedQuiz[$key]);
-									$key = str_replace($arguments, $entity_id, $key);
-								}
-								$SavedQuiz[$key]->uuid = $uuid;
-								$SavedQuiz[$key]->result = $result;
-							}
-						}
-
-						$session->set('SavedQuiz', $SavedQuiz);
 					}
 				}
 			}
 			catch (RequestException $e) {
 			  return FALSE;
 			}
+			$SavedQuiz = ($session->get('SavedQuiz')) ? $session->get('SavedQuiz') : '';
+
+			foreach($SavedQuiz as $key => $value){
+
+				if($value->uuid == $uuid) {
+					$arguments = explode('_', $key);
+					$arguments = end($arguments);
+					if($arguments == "A100"){
+						unset($SavedQuiz[$key]);
+						$key = str_replace($arguments, $entity_id, $key);
+					}
+						$SavedQuiz[$key]->uuid = $uuid;
+						$SavedQuiz[$key]->result = $result;
+				}
+			}
+
+			$session->set('SavedQuiz', $SavedQuiz);
+				
 			//print_r($SavedQuiz);
 			//$session->remove('SavedQuiz');     // Temp to Clear Session
 		}
@@ -490,15 +518,11 @@ function work_bc_quiz_views_pre_render(ViewExecutable $view) {
 
 			foreach ($results as $k => $row) {
 				$row->_entity->get('nid')->setValue(0, TRUE);
-
 				$nodeTitle = $row->_entity->get('title')->value;
-
 				// check if session already exists.
 				if($session->get('SavedQuiz')){
 					//Get quiz session into an array.
 					$SavedQuiz = $session->get('SavedQuiz');
-
-
 
 					if(is_array($SavedQuiz)) {
 
@@ -512,7 +536,8 @@ function work_bc_quiz_views_pre_render(ViewExecutable $view) {
 								$field_value = $field_quiz_link->getValue();
 
 								// current item is available in sessions => remove new quiz link and replace with the existing link.
-								$quizLink = strtolower(str_replace(" ","_", $nodeTitle));
+								$quizLink = strtolower(str_replace(" ","_", trim($nodeTitle)));
+								if($quizLink !== "abilities_quiz") $quizLink = str_replace("_", "-", $quizLink);
 
 								$query = \Drupal::database()->select('node', 'n')->fields('sf', ['instance_id', 'entity_id']);
 								$query->leftJoin('forms_steps_workflow', 'sf', 'sf.entity_id = n.nid');

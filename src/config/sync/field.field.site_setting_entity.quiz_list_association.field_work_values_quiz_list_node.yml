@@ -1,0 +1,23 @@
+uuid: 0fb7059f-5861-41ce-bfe9-29c12fcccdff
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.site_setting_entity.field_work_values_quiz_list_node
+    - site_settings.site_setting_entity_type.quiz_list_association
+id: site_setting_entity.quiz_list_association.field_work_values_quiz_list_node
+field_name: field_work_values_quiz_list_node
+entity_type: site_setting_entity
+bundle: quiz_list_association
+label: 'Work Values Quiz List Node ID'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer
