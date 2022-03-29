@@ -274,6 +274,13 @@
           }
         }
       );
+
+      $("#block-views-block-step-form-pagination-block-1")
+        .prev("#block-bcgov-career-content")
+        .addClass("no-border-block");
+      $(".path-quiz.quiz-color-dark-blue .block-forms-steps")
+        .prev("#block-bcgov-career-content")
+        .addClass("no-border-block");
     },
   };
 })(jQuery, Drupal, drupalSettings);

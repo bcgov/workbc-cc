@@ -1070,7 +1070,7 @@ body.path-quiz {
 
             label {
                 position: absolute;
-                top: 0px;
+                top: -60px;
                 font-size: 14px;
                 font-weight: normal;
                 display: block;
@@ -1079,6 +1079,9 @@ body.path-quiz {
                 letter-spacing: normal;
                 color: #666666;
                 font-family: "BC Sans", sans-serif;
+                right: 0;
+                left: -10px;
+                margin: 0 auto;
 
                 @media all and (max-width: 767.98px) {
                     position: relative;
@@ -1099,6 +1102,7 @@ body.path-quiz {
                 min-width: 19%;
                 text-align: center;
                 margin: auto;
+                position: relative;
 
                 @media all and (max-width: 767.98px) {
                     min-width: 100%;
@@ -2820,6 +2824,10 @@ span.question-prefix {
                 position: relative;
                 top: 3px;
                 margin-right: 5px;
+            }
+            @media all and (max-width: 767.98px){
+                bottom: 105px;
+                left: 30px;
             }
             button.close{
                 display: none;
