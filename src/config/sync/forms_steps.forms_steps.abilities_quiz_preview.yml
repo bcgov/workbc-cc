@@ -58,7 +58,7 @@ steps:
     entity_bundle: abilities_quiz
     form_mode: node.step_4_preview
     url: /quiz/abilities_quiz/step4/preview
-    submitLabel: 'View Result'
+    submitLabel: 'View Results'
     cancelLabel: null
     previousLabel: Back
     hideDelete: 1
