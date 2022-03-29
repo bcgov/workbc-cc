@@ -85,6 +85,16 @@
         $(
           `.career-content-main-wrapper .career-content-item#${getCarDataId}`
         ).addClass("active");
+        // image-video iframe
+        $(
+          ".career-content-main-wrapper .career-content-item .image-video iframe"
+        ).removeAttr("src");
+        const src = $(
+          ".career-content-main-wrapper .career-content-item.active .image-video iframe"
+        ).attr("data-src");
+        $(
+          ".career-content-main-wrapper .career-content-item.active .image-video iframe"
+        ).attr("src", src);
       });
 
       setTimeout(function () {

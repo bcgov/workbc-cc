@@ -153,6 +153,7 @@
     font-size: 1.5rem;
     text-align: right;
     line-height: 3rem;
+    color: #333333;
     &:hover {
         text-decoration: underline;
     }
@@ -2526,8 +2527,10 @@ span.question-prefix {
             }
         }
         .career-content-item {
-            // max-width: 375px;
-            // margin: 0 11px;
+            &:not(.col) {
+                max-width: 375px;
+                margin: 0 11px;
+            }
 
             @media all and (max-width: 991.98px) {
                 max-width: 100%;
