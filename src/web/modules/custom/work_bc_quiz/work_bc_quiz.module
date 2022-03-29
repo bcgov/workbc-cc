@@ -410,7 +410,7 @@ function work_bc_quiz_node_view(array &$build, \Drupal\Core\Entity\EntityInterfa
 			}
 
 			// Sort data using usort php function.
-			usort($groupedResult, fn($b, $a) => strcmp($a['percentage'], $b['percentage']));
+			usort($groupedResult, fn($b, $a) => ($a['percentage'] - $b['percentage']));
 			if($QuizError){
 				$query = \Drupal::database()->select('node', 'n')->fields('sf', ['instance_id', 'entity_id']);
 				$query->leftJoin('forms_steps_workflow', 'sf', 'sf.entity_id = n.nid');

@@ -82,7 +82,7 @@ steps:
     entity_bundle: multiple_intelligences_quiz
     form_mode: node.step_7_preview
     url: /quiz/multiple-intelligences-quiz/step7/preview
-    submitLabel: Next
+    submitLabel: 'View Results'
     cancelLabel: null
     previousLabel: Previous
     hideDelete: 0
