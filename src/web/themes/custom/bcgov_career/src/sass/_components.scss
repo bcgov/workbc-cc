@@ -1070,7 +1070,7 @@ body.path-quiz {
 
             label {
                 position: absolute;
-                top: 0px;
+                top: -60px;
                 font-size: 14px;
                 font-weight: normal;
                 display: block;
@@ -1079,6 +1079,9 @@ body.path-quiz {
                 letter-spacing: normal;
                 color: #666666;
                 font-family: "BC Sans", sans-serif;
+                right: 0;
+                left: -10px;
+                margin: 0 auto;
 
                 @media all and (max-width: 767.98px) {
                     position: relative;
@@ -1099,6 +1102,7 @@ body.path-quiz {
                 min-width: 19%;
                 text-align: center;
                 margin: auto;
+                position: relative;
 
                 @media all and (max-width: 767.98px) {
                     min-width: 100%;
@@ -1177,6 +1181,10 @@ body.path-quiz {
                         display: block;
                     }
                 }
+            }
+            &.error-class{
+                border: 2px solid rgba(205, 27, 33, 1);
+                margin-bottom: 2px;
             }
         }
     }
@@ -2791,6 +2799,38 @@ span.question-prefix {
                         }
                     }
                 }
+            }
+        }
+    }
+}
+
+.main-bg{
+    .overlay-content{
+        .alert-error{
+            position: absolute;
+            z-index: 1;
+            bottom: 130px;
+            left: 85px;
+            padding: 0;
+            background: transparent;
+            border: 0;
+            color: #CD1B21;
+            font-family: 'BCSans';
+            font-weight: 400;
+            font-style: normal;
+            font-size: 1.4rem;
+            &::before{
+                content: url(../src/icons/alert.svg);
+                position: relative;
+                top: 3px;
+                margin-right: 5px;
+            }
+            @media all and (max-width: 767.98px){
+                bottom: 105px;
+                left: 30px;
+            }
+            button.close{
+                display: none;
             }
         }
     }

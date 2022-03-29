@@ -234,6 +234,12 @@
         .overlay-content{
             .block-system-main-block{
                 border-top: 9px solid $quiz-dark-blue-dark;
+                &:not(.no-border-block){
+                    border-bottom: 5px solid $quiz-dark-blue;
+                }
+            }
+            #block-views-block-step-form-pagination-block-1{
+                border-bottom: 5px solid $quiz-dark-blue;
             }
         }
         .block-forms-steps{
@@ -413,6 +419,12 @@
         .overlay-content{
             .block-system-main-block{
                 border-top: 9px solid $quiz-purple-dark;
+                &:not(.no-border-block){
+                    border-bottom: 5px solid $quiz-purple;
+                }
+            }
+            #block-views-block-step-form-pagination-block-1{
+                border-bottom: 5px solid $quiz-purple;
             }
         }
         .block-forms-steps{
@@ -592,6 +604,12 @@
         .overlay-content{
             .block-system-main-block{
                 border-top: 9px solid $quiz-blue-dark;
+                &:not(.no-border-block){
+                    border-bottom: 5px solid $quiz-blue;
+                }
+            }
+            #block-views-block-step-form-pagination-block-1{
+                border-bottom: 5px solid $quiz-blue;
             }
         }
         .block-forms-steps{
@@ -771,6 +789,12 @@
         .overlay-content{
             .block-system-main-block{
                 border-top: 9px solid $quiz-green-dark;
+                &:not(.no-border-block){
+                    border-bottom: 5px solid $quiz-green;
+                }
+            }
+            #block-views-block-step-form-pagination-block-1{
+                border-bottom: 5px solid $quiz-green;
             }
         }
         .block-forms-steps{
@@ -950,6 +974,12 @@
         .overlay-content{
             .block-system-main-block{
                 border-top: 9px solid $quiz-light-blue-dark;
+                &:not(.no-border-block){
+                    border-bottom: 5px solid $quiz-light-blue;
+                }
+            }
+            #block-views-block-step-form-pagination-block-1{
+                border-bottom: 5px solid $quiz-light-blue;
             }
         }
         .block-forms-steps{
@@ -1129,6 +1159,12 @@
         .overlay-content{
             .block-system-main-block{
                 border-top: 9px solid $quiz-pink-dark;
+                &:not(.no-border-block){
+                    border-bottom: 5px solid $quiz-pink;
+                }
+            }
+            #block-views-block-step-form-pagination-block-1{
+                border-bottom: 5px solid $quiz-pink;
             }
         }
         .block-forms-steps{
