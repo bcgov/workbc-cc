@@ -31,7 +31,7 @@ steps:
     url: /quiz/multiple-intelligences-quiz/step10
     submitLabel: Next
     cancelLabel: null
-    previousLabel: Previous
+    previousLabel: Back
     hideDelete: 0
     deleteLabel: null
     displayPrevious: 1
@@ -44,7 +44,7 @@ steps:
     url: /quiz/multiple-intelligences-quiz/step11
     submitLabel: Next
     cancelLabel: null
-    previousLabel: Previous
+    previousLabel: Back
     hideDelete: 0
     deleteLabel: null
     displayPrevious: 1
@@ -57,7 +57,7 @@ steps:
     url: /quiz/multiple-intelligences-quiz/step12
     submitLabel: Next
     cancelLabel: null
-    previousLabel: Previous
+    previousLabel: Back
     hideDelete: 0
     deleteLabel: null
     displayPrevious: 1
@@ -70,7 +70,7 @@ steps:
     url: /quiz/multiple-intelligences-quiz/step13
     submitLabel: Submit
     cancelLabel: null
-    previousLabel: Previous
+    previousLabel: Back
     hideDelete: 0
     deleteLabel: null
     displayPrevious: 1
@@ -83,7 +83,7 @@ steps:
     url: /quiz/multiple-intelligences-quiz/step2
     submitLabel: Next
     cancelLabel: null
-    previousLabel: Previous
+    previousLabel: Back
     hideDelete: 0
     deleteLabel: null
     displayPrevious: 1
@@ -96,7 +96,7 @@ steps:
     url: /quiz/multiple-intelligences-quiz/step3
     submitLabel: Next
     cancelLabel: null
-    previousLabel: Previous
+    previousLabel: Back
     hideDelete: 0
     deleteLabel: null
     displayPrevious: 1
@@ -109,7 +109,7 @@ steps:
     url: /quiz/multiple-intelligences-quiz/step4
     submitLabel: Next
     cancelLabel: null
-    previousLabel: Previous
+    previousLabel: Back
     hideDelete: 0
     deleteLabel: null
     displayPrevious: 1
@@ -122,7 +122,7 @@ steps:
     url: /quiz/multiple-intelligences-quiz/step5
     submitLabel: Next
     cancelLabel: null
-    previousLabel: Previous
+    previousLabel: Back
     hideDelete: 0
     deleteLabel: null
     displayPrevious: 1
@@ -135,7 +135,7 @@ steps:
     url: /quiz/multiple-intelligences-quiz/step6
     submitLabel: Next
     cancelLabel: null
-    previousLabel: Previous
+    previousLabel: Back
     hideDelete: 0
     deleteLabel: null
     displayPrevious: 1
@@ -148,7 +148,7 @@ steps:
     url: /quiz/multiple-intelligences-quiz/step7
     submitLabel: Next
     cancelLabel: null
-    previousLabel: Previous
+    previousLabel: Back
     hideDelete: 0
     deleteLabel: null
     displayPrevious: 1
@@ -161,7 +161,7 @@ steps:
     url: /quiz/multiple-intelligences-quiz/step8
     submitLabel: Next
     cancelLabel: null
-    previousLabel: Previous
+    previousLabel: Back
     hideDelete: 0
     deleteLabel: null
     displayPrevious: 1
@@ -174,7 +174,7 @@ steps:
     url: /quiz/multiple-intelligences-quiz/step9
     submitLabel: Next
     cancelLabel: null
-    previousLabel: Previous
+    previousLabel: Back
     hideDelete: 0
     deleteLabel: null
     displayPrevious: 1

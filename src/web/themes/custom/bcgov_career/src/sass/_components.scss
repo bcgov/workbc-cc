@@ -689,9 +689,14 @@ a.quiz-link {
                 background: $aq;
                 color: #fff;
                 border-color: $aq;
-
                 &:hover {
                     background: $aq_h;
+                }
+                &+a.result-link{
+                    color: $aq;
+                    &:hover{
+                        color: $aq;
+                    }
                 }
             }
         }
@@ -705,9 +710,14 @@ a.quiz-link {
                 background: $wpq;
                 color: #fff;
                 border-color: $wpq;
-
                 &:hover {
                     background: $wpq_h;
+                }
+                &+a.result-link{
+                    color: $wpq;
+                    &:hover{
+                        color: $wpq;
+                    }
                 }
             }
         }
@@ -721,9 +731,14 @@ a.quiz-link {
                 background: $iq;
                 color: #fff;
                 border-color: $iq;
-
                 &:hover {
                     background: $iq_h;
+                }
+                &+a.result-link{
+                    color: $iq;
+                    &:hover{
+                        color: $iq;
+                    }
                 }
             }
         }
@@ -739,9 +754,14 @@ a.quiz-link {
                 background: $miq;
                 color: #fff;
                 border-color: $miq;
-
                 &:hover {
                     background: $miq_h;
+                }
+                &+a.result-link{
+                    color: $miq;
+                    &:hover{
+                        color: $miq;
+                    }
                 }
             }
 
@@ -759,9 +779,14 @@ a.quiz-link {
                 background: $lsq;
                 color: #fff;
                 border-color: $lsq;
-
                 &:hover {
                     background: $lsq_h;
+                }
+                &+a.result-link{
+                    color: $lsq;
+                    &:hover{
+                        color: $lsq;
+                    }
                 }
             }
         }
@@ -775,9 +800,14 @@ a.quiz-link {
                 background: $wvq;
                 color: #fff;
                 border-color: $wvq;
-
                 &:hover {
                     background: $wvq_h;
+                }
+                &+a.result-link{
+                    color: $wvq;
+                    &:hover{
+                        color: $wvq;
+                    }
                 }
             }
         }
