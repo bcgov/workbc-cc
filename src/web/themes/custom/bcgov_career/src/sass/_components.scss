@@ -283,7 +283,12 @@
 .myResultHeading {
     .row.rh{
         @media all and (max-width: 767.98px){
-            display: none;
+            background: #f2f2f2;
+            width: 170%;
+            position: relative;
+            left: -35%;
+            right: 0;
+            margin: 0 auto;
         }
     }
     .result-heading {
@@ -311,6 +316,20 @@
             padding: 0;
             display: flex;
             align-items: center;
+            @media all and (max-width: 767.98px){
+                align-items: center;
+                width: 100%;
+                justify-content: center;
+                margin: 0;
+                padding: 8px 0 3px;
+                .icon{
+                    width: 28px;
+                    height: 25px;
+                    &.icon-message{
+                        height: 19px;
+                    }
+                }
+            }
 
             li {
                 display: inline;
@@ -319,7 +338,7 @@
                 &.compare-career-print {
                     margin-right: 30px;
                     @media all and (max-width: 767.98px){
-                        margin-right: 10px;
+                        margin-right: 15px;
                     }
                 }
 
@@ -379,7 +398,7 @@
         .carousel-mobi-tab-close{
             position: absolute;
             top: 20px;
-            right: 20px;
+            right: 40px;
             > svg{
                 width: 20px;
                 height: auto;
@@ -529,7 +548,7 @@
             display: flex;
             justify-content: flex-end;
             @media all and (max-width: 767.98px){
-                padding: 0 15px;
+                padding: 0;
             }
         }
 
@@ -544,7 +563,6 @@
                 border: 2px solid $aq;
                 font-family: "BC Sans Regular", "BC Sans", sans-serif;
                 font-weight: normal;
-
                 &:hover {
                     text-decoration: none;
                 }
@@ -559,7 +577,12 @@
                     display: inline-block;
                     margin-top: 0;
                     margin-right: 10px;
-
+                    @media all and (max-width: 480.98px){
+                        width: 100%;
+                        min-width: auto;
+                        height: auto;
+                        padding: 10px 5px;
+                    }
                     &:hover {
                         background-color: rgba(230, 234, 233, 1);
                         border-color: rgba(35, 64, 117, 1);
@@ -578,6 +601,12 @@
                     margin: 0;
                     text-align: center;
                     width: 100%;
+                    @media all and (max-width: 480.98px){
+                        width: 100%;
+                        min-width: auto;
+                        height: auto;
+                        padding: 10px 5px;
+                    }
                     &:hover {
                         background-color: rgba(0, 40, 85, 1);
                     }
@@ -871,9 +900,11 @@ a.quiz-link {
         }
         &#block-bcgov-career-content{
             padding-bottom: 70px;
-            // border-bottom: 4px solid #002855;
             @media all and (max-width: 767.98px) {
                 padding-bottom: 150px;
+                &.results-main-block{
+                    padding-bottom: 50px;
+                }
             }
             &.preview-block-wrapper{
                 @media all and (max-width: 767.98px) {
@@ -938,7 +969,7 @@ body.path-quiz {
             margin-top: 0;
             position: absolute;
             right: 0;
-            bottom: -225px;
+            bottom: -185px;
             width: 100%;
 
             @media all and (max-width: 767.98px) {
@@ -1408,7 +1439,7 @@ span.question-prefix {
 .block-forms-steps {
     background: #fff;
     border-bottom: 5px solid #002855;
-    padding-bottom: 200px;
+    padding-bottom: 165px;
 
     @media all and (max-width: 767.98px) {
         margin-top: 0;
@@ -1767,9 +1798,9 @@ span.question-prefix {
             }
 
             .top-btn {
-                margin-top: 10px;
+                margin-top: 20px;
                 display: flex;
-                margin-left: 25px;
+                margin-left: 0;
                 > a.disable {
                     color: rgba(0, 0, 0, 0.298039215686275);
                     background: #f2f2f2;
@@ -1996,6 +2027,9 @@ span.question-prefix {
 
     @media all and (max-width: 991.98px) {
         display: block;
+        > .container-fluid{
+            padding: 0;
+        }
     }
 
     .top-career-mobi-content {
@@ -2033,6 +2067,7 @@ span.question-prefix {
             }
 
             .top-btn {
+                display: flex;
                 > a.disable {
                     color: rgba(0, 0, 0, 0.298039215686275);
                     background: #f2f2f2;
@@ -2502,6 +2537,9 @@ span.question-prefix {
     .career-wrapper-top {
         background: #fff;
         padding: 30px 25px 0 25px;
+        @media all and (max-width: 767.98px){
+            padding: 30px 15px 0 15px;
+        }
 
         h3 {
             color: $color-dark;

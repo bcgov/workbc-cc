@@ -253,6 +253,10 @@
 
       $("#block-views-block-step-form-pagination-block-1").prev("#block-bcgov-career-content").addClass("no-border-block");
       $(".path-quiz .block-forms-steps").prev("#block-bcgov-career-content").addClass("no-border-block");
+
+      if($("#myResult").length){
+        $("#block-bcgov-career-content").addClass("results-main-block");
+      }
     },
   };
 })(jQuery, Drupal, drupalSettings);

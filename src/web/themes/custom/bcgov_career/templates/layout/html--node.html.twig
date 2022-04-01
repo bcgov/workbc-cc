@@ -30,13 +30,12 @@
     node_type ? 'page-node-type-' ~ node_type|clean_class,
     db_offline ? 'db-offline',
     (b4_body_schema == 'light' ? ' text-dark' : (b4_body_schema == 'dark' ? ' text-light' :  ' ')),
-    (b4_body_bg_schema != 'none' ? " bg-#{b4_body_bg_schema}" : ' '),
-    'd-flex flex-column h-100'
+    (b4_body_bg_schema != 'none' ? " bg-#{b4_body_bg_schema}" : ' ')
   ]
 %}
 
 <!DOCTYPE html>
-<html{{ html_attributes.addClass('h-100') }}>
+<html>
   <head>
     <head-placeholder token="{{ placeholder_token }}">
     <title>{{ head_title|safe_join(' | ') }}</title>
