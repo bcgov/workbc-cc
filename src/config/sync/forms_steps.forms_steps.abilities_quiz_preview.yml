@@ -17,7 +17,7 @@ steps:
     entity_bundle: abilities_quiz
     form_mode: node.step_1_preview
     url: /quiz/abilities_quiz/step1/preview
-    submitLabel: Next
+    submitLabel: 'Save Changes'
     cancelLabel: null
     cancelRoute: entity.node.canonical
     cancelStepMode: null
@@ -32,7 +32,7 @@ steps:
     entity_bundle: abilities_quiz
     form_mode: node.step_2_preview
     url: /quiz/abilities_quiz/step2/preview
-    submitLabel: Next
+    submitLabel: 'Save Changes'
     cancelLabel: null
     previousLabel: Previous
     hideDelete: 0
@@ -45,7 +45,7 @@ steps:
     entity_bundle: abilities_quiz
     form_mode: node.step_3_preview
     url: /quiz/abilities_quiz/step3/preview
-    submitLabel: Next
+    submitLabel: 'Save Changes'
     cancelLabel: null
     previousLabel: Previous
     hideDelete: 1
@@ -58,7 +58,7 @@ steps:
     entity_bundle: abilities_quiz
     form_mode: node.step_4_preview
     url: /quiz/abilities_quiz/step4/preview
-    submitLabel: 'View Results'
+    submitLabel: 'Save Changes'
     cancelLabel: null
     previousLabel: Previous
     hideDelete: 1
