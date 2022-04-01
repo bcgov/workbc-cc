@@ -1,6 +1,6 @@
 #block-views-block-quiz-3-result-block-1{
-	margin-top:50px;
-	margin-bottom:50px;
+    margin-top:50px;
+    margin-bottom:50px;
 }
 #block-views-block-quiz-3-result-block-1 h2{margin-bottom:30px;}
 #views-bootstrap-quiz-3-result-block-1 .item.title-description {
@@ -20,7 +20,7 @@
 
 
 .block-views-blockcareer-quizzes-block-1, .block-views-blockcareer-quizzes-block-2{
-	margin-bottom:35px;
+    margin-bottom:35px;
 }
 .path-quiz .breadcrumb{margin-bottom: 0px;}
 
@@ -40,30 +40,30 @@
 
 .nfq .drop-demo-head-wrp
 {
-	justify-content: space-between;
-	margin: 0px -15px;
-	display: flex;
+    justify-content: space-between;
+    margin: 0px -15px;
+    display: flex;
 }
 .nfq .drop-demo-head-title
 {
-	padding: 0px 15px;
+    padding: 0px 15px;
 }
 .nfq .mobile-view
 {
-	display: none;
+    display: none;
 }
 .nfq .drop-demo-inner
 {
-	min-height: 400px;
-	margin:15px 0px;
+    min-height: 400px;
+    margin:15px 0px;
 }
 .nfq .row.carousel-item.active
 {
-	display: flex;
+    display: flex;
 }
 .nfq .dropdown
 {
-	display: none;
+    display: none;
 }
 .nfq .carousel-inner .row
 {
@@ -71,6 +71,6 @@
 }
 .nfq .extradivs.row
 {
-	margin:0px;
+    margin:0px;
 }
 .path-quiz .entity-content-form-revision-information{display:none;}

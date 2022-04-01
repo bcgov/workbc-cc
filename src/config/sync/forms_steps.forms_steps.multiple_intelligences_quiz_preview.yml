@@ -17,7 +17,7 @@ steps:
     entity_bundle: multiple_intelligences_quiz
     form_mode: node.step_2_preview
     url: /quiz/multiple-intelligences-quiz/step2/preview
-    submitLabel: Next
+    submitLabel: 'Save Changes'
     cancelLabel: null
     previousLabel: Previous
     hideDelete: 0
@@ -30,7 +30,7 @@ steps:
     entity_bundle: multiple_intelligences_quiz
     form_mode: node.step_3_preview
     url: /quiz/multiple-intelligences-quiz/step3/preview
-    submitLabel: Next
+    submitLabel: 'Save Changes'
     cancelLabel: null
     previousLabel: Previous
     hideDelete: 0
@@ -43,7 +43,7 @@ steps:
     entity_bundle: multiple_intelligences_quiz
     form_mode: node.step_4_preview
     url: /quiz/multiple-intelligences-quiz/step4/preview
-    submitLabel: Next
+    submitLabel: 'Save Changes'
     cancelLabel: null
     previousLabel: Previous
     hideDelete: 0
@@ -69,7 +69,7 @@ steps:
     entity_bundle: multiple_intelligences_quiz
     form_mode: node.step_6_preview
     url: /quiz/multiple-intelligences-quiz/step6/preview
-    submitLabel: Next
+    submitLabel: 'Save Changes'
     cancelLabel: null
     previousLabel: Previous
     hideDelete: 0
@@ -82,7 +82,7 @@ steps:
     entity_bundle: multiple_intelligences_quiz
     form_mode: node.step_7_preview
     url: /quiz/multiple-intelligences-quiz/step7/preview
-    submitLabel: 'View Results'
+    submitLabel: 'Save Changes'
     cancelLabel: null
     previousLabel: Previous
     hideDelete: 0
@@ -95,7 +95,7 @@ steps:
     entity_bundle: multiple_intelligences_quiz
     form_mode: node.step_1_preview
     url: /quiz/multiple-intelligences-quiz/step1/preview
-    submitLabel: Next
+    submitLabel: 'Save Changes'
     cancelLabel: null
     previousLabel: Previous
     hideDelete: 0

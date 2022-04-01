@@ -63,7 +63,7 @@ steps:
     entity_type: node
     entity_bundle: abilities_quiz
     form_mode: node.step_5
-    url: '/quiz/abilities-quiz/step 5'
+    url: /quiz/abilities-quiz/step5
     submitLabel: Next
     cancelLabel: null
     previousLabel: Back
