@@ -108,7 +108,7 @@ function work_bc_quiz_theme_suggestions_page_title_alter(array &$suggestions, ar
 function work_bc_quiz_form_node_form_alter(&$form, $formState, $form_id) {
 
   $nodeTypeToHideTitle = ["multiple_intelligences_quiz", "multiple_intelligences_quiz_step_1", "abilities_quiz", "abilities_quiz_step_1"];
-  $form_id = str_replace(["node_", "_form", "_step_1"],[''],$form_id);
+  $form_id = str_replace(["node_", "_form"],[''],$form_id);
   if(in_array($form_id, $nodeTypeToHideTitle)){
     $form['#attributes']['class'][] = 'summary-quiz-form';
     $form['title']['widget'][0]['value']['#value'] = ucwords(str_replace("_", " ", $form_id));
@@ -116,9 +116,12 @@ function work_bc_quiz_form_node_form_alter(&$form, $formState, $form_id) {
     //unset ($form['preview']);
   }
   if(str_contains($form_id, '_preview')){
-    $nid = $formState->getformObject()->getEntity()->id();
-    $query = \Drupal::database()->select('forms_steps_workflow', 'n')->fields('n', ['type'])->condition('n.entity_id', $nid);
-    $num_rows = $query->countQuery()->execute()->fetchField();
+		$nid = $formState->getformObject()->getEntity()->id();
+		$query = \Drupal::database()->select('node', 'n')->fields('n', ['type'])->condition('n.nid', $nid)->execute();
+		$result = $query->fetchObject();
+		
+		$query = \Drupal::database()->select('forms_steps_workflow', 'n')->fields('n', ['type'])->condition("n.forms_steps", $result->type)->condition('n.entity_id', $nid);
+		$num_rows = $query->countQuery()->execute()->fetchField();
   
     $last_page = ceil($num_rows/2);
     $form['actions']['#prefix'] = '<div class="preview-quiz-form" id="action_wrapper">';
@@ -127,7 +130,46 @@ function work_bc_quiz_form_node_form_alter(&$form, $formState, $form_id) {
     $form['actions']['previous']['#weight']  = 1;
     $form['actions']['previous']['#attributes']['id'][] = 'edit-previous';
     $form['actions']['previous']['#attributes']['name'][] = 'previous-action';
-      
+     
+    $fields = \Drupal::service('entity_field.manager')->getFieldDefinitions('node', $result->type);
+    $total_fields =0;
+			
+			
+			foreach ($fields as $field_name => $field_definition) {
+				if (!empty($field_definition->getTargetBundle())) {
+					if($field_definition->getType() == "work_bc_quiz"){
+						$total_fields++;
+					}
+				}
+			}
+			  
+      $pages = ceil($total_fields/10);
+			for ($i=1;$i<=$pages;$i++){
+				// Start wrapper here
+				$form['actions']['pagination']['step'.$i] = [
+				  '#type' => 'submit',
+				  '#title' => $i, 
+				  '#value' => $i, 
+				  '#submit' => ['_work_bc_quiz_node_form_pagination_handler'],
+				  '#weight' => $i
+				];
+				$form['actions']['pagination']['step'.$i]['#attributes']= ['class'=>["page-item page_$i"]]; 
+				if($i==1){
+					$form['actions']['pagination']['step'.$i]['#prefix'] = "<div class='pagination'>";
+				}
+				// End wrapper here
+				if($i==$pages){
+					$form['actions']['pagination']['step'.$i]['#suffix'] = "</div>";
+				}
+				// Disable button on current page.
+				// print $form_id."step_$i".str_contains($form_id, "step_$i")."<br/>";
+        
+				if(str_contains($form_id, "step_$i")){ 
+					$form['actions']['pagination']['step'.$i]['#attributes']['disabled'] = "disabled"; 
+					$form['actions']['pagination']['step'.$i]['#attributes']['class'] = ["page-item page_$i active"]; 
+				}
+			}
+     
     // Hide next button on last step
     if(!str_contains($form_id, "step_$last_page")){
       $form['actions']['next'] = [
@@ -135,7 +177,7 @@ function work_bc_quiz_form_node_form_alter(&$form, $formState, $form_id) {
         '#title' => t('Next'), 
         '#value' => t('Next'), 
         '#submit' => ['_work_bc_quiz_node_form_submit_next'],
-        '#weight' => 2
+        '#weight' => 3
       ];
       $form['actions']['next']['#attributes']['class'][] = 'button button--primary js-form-submit form-submit btn btn-primary form-next';
       #$form['actions']['next']['#attributes']['id'][] = 'edit-next';
@@ -146,7 +188,7 @@ function work_bc_quiz_form_node_form_alter(&$form, $formState, $form_id) {
       '#title' => t('Cancel'), 
       '#value' => t('Cancel'), 
       '#submit' => ['_work_bc_quiz_node_form_submit_cancel'],
-      '#weight' => 3
+      '#weight' => 4
     ];
     $form['actions']['m_cancel']['#attributes']['class'][] = 'button js-form-cancel form-submit cancel-btn';
     $form['actions']['m_cancel']['#attributes']['id'][] = 'edit-m-cancel';
@@ -157,7 +199,7 @@ function work_bc_quiz_form_node_form_alter(&$form, $formState, $form_id) {
     $form['actions']['submit']['#attributes']['class'][] = 'button js-form-submit form-submit btn btn-primary save-changes';
     $form['actions']['submit']['#prefix'] = '<div class="save-wrapper save-cancel" >';
     $form['actions']['submit']['#suffix'] = '</div>';
-    $form['actions']['submit']['#weight'][] = 4;  
+    $form['actions']['submit']['#weight'][] = 5;  
   }
   if(str_contains($form_id, '_step')){
     unset($form['actions']['previous']['#limit_validation_errors']);
@@ -362,47 +404,47 @@ function work_bc_quiz_node_view(array &$build, \Drupal\Core\Entity\EntityInterfa
       $groupedResult = [];
       // loop through all fields of the node.
       foreach ($fields as $field_name => $field_definition) {
-      if (!empty($field_definition->getTargetBundle())) {
-        // Process only if the field type is Double Reference.
-        if($field_definition->getType() == "work_bc_quiz"){        //work_bc_quiz == Double reference field
+        if (!empty($field_definition->getTargetBundle())) {
+          // Process only if the field type is Double Reference.
+          if($field_definition->getType() == "work_bc_quiz"){        //work_bc_quiz == Double reference field
 
-        // Get answer for the value and then percentage and category names from answers.
-        $answer = $node->get($field_name)->getValue();
-        if((empty($answer[0]['ar_target_id']))&&($QuizError==0)){
-          $QuizError++;
-        }
-        $option_id = $answer[0]['ar_target_id'];
-        $field_option_percentage = $options_value[$option_id]['field_option_percentage'];
-        $category_id = $answer[0]['target_id'];
-        $category_name = $category_value[$category_id]['name'];
-
-        // ToDo: Run fewer times (Low priority)
-        $category_color = $category_value[$category_id]['color'];
-        $category_svg = $category_value[$category_id]['field_svg_icon'];
-        $category_description = $category_value[$category_id]['description'];
-
-        if(array_key_exists($category_name, $groupedResult)){
-          //IF category is same put score into an array and pass.
-          array_push($groupedResult[$category_name]['score'], $field_option_percentage);
-        }else {
-          //if category is different, then add into an array.
-          $groupedResult[$category_name]['score'] =[$field_option_percentage];
-          $groupedResult[$category_name]['name'] = $category_name;
-          $groupedResult[$category_name]['weight'] = $max_value;
-          $groupedResult[$category_name]['highest'] = $max_value;
-          $groupedResult[$category_name]['icon'] = $category_svg;
-          $groupedResult[$category_name]['color'] = $category_color;
-          $groupedResult[$category_name]['description'] = $category_description;
-          $name_a = explode(" ",$category_name);
-          $shortname = '';
-          foreach($name_a as $name_v){
-            $shortname .= strtolower(substr($name_v, 0, 1));
+          // Get answer for the value and then percentage and category names from answers.
+          $answer = $node->get($field_name)->getValue();
+          if((empty($answer[0]['ar_target_id']))&&($QuizError==0)){
+            $QuizError++;
           }
-          $groupedResult[$category_name]['short'] = $shortname;
-        }
+          $option_id = $answer[0]['ar_target_id'];
+          $field_option_percentage = $options_value[$option_id]['field_option_percentage'];
+          $category_id = $answer[0]['target_id'];
+          $category_name = $category_value[$category_id]['name'];
 
+          // ToDo: Run fewer times (Low priority)
+          $category_color = $category_value[$category_id]['color'];
+          $category_svg = $category_value[$category_id]['field_svg_icon'];
+          $category_description = $category_value[$category_id]['description'];
+
+          if(array_key_exists($category_name, $groupedResult)){
+            //IF category is same put score into an array and pass.
+            array_push($groupedResult[$category_name]['score'], $field_option_percentage);
+          }else {
+            //if category is different, then add into an array.
+            $groupedResult[$category_name]['score'] =[$field_option_percentage];
+            $groupedResult[$category_name]['name'] = $category_name;
+            $groupedResult[$category_name]['weight'] = $max_value;
+            $groupedResult[$category_name]['highest'] = $max_value;
+            $groupedResult[$category_name]['icon'] = $category_svg;
+            $groupedResult[$category_name]['color'] = $category_color;
+            $groupedResult[$category_name]['description'] = $category_description;
+            $name_a = explode(" ",$category_name);
+            $shortname = '';
+            foreach($name_a as $name_v){
+              $shortname .= strtolower(substr($name_v, 0, 1));
+            }
+            $groupedResult[$category_name]['short'] = $shortname;
+          }
+
+          }
         }
-      }
       }
       // Get uuid from node table.
       $uuid = $node->get('uuid')->getValue()[0]['value'];
@@ -430,28 +472,28 @@ function work_bc_quiz_node_view(array &$build, \Drupal\Core\Entity\EntityInterfa
       $forCareermatch = [];
       $normalized = 0;
       foreach($groupedResult as $key => $value){
-      $max_total = count($value['score']) * $value['highest'];
-      $percentage = round((array_sum($value['score']) / $max_total) * 100);
-      $groupedResult[$key]['percentage'] = $percentage;
-      $normalized = floor((($percentage/100)*4)+1);
-      $forCareermatch[$value['short']]=$normalized;
-      //print(" max_total: ". $max_total. "  array_sum['score']:". array_sum($value['score']). "  percentage:" .$percentage. "<br>");
+        $max_total = count($value['score']) * $value['highest'];
+        $percentage = round((array_sum($value['score']) / $max_total) * 100);
+        $groupedResult[$key]['percentage'] = $percentage;
+        $normalized = floor((($percentage/100)*4)+1);
+        $forCareermatch[$value['short']]=$normalized;
+        //print(" max_total: ". $max_total. "  array_sum['score']:". array_sum($value['score']). "  percentage:" .$percentage. "<br>");
       }
 
       // Sort data using usort php function.
       usort($groupedResult, fn($b, $a) => ($a['percentage'] - $b['percentage']));
       if($QuizError){
-      $query = \Drupal::database()->select('node', 'n')->fields('sf', ['instance_id', 'entity_id']);
-      $query->leftJoin('forms_steps_workflow', 'sf', 'sf.entity_id = n.nid');
-      $query->condition('n.nid', $node->id());
-      $results = $query->execute()->fetchAll();
+        $query = \Drupal::database()->select('node', 'n')->fields('sf', ['instance_id', 'entity_id']);
+        $query->leftJoin('forms_steps_workflow', 'sf', 'sf.entity_id = n.nid');
+        $query->condition('n.nid', $node->id());
+        $results = $query->execute()->fetchAll();
 
-      $instance_id = $results[0]->instance_id;
-      $entity_id = $results[0]->entity_id;
-      $step = count($results)+1;
+        $instance_id = $results[0]->instance_id;
+        $entity_id = $results[0]->entity_id;
+        $step = count($results)+1;
 
-      $quizType = str_replace(['_'],["-"], $node->bundle());
-      $nextlink = "/quiz/".$quizType."/step".$step."/".$instance_id;
+        $quizType = str_replace(['_'],["-"], $node->bundle());
+        $nextlink = "/quiz/".$quizType."/step".$step."/".$instance_id;
       }
       $build['an_additional_field']['#quiz_error']['errors'] = $QuizError;
       $build['an_additional_field']['#quiz_error']['nextlink'] = $nextlink;
@@ -468,38 +510,37 @@ function work_bc_quiz_node_view(array &$build, \Drupal\Core\Entity\EntityInterfa
 
       if(is_file($uri)){
         if($data = file_get_contents($uri , true)){
-        $data = json_decode($data);
-        foreach($data as $i => $values){
-          $sum = 0;
-          $total = 0;
-          $j =0;
-          foreach($values as $key => $value){
-          if($j>2){
-            $sum += abs($value - $forCareermatch[$key]);
-            //$total =+ $value;
-            unset($data[$i]->$key);
+          $data = json_decode($data);
+          foreach($data as $i => $values){
+            $sum = 0;
+            $total = 0;
+            $j =0;
+            foreach($values as $key => $value){
+              if($j>2){
+                $sum += abs($value - $forCareermatch[$key]);
+                //$total =+ $value;
+                unset($data[$i]->$key);
+              }
+              $j++;
+            }
+            //$data[$i]->sum = $sum;
+            //$data[$i]->total = $total;
+            $data[$i]->percentage =round(((36-$sum)/36)*100);
           }
-          $j++;
-          }
-          //$data[$i]->sum = $sum;
-          //$data[$i]->total = $total;
-          $data[$i]->percentage =round(((36-$sum)/36)*100);
 
-        }
-
-        //usort($data, fn($b, $a) => strcmp($a->percentage, $b->percentage));
-        usort($data, '_work_bc_quiz_usort2');
-        ////$final_1 = array_chunk($data, 40)[0];
-        ////  $tmp_cnt = 1000;
-        $result = [];
-        foreach($data as $key => $value){
-          if(count($result)<20){
-          ////if($value->NOCCode == 0)  $value->NOCCode = $tmp_cnt++;
-          //  if(isset($result[$value->NOCCode])) $result[$value->NOCCode] = ($result[$value->NOCCode]>$value->percentage) ? $result[$value->NOCCode] : $value->percentage;
-          if(!isset($result[$value->NOCCode])) $result[$value->NOCCode] = $value->percentage;
+          //usort($data, fn($b, $a) => strcmp($a->percentage, $b->percentage));
+          usort($data, '_work_bc_quiz_usort2');
+          ////$final_1 = array_chunk($data, 40)[0];
+          ////  $tmp_cnt = 1000;
+          $result = [];
+          foreach($data as $key => $value){
+            if(count($result)<20){
+              ////if($value->NOCCode == 0)  $value->NOCCode = $tmp_cnt++;
+              //  if(isset($result[$value->NOCCode])) $result[$value->NOCCode] = ($result[$value->NOCCode]>$value->percentage) ? $result[$value->NOCCode] : $value->percentage;
+              if(!isset($result[$value->NOCCode])) $result[$value->NOCCode] = $value->percentage;
+            }
+            else break;
           }
-          else break;
-        }
         }
       }
       }
@@ -510,16 +551,16 @@ function work_bc_quiz_node_view(array &$build, \Drupal\Core\Entity\EntityInterfa
 
       foreach($SavedQuiz as $key => $value){
 
-      if($value->uuid == $uuid) {
-        $arguments = explode('_', $key);
-        $arguments = end($arguments);
-        if($arguments == "A100"){
-        unset($SavedQuiz[$key]);
-        $key = str_replace($arguments, $entity_id, $key);
+        if($value->uuid == $uuid) {
+          $arguments = explode('_', $key);
+          $arguments = end($arguments);
+          if($arguments == "A100"){
+            unset($SavedQuiz[$key]);
+            $key = str_replace($arguments, $entity_id, $key);
+          }
+          $SavedQuiz[$key]->uuid = $uuid;
+          $SavedQuiz[$key]->result = $result;
         }
-        $SavedQuiz[$key]->uuid = $uuid;
-        $SavedQuiz[$key]->result = $result;
-      }
       }
 
       $session->set('SavedQuiz', $SavedQuiz);
@@ -577,58 +618,58 @@ function work_bc_quiz_views_pre_render(ViewExecutable $view) {
                   
                   
 
-            $fields = \Drupal::service('entity_field.manager')->getFieldDefinitions('node', $results[0]->type);
-            $total_fields =0;
-                    
-            //print_r($path);
-                    
-            foreach ($fields as $field_name => $field_definition) {
-              if (!empty($field_definition->getTargetBundle())) {
-                if($field_definition->getType() == "work_bc_quiz"){
-                  $total_fields++;
+              $fields = \Drupal::service('entity_field.manager')->getFieldDefinitions('node', $results[0]->type);
+              $total_fields =0;
+                      
+              //print_r($path);
+                      
+              foreach ($fields as $field_name => $field_definition) {
+                if (!empty($field_definition->getTargetBundle())) {
+                  if($field_definition->getType() == "work_bc_quiz"){
+                    $total_fields++;
+                  }
                 }
               }
-            }
-            $step = ceil($total_fields/5);
-            //print $results[0]->type;
-                    
-            $results[0]->type = str_replace("multiple_intelligence_quiz","multiple_intelligences_quiz",$results[0]->type);
-            $query2 = \Drupal::database()->select('forms_steps_workflow', 'n')->fields('n', ['step'])->condition("n.forms_steps", $results[0]->type)->condition('n.entity_id', $results[0]->nid)->orderBy('id', 'DESC');
-            $results2 = $query2->execute()->fetchAll();
-                    
-            $lastStep = count($results2);
-                    
-            $quiz_type = str_replace("_","-", $results[0]->type);
-            if(($lastStep < $step) && ($lastStep > 0)){
-              $field_value[0]['uri'] = "internal:/quiz/".$quiz_type ."/step".($lastStep+1).'/'.$results[0]->instance_id;
-              $field_value[0]['title'] = 'Continue Quiz';
-              $row->_entity->get('nid')->setValue(0, TRUE);
-            }else {
-              $field_value[0]['uri'] = "internal:/quiz/$quizLink/step1/preview/".$instance_id;
-              $field_value[0]['title'] = 'Modify Your Answers';
-              $row->_entity->get('nid')->setValue($entity_id, TRUE);
-            }
+              $step = ceil($total_fields/5);
+              //print $results[0]->type;
+                      
+              $results[0]->type = str_replace("multiple_intelligence_quiz","multiple_intelligences_quiz",$results[0]->type);
+              $query2 = \Drupal::database()->select('forms_steps_workflow', 'n')->fields('n', ['step'])->condition("n.forms_steps", $results[0]->type)->condition('n.entity_id', $results[0]->nid)->orderBy('id', 'DESC');
+              $results2 = $query2->execute()->fetchAll();
+                      
+              $lastStep = count($results2);
+                      
+              $quiz_type = str_replace("_","-", $results[0]->type);
+              if(($lastStep < $step) && ($lastStep > 0)){
+                $field_value[0]['uri'] = "internal:/quiz/".$quiz_type ."/step".($lastStep+1).'/'.$results[0]->instance_id;
+                $field_value[0]['title'] = 'Continue Quiz';
+                $row->_entity->get('nid')->setValue(0, TRUE);
+              }else {
+                $field_value[0]['uri'] = "internal:/quiz/$quizLink/step1/preview/".$instance_id;
+                $field_value[0]['title'] = 'Modify Your Answers';
+                $row->_entity->get('nid')->setValue($entity_id, TRUE);
+              }
 
-            if($NId == "A100") {
-              $field_value[0]['title2'] = t("Continue Quiz");
+              if($NId == "A100") {
+                $field_value[0]['title2'] = t("Continue Quiz");
+              }
+              else {
+                $field_value[0]['title2'] = t("View Your Results");
+              }
+              $row->_entity->get('field_quiz_link')->setValue($field_value, TRUE);
+
             }
             else {
-              $field_value[0]['title2'] = t("View Your Results");
+              $field_value[0]['title2'] = t("Take The Quiz");
             }
-            $row->_entity->get('field_quiz_link')->setValue($field_value, TRUE);
-
-          }
-          else {
-            $field_value[0]['title2'] = t("Take The Quiz");
           }
         }
       }
-    }
-    else {
-      # print "no sessions";
-    }
-    $result[$k] = $row;
-    $filteredResults[] = $result;
+      else {
+        # print "no sessions";
+      }
+      $result[$k] = $row;
+      $filteredResults[] = $result;
     }
 
     foreach ($filteredResults as $key => $row) {
@@ -675,66 +716,59 @@ function work_bc_quiz_views_pre_render(ViewExecutable $view) {
     $view->total_rows = count($filteredResults);
   }
 }
-
-function _work_bc_quiz_node_form_submit($form, &$form_state) {
-  $values = $form_state->getValues();
-  $nid = $form_state->getformObject()->getEntity()->id();
-  foreach($values as $field => $values){
-    if(strpos($field, "field_") === 0){
-      if(isset($values[0]['ar_target_id']) && !empty($values[0]['ar_target_id'])){
-        $table = "node__".$field;
-        $table2 = "node_revision__".$field;
-        $field_name = $field."_ar_target_id";
-        $query = \Drupal::database()->update($table)->fields([$field_name => $values[0]['ar_target_id']])->condition('entity_id',$nid, '=');
-        $query->execute();
-
-        $query2 = \Drupal::database()->update($table2)->fields([$field_name => $values[0]['ar_target_id']])->condition('entity_id',$nid, '=');
-        $query2->execute();
-      }
-    }
-  }
-  $response = new RedirectResponse(\Drupal\Core\Url::fromRoute('entity.node.canonical', ['node' => $nid], ['fragment' => 'conclusion'])->toString());
-  $response->send();
-}
-
-function _work_bc_quiz_node_form_submit_next($form, &$form_state) {
-  _save_node_form_data($form, $form_state, 'next_page');
-}
-  
-function _work_bc_quiz_node_form_submit_previous($form, &$form_state) {
-  _save_node_form_data($form, $form_state, "previous");
-}
-  
-function _work_bc_quiz_custom_submit_handler($form, &$form_state) {
-  $nid = $form_state->getformObject()->getEntity()->id();
-  $form_state->setRedirect('entity.node.canonical', ['node' => $nid]);
-}
-  
-function _save_node_form_data($form, $form_state, $action='previous'){
-  $values = $form_state->getValues();
-  $nid = $form_state->getformObject()->getEntity()->id();
-  foreach($values as $field => $values){
-    if(strpos($field, "field_") === 0){
-      if(isset($values[0]['ar_target_id']) && !empty($values[0]['ar_target_id'])){
-      $table = "node__".$field;
-      $table2 = "node_revision__".$field;
-      $field_name = $field."_ar_target_id";
-      
-      $query2 = \Drupal::database()->update($table2)->fields([$field_name => $values[0]['ar_target_id']])->condition(entity_id,$nid, '=');
-      $query2->execute();
-      }
-    }
-  }
-      
-  if($action == 'next_page') {
-    $response = Drupal\forms_steps\Form\FormsStepsAlter::setNextRoute($form, $form_state);
-  }elseif ($action == 'previous'){
-    $response = Drupal\forms_steps\Form\FormsStepsAlter::setPreviousRoute($form, $form_state);
-  }else {
-    $response = new RedirectResponse(\Drupal\Core\Url::fromRoute('entity.node.canonical', ['node' => $nid])->toString());
-    $response->send();
-  }
-}
+function _work_bc_quiz_node_form_pagination_handler($form, &$form_state) {
+		$trigger = $form_state->getTriggeringElement();
+		$current_path = \Drupal::service('path.current')->getPath();
+		$action = $trigger['#value'];
+		
+		$path = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
+		
+		$pattern = '/step[0-99]/';
+		$path = preg_replace($pattern, "step$action",$path);
+		
+		$target_url = \Drupal::service('path.validator')->getUrlIfValid($path);
+		$target_route_name = $target_url->getRouteName();
+        $target_route_parameters = $target_url->getrouteParameters();
+        $form_state->setRedirect($target_route_name, $target_route_parameters);
+		_save_node_form_data($form, $form_state);
+		
+	}
+	function _work_bc_quiz_node_form_submit_next($form, &$form_state) {
+		_save_node_form_data($form, $form_state, 'next_page');
+	}
+	function _work_bc_quiz_node_form_submit_previous($form, &$form_state) {
+		_save_node_form_data($form, $form_state, "previous");
+	}
+	function _work_bc_quiz_custom_submit_handler($form, &$form_state) {
+		$nid = $form_state->getformObject()->getEntity()->id();
+	  $form_state->setRedirect('entity.node.canonical', ['node' => $nid]);
+	}
+	function _save_node_form_data($form, $form_state, $action='previous', $para=null){
+		$values = $form_state->getValues();
+		$nid = $form_state->getformObject()->getEntity()->id();
+		foreach($values as $field => $values){
+			if(strpos($field, "field_") === 0){
+				if(isset($values[0]['ar_target_id']) && !empty($values[0]['ar_target_id'])){
+					$table = "node__".$field;
+					$table2 = "node_revision__".$field;
+					$field_name = $field."_ar_target_id";
+					
+					$query2 = \Drupal::database()->update($table2)->fields([$field_name => $values[0]['ar_target_id']])->condition('entity_id',$nid, '=');
+					$query2->execute();
+					
+				}
+			}
+		}
+		
+					
+		if($action == 'next_page') {
+			Drupal\forms_steps\Form\FormsStepsAlter::setNextRoute($form, $form_state);
+		}else if ($action == 'previous'){
+			Drupal\forms_steps\Form\FormsStepsAlter::setPreviousRoute($form, $form_state);
+		}
+		//$response = new RedirectResponse(\Drupal\Core\Url::fromRoute('entity.node.canonical', ['node' => $nid])->toString());
+		//$response->send();
+	}
   
 function _work_bc_quiz_node_form_submit_cancel($form, &$form_state) {
   $nid = $form_state->getformObject()->getEntity()->id();

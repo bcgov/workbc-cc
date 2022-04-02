@@ -74,3 +74,5 @@
     margin:0px;
 }
 .path-quiz .entity-content-form-revision-information{display:none;}
+.path-quiz .form-actions .pagination{width:440px;margin:auto;display:block;}
+.path-quiz .form-actions .pagination input[name="op"]{position:relative;right:unset;min-width:unset;}
