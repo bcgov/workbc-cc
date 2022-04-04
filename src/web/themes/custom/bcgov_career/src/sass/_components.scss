@@ -26,6 +26,7 @@
                 line-height: 3rem;
                 max-width: 360px;
                 margin-bottom: 30px;
+                color: #333333;
             }
 
             .banner-inner {
@@ -36,6 +37,7 @@
                     font-weight: normal;
                     font-style: normal;
                     margin-bottom: 30px;
+                    margin-top: -37px;
 
                     @media all and (max-width: 991.98px) {
                         font-size: 40px;
@@ -53,15 +55,22 @@
             display: block;
             min-height: 435px;
             background-size: cover;
-            background-position: center center;
+            // padding-top: 20px;
+            background-position: center bottom;
             background-repeat: no-repeat;
-            padding-top: 20px;
+            background-attachment: scroll;
+            background-size: 414px 506px;
+            background-origin: border-box;
+            background-color: rgba(242, 244, 243, 1);
+            overflow-y: hidden;
+            overflow-x: hidden;
             .banner-inner {
                 h1 {
                     font-size: 40px;
                     line-height: 40px;
                     font-family: "BC Sans Bold", sans-serif;
                     margin-bottom: 10px;
+                    margin-top: 20px;
                 }
             }
 
@@ -75,13 +84,14 @@
                 }
 
                 p.sub-title {
-                    font-size: 21px;
-                    font-family: "BC Sans Regular", sans-serif;
+                    font-size: 2.1rem;
+                    font-family: "BC Sans", sans-serif;
                     line-height: 2.6rem;
                     margin-bottom: 25px;
                     padding: 0;
                     max-width: 305px;
                     margin: 0 auto;
+                    color: #333333;
                 }
             }
         }
@@ -154,9 +164,6 @@
     text-align: right;
     line-height: 3rem;
     color: #333333;
-    &:hover {
-        text-decoration: underline;
-    }
     @media all and (max-width: 767.98px) {
         text-align: center;
     }
