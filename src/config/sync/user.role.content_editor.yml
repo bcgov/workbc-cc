@@ -48,6 +48,7 @@ permissions:
   - 'administer menu'
   - 'administer taxonomy'
   - 'administer url aliases'
+  - 'bypass node access'
   - 'change own username'
   - 'create article content'
   - 'create career_profile content'
