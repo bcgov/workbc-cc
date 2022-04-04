@@ -128,8 +128,8 @@ function work_bc_quiz_form_node_form_alter(&$form, $formState, $form_id) {
     $form['actions']['#suffix'] = '</div>';
 
     $form['actions']['previous']['#weight']  = 1;
-    $form['actions']['previous']['#attributes']['id'][] = 'edit-previous';
-    $form['actions']['previous']['#attributes']['name'][] = 'previous-action';
+    /*$form['actions']['previous']['#attributes']['id'][] = 'edit-previous';
+    $form['actions']['previous']['#attributes']['name'][] = 'previous-action'; */
      
     $fields = \Drupal::service('entity_field.manager')->getFieldDefinitions('node', $result->type);
     $total_fields =0;
@@ -200,6 +200,8 @@ function work_bc_quiz_form_node_form_alter(&$form, $formState, $form_id) {
     $form['actions']['submit']['#prefix'] = '<div class="save-wrapper save-cancel" >';
     $form['actions']['submit']['#suffix'] = '</div>';
     $form['actions']['submit']['#weight'][] = 5;  
+
+    $form['actions']['previous']['#submit'][] = '_work_bc_quiz_node_form_submit_previous';
   }
   if(str_contains($form_id, '_step')){
     unset($form['actions']['previous']['#limit_validation_errors']);
@@ -717,58 +719,56 @@ function work_bc_quiz_views_pre_render(ViewExecutable $view) {
   }
 }
 function _work_bc_quiz_node_form_pagination_handler($form, &$form_state) {
-		$trigger = $form_state->getTriggeringElement();
-		$current_path = \Drupal::service('path.current')->getPath();
-		$action = $trigger['#value'];
+  $trigger = $form_state->getTriggeringElement();
+  $current_path = \Drupal::service('path.current')->getPath();
+  $action = $trigger['#value'];
 		
-		$path = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
+  $path = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
+  		
+  $pattern = '/step[0-99]/';
+  $path = preg_replace($pattern, "step$action",$path);
 		
-		$pattern = '/step[0-99]/';
-		$path = preg_replace($pattern, "step$action",$path);
+  $target_url = \Drupal::service('path.validator')->getUrlIfValid($path);
+  $target_route_name = $target_url->getRouteName();
+  $target_route_parameters = $target_url->getrouteParameters();
+  $form_state->setRedirect($target_route_name, $target_route_parameters);
+  _save_node_form_data($form, $form_state);
 		
-		$target_url = \Drupal::service('path.validator')->getUrlIfValid($path);
-		$target_route_name = $target_url->getRouteName();
-        $target_route_parameters = $target_url->getrouteParameters();
-        $form_state->setRedirect($target_route_name, $target_route_parameters);
-		_save_node_form_data($form, $form_state);
-		
-	}
-	function _work_bc_quiz_node_form_submit_next($form, &$form_state) {
-		_save_node_form_data($form, $form_state, 'next_page');
-	}
-	function _work_bc_quiz_node_form_submit_previous($form, &$form_state) {
-		_save_node_form_data($form, $form_state, "previous");
-	}
-	function _work_bc_quiz_custom_submit_handler($form, &$form_state) {
-		$nid = $form_state->getformObject()->getEntity()->id();
-	  $form_state->setRedirect('entity.node.canonical', ['node' => $nid]);
-	}
-	function _save_node_form_data($form, $form_state, $action='previous', $para=null){
-		$values = $form_state->getValues();
-		$nid = $form_state->getformObject()->getEntity()->id();
-		foreach($values as $field => $values){
-			if(strpos($field, "field_") === 0){
-				if(isset($values[0]['ar_target_id']) && !empty($values[0]['ar_target_id'])){
-					$table = "node__".$field;
-					$table2 = "node_revision__".$field;
-					$field_name = $field."_ar_target_id";
-					
-					$query2 = \Drupal::database()->update($table2)->fields([$field_name => $values[0]['ar_target_id']])->condition('entity_id',$nid, '=');
-					$query2->execute();
-					
-				}
+}
+function _work_bc_quiz_node_form_submit_next($form, &$form_state) {
+  _save_node_form_data($form, $form_state, 'next_page');
+}
+function _work_bc_quiz_node_form_submit_previous($form, &$form_state) {
+  _save_node_form_data($form, $form_state, "previous");
+}
+function _work_bc_quiz_custom_submit_handler($form, &$form_state) {
+  $nid = $form_state->getformObject()->getEntity()->id();
+  $form_state->setRedirect('entity.node.canonical', ['node' => $nid]);
+}
+function _save_node_form_data($form, $form_state, $action='', $para=null){
+  $values = $form_state->getValues();
+  $nid = $form_state->getformObject()->getEntity()->id();
+  foreach($values as $field => $values){
+    if(strpos($field, "field_") === 0){
+      if(isset($values[0]['ar_target_id']) && !empty($values[0]['ar_target_id'])){
+        $table = "node__".$field;
+        $table2 = "node_revision__".$field;
+        $field_name = $field."_ar_target_id";
+				
+        $query2 = \Drupal::database()->update($table2)->fields([$field_name => $values[0]['ar_target_id']])->condition('entity_id',$nid, '=');
+        $query2->execute();
 			}
 		}
-		
-					
-		if($action == 'next_page') {
-			Drupal\forms_steps\Form\FormsStepsAlter::setNextRoute($form, $form_state);
-		}else if ($action == 'previous'){
-			Drupal\forms_steps\Form\FormsStepsAlter::setPreviousRoute($form, $form_state);
-		}
-		//$response = new RedirectResponse(\Drupal\Core\Url::fromRoute('entity.node.canonical', ['node' => $nid])->toString());
-		//$response->send();
 	}
+					
+  if($action == 'next_page') {
+    Drupal\forms_steps\Form\FormsStepsAlter::setNextRoute($form, $form_state);
+  }else if ($action == 'previous'){
+    Drupal\forms_steps\Form\FormsStepsAlter::setPreviousRoute($form, $form_state);
+  }
+  //$response = new RedirectResponse(\Drupal\Core\Url::fromRoute('entity.node.canonical', ['node' => $nid])->toString());
+  //$response->send();
+}
   
 function _work_bc_quiz_node_form_submit_cancel($form, &$form_state) {
   $nid = $form_state->getformObject()->getEntity()->id();
@@ -783,10 +783,8 @@ function _work_bc_quiz_node_form_submit_cancel($form, &$form_state) {
       $table2 = "node_revision__".$field_name;
       $field = $field_name."_ar_target_id";
       
-      
       $query = \Drupal::database()->select($table, 'n')->fields('n', [$field])->condition('n.entity_id', $nid)->execute();
       $result = $query->fetchObject();
-      
       
       $query2 = \Drupal::database()->update($table2)->fields([$field => $result->$field])->condition('entity_id',$nid, '=');
       $query2->execute();
