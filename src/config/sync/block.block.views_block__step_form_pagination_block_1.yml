@@ -1,6 +1,6 @@
 uuid: d60c4aa9-6bd3-402d-852c-14969c75e763
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - views.view.step_form_pagination
