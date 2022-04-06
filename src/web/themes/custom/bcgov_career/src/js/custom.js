@@ -230,7 +230,7 @@
       }
 
       $(".compare-career-print > span").on("click", function(){
-        //window.print();
+        window.print();
         // var w = window.open();
         // var html = $(".path-quiz").html();
 

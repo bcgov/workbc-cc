@@ -912,6 +912,9 @@ a.quiz-link {
         }
         &#block-bcgov-career-content{
             padding-bottom: 70px;
+            &.results-main-block{
+                padding-top: 50px;
+            }
             @media all and (max-width: 767.98px) {
                 padding-bottom: 150px;
                 &.results-main-block{
@@ -954,6 +957,17 @@ body.path-quiz {
 
     .alert-success {
         display: none;
+    }
+
+    &.path-quiz-results{
+        .main-bg {
+            .overlay-bg {
+                min-height: 338px;
+            }
+        }
+        .block.block-core.block-page-title-block {
+            padding-bottom: 60px;
+        }
     }
 
     .block.block-core.block-page-title-block {
@@ -2657,7 +2671,10 @@ span.question-prefix {
         .career-content-item {
             &:not(.col) {
                 max-width: 375px;
-                margin: 0 auto;
+                margin: 0 11px;
+                @media all and (max-width: 991.98px){
+                    margin: 0 auto;
+                }
             }
 
             @media all and (max-width: 991.98px) {
