@@ -15,7 +15,8 @@
             &.flex-content {
                 min-height: 480px;
                 display: flex;
-                align-items: center;
+                // align-items: center;
+                padding-top: 99px;
             }
 
             .sub-title {
@@ -37,8 +38,6 @@
                     font-weight: normal;
                     font-style: normal;
                     margin-bottom: 30px;
-                    margin-top: -37px;
-
                     @media all and (max-width: 991.98px) {
                         font-size: 40px;
                         line-height: 40px;
@@ -565,7 +564,7 @@
                 text-shadow: none;
                 margin-top: 7px;
                 border-radius: 0px;
-                font-size: 14px;
+                font-size: 15px;
                 padding: 13px 20px;
                 border: 2px solid $aq;
                 font-family: "BC Sans Regular", "BC Sans", sans-serif;
@@ -1263,7 +1262,7 @@ body.path-quiz {
             margin: 0;
             @media all and (max-width:767.98px){
                 display: inline-flex;
-                bottom: -40px;
+                bottom: -157px; //have to fix later
             }
             > #edit-submit{
                 background: none;
@@ -1903,6 +1902,9 @@ span.question-prefix {
                         right: -8px;
                     }
                 }
+                &#view-field-noc-name-table-column {
+                    width: 288px;
+                }
             }
         }
 
@@ -2136,7 +2138,9 @@ span.question-prefix {
                 p {
                     padding: 20px;
                     margin: 0;
-
+                    font-family: "BC Sans Bold", sans-serif;
+                    font-size: 14px;
+                    color: #333333;
                     &:first-child {
                         flex: 0 0 10%;
                     }
@@ -2653,8 +2657,9 @@ span.question-prefix {
                             right: 0;
 
                             img {
-                                width: 10px;
-                                transform: rotate(180deg);
+                                width: 16px;
+                                height: 9px;
+                                transform: rotate(270deg);
                             }
                         }
 
@@ -2668,7 +2673,9 @@ span.question-prefix {
                             left: 0;
 
                             img {
-                                width: 10px;
+                                width: 16px;
+                                height: 9px;
+                                transform: rotate(90deg);
                             }
                         }
                     }
