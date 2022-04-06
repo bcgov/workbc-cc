@@ -5,11 +5,6 @@
         max-width:966px;
     }
 }
-
-@media(max-width:991px)
-{
-
-}
 @media(min-width:768px)
 {
     .carrer
@@ -63,11 +58,6 @@
         color: #FFFFFF;
         line-height: 31px;
     }
-    .bottom-links .links-inner{justify-content:center;}
-    .bottom-links .links-inner .link_1{    flex: 1;}
-    .bottom-links .links-inner .link_2{    flex: 1;padding-left: 15px;}
-    .bottom-links .link.link_1 a{margin-right:0px;    width: 100%; display: block;     text-align: center;margin-top:0px;padding:8px 8px;}
-    .bottom-links .link.link_2 a{display:block;text-align:center;margin-top:0px;}
 
     .path-quiz .region-content .field--type-double-reference fieldset legend, .field--type-work-bc-quiz fieldset legend{float:none;    line-height: 20px; margin-bottom: 10px; width: 100% !important;}
     .path-quiz .region-content .field--type-double-reference fieldset .fieldset-wrapper, .field--type-work-bc-quiz fieldset .fieldset-wrapper{float:none;}
