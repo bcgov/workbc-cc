@@ -7,7 +7,7 @@
         background-repeat: no-repeat;
         background-color: rgb(242, 244, 243);
 
-        @media all and (max-width: 820.98px) {
+        @media all and (max-width: 991.98px) {
             display: none;
         }
 
@@ -50,7 +50,7 @@
     .mobile-banner {
         display: none;
 
-        @media all and (max-width: 820.98px) {
+        @media all and (max-width: 991.98px) {
             display: block;
             min-height: 435px;
             background-size: cover;
@@ -404,7 +404,7 @@
         .carousel-mobi-tab-close{
             position: absolute;
             top: 20px;
-            right: 40px;
+            right: 25px;
             > svg{
                 width: 20px;
                 height: auto;
@@ -556,6 +556,9 @@
             @media all and (max-width: 767.98px){
                 padding: 0;
             }
+            @media all and (max-width: 640.98px){
+                flex-direction: column;
+            }
         }
 
         .link {
@@ -583,7 +586,7 @@
                     display: inline-block;
                     margin-top: 0;
                     margin-right: 10px;
-                    @media all and (max-width: 480.98px){
+                    @media all and (max-width: 640.98px){
                         width: 100%;
                         min-width: auto;
                         height: auto;
@@ -594,6 +597,9 @@
                         border-color: rgba(35, 64, 117, 1);
                         text-decoration: none;
                     }
+                }
+                @media all and (max-width: 640.98px){
+                    margin-bottom: 15px;
                 }
             }
 
@@ -607,7 +613,7 @@
                     margin: 0;
                     text-align: center;
                     width: 100%;
-                    @media all and (max-width: 480.98px){
+                    @media all and (max-width: 640.98px){
                         width: 100%;
                         min-width: auto;
                         height: auto;
@@ -906,10 +912,18 @@ a.quiz-link {
         }
         &#block-bcgov-career-content{
             padding-bottom: 70px;
+            &.results-main-block{
+                padding-top: 50px;
+            }
             @media all and (max-width: 767.98px) {
                 padding-bottom: 150px;
                 &.results-main-block{
                     padding-bottom: 50px;
+                }
+            }
+            &.has-prev-block{
+                @media all and (max-width: 640.98px) {
+                    padding-bottom: 200px;
                 }
             }
             &.preview-block-wrapper{
@@ -943,6 +957,17 @@ body.path-quiz {
 
     .alert-success {
         display: none;
+    }
+
+    &.path-quiz-results{
+        .main-bg {
+            .overlay-bg {
+                min-height: 338px;
+            }
+        }
+        .block.block-core.block-page-title-block {
+            padding-bottom: 60px;
+        }
     }
 
     .block.block-core.block-page-title-block {
@@ -985,6 +1010,20 @@ body.path-quiz {
                 left: 50%;
                 transform: translate(-50%, -50%);
                 justify-content: center;
+            }
+            @media all and (max-width: 640.98px) {
+                flex-direction: column;
+                padding: 0 30px;
+                &.hasPrev{
+                    bottom: -220px;
+                }
+                > input{
+                    margin: 0;
+                    width: 100%;
+                    &#edit-previous{
+                        margin-bottom: 15px;
+                    }
+                }
             }
         }
 
@@ -2077,6 +2116,17 @@ span.question-prefix {
 
             .top-btn {
                 display: flex;
+                @media all and (max-width: 640.98px){
+                    flex-direction: column;
+                    > a{
+                        display: block;
+                        width: 100%;
+                        max-width: 100%;
+                        &.clear-compare{
+                            margin-bottom: 15px;
+                        }
+                    }
+                }
                 > a.disable {
                     color: rgba(0, 0, 0, 0.298039215686275);
                     background: #f2f2f2;
@@ -2351,7 +2401,7 @@ span.question-prefix {
                 padding: 20px;
                 min-height: 695px;
                 height: calc(100% - 76px);
-                @media all and (max-width: 767.98px){
+                @media all and (max-width: 480.98px){
                     border: 0;
                 }
 
@@ -2597,6 +2647,11 @@ span.question-prefix {
             display: none;
             @media all and (max-width: 991.98px){
                 display: block;
+                .slick-slide{
+                    > div{
+                        display: flex;
+                    }
+                }
             }
         }
         &:not(.mobi-career-content-compare){
@@ -2617,6 +2672,9 @@ span.question-prefix {
             &:not(.col) {
                 max-width: 375px;
                 margin: 0 11px;
+                @media all and (max-width: 991.98px){
+                    margin: 0 auto;
+                }
             }
 
             @media all and (max-width: 991.98px) {
@@ -2685,7 +2743,7 @@ span.question-prefix {
                             padding: 20px 45px;
                         }
                         @media all and (max-width: 767.98px) {
-                            padding: 0px 15px;
+                            padding: 0px 40px 0 15px;;
                             &.career-title-2,
                             &.career-title-3 {
                                 padding: 0px 30px 0 40px;
@@ -2702,6 +2760,19 @@ span.question-prefix {
                     left: 10px;
                     right: 0;
                     margin: 0 auto;
+                    @media all and (max-width: 640.98px){
+                        position: relative;
+                        width: 100%;
+                        bottom: 0;
+                        left: 0;
+                        right: 0;
+                        margin-top: 35px;
+                        display: flex;
+                        flex-direction: column;
+                        > a.btn-career-profile{
+                            margin-bottom: 15px;
+                        }
+                    }
 
                     a.btn {
                         border: 2px solid #234075;

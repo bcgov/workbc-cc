@@ -1,4 +1,7 @@
-body, html {
+body, html, main {
+    width: 100%;
+}
+body, html, main {
     width: 100% !important;
     height: 100% !important;
     margin-top:0%;

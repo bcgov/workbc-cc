@@ -44,7 +44,10 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-12">
-        <div class="back-link"><a href='javascript:history.back()'><img src="../../../../themes/custom/bcgov_career/assets/arrow-left.svg"/> Back to Quiz Results</a></div>
+        <script>
+        function GoBackWithRefresh(event) {if ('referrer' in document) {window.location = document.referrer;} else {window.history.back();}}
+        </script>
+        <div class="back-link"><a href='javascript:;' onclick="GoBackWithRefresh();return false;"><img src="../../../../themes/custom/bcgov_career/assets/arrow-left.svg"/> Back to Quiz Results</a></div>
       </div>
     </div>
   </div>

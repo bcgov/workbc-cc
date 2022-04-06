@@ -230,7 +230,7 @@
       }
 
       $(".compare-career-print > span").on("click", function(){
-        //window.print();
+        window.print();
         // var w = window.open();
         // var html = $(".path-quiz").html();
 
@@ -257,6 +257,13 @@
       if($("#myResult").length){
         $("#block-bcgov-career-content").addClass("results-main-block");
       }
+
+      $(".path-quiz .form-actions.form-actions#edit-actions").each(function(){
+        if($(this).find("> #edit-previous").length){
+          $(this).addClass("hasPrev");
+          $(this).parent().parent().addClass("has-prev-block");
+        }
+      });
     },
   };
 })(jQuery, Drupal, drupalSettings);
