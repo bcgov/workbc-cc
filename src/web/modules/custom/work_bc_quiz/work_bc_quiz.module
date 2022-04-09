@@ -58,6 +58,22 @@ function work_bc_quiz_theme($existing, $type, $theme, $path) {
       'template' => 'node--custom-quiz-full-template',
       'base hook' => 'node',
     ],
+    'page__learning_styles_quiz' => [
+      'template' => 'page--quiz-custom-template',
+      'base hook' => 'page',
+    ],
+    'page__quiz__learning_styles_quiz' => [
+      'template' => 'page--quiz-custom-template',
+      'base hook' => 'page',
+    ],
+    'node__learning_styles_quiz_full' => [
+      'template' => 'node--custom-quiz-full-template',
+      'base hook' => 'node',
+    ],
+    'node__learning_styles_quiz' => [
+      'template' => 'node--custom-quiz-full-template',
+      'base hook' => 'node',
+    ],
     'page_title__work_bc_quiz' => [
       'template' => 'page-title--work-bc-quiz',
       'base hook' => 'page_title',
@@ -124,6 +140,8 @@ function work_bc_quiz_form_node_form_alter(&$form, $formState, $form_id) {
   $nodeTypeToHideTitle = [
     "multiple_intelligences_quiz",
     "multiple_intelligences_quiz_step_1",
+    "learning_styles_quiz",
+    "learning_styles_quiz_step_1",
     "abilities_quiz",
     "abilities_quiz_step_1",
   ];
@@ -240,7 +258,7 @@ function work_bc_quiz_entity_presave(EntityInterface $entity) {
   $saveToSession = FALSE;
   $autoTitle = "";
   // Add all other quiz type in switch case.
-  $nodeTypeToHideTitle = ["multiple_intelligences_quiz", "abilities_quiz"];
+  $nodeTypeToHideTitle = ["multiple_intelligences_quiz", "abilities_quiz", "learning_styles_quiz"];
   if (in_array($entity->bundle(), $nodeTypeToHideTitle)) {
     $autoTitle = ucwords(str_replace("_", " ", $entity->bundle()));
     $entity->setTitle($autoTitle . " - Results");
@@ -387,7 +405,7 @@ function work_bc_quiz_node_view(array &$build, EntityInterface $entity, EntityVi
   // Filter which Content Types would use this node view.
   $node = $entity;
   // $all_quizes = ['abilities_quiz', 'multiple_intelligences_quiz'];
-  if ($node->bundle() === 'multiple_intelligences_quiz' || $node->bundle() === 'abilities_quiz') {
+  if ($node->bundle() === 'multiple_intelligences_quiz' || $node->bundle() === 'abilities_quiz' || $node->bundle() === 'learning_styles_quiz') {
     // 'quiz' mode isn't active yet
     if ($view_mode === 'full' || $view_mode === 'quiz') {
 
@@ -395,8 +413,8 @@ function work_bc_quiz_node_view(array &$build, EntityInterface $entity, EntityVi
       $fields = \Drupal::service('entity_field.manager')->getFieldDefinitions('node', $node->bundle());
 
       // Get all QUIZ_options of this quiz node (i.e. from one of the abilities_options, multiple_intelligence_options etc.), and save them into $options_value array for later use.
-      $temp_to_replace = ["multiple_intelligences_quiz", "_quiz"];
-      $temp_replace_by = ["multiple_intelligence_options", "_options"];
+      $temp_to_replace = ["multiple_intelligences_quiz", "learning_styles_quiz", "_quiz"];
+      $temp_replace_by = ["multiple_intelligence_options", "learning_styles_options", "_options"];
       $vid = str_replace($temp_to_replace, $temp_replace_by, $node->bundle());
       // $vid = str_replace("_quiz", "_options", $node->bundle());
       $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid);
@@ -417,8 +435,8 @@ function work_bc_quiz_node_view(array &$build, EntityInterface $entity, EntityVi
       }
 
       // Get all QUIZ_categories of this quiz node(i.e. from one of the abilities_categories, multiple_intelligence_categories etc.), and save them into $category_value array for later use.
-      $temp_to_replace = ["multiple_intelligences_quiz", "_quiz"];
-      $temp_replace_by = ["multiple_intelligence_categories", "_categories"];
+      $temp_to_replace = ["multiple_intelligences_quiz", "learning_styles_quiz", "_quiz"];
+      $temp_replace_by = ["multiple_intelligence_categories", "learning_styles_categories", "_categories"];
       $vid = str_replace($temp_to_replace, $temp_replace_by, $node->bundle());
       // $vid = str_replace("_quiz", "_categories", $node->bundle());
       $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid);
