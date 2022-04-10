@@ -1,0 +1,157 @@
+uuid: bd9e3c07-ee8e-47f6-805c-12a22571d428
+langcode: en
+status: true
+dependencies: {  }
+id: learning_styles_quiz
+label: 'Learning Styles Quiz'
+description: ''
+progress_steps_links_saved_only: true
+progress_steps_links_saved_only_next: true
+redirection_policy: entity
+redirection_target: ''
+steps:
+  learning_styles_quiz_step_1:
+    label: 'Learning Styles Quiz'
+    weight: 0
+    entity_type: node
+    entity_bundle: learning_styles_quiz
+    form_mode: node.step_1
+    url: /quiz/learning-styles-quiz/step1
+    submitLabel: Next
+    cancelLabel: null
+    hideDelete: 0
+    deleteLabel: null
+    displayPrevious: 0
+  learning_styles_quiz_step_2:
+    label: 'Learning Styles Quiz'
+    weight: 1
+    entity_type: node
+    entity_bundle: learning_styles_quiz
+    form_mode: node.step_2
+    url: /quiz/learning-styles-quiz/step2
+    submitLabel: Next
+    cancelLabel: null
+    previousLabel: Back
+    hideDelete: 0
+    deleteLabel: null
+    displayPrevious: 1
+  learning_styles_quiz_step_3:
+    label: 'Learning Styles Quiz'
+    weight: 2
+    entity_type: node
+    entity_bundle: learning_styles_quiz
+    form_mode: node.step_3
+    url: /quiz/learning-styles-quiz/step3
+    submitLabel: Next
+    cancelLabel: null
+    previousLabel: Back
+    hideDelete: 0
+    deleteLabel: null
+    displayPrevious: 1
+  learning_styles_quiz_step_4:
+    label: 'Learning Styles Quiz'
+    weight: 3
+    entity_type: node
+    entity_bundle: learning_styles_quiz
+    form_mode: node.step_4
+    url: /quiz/learning-styles-quiz/step4
+    submitLabel: Next
+    cancelLabel: null
+    previousLabel: Back
+    hideDelete: 0
+    deleteLabel: null
+    displayPrevious: 1
+  learning_styles_quiz_step_5:
+    label: 'Learning Styles Quiz'
+    weight: 4
+    entity_type: node
+    entity_bundle: learning_styles_quiz
+    form_mode: node.step_5
+    url: /quiz/learning-styles-quiz/step5
+    submitLabel: Submit
+    cancelLabel: null
+    previousLabel: Back
+    hideDelete: 0
+    deleteLabel: null
+    displayPrevious: 1
+progress_steps:
+  step_1:
+    label: 'Step 1'
+    weight: 0
+    routes:
+      learning_styles_quiz_step_1: learning_styles_quiz_step_1
+      learning_styles_quiz_step_2: 0
+      learning_styles_quiz_step_3: 0
+      learning_styles_quiz_step_4: 0
+      learning_styles_quiz_step_5: 0
+    link: ''
+    link_visibility:
+      learning_styles_quiz_step_1: 0
+      learning_styles_quiz_step_2: 0
+      learning_styles_quiz_step_3: 0
+      learning_styles_quiz_step_4: 0
+      learning_styles_quiz_step_5: 0
+  step_2:
+    label: 'Step 2'
+    weight: 1
+    routes:
+      learning_styles_quiz_step_2: learning_styles_quiz_step_2
+      learning_styles_quiz_step_1: 0
+      learning_styles_quiz_step_3: 0
+      learning_styles_quiz_step_4: 0
+      learning_styles_quiz_step_5: 0
+    link: ''
+    link_visibility:
+      learning_styles_quiz_step_1: 0
+      learning_styles_quiz_step_2: 0
+      learning_styles_quiz_step_3: 0
+      learning_styles_quiz_step_4: 0
+      learning_styles_quiz_step_5: 0
+  step_3:
+    label: 'Step 3'
+    weight: 2
+    routes:
+      learning_styles_quiz_step_3: learning_styles_quiz_step_3
+      learning_styles_quiz_step_1: 0
+      learning_styles_quiz_step_2: 0
+      learning_styles_quiz_step_4: 0
+      learning_styles_quiz_step_5: 0
+    link: ''
+    link_visibility:
+      learning_styles_quiz_step_1: 0
+      learning_styles_quiz_step_2: 0
+      learning_styles_quiz_step_3: 0
+      learning_styles_quiz_step_4: 0
+      learning_styles_quiz_step_5: 0
+  step_4:
+    label: 'Step 4'
+    weight: 3
+    routes:
+      learning_styles_quiz_step_4: learning_styles_quiz_step_4
+      learning_styles_quiz_step_1: 0
+      learning_styles_quiz_step_2: 0
+      learning_styles_quiz_step_3: 0
+      learning_styles_quiz_step_5: 0
+    link: ''
+    link_visibility:
+      learning_styles_quiz_step_1: 0
+      learning_styles_quiz_step_2: 0
+      learning_styles_quiz_step_3: 0
+      learning_styles_quiz_step_4: 0
+      learning_styles_quiz_step_5: 0
+  step_5:
+    label: 'Step 5'
+    weight: 4
+    routes:
+      learning_styles_quiz_step_5: learning_styles_quiz_step_5
+      learning_styles_quiz_step_1: 0
+      learning_styles_quiz_step_2: 0
+      learning_styles_quiz_step_3: 0
+      learning_styles_quiz_step_4: 0
+    link: ''
+    link_visibility:
+      learning_styles_quiz_step_1: 0
+      learning_styles_quiz_step_2: 0
+      learning_styles_quiz_step_3: 0
+      learning_styles_quiz_step_4: 0
+      learning_styles_quiz_step_5: 0

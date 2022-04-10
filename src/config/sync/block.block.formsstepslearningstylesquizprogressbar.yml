@@ -1,0 +1,21 @@
+uuid: afd9e346-9df6-4a3c-bc22-a50d2819c766
+langcode: en
+status: true
+dependencies:
+  module:
+    - forms_steps
+  theme:
+    - bcgov_career
+id: formsstepslearningstylesquizprogressbar
+theme: bcgov_career
+region: content
+weight: 2
+provider: null
+plugin: 'forms_steps_progress_bar:learning_styles_quiz'
+settings:
+  id: 'forms_steps_progress_bar:learning_styles_quiz'
+  label: 'Forms Steps - Learning Styles Quiz (Progress bar)'
+  label_display: '0'
+  provider: forms_steps
+  progress_bar_settings: null
+visibility: {  }

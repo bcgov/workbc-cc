@@ -1,0 +1,22 @@
+uuid: 8b476651-b20a-4704-ac6c-d1cf15352b9e
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.learning_styles_quiz
+id: node.learning_styles_quiz.promote
+field_name: promote
+entity_type: node
+bundle: learning_styles_quiz
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
