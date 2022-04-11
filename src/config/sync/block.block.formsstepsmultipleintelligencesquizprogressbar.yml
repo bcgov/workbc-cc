@@ -9,7 +9,7 @@ dependencies:
 id: formsstepsmultipleintelligencesquizprogressbar
 theme: bcgov_career
 region: content
-weight: 2
+weight: 3
 provider: null
 plugin: 'forms_steps_progress_bar:multiple_intelligences_quiz'
 settings:
