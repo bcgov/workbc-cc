@@ -7,6 +7,9 @@
         background-repeat: no-repeat;
         background-color: rgb(242, 244, 243);
 
+        @media all and (min-width: 991.98px) and (max-width: 1180px) {
+            background-position: -855px bottom;
+        }
         @media all and (max-width: 991.98px) {
             display: none;
         }
@@ -1458,7 +1461,8 @@ body.path-quiz {
 
 span.question-prefix {
     float: left;
-    margin-right: 10px;
+    width: 30px;
+    //margin-right: 10px;
     margin-top: 12px;
     color: #333333;
 
