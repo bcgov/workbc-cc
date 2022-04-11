@@ -1,0 +1,260 @@
+uuid: 492829fe-be50-41c4-9ce5-4cda7b67b8e0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.learning_styles_quiz.field_learning_styles_1
+    - field.field.node.learning_styles_quiz.field_learning_styles_10
+    - field.field.node.learning_styles_quiz.field_learning_styles_11
+    - field.field.node.learning_styles_quiz.field_learning_styles_12
+    - field.field.node.learning_styles_quiz.field_learning_styles_13
+    - field.field.node.learning_styles_quiz.field_learning_styles_14
+    - field.field.node.learning_styles_quiz.field_learning_styles_15
+    - field.field.node.learning_styles_quiz.field_learning_styles_16
+    - field.field.node.learning_styles_quiz.field_learning_styles_17
+    - field.field.node.learning_styles_quiz.field_learning_styles_18
+    - field.field.node.learning_styles_quiz.field_learning_styles_19
+    - field.field.node.learning_styles_quiz.field_learning_styles_2
+    - field.field.node.learning_styles_quiz.field_learning_styles_20
+    - field.field.node.learning_styles_quiz.field_learning_styles_21
+    - field.field.node.learning_styles_quiz.field_learning_styles_22
+    - field.field.node.learning_styles_quiz.field_learning_styles_23
+    - field.field.node.learning_styles_quiz.field_learning_styles_24
+    - field.field.node.learning_styles_quiz.field_learning_styles_3
+    - field.field.node.learning_styles_quiz.field_learning_styles_4
+    - field.field.node.learning_styles_quiz.field_learning_styles_5
+    - field.field.node.learning_styles_quiz.field_learning_styles_6
+    - field.field.node.learning_styles_quiz.field_learning_styles_7
+    - field.field.node.learning_styles_quiz.field_learning_styles_8
+    - field.field.node.learning_styles_quiz.field_learning_styles_9
+    - node.type.learning_styles_quiz
+  module:
+    - user
+    - work_bc_quiz
+id: node.learning_styles_quiz.default
+targetEntityType: node
+bundle: learning_styles_quiz
+mode: default
+content:
+  field_learning_styles_1:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_learning_styles_10:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 110
+    region: content
+  field_learning_styles_11:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 111
+    region: content
+  field_learning_styles_12:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 112
+    region: content
+  field_learning_styles_13:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 113
+    region: content
+  field_learning_styles_14:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 114
+    region: content
+  field_learning_styles_15:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 115
+    region: content
+  field_learning_styles_16:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 116
+    region: content
+  field_learning_styles_17:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 117
+    region: content
+  field_learning_styles_18:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 118
+    region: content
+  field_learning_styles_19:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 119
+    region: content
+  field_learning_styles_2:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_learning_styles_20:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 120
+    region: content
+  field_learning_styles_21:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 121
+    region: content
+  field_learning_styles_22:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 122
+    region: content
+  field_learning_styles_23:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 123
+    region: content
+  field_learning_styles_24:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 124
+    region: content
+  field_learning_styles_3:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_learning_styles_4:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_learning_styles_5:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_learning_styles_6:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_learning_styles_7:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_learning_styles_8:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 108
+    region: content
+  field_learning_styles_9:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 109
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }
