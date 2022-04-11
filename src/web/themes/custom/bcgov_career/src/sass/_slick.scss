@@ -64,6 +64,8 @@
 .slick-slide {
     float: left;
     min-height: 1px;
+    height: 100%;
+    padding-bottom: 50px;
     [dir="rtl"] & {
         float: right;
     }
@@ -72,6 +74,11 @@
     }
     &.slick-loading img {
         display: none;
+    }
+    
+    & > div,
+    & > div > div {
+        height: 100%;
     }
 
     display: none;
@@ -100,4 +107,14 @@
 
 .slick-dots li:not(.slick-active) button:before  {
     opacity: 0.25;
+}
+
+.slick-track
+{
+    display: flex !important;
+}
+
+.slick-slide
+{
+    height: inherit !important;
 }
