@@ -1430,6 +1430,7 @@ body.path-quiz {
         margin: 0px;
         legend {
             float: left !important;
+            position: absolute;
             width: 37% !important;
             min-height: auto;
             font-family: "BC Sans", sans-serif;
@@ -1441,6 +1442,7 @@ body.path-quiz {
 
             @media all and (max-width: 767.98px) {
                 width: 100% !important;
+                position: relative;
             }
         }
 
@@ -1448,6 +1450,10 @@ body.path-quiz {
             float: right;
             margin-right: 35px;
             width: 55%;
+            margin-left: auto;
+            @media all and (max-width: 767.98px) {
+                margin-left: inherit;
+            }
         }
     }
 
