@@ -7,8 +7,11 @@ body, html, main {
     margin-top:0%;
     display:block;
 }
+header{
+    margin-top: 50px;
+}
 header .navbar-brand a.site-logo img {
-    width: 163px;
+    width: 180px;
     height: auto;
 }
 header .navbar-brand{
@@ -25,14 +28,19 @@ header .navbar-brand .site-name{
     width: 100%;
     margin: 0;
     padding-top: 20px;
+    padding-bottom: 40px;
 }
 
-header .navbar-brand .site-name > a{
+header .navbar-brand .site-name .site-title{
     font-family: 'BCSans';
     font-weight: 700;
     font-style: normal;
-    font-size: 38pt;
-    line-height: 38pt;
+    font-size: 45px;
+    line-height: 45px;
+    text-decoration: none;
+}
+footer{
+    display: none !important;
 }
 
 #myResult .carousel-inner.carousel-inner-device{
@@ -46,4 +54,57 @@ header .navbar-brand .site-name > a{
 }
 #myResult .carousel-inner.carousel-inner-mobi{
     display: none !important;
+}
+.compare-career-main-wrapper .back-link{
+    display: none !important;
+}
+.career-content-compare.career-content-main-wrapper{
+    display: block !important;
+}
+.career-content-compare.career-content-main-wrapper.mobi-career-content-compare{
+    display: none !important;
+}
+
+.compare-career-main-wrapper .career-content-compare .career-content-item:not(.col){
+    max-height: 350px;
+    float: left;
+    width: 55%;
+}
+.career-content-main-wrapper .career-content-item.active{
+    max-height: 350px;
+    float: left;
+    width: 55%;
+}
+.compare-career-main-wrapper .career-content-compare .career-content-item .career-content-item-inner .title .slide-next-prev{
+    display: none;
+}
+.career-content-main-wrapper .career-content-item .career-content-item-inner{
+    height: auto;
+}
+.compare-career-main-wrapper .career-content-compare{
+    display: block;
+}
+.career-content-main-wrapper .career-content-item .career-content-item-inner .title{
+    min-height: auto;
+    padding: 0 0 20px;
+}
+.career-content-main-wrapper .career-content-item .career-content-item-inner .title p{
+    font-size: 20px;
+    line-height: 20px;
+}
+.compare-career-main-wrapper .career-content-compare .career-content-item .career-content-item-inner .career-inner-content{
+    padding: 0 0 0 0 !important;
+    min-height: auto;
+    height: auto;
+    border: 0;
+}
+.career-content-main-wrapper .career-content-item .career-content-item-inner .image-video{
+    display: none !important;
+}
+.compare-career-main-wrapper .career-content-compare .career-content-item .career-content-item-inner .bottom-btn{
+    display: none !important;
+}
+#comparison-table.quiz-color-dark-blue .compare-career-main-wrapper .career-content-compare{
+    border: 0 !important;
+    padding-bottom: 0;
 }
