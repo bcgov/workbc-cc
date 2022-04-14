@@ -437,6 +437,9 @@
 }
 
 #myResult {
+    .learning-styles-quiz & {
+        margin-top: 20px;
+    }
     .carousel-inner{
         &.carousel-inner-device{
             @media all and (max-width: 767.98px){
@@ -1216,6 +1219,10 @@ body.path-quiz {
                 margin: auto;
                 position: relative;
 
+                .learning-styles-quiz & {
+                    min-width: 31%;
+                }
+
                 @media all and (max-width: 767.98px) {
                     min-width: 100%;
                     text-align: left;
@@ -1431,7 +1438,7 @@ body.path-quiz {
         legend {
             float: left !important;
             position: absolute;
-            width: 37% !important;
+            width: 37%;
             min-height: auto;
             font-family: "BC Sans", sans-serif;
             font-weight: 400;
@@ -1439,6 +1446,10 @@ body.path-quiz {
             font-size: 1.5rem;
             line-height: 2.1rem;
             color: #333333;
+
+            .learning-styles-quiz &{
+                width: 55%;
+            }
 
             @media all and (max-width: 767.98px) {
                 width: 100% !important;
@@ -1453,6 +1464,9 @@ body.path-quiz {
             margin-left: auto;
             @media all and (max-width: 767.98px) {
                 margin-left: inherit;
+            }
+            .learning-styles-quiz &{
+                width: 40%;
             }
         }
     }
@@ -3000,4 +3014,10 @@ span.question-prefix {
             }
         }
     }
+}
+
+
+//Learning styles
+.path-quiz .learning-styles-quiz .region-content .form-radios .form-item {
+    min-width: 31%;
 }
