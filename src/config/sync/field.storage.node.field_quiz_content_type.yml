@@ -21,8 +21,8 @@ settings:
       value: multiple_intelligences_quiz
       label: 'Multiple Intelligences Quiz'
     -
-      value: learning_style_quiz
-      label: 'Learning Style Quiz'
+      value: learning_styles_quiz
+      label: 'Learning Styles Quiz'
     -
       value: work_values_quiz
       label: 'Work Values Quiz'

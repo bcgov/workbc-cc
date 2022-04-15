@@ -1,0 +1,8 @@
+uuid: 6d649bef-75e3-4857-aa9d-068f36130ee5
+langcode: en
+status: true
+dependencies: {  }
+name: 'Learning Styles Options'
+vid: learning_styles_options
+description: ''
+weight: 0

@@ -7,6 +7,9 @@
         background-repeat: no-repeat;
         background-color: rgb(242, 244, 243);
 
+        @media all and (min-width: 991.98px) and (max-width: 1180px) {
+            background-position: -855px bottom;
+        }
         @media all and (max-width: 991.98px) {
             display: none;
         }
@@ -884,6 +887,9 @@ a.quiz-link {
     }
 }
 
+.path-node .main-bg .overlay-bg  {
+    min-height: 338px;
+}
 
 .overlay-content {
     .block-page-title-block {
@@ -902,7 +908,7 @@ a.quiz-link {
 
     .block-system-main-block {
         background: #fff;
-        padding-top: 35px;
+        padding-top: 60px;
         border-top: 9px solid rgb(0, 40, 85);
         padding-bottom: 300px;
         @media all and (max-width: 767.98px) {
@@ -972,8 +978,8 @@ body.path-quiz {
 
     .block.block-core.block-page-title-block {
         display: block;
-        margin-top: 60px;
-        padding-bottom: 90px;
+        margin-top: 55px;
+        padding-bottom: 60px;
         position: relative;
 
         @media all and (max-width: 767.98px) {
@@ -1290,7 +1296,7 @@ body.path-quiz {
             }
             &.error-class{
                 border: 2px solid rgba(205, 27, 33, 1);
-                margin-bottom: 2px;
+                margin: 5px;
             }
         }
     }
@@ -1415,7 +1421,7 @@ body.path-quiz {
 }
 
 .field--type-work-bc-quiz {
-    padding: 15px;
+    padding: 10px;
     border-bottom: 0px;
     @media all and (max-width: 767.98px){
         padding: 15px 25px;
@@ -1424,6 +1430,7 @@ body.path-quiz {
         margin: 0px;
         legend {
             float: left !important;
+            position: absolute;
             width: 37% !important;
             min-height: auto;
             font-family: "BC Sans", sans-serif;
@@ -1435,6 +1442,7 @@ body.path-quiz {
 
             @media all and (max-width: 767.98px) {
                 width: 100% !important;
+                position: relative;
             }
         }
 
@@ -1442,6 +1450,10 @@ body.path-quiz {
             float: right;
             margin-right: 35px;
             width: 55%;
+            margin-left: auto;
+            @media all and (max-width: 767.98px) {
+                margin-left: inherit;
+            }
         }
     }
 
@@ -1458,7 +1470,8 @@ body.path-quiz {
 
 span.question-prefix {
     float: left;
-    margin-right: 10px;
+    width: 30px;
+    //margin-right: 10px;
     margin-top: 12px;
     color: #333333;
 

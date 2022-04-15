@@ -10,7 +10,7 @@ dependencies:
 id: formsstepsabilitiesquizprogressbar
 theme: bcgov_career
 region: content
-weight: 2
+weight: 1
 provider: null
 plugin: 'forms_steps_progress_bar:abilities_quiz'
 settings:

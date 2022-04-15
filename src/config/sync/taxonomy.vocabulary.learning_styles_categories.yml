@@ -1,0 +1,8 @@
+uuid: 5b57bf6a-8b2d-4362-85a1-5c98489fb419
+langcode: en
+status: true
+dependencies: {  }
+name: 'Learning Styles Categories'
+vid: learning_styles_categories
+description: ''
+weight: 0

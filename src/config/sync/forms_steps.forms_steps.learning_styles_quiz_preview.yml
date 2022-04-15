@@ -1,0 +1,51 @@
+uuid: 271203d0-dd61-4cf8-861b-54c7f9c6c0c5
+langcode: en
+status: true
+dependencies: {  }
+id: learning_styles_quiz_preview
+label: 'Learning Styles Quiz Preview'
+description: ''
+progress_steps_links_saved_only: false
+progress_steps_links_saved_only_next: false
+redirection_policy: entity
+redirection_target: ''
+steps:
+  learning_styles_quiz_summary_step_1:
+    label: 'Learning Styles Quiz - Summary'
+    weight: 1
+    entity_type: node
+    entity_bundle: learning_styles_quiz
+    form_mode: node.step_1_preview
+    url: /quiz/learning-styles-quiz/step1/preview
+    submitLabel: 'Save Changes'
+    cancelLabel: null
+    hideDelete: 0
+    deleteLabel: null
+    displayPrevious: 0
+  learning_styles_quiz_summary_step_2:
+    label: 'Learning Styles Quiz - Summary'
+    weight: 2
+    entity_type: node
+    entity_bundle: learning_styles_quiz
+    form_mode: node.step_2_preview
+    url: /quiz/learning-styles-quiz/step2/preview
+    submitLabel: 'Save Changes'
+    cancelLabel: null
+    previousLabel: Previous
+    hideDelete: 0
+    deleteLabel: null
+    displayPrevious: 1
+  learning_styles_quiz_summary_step_3:
+    label: 'Learning Styles Quiz - Summary'
+    weight: 3
+    entity_type: node
+    entity_bundle: learning_styles_quiz
+    form_mode: node.step_3_preview
+    url: /quiz/learning-styles-quiz/step3/preview
+    submitLabel: 'Save Changes'
+    cancelLabel: null
+    previousLabel: Previous
+    hideDelete: 0
+    deleteLabel: null
+    displayPrevious: 1
+progress_steps: {  }

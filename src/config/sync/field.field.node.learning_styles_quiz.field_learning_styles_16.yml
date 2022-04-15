@@ -1,0 +1,51 @@
+uuid: 53876cbc-4817-4afc-a7f3-8fcf7a6814df
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_learning_styles_16
+    - node.type.learning_styles_quiz
+    - taxonomy.vocabulary.learning_styles_categories
+  content:
+    - 'taxonomy_term:learning_styles_categories:2b624373-2497-49c4-a16d-5cdf4354dc6e'
+  module:
+    - work_bc_quiz
+id: node.learning_styles_quiz.field_learning_styles_16
+field_name: field_learning_styles_16
+entity_type: node
+bundle: learning_styles_quiz
+label: 'I feel the best way to remember something is to picture it in my head.'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    ar_target_id: null
+    target_uuid: 2b624373-2497-49c4-a16d-5cdf4354dc6e
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      learning_styles_categories: learning_styles_categories
+    sort:
+      field: name
+      direction: asc
+    auto_create: 0
+    auto_create_bundle: ''
+  pr_label: ''
+  pr_field_hide: 1
+  added_reference:
+    ar_bundles:
+      learning_styles_options: learning_styles_options
+      abilities_categories: 0
+      abilities_options: 0
+      education_level: 0
+      learning_styles_categories: 0
+      multiple_intelligence_categories: 0
+      multiple_intelligence_options: 0
+      tags: 0
+    ar_label: ''
+    ar_weight: '16'
+    ar_required: 1
+field_type: work_bc_quiz
