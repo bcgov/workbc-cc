@@ -76,3 +76,36 @@
 .path-quiz .entity-content-form-revision-information{display:none;}
 .path-quiz .form-actions .pagination{width:440px;margin:auto;display:none;}
 .path-quiz .form-actions .pagination input[name="op"]{position:relative;right:unset;min-width:unset;}
+
+body.path-quiz form.preview-block-wrapper .form-actions input[name="op"]{position:relative;min-width:unset;}
+body.path-quiz .preview-quiz-form .form-actions.form-actions>#edit-previous{position:relative;left:unset;}
+body.path-quiz .preview-quiz-form .form-actions.form-actions>input[type=submit] {background: unset;color: #234075 !important;border: 0px;padding: 10px 10px;}
+body.path-quiz .preview-quiz-form .form-actions.form-actions>input[type=submit]:hover{    background: #f2f2f2;}
+.save-cancel >input[type=submit] {min-width: 170px;
+    padding: 15px 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+    font-family: "BC Sans", sans-serif;
+    position: relative;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    border-radius: 0;
+    border: 2px solid #073573;
+    color: #fff;
+    background: #073573;}
+  #action_wrapper{    position: relative;
+    display: block;
+    margin-bottom: 100px;}
+  @media (max-width: 767.98px){
+    body.path-quiz .preview-quiz-form .form-actions.form-actions{display: inline-block;
+    margin: 0px;
+    padding: 0px;
+    bottom: auto;}
+    body.path-quiz .preview-quiz-form .form-actions.form-actions > input[type="submit"]{display: inline-block;
+    width: unset !important;
+    flex: unset !important;
+    min-width: unset !important;}
+  }
