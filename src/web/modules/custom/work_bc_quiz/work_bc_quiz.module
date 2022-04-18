@@ -164,8 +164,9 @@ function work_bc_quiz_form_node_form_alter(&$form, $formState, $form_id) {
 
     $last_page = ceil($num_rows / 2);
     $form['actions']['#prefix'] = '<div class="preview-quiz-form" id="action_wrapper">';
-    $form['actions']['#suffix'] = '</div>';
+    /*$form['actions']['#suffix'] = '</div>'; */
 
+    $form['actions']['previous']['#submit'][] = '_work_bc_quiz_node_form_submit_previous';
     $form['actions']['previous']['#weight'] = 1;
     /*$form['actions']['previous']['#attributes']['id'][] = 'edit-previous';
     $form['actions']['previous']['#attributes']['name'][] = 'previous-action'; */
@@ -182,27 +183,40 @@ function work_bc_quiz_form_node_form_alter(&$form, $formState, $form_id) {
 
     $pages = ceil($total_fields / 10);
     for ($i = 1; $i <= $pages; $i++) {
-      // Start wrapper here.
-      $form['actions']['pagination']['step' . $i] = [
-        '#type' => 'submit',
-        '#title' => $i,
-        '#value' => $i,
-        '#submit' => ['_work_bc_quiz_node_form_pagination_handler'],
-        '#weight' => $i,
-      ];
-      $form['actions']['pagination']['step' . $i]['#attributes'] = ['class' => ["page-item page_$i"]];
-      if ($i == 1) {
-        $form['actions']['pagination']['step' . $i]['#prefix'] = "<div class='pagination'>";
+      // Start wrapper; Current page condition
+      if(str_contains($form_id, "step_$i")){
+        $form['actions']['step'.$i] = [
+          '#type' => 'submit',
+          '#title' => $i,
+          '#value' => $i,
+          '#submit' => ['_work_bc_quiz_node_form_pagination_handler'],
+          '#weight' => 1
+        ];
+        $form['actions']['step'.$i]['#attributes']= ['class'=>["page-item page_$i $form_id"]];
+        $form['actions']['step'.$i]['#attributes']['disabled'] = "disabled";
+        $form['actions']['step'.$i]['#attributes']['class'] = ["page-item page_$i active"];
       }
-      // End wrapper here.
-      if ($i == $pages) {
-        $form['actions']['pagination']['step' . $i]['#suffix'] = "</div>";
+      //First Page
+      else if($i==1){
+        $form['actions']['step'.$i] = [
+          '#type' => 'submit',
+          '#title' => $i,
+          '#value' => "<< First",
+          '#submit' => ['_work_bc_quiz_node_form_pagination_handler'],
+          '#weight' => 0
+        ];
+        $form['actions']['step'.$i]['#attributes']= ['class'=>["page-item page_$i"]];
       }
-      // Disable button on current page.
-      // print $form_id."step_$i".str_contains($form_id, "step_$i")."<br/>";.
-      if (str_contains($form_id, "step_$i")) {
-        $form['actions']['pagination']['step' . $i]['#attributes']['disabled'] = "disabled";
-        $form['actions']['pagination']['step' . $i]['#attributes']['class'] = ["page-item page_$i active"];
+      // Last Page End wrapper here
+      else if($i==$pages){
+        $form['actions']['step'.$i] = [
+          '#type' => 'submit',
+          '#title' => $i,
+          '#value' => "Last >>",
+          '#submit' => ['_work_bc_quiz_node_form_pagination_handler'],
+          '#weight' => 4
+        ];
+        $form['actions']['step'.$i]['#attributes']= ['class'=>["page-item page_$i"]];
       }
     }
 
@@ -211,7 +225,7 @@ function work_bc_quiz_form_node_form_alter(&$form, $formState, $form_id) {
       $form['actions']['next'] = [
         '#type' => 'submit',
         '#title' => t('Next'),
-        '#value' => t('Next'),
+        '#value' => t('Next >'),
         '#submit' => ['_work_bc_quiz_node_form_submit_next'],
         '#weight' => 3,
       ];
@@ -224,23 +238,24 @@ function work_bc_quiz_form_node_form_alter(&$form, $formState, $form_id) {
       '#title' => t('Cancel'),
       '#value' => t('Cancel'),
       '#submit' => ['_work_bc_quiz_node_form_submit_cancel'],
-      '#weight' => 4,
+      '#weight' => 6,
     ];
     $form['actions']['m_cancel']['#attributes']['class'][] = 'button js-form-cancel form-submit cancel-btn';
     $form['actions']['m_cancel']['#attributes']['id'][] = 'edit-m-cancel';
-    $form['actions']['m_cancel']['#prefix'] = '<div class="cancel-wrapper save-cancel" >';
+    $form['actions']['m_cancel']['#prefix'] = '</div><div class="cancel-wrapper save-cancel" >';
     $form['actions']['m_cancel']['#suffix'] = '</div>';
 
     $form['actions']['submit']['#submit'][] = '_work_bc_quiz_custom_submit_handler';
     $form['actions']['submit']['#attributes']['class'][] = 'button js-form-submit form-submit btn btn-primary save-changes';
     $form['actions']['submit']['#prefix'] = '<div class="save-wrapper save-cancel" >';
     $form['actions']['submit']['#suffix'] = '</div>';
-    $form['actions']['submit']['#weight'][] = 5;
+    $form['actions']['submit']['#weight']  = 7;
 
     $form['actions']['previous']['#submit'][] = '_work_bc_quiz_node_form_submit_previous';
+    $form['actions']['previous']['#value'] =  t('< Previous');
   }
   if (str_contains($form_id, '_step')) {
-    unset($form['actions']['previous']['#limit_validation_errors']);
+    #unset($form['actions']['previous']['#limit_validation_errors']);
     $form['actions']['previous']['#submit'][] = '_work_bc_quiz_node_form_submit_previous';
   }
 }
@@ -780,7 +795,7 @@ function work_bc_quiz_views_pre_render(ViewExecutable $view) {
 function _work_bc_quiz_node_form_pagination_handler($form, &$form_state) {
   $trigger = $form_state->getTriggeringElement();
   $current_path = \Drupal::service('path.current')->getPath();
-  $action = $trigger['#value'];
+  $action = $trigger['#title'];
 
   $path = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
 
@@ -821,8 +836,13 @@ function _work_bc_quiz_custom_submit_handler($form, &$form_state) {
  *
  */
 function _save_node_form_data($form, $form_state, $action = '', $para = NULL) {
-  $values = $form_state->getValues();
+  if($action=='previous'){
+    $values = $form_state->getUserInput();
+  }else {
+    $values = $form_state->getValues();
+  }
   $nid = $form_state->getformObject()->getEntity()->id();
+  $errorCount = 0;
   foreach ($values as $field => $values) {
     if (strpos($field, "field_") === 0) {
       if (isset($values[0]['ar_target_id']) && !empty($values[0]['ar_target_id'])) {
@@ -833,6 +853,9 @@ function _save_node_form_data($form, $form_state, $action = '', $para = NULL) {
         $query2 = \Drupal::database()->update($table2)->fields([$field_name => $values[0]['ar_target_id']])->condition('entity_id', $nid, '=');
         $query2->execute();
       }
+      else {
+        $errorCount++;
+      }
     }
   }
 
@@ -840,6 +863,48 @@ function _save_node_form_data($form, $form_state, $action = '', $para = NULL) {
     FormsStepsAlter::setNextRoute($form, $form_state);
   }
   elseif ($action == 'previous') {
+    if($errorCount == 0){
+      $current_path = \Drupal::service('path.current')->getPath();
+      if(!str_contains($current_path, 'preview')){
+        $entity = explode('/', $current_path);
+        $instance_id = end($entity);
+        array_pop($entity);
+        $currentStep = str_replace("step",'', end($entity));
+        $form_mode = "step_".$currentStep;
+
+        $route = \Drupal::routeMatch();
+        $route_name = $route->getRouteName();
+        $formsStepsManager = \Drupal::service('forms_steps.manager');
+
+        /** @var \Drupal\forms_steps\Entity\Workflow $workflowManager */
+
+        $workflowManager = \Drupal::service('forms_steps.workflow.manager');
+        $nextRoute = $formsStepsManager->getNextStepRoute($route_name);
+        $nextRoute = explode('.', $nextRoute);
+        //$step =  end($nextRoute);
+        array_pop($nextRoute);
+        $step =  end($nextRoute).'_'.$form_mode;
+
+        $query = \Drupal::database()->select('forms_steps_workflow', 'n')->fields('n', ['id'])->condition('n.entity_id', $nid)->condition('n.step', $step)->execute();
+        $result = $query->fetchObject();
+        if(empty($result)){
+          $connection = \Drupal::service('database');
+          $result = $connection->insert('forms_steps_workflow')->fields([
+            'instance_id' => $instance_id,
+            'entity_type' => 'node',
+            'bundle' => end($nextRoute),
+            'entity_id' => $nid,
+            'form_mode' => 'node.'.$form_mode,
+            'forms_steps' => end($nextRoute),
+            'step' => $step,
+            'created' => \Drupal::time()->getRequestTime(),
+            'changed' => \Drupal::time()->getRequestTime(),
+            'user_id' => 0,
+            'langcode' => 'en',
+          ])->execute();
+        }
+      }
+     }
     FormsStepsAlter::setPreviousRoute($form, $form_state);
   }
   // $response = new RedirectResponse(\Drupal\Core\Url::fromRoute('entity.node.canonical', ['node' => $nid])->toString());
