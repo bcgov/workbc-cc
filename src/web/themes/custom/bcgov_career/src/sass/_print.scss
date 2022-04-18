@@ -1,0 +1,245 @@
+@media print {
+    .col-print-1 {
+        width: 8%;
+        float: left;
+    }
+    .col-print-2 {
+        width: 16%;
+        float: left;
+    }
+    .col-print-3 {
+        width: 25%;
+        float: left;
+    }
+    .col-print-4 {
+        width: 33%;
+        float: left;
+    }
+    .col-print-5 {
+        width: 42%;
+        float: left;
+    }
+    .col-print-6 {
+        width: 50%;
+        float: left;
+    }
+    .col-print-7 {
+        width: 58%;
+        float: left;
+    }
+    .col-print-8 {
+        width: 66%;
+        float: left;
+    }
+    .col-print-9 {
+        width: 75%;
+        float: left;
+    }
+    .col-print-10 {
+        width: 83%;
+        float: left;
+    }
+    .col-print-11 {
+        width: 92%;
+        float: left;
+    }
+    .col-print-12 {
+        width: 100%;
+        float: left;
+    }
+    .col-print-item {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    html {
+        overflow: visible !important;
+    }
+    body,
+    html,
+    main {
+        width: 100% !important;
+        height: 100% !important;
+        margin-top: 0%;
+        display: block;
+    }
+    header {
+        margin-top: 50px;
+        padding-bottom: 0;
+    }
+    header .navbar-brand a.site-logo img {
+        width: 180px;
+        height: auto;
+        filter: grayscale(100%);
+    }
+    header .navbar-brand {
+        flex-direction: column;
+        width: 100%;
+    }
+    header .navbar-brand a.site-logo {
+        width: 100%;
+        border-bottom: 5px solid #000;
+        padding-bottom: 20px;
+        display: block;
+    }
+    header .navbar-brand .site-name {
+        width: 100%;
+        margin: 0;
+        padding-top: 20px;
+    }
+
+    header .navbar-brand .site-name .site-title {
+        font-family: "BCSans";
+        font-weight: 700;
+        font-style: normal;
+        font-size: 38px;
+        line-height: 36px;
+        text-decoration: none;
+        color: #333333;
+    }
+    footer {
+        display: none !important;
+    }
+
+    #myResult .carousel-inner.carousel-inner-device {
+        display: block !important;
+        .extradivs.hide {
+            display: none !important;
+        }
+        .col-print-item {
+            .quiz-list {
+                width: 369px;
+            }
+        }
+    }
+    .carousel-mobi-tabs {
+        display: none !important;
+    }
+    #myResult .carousel-inner.carousel-inner-mobi {
+        display: none !important;
+    }
+    .compare-career-main-wrapper .back-link {
+        display: none !important;
+    }
+    .compare-career-main-wrapper .career-wrapper-top h3 {
+        font-family: "BCSans";
+        font-weight: 400;
+        font-style: normal;
+        font-size: 25px;
+        line-height: 36px;
+        padding-bottom: 10px;
+        border-bottom: 5px solid rgba(242, 242, 242, 1);
+    }
+    .compare-career-main-wrapper .career-wrapper-top .career-top-right {
+        display: none;
+    }
+    .career-content-compare.career-content-main-wrapper {
+        display: block !important;
+    }
+    .career-content-compare.career-content-main-wrapper.mobi-career-content-compare {
+        display: none !important;
+    }
+
+    .compare-career-main-wrapper .career-content-compare .career-content-item:not(.col) {
+        max-height: 350px;
+        float: left;
+        max-width: 575px;
+        clear: both;
+        margin-bottom: 30px;
+    }
+    .career-content-main-wrapper .career-content-item.active {
+        max-height: 350px;
+        float: left;
+        max-width: 575px;
+        clear: both;
+        margin-bottom: 30px;
+    }
+    .compare-career-main-wrapper
+        .career-content-compare
+        .career-content-item
+        .career-content-item-inner
+        .title
+        .slide-next-prev {
+        display: none;
+    }
+    .compare-career-main-wrapper .career-content-compare {
+        display: block;
+    }
+    .career-content-main-wrapper .career-content-item {
+        .career-content-item-inner {
+            height: auto;
+            .title {
+                min-height: auto;
+                padding: 0 0 0px;
+                background: transparent !important;
+                p {
+                    color: #333333;
+                    font-size: 20px;
+                    line-height: 25px;
+                    padding: 0px;
+                }
+            }
+        }
+    }
+    .compare-career-main-wrapper
+        .career-content-compare
+        .career-content-item
+        .career-content-item-inner
+        .career-inner-content {
+        padding: 0 0 0 0 !important;
+        min-height: auto;
+        height: auto;
+        border: 0;
+    }
+    .career-content-main-wrapper .career-content-item .career-content-item-inner .image-video {
+        display: none !important;
+    }
+    .compare-career-main-wrapper .career-content-compare .career-content-item .career-content-item-inner .bottom-btn {
+        display: none !important;
+    }
+    #comparison-table.quiz-color-dark-blue .compare-career-main-wrapper .career-content-compare {
+        border: 0 !important;
+        padding-bottom: 0;
+    }
+    .path-node .main-bg .overlay-bg {
+        height: auto;
+        background: transparent;
+    }
+    .myResultHeading .career-top-right {
+        display: none;
+    }
+
+    .path-quiz {
+        .breadcrumb-quiz {
+            display: none;
+        }
+        .overlay-content {
+            .block-system-main-block {
+                &:not(.no-border-block) {
+                    border: 0;
+                }
+                &#block-bcgov-career-content.results-main-block {
+                    padding-top: 0;
+                }
+            }
+        }
+        .block-page-title-block {
+            display: block;
+            margin-top: 30px;
+            padding-bottom: 0;
+            position: relative;
+            h1 {
+                font-family: "BCSans";
+                font-weight: 700;
+                font-style: normal;
+                font-size: 27px;
+                line-height: 36px;
+                color: #333333;
+                padding-bottom: 10px;
+                border-bottom: 5px solid rgba(242, 242, 242, 1);
+            }
+            .sub-title p {
+                color: #333333;
+            }
+        }
+    }
+}
