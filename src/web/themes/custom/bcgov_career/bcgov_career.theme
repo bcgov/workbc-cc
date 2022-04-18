@@ -20,6 +20,7 @@ function bcgov_career_preprocess_page(&$variables) {
   }
   $node = \Drupal::routeMatch()->getParameter('node');
   if ($node instanceof NodeInterface) {
+    $variables['page_bundle'] = $node->bundle();
     $variables['quiz_color'] = _quiz_color_type($node->bundle());
   }
   else {
@@ -28,6 +29,7 @@ function bcgov_career_preprocess_page(&$variables) {
     if (isset($arg[1]) && isset($arg[2])  && $arg[1] == 'quiz') {
       $quiz_type = str_replace('-', '_', $arg[2]);
       $variables['quiz_color'] = _quiz_color_type($quiz_type);
+      $variables['page_bundle'] = $quiz_type;
     }
   }
 }
