@@ -83,17 +83,29 @@ function bcgov_career_preprocess_views_view_table(&$variables) {
       $result[$num]['raw'] = $raw;
     }
 
-    // Result order sort by quiz result.
-    $resut_order = NULL;
-    foreach ($match as $title => $per) {
-      foreach ($result as $num => $row) {
-        if ($row['title'] == $title) {
-          $resut_order[] = $row;
-          break;
+    $query_col_edu = '';
+    $query_col_sal = '';
+    $query_order = '';
+
+    $query_order = \Drupal::request()->query->get('order');
+    $query_col= \Drupal::request()->query->get('sort');
+
+    if($query_order == null && $query_col == null) {
+      //Result order sort by quiz result.
+      $resut_order = NULL;
+      foreach ($match as $title => $per) {
+        foreach ($result as $num => $row) {
+          if ($row['title'] == $title) {
+            $resut_order[] = $row;
+            break;
+          }
         }
       }
+      $variables['result'] = $variables['rows'] = $resut_order;
+    } else {
+      $variables['result'] = $variables['rows'] = $result;
     }
-    $variables['result'] = $variables['rows'] = $resut_order;
+
     $variables['current_nid'] = $nid;
     // Get the url object from route.
     $url = Url::fromRoute('ccext.compate_action_remove', [
