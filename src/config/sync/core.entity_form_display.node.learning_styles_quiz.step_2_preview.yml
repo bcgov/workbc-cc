@@ -1,0 +1,160 @@
+uuid: 79063268-6fee-4263-a8c9-d2061a55e2ef
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.node.step_2_preview
+    - field.field.node.learning_styles_quiz.field_learning_styles_1
+    - field.field.node.learning_styles_quiz.field_learning_styles_10
+    - field.field.node.learning_styles_quiz.field_learning_styles_11
+    - field.field.node.learning_styles_quiz.field_learning_styles_12
+    - field.field.node.learning_styles_quiz.field_learning_styles_13
+    - field.field.node.learning_styles_quiz.field_learning_styles_14
+    - field.field.node.learning_styles_quiz.field_learning_styles_15
+    - field.field.node.learning_styles_quiz.field_learning_styles_16
+    - field.field.node.learning_styles_quiz.field_learning_styles_17
+    - field.field.node.learning_styles_quiz.field_learning_styles_18
+    - field.field.node.learning_styles_quiz.field_learning_styles_19
+    - field.field.node.learning_styles_quiz.field_learning_styles_2
+    - field.field.node.learning_styles_quiz.field_learning_styles_20
+    - field.field.node.learning_styles_quiz.field_learning_styles_21
+    - field.field.node.learning_styles_quiz.field_learning_styles_22
+    - field.field.node.learning_styles_quiz.field_learning_styles_23
+    - field.field.node.learning_styles_quiz.field_learning_styles_24
+    - field.field.node.learning_styles_quiz.field_learning_styles_3
+    - field.field.node.learning_styles_quiz.field_learning_styles_4
+    - field.field.node.learning_styles_quiz.field_learning_styles_5
+    - field.field.node.learning_styles_quiz.field_learning_styles_6
+    - field.field.node.learning_styles_quiz.field_learning_styles_7
+    - field.field.node.learning_styles_quiz.field_learning_styles_8
+    - field.field.node.learning_styles_quiz.field_learning_styles_9
+    - node.type.learning_styles_quiz
+  module:
+    - work_bc_quiz
+id: node.learning_styles_quiz.step_2_preview
+targetEntityType: node
+bundle: learning_styles_quiz
+mode: step_2_preview
+content:
+  field_learning_styles_11:
+    type: double_reference_autocomplete_select
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_learning_styles_12:
+    type: double_reference_autocomplete_select
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_learning_styles_13:
+    type: double_reference_autocomplete_select
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_learning_styles_14:
+    type: double_reference_autocomplete_select
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_learning_styles_15:
+    type: double_reference_autocomplete_select
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_learning_styles_16:
+    type: double_reference_autocomplete_select
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_learning_styles_17:
+    type: double_reference_autocomplete_select
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_learning_styles_18:
+    type: double_reference_autocomplete_select
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_learning_styles_19:
+    type: double_reference_autocomplete_select
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_learning_styles_20:
+    type: double_reference_autocomplete_select
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_learning_styles_1: true
+  field_learning_styles_10: true
+  field_learning_styles_2: true
+  field_learning_styles_21: true
+  field_learning_styles_22: true
+  field_learning_styles_23: true
+  field_learning_styles_24: true
+  field_learning_styles_3: true
+  field_learning_styles_4: true
+  field_learning_styles_5: true
+  field_learning_styles_6: true
+  field_learning_styles_7: true
+  field_learning_styles_8: true
+  field_learning_styles_9: true
+  path: true
+  promote: true
+  status: true
+  sticky: true
+  title: true
+  uid: true

@@ -1,0 +1,17 @@
+uuid: 9ca3813c-0ec1-4e8b-97cf-528c0d8a1e3f
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Learning Styles Quiz'
+type: learning_styles_quiz
+description: ''
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: false

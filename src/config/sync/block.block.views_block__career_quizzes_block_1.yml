@@ -12,7 +12,7 @@ dependencies:
 id: views_block__career_quizzes_block_1
 theme: bcgov_career
 region: content
-weight: -4
+weight: -5
 provider: null
 plugin: 'views_block:career_quizzes-block_1'
 settings:

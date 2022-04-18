@@ -175,10 +175,12 @@
 								</div>
 							{% endfor %}
 							</div>
-							<div class="hideshow">
-								<span class="vaa">{{ toggle_plus }} +</span>
-								<span class="vaa1" style="display:none">{{ toggle_minus }} -</span>
-							</div>
+              {% if node.bundle != 'learning_styles_quiz' %}
+                <div class="hideshow">
+                  <span class="vaa">{{ toggle_plus }} +</span>
+                  <span class="vaa1" style="display:none">{{ toggle_minus }} -</span>
+                </div>
+              {% endif %}
 						</div>
 					</div>
 				</div>
