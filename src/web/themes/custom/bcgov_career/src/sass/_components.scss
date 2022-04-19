@@ -2270,6 +2270,7 @@ span.question-prefix {
                         flex: 0 0 70%;
                         @media all and (max-width: 640.98px){
                             flex: 0 0 50%;
+                            width: 130px;
                         }
                         @media all and (max-width: 767.98px){
                             padding-left: 33px;
@@ -3040,4 +3041,9 @@ span.question-prefix {
 //Learning styles
 .path-quiz .learning-styles-quiz .region-content .form-radios .form-item {
     min-width: 31%;
+}
+
+//Career profile page
+.page-node-type-career-profile .breadcrumb{
+    display: none;
 }
