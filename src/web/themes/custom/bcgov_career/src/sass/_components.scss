@@ -303,6 +303,9 @@
     .result-heading {
         margin-bottom: 40px;
         margin-top: 0;
+        @media all and (max-width: 767.98px){
+            display: none;
+        }
 
         h2 {
             font-family: "BC Sans", sans-serif;
@@ -928,6 +931,7 @@ a.quiz-link {
                 padding-bottom: 150px;
                 &.results-main-block{
                     padding-bottom: 50px;
+                    padding-top: 0px;
                 }
             }
             &.has-prev-block{
@@ -1031,6 +1035,7 @@ body.path-quiz {
                     width: 100%;
                     &#edit-previous{
                         margin-bottom: 15px;
+                        top: 80px;
                     }
                 }
             }
@@ -1053,6 +1058,9 @@ body.path-quiz {
             border-radius: 0;
             @media all and (max-width: 767.98px){
                 position: relative;
+            }
+            @media all and (max-width: 640.98px){
+                top: -50px;
             }
             &:hover {
                 background: $aq_h;
@@ -1488,6 +1496,7 @@ span.question-prefix {
     //margin-right: 10px;
     margin-top: 12px;
     color: #333333;
+    font-size: 1.5rem;
 
     @media all and (max-width: 767.98px) {
         margin-top: 1px;
@@ -1968,6 +1977,13 @@ span.question-prefix {
                         right: -8px;
                     }
                 }
+                
+                &.views-field-field-education-level {
+                    a::before {
+                        right: -26px;
+                    }
+                }
+
                 &#view-field-noc-name-table-column {
                     width: 288px;
                 }
@@ -2253,6 +2269,9 @@ span.question-prefix {
                         flex: 0 0 70%;
                         @media all and (max-width: 640.98px){
                             flex: 0 0 50%;
+                        }
+                        @media all and (max-width: 767.98px){
+                            padding-left: 33px;
                         }
                         a {
                             color: #333;
@@ -2927,7 +2946,7 @@ span.question-prefix {
     }
     #block-bcgov-career-breadcrumbs {
         .breadcrumb {
-            padding: 16px 0px;
+            padding: 16px 1rem;
             position: relative;
             background: transparent;
             @media all and (max-width: 767.98px) {
