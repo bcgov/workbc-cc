@@ -1035,7 +1035,10 @@ body.path-quiz {
                     width: 100%;
                     &#edit-previous{
                         margin-bottom: 15px;
-                        //top: 80px;
+                        top: 80px;
+                    }
+                    &#edit-previous+#edit-submit {
+                        top: -50px;
                     }
                 }
             }
@@ -1059,9 +1062,7 @@ body.path-quiz {
             @media all and (max-width: 767.98px){
                 position: relative;
             }
-            @media all and (max-width: 640.98px){
-                //top: -50px;
-            }
+        
             &:hover {
                 background: $aq_h;
             }
