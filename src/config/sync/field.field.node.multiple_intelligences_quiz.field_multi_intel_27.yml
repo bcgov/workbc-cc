@@ -45,5 +45,5 @@ settings:
       tags: 0
     ar_label: ''
     ar_weight: '27'
-    ar_required: 0
+    ar_required: 1
 field_type: work_bc_quiz
