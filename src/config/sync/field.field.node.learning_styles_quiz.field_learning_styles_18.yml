@@ -7,7 +7,7 @@ dependencies:
     - node.type.learning_styles_quiz
     - taxonomy.vocabulary.learning_styles_categories
   content:
-    - 'taxonomy_term:learning_styles_categories:007050a5-5a20-43b7-a2b8-b08e4fc6dc5c'
+    - 'taxonomy_term:learning_styles_categories:20d3b47e-dd25-4836-88d6-a4af0372ae6b'
   module:
     - work_bc_quiz
 id: node.learning_styles_quiz.field_learning_styles_18
@@ -21,7 +21,7 @@ translatable: false
 default_value:
   -
     ar_target_id: null
-    target_uuid: 007050a5-5a20-43b7-a2b8-b08e4fc6dc5c
+    target_uuid: 20d3b47e-dd25-4836-88d6-a4af0372ae6b
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'
