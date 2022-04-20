@@ -1462,7 +1462,7 @@ body.path-quiz {
             color: #333333;
 
             .learning-styles-quiz &{
-                width: 55%;
+                width: 55%!important;
             }
 
             @media all and (max-width: 767.98px) {
@@ -1944,6 +1944,10 @@ span.question-prefix {
         border: 1px solid #e6eae9;
         max-height: 700px;
         overflow-y: scroll;
+
+        .tablesort {
+            display: none;
+        }    
     }
 
     table {
@@ -3052,3 +3056,9 @@ span.question-prefix {
 .page-node-type-career-profile .breadcrumb{
     display: none;
 }
+
+//login form 
+.user-login-form {
+    max-width: 400px;
+}
+
