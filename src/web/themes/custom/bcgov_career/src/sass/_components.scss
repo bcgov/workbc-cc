@@ -1401,12 +1401,20 @@ body.path-quiz {
             &.save-wrapper{
                 left: auto;
                 right: 0;
-                @media all and (max-width: 767.98px) {
-                    right: 10px;
-                }
             }
             @media all and (max-width: 767.98px) {
-                left: 10px;
+                position: relative;
+                padding: 0 25px;
+                bottom: -85px;
+                &.cancel-wrapper{
+                    margin-bottom: 15px;
+                }
+                &.save-wrapper{
+                    right: 0;
+                }
+                >input{
+                    width: 100%;
+                }
             }
           }
     }

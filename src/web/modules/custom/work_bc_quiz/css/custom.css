@@ -111,6 +111,9 @@ body.path-quiz .preview-quiz-form .form-actions.form-actions>input[type=submit]:
     body.path-quiz .preview-quiz-form .form-actions.form-actions > #edit-previous{
       padding: 10px 6px;
     }
+    #action_wrapper{
+        margin-bottom: 0;
+    }
     body.path-quiz .preview-quiz-form .form-actions.form-actions>input[type=submit] {padding: 10px 6px;}
   }
   
