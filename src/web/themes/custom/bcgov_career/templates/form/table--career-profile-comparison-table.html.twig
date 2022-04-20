@@ -142,7 +142,7 @@
             <div class="career-content-item active">
               <div class="career-content-item-inner">
                 <div class="title">
-                  <p class="{{ 'career-title-' ~ loop.index }}">{{ row.cells.field_noc_name.content }}<span class='noc-code'>(NOC {{ row.cells.title.content }})</span>
+                  <p class="{{ 'career-title-' ~ loop.index }}">{{ row.cells.field_noc_name.content }}<span class='noc-code'> (NOC {{ row.cells.title.content }})</span>
                   </p>
                   <div class="slide-next-prev">
                     {% if rowkey == "0" %}
@@ -183,7 +183,7 @@
                     {% endif %}
                   </div>
                   <div class="description">
-                    <p>{{ row.cells.field_job_summary.content | striptags }}</p>
+                    <p>{{ row.cells.field_job_summary.content | striptags | raw }}</p>
                   </div>
                   <div class="bottom-btn">
                     <a class="btn btn-prim btn-career-profile" href="{{ row.cells.field_workbc_link.content }}" target='_blank'>View Career Profile</a>
