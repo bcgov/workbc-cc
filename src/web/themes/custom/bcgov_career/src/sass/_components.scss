@@ -1306,6 +1306,11 @@ body.path-quiz {
                 background: rgba(242, 242, 242, 1);
             }
 
+            &.work-bc-quiz-even,
+            &.work-bc-quiz-odd {
+                display: flex;
+            }
+
             &:not(.first-item) {
                 label {
                     display: none;
@@ -1457,6 +1462,7 @@ body.path-quiz {
     }
     fieldset {
         margin: 0px;
+        flex: 74%;
         legend {
             float: left !important;
             position: absolute;
@@ -1473,9 +1479,19 @@ body.path-quiz {
                 width: 55%!important;
             }
 
+            span:last-child {
+                float: left;
+                width: 85%;
+                margin-left: 10px;
+            }
+
             @media all and (max-width: 767.98px) {
                 width: 100% !important;
                 position: relative;
+
+                .learning-styles-quiz &{
+                    width: 100%!important;
+                }
             }
         }
 
@@ -1506,14 +1522,15 @@ body.path-quiz {
 
 span.question-prefix {
     float: left;
-    width: 30px;
     //margin-right: 10px;
-    margin-top: 12px;
+    //margin-top: 12px;
+    width: 30px;
     color: #333333;
     font-size: 1.5rem;
 
     @media all and (max-width: 767.98px) {
         margin-top: 1px;
+        width: 30px;
     }
 
     &:after {
