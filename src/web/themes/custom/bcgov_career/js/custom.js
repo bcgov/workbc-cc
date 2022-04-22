@@ -294,6 +294,11 @@
           $(this).parent().parent().addClass("has-prev-block");
         }
       });
+      
+       //move quiz prefix
+       $(".field--type-work-bc-quiz").each(function () {
+        $(this).find("> .question-prefix").prependTo($(this).find(' > fieldset > legend'));
+      });
     },
   };
 })(jQuery, Drupal, drupalSettings);
