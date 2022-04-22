@@ -3063,6 +3063,10 @@ span.question-prefix {
             @media all and (max-width: 767.98px){
                 bottom: 105px;
                 left: 30px;
+
+                &+div+div.block-system-main-block#block-bcgov-career-content.has-prev-block {
+                    padding-bottom: 250px;
+                }
             }
             button.close{
                 display: none;
