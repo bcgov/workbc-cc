@@ -79,7 +79,6 @@
 
 body.path-quiz form.preview-block-wrapper .form-actions input[name="op"]{position:relative;min-width:unset;}
 body.path-quiz .preview-quiz-form .form-actions.form-actions>#edit-previous{position:relative;left:unset; top:unset;}
-body.path-quiz .preview-quiz-form .form-actions.form-actions>input[type=submit] {background: unset;color: #234075 !important;border: 0px; margin:0; padding: 11px 24px;}
 body.path-quiz .preview-quiz-form .form-actions.form-actions>input[type=submit]:hover{    background: #f2f2f2;}
 .save-cancel >input[type=submit] {min-width: 170px;
     padding: 15px 10px;
@@ -117,8 +116,8 @@ body.path-quiz .preview-quiz-form .form-actions.form-actions>input[type=submit]:
     body.path-quiz .preview-quiz-form .form-actions.form-actions>input[type=submit] {padding: 10px 6px;}
   }
   
-@media (max-width: 640.98px)
+@media (max-width: 640.98px) {
   .path-quiz .form-actions.form-actions > input#edit-previous {
     top:unset;
   }
-  
+}

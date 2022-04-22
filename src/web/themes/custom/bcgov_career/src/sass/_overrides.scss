@@ -902,6 +902,20 @@
                     background: #e6eae9;
                 }
             }
+            .save-cancel.save-wrapper { 
+                #edit-submit {
+                    color: white;
+                    background: $quiz-green;
+                    border: 2px solid $quiz-green;
+                }
+            }
+            .form-actions.form-actions>input[type=submit] {
+                background: unset;
+                color: $quiz-green;
+                border: 0px; 
+                margin:0; 
+                padding: 11px 24px;
+            }
             .form-actions{
                 &.form-actions{
                     > #edit-submit{
