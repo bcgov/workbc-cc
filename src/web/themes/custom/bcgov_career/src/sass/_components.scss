@@ -50,6 +50,11 @@
                         font-size: 40px;
                         line-height: 40px;
                     }
+                    @media all and (max-width: 450.98px) {
+                        font-size: 40px;
+                        line-height: 40px;
+                    }
+                    font-size: 35px;
                 }
             }
         }
@@ -1150,7 +1155,7 @@ body.path-quiz {
 
             input {
                 width: 20px;
-                height: 20px;
+                //height: 20px;
                 position: relative;
                 z-index: 1;
                 top: 13px;
@@ -2291,6 +2296,7 @@ span.question-prefix {
         .tbody {
             .tbody-main {
                 display: flex;
+                align-items: center;
 
                 p {
                     padding: 20px;

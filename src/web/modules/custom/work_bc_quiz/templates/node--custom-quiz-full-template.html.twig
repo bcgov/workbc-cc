@@ -104,17 +104,20 @@
 		  <div {{ content_attributes.addClass('node__content') }}>
 			<div class="myResultHeading" >
 				<div class="row rh">
-					{# <div class="col-8">
+				{% if node.bundle != 'multiple_intelligences_quiz' %}
+					<div class="col-8">
 						<div class="result-heading">
 							<h2 class="vaa">{{ subheading }}</h2>
 							<h2 class="vaa1" style="display:none;">{{ subheading_toggle }}</h2>
 						</div>
-					</div> #}
+					</div>
+				{% else %}
 					<div class="col-8">
 						<div class="result-heading">
 							<h2 class="vaa">{{ subheading }}</h2>
 						</div>
 					</div>
+				{% endif %}
 					<div class="col-12 col-md-4">
 						<div class="career-top-right">
 							<ul class="float-right">

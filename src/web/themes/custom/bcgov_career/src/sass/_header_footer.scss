@@ -20,6 +20,7 @@ header {
             margin: 4px 0 0 100px;
             @media all and (max-width: 767.98px) {
                 margin: 4px 0 0;
+                white-space: initial;
             }
             .site-title {
                 font-family: "BC Sans Regular", "BC Sans", sans-serif;
@@ -32,6 +33,8 @@ header {
                 @media all and (max-width: 767.98px) {
                     font-size: 17px;
                     letter-spacing: normal;
+                    line-height: 1rem;
+                    vertical-align: middle;
                 }
                 @media all and (min-width: 768px ) and ( max-width: 1000.98px) {
                     font-size: 3rem;
