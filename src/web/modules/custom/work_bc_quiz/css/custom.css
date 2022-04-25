@@ -112,6 +112,8 @@ body.path-quiz .preview-quiz-form .form-actions.form-actions>input[type=submit]:
     }
     #action_wrapper{
         margin-bottom: 0;
+        display: flex;
+flex-direction: column;
     }
     body.path-quiz .preview-quiz-form .form-actions.form-actions>input[type=submit] {padding: 10px 6px;}
   }

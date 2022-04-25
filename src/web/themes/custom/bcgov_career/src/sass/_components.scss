@@ -1417,7 +1417,8 @@ body.path-quiz {
                 padding: 0 25px;
                 bottom: -85px;
                 &.cancel-wrapper{
-                    margin-bottom: 15px;
+                    margin-top: 15px;
+                    order: 3;
                 }
                 &.save-wrapper{
                     right: 0;
@@ -2974,6 +2975,76 @@ span.question-prefix {
                 background: #002855;
             }
         }
+    }
+}
+
+.email-popup-wrapper{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: rgba(47, 75, 130, 0.5333);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    &:not(.active){
+        display: none;
+    }
+    .email-popup-content{
+        max-width: 470px;
+        min-height: 250px;
+        margin: 0 auto;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #fff;
+        padding: 80px 20px 25px;
+        a.email-popup-close{
+            position: absolute;
+            top: 15px;
+            right: 30px;
+            > svg{
+                width: 20px;
+                height: auto;
+            }
+        }
+        p.title{
+            font-family: 'BC Sans Bold', sans-serif;
+            margin-bottom: 30px;
+        }
+    }
+    .form-input{
+        display: flex;
+        flex-direction: column;
+        input{
+            padding: 15px;
+            font-family: 'BC Sans', sans-serif;
+            font-size: 1.6rem;
+            line-height: 2.4rem;
+        }
+        button{
+            height: 50px;
+            background-color: #234075;
+            color: #fff;
+            max-width: 174px;
+            display: inline-block;
+            margin: 0;
+            text-align: center;
+            width: auto;
+            margin-top: 18px;
+            font-size: 1.5rem;
+            line-height: 1.8rem;
+            font-family: 'BC Sans', sans-serif;
+            &:hover{
+                background-color: #002855;
+            }
+        }
+    }
+    .content{
+        margin-top: 30px;
     }
 }
 
