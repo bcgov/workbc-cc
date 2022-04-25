@@ -1,0 +1,8 @@
+uuid: 940a64fe-6a7d-4a6c-bb51-b8f3e55f53e9
+langcode: en
+status: true
+dependencies: {  }
+name: 'Work Values Options'
+vid: work_values_options
+description: ''
+weight: 0

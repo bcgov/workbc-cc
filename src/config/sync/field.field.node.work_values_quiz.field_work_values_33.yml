@@ -1,0 +1,53 @@
+uuid: 66f759da-6227-4502-8a4c-58f0118d442c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_work_values_33
+    - node.type.work_values_quiz
+    - taxonomy.vocabulary.work_values_categories
+  content:
+    - 'taxonomy_term:work_values_categories:a3a1ff6a-fa5f-4610-a77e-8a23cbb7bd57'
+  module:
+    - work_bc_quiz
+id: node.work_values_quiz.field_work_values_33
+field_name: field_work_values_33
+entity_type: node
+bundle: work_values_quiz
+label: 'I want a work situation that’s exciting and high-pressure.'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    ar_target_id: null
+    target_uuid: a3a1ff6a-fa5f-4610-a77e-8a23cbb7bd57
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      work_values_categories: work_values_categories
+    sort:
+      field: name
+      direction: asc
+    auto_create: 0
+    auto_create_bundle: ''
+  pr_label: ''
+  pr_field_hide: 1
+  added_reference:
+    ar_bundles:
+      work_values_options: work_values_options
+      abilities_categories: 0
+      abilities_options: 0
+      education_level: 0
+      learning_styles_categories: 0
+      learning_styles_options: 0
+      multiple_intelligence_categories: 0
+      multiple_intelligence_options: 0
+      tags: 0
+      work_values_categories: 0
+    ar_label: ''
+    ar_weight: '33'
+    ar_required: 1
+field_type: work_bc_quiz

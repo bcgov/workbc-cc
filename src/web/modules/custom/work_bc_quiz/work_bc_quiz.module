@@ -74,6 +74,22 @@ function work_bc_quiz_theme($existing, $type, $theme, $path) {
       'template' => 'node--custom-quiz-full-template',
       'base hook' => 'node',
     ],
+    'page__work_values_quiz' => [
+      'template' => 'page--quiz-custom-template',
+      'base hook' => 'page',
+    ],
+    'page__quiz__work_values_quiz' => [
+      'template' => 'page--quiz-custom-template',
+      'base hook' => 'page',
+    ],
+    'node__work_values_quiz_full' => [
+      'template' => 'node--custom-quiz-full-template',
+      'base hook' => 'node',
+    ],
+    'node__work_values_quiz' => [
+      'template' => 'node--work-values-quiz--full-template',
+      'base hook' => 'node',
+    ],
     'page_title__work_bc_quiz' => [
       'template' => 'page-title--work-bc-quiz',
       'base hook' => 'page_title',
@@ -144,6 +160,8 @@ function work_bc_quiz_form_node_form_alter(&$form, $formState, $form_id) {
     "learning_styles_quiz_step_1",
     "abilities_quiz",
     "abilities_quiz_step_1",
+    "work_values_quiz",
+    "work_values_quiz_step_1",
   ];
   $form_id = str_replace(["node_", "_form"], [''], $form_id);
   if (in_array($form_id, $nodeTypeToHideTitle)) {
@@ -273,7 +291,7 @@ function work_bc_quiz_entity_presave(EntityInterface $entity) {
   $saveToSession = FALSE;
   $autoTitle = "";
   // Add all other quiz type in switch case.
-  $nodeTypeToHideTitle = ["multiple_intelligences_quiz", "abilities_quiz", "learning_styles_quiz"];
+  $nodeTypeToHideTitle = ["multiple_intelligences_quiz", "abilities_quiz", "learning_styles_quiz", "work_values_quiz"];
   if (in_array($entity->bundle(), $nodeTypeToHideTitle)) {
     $autoTitle = ucwords(str_replace("_", " ", $entity->bundle()));
     $entity->setTitle($autoTitle . " - Results");
@@ -420,7 +438,7 @@ function work_bc_quiz_node_view(array &$build, EntityInterface $entity, EntityVi
   // Filter which Content Types would use this node view.
   $node = $entity;
   // $all_quizes = ['abilities_quiz', 'multiple_intelligences_quiz'];
-  if ($node->bundle() === 'multiple_intelligences_quiz' || $node->bundle() === 'abilities_quiz' || $node->bundle() === 'learning_styles_quiz') {
+  if ($node->bundle() === 'multiple_intelligences_quiz' || $node->bundle() === 'abilities_quiz' || $node->bundle() === 'learning_styles_quiz' || $node->bundle() === 'work_values_quiz') {
     // 'quiz' mode isn't active yet
     if ($view_mode === 'full' || $view_mode === 'quiz') {
 
@@ -428,8 +446,8 @@ function work_bc_quiz_node_view(array &$build, EntityInterface $entity, EntityVi
       $fields = \Drupal::service('entity_field.manager')->getFieldDefinitions('node', $node->bundle());
 
       // Get all QUIZ_options of this quiz node (i.e. from one of the abilities_options, multiple_intelligence_options etc.), and save them into $options_value array for later use.
-      $temp_to_replace = ["multiple_intelligences_quiz", "learning_styles_quiz", "_quiz"];
-      $temp_replace_by = ["multiple_intelligence_options", "learning_styles_options", "_options"];
+      $temp_to_replace = ["multiple_intelligences_quiz", "learning_styles_quiz", "work_values_quiz", "_quiz"];
+      $temp_replace_by = ["multiple_intelligence_options", "learning_styles_options", "work_values_options", "_options"];
       $vid = str_replace($temp_to_replace, $temp_replace_by, $node->bundle());
       // $vid = str_replace("_quiz", "_options", $node->bundle());
       $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid);
@@ -450,9 +468,10 @@ function work_bc_quiz_node_view(array &$build, EntityInterface $entity, EntityVi
       }
 
       // Get all QUIZ_categories of this quiz node(i.e. from one of the abilities_categories, multiple_intelligence_categories etc.), and save them into $category_value array for later use.
-      $temp_to_replace = ["multiple_intelligences_quiz", "learning_styles_quiz", "_quiz"];
-      $temp_replace_by = ["multiple_intelligence_categories", "learning_styles_categories", "_categories"];
+      $temp_to_replace = ["multiple_intelligences_quiz", "learning_styles_quiz", "work_values_quiz", "_quiz"];
+      $temp_replace_by = ["multiple_intelligence_categories", "learning_styles_categories", "work_values_categories", "_categories"];
       $vid = str_replace($temp_to_replace, $temp_replace_by, $node->bundle());
+      //print_R($vid);
       // $vid = str_replace("_quiz", "_categories", $node->bundle());
       $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid);
       $category_value = [];
@@ -464,51 +483,107 @@ function work_bc_quiz_node_view(array &$build, EntityInterface $entity, EntityVi
         $category_value[$term->tid]['field_svg_icon'] = $term_obj->get('field_svg_icon')->entity->uri->value;
         $category_value[$term->tid]['color'] = $term_obj->get('field_color')->value;
       }
-
+      
       $groupedResult = [];
       // Loop through all fields of the node.
-      foreach ($fields as $field_name => $field_definition) {
-        if (!empty($field_definition->getTargetBundle())) {
-          // Process only if the field type is Double Reference.
-          // work_bc_quiz == Double reference field.
-          if ($field_definition->getType() == "work_bc_quiz") {
 
-            // Get answer for the value and then percentage and category names from answers.
-            $answer = $node->get($field_name)->getValue();
-            if ((empty($answer[0]['ar_target_id']))&&($quizError == 0)) {
-              $quizError++;
-            }
-            $option_id = $answer[0]['ar_target_id'];
-            $field_option_percentage = $options_value[$option_id]['field_option_percentage'];
-            $category_id = $answer[0]['target_id'];
-            $category_name = $category_value[$category_id]['name'];
+      if($node->bundle() === 'work_values_quiz'){
+        foreach ($fields as $field_name => $field_definition) {
+          if (!empty($field_definition->getTargetBundle())) {
+            // Process only if the field type is Double Reference.
+            // work_bc_quiz == Double reference field.
+            if ($field_definition->getType() == "work_bc_quiz") {
 
-            // @todo Run fewer times (Low priority)
-            $category_color = $category_value[$category_id]['color'];
-            $category_svg = $category_value[$category_id]['field_svg_icon'];
-            $category_description = $category_value[$category_id]['description'];
-
-            if (array_key_exists($category_name, $groupedResult)) {
-              // IF category is same put score into an array and pass.
-              array_push($groupedResult[$category_name]['score'], $field_option_percentage);
-            }
-            else {
-              // If category is different, then add into an array.
-              $groupedResult[$category_name]['score'] = [$field_option_percentage];
-              $groupedResult[$category_name]['name'] = $category_name;
-              $groupedResult[$category_name]['weight'] = $max_value;
-              $groupedResult[$category_name]['highest'] = $max_value;
-              $groupedResult[$category_name]['icon'] = $category_svg;
-              $groupedResult[$category_name]['color'] = $category_color;
-              $groupedResult[$category_name]['description'] = $category_description;
-              $name_a = explode(" ", $category_name);
-              $shortname = '';
-              foreach ($name_a as $name_v) {
-                $shortname .= strtolower(substr($name_v, 0, 1));
+              // Get answer for the value and then percentage and category names from answers.
+              $answer = $node->get($field_name)->getValue();
+              if ((empty($answer[0]['ar_target_id']))&&($quizError == 0)) {
+                $quizError++;
               }
-              $groupedResult[$category_name]['short'] = $shortname;
-            }
+              $option_id = $answer[0]['ar_target_id'];
+              $field_option_percentage = $options_value[$option_id]['field_option_percentage'];
+              $field_option_value = $options_value[$option_id]['name'];
 
+              $category_id = $answer[0]['target_id'];
+              $category_name = $category_value[$category_id]['name'];
+
+              // @todo Run fewer times (Low priority)
+              $category_color = $category_value[$category_id]['color'];
+              $category_svg = $category_value[$category_id]['field_svg_icon'];
+              $category_description = $category_value[$category_id]['description'];
+
+              if(array_key_exists($category_name, $groupedResult)){
+                if(array_key_exists($field_option_value, $groupedResult[$category_name]['option'])){
+                  array_push($groupedResult[$category_name]['option'][$field_option_value]['values'], $field_definition->label());
+                }
+                else {
+                  $groupedResult[$category_name]['option'][$field_option_value]['key'] =$field_option_value;
+                  $groupedResult[$category_name]['option'][$field_option_value]['values'] =[$field_definition->label()];
+                }
+              }
+              else {
+                // If category is different, then add into an array.
+                $groupedResult[$category_name]['option'][$field_option_value]['key'] =$field_option_value;
+                $groupedResult[$category_name]['option'][$field_option_value]['values'] =[$field_definition->label()];
+                $groupedResult[$category_name]['name'] = $category_name;
+                $groupedResult[$category_name]['weight'] = $category_weight;
+                $groupedResult[$category_name]['icon'] = $category_svg;
+                $groupedResult[$category_name]['description'] = $category_description;
+                $name_a = explode(" ", $category_name);
+                $shortname = '';
+                foreach ($name_a as $name_v) {
+                  $shortname .= strtolower(substr($name_v, 0, 1));
+                }
+                $groupedResult[$category_name]['short'] = $shortname;
+              }
+
+            }
+          }
+        }
+      }
+      else {
+        foreach ($fields as $field_name => $field_definition) {
+          if (!empty($field_definition->getTargetBundle())) {
+            // Process only if the field type is Double Reference.
+            // work_bc_quiz == Double reference field.
+            if ($field_definition->getType() == "work_bc_quiz") {
+      
+              // Get answer for the value and then percentage and category names from answers.
+              $answer = $node->get($field_name)->getValue();
+              if ((empty($answer[0]['ar_target_id']))&&($quizError == 0)) {
+                $quizError++;
+              }
+              $option_id = $answer[0]['ar_target_id'];
+              $field_option_percentage = $options_value[$option_id]['field_option_percentage'];
+              $category_id = $answer[0]['target_id'];
+              $category_name = $category_value[$category_id]['name'];
+
+              // @todo Run fewer times (Low priority)
+              $category_color = $category_value[$category_id]['color'];
+              $category_svg = $category_value[$category_id]['field_svg_icon'];
+              $category_description = $category_value[$category_id]['description'];
+
+              if (array_key_exists($category_name, $groupedResult)) {
+                // IF category is same put score into an array and pass.
+                array_push($groupedResult[$category_name]['score'], $field_option_percentage);
+              }
+              else {
+                // If category is different, then add into an array.
+                $groupedResult[$category_name]['score'] = [$field_option_percentage];
+                $groupedResult[$category_name]['name'] = $category_name;
+                $groupedResult[$category_name]['weight'] = $max_value;
+                $groupedResult[$category_name]['highest'] = $max_value;
+                $groupedResult[$category_name]['icon'] = $category_svg;
+                $groupedResult[$category_name]['color'] = $category_color;
+                $groupedResult[$category_name]['description'] = $category_description;
+                $name_a = explode(" ", $category_name);
+                $shortname = '';
+                foreach ($name_a as $name_v) {
+                  $shortname .= strtolower(substr($name_v, 0, 1));
+                }
+                $groupedResult[$category_name]['short'] = $shortname;
+              }
+
+            }
           }
         }
       }
@@ -652,6 +727,12 @@ function work_bc_quiz_node_view(array &$build, EntityInterface $entity, EntityVi
 function work_bc_quiz_views_pre_render(ViewExecutable $view) {
   // Call sessions class to show modify link, if quiz is already done.
   $session = \Drupal::request()->getSession();
+  
+  // Clear quiz session using cookie so when browser is closed, the data is not preserved
+/*  if(!isset($_COOKIE['quizOut'])){
+    $session->set('SavedQuiz',[]);
+    setcookie("quizOut",time(),0);
+  } */
   if ($view->id() == 'career_quizzes') {
     // Check view idate.
     $results = $view->result;

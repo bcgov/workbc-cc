@@ -1,0 +1,19 @@
+uuid: d167469c-f831-496b-8d0e-d12d28089948
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_color
+    - taxonomy.vocabulary.work_values_categories
+id: taxonomy_term.work_values_categories.field_color
+field_name: field_color
+entity_type: taxonomy_term
+bundle: work_values_categories
+label: color
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
