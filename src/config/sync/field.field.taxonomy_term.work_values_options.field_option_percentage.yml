@@ -1,0 +1,23 @@
+uuid: e91df17a-d7ac-43dd-a37b-00df03507fce
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_option_percentage
+    - taxonomy.vocabulary.work_values_options
+id: taxonomy_term.work_values_options.field_option_percentage
+field_name: field_option_percentage
+entity_type: taxonomy_term
+bundle: work_values_options
+label: 'Option Value'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: float

@@ -1,0 +1,53 @@
+uuid: 1274e2c0-73a7-4302-8d0c-4d5b28b7f320
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_work_values_21
+    - node.type.work_values_quiz
+    - taxonomy.vocabulary.work_values_categories
+  content:
+    - 'taxonomy_term:work_values_categories:ef2ca3d3-a348-482f-bb37-797b6a08fbeb'
+  module:
+    - work_bc_quiz
+id: node.work_values_quiz.field_work_values_21
+field_name: field_work_values_21
+entity_type: node
+bundle: work_values_quiz
+label: 'I would like to work with the public.'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    ar_target_id: null
+    target_uuid: ef2ca3d3-a348-482f-bb37-797b6a08fbeb
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      work_values_categories: work_values_categories
+    sort:
+      field: name
+      direction: asc
+    auto_create: 0
+    auto_create_bundle: ''
+  pr_label: ''
+  pr_field_hide: 1
+  added_reference:
+    ar_bundles:
+      work_values_options: work_values_options
+      abilities_categories: 0
+      abilities_options: 0
+      education_level: 0
+      learning_styles_categories: 0
+      learning_styles_options: 0
+      multiple_intelligence_categories: 0
+      multiple_intelligence_options: 0
+      tags: 0
+      work_values_categories: 0
+    ar_label: ''
+    ar_weight: '21'
+    ar_required: 1
+field_type: work_bc_quiz

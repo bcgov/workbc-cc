@@ -1,0 +1,17 @@
+uuid: 25e6a8de-7535-46a3-848d-280722c54748
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Work Values Quiz'
+type: work_values_quiz
+description: ''
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: false

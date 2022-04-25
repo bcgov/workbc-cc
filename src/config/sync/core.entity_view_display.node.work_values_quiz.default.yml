@@ -1,0 +1,350 @@
+uuid: 9ca0d34a-df00-4629-8df2-b01d48f3fcd7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.work_values_quiz.field_work_values_1
+    - field.field.node.work_values_quiz.field_work_values_10
+    - field.field.node.work_values_quiz.field_work_values_11
+    - field.field.node.work_values_quiz.field_work_values_12
+    - field.field.node.work_values_quiz.field_work_values_13
+    - field.field.node.work_values_quiz.field_work_values_14
+    - field.field.node.work_values_quiz.field_work_values_15
+    - field.field.node.work_values_quiz.field_work_values_16
+    - field.field.node.work_values_quiz.field_work_values_17
+    - field.field.node.work_values_quiz.field_work_values_18
+    - field.field.node.work_values_quiz.field_work_values_19
+    - field.field.node.work_values_quiz.field_work_values_2
+    - field.field.node.work_values_quiz.field_work_values_20
+    - field.field.node.work_values_quiz.field_work_values_21
+    - field.field.node.work_values_quiz.field_work_values_22
+    - field.field.node.work_values_quiz.field_work_values_23
+    - field.field.node.work_values_quiz.field_work_values_24
+    - field.field.node.work_values_quiz.field_work_values_25
+    - field.field.node.work_values_quiz.field_work_values_26
+    - field.field.node.work_values_quiz.field_work_values_27
+    - field.field.node.work_values_quiz.field_work_values_28
+    - field.field.node.work_values_quiz.field_work_values_29
+    - field.field.node.work_values_quiz.field_work_values_3
+    - field.field.node.work_values_quiz.field_work_values_30
+    - field.field.node.work_values_quiz.field_work_values_31
+    - field.field.node.work_values_quiz.field_work_values_32
+    - field.field.node.work_values_quiz.field_work_values_33
+    - field.field.node.work_values_quiz.field_work_values_4
+    - field.field.node.work_values_quiz.field_work_values_5
+    - field.field.node.work_values_quiz.field_work_values_6
+    - field.field.node.work_values_quiz.field_work_values_7
+    - field.field.node.work_values_quiz.field_work_values_8
+    - field.field.node.work_values_quiz.field_work_values_9
+    - node.type.work_values_quiz
+  module:
+    - user
+    - work_bc_quiz
+id: node.work_values_quiz.default
+targetEntityType: node
+bundle: work_values_quiz
+mode: default
+content:
+  field_work_values_1:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_work_values_10:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 110
+    region: content
+  field_work_values_11:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 111
+    region: content
+  field_work_values_12:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 112
+    region: content
+  field_work_values_13:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 113
+    region: content
+  field_work_values_14:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 114
+    region: content
+  field_work_values_15:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 115
+    region: content
+  field_work_values_16:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 116
+    region: content
+  field_work_values_17:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 117
+    region: content
+  field_work_values_18:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 118
+    region: content
+  field_work_values_19:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 119
+    region: content
+  field_work_values_2:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_work_values_20:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 120
+    region: content
+  field_work_values_21:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 121
+    region: content
+  field_work_values_22:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 122
+    region: content
+  field_work_values_23:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 123
+    region: content
+  field_work_values_24:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 124
+    region: content
+  field_work_values_25:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 125
+    region: content
+  field_work_values_26:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 126
+    region: content
+  field_work_values_27:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 127
+    region: content
+  field_work_values_28:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 128
+    region: content
+  field_work_values_29:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 129
+    region: content
+  field_work_values_3:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_work_values_30:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 130
+    region: content
+  field_work_values_31:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 131
+    region: content
+  field_work_values_32:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 132
+    region: content
+  field_work_values_33:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 133
+    region: content
+  field_work_values_4:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_work_values_5:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_work_values_6:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_work_values_7:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_work_values_8:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 108
+    region: content
+  field_work_values_9:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 109
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

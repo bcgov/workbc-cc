@@ -1,0 +1,22 @@
+uuid: f25004db-36b7-476a-b5b2-3a53d649d0a5
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+    - work_bc_quiz
+id: node.field_work_values_5
+field_name: field_work_values_5
+entity_type: node
+type: work_bc_quiz
+settings:
+  target_type: taxonomy_term
+  ar_target_type: taxonomy_term
+module: work_bc_quiz
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
