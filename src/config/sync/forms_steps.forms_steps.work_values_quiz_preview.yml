@@ -1,0 +1,64 @@
+uuid: 2a3d143e-51c0-4fd4-82de-8f6f39550699
+langcode: en
+status: true
+dependencies: {  }
+id: work_values_quiz_preview
+label: 'Work Values Quiz Preview'
+description: ''
+progress_steps_links_saved_only: true
+progress_steps_links_saved_only_next: true
+redirection_policy: entity
+redirection_target: ''
+steps:
+  work_values_quiz_summary_step_1:
+    label: 'Work Values Quiz - Summary'
+    weight: 0
+    entity_type: node
+    entity_bundle: work_values_quiz
+    form_mode: node.step_1_preview
+    url: /quiz/work-values-quiz/step1/preview
+    submitLabel: 'Save Changes'
+    cancelLabel: null
+    hideDelete: 0
+    deleteLabel: null
+    displayPrevious: 0
+  work_values_quiz_summary_step_2:
+    label: 'Work Values Quiz - Summary'
+    weight: 1
+    entity_type: node
+    entity_bundle: work_values_quiz
+    form_mode: node.step_2_preview
+    url: /quiz/work-values-quiz/step2/preview
+    submitLabel: 'Save Changes'
+    cancelLabel: null
+    previousLabel: Previous
+    hideDelete: 0
+    deleteLabel: null
+    displayPrevious: 1
+  work_values_quiz_summary_step_3:
+    label: 'Work Values Quiz - Summary'
+    weight: 2
+    entity_type: node
+    entity_bundle: work_values_quiz
+    form_mode: node.step_3_preview
+    url: /quiz/work-values-quiz/step3/preview
+    submitLabel: 'Save Changes'
+    cancelLabel: null
+    previousLabel: Previous
+    hideDelete: 0
+    deleteLabel: null
+    displayPrevious: 1
+  work_values_quiz_summary_step_4:
+    label: 'Work Values Quiz - Summary'
+    weight: 3
+    entity_type: node
+    entity_bundle: work_values_quiz
+    form_mode: node.step_4_preview
+    url: /quiz/work-values-quiz/step4/preview
+    submitLabel: 'Save Changes'
+    cancelLabel: null
+    previousLabel: Previous
+    hideDelete: 0
+    deleteLabel: null
+    displayPrevious: 1
+progress_steps: {  }

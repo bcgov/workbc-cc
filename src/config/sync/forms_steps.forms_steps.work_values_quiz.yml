@@ -1,0 +1,243 @@
+uuid: d3edce8c-6ea5-4e39-82b4-f21f3675b55f
+langcode: en
+status: true
+dependencies: {  }
+id: work_values_quiz
+label: 'Work Values Quiz'
+description: ''
+progress_steps_links_saved_only: true
+progress_steps_links_saved_only_next: true
+redirection_policy: entity
+redirection_target: ''
+steps:
+  work_values_quiz_step_1:
+    label: 'Work Values Quiz'
+    weight: 0
+    entity_type: node
+    entity_bundle: work_values_quiz
+    form_mode: node.step_1
+    url: /quiz/work-values-quiz/step1
+    submitLabel: Next
+    cancelLabel: null
+    hideDelete: 0
+    deleteLabel: null
+    displayPrevious: 0
+  work_values_quiz_step_2:
+    label: 'Work Values Quiz'
+    weight: 1
+    entity_type: node
+    entity_bundle: work_values_quiz
+    form_mode: node.step_2
+    url: /quiz/work-values-quiz/step2
+    submitLabel: Next
+    cancelLabel: null
+    previousLabel: Back
+    hideDelete: 0
+    deleteLabel: null
+    displayPrevious: 1
+  work_values_quiz_step_3:
+    label: 'Work Values Quiz'
+    weight: 2
+    entity_type: node
+    entity_bundle: work_values_quiz
+    form_mode: node.step_3
+    url: /quiz/work-values-quiz/step3
+    submitLabel: Next
+    cancelLabel: null
+    previousLabel: Back
+    hideDelete: 0
+    deleteLabel: null
+    displayPrevious: 1
+  work_values_quiz_step_4:
+    label: 'Work Values Quiz'
+    weight: 3
+    entity_type: node
+    entity_bundle: work_values_quiz
+    form_mode: node.step_4
+    url: /quiz/work-values-quiz/step4
+    submitLabel: Next
+    cancelLabel: null
+    previousLabel: Back
+    hideDelete: 0
+    deleteLabel: null
+    displayPrevious: 1
+  work_values_quiz_step_5:
+    label: 'Work Values Quiz'
+    weight: 4
+    entity_type: node
+    entity_bundle: work_values_quiz
+    form_mode: node.step_5
+    url: /quiz/work-values-quiz/step5
+    submitLabel: Next
+    cancelLabel: null
+    previousLabel: Back
+    hideDelete: 0
+    deleteLabel: null
+    displayPrevious: 1
+  work_values_quiz_step_6:
+    label: 'Work Values Quiz'
+    weight: 5
+    entity_type: node
+    entity_bundle: work_values_quiz
+    form_mode: node.step_6
+    url: /quiz/work-values-quiz/step6
+    submitLabel: Next
+    cancelLabel: null
+    previousLabel: Back
+    hideDelete: 0
+    deleteLabel: null
+    displayPrevious: 1
+  work_values_quiz_step_7:
+    label: 'Work Values Quiz'
+    weight: 6
+    entity_type: node
+    entity_bundle: work_values_quiz
+    form_mode: node.step_7
+    url: /quiz/work-values-quiz/step7
+    submitLabel: Submit
+    cancelLabel: null
+    previousLabel: Back
+    hideDelete: 0
+    deleteLabel: null
+    displayPrevious: 1
+progress_steps:
+  step_1:
+    label: 'Step 1'
+    weight: 0
+    routes:
+      work_values_quiz_step_1: work_values_quiz_step_1
+      work_values_quiz_step_2: 0
+      work_values_quiz_step_3: 0
+      work_values_quiz_step_4: 0
+      work_values_quiz_step_5: 0
+      work_values_quiz_step_6: 0
+      work_values_quiz_step_7: 0
+    link: ''
+    link_visibility:
+      work_values_quiz_step_1: 0
+      work_values_quiz_step_2: 0
+      work_values_quiz_step_3: 0
+      work_values_quiz_step_4: 0
+      work_values_quiz_step_5: 0
+      work_values_quiz_step_6: 0
+      work_values_quiz_step_7: 0
+  step_2:
+    label: 'Step 2'
+    weight: 1
+    routes:
+      work_values_quiz_step_2: work_values_quiz_step_2
+      work_values_quiz_step_1: 0
+      work_values_quiz_step_3: 0
+      work_values_quiz_step_4: 0
+      work_values_quiz_step_5: 0
+      work_values_quiz_step_6: 0
+      work_values_quiz_step_7: 0
+    link: ''
+    link_visibility:
+      work_values_quiz_step_1: 0
+      work_values_quiz_step_2: 0
+      work_values_quiz_step_3: 0
+      work_values_quiz_step_4: 0
+      work_values_quiz_step_5: 0
+      work_values_quiz_step_6: 0
+      work_values_quiz_step_7: 0
+  step_3:
+    label: 'Step 3'
+    weight: 2
+    routes:
+      work_values_quiz_step_3: work_values_quiz_step_3
+      work_values_quiz_step_1: 0
+      work_values_quiz_step_2: 0
+      work_values_quiz_step_4: 0
+      work_values_quiz_step_5: 0
+      work_values_quiz_step_6: 0
+      work_values_quiz_step_7: 0
+    link: ''
+    link_visibility:
+      work_values_quiz_step_1: 0
+      work_values_quiz_step_2: 0
+      work_values_quiz_step_3: 0
+      work_values_quiz_step_4: 0
+      work_values_quiz_step_5: 0
+      work_values_quiz_step_6: 0
+      work_values_quiz_step_7: 0
+  step_4:
+    label: 'Step 4'
+    weight: 3
+    routes:
+      work_values_quiz_step_4: work_values_quiz_step_4
+      work_values_quiz_step_1: 0
+      work_values_quiz_step_2: 0
+      work_values_quiz_step_3: 0
+      work_values_quiz_step_5: 0
+      work_values_quiz_step_6: 0
+      work_values_quiz_step_7: 0
+    link: ''
+    link_visibility:
+      work_values_quiz_step_1: 0
+      work_values_quiz_step_2: 0
+      work_values_quiz_step_3: 0
+      work_values_quiz_step_4: 0
+      work_values_quiz_step_5: 0
+      work_values_quiz_step_6: 0
+      work_values_quiz_step_7: 0
+  step_5:
+    label: 'Step 5'
+    weight: 4
+    routes:
+      work_values_quiz_step_5: work_values_quiz_step_5
+      work_values_quiz_step_1: 0
+      work_values_quiz_step_2: 0
+      work_values_quiz_step_3: 0
+      work_values_quiz_step_4: 0
+      work_values_quiz_step_6: 0
+      work_values_quiz_step_7: 0
+    link: ''
+    link_visibility:
+      work_values_quiz_step_1: 0
+      work_values_quiz_step_2: 0
+      work_values_quiz_step_3: 0
+      work_values_quiz_step_4: 0
+      work_values_quiz_step_5: 0
+      work_values_quiz_step_6: 0
+      work_values_quiz_step_7: 0
+  step_6:
+    label: 'Step 6'
+    weight: 5
+    routes:
+      work_values_quiz_step_6: work_values_quiz_step_6
+      work_values_quiz_step_1: 0
+      work_values_quiz_step_2: 0
+      work_values_quiz_step_3: 0
+      work_values_quiz_step_4: 0
+      work_values_quiz_step_5: 0
+      work_values_quiz_step_7: 0
+    link: ''
+    link_visibility:
+      work_values_quiz_step_1: 0
+      work_values_quiz_step_2: 0
+      work_values_quiz_step_3: 0
+      work_values_quiz_step_4: 0
+      work_values_quiz_step_5: 0
+      work_values_quiz_step_6: 0
+      work_values_quiz_step_7: 0
+  step_7:
+    label: 'Step 7'
+    weight: 6
+    routes:
+      work_values_quiz_step_7: work_values_quiz_step_7
+      work_values_quiz_step_1: 0
+      work_values_quiz_step_2: 0
+      work_values_quiz_step_3: 0
+      work_values_quiz_step_4: 0
+      work_values_quiz_step_5: 0
+      work_values_quiz_step_6: 0
+    link: ''
+    link_visibility:
+      work_values_quiz_step_1: 0
+      work_values_quiz_step_2: 0
+      work_values_quiz_step_3: 0
+      work_values_quiz_step_4: 0
+      work_values_quiz_step_5: 0
+      work_values_quiz_step_6: 0
+      work_values_quiz_step_7: 0
