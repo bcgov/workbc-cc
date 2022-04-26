@@ -3001,7 +3001,7 @@ span.question-prefix {
         top: 50%;
         transform: translateY(-50%);
         background: #fff;
-        padding: 80px 20px 25px;
+        padding: 85px 20px 25px;
         a.email-popup-close{
             position: absolute;
             top: 15px;
@@ -3038,6 +3038,9 @@ span.question-prefix {
             font-size: 1.5rem;
             line-height: 1.8rem;
             font-family: 'BC Sans', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             &:hover{
                 background-color: #002855;
             }
