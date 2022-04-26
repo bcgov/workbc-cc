@@ -7,7 +7,7 @@ dependencies:
     - node.type.multiple_intelligences_quiz
     - taxonomy.vocabulary.multiple_intelligence_categories
   content:
-    - 'taxonomy_term:multiple_intelligence_categories:5778b438-dea7-40cc-a8e4-a9fdf882df2a'
+    - 'taxonomy_term:multiple_intelligence_categories:46b879a3-7f5f-4b57-824a-974c35295d6f'
   module:
     - work_bc_quiz
 id: node.multiple_intelligences_quiz.field_multi_intel_54
@@ -21,7 +21,7 @@ translatable: false
 default_value:
   -
     ar_target_id: null
-    target_uuid: 5778b438-dea7-40cc-a8e4-a9fdf882df2a
+    target_uuid: 46b879a3-7f5f-4b57-824a-974c35295d6f
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'
@@ -41,8 +41,12 @@ settings:
       abilities_categories: 0
       abilities_options: 0
       education_level: 0
+      learning_styles_categories: 0
+      learning_styles_options: 0
       multiple_intelligence_categories: 0
       tags: 0
+      work_values_categories: 0
+      work_values_options: 0
     ar_label: ''
     ar_weight: '54'
     ar_required: 1
