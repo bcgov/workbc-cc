@@ -7,13 +7,13 @@
         background-repeat: no-repeat;
         background-color: rgb(242, 244, 243);
 
-        @media all and (min-width: 991.98px) and (max-width: 1180px) {
-            background-position: -855px bottom;
+        @media all and (min-width: 991.98px) and (max-width: 1280px) {
+            background-position: -700px bottom;
         }
 
-        @media all and (min-width: 991.98px) and (max-width: 1080px) {
-            background-position: -770px bottom;
-        }
+        // @media all and (min-width: 991.98px) and (max-width: 1080px) {
+        //     background-position: -770px bottom;
+        // }
 
         @media all and (max-width: 991.98px) {
             display: none;
@@ -25,6 +25,9 @@
                 display: flex;
                 // align-items: center;
                 padding-top: 99px;
+            }
+            @media all and (max-width: 1180px) {
+                padding-left: 15px;
             }
 
             .sub-title {
@@ -1480,7 +1483,6 @@ body.path-quiz {
         flex: 74%;
         legend {
             float: left !important;
-            position: absolute;
             width: 37%!important;
             min-height: auto;
             font-family: "BC Sans", sans-serif;
@@ -3178,8 +3180,18 @@ span.question-prefix {
 }
 
 //Career profile page
-.page-node-type-career-profile .breadcrumb{
-    display: none;
+.page-node-type-career-profile {
+    .breadcrumb {
+        display: none;
+    }
+    .node--type-career-profile {
+        background-color: #e9ecef;
+    }
+
+    .career-bottom-notes {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
 }
 
 //login form 
