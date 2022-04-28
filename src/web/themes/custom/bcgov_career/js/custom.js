@@ -151,6 +151,21 @@
             $(".compare-popup-wrapper").removeClass("active");
           }
         );
+
+        $(".compare-career-email").on("click", function () {
+          $(".email-popup-wrapper").addClass("active");
+        });
+
+        $(".email-popup-close").on("click", function () {
+          $(".email-popup-wrapper").removeClass("active");
+        });
+
+        $(document).on("keyup", function (e) {
+          if (e.key == "Escape") {
+            $(".email-popup-wrapper").removeClass("active");
+            $(".compare-popup-wrapper").removeClass("active");
+          }
+        });
       });
 
       $(".tbody-main").each(function (i) {
@@ -164,7 +179,7 @@
       });
 
       $(".careers-mobi-table-wrapper > .tbody").slick({
-        infinite: false,
+        infinite: true,
         slidesToShow: 1,
         slidesToScroll: 1,
         dots: true,
@@ -293,13 +308,6 @@
           $(this).addClass("hasPrev");
           $(this).parent().parent().addClass("has-prev-block");
         }
-      });
-
-      // move quiz prefix
-      $(".field--type-work-bc-quiz").each(function () {
-        $(this)
-          .find("> .question-prefix")
-          .prependTo($(this).find(" > fieldset > legend"));
       });
     },
   };

@@ -135,6 +135,21 @@
         $(".compare-popup-close, .close-compare-popup").on("click", function(){
           $(".compare-popup-wrapper").removeClass("active");
         });
+
+        $(".compare-career-email").on("click", function(){
+          $(".email-popup-wrapper").addClass("active");
+        });
+
+        $(".email-popup-close").on("click", function(){
+          $(".email-popup-wrapper").removeClass("active");
+        });
+
+        $(document).on('keyup', function(e) {
+          if (e.key == "Escape"){
+            $(".email-popup-wrapper").removeClass("active");
+            $(".compare-popup-wrapper").removeClass("active");
+          }
+        });
       });
 
       $('.tbody-main').each(function(i) {

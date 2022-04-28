@@ -30,6 +30,14 @@
                 }
             }
         }
+        .email-popup-wrapper{
+            .form-input button{
+                background-color: $quiz-dark-blue;
+                &:hover{
+                    background-color: $quiz-dark-blue-dark;
+                }
+            }
+        }
     }
     &.quiz-color-purple{
         .compare-career-main-wrapper{
@@ -58,6 +66,14 @@
                             }
                         }
                     }
+                }
+            }
+        }
+        .email-popup-wrapper{
+            .form-input button{
+                background: $quiz-purple;
+                &:hover{
+                    background: $quiz-purple-dark;
                 }
             }
         }
@@ -92,6 +108,14 @@
                 }
             }
         }
+        .email-popup-wrapper{
+            .form-input button{
+                background: $quiz-blue;
+                &:hover{
+                    background: $quiz-blue-dark;
+                }
+            }
+        }
     }
     &.quiz-color-green{
         .compare-career-main-wrapper{
@@ -120,6 +144,14 @@
                             }
                         }
                     }
+                }
+            }
+        }
+        .email-popup-wrapper{
+            .form-input button{
+                background: $quiz-green;
+                &:hover{
+                    background: $quiz-green-dark;
                 }
             }
         }
@@ -154,6 +186,14 @@
                 }
             }
         }
+        .email-popup-wrapper{
+            .form-input button{
+                background: $quiz-light-blue;
+                &:hover{
+                    background: $quiz-light-blue-dark;
+                }
+            }
+        }
     }
     &.quiz-color-pink{
         .compare-career-main-wrapper{
@@ -182,6 +222,14 @@
                             }
                         }
                     }
+                }
+            }
+        }
+        .email-popup-wrapper{
+            .form-input button{
+                background: $quiz-pink;
+                &:hover{
+                    background: $quiz-pink-dark;
                 }
             }
         }
@@ -373,6 +421,15 @@
                 }
             }
         }
+
+        .email-popup-wrapper{
+            .form-input button{
+                background: $quiz-dark-blue;
+                &:hover{
+                    background-color: $quiz-dark-blue-dark;
+                }
+            }
+        }
     }
 
     &.quiz-color-purple{
@@ -558,6 +615,14 @@
                 }
             }
         }
+        .email-popup-wrapper{
+            .form-input button{
+                background: $quiz-purple;
+                &:hover{
+                    background: $quiz-purple-dark;
+                }
+            }
+        }
     }
 
     &.quiz-color-blue{
@@ -740,6 +805,14 @@
                     &:hover{
                         background: #f2f2f2;
                     }
+                }
+            }
+        }
+        .email-popup-wrapper{
+            .form-input button{
+                background: $quiz-blue;
+                &:hover{
+                    background: $quiz-blue-dark;
                 }
             }
         }
@@ -942,6 +1015,14 @@
                 }
             }
         }
+        .email-popup-wrapper{
+            .form-input button{
+                background: $quiz-green;
+                &:hover{
+                    background: $quiz-green-dark;
+                }
+            }
+        }
     }
 
     &.quiz-color-light-blue{
@@ -1127,6 +1208,15 @@
                 }
             }
         }
+
+        .email-popup-wrapper{
+            .form-input button{
+                background: $quiz-light-blue;
+                &:hover{
+                    background: $quiz-light-blue-dark;
+                }
+            }
+        }
     }
 
     &.quiz-color-pink{
@@ -1309,6 +1399,15 @@
                     &:hover{
                         background: #f2f2f2;
                     }
+                }
+            }
+        }
+
+        .email-popup-wrapper{
+            .form-input button{
+                background: $quiz-pink;
+                &:hover{
+                    background: $quiz-pink-dark;
                 }
             }
         }
