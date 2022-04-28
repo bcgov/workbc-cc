@@ -7,13 +7,13 @@
         background-repeat: no-repeat;
         background-color: rgb(242, 244, 243);
 
-        @media all and (min-width: 991.98px) and (max-width: 1180px) {
-            background-position: -855px bottom;
+        @media all and (min-width: 991.98px) and (max-width: 1280px) {
+            background-position: -700px bottom;
         }
 
-        @media all and (min-width: 991.98px) and (max-width: 1080px) {
-            background-position: -770px bottom;
-        }
+        // @media all and (min-width: 991.98px) and (max-width: 1080px) {
+        //     background-position: -770px bottom;
+        // }
 
         @media all and (max-width: 991.98px) {
             display: none;
@@ -25,6 +25,9 @@
                 display: flex;
                 // align-items: center;
                 padding-top: 99px;
+            }
+            @media all and (max-width: 1180px) {
+                padding-left: 15px;
             }
 
             .sub-title {
@@ -51,10 +54,9 @@
                         line-height: 40px;
                     }
                     @media all and (max-width: 450.98px) {
-                        font-size: 40px;
+                        font-size: 35px;
                         line-height: 40px;
                     }
-                    font-size: 35px;
                 }
             }
         }
@@ -104,8 +106,18 @@
                     max-width: 305px;
                     margin: 0 auto;
                     color: #333333;
+                    @media all and (max-width: 450.98px) {
+                        font-size: 1.8rem;
+                    }
                 }
             }
+        }
+        @media all and (max-width: 450.98px) {
+            .banner-inner {
+                h1 {
+                    font-size: 32px;
+                }
+           }
         }
     }
 }
@@ -1471,7 +1483,6 @@ body.path-quiz {
         flex: 74%;
         legend {
             float: left !important;
-            position: absolute;
             width: 37%!important;
             min-height: auto;
             font-family: "BC Sans", sans-serif;
@@ -1511,6 +1522,9 @@ body.path-quiz {
             }
             .learning-styles-quiz &{
                 width: 40%;
+                @media all and (max-width: 767.98px) {
+                    width: 55%;
+                }
             }
         }
     }
@@ -2640,6 +2654,10 @@ span.question-prefix {
         margin: 0 10px;
     }
 
+    .compare-career-main-wrapper & {
+        padding: 20px 15px;
+    }
+
     .career-bottom-inner-notes {
         background: rgba(242, 242, 242, 1);
         padding: 16px 80px;
@@ -2721,7 +2739,7 @@ span.question-prefix {
         }
     }
     background: rgba(230, 234, 233, 1);
-    padding-bottom: 40px;
+    //padding-bottom: 40px;
     .career-content-compare {
         position: relative;
         display: flex;
@@ -3162,8 +3180,18 @@ span.question-prefix {
 }
 
 //Career profile page
-.page-node-type-career-profile .breadcrumb{
-    display: none;
+.page-node-type-career-profile {
+    .breadcrumb {
+        display: none;
+    }
+    .node--type-career-profile {
+        background-color: #e9ecef;
+    }
+
+    .career-bottom-notes {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
 }
 
 //login form 
