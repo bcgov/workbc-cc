@@ -255,6 +255,9 @@
             height: 25px;
             background: url(../src/icons/list.svg) no-repeat;
         }
+        @media all and (max-width: 1020.98px) {
+            font-size: 14px;
+        }
     }
 
     .quiz-duration {
@@ -269,6 +272,9 @@
             width: 34px;
             height: 25px;
             background: url(../src/icons/time.svg) no-repeat;
+        }
+        @media all and (max-width: 1020.98px) {
+            font-size: 14px;
         }
     }
 
@@ -289,6 +295,9 @@
             width: 145px;
             font-weight: bold;
             color: #277a0f;
+        }
+        @media all and (max-width: 450.98px) {
+            font-size: 1.5rem;
         }
     }
 
@@ -1104,10 +1113,11 @@ body.path-quiz {
             font-family: "BC Sans", sans-serif;
             position: absolute;
             top: 0;
-            left: 0;
+            left: 15px;
             z-index: 1;
             @media all and (max-width: 767.98px){
                 position: relative;
+                left: 0px;
             }
             &:hover {
                 background: rgba(242, 242, 242, 1);
@@ -1629,6 +1639,9 @@ span.question-prefix {
         border: 2px #dbdbdb solid;
         @media all and (max-width: 767.98px) {
             min-width: 100%;
+        }
+        @media all and (max-width: 1020.98px) {
+            min-width: 565px;
         }
         li {
             display: inline-block;
