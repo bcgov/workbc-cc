@@ -1084,7 +1084,7 @@ body.path-quiz {
             @media all and (max-width: 767.98px){
                 position: relative;
             }
-        
+
             &:hover {
                 background: $aq_h;
             }
@@ -1992,7 +1992,7 @@ span.question-prefix {
 
         .tablesort {
             display: none;
-        }    
+        }
     }
 
     table {
@@ -2032,7 +2032,7 @@ span.question-prefix {
                         right: -8px;
                     }
                 }
-                
+
                 &.views-field-field-education-level {
                     a::before {
                         right: -26px;
@@ -3043,7 +3043,7 @@ span.question-prefix {
             font-size: 1.6rem;
             line-height: 2.4rem;
         }
-        button{
+        .email-button{
             height: 50px;
             background-color: #234075;
             color: #fff;
@@ -3194,7 +3194,7 @@ span.question-prefix {
     }
 }
 
-//login form 
+//login form
 .user-login-form {
     max-width: 400px;
 }
