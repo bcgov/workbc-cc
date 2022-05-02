@@ -8,9 +8,6 @@
 use Drupal\views\Plugin\views\query\QueryPluginBase;
 use Drupal\views\ViewExecutable;
 use Drupal\node\NodeInterface;
-use Drupal\Core\StreamWrapper\PrivateStream;
-use Drupal\Core\File\FileSystemInterface;
-use mikehaertl\wkhtmlto\Pdf;
 
 /**
  * Implements hook_entity_type_build().
