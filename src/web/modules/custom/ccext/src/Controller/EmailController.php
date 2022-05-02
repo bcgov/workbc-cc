@@ -86,6 +86,7 @@ class EmailController extends ControllerBase implements ContainerInjectionInterf
     $fileLocation = $file_save_path_stream_directory . '/' . str_replace(' ', '-', $node->type->entity->label()) . "-$node_id.pdf";
     $absolute_path = \Drupal::service('file_system')->realpath($fileLocation);
     $pdf->saveAs($absolute_path);
+    $this->loggerFactory->get('email_controller')->error($pdf->getError());
     $email_to = 'gurjinder_12@hotmail.com';
     if (empty($email_to)) {
       return;
