@@ -20,6 +20,12 @@ ccext.compate_action_remove:
     _controller: '\Drupal\ccext\Controller\CcextComparisonController::actionRemove'
   requirements:
     _permission: 'access content'
+ccext.sendemail:
+  path: '/result/send'
+  defaults:
+    _controller: '\Drupal\ccext\Controller\EmailController::senEmail'
+  requirements:
+    _permission: 'access content'
 
 ccext.action:
   path: '/career-comparison/{entity_comparison_id}/{entity_id}/{node_id}'
