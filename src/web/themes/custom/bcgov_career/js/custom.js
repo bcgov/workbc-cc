@@ -66,7 +66,7 @@
         $(".active > .carousel-slider-mobi-row").slick(
           "slickGoTo",
           parseInt(0),
-          false
+          true
         );
 
         $(this).parent().parent().removeClass("active");
