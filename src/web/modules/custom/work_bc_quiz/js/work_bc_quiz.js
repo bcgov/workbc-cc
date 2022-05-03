@@ -1,12 +1,13 @@
 (function ($, Drupal) {
     Drupal.behaviors.workbc = { 
         attach: function (context, settings) {
-            //alert($(window).width()+'-'+$('body').width());
             $(".wvq .hideshow .vaa").click(function(){
-              $('.wvq .col-print-item.itm').hide();
+
+             $(".extradivs1").animate({marginLeft: "-100%"}, 1500);
             });
             $(".wvq .hideshow .vaa1").click(function(){
-              $('.wvq .col-print-item.itm').show();
+             $(".extradivs1").animate({marginLeft: "-0"}, 1500);
+
             });
             
         }
