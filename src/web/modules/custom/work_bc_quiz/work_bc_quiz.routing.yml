@@ -1,0 +1,9 @@
+work_bc_quiz.clear_old_node_cron:
+  path: '/quiz/clear-nodes'
+  defaults:
+    _title: 'Clear Nodes'
+    _controller: '\Drupal\work_bc_quiz\Controller\WorkBcQuizController::clearNodes'
+  requirements:
+    _permission: 'access content'
+  options:
+    no_cache: 'TRUE'

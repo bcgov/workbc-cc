@@ -65,10 +65,6 @@
 {
     display: none;
 }
-.nfq .carousel-inner .row
-{
-
-}
 .nfq .extradivs.row
 {
     margin:0px;
@@ -98,6 +94,61 @@ body.path-quiz .preview-quiz-form .form-actions.form-actions>input[type=submit]:
   #action_wrapper{    position: relative;
     display: block;
     margin-bottom: 100px;}
+    body.path-quiz .preview-quiz-form .form-actions.form-actions > input[type="submit"]{
+    background: unset;
+    color: #000;
+    border: unset;
+    outline:0px;
+  }
+  .path-quiz.quiz-color-pink .preview-quiz-form .form-actions.form-actions > input[type="submit"], div.path-quiz.quiz-color-pink .preview-quiz-form .form-actions.form-actions>#edit-previous{
+     color:#880364;
+  }
+  .path-quiz.quiz-color-pink .save-cancel >input[type=submit]{
+    background:#880364;
+    border-color:#880364;
+  }
+  .path-quiz.quiz-color-dark-blue .preview-quiz-form .form-actions.form-actions > input[type="submit"], div.path-quiz.quiz-color-dark-blue .preview-quiz-form .form-actions.form-actions>#edit-previous{
+     color:#234075;
+  }
+  .path-quiz.quiz-color-dark-blue .save-cancel >input[type=submit]{
+    background:#234075;
+    border-color:#234075;
+  }
+  .path-quiz.quiz-color-light-blue .preview-quiz-form .form-actions.form-actions > input[type="submit"], div.path-quiz.quiz-color-light-blue .preview-quiz-form .form-actions.form-actions>#edit-previous{
+     color:#007eb4;
+  }
+  .path-quiz.quiz-color-light-blue .save-cancel >input[type=submit]{
+    background:#007eb4;
+    border-color:#007eb4;
+  }
+  .path-quiz.quiz-color-green .preview-quiz-form .form-actions.form-actions > input[type="submit"], div.path-quiz.quiz-color-green .preview-quiz-form .form-actions.form-actions>#edit-previous{
+     color:#216c06;
+  }
+  .path-quiz.quiz-color-green .save-cancel >input[type=submit]{
+    background:#216c06;
+    border-color:#216c06;
+  }
+  .path-quiz.quiz-color-purple .preview-quiz-form .form-actions.form-actions > input[type="submit"], div.path-quiz.quiz-color-purple .preview-quiz-form .form-actions.form-actions>#edit-previous{
+     color:rgba(81, 11, 118, 1);
+  }
+  .path-quiz.quiz-color-purple .save-cancel >input[type=submit]{
+    background:rgba(81, 11, 118, 1);
+    border-color:rgba(81, 11, 118, 1);
+  }
+  .path-quiz.quiz-color-blue .preview-quiz-form .form-actions.form-actions > input[type="submit"], div.path-quiz.quiz-color-blue .preview-quiz-form .form-actions.form-actions>#edit-previous{
+     color:rgba(38, 113, 202, 1);
+  }
+  .path-quiz.quiz-color-blue .save-cancel >input[type=submit]{
+    background:rgba(38, 113, 202, 1);
+    border-color:rgba(38, 113, 202, 1);
+  }
+  .wvq #myResult .itm .title-field{    font-size: 20px; text-align: center;}
+  .wvq #myResult .itm.item_1 .title-field, .wvq .itm.item_1 .title-description ul li{color: #002857;}
+  .wvq #myResult .itm.item_2 .title-field, .wvq .itm.item_2 .title-description ul li{color: #1E75DF;}
+  .wvq #myResult .itm.item_3 .title-field, .wvq .itm.item_3 .title-description ul li{color: #510B76;}
+  .wvq #myResult .itm.item_4 .title-field, .wvq .itm.item_4 .title-description ul li{color: #880364;}
+  .wvq #myResult .itm .title-description ul li span{    color: rgba(85, 85, 85, 0.996078431372549);}
+  
   @media (max-width: 767.98px){
     body.path-quiz .preview-quiz-form .form-actions.form-actions{display: inline-block;
     margin: 0px;
@@ -122,4 +173,32 @@ flex-direction: column;
   .path-quiz .form-actions.form-actions > input#edit-previous {
     top:unset;
   }
+}
+
+
+.nfq .carousel-inner .row.important
+{
+  flex-wrap:nowrap;
+}
+.col-12.extradivs2 {
+    /* transition: all 2s ease; */
+    margin-left:0px !important;
+    
+}
+#myResult .quiz-list .title-description ul {margin-top: 15px; }
+
+#myResult .quiz-list .title-description ul li {
+  font-size: 22px;
+  line-height: 18px;
+  margin-bottom:15px;
+}
+#myResult .quiz-list .title-description ul li:marker{
+  
+}
+#myResult .quiz-list .title-description ul li span{
+  font-family: 'BCSans';
+  font-weight: 400;
+  font-style: normal;
+  font-size: 15px;
+  color: rgba(85, 85, 85, 0.996078431372549);
 }
