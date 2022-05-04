@@ -1552,9 +1552,7 @@ body.path-quiz {
 
 span.question-prefix {
     float: left;
-    //margin-right: 10px;
-    //margin-top: 12px;
-    width: 30px;
+    width: 29px;
     color: #333333;
     font-size: 1.5rem;
 
@@ -3174,6 +3172,7 @@ span.question-prefix {
             @media all and (max-width: 767.98px){
                 bottom: 105px;
                 left: 30px;
+                font-size: 1.3rem;
 
                 &+div+div.block-system-main-block#block-bcgov-career-content.has-prev-block {
                     padding-bottom: 250px;
