@@ -14,7 +14,7 @@ id: node.multiple_intelligences_quiz.field_multi_intel_31
 field_name: field_multi_intel_31
 entity_type: node
 bundle: multiple_intelligences_quiz
-label: 'I like to take part in debates and/or discussions.'
+label: 'I like to take part in debates or discussions.'
 description: ''
 required: false
 translatable: false
@@ -41,6 +41,8 @@ settings:
       abilities_categories: 0
       abilities_options: 0
       education_level: 0
+      learning_styles_categories: 0
+      learning_styles_options: 0
       multiple_intelligence_categories: 0
       tags: 0
     ar_label: ''

@@ -14,7 +14,7 @@ id: node.abilities_quiz.field_abilities_22
 field_name: field_abilities_22
 entity_type: node
 bundle: abilities_quiz
-label: 'I can figure out and solving problems.'
+label: 'I can figure out and solve problems.'
 description: ''
 required: false
 translatable: false
@@ -40,6 +40,8 @@ settings:
       abilities_options: abilities_options
       abilities_categories: 0
       education_level: 0
+      learning_styles_categories: 0
+      learning_styles_options: 0
       multiple_intelligence_categories: 0
       multiple_intelligence_options: 0
       tags: 0

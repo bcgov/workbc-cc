@@ -14,7 +14,7 @@ id: node.abilities_quiz.field_abilities_17
 field_name: field_abilities_17
 entity_type: node
 bundle: abilities_quiz
-label: 'I am good at inspecting things for details such as colour, scratches, dust, and flaws.'
+label: 'I am good at inspecting things for details such as colour, scratches, dust and flaws.'
 description: ''
 required: false
 translatable: false
@@ -40,6 +40,8 @@ settings:
       abilities_options: abilities_options
       abilities_categories: 0
       education_level: 0
+      learning_styles_categories: 0
+      learning_styles_options: 0
       multiple_intelligence_categories: 0
       multiple_intelligence_options: 0
       tags: 0
