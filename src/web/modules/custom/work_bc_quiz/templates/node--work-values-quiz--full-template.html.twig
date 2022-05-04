@@ -244,7 +244,7 @@
 									<div class="important"><strong>Important Values:</strong></div>
                   <ul>
                   {% for key, questions in item.option %}
-                    {% if key == 1 %}
+                    {% if key == 2 %}
                       {% for list in questions.values %}
                         <li><span>{{ list }}</span></li>
                       {% endfor %}
@@ -272,7 +272,7 @@
 									<div class="important"><strong>Somewhat Important Values:</strong></div>
                   <ul>
                   {% for key, questions in item.option %}
-                    {% if key == 2 %}
+                    {% if key == 1 %}
                       {% for list in questions.values %}
                         <li><span>{{ list }}</span></li>
                       {% endfor %}
