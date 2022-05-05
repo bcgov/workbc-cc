@@ -7,21 +7,21 @@ dependencies:
     - node.type.learning_styles_quiz
     - taxonomy.vocabulary.learning_styles_categories
   content:
-    - 'taxonomy_term:learning_styles_categories:20d3b47e-dd25-4836-88d6-a4af0372ae6b'
+    - 'taxonomy_term:learning_styles_categories:4925ad3c-b114-40d1-be14-9bc28716b857'
   module:
     - work_bc_quiz
 id: node.learning_styles_quiz.field_learning_styles_18
 field_name: field_learning_styles_18
 entity_type: node
 bundle: learning_styles_quiz
-label: 'I would rather listen to a lecture than read the same material in a text book.'
+label: 'I would rather listen to a lecture than read the same material in a textbook.'
 description: ''
 required: false
 translatable: false
 default_value:
   -
     ar_target_id: null
-    target_uuid: 20d3b47e-dd25-4836-88d6-a4af0372ae6b
+    target_uuid: 4925ad3c-b114-40d1-be14-9bc28716b857
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'

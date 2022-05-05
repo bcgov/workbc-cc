@@ -14,7 +14,7 @@ id: node.multiple_intelligences_quiz.field_multi_intel_53
 field_name: field_multi_intel_53
 entity_type: node
 bundle: multiple_intelligences_quiz
-label: 'I enjoy solving jigsaw, maze and/or other visual puzzles.'
+label: 'I enjoy solving jigsaw, maze or other visual puzzles.'
 description: ''
 required: false
 translatable: false
@@ -45,8 +45,6 @@ settings:
       learning_styles_options: 0
       multiple_intelligence_categories: 0
       tags: 0
-      work_values_categories: 0
-      work_values_options: 0
     ar_label: ''
     ar_weight: '53'
     ar_required: 1
