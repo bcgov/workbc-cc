@@ -1,0 +1,21 @@
+uuid: 91114974-1a1a-4557-b05a-392a61fe1bd3
+langcode: en
+status: true
+dependencies:
+  module:
+    - forms_steps
+  theme:
+    - bcgov_career
+id: formsstepsworkvaluesquizprogressbar
+theme: bcgov_career
+region: content
+weight: 0
+provider: null
+plugin: 'forms_steps_progress_bar:work_values_quiz'
+settings:
+  id: 'forms_steps_progress_bar:work_values_quiz'
+  label: 'Forms Steps - Work Values Quiz (Progress bar)'
+  label_display: '0'
+  provider: forms_steps
+  progress_bar_settings: null
+visibility: {  }
