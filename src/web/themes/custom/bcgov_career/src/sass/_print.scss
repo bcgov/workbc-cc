@@ -1,4 +1,8 @@
 @media print {
+    * {
+        -webkit-transition: none !important;
+        transition: none !important;
+    }
     .col-print-1 {
         width: 8%;
         float: left;
@@ -109,6 +113,11 @@
         .col-print-item {
             .quiz-list {
                 width: 369px;
+            }
+        }
+        .quiz-list {
+            .field-match {
+                background: #f2f2f2 !important;
             }
         }
     }

@@ -4,3 +4,7 @@ ignored_config_entities:
   - openid_connect.settings
   - 'openid_connect.settings.*'
   - smtp.settings
+  - 'field.field.node.multiple_intelligences_quiz.*'
+  - 'field.field.node.abilities_quiz.*'
+  - 'field.field.node.learning_styles_quiz.*'
+  - 'field.field.node.work_values_quiz.*'
