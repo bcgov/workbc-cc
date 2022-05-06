@@ -46,3 +46,7 @@ jobs:
       - name: Build Drupal docker image
         run: |
           docker build . -t 266795317183.dkr.ecr.ca-central-1.amazonaws.com/cc:latest
+      - name: Push Drupal docker image
+        run: |
+          docker push 266795317183.dkr.ecr.ca-central-1.amazonaws.com/cc:latest
+          
