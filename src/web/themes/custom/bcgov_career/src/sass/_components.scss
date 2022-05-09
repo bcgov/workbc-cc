@@ -207,7 +207,7 @@
     background: #fff;
     @media all and (max-width: 991.98px) {
         padding: 30px 12px 70px 12px;
-        min-height: 490px;
+        min-height: 506px;
     }
 
     .img-field {
@@ -255,7 +255,7 @@
             height: 25px;
             background: url(../src/icons/list.svg) no-repeat;
         }
-        @media all and (max-width: 1020.98px) {
+        @media all and (max-width: 1024.98px) {
             font-size: 14px;
         }
     }
@@ -273,7 +273,7 @@
             height: 25px;
             background: url(../src/icons/time.svg) no-repeat;
         }
-        @media all and (max-width: 1020.98px) {
+        @media all and (max-width: 1024.98px) {
             font-size: 14px;
         }
     }
@@ -1105,6 +1105,9 @@ body.path-quiz {
             @media all and (max-width: 767.98px){
                 position: relative;
             }
+            @media all and (max-width: 1024.98px){
+               right: 10px;
+            }
 
             &:hover {
                 background: $aq_h;
@@ -1251,6 +1254,10 @@ body.path-quiz {
                 left: -10px;
                 margin: 0 auto;
 
+                @media all and (max-width: 1024.98px) { 
+                    padding: 0 5px;
+                }
+
                 @media all and (max-width: 767.98px) {
                     position: relative;
                     top: -18px;
@@ -1272,7 +1279,8 @@ body.path-quiz {
                 margin: auto;
                 position: relative;
 
-                .learning-styles-quiz & {
+                .learning-styles-quiz &,
+                .work-values-quiz & {
                     min-width: 31%;
                 }
 
@@ -1446,6 +1454,13 @@ body.path-quiz {
                 left: auto;
                 right: 0;
             }
+            @media all and (max-width: 1024.98px) {
+                left: 10px;
+
+                &.save-wrapper{
+                    right: 10px;
+                }
+            }   
             @media all and (max-width: 767.98px) {
                 position: relative;
                 padding: 0 25px;
@@ -1514,7 +1529,8 @@ body.path-quiz {
             line-height: 2.1rem;
             color: #333333;
 
-            .learning-styles-quiz &{
+            .learning-styles-quiz &,
+            .work-values-quiz &{
                 width: 55%!important;
             }
 
@@ -1542,7 +1558,8 @@ body.path-quiz {
             @media all and (max-width: 767.98px) {
                 margin-left: inherit;
             }
-            .learning-styles-quiz &{
+            .learning-styles-quiz &,
+            .work-values-quiz & {
                 width: 40%;
                 @media all and (max-width: 767.98px) {
                     width: 55%;
@@ -1564,9 +1581,7 @@ body.path-quiz {
 
 span.question-prefix {
     float: left;
-    //margin-right: 10px;
-    //margin-top: 12px;
-    width: 30px;
+    width: 29px;
     color: #333333;
     font-size: 1.5rem;
 
@@ -2680,7 +2695,7 @@ span.question-prefix {
     }
 
     .compare-career-main-wrapper & {
-        padding: 20px 15px;
+        margin: 0 20px;
     }
 
     .career-bottom-inner-notes {
@@ -3186,6 +3201,7 @@ span.question-prefix {
             @media all and (max-width: 767.98px){
                 bottom: 105px;
                 left: 30px;
+                font-size: 1.3rem;
 
                 &+div+div.block-system-main-block#block-bcgov-career-content.has-prev-block {
                     padding-bottom: 250px;
@@ -3200,7 +3216,8 @@ span.question-prefix {
 
 
 //Learning styles
-.path-quiz .learning-styles-quiz .region-content .form-radios .form-item {
+.path-quiz .learning-styles-quiz .region-content .form-radios .form-item,
+.path-quiz .work-values-quiz .region-content .form-radios .form-item {
     min-width: 31%;
 }
 
