@@ -202,6 +202,7 @@
             $(".result-heading h2.vaa1").hide();
             $(".result-heading h2.vaa").show();
             $(".itm.hide").hide();
+            $(".extradivs.hide").removeClass("show");
           } else {
             $(this).addClass("hide");
             $(".itm.hide").show();
@@ -209,6 +210,7 @@
             $(".hideshow span.vaa1").show();
             $(".result-heading h2.vaa").hide();
             $(".result-heading h2.vaa1").show();
+            $(".extradivs.hide").addClass("show");
           }
         });
       // if ($(window).width() < 768) {

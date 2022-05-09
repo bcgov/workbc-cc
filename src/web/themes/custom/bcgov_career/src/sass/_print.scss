@@ -110,12 +110,11 @@
         .extradivs.hide {
             display: none !important;
         }
-        .col-print-item {
-            .quiz-list {
-                width: 369px;
-            }
+        .extradivs.hide.show {
+            display: block !important;
         }
         .quiz-list {
+            width: 369px;
             .field-match {
                 background: #f2f2f2 !important;
             }
