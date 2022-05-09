@@ -66,7 +66,7 @@
         $(".active > .carousel-slider-mobi-row").slick(
           "slickGoTo",
           parseInt(0),
-          true
+          false
         );
 
         $(this).parent().parent().removeClass("active");
@@ -179,7 +179,7 @@
       });
 
       $(".careers-mobi-table-wrapper > .tbody").slick({
-        infinite: true,
+        infinite: false,
         slidesToShow: 1,
         slidesToScroll: 1,
         dots: true,
