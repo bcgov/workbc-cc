@@ -63,7 +63,7 @@
         var getTabItemId = $(this).data("href");
         $(".carousel-inner-mobi").removeClass("active");
         $(".carousel-inner-mobi[data-id="+getTabItemId+"]").addClass("active");
-        $('.active > .carousel-slider-mobi-row').slick('slickGoTo', parseInt(0), false);
+        $('.active > .carousel-slider-mobi-row').slick('slickGoTo', parseInt(0), true);
 
         $(this).parent().parent().removeClass("active");
         $("body").removeClass("overlayBg");

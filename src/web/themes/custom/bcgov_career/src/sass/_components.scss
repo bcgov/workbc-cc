@@ -1257,6 +1257,7 @@ body.path-quiz {
 
                 @media all and (max-width: 1024.98px) { 
                     padding: 0 5px;
+                    width  : auto;
                 }
 
                 @media all and (max-width: 767.98px) {
@@ -2516,7 +2517,7 @@ span.question-prefix {
 
     .back-link {
         background: #e6eae9;
-        padding: 10px 25px;
+        padding: 10px 20px;
 
         a {
             font-family: "BC Sans", sans-serif;
