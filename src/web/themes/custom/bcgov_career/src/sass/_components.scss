@@ -116,6 +116,7 @@
             .banner-inner {
                 h1 {
                     font-size: 32px;
+                    margin-bottom: 5px;
                 }
            }
         }
@@ -1093,7 +1094,7 @@ body.path-quiz {
             @media all and (max-width: 767.98px){
                 position: relative;
             }
-            @media all and (max-width: 1024.98px){
+            @media all and (min-width: 767.98px) and (max-width: 1024.98px){
                right: 10px;
             }
 
@@ -1611,6 +1612,9 @@ span.question-prefix {
         justify-content: center;
         align-items: center;
         flex-wrap: nowrap;
+        @media all and (min-width: 767.98px) and (max-width: 1024.98px) { 
+            padding-left: 10px;
+        }
     }
 
     .p-bar{
@@ -1619,6 +1623,10 @@ span.question-prefix {
             padding: 0 25px;
             flex: 0 0 100%;
             max-width: 100%;
+        }
+
+        @media all and (min-width: 767.98px) and (max-width: 1024.97px){
+            max-width: 520px;
         }
     }
     .progress-title {
@@ -1656,7 +1664,7 @@ span.question-prefix {
             min-width: 100%;
         }
         @media all and (max-width: 1020.98px) {
-            min-width: 565px;
+            min-width: 100%;
         }
         li {
             display: inline-block;
@@ -2628,6 +2636,10 @@ span.question-prefix {
                 display: flex;
                 margin-top: 40px;
 
+                @media all and (max-width: 767.98px) {
+                    display: block;
+                }
+
                 a.btn {
                     color: #fff;
                     border: 2px solid #234075;
@@ -2640,6 +2652,10 @@ span.question-prefix {
                     border-radius: 0;
                     width: 100%;
                     margin-right: 10px;
+
+                    @media all and (max-width: 767.98px) {
+                        margin-bottom: 10px;
+                    }    
 
                     &.btn-find-job {
                         background: #fff;
@@ -2696,6 +2712,9 @@ span.question-prefix {
         p {
             font-size: 13px;
             margin: 0;
+            @media all and (max-width: 450.98px) {
+                font-size: 12px;
+            }
         }
     }
 }
