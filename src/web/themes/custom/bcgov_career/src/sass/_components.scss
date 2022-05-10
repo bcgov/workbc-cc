@@ -293,7 +293,7 @@
             font-size: 1.6rem;
             text-align: center;
             margin: auto;
-            width: 145px;
+            width: 160px;
             font-weight: bold;
             color: #277a0f;
         }
@@ -506,6 +506,7 @@
                         width: 10px;
                         height: 10px;
                         border-radius: 50%;
+                        outline: 0;
                     }
 
                     &.slick-active {
@@ -582,6 +583,12 @@
         line-height: 30px;
         > span {
             cursor: pointer;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            > svg{
+                margin-left: 10px;
+            }
             &:hover{
                 text-decoration: underline;
             }
@@ -669,6 +676,10 @@
     }
 }
 
+.extradivs.hide.show .itm.hide{
+    display: block !important;
+}
+
 .cari_quiz {
     .slick-dots {
         display: flex;
@@ -677,7 +688,7 @@
         justify-content: center;
         align-items: center;
         position: relative;
-        bottom: 55px;
+        bottom: 65px;
         li {
             margin-right: 10px;
 
@@ -688,6 +699,7 @@
                 width: 10px;
                 height: 10px;
                 border-radius: 50%;
+                outline: 0;
             }
 
             &.slick-active {
