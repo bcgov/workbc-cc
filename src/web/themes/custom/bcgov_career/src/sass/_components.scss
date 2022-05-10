@@ -1511,7 +1511,7 @@ body.path-quiz {
 }
 
 .field--type-work-bc-quiz {
-    padding: 10px;
+    padding: 10px 20px;
     border-bottom: 0px;
     @media all and (max-width: 767.98px){
         padding: 15px 25px;
@@ -1576,6 +1576,22 @@ body.path-quiz {
         @media all and (max-width: 767.98px) {
             display: flex;
             flex-direction: column;
+        }
+    }
+}
+
+.work-values-quiz{
+    .field--type-work-bc-quiz{
+        fieldset{
+            legend{
+                width: 100% !important;
+            }
+            .fieldset-wrapper{
+                width: 60%;
+                .form-radios .form-item{
+                    min-width: 27%;
+                }
+            }
         }
     }
 }
