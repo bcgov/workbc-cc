@@ -1456,13 +1456,15 @@ body.path-quiz {
                 left: auto;
                 right: 0;
             }
-            @media all and (max-width: 1024.98px) {
+            
+            @media all and (min-width: 767.98px) and (max-width: 1024.98px){
                 left: 10px;
 
                 &.save-wrapper{
                     right: 10px;
                 }
             }   
+
             @media all and (max-width: 767.98px) {
                 position: relative;
                 padding: 0 25px;
