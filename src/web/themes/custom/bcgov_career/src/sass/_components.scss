@@ -304,7 +304,7 @@
 
     .row {
         background: rgb(242, 242, 242);
-        padding: 12px 20px;
+        padding: 12px 15px;
         margin: 0px;
     }
 
@@ -1218,7 +1218,6 @@ body.path-quiz {
             @media all and (max-width: 767.98px) {
                 display: flex;
                 flex-direction: column;
-                padding-left: 70px;
             }
 
             input {
@@ -1297,7 +1296,7 @@ body.path-quiz {
                     font-weight: normal;
                     display: block;
                     text-align: left;
-                    width: 130px;
+                    width: auto;
                     letter-spacing: normal;
                     left: 30px;
                 }
@@ -1565,7 +1564,10 @@ body.path-quiz {
 
             .learning-styles-quiz &,
             .work-values-quiz &{
-                width: 55%!important;
+                width: 65%!important;
+                @media all and (max-width: 767.98px){
+                    width: 100% !important;
+                }
             }
 
             span:last-child {
@@ -1595,9 +1597,6 @@ body.path-quiz {
             .learning-styles-quiz &,
             .work-values-quiz & {
                 width: 40%;
-                @media all and (max-width: 767.98px) {
-                    width: 55%;
-                }
             }
         }
     }
@@ -3290,6 +3289,9 @@ span.question-prefix {
 .path-quiz .learning-styles-quiz .region-content .form-radios .form-item,
 .path-quiz .work-values-quiz .region-content .form-radios .form-item {
     min-width: 31%;
+    @media all and (max-width: 767.98px){
+        min-width: 100%;
+    }
 }
 
 //Career profile page
