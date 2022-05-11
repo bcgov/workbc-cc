@@ -304,7 +304,7 @@
 
     .row {
         background: rgb(242, 242, 242);
-        padding: 12px 20px;
+        padding: 12px 15px;
         margin: 0px;
     }
 
@@ -581,6 +581,9 @@
         color: #234075;
         text-align: right;
         line-height: 30px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
         > span {
             cursor: pointer;
             display: flex;
@@ -592,6 +595,33 @@
             &:hover{
                 text-decoration: underline;
             }
+        }
+    }
+
+    .hideshow-workbc{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        > span{
+            color: #880364;
+            cursor: pointer;
+        }
+        > svg{
+            margin-left: 10px;
+        }
+        .slick-next-workbc{
+            &.vaa1{
+                display: none;
+            }
+        }
+    }
+
+    .work-value-quiz-carousel{
+        .slick-dots{
+            display: none;
+        }
+        .slick-prev.slick-arrow{
+            display: none !important;
         }
     }
 
@@ -839,6 +869,16 @@ a.quiz-link {
     }
 
     .personality {
+        @media all and (max-width: 1100px){
+            .title-field h4 {
+                min-height: 60px;
+            }
+        }
+        @media all and (max-width: 991.98){
+            .title-field h4 {
+                min-height: auto;
+            }
+        }
         .item_1 {
             .title-field h4 {
                 color: $miq;
@@ -1100,14 +1140,17 @@ body.path-quiz {
             font-family: "BC Sans", sans-serif;
             position: absolute;
             top: 0;
-            right: 0;
+            right: 15px;
             z-index: 1;
             border-radius: 0;
+            margin: 0;
             @media all and (max-width: 767.98px){
                 position: relative;
+                right: 0;
+                margin: 0 15px 0 15px;
             }
-            @media all and (min-width: 767.98px) and (max-width: 1024.98px){
-               right: 10px;
+            @media all and (max-width: 640.98px){
+                margin: 0;
             }
 
             &:hover {
@@ -1134,6 +1177,10 @@ body.path-quiz {
             @media all and (max-width: 767.98px){
                 position: relative;
                 left: 0px;
+                margin: 0 15px 0 15px;
+            }
+            @media all and (max-width: 640.98px){
+                margin: 0;
             }
             &:hover {
                 background: rgba(242, 242, 242, 1);
@@ -1188,7 +1235,6 @@ body.path-quiz {
             @media all and (max-width: 767.98px) {
                 display: flex;
                 flex-direction: column;
-                padding-left: 70px;
             }
 
             input {
@@ -1267,7 +1313,7 @@ body.path-quiz {
                     font-weight: normal;
                     display: block;
                     text-align: left;
-                    width: 130px;
+                    width: auto;
                     letter-spacing: normal;
                     left: 30px;
                 }
@@ -1514,7 +1560,7 @@ body.path-quiz {
 }
 
 .field--type-work-bc-quiz {
-    padding: 10px;
+    padding: 10px 20px;
     border-bottom: 0px;
     @media all and (max-width: 767.98px){
         padding: 15px 25px;
@@ -1535,7 +1581,10 @@ body.path-quiz {
 
             .learning-styles-quiz &,
             .work-values-quiz &{
-                width: 55%!important;
+                width: 65%!important;
+                @media all and (max-width: 767.98px){
+                    width: 100% !important;
+                }
             }
 
             span:last-child {
@@ -1565,9 +1614,6 @@ body.path-quiz {
             .learning-styles-quiz &,
             .work-values-quiz & {
                 width: 40%;
-                @media all and (max-width: 767.98px) {
-                    width: 55%;
-                }
             }
         }
     }
@@ -1582,6 +1628,22 @@ body.path-quiz {
         }
     }
 }
+
+// .work-values-quiz{
+//     .field--type-work-bc-quiz{
+//         fieldset{
+//             legend{
+//                 width: 100% !important;
+//             }
+//             .fieldset-wrapper{
+//                 width: 60%;
+//                 .form-radios .form-item{
+//                     min-width: 27%;
+//                 }
+//             }
+//         }
+//     }
+// }
 
 span.question-prefix {
     float: left;
@@ -1638,10 +1700,6 @@ span.question-prefix {
             padding: 0 25px;
             flex: 0 0 100%;
             max-width: 100%;
-        }
-
-        @media all and (min-width: 767.98px) and (max-width: 1024.97px){
-            max-width: 520px;
         }
     }
     .progress-title {
@@ -1906,6 +1964,9 @@ span.question-prefix {
                 border-radius: 50%;
                 margin-left: 15px;
                 background: #979696;
+                &:focus, &:focus-visible{
+                    outline: 0;
+                }
             }
 
             &.slick-active {
@@ -3241,6 +3302,9 @@ span.question-prefix {
 .path-quiz .learning-styles-quiz .region-content .form-radios .form-item,
 .path-quiz .work-values-quiz .region-content .form-radios .form-item {
     min-width: 31%;
+    @media all and (max-width: 767.98px){
+        min-width: 100%;
+    }
 }
 
 //Career profile page

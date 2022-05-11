@@ -217,6 +217,21 @@
 
       // $(".cancel-wrapper, .save-wrapper").wrapAll("<div class='save-cancel-wrapper'/>");
 
+      $(".hideshow-workbc", context)
+        .once("workbc")
+        .on("click", function () {
+          if ($(".hideshow-workbc").hasClass("hide")) {
+            $(this).removeClass("hide");
+            $(".hideshow-workbc span.vaa1").hide();
+            $(".hideshow-workbc span.vaa").show();
+          }
+ else {
+            $(this).addClass("hide");
+            $(".hideshow-workbc span.vaa").hide();
+            $(".hideshow-workbc span.vaa1").show();
+          }
+        });
+
       $(".hideshow", context)
         .once("workbc")
         .on("click", function () {
@@ -228,8 +243,7 @@
             $(".result-heading h2.vaa").show();
             $(".itm.hide").hide();
             $(".extradivs.hide").removeClass("show");
-          }
- else {
+          } else {
             $(this).addClass("hide");
             $(".itm.hide").show();
             $(".hideshow span.vaa").hide();
@@ -239,6 +253,16 @@
             $(".extradivs.hide").addClass("show");
           }
         });
+
+      $(".work-value-quiz-carousel > .row").slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: true,
+        dots: false,
+        arrows: true,
+        adaptiveHeight: true,
+        nextArrow: $(".hideshow-workbc"),
+      });
       // if ($(window).width() < 768) {
       //   $('#block-views-block-career-quizzes-block-1 #myCarousel', context).once('workbc').carousel({
       //     pause: true,
