@@ -598,6 +598,33 @@
         }
     }
 
+    .hideshow-workbc{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        > span{
+            color: #880364;
+            cursor: pointer;
+        }
+        > svg{
+            margin-left: 10px;
+        }
+        .slick-next-workbc{
+            &.vaa1{
+                display: none;
+            }
+        }
+    }
+
+    .work-value-quiz-carousel{
+        .slick-dots{
+            display: none;
+        }
+        .slick-prev.slick-arrow{
+            display: none !important;
+        }
+    }
+
     .bottom-links {
         margin-top: 60px;
 
