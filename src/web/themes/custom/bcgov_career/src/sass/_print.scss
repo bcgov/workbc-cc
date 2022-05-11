@@ -112,8 +112,21 @@
         }
         .extradivs.hide.show {
             display: block !important;
+            > .row{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                .quiz-list {
+                    float: left;
+                    width: 369px;
+                }
+            }
+        }
+        .hideshow{
+            display: none !important;
         }
         .quiz-list {
+            float: left;
             width: 369px;
             .field-match {
                 background: #f2f2f2 !important;
