@@ -337,4 +337,16 @@
             display: none;
         }
     }
+
+    .carousel-inner.work-value-quiz-carousel{
+        display: block !important;
+        .hideshow-workbc{
+            display: none !important;
+        }
+        *{
+            display: block !important;
+            height: auto !important;
+            overflow: inherit !important;
+        }
+    }
 }
