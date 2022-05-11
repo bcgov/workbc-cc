@@ -581,6 +581,9 @@
         color: #234075;
         text-align: right;
         line-height: 30px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
         > span {
             cursor: pointer;
             display: flex;

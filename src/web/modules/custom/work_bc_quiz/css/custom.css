@@ -176,15 +176,14 @@ flex-direction: column;
 }
 
 
-.nfq .carousel-inner .row.important
+/* .nfq .carousel-inner .row.important
 {
   flex-wrap:nowrap;
-}
-.col-12.extradivs2 {
-    /* transition: all 2s ease; */
+} */
+/* .col-12.extradivs2 {
     margin-left:0px !important;
     
-}
+} */
 #myResult .quiz-list .title-description ul {margin-top: 15px; }
 
 #myResult .quiz-list .title-description ul li {
