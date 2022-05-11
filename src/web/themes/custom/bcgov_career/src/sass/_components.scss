@@ -1239,11 +1239,14 @@ body.path-quiz {
 
             input {
                 width: 20px;
-                //height: 20px;
+                height: 20px;
                 position: relative;
                 z-index: 1;
-                top: 13px;
+                top: 16px;
                 opacity: 0;
+                @media all and (max-width: 767.98px) {
+                    top: 9px;
+                }
 
                 & + label.option + span.radio {
                     width: 20px;
