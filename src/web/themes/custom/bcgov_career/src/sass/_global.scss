@@ -120,7 +120,9 @@ body {
         }
     }
 }
-.container-fluid, .container-sm, .container-md, .container-lg, .container-xl{max-width:1200px;}
+.container-fluid, .container-sm, .container-md, .container-lg, .container-xl{
+    max-width:1235px;
+}
 .row{
     margin-right: -11px;
     margin-left: -11px;
