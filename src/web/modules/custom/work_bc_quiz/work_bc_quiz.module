@@ -13,6 +13,7 @@ use Drupal\forms_steps\Form\FormsStepsAlter;
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\views\ViewExecutable;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
  * Attach work-bc-lib Library to use css and JS fiels.
@@ -39,6 +40,22 @@ function work_bc_quiz_theme($existing, $type, $theme, $path) {
       'base hook' => 'node',
     ],
     'node__abilities_quiz' => [
+      'template' => 'node--custom-quiz-full-template',
+      'base hook' => 'node',
+    ],
+    'page__work_preferences_quiz' => [
+      'template' => 'page--quiz-custom-template',
+      'base hook' => 'page',
+    ],
+    'page__quiz__work_preferences_quiz' => [
+      'template' => 'page--quiz-custom-template',
+      'base hook' => 'page',
+    ],
+    'node__work_preferences_quiz_full' => [
+      'template' => 'node--custom-quiz-full-template',
+      'base hook' => 'node',
+    ],
+    'node__work_preferences_quiz' => [
       'template' => 'node--custom-quiz-full-template',
       'base hook' => 'node',
     ],
@@ -154,12 +171,14 @@ function work_bc_quiz_theme_suggestions_page_title_alter(array &$suggestions, ar
  */
 function work_bc_quiz_form_node_form_alter(&$form, $formState, $form_id) {
   $nodeTypeToHideTitle = [
+    "abilities_quiz",
+    "abilities_quiz_step_1",
+    "work_preferences_quiz",
+    "work_preferences_quiz_step_1",
     "multiple_intelligences_quiz",
     "multiple_intelligences_quiz_step_1",
     "learning_styles_quiz",
     "learning_styles_quiz_step_1",
-    "abilities_quiz",
-    "abilities_quiz_step_1",
     "work_values_quiz",
     "work_values_quiz_step_1",
   ];
@@ -250,6 +269,29 @@ function work_bc_quiz_form_node_form_alter(&$form, $formState, $form_id) {
     $form['actions']['previous']['#submit'][] = '_work_bc_quiz_node_form_submit_previous';
     $form['actions']['previous']['#value'] = t('< Previous');
   }
+  else {
+    $session = \Drupal::request()->getSession();
+    if($session->get('SavedQuiz')){
+      $SavedQuiz = $session->get('SavedQuiz');
+      foreach($SavedQuiz as $key => $value){
+        //print $key;
+        $node_title =  str_replace("save_quiz_", "", $key);
+        $node_title = explode("_", $node_title);
+        array_pop($node_title);
+        $node_title = implode("_",$node_title);
+        $current_path = \Drupal::service('path.current')->getPath();
+        $current_path_array = explode('/', $current_path);
+
+        if(str_contains($form_id, $node_title) && in_array('step1', $current_path_array)){
+          $query = \Drupal::database()->select('node', 'n')->fields('n', ['nid']);
+          $query->condition('n.uuid', $value->uuid);
+          $nid = $query->execute()->fetchField();
+          $response = new RedirectResponse(\Drupal\Core\Url::fromRoute('entity.node.canonical', ['node' => $nid])->toString());
+          $response->send();
+        }
+      }
+    }
+  }
   if (str_contains($form_id, '_step')) {
     // unset($form['actions']['previous']['#limit_validation_errors']);.
     $form['actions']['previous']['#submit'][] = '_work_bc_quiz_node_form_submit_previous';
@@ -270,8 +312,9 @@ function work_bc_quiz_entity_presave(EntityInterface $entity) {
   $autoTitle = "";
   // Add all other quiz type in switch case.
   $nodeTypeToHideTitle = [
-    "multiple_intelligences_quiz",
     "abilities_quiz",
+    "work_preferences_quiz",
+    "multiple_intelligences_quiz",
     "learning_styles_quiz",
     "work_values_quiz",
   ];
@@ -411,7 +454,7 @@ function work_bc_quiz_preprocess(&$variables) {
  * are altered in this hook.
  */
 
-use Symfony\Component\HttpFoundation\RedirectResponse;
+
 
 /**
  * {@inheritdoc}
@@ -423,7 +466,7 @@ function work_bc_quiz_node_view(array &$build, EntityInterface $entity, EntityVi
   // Filter which Content Types would use this node view.
   $node = $entity;
   // $all_quizes = ['abilities_quiz', 'multiple_intelligences_quiz'];
-  if ($node->bundle() === 'multiple_intelligences_quiz' || $node->bundle() === 'abilities_quiz' || $node->bundle() === 'learning_styles_quiz' || $node->bundle() === 'work_values_quiz') {
+  if ($node->bundle() === 'abilities_quiz' || $node->bundle() === 'work_preferences_quiz' || $node->bundle() === 'multiple_intelligences_quiz' || $node->bundle() === 'learning_styles_quiz' || $node->bundle() === 'work_values_quiz') {
     // 'quiz' mode isn't active yet
     if ($view_mode === 'full' || $view_mode === 'quiz') {
 
@@ -436,12 +479,14 @@ function work_bc_quiz_node_view(array &$build, EntityInterface $entity, EntityVi
       // multiple_intelligence_options etc.), and
       // save them into $options_value array for later use.
       $temp_to_replace = [
+        "work_preferences_quiz",
         "multiple_intelligences_quiz",
         "learning_styles_quiz",
         "work_values_quiz",
         "_quiz",
       ];
       $temp_replace_by = [
+        "work_preferences_options",
         "multiple_intelligence_options",
         "learning_styles_options",
         "work_values_options",
@@ -469,12 +514,14 @@ function work_bc_quiz_node_view(array &$build, EntityInterface $entity, EntityVi
 
       // Get all QUIZ_categories of this quiz node(i.e. from one of the abilities_categories, multiple_intelligence_categories etc.), and save them into $category_value array for later use.
       $temp_to_replace = [
+        "work_preferences_quiz",
         "multiple_intelligences_quiz",
         "learning_styles_quiz",
         "work_values_quiz",
         "_quiz",
       ];
       $temp_replace_by = [
+        "work_preferences_categories",
         "multiple_intelligence_categories",
         "learning_styles_categories",
         "work_values_categories",
@@ -488,12 +535,12 @@ function work_bc_quiz_node_view(array &$build, EntityInterface $entity, EntityVi
       foreach ($terms as $term) {
         $term_obj = Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($term->tid);
         $category_value[$term->tid]['name'] = $term->name;
+        $category_value[$term->tid]['weight'] = $term->weight;
         $category_value[$term->tid]['description'] = $term->description__value;
         $category_value[$term->tid]['tid'] = $term->tid;
         $category_value[$term->tid]['field_svg_icon'] = $term_obj->get('field_svg_icon')->entity->uri->value;
         $category_value[$term->tid]['color'] = $term_obj->get('field_color')->value;
       }
-
       $groupedResult = [];
       // Loop through all fields of the node.
       if ($node->bundle() === 'work_values_quiz') {
@@ -514,6 +561,7 @@ function work_bc_quiz_node_view(array &$build, EntityInterface $entity, EntityVi
 
               $category_id = $answer[0]['target_id'];
               $category_name = $category_value[$category_id]['name'];
+              $category_weight = $category_value[$category_id]['weight'];
 
               // @todo Run fewer times (Low priority)
               $category_color = $category_value[$category_id]['color'];
@@ -568,7 +616,7 @@ function work_bc_quiz_node_view(array &$build, EntityInterface $entity, EntityVi
               $field_option_percentage = $options_value[$option_id]['field_option_percentage'];
               $category_id = $answer[0]['target_id'];
               $category_name = $category_value[$category_id]['name'];
-
+              $category_weight = $category_value[$category_id]['weight'];
               // @todo Run fewer times (Low priority)
               $category_color = $category_value[$category_id]['color'];
               $category_svg = $category_value[$category_id]['field_svg_icon'];
@@ -582,7 +630,7 @@ function work_bc_quiz_node_view(array &$build, EntityInterface $entity, EntityVi
                 // If category is different, then add into an array.
                 $groupedResult[$category_name]['score'] = [$field_option_percentage];
                 $groupedResult[$category_name]['name'] = $category_name;
-                $groupedResult[$category_name]['weight'] = $max_value;
+                $groupedResult[$category_name]['weight'] = $category_weight;
                 $groupedResult[$category_name]['highest'] = $max_value;
                 $groupedResult[$category_name]['icon'] = $category_svg;
                 $groupedResult[$category_name]['color'] = $category_color;
@@ -639,6 +687,25 @@ function work_bc_quiz_node_view(array &$build, EntityInterface $entity, EntityVi
 
       // Sort data using usort php function.
       usort($groupedResult, fn($b, $a) => ($a['percentage'] - $b['percentage']));
+      if($node->bundle() === 'work_preferences_quiz'){
+
+        usort($groupedResult, '_work_bc_quiz_usort3');
+
+        $top_three = [];
+        $top_three[1] = $groupedResult[0]['name'][0];
+        $top_three[2] = $groupedResult[1]['name'][0];
+        $top_three[3] = $groupedResult[2]['name'][0];
+        $combinitations = [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]];
+        $top_three_all_codes = [];
+        foreach($combinitations as $key => $value){
+          $code = '';
+          foreach($combinitations[$key] as $i => $index){
+            $code .= $top_three[$index];
+          }
+          array_push($top_three_all_codes, $code);
+        }
+
+      }
       if ($quizError) {
         $query = \Drupal::database()->select('node', 'n')
           ->fields('sf', ['instance_id', 'entity_id']);
@@ -663,39 +730,81 @@ function work_bc_quiz_node_view(array &$build, EntityInterface $entity, EntityVi
       try {
         // Get JSON file url.
         $uri = DRUPAL_ROOT . '/' . drupal_get_path('module', 'work_bc_quiz') . '/storage/' . $node->bundle() . '.json';
-
         if (is_file($uri)) {
           if ($data = file_get_contents($uri, TRUE)) {
             $data = json_decode($data);
-            foreach ($data as $i => $values) {
-              $sum = 0;
-              $j = 0;
-              foreach ($values as $key => $value) {
-                if ($j > 2) {
-                  $sum += abs($value - $forCareermatch[$key]);
-                  // $total =+ $value;
-                  unset($data[$i]->$key);
-                }
-                $j++;
-              }
-              // $data[$i]->sum = $sum;
-              // $data[$i]->total = $total;
-              $data[$i]->percentage = round(((36 - $sum) / 36) * 100);
-            }
-
-            // usort($data, fn($b, $a) => strcmp($a->percentage, $b->percentage));.
-            usort($data, '_work_bc_quiz_usort2');
-            // $final_1 = array_chunk($data, 40)[0];
-            // $tmp_cnt = 1000;
             $result = [];
-            foreach ($data as $key => $value) {
-              if (count($result) < 20) {
-                if (!isset($result[$value->NOCCode])) {
-                  $result[$value->NOCCode] = $value->percentage;
+            if($node->bundle() === 'work_preferences_quiz'){
+              $codes = [];
+
+              foreach ($data as $i => $values) {
+
+                $newOccupation = new stdClass();
+                $newOccupation->NOCCode = $values->NOCCode;
+                $newOccupation->percentage = $values->CODE;
+
+                foreach ($top_three_all_codes as $key => $code) {
+                  if($code == strtoupper($values->CODE)){
+                    if(is_array($codes[$key])){
+                     $codes[$key][] = $newOccupation;
+                    }else {
+                      $codes[$key][0]->NOCCode = $values->NOCCode;
+                      $codes[$key][0]->percentage = $values->CODE;
+                    }
+                  }
                 }
               }
-              else {
-                break;
+              $data = [];
+              ksort($codes);
+              $percentage =100;
+              foreach($codes as $code){
+                foreach ($code as $key => $value){
+                  $code[$key]->percentage = $percentage;
+                }
+                $percentage--;
+                $data = array_merge($data, $code);
+              } 
+              
+              foreach ($data as $key => $value) {
+                if (count($result) < 20) {
+                  if (!isset($result[$value->NOCCode])) {
+                    $result[$value->NOCCode] = $value->percentage;
+                  }
+                }
+                else {
+                  break;
+                }
+              }
+              // print_r($result);
+              // die;
+            }else {
+              foreach ($data as $i => $values) {
+                $sum = 0;
+                $j = 0;
+                foreach ($values as $key => $value) {
+                  if ($j > 2) {
+                    $value = abs(6 - $value); 
+                    $sum += abs($value - $forCareermatch[$key]);
+                    // $total =+ $value;
+                    unset($data[$i]->$key);
+                  }
+                  $j++;
+                }
+                // $data[$i]->sum = $sum;
+                // $data[$i]->total = $total;
+                $data[$i]->percentage = round(((36 - $sum) / 36) * 100);
+              }
+
+              usort($data, '_work_bc_quiz_usort2');
+              foreach ($data as $key => $value) {
+                if (count($result) < 20) {
+                  if (!isset($result[$value->NOCCode])) {
+                   $result[$value->NOCCode] = $value->percentage;
+                  }
+                }
+                else {
+                  break;
+                }
               }
             }
           }
@@ -719,7 +828,6 @@ function work_bc_quiz_node_view(array &$build, EntityInterface $entity, EntityVi
           $savedQuiz[$key]->result = $result;
         }
       }
-
       $session->set('SavedQuiz', $savedQuiz);
 
       // print_r($savedQuiz);
@@ -872,10 +980,11 @@ function work_bc_quiz_views_pre_render(ViewExecutable $view) {
       $result[$k] = $row;
       $filteredResults[] = $result;
     }
-
+    /*
     foreach ($filteredResults as $key => $row) {
       $row->index = $key;
     }
+    */
     $view->result = $result;
     $view->total_rows = count($filteredResults);
 
@@ -909,9 +1018,11 @@ function work_bc_quiz_views_pre_render(ViewExecutable $view) {
     $result[0] = $results[0];
     $filteredResults[] = $result;
 
+    /*
     foreach ($filteredResults as $key => $row) {
       $row->index = $key;
     }
+    */
     $view->result = $result;
     $view->total_rows = count($filteredResults);
   }
@@ -1074,4 +1185,14 @@ function _work_bc_quiz_usort2($a, $b) {
     return strcmp($a->Career, $b->Career);
   }
   return ($b->percentage - $a->percentage);
+}
+
+/**
+ * {@inheritdoc}
+ */
+function _work_bc_quiz_usort3($a, $b) {
+  if ($a['percentage'] == $b['percentage']) {
+    return strcmp($a['weight'], $b['weight']);
+  }
+  return ($b['percentage'] - $a['percentage']);
 }
