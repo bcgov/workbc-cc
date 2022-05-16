@@ -79,6 +79,7 @@
     view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
   ]
 %}
+{% set mailUrl = ' ' %}
 {{ attach_library('seven/classy.node') }}
 <article{{ attributes.addClass(classes) }}>
 	<div class="row">
@@ -114,7 +115,7 @@
 						<div class="career-top-right">
 							<ul class="float-right">
 							<li class="quiz-node-print"><span title="Print Results" class="icon icon-print"></span></li>
-							<li class="quiz-node-email"><span title="Email Results" class="icon icon-message"></span></li>
+							<li class="quiz-node-email"><a href="mailto:?subject=Quiz results from WorkBC.ca&body=Your Work Preferences Quiz results have been shared with you.%0D%0AReview your results: {{ mailUrl }}.%0D%0ALooking to discover more ? Finish our other career and personality quizzes to learn more about your preferences and discover careers that suites you."><span title="Email Results" class="icon icon-message"></span></a></li>
 							</ul>
 						</div>
 					</div>

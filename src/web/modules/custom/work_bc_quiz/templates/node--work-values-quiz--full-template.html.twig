@@ -82,6 +82,9 @@ not node.isPublished() ? 'node--unpublished',
 view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
 ]
 %}
+{%
+	set mailUrl = ''
+%}
 {{ attach_library('seven/classy.node') }}
 <article{{ attributes.addClass(classes) }}>
 <div class="row">
@@ -102,7 +105,7 @@ view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
    </div>
    </footer>
    {% endif %}
-   <div {{ content_attributes.addClass('node__content') }}>
+   <div {{ content_attributes.adquiz-node-emaildClass('node__content') }}>
    <div class="myResultHeading" >
       <div class="row rh">
          {% if node.bundle != 'multiple_intelligences_quiz' %}
@@ -123,7 +126,7 @@ view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
             <div class="career-top-right">
                <ul class="float-right">
                   <li class="quiz-node-print"><span title="Print Results" class="icon icon-print"></span></li>
-                  <li class="quiz-node-email"><span title="Email Results" class="icon icon-message"></span></li>
+                  <li class="quiz-node-email"><a href="mailto:?subject=Quiz results from WorkBC.ca&body=Your Work Values Quiz results have been shared with you.%0D%0AReview your results: {{ mailUrl }}.%0D%0ALooking to discover more ? Finish our other career and personality quizzes to learn more about your preferences and discover careers that suites you."><span title="Email Results" class="icon icon-message"></span></a></li>
                </ul>
             </div>
          </div>

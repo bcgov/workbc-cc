@@ -136,9 +136,9 @@
           $(".compare-popup-wrapper").removeClass("active");
         });
 
-        $(".compare-career-email").on("click", function(){
-          $(".email-popup-wrapper").addClass("active");
-        });
+        // $(".compare-career-email").on("click", function(){
+        //   $(".email-popup-wrapper").addClass("active");
+        // });
 
         $(".email-popup-close").on("click", function(){
           $(".email-popup-wrapper").removeClass("active");
