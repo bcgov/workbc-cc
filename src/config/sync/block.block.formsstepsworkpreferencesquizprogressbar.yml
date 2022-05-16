@@ -1,0 +1,21 @@
+uuid: 9021c52a-ad24-45b7-a006-1393eeca8cdf
+langcode: en
+status: true
+dependencies:
+  module:
+    - forms_steps
+  theme:
+    - bcgov_career
+id: formsstepsworkpreferencesquizprogressbar
+theme: bcgov_career
+region: content
+weight: 1
+provider: null
+plugin: 'forms_steps_progress_bar:work_preferences_quiz'
+settings:
+  id: 'forms_steps_progress_bar:work_preferences_quiz'
+  label: 'Forms Steps - Work Preferences Quiz (Progress bar)'
+  label_display: '0'
+  provider: forms_steps
+  progress_bar_settings: null
+visibility: {  }

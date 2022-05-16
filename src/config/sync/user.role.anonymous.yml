@@ -7,6 +7,7 @@ dependencies:
     - node.type.abilities_quiz
     - node.type.learning_styles_quiz
     - node.type.multiple_intelligences_quiz
+    - node.type.work_preferences_quiz
     - node.type.work_values_quiz
   module:
     - comment
@@ -29,10 +30,12 @@ permissions:
   - 'create abilities_quiz content'
   - 'create learning_styles_quiz content'
   - 'create multiple_intelligences_quiz content'
+  - 'create work_preferences_quiz content'
   - 'create work_values_quiz content'
   - 'edit own abilities_quiz content'
   - 'edit own learning_styles_quiz content'
   - 'edit own multiple_intelligences_quiz content'
+  - 'edit own work_preferences_quiz content'
   - 'edit own work_values_quiz content'
   - 'search content'
   - 'use career entity comparison'

@@ -1,0 +1,77 @@
+uuid: 326717ee-1a32-485e-9bc4-cc14a0d0a60a
+langcode: en
+status: true
+dependencies: {  }
+id: work_preferences_quiz_preview
+label: 'Work Preferences Quiz Preview'
+description: ''
+progress_steps_links_saved_only: true
+progress_steps_links_saved_only_next: true
+redirection_policy: entity
+redirection_target: ''
+steps:
+  work_preferences_quiz_summary_step_1:
+    label: 'Work Preferences Quiz - Summary'
+    weight: 0
+    entity_type: node
+    entity_bundle: work_preferences_quiz
+    form_mode: node.step_1_preview
+    url: /quiz/work-preferences-quiz/step1/preview
+    submitLabel: 'Save Changes'
+    cancelLabel: null
+    hideDelete: 0
+    deleteLabel: null
+    displayPrevious: 0
+  work_preferences_quiz_summary_step_2:
+    label: 'Work Preferences Quiz - Summary'
+    weight: 1
+    entity_type: node
+    entity_bundle: work_preferences_quiz
+    form_mode: node.step_2_preview
+    url: /quiz/work-preferences-quiz/step2/preview
+    submitLabel: 'Save Changes'
+    cancelLabel: null
+    previousLabel: Previous
+    hideDelete: 0
+    deleteLabel: null
+    displayPrevious: 1
+  work_preferences_quiz_summary_step_3:
+    label: 'Work Preferences Quiz - Summary'
+    weight: 2
+    entity_type: node
+    entity_bundle: work_preferences_quiz
+    form_mode: node.step_3_preview
+    url: /quiz/work-preferences-quiz/step3/preview
+    submitLabel: 'Save Changes'
+    cancelLabel: null
+    previousLabel: Previous
+    hideDelete: 0
+    deleteLabel: null
+    displayPrevious: 1
+  work_preferences_quiz_summary_step_4:
+    label: 'Work Preferences Quiz - Summary'
+    weight: 3
+    entity_type: node
+    entity_bundle: work_preferences_quiz
+    form_mode: node.step_4_preview
+    url: /quiz/work-preferences-quiz/step4/preview
+    submitLabel: 'Save Changes'
+    cancelLabel: null
+    previousLabel: Previous
+    hideDelete: 0
+    deleteLabel: null
+    displayPrevious: 1
+  work_preferences_quiz_summary_step_5:
+    label: 'Work Preferences Quiz - Summary'
+    weight: 4
+    entity_type: node
+    entity_bundle: work_preferences_quiz
+    form_mode: node.step_5_preview
+    url: /quiz/work-preferences-quiz/step5/preview
+    submitLabel: 'Save Changes'
+    cancelLabel: null
+    previousLabel: Previous
+    hideDelete: 0
+    deleteLabel: null
+    displayPrevious: 1
+progress_steps: {  }

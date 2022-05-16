@@ -1,0 +1,55 @@
+uuid: 6863c0b9-537c-4ee0-bd7a-0adda92d5ed5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_work_preferences_36
+    - node.type.work_preferences_quiz
+    - taxonomy.vocabulary.work_preferences_categories
+  content:
+    - 'taxonomy_term:work_preferences_categories:752325c5-8260-4c83-aa1c-57e14d88d683'
+  module:
+    - work_bc_quiz
+id: node.work_preferences_quiz.field_work_preferences_36
+field_name: field_work_preferences_36
+entity_type: node
+bundle: work_preferences_quiz
+label: 'I enjoy working with tools, equipment or technical instruments.'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    ar_target_id: null
+    target_uuid: 752325c5-8260-4c83-aa1c-57e14d88d683
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      work_preferences_categories: work_preferences_categories
+    sort:
+      field: name
+      direction: asc
+    auto_create: 0
+    auto_create_bundle: ''
+  pr_label: ''
+  pr_field_hide: 1
+  added_reference:
+    ar_bundles:
+      work_preferences_options: work_preferences_options
+      abilities_categories: 0
+      abilities_options: 0
+      education_level: 0
+      learning_styles_categories: 0
+      learning_styles_options: 0
+      multiple_intelligence_categories: 0
+      multiple_intelligence_options: 0
+      tags: 0
+      work_preferences_categories: 0
+      work_values_categories: 0
+      work_values_options: 0
+    ar_label: ''
+    ar_weight: '36'
+    ar_required: 1
+field_type: work_bc_quiz

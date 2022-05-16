@@ -1,0 +1,520 @@
+uuid: a6bb38b1-52bf-4733-b282-c800f2e355f2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.work_preferences_quiz.field_work_preferences_1
+    - field.field.node.work_preferences_quiz.field_work_preferences_10
+    - field.field.node.work_preferences_quiz.field_work_preferences_11
+    - field.field.node.work_preferences_quiz.field_work_preferences_12
+    - field.field.node.work_preferences_quiz.field_work_preferences_13
+    - field.field.node.work_preferences_quiz.field_work_preferences_14
+    - field.field.node.work_preferences_quiz.field_work_preferences_15
+    - field.field.node.work_preferences_quiz.field_work_preferences_16
+    - field.field.node.work_preferences_quiz.field_work_preferences_17
+    - field.field.node.work_preferences_quiz.field_work_preferences_18
+    - field.field.node.work_preferences_quiz.field_work_preferences_19
+    - field.field.node.work_preferences_quiz.field_work_preferences_2
+    - field.field.node.work_preferences_quiz.field_work_preferences_20
+    - field.field.node.work_preferences_quiz.field_work_preferences_21
+    - field.field.node.work_preferences_quiz.field_work_preferences_22
+    - field.field.node.work_preferences_quiz.field_work_preferences_23
+    - field.field.node.work_preferences_quiz.field_work_preferences_24
+    - field.field.node.work_preferences_quiz.field_work_preferences_25
+    - field.field.node.work_preferences_quiz.field_work_preferences_26
+    - field.field.node.work_preferences_quiz.field_work_preferences_27
+    - field.field.node.work_preferences_quiz.field_work_preferences_28
+    - field.field.node.work_preferences_quiz.field_work_preferences_29
+    - field.field.node.work_preferences_quiz.field_work_preferences_3
+    - field.field.node.work_preferences_quiz.field_work_preferences_30
+    - field.field.node.work_preferences_quiz.field_work_preferences_31
+    - field.field.node.work_preferences_quiz.field_work_preferences_32
+    - field.field.node.work_preferences_quiz.field_work_preferences_33
+    - field.field.node.work_preferences_quiz.field_work_preferences_34
+    - field.field.node.work_preferences_quiz.field_work_preferences_35
+    - field.field.node.work_preferences_quiz.field_work_preferences_36
+    - field.field.node.work_preferences_quiz.field_work_preferences_37
+    - field.field.node.work_preferences_quiz.field_work_preferences_38
+    - field.field.node.work_preferences_quiz.field_work_preferences_39
+    - field.field.node.work_preferences_quiz.field_work_preferences_4
+    - field.field.node.work_preferences_quiz.field_work_preferences_40
+    - field.field.node.work_preferences_quiz.field_work_preferences_41
+    - field.field.node.work_preferences_quiz.field_work_preferences_42
+    - field.field.node.work_preferences_quiz.field_work_preferences_43
+    - field.field.node.work_preferences_quiz.field_work_preferences_44
+    - field.field.node.work_preferences_quiz.field_work_preferences_45
+    - field.field.node.work_preferences_quiz.field_work_preferences_46
+    - field.field.node.work_preferences_quiz.field_work_preferences_47
+    - field.field.node.work_preferences_quiz.field_work_preferences_48
+    - field.field.node.work_preferences_quiz.field_work_preferences_49
+    - field.field.node.work_preferences_quiz.field_work_preferences_5
+    - field.field.node.work_preferences_quiz.field_work_preferences_50
+    - field.field.node.work_preferences_quiz.field_work_preferences_6
+    - field.field.node.work_preferences_quiz.field_work_preferences_7
+    - field.field.node.work_preferences_quiz.field_work_preferences_8
+    - field.field.node.work_preferences_quiz.field_work_preferences_9
+    - node.type.work_preferences_quiz
+  module:
+    - user
+    - work_bc_quiz
+id: node.work_preferences_quiz.default
+targetEntityType: node
+bundle: work_preferences_quiz
+mode: default
+content:
+  field_work_preferences_1:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_work_preferences_10:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 110
+    region: content
+  field_work_preferences_11:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 111
+    region: content
+  field_work_preferences_12:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 112
+    region: content
+  field_work_preferences_13:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 113
+    region: content
+  field_work_preferences_14:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 114
+    region: content
+  field_work_preferences_15:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 115
+    region: content
+  field_work_preferences_16:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 116
+    region: content
+  field_work_preferences_17:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 117
+    region: content
+  field_work_preferences_18:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 118
+    region: content
+  field_work_preferences_19:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 119
+    region: content
+  field_work_preferences_2:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_work_preferences_20:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 120
+    region: content
+  field_work_preferences_21:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 121
+    region: content
+  field_work_preferences_22:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 122
+    region: content
+  field_work_preferences_23:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 123
+    region: content
+  field_work_preferences_24:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 124
+    region: content
+  field_work_preferences_25:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 125
+    region: content
+  field_work_preferences_26:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 126
+    region: content
+  field_work_preferences_27:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 127
+    region: content
+  field_work_preferences_28:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 128
+    region: content
+  field_work_preferences_29:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 129
+    region: content
+  field_work_preferences_3:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_work_preferences_30:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 130
+    region: content
+  field_work_preferences_31:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 151
+    region: content
+  field_work_preferences_32:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 132
+    region: content
+  field_work_preferences_33:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 133
+    region: content
+  field_work_preferences_34:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 134
+    region: content
+  field_work_preferences_35:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 135
+    region: content
+  field_work_preferences_36:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 136
+    region: content
+  field_work_preferences_37:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 137
+    region: content
+  field_work_preferences_38:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 138
+    region: content
+  field_work_preferences_39:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 139
+    region: content
+  field_work_preferences_4:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_work_preferences_40:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 140
+    region: content
+  field_work_preferences_41:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 141
+    region: content
+  field_work_preferences_42:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 142
+    region: content
+  field_work_preferences_43:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 143
+    region: content
+  field_work_preferences_44:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 144
+    region: content
+  field_work_preferences_45:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 145
+    region: content
+  field_work_preferences_46:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 146
+    region: content
+  field_work_preferences_47:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 147
+    region: content
+  field_work_preferences_48:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 148
+    region: content
+  field_work_preferences_49:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 149
+    region: content
+  field_work_preferences_5:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_work_preferences_50:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 150
+    region: content
+  field_work_preferences_6:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_work_preferences_7:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_work_preferences_8:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 108
+    region: content
+  field_work_preferences_9:
+    type: double_reference_label
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    weight: 109
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

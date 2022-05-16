@@ -1,0 +1,45 @@
+uuid: eeaa56ae-0464-457f-8be8-59b694b7df6d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.work_preferences_categories.field_color
+    - field.field.taxonomy_term.work_preferences_categories.field_svg_icon
+    - taxonomy.vocabulary.work_preferences_categories
+  module:
+    - svg_image
+    - text
+id: taxonomy_term.work_preferences_categories.default
+targetEntityType: taxonomy_term
+bundle: work_preferences_categories
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_color:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_svg_icon:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }
