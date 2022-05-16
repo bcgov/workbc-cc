@@ -635,7 +635,13 @@
                 padding: 0;
             }
             @media all and (max-width: 640.98px){
-                flex-direction: column;
+                flex-direction: column-reverse;
+                .link.link_1{
+                    margin-bottom: 0;
+                }
+                .link.link_2{
+                    margin-bottom: 15px;
+                }
             }
         }
 
