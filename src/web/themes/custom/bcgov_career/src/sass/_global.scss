@@ -229,6 +229,16 @@ ul{
     }
 }
 
+.btn-primary{
+    border: 0;
+    &:focus{
+        border: 0;
+    }
+    &.focus{
+        border: 0;
+    }
+}
+
 //hidden
 .block.block-core.block-page-title-block{
     display: none;
