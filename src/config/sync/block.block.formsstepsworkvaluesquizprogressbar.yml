@@ -9,7 +9,7 @@ dependencies:
 id: formsstepsworkvaluesquizprogressbar
 theme: bcgov_career
 region: content
-weight: 0
+weight: -1
 provider: null
 plugin: 'forms_steps_progress_bar:work_values_quiz'
 settings:

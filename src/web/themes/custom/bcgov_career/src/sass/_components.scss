@@ -116,6 +116,7 @@
             .banner-inner {
                 h1 {
                     font-size: 32px;
+                    margin-bottom: 5px;
                 }
            }
         }
@@ -207,7 +208,7 @@
     background: #fff;
     @media all and (max-width: 991.98px) {
         padding: 30px 12px 70px 12px;
-        min-height: 490px;
+        min-height: 506px;
     }
 
     .img-field {
@@ -255,7 +256,7 @@
             height: 25px;
             background: url(../src/icons/list.svg) no-repeat;
         }
-        @media all and (max-width: 1020.98px) {
+        @media all and (max-width: 1024.98px) {
             font-size: 14px;
         }
     }
@@ -273,7 +274,7 @@
             height: 25px;
             background: url(../src/icons/time.svg) no-repeat;
         }
-        @media all and (max-width: 1020.98px) {
+        @media all and (max-width: 1024.98px) {
             font-size: 14px;
         }
     }
@@ -292,7 +293,7 @@
             font-size: 1.6rem;
             text-align: center;
             margin: auto;
-            width: 145px;
+            width: 160px;
             font-weight: bold;
             color: #277a0f;
         }
@@ -303,7 +304,7 @@
 
     .row {
         background: rgb(242, 242, 242);
-        padding: 12px 20px;
+        padding: 12px 15px;
         margin: 0px;
     }
 
@@ -378,7 +379,7 @@
                 display: inline;
                 cursor: pointer;
 
-                &.compare-career-print {
+                &.quiz-node-print {
                     margin-right: 30px;
                     @media all and (max-width: 767.98px){
                         margin-right: 15px;
@@ -505,6 +506,7 @@
                         width: 10px;
                         height: 10px;
                         border-radius: 50%;
+                        outline: 0;
                     }
 
                     &.slick-active {
@@ -579,11 +581,47 @@
         color: #234075;
         text-align: right;
         line-height: 30px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
         > span {
             cursor: pointer;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            > svg{
+                margin-left: 10px;
+            }
             &:hover{
                 text-decoration: underline;
             }
+        }
+    }
+
+    .hideshow-workbc{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        > span{
+            color: #880364;
+            cursor: pointer;
+        }
+        > svg{
+            margin-left: 10px;
+        }
+        .slick-next-workbc{
+            &.vaa1{
+                display: none;
+            }
+        }
+    }
+
+    .work-value-quiz-carousel{
+        .slick-dots{
+            display: none;
+        }
+        .slick-prev.slick-arrow{
+            display: none !important;
         }
     }
 
@@ -597,7 +635,13 @@
                 padding: 0;
             }
             @media all and (max-width: 640.98px){
-                flex-direction: column;
+                flex-direction: column-reverse;
+                .link.link_1{
+                    margin-bottom: 0;
+                }
+                .link.link_2{
+                    margin-bottom: 15px;
+                }
             }
         }
 
@@ -668,6 +712,10 @@
     }
 }
 
+.extradivs.hide.show .itm.hide{
+    display: block !important;
+}
+
 .cari_quiz {
     .slick-dots {
         display: flex;
@@ -676,7 +724,7 @@
         justify-content: center;
         align-items: center;
         position: relative;
-        bottom: 55px;
+        bottom: 65px;
         li {
             margin-right: 10px;
 
@@ -687,6 +735,7 @@
                 width: 10px;
                 height: 10px;
                 border-radius: 50%;
+                outline: 0;
             }
 
             &.slick-active {
@@ -826,6 +875,16 @@ a.quiz-link {
     }
 
     .personality {
+        @media all and (max-width: 1100px){
+            .title-field h4 {
+                min-height: 60px;
+            }
+        }
+        @media all and (max-width: 991.98){
+            .title-field h4 {
+                min-height: auto;
+            }
+        }
         .item_1 {
             .title-field h4 {
                 color: $miq;
@@ -1087,11 +1146,17 @@ body.path-quiz {
             font-family: "BC Sans", sans-serif;
             position: absolute;
             top: 0;
-            right: 0;
+            right: 15px;
             z-index: 1;
             border-radius: 0;
+            margin: 0;
             @media all and (max-width: 767.98px){
                 position: relative;
+                right: 0;
+                margin: 0 15px 0 15px;
+            }
+            @media all and (max-width: 640.98px){
+                margin: 0;
             }
 
             &:hover {
@@ -1118,6 +1183,10 @@ body.path-quiz {
             @media all and (max-width: 767.98px){
                 position: relative;
                 left: 0px;
+                margin: 0 15px 0 15px;
+            }
+            @media all and (max-width: 640.98px){
+                margin: 0;
             }
             &:hover {
                 background: rgba(242, 242, 242, 1);
@@ -1172,16 +1241,18 @@ body.path-quiz {
             @media all and (max-width: 767.98px) {
                 display: flex;
                 flex-direction: column;
-                padding-left: 70px;
             }
 
             input {
                 width: 20px;
-                //height: 20px;
+                height: 20px;
                 position: relative;
                 z-index: 1;
-                top: 13px;
+                top: 16px;
                 opacity: 0;
+                @media all and (max-width: 767.98px) {
+                    top: 9px;
+                }
 
                 & + label.option + span.radio {
                     width: 20px;
@@ -1239,6 +1310,11 @@ body.path-quiz {
                 left: -10px;
                 margin: 0 auto;
 
+                @media all and (max-width: 1024.98px) { 
+                    padding: 0 5px;
+                    width  : auto;
+                }
+
                 @media all and (max-width: 767.98px) {
                     position: relative;
                     top: -18px;
@@ -1246,7 +1322,7 @@ body.path-quiz {
                     font-weight: normal;
                     display: block;
                     text-align: left;
-                    width: 130px;
+                    width: auto;
                     letter-spacing: normal;
                     left: 30px;
                 }
@@ -1260,7 +1336,8 @@ body.path-quiz {
                 margin: auto;
                 position: relative;
 
-                .learning-styles-quiz & {
+                .learning-styles-quiz &,
+                .work-values-quiz & {
                     min-width: 31%;
                 }
 
@@ -1434,6 +1511,15 @@ body.path-quiz {
                 left: auto;
                 right: 0;
             }
+            
+            @media all and (min-width: 767.98px) and (max-width: 1024.98px){
+                left: 10px;
+
+                &.save-wrapper{
+                    right: 10px;
+                }
+            }   
+
             @media all and (max-width: 767.98px) {
                 position: relative;
                 padding: 0 25px;
@@ -1483,7 +1569,7 @@ body.path-quiz {
 }
 
 .field--type-work-bc-quiz {
-    padding: 10px;
+    padding: 10px 20px;
     border-bottom: 0px;
     @media all and (max-width: 767.98px){
         padding: 15px 25px;
@@ -1502,8 +1588,12 @@ body.path-quiz {
             line-height: 2.1rem;
             color: #333333;
 
-            .learning-styles-quiz &{
-                width: 55%!important;
+            .learning-styles-quiz &,
+            .work-values-quiz &{
+                width: 65%!important;
+                @media all and (max-width: 767.98px){
+                    width: 100% !important;
+                }
             }
 
             span:last-child {
@@ -1530,11 +1620,9 @@ body.path-quiz {
             @media all and (max-width: 767.98px) {
                 margin-left: inherit;
             }
-            .learning-styles-quiz &{
+            .learning-styles-quiz &,
+            .work-values-quiz & {
                 width: 40%;
-                @media all and (max-width: 767.98px) {
-                    width: 55%;
-                }
             }
         }
     }
@@ -1550,11 +1638,25 @@ body.path-quiz {
     }
 }
 
+// .work-values-quiz{
+//     .field--type-work-bc-quiz{
+//         fieldset{
+//             legend{
+//                 width: 100% !important;
+//             }
+//             .fieldset-wrapper{
+//                 width: 60%;
+//                 .form-radios .form-item{
+//                     min-width: 27%;
+//                 }
+//             }
+//         }
+//     }
+// }
+
 span.question-prefix {
     float: left;
-    //margin-right: 10px;
-    //margin-top: 12px;
-    width: 30px;
+    width: 29px;
     color: #333333;
     font-size: 1.5rem;
 
@@ -1596,6 +1698,9 @@ span.question-prefix {
         justify-content: center;
         align-items: center;
         flex-wrap: nowrap;
+        @media all and (min-width: 767.98px) and (max-width: 1024.98px) { 
+            padding-left: 10px;
+        }
     }
 
     .p-bar{
@@ -1641,7 +1746,7 @@ span.question-prefix {
             min-width: 100%;
         }
         @media all and (max-width: 1020.98px) {
-            min-width: 565px;
+            min-width: 100%;
         }
         li {
             display: inline-block;
@@ -1868,6 +1973,9 @@ span.question-prefix {
                 border-radius: 50%;
                 margin-left: 15px;
                 background: #979696;
+                &:focus, &:focus-visible{
+                    outline: 0;
+                }
             }
 
             &.slick-active {
@@ -2481,7 +2589,7 @@ span.question-prefix {
 
     .back-link {
         background: #e6eae9;
-        padding: 10px 25px;
+        padding: 10px 20px;
 
         a {
             font-family: "BC Sans", sans-serif;
@@ -2613,6 +2721,10 @@ span.question-prefix {
                 display: flex;
                 margin-top: 40px;
 
+                @media all and (max-width: 767.98px) {
+                    display: block;
+                }
+
                 a.btn {
                     color: #fff;
                     border: 2px solid #234075;
@@ -2625,6 +2737,10 @@ span.question-prefix {
                     border-radius: 0;
                     width: 100%;
                     margin-right: 10px;
+
+                    @media all and (max-width: 767.98px) {
+                        margin-bottom: 10px;
+                    }    
 
                     &.btn-find-job {
                         background: #fff;
@@ -2668,7 +2784,7 @@ span.question-prefix {
     }
 
     .compare-career-main-wrapper & {
-        padding: 20px 15px;
+        margin: 0 20px;
     }
 
     .career-bottom-inner-notes {
@@ -2681,6 +2797,9 @@ span.question-prefix {
         p {
             font-size: 13px;
             margin: 0;
+            @media all and (max-width: 450.98px) {
+                font-size: 12px;
+            }
         }
     }
 }
@@ -3174,6 +3293,7 @@ span.question-prefix {
             @media all and (max-width: 767.98px){
                 bottom: 105px;
                 left: 30px;
+                font-size: 1.3rem;
 
                 &+div+div.block-system-main-block#block-bcgov-career-content.has-prev-block {
                     padding-bottom: 250px;
@@ -3188,8 +3308,12 @@ span.question-prefix {
 
 
 //Learning styles
-.path-quiz .learning-styles-quiz .region-content .form-radios .form-item {
+.path-quiz .learning-styles-quiz .region-content .form-radios .form-item,
+.path-quiz .work-values-quiz .region-content .form-radios .form-item {
     min-width: 31%;
+    @media all and (max-width: 767.98px){
+        min-width: 100%;
+    }
 }
 
 //Career profile page

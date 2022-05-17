@@ -1,0 +1,167 @@
+uuid: ec7e4f1c-9010-4678-9dfe-517c7a3cb723
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.node.step_9
+    - field.field.node.work_preferences_quiz.field_work_preferences_1
+    - field.field.node.work_preferences_quiz.field_work_preferences_10
+    - field.field.node.work_preferences_quiz.field_work_preferences_11
+    - field.field.node.work_preferences_quiz.field_work_preferences_12
+    - field.field.node.work_preferences_quiz.field_work_preferences_13
+    - field.field.node.work_preferences_quiz.field_work_preferences_14
+    - field.field.node.work_preferences_quiz.field_work_preferences_15
+    - field.field.node.work_preferences_quiz.field_work_preferences_16
+    - field.field.node.work_preferences_quiz.field_work_preferences_17
+    - field.field.node.work_preferences_quiz.field_work_preferences_18
+    - field.field.node.work_preferences_quiz.field_work_preferences_19
+    - field.field.node.work_preferences_quiz.field_work_preferences_2
+    - field.field.node.work_preferences_quiz.field_work_preferences_20
+    - field.field.node.work_preferences_quiz.field_work_preferences_21
+    - field.field.node.work_preferences_quiz.field_work_preferences_22
+    - field.field.node.work_preferences_quiz.field_work_preferences_23
+    - field.field.node.work_preferences_quiz.field_work_preferences_24
+    - field.field.node.work_preferences_quiz.field_work_preferences_25
+    - field.field.node.work_preferences_quiz.field_work_preferences_26
+    - field.field.node.work_preferences_quiz.field_work_preferences_27
+    - field.field.node.work_preferences_quiz.field_work_preferences_28
+    - field.field.node.work_preferences_quiz.field_work_preferences_29
+    - field.field.node.work_preferences_quiz.field_work_preferences_3
+    - field.field.node.work_preferences_quiz.field_work_preferences_30
+    - field.field.node.work_preferences_quiz.field_work_preferences_31
+    - field.field.node.work_preferences_quiz.field_work_preferences_32
+    - field.field.node.work_preferences_quiz.field_work_preferences_33
+    - field.field.node.work_preferences_quiz.field_work_preferences_34
+    - field.field.node.work_preferences_quiz.field_work_preferences_35
+    - field.field.node.work_preferences_quiz.field_work_preferences_36
+    - field.field.node.work_preferences_quiz.field_work_preferences_37
+    - field.field.node.work_preferences_quiz.field_work_preferences_38
+    - field.field.node.work_preferences_quiz.field_work_preferences_39
+    - field.field.node.work_preferences_quiz.field_work_preferences_4
+    - field.field.node.work_preferences_quiz.field_work_preferences_40
+    - field.field.node.work_preferences_quiz.field_work_preferences_41
+    - field.field.node.work_preferences_quiz.field_work_preferences_42
+    - field.field.node.work_preferences_quiz.field_work_preferences_43
+    - field.field.node.work_preferences_quiz.field_work_preferences_44
+    - field.field.node.work_preferences_quiz.field_work_preferences_45
+    - field.field.node.work_preferences_quiz.field_work_preferences_46
+    - field.field.node.work_preferences_quiz.field_work_preferences_47
+    - field.field.node.work_preferences_quiz.field_work_preferences_48
+    - field.field.node.work_preferences_quiz.field_work_preferences_49
+    - field.field.node.work_preferences_quiz.field_work_preferences_5
+    - field.field.node.work_preferences_quiz.field_work_preferences_50
+    - field.field.node.work_preferences_quiz.field_work_preferences_6
+    - field.field.node.work_preferences_quiz.field_work_preferences_7
+    - field.field.node.work_preferences_quiz.field_work_preferences_8
+    - field.field.node.work_preferences_quiz.field_work_preferences_9
+    - node.type.work_preferences_quiz
+  module:
+    - work_bc_quiz
+id: node.work_preferences_quiz.step_9
+targetEntityType: node
+bundle: work_preferences_quiz
+mode: step_9
+content:
+  field_work_preferences_41:
+    type: double_reference_autocomplete_select
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_work_preferences_42:
+    type: double_reference_autocomplete_select
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_work_preferences_43:
+    type: double_reference_autocomplete_select
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_work_preferences_44:
+    type: double_reference_autocomplete_select
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_work_preferences_45:
+    type: double_reference_autocomplete_select
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_work_preferences_1: true
+  field_work_preferences_10: true
+  field_work_preferences_11: true
+  field_work_preferences_12: true
+  field_work_preferences_13: true
+  field_work_preferences_14: true
+  field_work_preferences_15: true
+  field_work_preferences_16: true
+  field_work_preferences_17: true
+  field_work_preferences_18: true
+  field_work_preferences_19: true
+  field_work_preferences_2: true
+  field_work_preferences_20: true
+  field_work_preferences_21: true
+  field_work_preferences_22: true
+  field_work_preferences_23: true
+  field_work_preferences_24: true
+  field_work_preferences_25: true
+  field_work_preferences_26: true
+  field_work_preferences_27: true
+  field_work_preferences_28: true
+  field_work_preferences_29: true
+  field_work_preferences_3: true
+  field_work_preferences_30: true
+  field_work_preferences_31: true
+  field_work_preferences_32: true
+  field_work_preferences_33: true
+  field_work_preferences_34: true
+  field_work_preferences_35: true
+  field_work_preferences_36: true
+  field_work_preferences_37: true
+  field_work_preferences_38: true
+  field_work_preferences_39: true
+  field_work_preferences_4: true
+  field_work_preferences_40: true
+  field_work_preferences_46: true
+  field_work_preferences_47: true
+  field_work_preferences_48: true
+  field_work_preferences_49: true
+  field_work_preferences_5: true
+  field_work_preferences_50: true
+  field_work_preferences_6: true
+  field_work_preferences_7: true
+  field_work_preferences_8: true
+  field_work_preferences_9: true
+  path: true
+  promote: true
+  status: true
+  sticky: true
+  title: true
+  uid: true

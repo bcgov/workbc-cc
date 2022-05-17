@@ -1,0 +1,55 @@
+uuid: def03f96-955c-4162-94a5-9d66ec8964a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_work_preferences_21
+    - node.type.work_preferences_quiz
+    - taxonomy.vocabulary.work_preferences_categories
+  content:
+    - 'taxonomy_term:work_preferences_categories:c05a2265-37cb-4d7a-8cbd-bc82de0e82a1'
+  module:
+    - work_bc_quiz
+id: node.work_preferences_quiz.field_work_preferences_21
+field_name: field_work_preferences_21
+entity_type: node
+bundle: work_preferences_quiz
+label: 'I would like a job that is involved in community service.'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    ar_target_id: null
+    target_uuid: c05a2265-37cb-4d7a-8cbd-bc82de0e82a1
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      work_preferences_categories: work_preferences_categories
+    sort:
+      field: name
+      direction: asc
+    auto_create: 0
+    auto_create_bundle: ''
+  pr_label: ''
+  pr_field_hide: 1
+  added_reference:
+    ar_bundles:
+      work_preferences_options: work_preferences_options
+      abilities_categories: 0
+      abilities_options: 0
+      education_level: 0
+      learning_styles_categories: 0
+      learning_styles_options: 0
+      multiple_intelligence_categories: 0
+      multiple_intelligence_options: 0
+      tags: 0
+      work_preferences_categories: 0
+      work_values_categories: 0
+      work_values_options: 0
+    ar_label: ''
+    ar_weight: '21'
+    ar_required: 1
+field_type: work_bc_quiz

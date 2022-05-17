@@ -11,7 +11,7 @@ _core:
 id: bcgov_career_local_tasks
 theme: bcgov_career
 region: content
-weight: -6
+weight: -7
 provider: null
 plugin: local_tasks_block
 settings:

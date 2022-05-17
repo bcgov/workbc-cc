@@ -1,323 +1,340 @@
+
+
 {#
 /**
- * @file
- * Theme override to display a node.
- *
- * Available variables:
- * - node: The node entity with limited access to object properties and methods.
- *   Only method names starting with "get", "has", or "is" and a few common
- *   methods such as "id", "label", and "bundle" are available. For example:
- *   - node.getCreatedTime() will return the node creation timestamp.
- *   - node.hasField('field_example') returns TRUE if the node bundle includes
- *     field_example. (This does not indicate the presence of a value in this
- *     field.)
- *   - node.isPublished() will return whether the node is published or not.
- *   Calling other methods, such as node.delete(), will result in an exception.
- *   See \Drupal\node\Entity\Node for a full list of public properties and
- *   methods for the node object.
- * - label: (optional) The title of the node.
- * - content: All node items. Use {{ content }} to print them all,
- *   or print a subset such as {{ content.field_example }}. Use
- *   {{ content|without('field_example') }} to temporarily suppress the printing
- *   of a given child element.
- * - author_picture: The node author user entity, rendered using the "compact"
- *   view mode.
- * - metadata: Metadata for this node.
- * - date: (optional) Themed creation date field.
- * - author_name: (optional) Themed author name field.
- * - url: Direct URL of the current node.
- * - display_submitted: Whether submission information should be displayed.
- * - attributes: HTML attributes for the containing element.
- *   The attributes.class element may contain one or more of the following
- *   classes:
- *   - node: The current template type (also known as a "theming hook").
- *   - node--type-[type]: The current node type. For example, if the node is an
- *     "Article" it would result in "node--type-article". Note that the machine
- *     name will often be in a short form of the human readable label.
- *   - node--view-mode-[view_mode]: The View Mode of the node; for example, a
- *     teaser would result in: "node--view-mode-teaser", and
- *     full: "node--view-mode-full".
- *   The following are controlled through the node publishing options.
- *   - node--promoted: Appears on nodes promoted to the front page.
- *   - node--sticky: Appears on nodes ordered above other non-sticky nodes in
- *     teaser listings.
- *   - node--unpublished: Appears on unpublished nodes visible only to site
- *     admins.
- * - title_attributes: Same as attributes, except applied to the main title
- *   tag that appears in the template.
- * - content_attributes: Same as attributes, except applied to the main
- *   content tag that appears in the template.
- * - author_attributes: Same as attributes, except applied to the author of
- *   the node tag that appears in the template.
- * - title_prefix: Additional output populated by modules, intended to be
- *   displayed in front of the main title tag that appears in the template.
- * - title_suffix: Additional output populated by modules, intended to be
- *   displayed after the main title tag that appears in the template.
- * - view_mode: View mode; for example, "teaser" or "full".
- * - teaser: Flag for the teaser state. Will be true if view_mode is 'teaser'.
- * - page: Flag for the full page state. Will be true if view_mode is 'full'.
- * - readmore: Flag for more state. Will be true if the teaser content of the
- *   node cannot hold the main body content.
- * - logged_in: Flag for authenticated user status. Will be true when the
- *   current user is a logged-in member.
- * - is_admin: Flag for admin user status. Will be true when the current user
- *   is an administrator.
- *
- * @see template_preprocess_node()
- *
- */
+* @file
+* Theme override to display a node.
+*
+* Available variables:
+* - node: The node entity with limited access to object properties and methods.
+*   Only method names starting with "get", "has", or "is" and a few common
+*   methods such as "id", "label", and "bundle" are available. For example:
+*   - node.getCreatedTime() will return the node creation timestamp.
+*   - node.hasField('field_example') returns TRUE if the node bundle includes
+*     field_example. (This does not indicate the presence of a value in this
+*     field.)
+*   - node.isPublished() will return whether the node is published or not.
+*   Calling other methods, such as node.delete(), will result in an exception.
+*   See \Drupal\node\Entity\Node for a full list of public properties and
+*   methods for the node object.
+* - label: (optional) The title of the node.
+* - content: All node items. Use {{ content }} to print them all,
+*   or print a subset such as {{ content.field_example }}. Use
+*   {{ content|without('field_example') }} to temporarily suppress the printing
+*   of a given child element.
+* - author_picture: The node author user entity, rendered using the "compact"
+*   view mode.
+* - metadata: Metadata for this node.
+* - date: (optional) Themed creation date field.
+* - author_name: (optional) Themed author name field.
+* - url: Direct URL of the current node.
+* - display_submitted: Whether submission information should be displayed.
+* - attributes: HTML attributes for the containing element.
+*   The attributes.class element may contain one or more of the following
+*   classes:
+*   - node: The current template type (also known as a "theming hook").
+*   - node--type-[type]: The current node type. For example, if the node is an
+*     "Article" it would result in "node--type-article". Note that the machine
+*     name will often be in a short form of the human readable label.
+*   - node--view-mode-[view_mode]: The View Mode of the node; for example, a
+*     teaser would result in: "node--view-mode-teaser", and
+*     full: "node--view-mode-full".
+*   The following are controlled through the node publishing options.
+*   - node--promoted: Appears on nodes promoted to the front page.
+*   - node--sticky: Appears on nodes ordered above other non-sticky nodes in
+*     teaser listings.
+*   - node--unpublished: Appears on unpublished nodes visible only to site
+*     admins.
+* - title_attributes: Same as attributes, except applied to the main title
+*   tag that appears in the template.
+* - content_attributes: Same as attributes, except applied to the main
+*   content tag that appears in the template.
+* - author_attributes: Same as attributes, except applied to the author of
+*   the node tag that appears in the template.
+* - title_prefix: Additional output populated by modules, intended to be
+*   displayed in front of the main title tag that appears in the template.
+* - title_suffix: Additional output populated by modules, intended to be
+*   displayed after the main title tag that appears in the template.
+* - view_mode: View mode; for example, "teaser" or "full".
+* - teaser: Flag for the teaser state. Will be true if view_mode is 'teaser'.
+* - page: Flag for the full page state. Will be true if view_mode is 'full'.
+* - readmore: Flag for more state. Will be true if the teaser content of the
+*   node cannot hold the main body content.
+* - logged_in: Flag for authenticated user status. Will be true when the
+*   current user is a logged-in member.
+* - is_admin: Flag for admin user status. Will be true when the current user
+*   is an administrator.
+*
+* @see template_preprocess_node()
+*
+*/
 #}
 {%
-  set classes = [
-    'node',
-    'nfq',
-    'wvq',
-    'container-fluid',
-    'node--type-' ~ node.bundle|clean_class,
-    node.isPromoted() ? 'node--promoted',
-    node.isSticky() ? 'node--sticky',
-    not node.isPublished() ? 'node--unpublished',
-    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
-  ]
+set classes = [
+'node',
+'nfq',
+'wvq',
+'container-fluid',
+'node--type-' ~ node.bundle|clean_class,
+node.isPromoted() ? 'node--promoted',
+node.isSticky() ? 'node--sticky',
+not node.isPublished() ? 'node--unpublished',
+view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+]
 %}
+{% set mailUrl = ' ' %}
 {{ attach_library('seven/classy.node') }}
 <article{{ attributes.addClass(classes) }}>
-	<div class="row">
-		<div class="col-md-12">
-		  {{ title_prefix }}
-		  {% if label and not page %}
-			<h2{{ title_attributes }}>
-			  <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-			</h2>
-		  {% endif %}
-		  {{ title_suffix }}
-
-		  {% if display_submitted %}
-			<footer class="node__meta">
-			  {{ author_picture }}
-			  <div {{ author_attributes.addClass('node__submitted') }}>
-				{% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
-				{{ metadata }}
-			  </div>
-			</footer>
-		  {% endif %}
-
-		  <div {{ content_attributes.addClass('node__content') }}>
-			<div class="myResultHeading" >
-				<div class="row rh">
-				{% if node.bundle != 'multiple_intelligences_quiz' %}
-					<div class="col-8">
-						<div class="result-heading">
-							<h2 class="vaa">{{ subheading }}</h2>
-							<h2 class="vaa1" style="display:none;">{{ subheading_toggle }}</h2>
-						</div>
-					</div>
-				{% else %}
-					<div class="col-8">
-						<div class="result-heading">
-							<h2 class="vaa">{{ subheading }}</h2>
-						</div>
-					</div>
-				{% endif %}
-					<div class="col-12 col-md-4">
-						<div class="career-top-right">
-							<ul class="float-right">
-							<li class="compare-career-print"><span title="Print Results" class="icon icon-print"></span></li>
-							<li class="compare-career-email"><span title="Email Results" class="icon icon-message"></span></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				{% if (content.an_additional_field['#quiz_error']['nextlink']) %}
-					<div class="row">
-						<div class="col-md-12">
-							Some of this Quiz's questions haven't been answered yet. Please <a href="{{ content.an_additional_field['#quiz_error']['nextlink'] }}" > Click here </a> to answer the remaining questions.
-						</div>
-					</div>
-				{% else %}
-				<div id="myResult" data-ride="carousel" class="carousel slide">
-					{# <ol class="carousel-indicators">
-						{% for item in content.an_additional_field['#quiz_result'] %}
-							{% set classes1 =  (loop.index == 1) ? 'active' %}
-							{% if loop.index == 4%}
-							<div class="extradots">
-							{% endif %}
-								<li class="{{classes1}}" data-target="#myResult" data-slide-to="{{ loop.index - 1}}" ></li>
-					  	{% endfor %}
-							</div>
-					</ol> #}
-					<div class="carousel-inner carousel-inner-device">
-						<div class="row important">
-              <div class="col-12 extradivs1 hide1" >
-                <div class="row">
-                  {% for item in content.an_additional_field['#quiz_result'] %}
-                  {% set classes = 'col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-print-item itm item_'~loop.index %}
-                  <div class="{{classes}}">
-                    <div class="quiz-list">
-                      <div class="item img-field">
-                        <img src="{{ file_url(item.icon) }}" />
-                      </div>
-                      <div class="item title-field" style="color:{{ item.color|raw }}">
-                        {{ item.name }}
-                      </div>
-                      <div class="item title-description">
-                        <div class="important"><strong>Important Values:</strong></div>
-                          <ul>
-                          {% for key, questions in item.option %}
-                            {% if key == 2 %}
-                              {% for list in questions.values %}
-                                <li><span>{{ list }}</span></li>
-                              {% endfor %}
-                            {% endif %}
-                          {% endfor %}
-                          </ul>
-                      </div>
-                    </div>
-                  </div>
-                {% endfor %}
-                </div>
-              </div>
-              <div class="col-12 extradivs1 extradivs2 hide1" >
-                <div class="row">
-                {% for item in content.an_additional_field['#quiz_result'] %}
-                  {% set classes = 'col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 itm hide1 item_'~loop.index %}
-                  <div class="{{classes}}">
-                    <div class="quiz-list">
-                      <div class="item img-field">
-                        <img src="{{ file_url(item.icon) }}" />
-                      </div>
-                      <div class="item title-field" style="color:{{ item.color|raw }}">
-                        {{ item.name }}
-                      </div>
-                      <div class="item title-description">
-                        <div class="important"><strong>Somewhat Important Values:</strong></div>
-                          <ul>
-                          {% for key, questions in item.option %}
-                            {% if key == 1 %}
-                              {% for list in questions.values %}
-                                <li><span>{{ list }}</span></li>
-                              {% endfor %}
-                            {% endif %}
-                          {% endfor %}
-                          </ul>
-                      </div>
-                    </div>
-                  </div>
-                {% endfor %}
-                </div>
-              </div>
+<div class="row">
+   <div class="col-md-12">
+      {{ title_prefix }}
+      {% if label and not page %}
+      <h2{{ title_attributes }}>
+      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+      </h2>
+      {% endif %}
+      {{ title_suffix }}
+      {% if display_submitted %}
+      <footer class="node__meta">
+         {{ author_picture }}
+         <div {{ author_attributes.addClass('node__submitted') }}>
+         {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
+         {{ metadata }}
+   </div>
+   </footer>
+   {% endif %}
+   <div {{ content_attributes.addClass('node__content') }}>
+   <div class="myResultHeading" >
+      <div class="row rh">
+         {% if node.bundle != 'multiple_intelligences_quiz' %}
+         <div class="col-8">
+            <div class="result-heading">
+               <h2 class="vaa">{{ subheading }}</h2>
+               <h2 class="vaa1" style="display:none;">{{ subheading_toggle }}</h2>
             </div>
-
-            <div class="hideshow">
-              <span class="vaa">{{ toggle_plus }}</span>
-              <span class="vaa1" style="display:none">{{ toggle_minus }}</span> &nbsp; 
-              <svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" width="10px" height="15px" style="margin-top:-2px">
-                <g transform="matrix(1 0 0 1 -906 -856 )">
-                  <path d="M 10 7.5  C 10 7.66129032258065  9.93886743886744 7.80086848635236  9.81660231660232 7.91873449131514  L 2.65444015444015 14.8232009925558  C 2.53217503217503 14.9410669975186  2.38738738738739 15  2.22007722007722 15  C 2.05276705276705 15  1.90797940797941 14.9410669975186  1.78571428571429 14.8232009925558  L 0.183397683397683 13.2785359801489  C 0.0611325611325612 13.1606699751861  0 13.0210918114144  0 12.8598014888337  C 0 12.6985111662531  0.0611325611325612 12.5589330024814  0.183397683397683 12.4410669975186  L 5.30888030888031 7.5  L 0.183397683397683 2.55893300248139  C 0.0611325611325612 2.44106699751861  0 2.3014888337469  0 2.14019851116625  C 0 1.97890818858561  0.0611325611325612 1.83933002481389  0.183397683397683 1.72146401985112  L 1.78571428571429 0.176799007444168  C 1.90797940797941 0.0589330024813889  2.05276705276705 0  2.22007722007722 0  C 2.38738738738739 0  2.53217503217503 0.0589330024813889  2.65444015444015 0.176799007444168  L 9.81660231660232 7.08126550868486  C 9.93886743886744 7.19913151364764  10 7.33870967741936  10 7.5  Z " fill-rule="nonzero" fill="#880364" stroke="none" transform="matrix(1 0 0 1 906 856 )"/>
-                </g>
-              </svg>
+         </div>
+         {% else %}
+         <div class="col-8">
+            <div class="result-heading">
+               <h2 class="vaa">{{ subheading }}</h2>
             </div>
-
-          </div>
-
-          <div class="carousel-mobi-tabs">
-            <a href="javascript:;" class="carousel-mobi-tabs-trigger"><span class="text vaa">{{ subheading }}</span> <span class="vaa1" style="display:none">{{ subheading_toggle }} </span><svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="24" height="24" viewBox="0 0 64.000000 64.000000"><g transform="translate(0.000000,64.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none"><path d="M10 485 c-7 -8 -10 -25 -7 -37 10 -36 289 -308 317 -308 28 0 307 272 317 308 3 12 0 29 -7 37 -27 32 -54 16 -182 -112 l-128 -128 -128 128 c-128 128 -155 144 -182 112z"/></g></svg></a>
+         </div>
+         {% endif %}
+         <div class="col-12 col-md-4">
+            <div class="career-top-right">
+               <ul class="float-right">
+                  <li class="quiz-node-print"><span title="Print Results" class="icon icon-print"></span></li>
+                  <li class="quiz-node-email"><a href="mailto:?subject=Quiz results from WorkBC.ca&body=Your Work Values Quiz results have been shared with you.%0D%0AReview your results: {{ mailUrl }}.%0D%0ALooking to discover more ? Finish our other career and personality quizzes to learn more about your preferences and discover careers that suites you."><span title="Email Results" class="icon icon-message"></span></a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      {% if (content.an_additional_field['#quiz_error']['nextlink']) %}
+      <div class="row">
+         <div class="col-md-12">
+            Some of this Quiz's questions haven't been answered yet. Please <a href="{{ content.an_additional_field['#quiz_error']['nextlink'] }}" > Click here </a> to answer the remaining questions.
+         </div>
+      </div>
+      {% else %}
+      <div id="myResult" data-ride="carousel" class="carousel slide">
+         {#
+         <ol class="carousel-indicators">
+            {% for item in content.an_additional_field['#quiz_result'] %}
+            {% set classes1 =  (loop.index == 1) ? 'active' %}
+            {% if loop.index == 4%}
+            <div class="extradots">
+               {% endif %}
+               <li class="{{classes1}}" data-target="#myResult" data-slide-to="{{ loop.index - 1}}" ></li>
+               {% endfor %}
+            </div>
+         </ol>
+         #}
+         <div class="carousel-inner carousel-inner-device work-value-quiz-carousel">
+            <div class="row important">
+               <div class="col-12 extradivs1 hide1" >
+                  <div class="row">
+                     {% for item in content.an_additional_field['#quiz_result'] %}
+                     {% set classes = 'col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-print-item itm item_'~loop.index %}
+                     <div class="{{classes}}">
+                        <div class="quiz-list">
+                           <div class="item img-field">
+                              <img src="{{ file_url(item.icon) }}" />
+                           </div>
+                           <div class="item title-field" style="color:{{ item.color|raw }}">
+                              {{ item.name }}
+                           </div>
+                           <div class="item title-description">
+                              <div class="important"><strong>Important Values:</strong></div>
+                              <ul>
+                                 {% for key, questions in item.option %}
+                                 {% if key == 2 %}
+                                 {% for list in questions.values %}
+                                 <li><span>{{ list }}</span></li>
+                                 {% endfor %}
+                                 {% endif %}
+                                 {% endfor %}
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+                     {% endfor %}
+                  </div>
+               </div>
+               <div class="col-12 extradivs1 extradivs2 hide1" >
+                  <div class="row">
+                     {% for item in content.an_additional_field['#quiz_result'] %}
+                     {% set classes = 'col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 itm hide1 item_'~loop.index %}
+                     <div class="{{classes}}">
+                        <div class="quiz-list">
+                           <div class="item img-field">
+                              <img src="{{ file_url(item.icon) }}" />
+                           </div>
+                           <div class="item title-field" style="color:{{ item.color|raw }}">
+                              {{ item.name }}
+                           </div>
+                           <div class="item title-description">
+                              <div class="important"><strong>Somewhat Important Values:</strong></div>
+                              <ul>
+                                 {% for key, questions in item.option %}
+                                 {% if key == 1 %}
+                                 {% for list in questions.values %}
+                                 <li><span>{{ list }}</span></li>
+                                 {% endfor %}
+                                 {% endif %}
+                                 {% endfor %}
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+                     {% endfor %}
+                  </div>
+               </div>
+            </div>
+            <div class="hideshow-workbc">
+               <span class="vaa slick-next-workbc">{{ toggle_plus }}</span>
+               <span class="vaa1 slick-next-workbc">{{ toggle_minus }}</span> &nbsp;
+               <svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" width="10px" height="15px" style="margin-top:-2px">
+                  <g transform="matrix(1 0 0 1 -906 -856 )">
+                     <path d="M 10 7.5  C 10 7.66129032258065  9.93886743886744 7.80086848635236  9.81660231660232 7.91873449131514  L 2.65444015444015 14.8232009925558  C 2.53217503217503 14.9410669975186  2.38738738738739 15  2.22007722007722 15  C 2.05276705276705 15  1.90797940797941 14.9410669975186  1.78571428571429 14.8232009925558  L 0.183397683397683 13.2785359801489  C 0.0611325611325612 13.1606699751861  0 13.0210918114144  0 12.8598014888337  C 0 12.6985111662531  0.0611325611325612 12.5589330024814  0.183397683397683 12.4410669975186  L 5.30888030888031 7.5  L 0.183397683397683 2.55893300248139  C 0.0611325611325612 2.44106699751861  0 2.3014888337469  0 2.14019851116625  C 0 1.97890818858561  0.0611325611325612 1.83933002481389  0.183397683397683 1.72146401985112  L 1.78571428571429 0.176799007444168  C 1.90797940797941 0.0589330024813889  2.05276705276705 0  2.22007722007722 0  C 2.38738738738739 0  2.53217503217503 0.0589330024813889  2.65444015444015 0.176799007444168  L 9.81660231660232 7.08126550868486  C 9.93886743886744 7.19913151364764  10 7.33870967741936  10 7.5  Z " fill-rule="nonzero" fill="#880364" stroke="none" transform="matrix(1 0 0 1 906 856 )"/>
+                  </g>
+               </svg>
+            </div>
+         </div>
+         <div class="carousel-mobi-tabs">
+            <a href="javascript:;" class="carousel-mobi-tabs-trigger">
+               <span class="text vaa">{{ subheading }}</span> <span class="vaa1" style="display:none">{{ subheading_toggle }} </span>
+               <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="24" height="24" viewBox="0 0 64.000000 64.000000">
+                  <g transform="translate(0.000000,64.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+                     <path d="M10 485 c-7 -8 -10 -25 -7 -37 10 -36 289 -308 317 -308 28 0 307 272 317 308 3 12 0 29 -7 37 -27 32 -54 16 -182 -112 l-128 -128 -128 128 c-128 128 -155 144 -182 112z"/>
+                  </g>
+               </svg>
+            </a>
             <ul class="carousel-mobi-tab-items-wrapper">
-              <a href="javascript:;" class="carousel-mobi-tab-close"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="14.6px" height="14.6px" viewBox="0 0 14.6 14.6" style="overflow:visible;enable-background:new 0 0 14.6 14.6;" xml:space="preserve"><style type="text/css">.st0{fill-rule:evenodd;clip-rule:evenodd;fill:#333333;}</style><defs></defs><path class="st0" d="M0.3,12.9c-0.4,0.4-0.4,1,0,1.4c0.4,0.4,1,0.4,1.4,0l5.6-5.6l5.6,5.6c0.4,0.4,1,0.4,1.4,0c0.4-0.4,0.4-1,0-1.4  L8.7,7.3l5.6-5.6c0.4-0.4,0.4-1,0-1.4c-0.4-0.4-1-0.4-1.4,0L7.3,5.9L1.7,0.3c-0.4-0.4-1-0.4-1.4,0c-0.4,0.4-0.4,1,0,1.4l5.6,5.6  L0.3,12.9z"/></svg></a>
-              <li><a href="javascript:;" class="carousel-mobi-tab-item active" data-href="topcarousel" data-text="{{ subheading }}">{{ toggle_minus }}</a></li>
-              <li><a href="javascript:;" class="carousel-mobi-tab-item" data-href="bottomcarousel" data-text="{{ subheading_toggle }}">{{ toggle_plus }}</a></li>
+               <a href="javascript:;" class="carousel-mobi-tab-close">
+                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="14.6px" height="14.6px" viewBox="0 0 14.6 14.6" style="overflow:visible;enable-background:new 0 0 14.6 14.6;" xml:space="preserve">
+                     <style type="text/css">.st0{fill-rule:evenodd;clip-rule:evenodd;fill:#333333;}</style>
+                     <defs></defs>
+                     <path class="st0" d="M0.3,12.9c-0.4,0.4-0.4,1,0,1.4c0.4,0.4,1,0.4,1.4,0l5.6-5.6l5.6,5.6c0.4,0.4,1,0.4,1.4,0c0.4-0.4,0.4-1,0-1.4  L8.7,7.3l5.6-5.6c0.4-0.4,0.4-1,0-1.4c-0.4-0.4-1-0.4-1.4,0L7.3,5.9L1.7,0.3c-0.4-0.4-1-0.4-1.4,0c-0.4,0.4-0.4,1,0,1.4l5.6,5.6  L0.3,12.9z"/>
+                  </svg>
+               </a>
+               <li><a href="javascript:;" class="carousel-mobi-tab-item active" data-href="topcarousel" data-text="{{ subheading }}">{{ toggle_minus }}</a></li>
+               <li><a href="javascript:;" class="carousel-mobi-tab-item" data-href="bottomcarousel" data-text="{{ subheading_toggle }}">{{ toggle_plus }}</a></li>
             </ul>
-          </div>
-
-				<div class="carousel-inner carousel-inner-mobi active" data-id="topcarousel">
-					<div class="row carousel-slider-mobi-row">
-					{% for item in content.an_additional_field['#quiz_result'] %}
-            <div class="col-12 itm mobi-itm item_{{loop.index}}">
-							<div class="quiz-list">
-								<div class="item img-field">
-									<img src="{{ file_url(item.icon) }}" />
-								</div>
-								<div class="item title-field" style="color:{{ item.color|raw }}">
-									{{ item.name }}
-								</div>
-								<div class="item title-description">
-									<div class="important"><strong>Important Values:</strong></div>
-                  <ul>
-                  {% for key, questions in item.option %}
-                    {% if key == 2 %}
-                      {% for list in questions.values %}
-                        <li><span>{{ list }}</span></li>
-                      {% endfor %}
-                    {% endif %}
-                  {% endfor %}
-                  </ul>
-								</div>
-							</div>
-						</div>
-					{% endfor %}
-					</div>
-				</div>
-				<div class="carousel-inner carousel-inner-mobi" data-id="bottomcarousel">
-					<div class="row carousel-slider-mobi-row">
-					{% for item in content.an_additional_field['#quiz_result'] %}
-          <div class="col-12 itm mobi-itm item_{{loop.index}}">
-							<div class="quiz-list">
-								<div class="item img-field">
-									<img src="{{ file_url(item.icon) }}" />
-								</div>
-								<div class="item title-field" style="color:{{ item.color|raw }}">
-									{{ item.name }}
-								</div>
-								<div class="item title-description">
-									<div class="important"><strong>Somewhat Important Values:</strong></div>
-                  <ul>
-                  {% for key, questions in item.option %}
-                    {% if key == 1 %}
-                      {% for list in questions.values %}
-                        <li><span>{{ list }}</span></li>
-                      {% endfor %}
-                    {% endif %}
-                  {% endfor %}
-                  </ul>
-								</div>
-							</div>
-						</div>
-					{% endfor %}
-					</div>
-				</div>
-				<div class="career-result">
-				  {{ drupal_view('career_matches', 'block_1') }}
-				</div>
-				<div class="bottom-links">
-					<div class="links-inner">
-						{% for item in content.an_additional_field['#result_link'] %}
-							<div class="link link_{{loop.index}}">
-								<a class="btn{%if loop.index == 2 %} btn-prim {% endif %}"href="{{item.uri}}">
-									{{item.title}}
-								</a>
-							</div>
-						{% endfor%}
-					</div>
-				</div>
-			</div>
-			{% endif %}
-			</div>
-		</div>
-	</div>
+         </div>
+         <div class="carousel-inner carousel-inner-mobi active" data-id="topcarousel">
+            <div class="row carousel-slider-mobi-row">
+               {% for item in content.an_additional_field['#quiz_result'] %}
+               <div class="col-12 itm mobi-itm item_{{loop.index}}">
+                  <div class="quiz-list">
+                     <div class="item img-field">
+                        <img src="{{ file_url(item.icon) }}" />
+                     </div>
+                     <div class="item title-field" style="color:{{ item.color|raw }}">
+                        {{ item.name }}
+                     </div>
+                     <div class="item title-description">
+                        <div class="important"><strong>Important Values:</strong></div>
+                        <ul>
+                           {% for key, questions in item.option %}
+                           {% if key == 2 %}
+                           {% for list in questions.values %}
+                           <li><span>{{ list }}</span></li>
+                           {% endfor %}
+                           {% endif %}
+                           {% endfor %}
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+               {% endfor %}
+            </div>
+         </div>
+         <div class="carousel-inner carousel-inner-mobi" data-id="bottomcarousel">
+            <div class="row carousel-slider-mobi-row">
+               {% for item in content.an_additional_field['#quiz_result'] %}
+               <div class="col-12 itm mobi-itm item_{{loop.index}}">
+                  <div class="quiz-list">
+                     <div class="item img-field">
+                        <img src="{{ file_url(item.icon) }}" />
+                     </div>
+                     <div class="item title-field" style="color:{{ item.color|raw }}">
+                        {{ item.name }}
+                     </div>
+                     <div class="item title-description">
+                        <div class="important"><strong>Somewhat Important Values:</strong></div>
+                        <ul>
+                           {% for key, questions in item.option %}
+                           {% if key == 1 %}
+                           {% for list in questions.values %}
+                           <li><span>{{ list }}</span></li>
+                           {% endfor %}
+                           {% endif %}
+                           {% endfor %}
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+               {% endfor %}
+            </div>
+         </div>
+         <div class="career-result">
+            {{ drupal_view('career_matches', 'block_1') }}
+         </div>
+         <div class="bottom-links">
+            <div class="links-inner">
+               {% for item in content.an_additional_field['#result_link'] %}
+               <div class="link link_{{loop.index}}">
+                  <a class="btn{%if loop.index == 2 %} btn-prim {% endif %}"href="{{item.uri}}">
+                  {{item.title}}
+                  </a>
+               </div>
+               {% endfor%}
+            </div>
+         </div>
+      </div>
+      {% endif %}
+   </div>
+</div>
+</div>
 </article>
-
 <div class="compare-popup-wrapper">
-	<div class="compare-popup-content">
-		<a href="javascript:;" class="compare-popup-close"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="49.67px" height="49.67px" viewBox="0 0 49.67 49.67" style="overflow:visible;enable-background:new 0 0 49.67 49.67;" xml:space="preserve"><style type="text/css">.st0{fill:#333333;}</style><defs></defs><path class="st0" d="M48.84,46.05L27.67,24.84L48.84,3.63c0.9-0.64,1.11-1.89,0.46-2.79s-1.89-1.11-2.79-0.46
-	c-0.18,0.13-0.34,0.29-0.46,0.46L24.84,22.01L3.63,0.84C2.73,0.2,1.48,0.4,0.84,1.3c-0.5,0.7-0.5,1.63,0,2.33l21.17,21.21
-	L0.84,46.05c-0.9,0.64-1.11,1.89-0.46,2.79c0.64,0.9,1.89,1.11,2.79,0.46c0.18-0.13,0.34-0.29,0.46-0.46l21.21-21.17l21.21,21.17
-	c0.64,0.9,1.89,1.11,2.79,0.46s1.11-1.89,0.46-2.79C49.17,46.33,49.02,46.18,48.84,46.05z"/></svg></a>
-		<p class="title">
-			You have reached the maximum number of careers you are able to add to the compare feature.
-		</p>
-		<p class="content">
-			Please deselect one of your selected careers to add this career.
-		</p>
-		<a href="javascript:;" class="close-compare-popup cta">Close</a>
-	</div>
+   <div class="compare-popup-content">
+      <a href="javascript:;" class="compare-popup-close">
+         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="49.67px" height="49.67px" viewBox="0 0 49.67 49.67" style="overflow:visible;enable-background:new 0 0 49.67 49.67;" xml:space="preserve">
+            <style type="text/css">.st0{fill:#333333;}</style>
+            <defs></defs>
+            <path class="st0" d="M48.84,46.05L27.67,24.84L48.84,3.63c0.9-0.64,1.11-1.89,0.46-2.79s-1.89-1.11-2.79-0.46
+               c-0.18,0.13-0.34,0.29-0.46,0.46L24.84,22.01L3.63,0.84C2.73,0.2,1.48,0.4,0.84,1.3c-0.5,0.7-0.5,1.63,0,2.33l21.17,21.21
+               L0.84,46.05c-0.9,0.64-1.11,1.89-0.46,2.79c0.64,0.9,1.89,1.11,2.79,0.46c0.18-0.13,0.34-0.29,0.46-0.46l21.21-21.17l21.21,21.17
+               c0.64,0.9,1.89,1.11,2.79,0.46s1.11-1.89,0.46-2.79C49.17,46.33,49.02,46.18,48.84,46.05z"/>
+         </svg>
+      </a>
+      <p class="title">
+         You have reached the maximum number of careers you are able to add to the compare feature.
+      </p>
+      <p class="content">
+         Please deselect one of your selected careers to add this career.
+      </p>
+      <a href="javascript:;" class="close-compare-popup cta">Close</a>
+   </div>
 </div>

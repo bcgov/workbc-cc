@@ -1,0 +1,8 @@
+uuid: dbdb4ba3-46da-4def-953f-9982563842ec
+langcode: en
+status: true
+dependencies: {  }
+name: 'Work Preferences Categories'
+vid: work_preferences_categories
+description: ''
+weight: 0
