@@ -241,7 +241,7 @@ view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
                <li><a href="javascript:;" class="carousel-mobi-tab-item" data-href="bottomcarousel" data-text="{{ subheading_toggle }}">{{ toggle_plus }}</a></li>
             </ul>
          </div>
-         <div class="carousel-inner carousel-inner-mobi active" data-id="topcarousel">
+         <div class="carousel-inner carousel-inner-mobi work-value-quiz-mobi-carousel active" data-id="topcarousel">
             <div class="row carousel-slider-mobi-row">
                {% for item in content.an_additional_field['#quiz_result'] %}
                <div class="col-12 itm mobi-itm item_{{loop.index}}">
@@ -269,7 +269,7 @@ view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
                {% endfor %}
             </div>
          </div>
-         <div class="carousel-inner carousel-inner-mobi" data-id="bottomcarousel">
+         <div class="carousel-inner carousel-inner-mobi work-value-quiz-mobi-carousel" data-id="bottomcarousel">
             <div class="row carousel-slider-mobi-row">
                {% for item in content.an_additional_field['#quiz_result'] %}
                <div class="col-12 itm mobi-itm item_{{loop.index}}">
