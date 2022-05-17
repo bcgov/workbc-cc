@@ -518,6 +518,27 @@
             }
         }
     }
+    .work-value-quiz-carousel{
+        .itm{
+            .quiz-list {
+                max-width: 464px;
+            }
+            &:nth-child(odd){
+                .quiz-list {
+                    margin: 0 0 auto auto;
+                }
+            }
+            &:nth-child(even){
+                .quiz-list {
+                    margin: auto auto 0 0;
+                }
+            }
+        }
+        .hideshow-workbc{
+            max-width: 950px;
+            margin: 0 auto;
+        }
+    }
     .quiz-list {
         min-height: 365px;
         border: 2px solid rgb(238, 238, 238);
