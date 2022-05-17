@@ -624,7 +624,13 @@
         justify-content: flex-end;
         align-items: center;
         > span{
+            font-family: 'BCSans';
+            font-weight: 700;
+            font-style: normal;
+            font-size: 14px;
             color: #880364;
+            text-align: right;
+            line-height: 30px;
             cursor: pointer;
         }
         > svg{
