@@ -271,7 +271,7 @@
             } else {
                 var category = 'personality';
             }
-            console.log('error');
+
             var path = window.location.pathname.split('/');
             count++;
             var current_step = path[3].slice(path[3].length - 1);
