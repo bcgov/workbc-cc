@@ -335,7 +335,9 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    * @throws \Drupal\Core\Entity\EntityMalformedException
    */
-  public function compare($_entity_comparison_id, $node_id) {
+  public function compare($_entity_comparison_id, $node_id, Request $request) {
+    $parameters = $request->query->all();
+
     // Load the related entity comparison.
     $entity_comparison = $this->getEntityComparisonEntity($_entity_comparison_id);
     $entity_comparison_id = $entity_comparison->id();
@@ -381,11 +383,13 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
 
     $entities = [];
     $comparison_fields = [];
+    $entity_ids = isset($parameters['nids']) ? $parameters['nids'] :
+      (isset($entity_comparison_list[$entity_type][$bundle_type][$entity_comparison_id]) ? $entity_comparison_list[$entity_type][$bundle_type][$entity_comparison_id] : '');
 
-    if (isset($entity_comparison_list[$entity_type][$bundle_type][$entity_comparison_id])) {
+    if ($entity_ids) {
 
       // Go through entities.
-      foreach ($entity_comparison_list[$entity_type][$bundle_type][$entity_comparison_id] as $entity_id) {
+      foreach ($entity_ids as $entity_id) {
         // Get entity.
         $entity = $this->entityTypeManager->getStorage($entity_type)->load($entity_id);
         if ($entity) {
@@ -435,8 +439,8 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
               }
             }
           }
-          $node_title = ['title' => $entity->label()];
-          $raw[] = array_merge($node_title, $field_value);
+          $node_extra = ['title' => $entity->label(), 'nid' => $entity_id];
+          $raw[] = array_merge($node_extra, $field_value);
         }
       }
 
