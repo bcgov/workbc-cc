@@ -1,11 +1,13 @@
 resource "aws_efs_file_system" "workbc-cc" {
   creation_token                  = "workbc-cc-efs"
   encrypted                       = true
-#  kms_key_id                      = aws_kms_key.sample-drupal-kms-key.arn
-#  performance_mode                = "generalPurpose"
-#  throughput_mode                 = "bursting"
 
-  tags = var.common_tags
+  tags = merge(
+    {
+      Name = "workbc-cc-efs"
+    },
+    var.common_tags
+  )
 }
 
 resource "aws_efs_mount_target" "data_azA" {
