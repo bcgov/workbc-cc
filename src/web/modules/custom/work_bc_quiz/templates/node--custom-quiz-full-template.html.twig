@@ -79,7 +79,7 @@
     view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
   ]
 %}
-{% set mailUrl = ' ' %}
+{% set mailUrl = url('<current>') %}
 {{ attach_library('seven/classy.node') }}
 <article{{ attributes.addClass(classes) }}>
 	<div class="row">

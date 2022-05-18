@@ -6,6 +6,7 @@ global-styling:
     js/slick.min.js: {}
     js/magnific-popup.js: {}
     js/custom.js: {}
+    js/snowplow-tracker.js: {}
     //kit.fontawesome.com/761d09e00e.js: { type: external }
   dependencies:
     - core/jquery
