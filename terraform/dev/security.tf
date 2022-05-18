@@ -25,7 +25,7 @@ resource "aws_security_group" "ecs_tasks" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags = local.common_tags
+  tags = var.common_tags
 }
 
 
@@ -48,7 +48,7 @@ resource "aws_security_group" "rds_security_group" {
     security_groups = [aws_security_group.ecs_tasks.id]
   }
 
-  tags = local.common_tags
+  tags = var.common_tags
 }
 
 
@@ -73,5 +73,5 @@ resource "aws_security_group" "efs_security_group" {
     description     = "For enabling EFS access"
   }
 
-  tags = local.common_tags
+  tags = var.common_tags
 }
