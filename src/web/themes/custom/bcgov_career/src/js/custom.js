@@ -316,6 +316,8 @@
       $(".field--type-work-bc-quiz").each(function () {
         $(this).find("> .question-prefix").prependTo($(this).find(' > fieldset > legend'));
       });
+
+      $(".career-content-item-inner .image-video iframe").parent().addClass("video");
       
     },
   };
