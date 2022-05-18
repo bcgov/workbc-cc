@@ -26,6 +26,9 @@ settings:
     -
       value: work_values_quiz
       label: 'Work Values Quiz'
+    -
+      value: work_preferences_quiz
+      label: 'Work Preferences Quiz'
   allowed_values_function: ''
 module: options
 locked: false
