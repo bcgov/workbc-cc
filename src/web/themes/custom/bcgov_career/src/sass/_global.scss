@@ -210,6 +210,13 @@ ul{
     }
 }
 
+a:focus-visible{
+    outline: 2px dashed #d21c22;
+}
+input:focus-visible, .btn:focus-visible{
+    outline: 2px dashed #d21c22;
+}
+
 // CTA
 .cta-btn-blue{
     background: #234075;
@@ -226,6 +233,16 @@ ul{
         background: #002855;
         color: #fff;
         text-decoration: none;
+    }
+}
+
+.btn-primary{
+    border: 0;
+    &:focus{
+        border: 0;
+    }
+    &.focus{
+        border: 0;
     }
 }
 

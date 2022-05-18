@@ -107,6 +107,12 @@
 
     #myResult .carousel-inner.carousel-inner-device {
         display: block !important;
+        &.mbohide{
+            display: none !important;
+        }
+        @media all and (max-width: 767.98px){
+            display: none !important
+        }
         .extradivs.hide {
             display: none !important;
         }
@@ -362,6 +368,38 @@
             display: block !important;
             height: auto !important;
             overflow: inherit !important;
+        }
+    }
+
+    #myResult .carousel-inner.carousel-inner-mobi.work-value-quiz-mobi-carousel.active{
+        display: block !important;
+        &.deskhide{
+            display: none !important;
+        }
+        .hideshow-workbc{
+            display: none !important;
+        }
+        *{
+            display: block !important;
+            overflow: inherit !important;
+        }
+        .slick-slide{
+            float: left;
+            width: 100% !important;
+        }
+        .slick-track{
+            transform: none !important;
+        }
+        .mobi-itm{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            .quiz-list {
+                float: left;
+                width: 369px;
+                height: auto !important;
+                min-height: auto !important;
+            }
         }
     }
 }
