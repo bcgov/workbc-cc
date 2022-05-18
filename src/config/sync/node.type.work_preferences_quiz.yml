@@ -1,0 +1,17 @@
+uuid: 8398d39d-06af-4e43-af86-eb2be94f3bc2
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Work Preferences Quiz'
+type: work_preferences_quiz
+description: ''
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: false

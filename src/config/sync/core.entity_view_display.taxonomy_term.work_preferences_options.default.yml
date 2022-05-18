@@ -1,0 +1,33 @@
+uuid: defeefce-fb14-41ff-8039-9e814483bfdd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.work_preferences_options.field_option_percentage
+    - taxonomy.vocabulary.work_preferences_options
+  module:
+    - text
+id: taxonomy_term.work_preferences_options.default
+targetEntityType: taxonomy_term
+bundle: work_preferences_options
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_option_percentage:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

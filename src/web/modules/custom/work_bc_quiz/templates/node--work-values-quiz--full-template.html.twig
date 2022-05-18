@@ -82,6 +82,7 @@ not node.isPublished() ? 'node--unpublished',
 view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
 ]
 %}
+{% set mailUrl = ' ' %}
 {{ attach_library('seven/classy.node') }}
 <article{{ attributes.addClass(classes) }}>
 <div class="row">
@@ -122,8 +123,8 @@ view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
          <div class="col-12 col-md-4">
             <div class="career-top-right">
                <ul class="float-right">
-                  <li class="compare-career-print"><span title="Print Results" class="icon icon-print"></span></li>
-                  <li class="compare-career-email"><span title="Email Results" class="icon icon-message"></span></li>
+                  <li class="quiz-node-print"><span title="Print Results" class="icon icon-print"></span></li>
+                  <li class="quiz-node-email"><a href="mailto:?subject=Quiz results from WorkBC.ca&body=Your Work Values Quiz results have been shared with you.%0D%0AReview your results: {{ mailUrl }}.%0D%0ALooking to discover more ? Finish our other career and personality quizzes to learn more about your preferences and discover careers that suites you."><span title="Email Results" class="icon icon-message"></span></a></li>
                </ul>
             </div>
          </div>
@@ -136,7 +137,7 @@ view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
       </div>
       {% else %}
       <div id="myResult" data-ride="carousel" class="carousel slide">
-         {# 
+         {#
          <ol class="carousel-indicators">
             {% for item in content.an_additional_field['#quiz_result'] %}
             {% set classes1 =  (loop.index == 1) ? 'active' %}
@@ -211,7 +212,7 @@ view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
             </div>
             <div class="hideshow-workbc">
                <span class="vaa slick-next-workbc">{{ toggle_plus }}</span>
-               <span class="vaa1 slick-next-workbc">{{ toggle_minus }}</span> &nbsp; 
+               <span class="vaa1 slick-next-workbc">{{ toggle_minus }}</span> &nbsp;
                <svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" width="10px" height="15px" style="margin-top:-2px">
                   <g transform="matrix(1 0 0 1 -906 -856 )">
                      <path d="M 10 7.5  C 10 7.66129032258065  9.93886743886744 7.80086848635236  9.81660231660232 7.91873449131514  L 2.65444015444015 14.8232009925558  C 2.53217503217503 14.9410669975186  2.38738738738739 15  2.22007722007722 15  C 2.05276705276705 15  1.90797940797941 14.9410669975186  1.78571428571429 14.8232009925558  L 0.183397683397683 13.2785359801489  C 0.0611325611325612 13.1606699751861  0 13.0210918114144  0 12.8598014888337  C 0 12.6985111662531  0.0611325611325612 12.5589330024814  0.183397683397683 12.4410669975186  L 5.30888030888031 7.5  L 0.183397683397683 2.55893300248139  C 0.0611325611325612 2.44106699751861  0 2.3014888337469  0 2.14019851116625  C 0 1.97890818858561  0.0611325611325612 1.83933002481389  0.183397683397683 1.72146401985112  L 1.78571428571429 0.176799007444168  C 1.90797940797941 0.0589330024813889  2.05276705276705 0  2.22007722007722 0  C 2.38738738738739 0  2.53217503217503 0.0589330024813889  2.65444015444015 0.176799007444168  L 9.81660231660232 7.08126550868486  C 9.93886743886744 7.19913151364764  10 7.33870967741936  10 7.5  Z " fill-rule="nonzero" fill="#880364" stroke="none" transform="matrix(1 0 0 1 906 856 )"/>
