@@ -537,6 +537,10 @@
         .hideshow-workbc{
             max-width: 950px;
             margin: 0 auto;
+            text-decoration: none;
+            &:hover{
+                text-decoration: none;
+            }
         }
     }
     .quiz-list {
@@ -644,6 +648,7 @@
     }
 
     .work-value-quiz-carousel{
+        overflow: visible;
         .slick-dots{
             display: none;
         }

@@ -302,24 +302,23 @@
         }
       }
 
-      $(".compare-career-print > span, .quiz-node-print > span").on(
-        "click",
-        function () {
-          window.print();
-          // var w = window.open();
-          // var html = $(".path-quiz").html();
+      $(
+        ".compare-career-print > .print-window, .quiz-node-print > .print-window"
+      ).on("click", function () {
+        window.print();
+        // var w = window.open();
+        // var html = $(".path-quiz").html();
 
-          // $(w.document.body).html(html);
-          // w.print();
+        // $(w.document.body).html(html);
+        // w.print();
 
-          // var winPrint = window.open();
-          // winPrint.document.write($(".path-quiz").html());
-          // winPrint.document.close();
-          // winPrint.focus();
-          // winPrint.print();
-          // winPrint.close();
-        }
-      );
+        // var winPrint = window.open();
+        // winPrint.document.write($(".path-quiz").html());
+        // winPrint.document.close();
+        // winPrint.focus();
+        // winPrint.print();
+        // winPrint.close();
+      });
 
       $("#block-bcgov-career-content > form > div.form-wrapper").each(
         function () {

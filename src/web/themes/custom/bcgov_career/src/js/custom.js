@@ -276,7 +276,7 @@
         }
       }
 
-      $(".compare-career-print > span, .quiz-node-print > span").on("click", function(){
+      $(".compare-career-print > .print-window, .quiz-node-print > .print-window").on("click", function(){
         window.print();
         // var w = window.open();
         // var html = $(".path-quiz").html();
