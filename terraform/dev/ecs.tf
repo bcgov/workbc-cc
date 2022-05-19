@@ -42,7 +42,11 @@ resource "aws_ecs_task_definition" "app" {
 		command = ["cp -rf /code/. /app; ln -s /contents/public /app/web/sites/default/files; ln -s /contents/private /app/private"]
 		mountPoints = [
 			{
-				containerPath = "/app"
+				containerPath = "/contents",
+				sourceVolume = "files"
+			},
+			{
+				containerPath = "/app",
 				sourceVolume = "codes"
 			}
 		]
