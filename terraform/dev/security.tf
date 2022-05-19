@@ -5,7 +5,7 @@ data "aws_security_group" "web" {
   name = "Web_sg"
 }
 
-data "aws_security_group" "web" {
+data "aws_security_group" "app" {
   name = "App_sg"
 }
 
