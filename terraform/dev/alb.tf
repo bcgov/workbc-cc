@@ -14,7 +14,7 @@ data "aws_alb_listener" "front_end" {
 
 resource "aws_alb_target_group" "app" {
   name                 = "workbc-cc-target-group"
-  port                 = var.app_port
+  port                 = 80
   protocol             = "HTTPS"
   vpc_id               = module.network.aws_vpc.id
   target_type          = "ip"
