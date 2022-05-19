@@ -42,7 +42,7 @@ variable "app_image" {
 
 variable "app_port" {
   description = "Port exposed by the docker image to redirect traffic to"
-  default     = 80
+  default     = 443
 }
 
 variable "app_count" {
@@ -97,17 +97,17 @@ variable "common_tags" {
   }
 }
 
-#variable "service_names" {
-#  description = "List of service names to use as subdomains"
-#  default     = ["startup-sample-project", "ssp"]
-#  type        = list(string)
-#}
+variable "service_names" {
+  description = "List of service names to use as subdomains"
+  default     = ["startup-sample-project", "ssp", "workbc"]
+  type        = list(string)
+}
 
-#variable "alb_name" {
-#  description = "Name of the internal alb"
-#  default     = "default"
-#  type        = string
-#}
+variable "alb_name" {
+  description = "Name of the internal alb"
+  default     = "default"
+  type        = string
+}
 
 variable "cloudfront" {
   description = "enable or disable the cloudfront distrabution creation"
