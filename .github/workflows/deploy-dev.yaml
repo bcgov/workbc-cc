@@ -1,8 +1,11 @@
 name: Deploy Dev
 
 on:
-  push:
-    branches: [ main ]
+  workflow_run:
+    workflows:
+      - CI
+    types:
+      - completed
 
 env:
   IMAGE_ID: ${{ secrets.AWS_ECR_URI }}
@@ -33,6 +36,6 @@ jobs:
       - name: Terragrunt Apply
         working-directory: ${{ env.TG_SRC_PATH }}/${{ env.TFC_WORKSPACE }}
         env:
-          app_image: ${{ env.IMAGE_ID }}:latest
+          app_image: ${{ env.IMAGE_ID }}:${{ github.event.workflow_run.head_sha }}
           LICENSE_PLATE: ${{ secrets.MY_LICENSE_PLATE }}
         run: terragrunt run-all apply --terragrunt-non-interactive
