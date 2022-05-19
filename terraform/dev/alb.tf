@@ -21,11 +21,11 @@ resource "aws_alb_target_group" "app" {
   deregistration_delay = 30
 
   health_check {
-    healthy_threshold   = "2"
-    interval            = "5"
+    healthy_threshold   = "5"
+    interval            = "30"
     protocol            = "HTTPS"
     matcher             = "200"
-    timeout             = "3"
+    timeout             = "5"
     path                = var.health_check_path
     unhealthy_threshold = "2"
   }
