@@ -59,15 +59,15 @@ variable "health_check_path" {
   default = "/index.html"
 }
 
-#variable "fargate_cpu" {
-#  description = "Fargate instance CPU units to provision (1 vCPU = 1024 CPU units)"
-#  default     = 512
-#}
+variable "fargate_cpu" {
+  description = "Fargate instance CPU units to provision (1 vCPU = 1024 CPU units)"
+  default     = 2048
+}
 
-#variable "fargate_memory" {
-#  description = "Fargate instance memory to provision (in MiB)"
-#  default     = 1024
-#}
+variable "fargate_memory" {
+  description = "Fargate instance memory to provision (in MiB)"
+  default     = 4096
+}
 
 #variable "db_name" {
 #  description = "DynamoDB DB Name"
