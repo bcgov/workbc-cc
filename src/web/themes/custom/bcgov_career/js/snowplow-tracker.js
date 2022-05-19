@@ -52,23 +52,40 @@
         } 
 
         //compare career
-        var noc_group = {};
-        $('.top-career-content .top-btn a').click(function() {
+        
+        $('.top-career-content .top-btn a,.top-career-mobi-content .top-btn a').click(function() {
             count++;
+            var noc_group = {};
+            var compare_count = 1;
             var action = $(this).text().slice(0, -7).trim();
             $('.career-table-row').each(function(index) {
                index++;
-               var noc_id =  $(this).find('.remove-link').parents('.career-table-row').find('.career-table-link .noc').text();
-               noc_id = noc_id.replace('(','').replace(')','').trim();
-               noc_id = noc_id.split(' ')[1];
-               if(noc_id != '') {
-                noc_group["noc_"+index] = noc_id;
-               }else if(index <= 3){
-                noc_group["noc_"+index] = null;
+               if($(this).find('.remove-link').length > 0 && compare_count <= 3) {
+                    var noc_id =  $(this).find('.remove-link').parents('.career-table-row').find('.career-table-link .noc').text();
+                    noc_id = noc_id.replace('(','').replace(')','').trim();
+                    noc_id = noc_id.split(' ')[1];
+                    if(noc_id != undefined) {
+                        noc_group["noc_"+compare_count] = noc_id;
+                        compare_count++;
+                    }
                }
                
             });
-            console.log(action);
+
+            $('.careers-mobi-table-wrapper .tbody-main').each(function(index) {
+                index++;
+                if($(this).find('.remove-link').length > 0 && compare_count <= 3) {
+                     var noc_id =  $(this).find('.remove-link').parents('.tbody-main').find('.career-table-link .noc').text();
+                     noc_id = noc_id.replace('(','').replace(')','').trim();
+                     noc_id = noc_id.split(' ')[1];
+                     if(noc_id != undefined) {
+                         noc_group["noc_"+compare_count] = noc_id;
+                         compare_count++;
+                     }
+                }
+                
+             });
+            
             snowplow_tracker_compare(action, noc_group);
         });
 
@@ -167,7 +184,6 @@
             var sort_type = $(this).attr('href').split('#')[0].split('&')[0].split('=')[1];
             var text = $(this).attr('href').split('#')[0].split('&')[1].split('=')[1];
             var sort_text = sort_type+' - '+text;
-            console.log(sort_text);
             snowplow_tracker_sort(click_type, source, sort_text);
 
         })
