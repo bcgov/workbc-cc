@@ -29,6 +29,10 @@ resource "aws_alb_target_group" "app" {
     path                = var.health_check_path
     unhealthy_threshold = "2"
   }
+    
+  lifecycle {
+    create_before_destroy = true
+  }
 
   tags = var.common_tags
 }
@@ -47,5 +51,4 @@ resource "aws_lb_listener_rule" "host_based_weighted_routing" {
     }
   }
     
-    depends_on = [aws_alb_target_group.app]
 }
