@@ -46,7 +46,7 @@ resource "aws_ecs_task_definition" "app" {
 				sourceVolume = "files"
 			},
 			{
-				containerPath = "/app"
+				containerPath = "/app",
 				sourceVolume = "codes"
 			}
 		]
