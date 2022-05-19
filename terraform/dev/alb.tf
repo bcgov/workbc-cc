@@ -13,7 +13,7 @@ data "aws_alb_listener" "front_end" {
 }
 
 resource "aws_alb_target_group" "app" {
-  name                 = "workbc-cc-target-group"
+  name                 = "workbc-cc-target-group-${substr(uuid(), 0, 3)}"
   port                 = 80
   protocol             = "HTTPS"
   vpc_id               = module.network.aws_vpc.id
@@ -32,6 +32,7 @@ resource "aws_alb_target_group" "app" {
     
   lifecycle {
     create_before_destroy = true
+    ignore_changes        = [name]
   }
 
   tags = var.common_tags
