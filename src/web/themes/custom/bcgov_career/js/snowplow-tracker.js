@@ -11,7 +11,9 @@
            
             var quiz_type = $(this).parents(".quiz-list").find('.title-field h4').text();
             if(quiz_type == 'abilities' || quiz_type == 'Work Preferences' || quiz_type == 'Interests') {
-                var category = 'career quiz';
+                var category = 'Career';
+            } else {
+                var category = 'personality'
             }
             var step = 1;
             count++;
@@ -25,7 +27,7 @@
             var step = parseInt(current_step);
             quiz_type = path[2].split('-')[0];
             if(quiz_type == 'abilities' || quiz_type == 'Work Preferences' || quiz_type == 'Interests') {
-                var category = 'career quiz';
+                var category = 'Career';
             } else {
                 var category = 'personality';
             }
@@ -41,7 +43,7 @@
             $(this, context).once('num_'+count).each(function() {
                 window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/career_quiz_step/jsonschema/1-0-0",
                     "data": {
-                        "category": "Career",
+                        "category": category,
                         "quiz": quiz_type,
                         "step": step
                     }
@@ -50,23 +52,40 @@
         } 
 
         //compare career
-        var noc_group = {};
-        $('.top-career-content .top-btn a').click(function() {
+        
+        $('.top-career-content .top-btn a,.top-career-mobi-content .top-btn a').click(function() {
             count++;
+            var noc_group = {};
+            var compare_count = 1;
             var action = $(this).text().slice(0, -7).trim();
             $('.career-table-row').each(function(index) {
                index++;
-               var noc_id =  $(this).find('.remove-link').parents('.career-table-row').find('.career-table-link .noc').text();
-               noc_id = noc_id.replace('(','').replace(')','').trim();
-               noc_id = noc_id.split(' ')[1];
-               if(noc_id != '') {
-                noc_group["noc_"+index] = noc_id;
-               }else if(index <= 3){
-                noc_group["noc_"+index] = null;
+               if($(this).find('.remove-link').length > 0 && compare_count <= 3) {
+                    var noc_id =  $(this).find('.remove-link').parents('.career-table-row').find('.career-table-link .noc').text();
+                    noc_id = noc_id.replace('(','').replace(')','').trim();
+                    noc_id = noc_id.split(' ')[1];
+                    if(noc_id != undefined) {
+                        noc_group["noc_"+compare_count] = noc_id;
+                        compare_count++;
+                    }
                }
                
             });
-            console.log(action);
+
+            $('.careers-mobi-table-wrapper .tbody-main').each(function(index) {
+                index++;
+                if($(this).find('.remove-link').length > 0 && compare_count <= 3) {
+                     var noc_id =  $(this).find('.remove-link').parents('.tbody-main').find('.career-table-link .noc').text();
+                     noc_id = noc_id.replace('(','').replace(')','').trim();
+                     noc_id = noc_id.split(' ')[1];
+                     if(noc_id != undefined) {
+                         noc_group["noc_"+compare_count] = noc_id;
+                         compare_count++;
+                     }
+                }
+                
+             });
+            
             snowplow_tracker_compare(action, noc_group);
         });
 
@@ -165,7 +184,6 @@
             var sort_type = $(this).attr('href').split('#')[0].split('&')[0].split('=')[1];
             var text = $(this).attr('href').split('#')[0].split('&')[1].split('=')[1];
             var sort_text = sort_type+' - '+text;
-            console.log(sort_text);
             snowplow_tracker_sort(click_type, source, sort_text);
 
         })
@@ -214,6 +232,8 @@
             var quiz_type = $('.page-title span').text().split(' ')[0];
             if(quiz_type == 'abilities' || quiz_type == 'Work Preferences' || quiz_type == 'Interests') {
                 var category = 'career';
+            } else {
+                var category = 'personality';
             }
             snowplow_tracker_results(category, quiz_type, appt);
         }
@@ -222,7 +242,7 @@
             $(this, context).once('num_'+count).each(function() {
                 window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/career_quiz_result/jsonschema/1-0-0",
                 "data": {
-                    "category": "Career",
+                    "category": category,
                     "quiz": quiz_type,
                     appt
                 }
@@ -233,8 +253,6 @@
         //Preview profile
         $('.career-table-row-link').click(function () {
             count++;
-
-            console.log('preview');
             var noc_id  = $(this).find('.noc').text();
             noc_id = noc_id.replace('(','').replace(')','').trim();
             noc_id = noc_id.split(' ')[1];
@@ -248,7 +266,6 @@
             }
             
             snowplow_preview_profile(click_type, source, noc_id);
-
         });
 
         function snowplow_preview_profile(click_type, source, text) {
@@ -271,9 +288,8 @@
             } else {
                 var category = 'personality';
             }
-            console.log('error');
+
             var path = window.location.pathname.split('/');
-            count++;
             var current_step = path[3].slice(path[3].length - 1);
             var step = parseInt(current_step);
             quiz_type = path[2].split('-')[0];
@@ -286,7 +302,7 @@
                 window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/career_quiz_error/jsonschema/1-0-0",
                     "data": {
                         "error_message": "Please answer all questions before proceeding.",
-                        "category": "Career",
+                        "category": category,
                         "quiz": "Abilities",
                         "step": step
                     }
