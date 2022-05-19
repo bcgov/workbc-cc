@@ -3,6 +3,14 @@
     attach(context, settings) {
       $(window).on("load resize", function () {
         const $window = $(this).width();
+        if ($window > 767.98) {
+          $(".work-value-quiz-carousel").removeClass("mbohide");
+          $(".work-value-quiz-mobi-carousel").addClass("deskhide");
+        }
+ else {
+          $(".work-value-quiz-carousel").addClass("mbohide");
+          $(".work-value-quiz-mobi-carousel").removeClass("deskhide");
+        }
       });
 
       $(".preview-quiz-form").parent().addClass("preview-block-wrapper");
@@ -294,24 +302,23 @@
         }
       }
 
-      $(".compare-career-print > span, .quiz-node-print > span").on(
-        "click",
-        function () {
-          window.print();
-          // var w = window.open();
-          // var html = $(".path-quiz").html();
+      $(
+        ".compare-career-print > .print-window, .quiz-node-print > .print-window"
+      ).on("click", function () {
+        window.print();
+        // var w = window.open();
+        // var html = $(".path-quiz").html();
 
-          // $(w.document.body).html(html);
-          // w.print();
+        // $(w.document.body).html(html);
+        // w.print();
 
-          // var winPrint = window.open();
-          // winPrint.document.write($(".path-quiz").html());
-          // winPrint.document.close();
-          // winPrint.focus();
-          // winPrint.print();
-          // winPrint.close();
-        }
-      );
+        // var winPrint = window.open();
+        // winPrint.document.write($(".path-quiz").html());
+        // winPrint.document.close();
+        // winPrint.focus();
+        // winPrint.print();
+        // winPrint.close();
+      });
 
       $("#block-bcgov-career-content > form > div.form-wrapper").each(
         function () {

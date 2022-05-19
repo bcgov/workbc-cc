@@ -3,6 +3,14 @@
     attach(context, settings) {
       $(window).on("load resize", function () {
         const $window = $(this).width();
+        if($window > 767.98){
+          $(".work-value-quiz-carousel").removeClass("mbohide");
+          $(".work-value-quiz-mobi-carousel").addClass("deskhide");
+        }
+        else{
+          $(".work-value-quiz-carousel").addClass("mbohide");
+          $(".work-value-quiz-mobi-carousel").removeClass("deskhide");
+        }
       });
 
       $(".preview-quiz-form").parent().addClass("preview-block-wrapper");
@@ -268,7 +276,7 @@
         }
       }
 
-      $(".compare-career-print > span, .quiz-node-print > span").on("click", function(){
+      $(".compare-career-print > .print-window, .quiz-node-print > .print-window").on("click", function(){
         window.print();
         // var w = window.open();
         // var html = $(".path-quiz").html();

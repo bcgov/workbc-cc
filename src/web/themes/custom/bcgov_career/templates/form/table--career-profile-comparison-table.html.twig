@@ -40,8 +40,6 @@
  */
 
 #}
-
-{% set mailUrl = ' ' %}
 <div class="compare-career-main-wrapper">
   <div class="container-fluid">
     <div class="row">
@@ -64,8 +62,8 @@
             <div class="col-3">
               <div class="career-top-right">
                 <ul class="float-right">
-                  <li class="compare-career-print"><span title="Print Results" class="icon icon-print"></span></li>
-                  <li class="compare-career-email"><a href="mailto:?subject=WorkBC's Career Discovery Quizzes - Compare Careers&body=View your compared careers: {{ mailUrl }}.%0D%0A%0D%0AWorkBC's Career Discovery Quizzes help you learn more about your preferences and discover careers that suit you."><span title="Email Results" class="icon icon-message"></span></a></li>
+                  <li class="compare-career-print"><a href="javascript:;" class="print-window"><span title="Print Results" class="icon icon-print"></span></a></li>
+                  <li class="compare-career-email"><a href="mailto:?subject=WorkBC's Career Discovery Quizzes - Compare Careers&body=View your compared careers: {{ compare_url }}.%0D%0A%0D%0AWorkBC's Career Discovery Quizzes help you learn more about your preferences and discover careers that suit you."><span title="Email Results" class="icon icon-message"></span></a></li>
                 </ul>
               </div>
             </div>
@@ -82,7 +80,7 @@
             {% for rowkey, row in rows %}
             <div class="career-content-item {% if rows|length > 2 %}col{% endif %} active">
               <div class="career-content-item-inner">
-                {% set noc_name = row.cells.field_noc_name.content ~ ' NOC' ~ '(' ~ row.cells.title.content ~ ')' %}
+                {% set noc_name = row.cells.field_noc_name.content ~ ' (NOC ' ~ row.cells.title.content ~ ')' %}
                 <div class="title" data-toggle="tip" title="{{ row.cells.field_noc_name.content }} (NOC {{ row.cells.title.content }})">
                   <p>{{ noc_name|length > 70 ? noc_name|slice(0, 70) ~ '...' : noc_name}}
                   </p>
