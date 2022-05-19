@@ -21,7 +21,7 @@ resource "aws_ecs_task_definition" "app" {
   requires_compatibilities = ["FARGATE"]
   cpu                      = var.fargate_cpu
   memory                   = var.fargate_memory
-  tags                     = local.common_tags
+  tags                     = var.common_tags
   volume {
     name = "files"
     efs_volume_configuration  {
