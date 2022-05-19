@@ -2,15 +2,15 @@
 
 # Use the default ALB that is pre-provisioned as part of the account creation
 # This ALB has all traffic on *.LICENSE-PLATE-ENV.nimbus.cloud.gob.bc.ca routed to it
-#data "aws_alb" "main" {
-#  name = var.alb_name
-#}
+data "aws_alb" "main" {
+  name = var.alb_name
+}
 
 # Redirect all traffic from the ALB to the target group
-#data "aws_alb_listener" "front_end" {
-#  load_balancer_arn = data.aws_alb.main.id
-#  port              = 443
-#}
+data "aws_alb_listener" "front_end" {
+  load_balancer_arn = data.aws_alb.main.id
+  port              = 443
+}
 
 resource "aws_alb_target_group" "app" {
   name                 = "workbc-cc-target-group"
@@ -30,20 +30,20 @@ resource "aws_alb_target_group" "app" {
     unhealthy_threshold = "2"
   }
 
-#  tags = local.common_tags
+  tags = var.common_tags
 }
 
-#resource "aws_lb_listener_rule" "host_based_weighted_routing" {
-#  listener_arn = data.aws_alb_listener.front_end.arn
-#
-#  action {
-#    type             = "forward"
-#    target_group_arn = aws_alb_target_group.app.arn
-#  }
+resource "aws_lb_listener_rule" "host_based_weighted_routing" {
+  listener_arn = data.aws_alb_listener.front_end.arn
 
-#  condition {
-#    host_header {
-#      values = [for sn in var.service_names : "${sn}.*"]
-#    }
-#  }
-#}
+  action {
+    type             = "forward"
+    target_group_arn = aws_alb_target_group.app.arn
+  }
+
+  condition {
+    host_header {
+      values = [for sn in var.service_names : "${sn}.*"]
+    }
+  }
+}

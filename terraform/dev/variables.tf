@@ -42,7 +42,7 @@ variable "app_image" {
 
 variable "app_port" {
   description = "Port exposed by the docker image to redirect traffic to"
-  default     = 80
+  default     = 443
 }
 
 variable "app_count" {
@@ -59,15 +59,15 @@ variable "health_check_path" {
   default = "/index.html"
 }
 
-#variable "fargate_cpu" {
-#  description = "Fargate instance CPU units to provision (1 vCPU = 1024 CPU units)"
-#  default     = 512
-#}
+variable "fargate_cpu" {
+  description = "Fargate instance CPU units to provision (1 vCPU = 1024 CPU units)"
+  default     = 2048
+}
 
-#variable "fargate_memory" {
-#  description = "Fargate instance memory to provision (in MiB)"
-#  default     = 1024
-#}
+variable "fargate_memory" {
+  description = "Fargate instance memory to provision (in MiB)"
+  default     = 4096
+}
 
 #variable "db_name" {
 #  description = "DynamoDB DB Name"
@@ -97,17 +97,17 @@ variable "common_tags" {
   }
 }
 
-#variable "service_names" {
-#  description = "List of service names to use as subdomains"
-#  default     = ["startup-sample-project", "ssp"]
-#  type        = list(string)
-#}
+variable "service_names" {
+  description = "List of service names to use as subdomains"
+  default     = ["workbc-cc", "workbc"]
+  type        = list(string)
+}
 
-#variable "alb_name" {
-#  description = "Name of the internal alb"
-#  default     = "default"
-#  type        = string
-#}
+variable "alb_name" {
+  description = "Name of the internal alb"
+  default     = "default"
+  type        = string
+}
 
 variable "cloudfront" {
   description = "enable or disable the cloudfront distrabution creation"
