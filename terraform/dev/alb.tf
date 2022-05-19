@@ -33,17 +33,17 @@ resource "aws_alb_target_group" "app" {
   tags = var.common_tags
 }
 
-#resource "aws_lb_listener_rule" "host_based_weighted_routing" {
-#  listener_arn = data.aws_alb_listener.front_end.arn
-#
-#  action {
-#    type             = "forward"
-#    target_group_arn = aws_alb_target_group.app.arn
-#  }
+resource "aws_lb_listener_rule" "host_based_weighted_routing" {
+  listener_arn = data.aws_alb_listener.front_end.arn
 
-#  condition {
-#    host_header {
-#      values = [for sn in var.service_names : "${sn}.*"]
-#    }
-#  }
-#}
+  action {
+    type             = "forward"
+    target_group_arn = aws_alb_target_group.app.arn
+  }
+
+  condition {
+    host_header {
+      values = [for sn in var.service_names : "${sn}.*"]
+    }
+  }
+}
