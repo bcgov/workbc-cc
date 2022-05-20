@@ -160,9 +160,9 @@ resource "aws_iam_role_policy" "workbc_cc_container_ssm" {
   EOF  
 }
 
-resource "aws_iam_role_policy" "workbc_cc_container_kms" {
-  name   = "workbc_cc_container_kms"
-  role   = aws_iam_role.workbc_cc_container_role.id
+resource "aws_iam_role_policy" "ecs_task_execution_kms" {
+  name   = "ecs_task_execution_kms"
+  role   = aws_iam_role.ecs_task_execution_role.id
   policy = <<-EOF
   {
     "Version": "2012-10-17",
