@@ -756,7 +756,7 @@
         justify-content: center;
         align-items: center;
         position: relative;
-        bottom: 65px;
+        bottom: 50px;
         li {
             margin-right: 10px;
 
@@ -777,6 +777,15 @@
             }
         }
     }
+
+    .slick-track {
+        display: flex !important;
+    }
+
+    .slick-slide {
+        height: inherit !important;
+    }
+
     &.mobi_cari_quiz{
         display: none;
         @media all and (max-width: 991.98px) {
@@ -2621,6 +2630,7 @@ span.question-prefix {
             .tbody-main {
                 display: flex;
                 align-items: center;
+                border-top: 1px solid #dee2e6;
 
                 p {
                     padding: 20px;
@@ -2887,7 +2897,7 @@ span.question-prefix {
 
                     span {
                         display: inline-block;
-                        width: 50%;
+                        width: 100%;
                     }
 
                     .s-d {

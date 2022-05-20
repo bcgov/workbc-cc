@@ -117,7 +117,7 @@
                 <p class="data-item"><span class="f-d">Education Level</span><span class="s-d">{{ node.field_education_level.entity.name.value }}</span></p>
               {% endif %}
               {% if node.field_job_openings.value is not empty %}
-                <p class="data-item"><span class="f-d">Job Openings</br><span>{{ node.field_opening_from_to.value }}</span></span><span class="s-d">{{ node.field_job_openings.value }}</span></p>
+                <p class="data-item"><span class="f-d">Job Openings</br><span>{{ node.field_opening_from_to.value }}</span></span><span class="s-d">{{ node.field_job_openings.value|number_format(-4, ',') }}</span></p>
               {% endif %}
             </div>
             <div class="description">

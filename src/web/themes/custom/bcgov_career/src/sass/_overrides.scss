@@ -239,6 +239,14 @@
 // page quiz multi color override
 .path-quiz{
     &.quiz-color-dark-blue{
+        .careers-mobi-main-wrapper .careers-mobi-table-wrapper .tbody .tbody-main .compare-career-mobi input:checked ~ .checkmark {
+            border: 1px solid $quiz-dark-blue;
+
+            &:after {
+                border: solid $quiz-dark-blue;
+                border-width: 0 2px 2px 0;
+            }
+        }
         .main-bg .overlay-bg{
             background: $quiz-dark-blue;
         }
@@ -433,6 +441,14 @@
     }
 
     &.quiz-color-purple{
+        .careers-mobi-main-wrapper .careers-mobi-table-wrapper .tbody .tbody-main .compare-career-mobi input:checked ~ .checkmark {
+            border: 1px solid $quiz-purple;
+
+            &:after {
+                border: solid $quiz-purple;
+                border-width: 0 2px 2px 0;
+            }
+        }
         .main-bg .overlay-bg{
             background: $quiz-purple;
         }
@@ -626,6 +642,14 @@
     }
 
     &.quiz-color-blue{
+        .careers-mobi-main-wrapper .careers-mobi-table-wrapper .tbody .tbody-main .compare-career-mobi input:checked ~ .checkmark {
+            border: 1px solid $quiz-blue;
+
+            &:after {
+                border: solid $quiz-blue;
+                border-width: 0 2px 2px 0;
+            }
+        }
         .main-bg .overlay-bg{
             background: $quiz-blue;
         }
@@ -819,6 +843,14 @@
     }
 
     &.quiz-color-green{
+        .careers-mobi-main-wrapper .careers-mobi-table-wrapper .tbody .tbody-main .compare-career-mobi input:checked ~ .checkmark {
+            border: 1px solid $quiz-green;
+
+            &:after {
+                border: solid $quiz-green;
+                border-width: 0 2px 2px 0;
+            }
+        }
         .main-bg .overlay-bg{
             background: $quiz-green;
         }
@@ -975,7 +1007,7 @@
                     background: #e6eae9;
                 }
             }
-            .save-cancel.save-wrapper { 
+            .save-cancel.save-wrapper {
                 #edit-submit {
                     color: white;
                     background: $quiz-green;
@@ -985,8 +1017,8 @@
             .form-actions.form-actions>input[type=submit] {
                 background: unset;
                 color: $quiz-green;
-                border: 0px; 
-                margin:0; 
+                border: 0px;
+                margin:0;
                 padding: 11px 24px;
             }
             .form-actions{
@@ -1026,6 +1058,14 @@
     }
 
     &.quiz-color-light-blue{
+        .careers-mobi-main-wrapper .careers-mobi-table-wrapper .tbody .tbody-main .compare-career-mobi input:checked ~ .checkmark {
+            border: 1px solid $quiz-light-blue;
+
+            &:after {
+                border: solid $quiz-light-blue;
+                border-width: 0 2px 2px 0;
+            }
+        }
         .main-bg .overlay-bg{
             background: $quiz-light-blue;
         }
@@ -1220,6 +1260,14 @@
     }
 
     &.quiz-color-pink{
+        .careers-mobi-main-wrapper .careers-mobi-table-wrapper .tbody .tbody-main .compare-career-mobi input:checked ~ .checkmark {
+            border: 1px solid $quiz-pink;
+
+            &:after {
+                border: solid $quiz-pink;
+                border-width: 0 2px 2px 0;
+            }
+        }
         .main-bg .overlay-bg{
             background: $quiz-pink;
         }

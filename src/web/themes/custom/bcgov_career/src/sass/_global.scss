@@ -285,3 +285,7 @@ input:focus-visible, .btn:focus-visible{
         height: 22px;
     }
 }
+
+html {
+    scroll-behavior: smooth;
+}
