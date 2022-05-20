@@ -80,6 +80,7 @@ resource "aws_cloudfront_distribution" "workbc-cc" {
 
   viewer_certificate {
     acm_certificate_arn = "arn:aws:acm:us-east-1:873424993519:certificate/48c3c17b-3a7b-4fb1-bae6-8bc578582a8e"
+    ssl_support_method = "sni-only"
   }
 }
 
