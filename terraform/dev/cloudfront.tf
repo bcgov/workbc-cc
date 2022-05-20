@@ -60,6 +60,7 @@ resource "aws_cloudfront_distribution" "workbc-cc" {
     default_ttl            = 3600
     max_ttl                = 86400
 	
+    # SimpleCORS
     response_headers_policy_id = "60669652-455b-4ae9-85a4-c4c02393f86c"
   }
 
