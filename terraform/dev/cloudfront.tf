@@ -1,6 +1,6 @@
 # cloudfront.tf
 
-data "aws_cloudfront_managed_response_headers_policy" "simplecors" {
+data "aws_cloudfront_response_headers_policy" "simplecors" {
   name = "SimpleCORS"
 }
 
