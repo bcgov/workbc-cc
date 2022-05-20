@@ -1,8 +1,6 @@
 # cloudfront.tf
 
-/*data "aws_cloudfront_response_headers_policy" "simplecors" {
-  name = "SimpleCORS"
-}*/
+
 
 resource "random_integer" "cf_origin_id" {
   min = 1
