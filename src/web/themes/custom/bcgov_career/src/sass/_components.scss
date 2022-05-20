@@ -1622,8 +1622,7 @@ body.path-quiz {
     }
     > fieldset {
         width: 100%;
-        display: flex;
-        align-items: center;
+        display: inline-block;
         > legend{
             float: left;
             width: 40%;
@@ -1633,9 +1632,11 @@ body.path-quiz {
             font-size: 1.5rem;
             line-height: 2.1rem;
             color: #333333;
+            padding-top: 10px;
             @media all and (max-width: 1024.98px){
                 float: none;
                 width: 100%;
+                padding-top: 0;
             }
             > span.question-prefix{
                 position:absolute;

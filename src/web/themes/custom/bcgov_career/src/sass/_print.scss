@@ -226,7 +226,7 @@
         height: auto;
         border: 0;
     }
-    .career-content-main-wrapper .career-content-item .career-content-item-inner .image-video {
+    .career-content-main-wrapper .career-content-item .career-content-item-inner .image-video.video {
         display: none !important;
     }
     .compare-career-main-wrapper .career-content-compare .career-content-item .career-content-item-inner .bottom-btn {
@@ -361,14 +361,52 @@
 
     .carousel-inner.work-value-quiz-carousel{
         display: block !important;
+        overflow: visible;
         .hideshow-workbc{
             display: none !important;
         }
-        *{
+        .extradivs1{
+            width: auto !important;
             display: block !important;
-            height: auto !important;
-            overflow: inherit !important;
         }
+        .quiz-list{
+            margin: 0 !important;
+            display: block !important;
+        }
+        .slick-track{
+            width: auto !important;
+            transform: none !important;
+        }
+        .slick-slide:not(.slick-current){
+            display: none !important;
+            width: auto !important;
+        }
+        .quiz-list{
+            margin: 0 !important;
+        }
+        .slick-list{
+            height: 100% !important;
+            transform: none;
+        }
+        // .slick-initialized *{
+        //     width: auto !important;
+        // }
+        // .slick-list{
+        //     transform: none;
+        //     overflow: inherit;
+        //     height: auto;
+        //     .slick-track{
+        //         transform: none !important;
+        //     }
+        //     .slick-slide:not(.slick-active){
+        //         display: none !important;
+        //     }
+        // }
+        // *{
+        //     display: block !important;
+        //     height: auto !important;
+        //     overflow: inherit !important;
+        // }
     }
 
     #myResult .carousel-inner.carousel-inner-mobi.work-value-quiz-mobi-carousel.active{

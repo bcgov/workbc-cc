@@ -9,6 +9,10 @@ data "aws_security_group" "app" {
   name = "App_sg"
 }
 
+data "aws_security_group" "data" {
+  name = "Data_sg"
+}
+
 # Traffic to the ECS cluster should only come from the ALB
 resource "aws_security_group" "ecs_tasks" {
   name        = "workbc-cc-ecs-tasks-security-group"

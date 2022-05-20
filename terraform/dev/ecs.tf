@@ -23,13 +23,13 @@ resource "aws_ecs_task_definition" "app" {
   memory                   = var.fargate_memory
   tags                     = var.common_tags
   volume {
-    name = "files"
+    name = "contents"
     efs_volume_configuration  {
         file_system_id = aws_efs_file_system.workbc-cc.id
     }
   }
   volume {
-    name = "codes"
+    name = "app"
   }
 
   container_definitions = jsonencode([
@@ -43,11 +43,11 @@ resource "aws_ecs_task_definition" "app" {
 		mountPoints = [
 			{
 				containerPath = "/contents",
-				sourceVolume = "files"
+				sourceVolume = "contents"
 			},
 			{
 				containerPath = "/app",
-				sourceVolume = "codes"
+				sourceVolume = "app"
 			}
 		]
 		volumesFrom = []
@@ -115,11 +115,11 @@ resource "aws_ecs_task_definition" "app" {
 		mountPoints = [
 			{
 				containerPath = "/contents",
-				sourceVolume = "files"
+				sourceVolume = "contents"
 			},
 			{
 				containerPath = "/app",
-				sourceVolume = "codes"
+				sourceVolume = "app"
 			}
 		]
 		volumesFrom = []
@@ -134,7 +134,7 @@ resource "aws_ecs_task_definition" "app" {
 	{
 		essential   = true
 		name        = "nginx"
-		image       = "266795317183.dkr.ecr.ca-central-1.amazonaws.com/nginx:1.0"
+		image       = "266795317183.dkr.ecr.ca-central-1.amazonaws.com/nginx:1.5"
 		networkMode = "awsvpc"
 		
 		logConfiguration = {
@@ -158,11 +158,11 @@ resource "aws_ecs_task_definition" "app" {
 		mountPoints = [
 			{
 				containerPath = "/contents",
-				sourceVolume = "files"
+				sourceVolume = "contents"
 			},
 			{
 				containerPath = "/app",
-				sourceVolume = "codes"
+				sourceVolume = "app"
 			}
 		]
 		volumesFrom = []
@@ -212,11 +212,11 @@ resource "aws_ecs_task_definition" "app" {
 		mountPoints = [
 			{
 				containerPath = "/contents",
-				sourceVolume = "files"
+				sourceVolume = "contents"
 			},
 			{
 				containerPath = "/app",
-				sourceVolume = "codes"
+				sourceVolume = "app"
 			}
 		]
 		volumesFrom = []
