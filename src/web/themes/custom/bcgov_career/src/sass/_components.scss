@@ -1347,7 +1347,7 @@ body.path-quiz {
                 left: -10px;
                 margin: 0 auto;
 
-                @media all and (max-width: 1024.98px) { 
+                @media all and (max-width: 1024.98px) {
                     padding: 0 5px;
                     width  : auto;
                 }
@@ -1548,14 +1548,14 @@ body.path-quiz {
                 left: auto;
                 right: 0;
             }
-            
+
             @media all and (min-width: 767.98px) and (max-width: 1024.98px){
                 left: 10px;
 
                 &.save-wrapper{
                     right: 10px;
                 }
-            }   
+            }
 
             @media all and (max-width: 767.98px) {
                 position: relative;
@@ -1710,7 +1710,7 @@ body.path-quiz {
                         }
                     }
                 }
-            }   
+            }
         }
     }
 }
@@ -1752,7 +1752,7 @@ body.path-quiz {
                         }
                     }
                 }
-            }   
+            }
         }
     }
 }
@@ -1887,7 +1887,7 @@ span.question-prefix {
         justify-content: center;
         align-items: center;
         flex-wrap: nowrap;
-        @media all and (min-width: 767.98px) and (max-width: 1024.98px) { 
+        @media all and (min-width: 767.98px) and (max-width: 1024.98px) {
             padding-left: 10px;
         }
     }
@@ -2696,7 +2696,7 @@ span.question-prefix {
 
                         &:checked ~ .checkmark {
                             background-color: #fff;
-                            border: 1px solid #510b76;
+                            border: 1px solid #234075;
                         }
 
                         &:checked ~ .checkmark:after {
@@ -2721,7 +2721,7 @@ span.question-prefix {
                             top: 3px;
                             width: 5px;
                             height: 10px;
-                            border: solid #510b76;
+                            border: solid #234075;
                             border-width: 0 2px 2px 0;
                             -webkit-transform: rotate(45deg);
                             -ms-transform: rotate(45deg);
@@ -2929,7 +2929,7 @@ span.question-prefix {
 
                     @media all and (max-width: 767.98px) {
                         margin-bottom: 10px;
-                    }    
+                    }
 
                     &.btn-find-job {
                         background: #fff;
