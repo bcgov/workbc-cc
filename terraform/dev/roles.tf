@@ -159,3 +159,26 @@ resource "aws_iam_role_policy" "workbc_cc_container_ssm" {
   }
   EOF  
 }
+
+resource "aws_iam_role_policy" "workbc_cc_container_kms" {
+  name   = "workbc_cc_container_kms"
+  role   = aws_iam_role.workbc_cc_container_role.id
+  policy = <<-EOF
+  {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Action": [
+          "secretsmanager:GetSecretValue",
+          "kms:Decrypt"
+        ],
+        "Resource": [
+          "arn:aws:secretsmanager:ca-central-1:873424993519:secret:workbc-cc-db-creds-Aa5If1",
+          "arn:aws:kms:ca-central-1:873424993519:key/5e0a0a1f-e916-4019-a6d6-8f9a8cb1c741"
+        ]
+      }
+    ]
+  }
+  EOF
+}

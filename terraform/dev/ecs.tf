@@ -184,14 +184,14 @@ resource "aws_ecs_task_definition" "app" {
 		entryPoint = ["sh", "-c"]
 		command = ["drush cr; drush updb -y; drush cr; drush cim -y;"]
 		environment = [
-			{
+/*			{
 				name = "POSTGRES_USER",
 				value = "postgres"
 			},
 			{
 				name = "POSTGRES_PASSWORD",
 				value = "Spring.2022"
-			},
+			},*/
 			{
 				name = "POSTGRES_PORT",
 				value = "5432"
@@ -207,6 +207,16 @@ resource "aws_ecs_task_definition" "app" {
 			{
 				name = "POSTGRES_HOST",
 				value = "drupal.cchtvqxqwetj.ca-central-1.rds.amazonaws.com"
+			}
+		]
+		secrets = [
+			{
+				name = "POSTGRES_USER",
+				valueFrom = "${data.aws_secretsmanager_secret_version.creds.arn}:username::"
+			},
+			{
+				name = "POSTGRES_PASSWORD",
+				valueFrom = "${data.aws_secretsmanager_secret_version.creds.arn}:password::"
 			}
 		]
 		mountPoints = [
