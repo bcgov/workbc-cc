@@ -7,7 +7,7 @@ resource "aws_db_subnet_group" "data_subnet" {
   tags = local.common_tags
 }
 
-resource "aws_rds_cluster" "postgres" {
+/*resource "aws_rds_cluster" "postgres" {
   cluster_identifier      = "ceu-postgres-cluster"
   engine                  = "aurora-postgresql"
   engine_mode             = "serverless"
@@ -32,7 +32,7 @@ resource "aws_rds_cluster" "postgres" {
   final_snapshot_identifier = "ceu-finalsnapshot"
 
   tags = local.common_tags
-}
+}*/
 
 # create this manually
 data "aws_secretsmanager_secret_version" "creds" {
