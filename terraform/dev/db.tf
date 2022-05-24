@@ -19,8 +19,8 @@ resource "aws_rds_cluster" "postgres" {
     seconds_until_auto_pause = 300
     timeout_action           = "ForceApplyCapacityChange"
   }
-  master_username         = local.db_creds.username
-  master_password         = local.db_creds.password
+  master_username         = local.db_creds.adm_username
+  master_password         = local.db_creds.adm_password
   backup_retention_period = 5
   preferred_backup_window = "07:00-09:00"
   db_subnet_group_name    = aws_db_subnet_group.data_subnet.name
