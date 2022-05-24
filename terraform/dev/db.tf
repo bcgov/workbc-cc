@@ -10,16 +10,16 @@ resource "aws_db_subnet_group" "data_subnet" {
 resource "aws_rds_cluster" "postgres" {
   cluster_identifier      = "ceu-postgres-cluster"
   engine                  = "aurora-postgresql"
-  engine_mode             = "serverless"
+#  engine_mode             = "serverless"
   engine_version          = "13.6"
-  database_name           = "drupal"
-  scaling_configuration {
-    auto_pause               = true
-    max_capacity             = 64
-    min_capacity             = 2
-    seconds_until_auto_pause = 300
-    timeout_action           = "ForceApplyCapacityChange"
-  }
+#  database_name           = "drupal"
+#  scaling_configuration {
+#    auto_pause               = true
+#    max_capacity             = 64
+#    min_capacity             = 2
+#    seconds_until_auto_pause = 300
+#    timeout_action           = "ForceApplyCapacityChange"
+#  }
   master_username         = local.db_creds.adm_username
   master_password         = local.db_creds.adm_password
   backup_retention_period = 5
