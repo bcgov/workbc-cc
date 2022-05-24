@@ -11,6 +11,7 @@ resource "aws_rds_cluster" "postgres" {
   cluster_identifier      = "ceu-postgres-cluster"
   engine                  = "aurora-postgresql"
   engine_mode             = "serverless"
+  engine_version          = "13.6"
   database_name           = "drupal"
   scaling_configuration {
     auto_pause               = true
