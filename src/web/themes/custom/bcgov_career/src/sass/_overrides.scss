@@ -303,8 +303,12 @@
         }
 
         #myResult{
-            .hideshow{
+            .hideshow {
                 color: $quiz-dark-blue;
+
+                svg {
+                    fill: $quiz-dark-blue;
+                }
             }
         }
 
@@ -508,6 +512,10 @@
         #myResult{
             .hideshow{
                 color: $quiz-purple;
+
+                svg {
+                    fill: $quiz-purple;
+                }
             }
         }
 
@@ -710,6 +718,10 @@
         #myResult{
             .hideshow{
                 color: $quiz-blue;
+
+                svg {
+                    fill: $quiz-blue;
+                }
             }
         }
 
@@ -912,6 +924,10 @@
         #myResult{
             .hideshow{
                 color: $quiz-green;
+
+                svg {
+                    fill: $quiz-green;
+                }
             }
         }
 
@@ -1128,6 +1144,10 @@
         #myResult{
             .hideshow{
                 color: $quiz-light-blue;
+
+                svg {
+                    fill: $quiz-light-blue;
+                }
             }
         }
 
@@ -1331,6 +1351,10 @@
         #myResult{
             .hideshow{
                 color: $quiz-pink;
+
+                svg {
+                    fill: $quiz-pink;
+                }
             }
         }
 

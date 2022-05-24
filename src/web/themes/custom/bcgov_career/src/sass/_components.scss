@@ -413,6 +413,11 @@
         color: #333333;
         margin-bottom: 30px;
         position: relative;
+
+        .text {
+            padding-right: 25px;
+        }
+
         > svg{
             width: 15px;
             height: auto;
@@ -1324,8 +1329,9 @@ body.path-quiz {
                         z-index: 0;
                         position: absolute;
                         border-radius: 50%;
-                        left: 2px;
-                        top: 2px;
+                        left: 50%;
+                        top: 50%;
+                        transform: translate(-50%,-50%);
                         display: none;
                     }
                 }
@@ -1435,13 +1441,19 @@ body.path-quiz {
         }
     }
 
+    .block-system-main-block {
+        @media all and (max-width: 1024px) {
+            padding-top: 0;
+        }
+    }
+
     .node-form {
         max-width: 1000px;
         margin: auto;
         position: relative;
         padding-top: 40px;
 
-        @media all and (max-width: 767.98px) {
+        @media all and (max-width: 1024px) {
             padding-top: 0;
         }
     }
@@ -1896,17 +1908,25 @@ span.question-prefix {
         justify-content: center;
         align-items: center;
         flex-wrap: nowrap;
-        @media all and (min-width: 767.98px) and (max-width: 1024.98px) {
-            padding-left: 10px;
-        }
     }
 
     .p-bar{
         max-width: 620px;
-        @media all and (max-width: 767.98px){
+        width: 100%;
+
+
+        @media all and (max-width: 1024px){
+            max-width: 430px;
+            width: 100%;
             padding: 0 25px;
             flex: 0 0 100%;
+        }
+
+        @media all and (max-width: 767.98px){
             max-width: 100%;
+            width: 100%;
+            padding: 0 25px;
+            flex: 0 0 100%;
         }
     }
     .progress-title {
