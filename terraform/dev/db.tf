@@ -30,6 +30,11 @@ resource "aws_rds_cluster" "postgres" {
   vpc_security_group_ids  = [data.aws_security_group.data.id]
   skip_final_snapshot     = true
   final_snapshot_identifier = "ceu-finalsnapshot"
+  
+  serverlessv2_scaling_configuration {
+    max_capacity = 1.0
+    min_capacity = 0.5
+  }
 
   tags = local.common_tags
 }
