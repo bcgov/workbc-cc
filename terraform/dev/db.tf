@@ -44,3 +44,10 @@ locals {
     data.aws_secretsmanager_secret_version.creds.secret_string
   )
 }
+  
+resource "aws_rds_cluster_instance" "postgres" {
+  cluster_identifier = aws_rds_cluster.postgres.id
+  instance_class     = "db.serverless"
+  engine             = aws_rds_cluster.postgres.engine
+  engine_version     = aws_rds_cluster.postgres.engine_version
+}
