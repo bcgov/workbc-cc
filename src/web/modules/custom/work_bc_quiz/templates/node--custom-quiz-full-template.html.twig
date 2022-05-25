@@ -115,7 +115,7 @@
 						<div class="career-top-right">
 							<ul class="float-right">
 							<li class="quiz-node-print"><a href="javascript:;" class="print-window"><span title="Print Results" class="icon icon-print"></span></a></li>
-							<li class="quiz-node-email"><a href="mailto:?subject=Quiz results from WorkBC.ca&body=Your Work Preferences Quiz results have been shared with you.%0D%0AReview your results: {{ mailUrl }}.%0D%0ALooking to discover more ? Finish our other career and personality quizzes to learn more about your preferences and discover careers that suites you."><span title="Email Results" class="icon icon-message"></span></a></li>
+							<li class="quiz-node-email"><a href="mailto:?subject={{ quiz_result_email_subject }}&body={{ quiz_result_email_body | url_encode }}"><span title="Email Results" class="icon icon-message"></span></a></li>
 							</ul>
 						</div>
 					</div>

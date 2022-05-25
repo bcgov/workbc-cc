@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Url;
+use \Drupal\Core\Link;
 use Drupal\file\Entity\File;
 use Drupal\node\NodeInterface;
 use Drupal\Component\Utility\Html;
@@ -135,8 +136,11 @@ function bcgov_career_preprocess_table(&$variables) {
       $compare_ids['nids'][] = $row['cells']['nid']['content'];
     }
     $options = ['absolute' => TRUE];
-    $url = Url::fromRoute('<current>', $compare_ids, $options)->toString();
-    $variables['compare_url'] = $url;
+    $url = Url::fromRoute('<current>', $compare_ids, $options);
+    $body_value = t("View your compared careers: @link \n\nWorkBC's Career Discovery Quizzes help you learn more about your preferences and discover careers that suit you.", [
+      "@link" => $url->toString(),
+    ]);
+    $variables['compare_url'] = $body_value;
   }
 }
 

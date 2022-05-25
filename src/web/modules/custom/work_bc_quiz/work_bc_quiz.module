@@ -397,6 +397,22 @@ function work_bc_quiz_preprocess(&$variables) {
     elseif ($node->bundle() == 'work_values_quiz') {
       $details_nid = $settings['field_work_values_quiz_list_node'];
     }
+    $email_subject = t("WorkBC's Career Discovery Quizzes - @quiztype results", ["@quiztype" => $node->type->entity->label()]);
+    $options = ['absolute' => TRUE];
+    $current_url = Url::fromRoute('<current>', [], $options);
+    $front_url = Url::fromRoute('<front>', [], $options);
+    $email_body = t("View your @quiztype results: @quizlink \n
+      Your result are available for next @duration. print or download to save your results.\n
+      Discover more! Complete other career and personality quizzes and find a career path that's right for you. Career Discovery Quizzes: @front\n
+      Find more resources on careers, funding, education and finding jobs at WorkBC.ca.", [
+        "@quiztype" => $node->type->entity->label(),
+        "@duration" => "2 weeks",
+        "@quizlink" => $current_url->toString(),
+        "@front" => $front_url->toString(),
+      ]);
+    $variables['quiz_result_email_subject'] = $email_subject;
+    $variables['quiz_result_email_body'] = $email_body;
+
   }
   else {
     $path = \Drupal::request()->getpathInfo();
@@ -763,8 +779,8 @@ function work_bc_quiz_node_view(array &$build, EntityInterface $entity, EntityVi
                 }
                 $percentage--;
                 $data = array_merge($data, $code);
-              } 
-              
+              }
+
               foreach ($data as $key => $value) {
                 if (count($result) < 20) {
                   if (!isset($result[$value->NOCCode])) {
@@ -783,7 +799,7 @@ function work_bc_quiz_node_view(array &$build, EntityInterface $entity, EntityVi
                 $j = 0;
                 foreach ($values as $key => $value) {
                   if ($j > 2) {
-                    $value = abs(6 - $value); 
+                    $value = abs(6 - $value);
                     $sum += abs($value - $forCareermatch[$key]);
                     // $total =+ $value;
                     unset($data[$i]->$key);
