@@ -100,7 +100,7 @@ resource "aws_ecs_task_definition" "app" {
 			},
 			{
 				name = "POSTGRES_HOST",
-				value = "drupal.cchtvqxqwetj.ca-central-1.rds.amazonaws.com"
+				value = "${aws_rds_cluster_instance.postgres.endpoint}"
 			}
 		]
 		secrets = [
@@ -200,7 +200,7 @@ resource "aws_ecs_task_definition" "app" {
 			},
 			{
 				name = "POSTGRES_HOST",
-				value = "drupal.cchtvqxqwetj.ca-central-1.rds.amazonaws.com"
+				value = "${aws_rds_cluster_instance.postgres.endpoint}"
 			}
 		]
 		secrets = [
