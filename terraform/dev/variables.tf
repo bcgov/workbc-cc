@@ -75,17 +75,6 @@ variable "fargate_memory" {
   default     = 4096
 }
 
-#variable "db_name" {
-#  description = "DynamoDB DB Name"
-#  default     = "ssp-greetings"
-#}
-
-#variable "repository_name" {
-#  description = "Name for the container repository to be provisioned."
-#  type        = string
-#  default     = "ssp"
-#}
-
 #variable "budget_amount" {
 #  description = "The amount of spend for the budget. Example: enter 100 to represent $100"
 #  default     = "100.0"
@@ -105,7 +94,7 @@ variable "common_tags" {
 
 variable "service_names" {
   description = "List of service names to use as subdomains"
-  default     = ["workbc-cc", "workbc"]
+  default     = ["workbc-cc"]
   type        = list(string)
 }
 
@@ -121,6 +110,6 @@ variable "cloudfront" {
 }
 
 variable "cloudfront_origin_domain" {
-  description = "domain name of the ssp"
+  description = "domain name of the app"
   type        = string
 }

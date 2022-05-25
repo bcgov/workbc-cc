@@ -1,7 +1,5 @@
 # cloudfront.tf
 
-
-
 resource "random_integer" "cf_origin_id" {
   min = 1
   max = 100

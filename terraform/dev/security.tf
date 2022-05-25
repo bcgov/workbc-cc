@@ -37,7 +37,7 @@ resource "aws_security_group" "ecs_tasks" {
 }
 
 
-resource "aws_security_group" "rds_security_group" {
+/*resource "aws_security_group" "rds_security_group" {
   name        = "workbc-cc-rds-security-group"
   description = "allow inbound access from the ECS tasks"
   vpc_id      = module.network.aws_vpc.id
@@ -57,7 +57,7 @@ resource "aws_security_group" "rds_security_group" {
   }
 
   tags = var.common_tags
-}
+}*/
 
 
 resource "aws_security_group" "efs_security_group" {

@@ -27,6 +27,29 @@ resource "aws_iam_role_policy_attachment" "ecs_task_execution_role" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
 }
 
+resource "aws_iam_role_policy" "ecs_task_execution_kms" {
+  name   = "ecs_task_execution_kms"
+  role   = aws_iam_role.ecs_task_execution_role.id
+  policy = <<-EOF
+  {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Action": [
+          "secretsmanager:GetSecretValue",
+          "kms:Decrypt"
+        ],
+        "Resource": [
+          "arn:aws:secretsmanager:ca-central-1:873424993519:secret:workbc-cc-db-creds-Aa5If1",
+          "arn:aws:kms:ca-central-1:873424993519:key/5e0a0a1f-e916-4019-a6d6-8f9a8cb1c741"
+        ]
+      }
+    ]
+  }
+  EOF
+}
+
 resource "aws_iam_role_policy" "ecs_task_execution_cwlogs" {
   name = "ecs_task_execution_cwlogs"
   role = aws_iam_role.ecs_task_execution_role.id
@@ -160,25 +183,4 @@ resource "aws_iam_role_policy" "workbc_cc_container_ssm" {
   EOF  
 }
 
-resource "aws_iam_role_policy" "ecs_task_execution_kms" {
-  name   = "ecs_task_execution_kms"
-  role   = aws_iam_role.ecs_task_execution_role.id
-  policy = <<-EOF
-  {
-    "Version": "2012-10-17",
-    "Statement": [
-      {
-        "Effect": "Allow",
-        "Action": [
-          "secretsmanager:GetSecretValue",
-          "kms:Decrypt"
-        ],
-        "Resource": [
-          "arn:aws:secretsmanager:ca-central-1:873424993519:secret:workbc-cc-db-creds-Aa5If1",
-          "arn:aws:kms:ca-central-1:873424993519:key/5e0a0a1f-e916-4019-a6d6-8f9a8cb1c741"
-        ]
-      }
-    ]
-  }
-  EOF
-}
+

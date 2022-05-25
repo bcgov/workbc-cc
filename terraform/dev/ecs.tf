@@ -136,7 +136,6 @@ resource "aws_ecs_task_definition" "app" {
 	{
 		essential   = true
 		name        = "nginx"
-		#image       = "266795317183.dkr.ecr.ca-central-1.amazonaws.com/nginx:1.5"
 		image       = "${var.app_repo}/nginx:1.5"
 		networkMode = "awsvpc"
 		
