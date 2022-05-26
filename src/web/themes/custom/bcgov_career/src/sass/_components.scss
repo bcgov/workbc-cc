@@ -2781,6 +2781,14 @@ span.question-prefix {
                         border: 0;
                         background: #979696;
                         border-radius: 50%;
+                        &:focus{
+                            outline: none;
+                            border: 0;
+                        }
+                        &:focus-visible{
+                            outline: none;
+                            border: 0;
+                        }
                     }
 
                     &.slick-active {
