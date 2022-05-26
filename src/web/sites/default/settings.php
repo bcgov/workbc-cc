@@ -791,6 +791,8 @@ $settings['trusted_host_patterns'] = [
   '^career\.lndo\.site$',
   '^career\.ddev\.site$',
   '^workbc\.b89n0c-dev\.nimbus\.cloud\.gov\.bc\.ca$',
+  '^workbc-cc\.b89n0c-dev\.nimbus\.cloud\.gov\.bc\.ca$',
+  '^workbc-cc\.b89n0c-test\.nimbus\.cloud\.gov\.bc\.ca$',
 ];
 
 // Ensure it all works from the CLI too (i.e. drush)

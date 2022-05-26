@@ -45,8 +45,8 @@ jobs:
       # Runs a single command using the runners shell
       - name: Build Drupal docker image
         run: |
-          docker build . -t 266795317183.dkr.ecr.ca-central-1.amazonaws.com/cc:latest
+          docker build . -t 266795317183.dkr.ecr.ca-central-1.amazonaws.com/cc:${{ github.sha }}
       - name: Push Drupal docker image
         run: |
-          docker push 266795317183.dkr.ecr.ca-central-1.amazonaws.com/cc:latest
+          docker push 266795317183.dkr.ecr.ca-central-1.amazonaws.com/cc:${{ github.sha }}
           

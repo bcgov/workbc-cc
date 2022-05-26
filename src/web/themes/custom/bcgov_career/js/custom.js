@@ -190,6 +190,7 @@
         infinite: false,
         slidesToShow: 1,
         slidesToScroll: 1,
+        adaptiveHeight: true,
         dots: true,
         arrows: false,
       });
@@ -352,6 +353,10 @@
           .find("> .question-prefix")
           .prependTo($(this).find(" > fieldset > legend"));
       });
+
+      $(".career-content-item-inner .image-video iframe")
+        .parent()
+        .addClass("video");
     },
   };
 })(jQuery, Drupal, drupalSettings);
