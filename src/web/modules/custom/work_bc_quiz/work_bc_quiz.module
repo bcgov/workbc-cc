@@ -167,9 +167,19 @@ function work_bc_quiz_theme_suggestions_page_title_alter(array &$suggestions, ar
  * Default title Value for each quiz content type
  * Add all other quiz content type names into the array.
  *
- * @todo Remove the code not being used in this hook
  */
 function work_bc_quiz_form_node_form_alter(&$form, $formState, $form_id) {
+  $nodeTypeToPreventEdit = [
+    'node_abilities_quiz_edit_form', 
+    'node_work_preferences_quiz_edit_form', 
+    'node_multiple_intelligences_quiz_edit_form',
+    'node_learning_styles_quiz_edit_form',
+    'node_work_values_quiz_edit_form',
+    ];
+  if(in_array($form_id, $nodeTypeToPreventEdit)){
+    throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
+  }
+  
   $nodeTypeToHideTitle = [
     "abilities_quiz",
     "abilities_quiz_step_1",
@@ -355,12 +365,13 @@ function work_bc_quiz_entity_presave(EntityInterface $entity) {
     // add node into sessions array.
     if ($i == 0) {
       $key = 'save_quiz_' . $entity->bundle() . "_A100";
-      // $savedQuiz[] = ['title'=> $autoTitle, 'uuid' => $entity->uuid()];
-      $savedQuiz[$key]->uuid = $entity->uuid();
-      $savedQuiz[$key]->result = [];
-
+      $new_quiz = new stdClass();
+      $new_quiz->uuid = $entity->uuid();
+      $new_quiz->user = 'owner';
+      $new_quiz->result = [];
+      
+      $savedQuiz[$key] = $new_quiz;
       $session->set('SavedQuiz', $savedQuiz);
-      // $_SESSION['SavedQuiz'] = $savedQuiz1;
     }
   }
 }
@@ -680,14 +691,6 @@ function work_bc_quiz_node_view(array &$build, EntityInterface $entity, EntityVi
         $quizLink = str_replace("_", "-", $quizLink);
       }
 
-      // Modify quiz link.
-      $field_value[0]['uri'] = "/quiz/$quizLink/step1/preview/" . $instance_id;
-      $field_value[0]['title'] = t('Modify Your Answers');
-      // Next quiz link.
-      // quiz/$quizLink/step1/preview/".$instance_id;.
-      $field_value[1]['uri'] = "/";
-      $field_value[1]['title'] = t('Take Next Quiz');
-
       // print("~~~".$node->bundle()."~~");
       // Calculate the percentage value for each option.
       $forCareermatch = [];
@@ -736,12 +739,8 @@ function work_bc_quiz_node_view(array &$build, EntityInterface $entity, EntityVi
         $quizType = str_replace(['_'], ["-"], $node->bundle());
         $nextlink = "/quiz/" . $quizType . "/step" . $step . "/" . $instance_id;
       }
-      $build['an_additional_field']['#quiz_error']['errors'] = $quizError;
-      $build['an_additional_field']['#quiz_error']['nextlink'] = $nextlink;
-
-      $build['an_additional_field']['#quiz_result'] = $groupedResult;
-      $build['an_additional_field']['#result_link'] = $field_value;
-
+      
+      
       // Get occupations data from the JSON file.
       try {
         // Get JSON file url.
@@ -829,23 +828,55 @@ function work_bc_quiz_node_view(array &$build, EntityInterface $entity, EntityVi
       catch (RequestException $e) {
         return FALSE;
       }
-      $savedQuiz = ($session->get('SavedQuiz')) ? $session->get('SavedQuiz') : '';
-
+      $savedQuiz = ($session->get('SavedQuiz')) ? $session->get('SavedQuiz') : [];
+      $i=0;
+      
+      $ownerUser = false;
       foreach ($savedQuiz as $key => $value) {
-
+        
         if ($value->uuid == $uuid) {
+          if((isset($value->user) && $value->user == 'owner')){
+            $ownerUser = true;
+          }
+          $i++;
           $arguments = explode('_', $key);
           $arguments = end($arguments);
           if ($arguments == "A100") {
+            // Assing old key values to new key
+            $new_key = str_replace($arguments, $entity_id, $key);
+            $savedQuiz[$new_key] = $savedQuiz[$key];
             unset($savedQuiz[$key]);
-            $key = str_replace($arguments, $entity_id, $key);
+            $savedQuiz[$new_key]->uuid = $uuid;
+            $savedQuiz[$new_key]->result = $result;
+          }else {
+            $savedQuiz[$key]->uuid = $uuid;
+            $savedQuiz[$key]->result = $result;
           }
-          $savedQuiz[$key]->uuid = $uuid;
-          $savedQuiz[$key]->result = $result;
         }
       }
+      
+      if($i==0){
+        $key = "save_quiz_".$node->bundle()."_".$entity_id;
+        $savedQuiz[$key]->uuid = $uuid;
+        $savedQuiz[$key]->result = $result;
+      }
       $session->set('SavedQuiz', $savedQuiz);
+      
+      if($ownerUser === true){
+        // Modify quiz link only for quiz owner 
+        $field_value[0]['uri'] = "/quiz/$quizLink/step1/preview/" . $instance_id;
+        $field_value[0]['title'] = t('Modify Your Answers');
+      }
+      // Next quiz link.
+      // quiz/$quizLink/step1/preview/".$instance_id;.
+      $field_value[1]['uri'] = "/";
+      $field_value[1]['title'] = t('Take Next Quiz');
+      
+      $build['an_additional_field']['#quiz_error']['errors'] = $quizError;
+      $build['an_additional_field']['#quiz_error']['nextlink'] = $nextlink;
 
+      $build['an_additional_field']['#quiz_result'] = $groupedResult;
+      $build['an_additional_field']['#result_link'] = $field_value;
       // print_r($savedQuiz);
       // $session->remove('SavedQuiz');   // Temp to Clear Session.
     }
@@ -885,7 +916,7 @@ function work_bc_quiz_views_pre_render(ViewExecutable $view) {
 
             $savedQuizTitle = str_replace("_A100", "", str_replace("_", " ", str_replace("_" . $nid, "", str_replace("save_quiz_", "", $key))));
 
-            if (trim(strtolower($savedQuizTitle)) == trim(strtolower($nodeTitle))) {
+            if ((trim(strtolower($savedQuizTitle)) == trim(strtolower($nodeTitle))) && ((isset($value->user) && $value->user == 'owner'))) {
               $field_quiz_link = $row->_entity->get('field_quiz_link');
               $field_value = $field_quiz_link->getValue();
 
@@ -1044,6 +1075,23 @@ function work_bc_quiz_views_pre_render(ViewExecutable $view) {
   }
 }
 
+
+/**
+ * {@inheritdoc}
+ */
+function work_bc_quiz_cron(){
+  $quiz_types = ['abilities_quiz', 'work_preferences_quiz', 'interests_quiz', 'multiple_intelligences_quiz', 'learning_styles_quiz', 'work_values_quiz'];
+  $storage_handler = \Drupal::entityTypeManager()->getStorage('node');
+  $query = \Drupal::entityQuery('node')->accessCheck(FALSE)
+    ->condition('created', strtotime('-24 hour'), '<=')
+    ->condition('type', $quiz_types, 'IN')
+    ->range(0,2);
+    $nids = $query->execute();
+    if (!empty($nids)) {
+      $nodes = $storage_handler->loadMultiple($nids);
+      $storage_handler->delete($nodes);
+    }
+}
 /**
  * {@inheritdoc}
  */
