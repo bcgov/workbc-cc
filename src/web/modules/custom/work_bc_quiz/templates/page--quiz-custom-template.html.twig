@@ -131,11 +131,22 @@ set footer_classes = ' ' ~
       </div>
       </div>
     </div>
+    {% if page_bundle == 'abilities_quiz' %}
+     {%  set job_bank_url = 'https://www.jobbank.gc.ca/abilitites' %}
+    {% elseif page_bundle == 'work_preferences_quiz' %}
+      {% set job_bank_url = 'https://www.jobbank.gc.ca/workpreference' %}
+    {% elseif page_bundle == 'learning_styles_quiz' %}
+      {% set job_bank_url = 'https://www.jobbank.gc.ca/seeheardo' %}
+    {% elseif page_bundle == 'work_values_quiz' %}
+      {% set job_bank_url = 'https://www.jobbank.gc.ca/workvalue' %}
+    {% elseif page_bundle == 'multiple_intelligences_quiz' %}
+      {% set job_bank_url = 'https://www.jobbank.gc.ca/intelligence' %}
+    {% endif %}
     <div class="container-fluid">
       <div class="row">
         <div class="career-bottom-notes w-100">
           <div class="career-bottom-inner-notes">
-            <p>This quiz has been reproduced with permission from the <a href="https://www.jobbank.gc.ca/seeheardo" target="_blank">Government of Canada’s National Job Bank</a></p>
+            <p>This quiz has been reproduced with permission from the <a href="{{job_bank_url}}" target="_blank">Government of Canada’s National Job Bank</a></p>
           </div>
         </div>
       </div>

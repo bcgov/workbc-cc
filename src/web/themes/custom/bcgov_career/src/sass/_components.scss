@@ -1012,6 +1012,8 @@ a.quiz-link {
 .block-page-title-block {
     .sub-title {
         max-width: 568px;
+        min-height: 65px;
+        max-height: 65px;
     }
 }
 
@@ -1021,7 +1023,7 @@ a.quiz-link {
 
     .overlay-bg {
         background: $aq;
-        min-height: 396px;
+        min-height: 338px;
         position: absolute;
         z-index: 0;
         top: 0;
@@ -1122,7 +1124,7 @@ body.path-quiz {
     .block.block-core.block-page-title-block {
         display: block;
         margin-top: 55px;
-        padding-bottom: 60px;
+        padding-bottom: 50px;
         position: relative;
 
         @media all and (max-width: 767.98px) {
@@ -2779,6 +2781,14 @@ span.question-prefix {
                         border: 0;
                         background: #979696;
                         border-radius: 50%;
+                        &:focus{
+                            outline: none;
+                            border: 0;
+                        }
+                        &:focus-visible{
+                            outline: none;
+                            border: 0;
+                        }
                     }
 
                     &.slick-active {
