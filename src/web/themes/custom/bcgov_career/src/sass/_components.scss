@@ -378,6 +378,10 @@
             li {
                 display: inline;
                 cursor: pointer;
+                >a{
+                    display: inline-block;
+                    font-size: 2.5rem;
+                }
 
                 &.quiz-node-print {
                     margin-right: 30px;
