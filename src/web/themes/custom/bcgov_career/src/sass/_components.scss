@@ -1022,6 +1022,10 @@ a.quiz-link {
         max-width: 568px;
         min-height: 65px;
         max-height: 65px;
+        @media all and (max-width: 767.98px){
+            min-height: auto;
+            max-height: 100%;
+        }
     }
 }
 
