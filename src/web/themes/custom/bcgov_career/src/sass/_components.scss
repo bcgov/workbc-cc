@@ -599,10 +599,8 @@
     }
 
     .hideshow {
-        display: block;
-        float: right;
         margin-right: 0;
-        width: 100%;
+        width: auto;
         text-align: right;
         font-family: "BC Sans Bold", sans-serif;
         font-weight: normal;
@@ -614,6 +612,12 @@
         display: flex;
         justify-content: flex-end;
         align-items: center;
+        &:focus-visible{
+            outline: none;
+            > span{
+                border: 2px dashed #d21c22;
+            }
+        }
         > span {
             cursor: pointer;
             display: flex;
@@ -2478,6 +2482,12 @@ span.question-prefix {
 
                     &:checked ~ .checkmark:after {
                         display: block;
+                    }
+
+                    &:focus-visible{
+                        ~ .checkmark {
+                            outline: 2px dashed #d21c22;
+                        }
                     }
                 }
 
