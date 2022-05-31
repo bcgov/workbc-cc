@@ -1,0 +1,8 @@
+uuid: d3351a10-c2c2-4c7d-8d8f-edbb02751b97
+langcode: en
+status: true
+dependencies: {  }
+name: 'Interests Categories'
+vid: interests_categories
+description: ''
+weight: 0

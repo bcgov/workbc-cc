@@ -1,0 +1,232 @@
+uuid: e1c3db4f-93b8-43ed-a3b0-24a9ccb6e504
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.node.step_1_preview
+    - field.field.node.interests_quiz.field_interests_1
+    - field.field.node.interests_quiz.field_interests_10
+    - field.field.node.interests_quiz.field_interests_11
+    - field.field.node.interests_quiz.field_interests_12
+    - field.field.node.interests_quiz.field_interests_13
+    - field.field.node.interests_quiz.field_interests_14
+    - field.field.node.interests_quiz.field_interests_15
+    - field.field.node.interests_quiz.field_interests_16
+    - field.field.node.interests_quiz.field_interests_17
+    - field.field.node.interests_quiz.field_interests_18
+    - field.field.node.interests_quiz.field_interests_19
+    - field.field.node.interests_quiz.field_interests_2
+    - field.field.node.interests_quiz.field_interests_20
+    - field.field.node.interests_quiz.field_interests_21
+    - field.field.node.interests_quiz.field_interests_22
+    - field.field.node.interests_quiz.field_interests_23
+    - field.field.node.interests_quiz.field_interests_24
+    - field.field.node.interests_quiz.field_interests_25
+    - field.field.node.interests_quiz.field_interests_26
+    - field.field.node.interests_quiz.field_interests_27
+    - field.field.node.interests_quiz.field_interests_28
+    - field.field.node.interests_quiz.field_interests_29
+    - field.field.node.interests_quiz.field_interests_3
+    - field.field.node.interests_quiz.field_interests_30
+    - field.field.node.interests_quiz.field_interests_31
+    - field.field.node.interests_quiz.field_interests_32
+    - field.field.node.interests_quiz.field_interests_33
+    - field.field.node.interests_quiz.field_interests_34
+    - field.field.node.interests_quiz.field_interests_35
+    - field.field.node.interests_quiz.field_interests_36
+    - field.field.node.interests_quiz.field_interests_37
+    - field.field.node.interests_quiz.field_interests_38
+    - field.field.node.interests_quiz.field_interests_39
+    - field.field.node.interests_quiz.field_interests_4
+    - field.field.node.interests_quiz.field_interests_40
+    - field.field.node.interests_quiz.field_interests_41
+    - field.field.node.interests_quiz.field_interests_42
+    - field.field.node.interests_quiz.field_interests_43
+    - field.field.node.interests_quiz.field_interests_44
+    - field.field.node.interests_quiz.field_interests_45
+    - field.field.node.interests_quiz.field_interests_46
+    - field.field.node.interests_quiz.field_interests_47
+    - field.field.node.interests_quiz.field_interests_48
+    - field.field.node.interests_quiz.field_interests_49
+    - field.field.node.interests_quiz.field_interests_5
+    - field.field.node.interests_quiz.field_interests_50
+    - field.field.node.interests_quiz.field_interests_51
+    - field.field.node.interests_quiz.field_interests_52
+    - field.field.node.interests_quiz.field_interests_53
+    - field.field.node.interests_quiz.field_interests_54
+    - field.field.node.interests_quiz.field_interests_55
+    - field.field.node.interests_quiz.field_interests_56
+    - field.field.node.interests_quiz.field_interests_57
+    - field.field.node.interests_quiz.field_interests_58
+    - field.field.node.interests_quiz.field_interests_59
+    - field.field.node.interests_quiz.field_interests_6
+    - field.field.node.interests_quiz.field_interests_60
+    - field.field.node.interests_quiz.field_interests_7
+    - field.field.node.interests_quiz.field_interests_8
+    - field.field.node.interests_quiz.field_interests_9
+    - node.type.interests_quiz
+  module:
+    - work_bc_quiz
+id: node.interests_quiz.step_1_preview
+targetEntityType: node
+bundle: interests_quiz
+mode: step_1_preview
+content:
+  field_interests_1:
+    type: double_reference_autocomplete_select
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_interests_10:
+    type: double_reference_autocomplete_select
+    weight: 9
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_interests_2:
+    type: double_reference_autocomplete_select
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_interests_3:
+    type: double_reference_autocomplete_select
+    weight: 2
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_interests_4:
+    type: double_reference_autocomplete_select
+    weight: 3
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_interests_5:
+    type: double_reference_autocomplete_select
+    weight: 4
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_interests_6:
+    type: double_reference_autocomplete_select
+    weight: 5
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_interests_7:
+    type: double_reference_autocomplete_select
+    weight: 6
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_interests_8:
+    type: double_reference_autocomplete_select
+    weight: 7
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_interests_9:
+    type: double_reference_autocomplete_select
+    weight: 8
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_interests_11: true
+  field_interests_12: true
+  field_interests_13: true
+  field_interests_14: true
+  field_interests_15: true
+  field_interests_16: true
+  field_interests_17: true
+  field_interests_18: true
+  field_interests_19: true
+  field_interests_20: true
+  field_interests_21: true
+  field_interests_22: true
+  field_interests_23: true
+  field_interests_24: true
+  field_interests_25: true
+  field_interests_26: true
+  field_interests_27: true
+  field_interests_28: true
+  field_interests_29: true
+  field_interests_30: true
+  field_interests_31: true
+  field_interests_32: true
+  field_interests_33: true
+  field_interests_34: true
+  field_interests_35: true
+  field_interests_36: true
+  field_interests_37: true
+  field_interests_38: true
+  field_interests_39: true
+  field_interests_40: true
+  field_interests_41: true
+  field_interests_42: true
+  field_interests_43: true
+  field_interests_44: true
+  field_interests_45: true
+  field_interests_46: true
+  field_interests_47: true
+  field_interests_48: true
+  field_interests_49: true
+  field_interests_50: true
+  field_interests_51: true
+  field_interests_52: true
+  field_interests_53: true
+  field_interests_54: true
+  field_interests_55: true
+  field_interests_56: true
+  field_interests_57: true
+  field_interests_58: true
+  field_interests_59: true
+  field_interests_60: true
+  path: true
+  promote: true
+  status: true
+  sticky: true
+  title: true
+  uid: true

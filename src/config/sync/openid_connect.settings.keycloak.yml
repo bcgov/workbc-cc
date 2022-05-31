@@ -3,8 +3,8 @@ _core:
 enabled: true
 settings:
   client_id: work-bc-career-compass-3136
-  client_secret: a8fd006b-99dd-43fb-a863-4a030d59e9ac
-  keycloak_base: 'https://test.oidc.gov.bc.ca/auth'
+  client_secret: f6a7648f-86d2-4eb0-9b0a-13e07572e27e
+  keycloak_base: 'https://dev.oidc.gov.bc.ca/auth'
   keycloak_realm: onestopauth
   userinfo_update_email: false
   keycloak_groups:

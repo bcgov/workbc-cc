@@ -1,0 +1,22 @@
+uuid: 98f96048-b34e-4553-a900-549cbfce33b2
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+    - work_bc_quiz
+id: node.field_interests_37
+field_name: field_interests_37
+entity_type: node
+type: work_bc_quiz
+settings:
+  target_type: taxonomy_term
+  ar_target_type: taxonomy_term
+module: work_bc_quiz
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

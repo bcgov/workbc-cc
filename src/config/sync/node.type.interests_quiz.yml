@@ -1,0 +1,17 @@
+uuid: b7b0d556-61e5-49f8-ad42-7299dcc33f57
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Interests Quiz'
+type: interests_quiz
+description: ''
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: false
