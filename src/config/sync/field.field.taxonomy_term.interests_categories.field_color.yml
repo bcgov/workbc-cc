@@ -1,0 +1,19 @@
+uuid: cb892652-0aa6-4044-8c5b-f4c994daf3df
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_color
+    - taxonomy.vocabulary.interests_categories
+id: taxonomy_term.interests_categories.field_color
+field_name: field_color
+entity_type: taxonomy_term
+bundle: interests_categories
+label: Color
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
