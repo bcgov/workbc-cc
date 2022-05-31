@@ -439,11 +439,11 @@ function work_bc_quiz_preprocess(&$variables) {
     $current_url = Url::fromRoute('<current>', [], $options);
     $front_url = Url::fromRoute('<front>', [], $options);
     $email_body = t("View your @quiztype results: @quizlink \n
-      Your result are available for next @duration. print or download to save your results.\n
+      Your result are available for next @duration. Print or download to save your results.\n
       Discover more! Complete other career and personality quizzes and find a career path that's right for you. Career Discovery Quizzes: @front\n
-      Find more resources on careers, funding, education and finding jobs at WorkBC.ca.", [
+      Find more resources on careers, funding, education and finding jobs at https://WorkBC.ca.", [
         "@quiztype" => $node->type->entity->label(),
-        "@duration" => "2 weeks",
+        "@duration" => "14 days",
         "@quizlink" => $current_url->toString(),
         "@front" => $front_url->toString(),
       ]);
