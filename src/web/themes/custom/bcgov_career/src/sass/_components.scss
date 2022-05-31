@@ -553,9 +553,13 @@
         }
     }
     .quiz-list {
-        min-height: 365px;
         border: 2px solid rgb(238, 238, 238);
-        height: 100%;
+
+        @media all and (min-width: 767.98px){
+            min-height: 365px;
+            height: 100%;
+        }
+
         .field-match {
             text-align: center;
             background: #f2f2f2;
@@ -929,16 +933,12 @@ a.quiz-link {
     }
 
     .personality {
-        @media all and (max-width: 1100px){
+        @media all and (min-width: 991.98px) and (max-width: 1110.98px) {
             .title-field h4 {
                 min-height: 60px;
             }
         }
-        @media all and (max-width: 991.98){
-            .title-field h4 {
-                min-height: auto;
-            }
-        }
+
         .item_1 {
             .title-field h4 {
                 color: $miq;

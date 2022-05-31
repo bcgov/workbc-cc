@@ -53,9 +53,11 @@
       });
 
       $(".carousel-slider-mobi-row").each(function () {
+        console.log("test");
         $(this).slick({
           slidesToShow: 1,
           slidesToScroll: 1,
+          adaptiveHeight: true,
           infinite: false,
           dots: true,
           arrows: false,
