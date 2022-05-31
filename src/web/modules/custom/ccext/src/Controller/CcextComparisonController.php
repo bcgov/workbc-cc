@@ -383,7 +383,12 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
 
     $entities = [];
     $comparison_fields = [];
-    $entity_ids = isset($parameters['nids']) ? $parameters['nids'] :
+    $params_nid = NULL;
+    if (isset($parameters['nids'])) {
+      $query_node = parse_url(str_replace('amp;', '', $request->getRequestUri()));
+      parse_str($query_node['query'], $params_nid);
+    }
+    $entity_ids = !empty($params_nid) ? $params_nid['nids'] :
       (isset($entity_comparison_list[$entity_type][$bundle_type][$entity_comparison_id]) ? $entity_comparison_list[$entity_type][$bundle_type][$entity_comparison_id] : '');
 
     if ($entity_ids) {
