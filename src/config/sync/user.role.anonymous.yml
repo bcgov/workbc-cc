@@ -5,6 +5,7 @@ dependencies:
   config:
     - filter.format.restricted_html
     - node.type.abilities_quiz
+    - node.type.interests_quiz
     - node.type.learning_styles_quiz
     - node.type.multiple_intelligences_quiz
     - node.type.work_preferences_quiz
@@ -28,11 +29,13 @@ permissions:
   - 'access content'
   - 'access site-wide contact form'
   - 'create abilities_quiz content'
+  - 'create interests_quiz content'
   - 'create learning_styles_quiz content'
   - 'create multiple_intelligences_quiz content'
   - 'create work_preferences_quiz content'
   - 'create work_values_quiz content'
   - 'edit own abilities_quiz content'
+  - 'edit own interests_quiz content'
   - 'edit own learning_styles_quiz content'
   - 'edit own multiple_intelligences_quiz content'
   - 'edit own work_preferences_quiz content'

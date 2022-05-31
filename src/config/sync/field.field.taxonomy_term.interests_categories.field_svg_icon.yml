@@ -1,0 +1,38 @@
+uuid: fbca8f26-a2b8-4350-b67c-c4cf4f7d3b03
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_svg_icon
+    - taxonomy.vocabulary.interests_categories
+  module:
+    - image
+id: taxonomy_term.interests_categories.field_svg_icon
+field_name: field_svg_icon
+entity_type: taxonomy_term
+bundle: interests_categories
+label: 'SVG Icon'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: ''
+  file_extensions: 'png gif jpg jpeg svg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: false
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+field_type: image

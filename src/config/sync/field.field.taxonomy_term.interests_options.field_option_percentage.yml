@@ -1,0 +1,23 @@
+uuid: ebe96433-54c0-4415-873a-7ba2917ac580
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_option_percentage
+    - taxonomy.vocabulary.interests_options
+id: taxonomy_term.interests_options.field_option_percentage
+field_name: field_option_percentage
+entity_type: taxonomy_term
+bundle: interests_options
+label: 'Option Score'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: !!float 0
+  max: !!float 4
+  prefix: ''
+  suffix: ''
+field_type: float

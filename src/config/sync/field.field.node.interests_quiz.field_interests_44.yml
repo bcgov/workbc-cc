@@ -1,0 +1,57 @@
+uuid: 5e9ce6d5-b223-4cb0-bc70-1bd68d3e004e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_interests_44
+    - node.type.interests_quiz
+    - taxonomy.vocabulary.interests_categories
+  content:
+    - 'taxonomy_term:interests_categories:1e8a97d5-00d8-4842-8dde-b32a192c4fa5'
+  module:
+    - work_bc_quiz
+id: node.interests_quiz.field_interests_44
+field_name: field_interests_44
+entity_type: node
+bundle: interests_quiz
+label: 'Helping conduct a group therapy session.'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    ar_target_id: null
+    target_uuid: 1e8a97d5-00d8-4842-8dde-b32a192c4fa5
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      interests_categories: interests_categories
+    sort:
+      field: name
+      direction: asc
+    auto_create: 0
+    auto_create_bundle: ''
+  pr_label: ''
+  pr_field_hide: 1
+  added_reference:
+    ar_bundles:
+      interests_options: interests_options
+      abilities_categories: 0
+      abilities_options: 0
+      education_level: 0
+      interests_categories: 0
+      learning_styles_categories: 0
+      learning_styles_options: 0
+      multiple_intelligence_categories: 0
+      multiple_intelligence_options: 0
+      tags: 0
+      work_preferences_categories: 0
+      work_preferences_options: 0
+      work_values_categories: 0
+      work_values_options: 0
+    ar_label: ''
+    ar_weight: '44'
+    ar_required: 1
+field_type: work_bc_quiz

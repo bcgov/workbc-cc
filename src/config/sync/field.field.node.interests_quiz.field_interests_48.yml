@@ -1,0 +1,57 @@
+uuid: e054bfeb-2b78-4b30-96d8-3f50a699de79
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_interests_48
+    - node.type.interests_quiz
+    - taxonomy.vocabulary.interests_categories
+  content:
+    - 'taxonomy_term:interests_categories:80b86622-54c4-49b7-8a79-5b99c532ed0e'
+  module:
+    - work_bc_quiz
+id: node.interests_quiz.field_interests_48
+field_name: field_interests_48
+entity_type: node
+bundle: interests_quiz
+label: 'Recording rent payments.'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    ar_target_id: null
+    target_uuid: 80b86622-54c4-49b7-8a79-5b99c532ed0e
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      interests_categories: interests_categories
+    sort:
+      field: name
+      direction: asc
+    auto_create: 0
+    auto_create_bundle: ''
+  pr_label: ''
+  pr_field_hide: 1
+  added_reference:
+    ar_bundles:
+      interests_options: interests_options
+      abilities_categories: 0
+      abilities_options: 0
+      education_level: 0
+      interests_categories: 0
+      learning_styles_categories: 0
+      learning_styles_options: 0
+      multiple_intelligence_categories: 0
+      multiple_intelligence_options: 0
+      tags: 0
+      work_preferences_categories: 0
+      work_preferences_options: 0
+      work_values_categories: 0
+      work_values_options: 0
+    ar_label: ''
+    ar_weight: '48'
+    ar_required: 1
+field_type: work_bc_quiz

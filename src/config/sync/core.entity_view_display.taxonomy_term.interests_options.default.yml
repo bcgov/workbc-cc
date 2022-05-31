@@ -1,0 +1,33 @@
+uuid: 5a5a6658-2188-4ef5-a5ea-0f886c3b1a24
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.interests_options.field_option_percentage
+    - taxonomy.vocabulary.interests_options
+  module:
+    - text
+id: taxonomy_term.interests_options.default
+targetEntityType: taxonomy_term
+bundle: interests_options
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_option_percentage:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

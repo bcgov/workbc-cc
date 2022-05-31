@@ -378,6 +378,10 @@
             li {
                 display: inline;
                 cursor: pointer;
+                >a{
+                    display: inline-block;
+                    font-size: 2.5rem;
+                }
 
                 &.quiz-node-print {
                     margin-right: 30px;
@@ -413,6 +417,11 @@
         color: #333333;
         margin-bottom: 30px;
         position: relative;
+
+        .text {
+            padding-right: 25px;
+        }
+
         > svg{
             width: 15px;
             height: auto;
@@ -594,10 +603,8 @@
     }
 
     .hideshow {
-        display: block;
-        float: right;
         margin-right: 0;
-        width: 100%;
+        width: auto;
         text-align: right;
         font-family: "BC Sans Bold", sans-serif;
         font-weight: normal;
@@ -609,6 +616,12 @@
         display: flex;
         justify-content: flex-end;
         align-items: center;
+        &:focus-visible{
+            outline: none;
+            > span{
+                border: 2px dashed #d21c22;
+            }
+        }
         > span {
             cursor: pointer;
             display: flex;
@@ -756,7 +769,7 @@
         justify-content: center;
         align-items: center;
         position: relative;
-        bottom: 65px;
+        bottom: 50px;
         li {
             margin-right: 10px;
 
@@ -777,6 +790,15 @@
             }
         }
     }
+
+    .slick-track {
+        display: flex !important;
+    }
+
+    .slick-slide {
+        height: inherit !important;
+    }
+
     &.mobi_cari_quiz{
         display: none;
         @media all and (max-width: 991.98px) {
@@ -998,6 +1020,12 @@ a.quiz-link {
 .block-page-title-block {
     .sub-title {
         max-width: 568px;
+        min-height: 65px;
+        max-height: 65px;
+        @media all and (max-width: 767.98px){
+            min-height: auto;
+            max-height: 100%;
+        }
     }
 }
 
@@ -1007,7 +1035,7 @@ a.quiz-link {
 
     .overlay-bg {
         background: $aq;
-        min-height: 396px;
+        min-height: 338px;
         position: absolute;
         z-index: 0;
         top: 0;
@@ -1108,7 +1136,7 @@ body.path-quiz {
     .block.block-core.block-page-title-block {
         display: block;
         margin-top: 55px;
-        padding-bottom: 60px;
+        padding-bottom: 50px;
         position: relative;
 
         @media all and (max-width: 767.98px) {
@@ -1315,8 +1343,9 @@ body.path-quiz {
                         z-index: 0;
                         position: absolute;
                         border-radius: 50%;
-                        left: 2px;
-                        top: 2px;
+                        left: 50%;
+                        top: 50%;
+                        transform: translate(-50%,-50%);
                         display: none;
                     }
                 }
@@ -1347,7 +1376,7 @@ body.path-quiz {
                 left: -10px;
                 margin: 0 auto;
 
-                @media all and (max-width: 1024.98px) { 
+                @media all and (max-width: 1024.98px) {
                     padding: 0 5px;
                     width  : auto;
                 }
@@ -1426,13 +1455,19 @@ body.path-quiz {
         }
     }
 
+    .block-system-main-block {
+        @media all and (max-width: 1024px) {
+            padding-top: 0;
+        }
+    }
+
     .node-form {
         max-width: 1000px;
         margin: auto;
         position: relative;
         padding-top: 40px;
 
-        @media all and (max-width: 767.98px) {
+        @media all and (max-width: 1024px) {
             padding-top: 0;
         }
     }
@@ -1548,14 +1583,14 @@ body.path-quiz {
                 left: auto;
                 right: 0;
             }
-            
+
             @media all and (min-width: 767.98px) and (max-width: 1024.98px){
                 left: 10px;
 
                 &.save-wrapper{
                     right: 10px;
                 }
-            }   
+            }
 
             @media all and (max-width: 767.98px) {
                 position: relative;
@@ -1613,8 +1648,7 @@ body.path-quiz {
     }
     > fieldset {
         width: 100%;
-        display: flex;
-        align-items: center;
+        display: inline-block;
         > legend{
             float: left;
             width: 40%;
@@ -1624,9 +1658,11 @@ body.path-quiz {
             font-size: 1.5rem;
             line-height: 2.1rem;
             color: #333333;
+            padding-top: 10px;
             @media all and (max-width: 1024.98px){
                 float: none;
                 width: 100%;
+                padding-top: 0;
             }
             > span.question-prefix{
                 position:absolute;
@@ -1709,7 +1745,7 @@ body.path-quiz {
                         }
                     }
                 }
-            }   
+            }
         }
     }
 }
@@ -1751,7 +1787,7 @@ body.path-quiz {
                         }
                     }
                 }
-            }   
+            }
         }
     }
 }
@@ -1886,17 +1922,25 @@ span.question-prefix {
         justify-content: center;
         align-items: center;
         flex-wrap: nowrap;
-        @media all and (min-width: 767.98px) and (max-width: 1024.98px) { 
-            padding-left: 10px;
-        }
     }
 
     .p-bar{
         max-width: 620px;
-        @media all and (max-width: 767.98px){
+        width: 100%;
+
+
+        @media all and (max-width: 1024px){
+            max-width: 430px;
+            width: 100%;
             padding: 0 25px;
             flex: 0 0 100%;
+        }
+
+        @media all and (max-width: 767.98px){
             max-width: 100%;
+            width: 100%;
+            padding: 0 25px;
+            flex: 0 0 100%;
         }
     }
     .progress-title {
@@ -2447,6 +2491,12 @@ span.question-prefix {
                     &:checked ~ .checkmark:after {
                         display: block;
                     }
+
+                    &:focus-visible{
+                        ~ .checkmark {
+                            outline: 2px dashed #d21c22;
+                        }
+                    }
                 }
 
                 .checkmark {
@@ -2621,6 +2671,7 @@ span.question-prefix {
             .tbody-main {
                 display: flex;
                 align-items: center;
+                border-top: 1px solid #dee2e6;
 
                 p {
                     padding: 20px;
@@ -2695,7 +2746,7 @@ span.question-prefix {
 
                         &:checked ~ .checkmark {
                             background-color: #fff;
-                            border: 1px solid #510b76;
+                            border: 1px solid #234075;
                         }
 
                         &:checked ~ .checkmark:after {
@@ -2720,7 +2771,7 @@ span.question-prefix {
                             top: 3px;
                             width: 5px;
                             height: 10px;
-                            border: solid #510b76;
+                            border: solid #234075;
                             border-width: 0 2px 2px 0;
                             -webkit-transform: rotate(45deg);
                             -ms-transform: rotate(45deg);
@@ -2750,6 +2801,14 @@ span.question-prefix {
                         border: 0;
                         background: #979696;
                         border-radius: 50%;
+                        &:focus{
+                            outline: none;
+                            border: 0;
+                        }
+                        &:focus-visible{
+                            outline: none;
+                            border: 0;
+                        }
                     }
 
                     &.slick-active {
@@ -2887,7 +2946,7 @@ span.question-prefix {
 
                     span {
                         display: inline-block;
-                        width: 50%;
+                        width: 100%;
                     }
 
                     .s-d {
@@ -2928,7 +2987,7 @@ span.question-prefix {
 
                     @media all and (max-width: 767.98px) {
                         margin-bottom: 10px;
-                    }    
+                    }
 
                     &.btn-find-job {
                         background: #fff;

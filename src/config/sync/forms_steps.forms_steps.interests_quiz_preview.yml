@@ -1,0 +1,90 @@
+uuid: 2c267480-fa0e-4e43-b20e-23c3d57f0d7d
+langcode: en
+status: true
+dependencies: {  }
+id: interests_quiz_preview
+label: 'Interests Quiz Preview'
+description: ''
+progress_steps_links_saved_only: false
+progress_steps_links_saved_only_next: false
+redirection_policy: ''
+redirection_target: ''
+steps:
+  interests_quiz_summary_step_1:
+    label: 'Interests Quiz - Summary'
+    weight: 0
+    entity_type: node
+    entity_bundle: interests_quiz
+    form_mode: node.step_1_preview
+    url: /quiz/interests-quiz/step1/preview
+    submitLabel: 'Save Changes'
+    cancelLabel: null
+    hideDelete: 0
+    deleteLabel: null
+    displayPrevious: 0
+  interests_quiz_summary_step_2:
+    label: 'Interests Quiz - Summary'
+    weight: 1
+    entity_type: node
+    entity_bundle: interests_quiz
+    form_mode: node.step_2_preview
+    url: /quiz/interests-quiz/step2/preview
+    submitLabel: 'Save Changes'
+    cancelLabel: null
+    previousLabel: Previous
+    hideDelete: 0
+    deleteLabel: null
+    displayPrevious: 1
+  interests_quiz_summary_step_3:
+    label: 'Interests Quiz - Summary'
+    weight: 2
+    entity_type: node
+    entity_bundle: interests_quiz
+    form_mode: node.step_3_preview
+    url: /quiz/interests-quiz/step3/preview
+    submitLabel: 'Save Changes'
+    cancelLabel: null
+    previousLabel: Previous
+    hideDelete: 0
+    deleteLabel: null
+    displayPrevious: 1
+  interests_quiz_summary_step_4:
+    label: 'Interests Quiz - Summary'
+    weight: 3
+    entity_type: node
+    entity_bundle: interests_quiz
+    form_mode: node.step_4_preview
+    url: /quiz/interests-quiz/step4/preview
+    submitLabel: 'Save Changes'
+    cancelLabel: null
+    previousLabel: Previous
+    hideDelete: 0
+    deleteLabel: null
+    displayPrevious: 1
+  interests_quiz_summary_step_5:
+    label: 'Interests Quiz - Summary'
+    weight: 4
+    entity_type: node
+    entity_bundle: interests_quiz
+    form_mode: node.step_5_preview
+    url: /quiz/interests-quiz/step5/preview
+    submitLabel: 'Save Changes'
+    cancelLabel: null
+    previousLabel: Previous
+    hideDelete: 0
+    deleteLabel: null
+    displayPrevious: 1
+  interests_quiz_summary_step_6:
+    label: 'Interests Quiz - Summary'
+    weight: 5
+    entity_type: node
+    entity_bundle: interests_quiz
+    form_mode: node.step_6_preview
+    url: /quiz/interests-quiz/step6/preview
+    submitLabel: 'Save Changes'
+    cancelLabel: null
+    previousLabel: Previous
+    hideDelete: 0
+    deleteLabel: null
+    displayPrevious: 1
+progress_steps: {  }

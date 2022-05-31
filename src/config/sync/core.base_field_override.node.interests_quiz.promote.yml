@@ -1,0 +1,22 @@
+uuid: 710983c3-1ecf-4347-95ef-a1d133851794
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.interests_quiz
+id: node.interests_quiz.promote
+field_name: promote
+entity_type: node
+bundle: interests_quiz
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

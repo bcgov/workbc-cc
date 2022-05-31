@@ -30,5 +30,21 @@ class WorkBcQuizcontroller extends ControllerBase {
     }
     die;
   }
+  public function getCareerCodes($parameters=''){
+    if(empty($parameters)){
+      $response = ['response'=>401, 'message'=>'Unauthorized', 'data'=>[]];
+    }else {
+      $eservice = new eServices();
+      $data = $eservice->fnGetCodes($parameters);
+      $data = json_decode($data['response'], true);
+
+      if(!empty($data)){
+        $response = ['response'=>200, 'message'=>'Success', 'data'=>$data];
+      }else {
+        $response = ['response'=>403, 'message'=>'No Data found', 'data'=>[]];
+      }
+      return $response;
+    }
+  }
 
 }

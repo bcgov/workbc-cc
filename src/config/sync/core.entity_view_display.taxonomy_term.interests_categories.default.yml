@@ -1,0 +1,45 @@
+uuid: 0ad73982-f5d0-4acd-afea-a5df3a3e9b8f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.interests_categories.field_color
+    - field.field.taxonomy_term.interests_categories.field_svg_icon
+    - taxonomy.vocabulary.interests_categories
+  module:
+    - svg_image
+    - text
+id: taxonomy_term.interests_categories.default
+targetEntityType: taxonomy_term
+bundle: interests_categories
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_color:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_svg_icon:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

@@ -111,10 +111,10 @@
           ".remove-link + .compare-carr > .career-chkk:checked"
         ).length;
         if (checkedLoadNum >= 2) {
-          $(".top-btn > a").removeClass("disable");
+          $(".top-btn > a").removeClass("disable").attr("tabindex", "0");
         }
  else {
-          $(".top-btn > a").addClass("disable");
+          $(".top-btn > a").addClass("disable").attr("tabindex", "-1");
         }
       }, 1500);
 
@@ -125,10 +125,10 @@
           console.log($(this).parents("td").find(".use-ajax"));
           console.log(`Compare count:- ${checkedNum}`);
           if (checkedNum >= 2) {
-            $(".top-btn > a").removeClass("disable");
+            $(".top-btn > a").removeClass("disable").attr("tabindex", "0");
           }
  else {
-            $(".top-btn > a").addClass("disable");
+            $(".top-btn > a").addClass("disable").attr("tabindex", "-1");
           }
 
           if (checkedNum > 3) {
@@ -141,10 +141,14 @@
           const checkedNum = $(".career-mobi-checkbox:checked").length;
           $(this).parent().prev().click();
           if (checkedNum >= 2) {
-            $(".top-career-mobi-content .top-btn > a").removeClass("disable");
+            $(".top-career-mobi-content .top-btn > a")
+              .removeClass("disable")
+              .attr("tabindex", "0");
           }
  else {
-            $(".top-career-mobi-content .top-btn > a").addClass("disable");
+            $(".top-career-mobi-content .top-btn > a")
+              .addClass("disable")
+              .attr("tabindex", "-1");
           }
 
           if (checkedNum > 3) {
@@ -190,6 +194,7 @@
         infinite: false,
         slidesToShow: 1,
         slidesToScroll: 1,
+        adaptiveHeight: true,
         dots: true,
         arrows: false,
       });
@@ -352,6 +357,10 @@
           .find("> .question-prefix")
           .prependTo($(this).find(" > fieldset > legend"));
       });
+
+      $(".career-content-item-inner .image-video iframe")
+        .parent()
+        .addClass("video");
     },
   };
 })(jQuery, Drupal, drupalSettings);

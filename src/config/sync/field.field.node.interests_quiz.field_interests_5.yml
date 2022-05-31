@@ -1,0 +1,57 @@
+uuid: 9cba54dd-92ff-485f-8b38-bc25ae6ce764
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_interests_5
+    - node.type.interests_quiz
+    - taxonomy.vocabulary.interests_categories
+  content:
+    - 'taxonomy_term:interests_categories:86bd5865-4e9f-4745-bb1b-5f123b1787bf'
+  module:
+    - work_bc_quiz
+id: node.interests_quiz.field_interests_5
+field_name: field_interests_5
+entity_type: node
+bundle: interests_quiz
+label: 'I like writing books or plays.'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    ar_target_id: null
+    target_uuid: 86bd5865-4e9f-4745-bb1b-5f123b1787bf
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      interests_categories: interests_categories
+    sort:
+      field: name
+      direction: asc
+    auto_create: 0
+    auto_create_bundle: ''
+  pr_label: ''
+  pr_field_hide: 1
+  added_reference:
+    ar_bundles:
+      interests_options: interests_options
+      abilities_categories: 0
+      abilities_options: 0
+      education_level: 0
+      interests_categories: 0
+      learning_styles_categories: 0
+      learning_styles_options: 0
+      multiple_intelligence_categories: 0
+      multiple_intelligence_options: 0
+      tags: 0
+      work_preferences_categories: 0
+      work_preferences_options: 0
+      work_values_categories: 0
+      work_values_options: 0
+    ar_label: ''
+    ar_weight: '5'
+    ar_required: 1
+field_type: work_bc_quiz
