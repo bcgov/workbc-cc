@@ -15,9 +15,6 @@ settings:
       value: abilities_quiz
       label: 'Abilities Quiz'
     -
-      value: interest_profiler_quiz
-      label: 'Interest Profiler Quiz'
-    -
       value: multiple_intelligences_quiz
       label: 'Multiple Intelligences Quiz'
     -
@@ -29,6 +26,9 @@ settings:
     -
       value: work_preferences_quiz
       label: 'Work Preferences Quiz'
+    -
+      value: interests_quiz
+      label: 'Interest Quiz'
   allowed_values_function: ''
 module: options
 locked: false
