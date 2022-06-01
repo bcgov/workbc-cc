@@ -9,4 +9,5 @@ ignored_config_entities:
   - 'field.field.node.learning_styles_quiz.*'
   - 'field.field.node.work_values_quiz.*'
   - 'field.field.node.work_preferences_quiz.*'
+  - 'field.field.node.interests_quiz.*'
   - system.maintenance

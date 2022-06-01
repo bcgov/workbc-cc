@@ -1,0 +1,21 @@
+uuid: 48574825-5212-46e6-b5d8-df79565c1978
+langcode: en
+status: true
+dependencies:
+  module:
+    - forms_steps
+  theme:
+    - bcgov_career
+id: formsstepsinterestsquizprogressbar
+theme: bcgov_career
+region: content
+weight: 0
+provider: null
+plugin: 'forms_steps_progress_bar:interests_quiz'
+settings:
+  id: 'forms_steps_progress_bar:interests_quiz'
+  label: 'Forms Steps - Interests Quiz (Progress bar)'
+  label_display: '0'
+  provider: forms_steps
+  progress_bar_settings: null
+visibility: {  }
