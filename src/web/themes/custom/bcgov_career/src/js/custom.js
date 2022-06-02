@@ -13,6 +13,13 @@
         }
       });
 
+      if($("body").hasClass("path-quiz")){
+        window.onorientationchange = function()
+        {
+          window.location.reload();
+        }
+      }
+
       $(".preview-quiz-form").parent().addClass("preview-block-wrapper");
 
       $(".mobi_cari_quiz").each(function(){
