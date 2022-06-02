@@ -2346,21 +2346,19 @@ span.question-prefix {
         }
 
         .matches-wrap{
-            .matches-wrap{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                font-size: 1.4rem;
-                line-height: 1.8rem;
-                color: #333;
-                font-family: "BC Sans Bold", sans-serif;
-                font-weight: normal;
-                margin: 0;
-                > span{
-                    display: inline-block;
-                    &.matches{
-                        margin-right: 10px;
-                    }
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.4rem;
+            line-height: 1.8rem;
+            color: #333;
+            font-family: "BC Sans Bold", sans-serif;
+            font-weight: normal;
+            margin: 0;
+            > span{
+                display: inline-block;
+                &.matches{
+                    margin-right: 10px;
                 }
             }
             .match-warning{
@@ -2846,6 +2844,36 @@ span.question-prefix {
                             background: #000;
                         }
                     }
+                }
+            }
+        }
+
+        .matches-wrap{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.4rem;
+            line-height: 1.8rem;
+            color: #333;
+            font-family: "BC Sans Bold", sans-serif;
+            font-weight: normal;
+            margin: 0;
+            > span{
+                display: inline-block;
+                &.matches{
+                    margin-right: 10px;
+                }
+            }
+            .match-warning{
+                position: relative;
+                &::before{
+                    content: "";
+                    background: url(../src/icons/warning.svg) no-repeat;
+                    width: 30px;
+                    height: 30px;
+                    position: relative;
+                    display: inline-block;
+                    top: 6px;
                 }
             }
         }
