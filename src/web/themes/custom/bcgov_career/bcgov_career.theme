@@ -42,14 +42,18 @@ function bcgov_career_preprocess_views_view_table(&$variables) {
   $view = $variables['view'];
   if ($view->id() == 'career_matches' && $view->current_display == 'block_1') {
     $result = $variables['result'] = $variables['rows'];
-    // dd($result);
     $fields =& $view->field;
     $handler = $view->style_plugin;
     $match = NULL;
     $node = \Drupal::routeMatch()->getParameter('node');
+    $per_string = '';
+    $match_header = '%';
     if ($node instanceof NodeInterface) {
       // You can get nid and anything else you need from the node object.
       $nid = $node->id();
+      $node_bundle = $node->bundle();
+      $per_string = $node_bundle != 'interests_quiz' ? '%' : '';
+      $match_header = $node_bundle != 'interests_quiz' ? '%' : 'Your';
       $session = \Drupal::request()->getSession();
       $save_quiz = $session->get('SavedQuiz');
       $quiz_result = $save_quiz['save_quiz_' . $node->bundle() . "_$nid"];
@@ -57,11 +61,12 @@ function bcgov_career_preprocess_views_view_table(&$variables) {
         $match = $quiz_result->result;
       }
     }
+    $variables['match_header'] = $match_header;
 
     // Render each field into its appropriate column.
     foreach ($result as $num => $row) {
       $raw = NULL;
-      $raw['match'] = $match[$handler->getFieldValue($num, 'title')] . '%';
+      $raw['match'] = $match[$handler->getFieldValue($num, 'title')] . $per_string;
 
       foreach ($fields as $key => $value) {
         $raw[$key] = $handler->getFieldValue($num, $key);

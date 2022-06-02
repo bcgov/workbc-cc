@@ -48,6 +48,12 @@ function ccext_views_query_alter(ViewExecutable $view, QueryPluginBase $query) {
       $quiz_result = $save_quiz['save_quiz_' . $node->bundle() . "_$nid"];
       if (!empty($save_quiz) && isset($quiz_result) && !empty($quiz_result->result)) {
         foreach ($quiz_result->result as $key => $value) {
+          if (strlen((string) $key) == 2) {
+            $key = '00' . $key;
+          }
+          elseif (strlen((string) $key) == 3) {
+            $key = '0' . $key;
+          }
           $title[] = $key;
         }
       }
