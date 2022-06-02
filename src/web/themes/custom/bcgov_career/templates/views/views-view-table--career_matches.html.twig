@@ -89,11 +89,15 @@
           <thead>
               <tr>
               <th>
-                <span class="match-per">{{ match_header }}</span>
-                </br>{{ 'Match'|t }}
+                <p class="matches-wrap">
+                  <span class="matches">
+                    <span class="match-per">{{ match_header }}</span>
+                    <span class="match">{{ 'Match'|t }}</span>
+                  </span>
                 {% if match_header == 'Your' %}
                   <span class="match-warning" title="A career marked as Best Match is a very strong match to your interests.&#013;&#010;A career marked Great Match is a strong match and may also be of interest to you.&#013;&#010;A career marked Good Match is a less strong match."></span>
                 {% endif %}
+                </p>
                 </th>
               {% for key, column in header %}
                   {% if column.default_classes %}
