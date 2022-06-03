@@ -128,6 +128,18 @@
                 }
             }
         }
+        .extradivs1.extradivs2.hide1 {
+            display: block !important;
+            > .row{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                .quiz-list {
+                    float: left;
+                    width: 369px;
+                }
+            }
+        }
         .hideshow{
             display: none !important;
         }
@@ -142,6 +154,12 @@
             display: block !important;
             .itm.hide{
                 display: block !important;
+            }
+        }
+
+        &.work-value-quiz-carousel{
+            .col-print-item{
+                width: 100%;
             }
         }
     }
