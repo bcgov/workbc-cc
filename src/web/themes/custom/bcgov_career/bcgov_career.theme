@@ -57,8 +57,17 @@ function bcgov_career_preprocess_views_view_table(&$variables) {
       $session = \Drupal::request()->getSession();
       $save_quiz = $session->get('SavedQuiz');
       $quiz_result = $save_quiz['save_quiz_' . $node->bundle() . "_$nid"];
+      $match = [];
       if (!empty($save_quiz) && isset($quiz_result) && !empty($quiz_result->result)) {
-        $match = $quiz_result->result;
+        foreach ($quiz_result->result as $key => $value) {
+          if (strlen((string) $key) == 2) {
+            $key = '00' . $key;
+          }
+          elseif (strlen((string) $key) == 3) {
+            $key = '0' . $key;
+          }
+          $match[$key] = $value;
+        }
       }
     }
     $variables['match_header'] = $match_header;
