@@ -138,6 +138,12 @@
                 background: #f2f2f2 !important;
             }
         }
+        .extradivs.hide.displayMobiPrint{
+            display: block !important;
+            .itm.hide{
+                display: block !important;
+            }
+        }
     }
     .carousel-mobi-tabs {
         display: none !important;

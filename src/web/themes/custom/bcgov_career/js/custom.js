@@ -71,6 +71,10 @@
         $("body").removeClass("overlayBg");
       });
       $(".carousel-mobi-tab-item").on("click", function () {
+        $(this)
+          .parents("#myResult")
+          .find(".extradivs")
+          .addClass("displayMobiPrint");
         $(".carousel-mobi-tab-item").removeClass("active");
         $(this).addClass("active");
 
