@@ -192,3 +192,4 @@ parameters:
   ses_mailer.ses_client.options:
     region: ca-central-1
     version: latest
+    
