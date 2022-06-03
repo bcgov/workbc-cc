@@ -76,7 +76,7 @@ resource "aws_cloudfront_distribution" "workbc-cc" {
   aliases = ["careerdiscoveryquizzes-dev.workbc.ca"]
 
   viewer_certificate {
-    acm_certificate_arn = "arn:aws:acm:us-east-1:873424993519:certificate/48c3c17b-3a7b-4fb1-bae6-8bc578582a8e"
+    acm_certificate_arn = "arn:aws:acm:us-east-1:873424993519:certificate/0215bb2d-d224-4681-bf6b-227e9e82f29f"
     ssl_support_method = "sni-only"
   }
 }

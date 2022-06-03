@@ -88,7 +88,19 @@
           {% if header %}
           <thead>
               <tr>
-              <th><span class="match-per">%</span></br>{{ 'Match'|t }}</th>
+              <th>
+                <p class="matches-wrap">
+                  <span class="matches">
+                    <span class="match-per">{{ match_header }}</span>
+                    <span class="match">{{ 'Match'|t }}</span>
+                  </span>
+                {% if match_header == 'Your' %}
+                  <span class="match-warning" title="A career marked as Best Match is a very strong match to your interests.&#013;&#010;A career marked Great Match is a strong match and may also be of interest to you.&#013;&#010;A career marked Good Match is a less strong match.">
+                    <img src="/themes/custom/bcgov_career/src/icons/warning.svg"/>
+                  </span>
+                {% endif %}
+                </p>
+                </th>
               {% for key, column in header %}
                   {% if column.default_classes %}
                   {%
@@ -219,7 +231,17 @@
         <div class="careers-mobi-table-wrapper">
           <div class="thead">
             <div class="thead-main">
-              <p class="head">%<br>Match</p>
+              <p class="matches-wrap head">
+                <span class="matches">
+                  <span class="match-per">{{ match_header }}</span>
+                  <span class="match">{{ 'Match'|t }}</span>
+                </span>
+                {% if match_header == 'Your' %}
+                <span class="match-warning" title="A career marked as Best Match is a very strong match to your interests.&#013;&#010;A career marked Great Match is a strong match and may also be of interest to you.&#013;&#010;A career marked Good Match is a less strong match.">
+                  <img src="/themes/custom/bcgov_career/src/icons/warning.svg"/>
+                </span>
+                {% endif %}
+              </p>
               <p class="head">Career<br>Matches</p>
               <p class="head">Compare Careers</p>
             </div>
