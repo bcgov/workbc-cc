@@ -802,3 +802,7 @@ if (file_exists($app_root . '/' . $site_path . '/settings.openshift.php') && get
 } else if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
   include $app_root . '/' . $site_path . '/settings.local.php';
 }
+
+//default mail system
+$conf['system.mail']['interface']['default'] = 'ses_mail';
+
