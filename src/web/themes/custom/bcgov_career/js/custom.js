@@ -243,11 +243,15 @@
             $(this).removeClass("hide");
             $(".hideshow-workbc span.vaa1").hide();
             $(".hideshow-workbc span.vaa").show();
+            $(".result-heading h2.vaa1").hide();
+            $(".result-heading h2.vaa").show();
           }
  else {
             $(this).addClass("hide");
             $(".hideshow-workbc span.vaa").hide();
             $(".hideshow-workbc span.vaa1").show();
+            $(".result-heading h2.vaa").hide();
+            $(".result-heading h2.vaa1").show();
           }
         });
 
