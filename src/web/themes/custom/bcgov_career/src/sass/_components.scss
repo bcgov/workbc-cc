@@ -2344,6 +2344,34 @@ span.question-prefix {
         .tablesort {
             display: none;
         }
+
+        .matches-wrap{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.4rem;
+            line-height: 1.8rem;
+            color: #333;
+            font-family: "BC Sans Bold", sans-serif;
+            font-weight: normal;
+            margin: 0;
+            > span{
+                display: inline-block;
+                &.matches{
+                    margin-right: 10px;
+                }
+            }
+            .match-warning{
+                width: 25px;
+                height: 25px;
+                position: relative;
+                display: inline-block;
+                img {
+                    width: 25px;
+                    height: 25px;
+                }
+            }
+        }
     }
 
     table {
@@ -2641,7 +2669,7 @@ span.question-prefix {
                 display: flex;
 
                 p {
-                    padding: 20px;
+                    padding: 20px 10px 20px 15px;
                     margin: 0;
                     font-family: "BC Sans Bold", sans-serif;
                     font-size: 14px;
@@ -2653,6 +2681,7 @@ span.question-prefix {
                         flex: 0 0 70%;
                         @media all and (max-width: 640.98px){
                             flex: 0 0 45%;
+                            padding-left: 0px;
                         }
                     }
                     &:last-child {
@@ -2814,6 +2843,34 @@ span.question-prefix {
                             background: #000;
                         }
                     }
+                }
+            }
+        }
+
+        .matches-wrap{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.4rem;
+            line-height: 1.8rem;
+            color: #333;
+            font-family: "BC Sans Bold", sans-serif;
+            font-weight: normal;
+            margin: 0;
+            > span{
+                display: inline-block;
+                &.matches{
+                    margin-right: 10px;
+                }
+            }
+            .match-warning{
+                width: 25px;
+                height: 25px;
+                position: relative;
+                display: inline-block;
+                img {
+                    width: 25px;
+                    height: 25px;
                 }
             }
         }
