@@ -803,6 +803,3 @@ if (file_exists($app_root . '/' . $site_path . '/settings.openshift.php') && get
   include $app_root . '/' . $site_path . '/settings.local.php';
 }
 
-//default mail system
-$conf['system.mail']['interface']['default'] = 'ses_mail';
-
