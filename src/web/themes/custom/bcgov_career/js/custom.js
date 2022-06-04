@@ -71,6 +71,10 @@
         $("body").removeClass("overlayBg");
       });
       $(".carousel-mobi-tab-item").on("click", function () {
+        $(this)
+          .parents("#myResult")
+          .find(".extradivs")
+          .addClass("displayMobiPrint");
         $(".carousel-mobi-tab-item").removeClass("active");
         $(this).addClass("active");
 
@@ -243,15 +247,11 @@
             $(this).removeClass("hide");
             $(".hideshow-workbc span.vaa1").hide();
             $(".hideshow-workbc span.vaa").show();
-            $(".result-heading h2.vaa1").hide();
-            $(".result-heading h2.vaa").show();
           }
  else {
             $(this).addClass("hide");
             $(".hideshow-workbc span.vaa").hide();
             $(".hideshow-workbc span.vaa1").show();
-            $(".result-heading h2.vaa").hide();
-            $(".result-heading h2.vaa1").show();
           }
         });
 

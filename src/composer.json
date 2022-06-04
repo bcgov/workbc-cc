@@ -41,6 +41,7 @@
         "drupal/smtp": "^1.0",
         "drupal/svg_image": "^1.15",
         "drupal/twig_tweak": "^3.1",
+        "drupal/ultimate_cron": "^2.0@alpha",
         "drupal/views_bootstrap": "^4.3",
         "drupal/viewsreference": "^1.7",
         "drush/drush": "^10.6",
