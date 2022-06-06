@@ -791,7 +791,7 @@ $settings['trusted_host_patterns'] = [
   '^careerdiscoveryquizzes\.workbc\.ca$',
   '^career\.lndo\.site$',
   '^career\.ddev\.site$',
-  '^workbc\.b89n0c-dev\.nimbus\.cloud\.gov\.bc\.ca$',
+  '^workbc-cc\.b89n0c-prod\.nimbus\.cloud\.gov\.bc\.ca$',
   '^workbc-cc\.b89n0c-dev\.nimbus\.cloud\.gov\.bc\.ca$',
   '^workbc-cc\.b89n0c-test\.nimbus\.cloud\.gov\.bc\.ca$',
 ];
