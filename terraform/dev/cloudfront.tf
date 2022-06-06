@@ -71,7 +71,7 @@ resource "aws_cloudfront_distribution" "workbc-cc" {
     }
   }
 
-  tags = local.common_tags
+  tags = var.common_tags
   
   aliases = ["careerdiscoveryquizzes-dev.workbc.ca"]
 
