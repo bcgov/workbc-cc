@@ -186,6 +186,16 @@ function work_bc_quiz_theme_suggestions_page_title_alter(array &$suggestions, ar
  *
  */
 function work_bc_quiz_form_node_form_alter(&$form, $formState, $form_id) {
+  $node = $formState->getFormObject()->getEntity();
+  $quizTypes = new WorkBcQuizController();
+  $quizTypes = $quizTypes->getQuizTypes();
+  
+  if (!$node->isNew() && in_array($node->bundle(), $quizTypes)) {
+    $form['web_submission'] = [
+      '#type' => 'hidden',
+      '#value' => \Drupal::csrfToken()->get($node->id()),
+    ];
+  }
   $nodeTypeToPreventEdit = [
     'node_abilities_quiz_edit_form', 
     'node_work_preferences_quiz_edit_form',
@@ -194,6 +204,7 @@ function work_bc_quiz_form_node_form_alter(&$form, $formState, $form_id) {
     'node_learning_styles_quiz_edit_form',
     'node_work_values_quiz_edit_form',
     ];
+  
   if(in_array($form_id, $nodeTypeToPreventEdit)){ 
     $current_user = \Drupal::currentUser();
     $user=\Drupal\user\Entity\User::load($current_user->id());
@@ -740,19 +751,46 @@ function work_bc_quiz_node_view(array &$build, EntityInterface $entity, EntityVi
         usort($groupedResult, '_work_bc_quiz_usort3');
 
         $top_three = [];
-        $top_three[1] = $groupedResult[0]['name'][0];
-        $top_three[2] = $groupedResult[1]['name'][0];
-        $top_three[3] = $groupedResult[2]['name'][0];
-        $combinitations = [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]];
-        $top_three_all_codes = [];
-        foreach($combinitations as $key => $value){
-          $code = '';
-          foreach($combinitations[$key] as $i => $index){
-            $code .= $top_three[$index];
-          }
-          array_push($top_three_all_codes, $code);
+        $values = [];
+        
+        foreach( $groupedResult as $key => $value){
+          $i = $key+1;
+          $values[$i] = $value['name'];
+          $top_three[$i] = $value['name'][0];
         }
-
+        $combinitations = [
+                            [1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1],
+                            [1,2,4],[1,4,2],[2,1,4],[2,4,1],[4,1,2],[4,2,1],
+                            [1,2,5],[1,5,2],[2,1,5],[2,5,1],[5,1,2],[5,2,1]
+                          ];
+        $top_codes = [];
+        foreach($combinitations as $key => $value){
+          for($j=0;$j<3;$j++){
+            $code = '';
+            foreach($combinitations[$key] as $i => $index){
+              switch($j){
+                case 1:
+                  if($i == 2){
+                    $code .= strtolower($top_three[$index]);
+                  }else {
+                    $code .= $top_three[$index];
+                  }
+                break;
+                case 2:
+                  if($i == 1 || $i == 2){
+                    $code .= strtolower($top_three[$index]);
+                  }else {
+                    $code .= $top_three[$index];
+                  }
+                break;
+                default:
+                  $code .= $top_three[$index];
+                break;
+              }
+            }
+            array_push($top_codes, $code);
+          }
+        }
       }
       if ($quizError) {
         $query = \Drupal::database()->select('node', 'n')
@@ -843,47 +881,21 @@ function work_bc_quiz_node_view(array &$build, EntityInterface $entity, EntityVi
               $result = [];
               if($node->bundle() === 'work_preferences_quiz'){
                 $codes = [];
-
-                foreach ($data as $i => $values) {
-
-                  $newOccupation = new stdClass();
-                  $newOccupation->NOCCode = $values->NOCCode;
-                  $newOccupation->percentage = $values->CODE;
-
-                  foreach ($top_three_all_codes as $key => $code) {
-                    if($code == strtoupper($values->CODE)){
-                      if(is_array($codes[$key])){
-                       $codes[$key][] = $newOccupation;
-                      }else {
-                        $codes[$key][0]->NOCCode = $values->NOCCode;
-                        $codes[$key][0]->percentage = $values->CODE;
+                $result = [];
+                /* print_r($top_codes);
+                print_r($data); */
+                foreach ($top_codes as $key => $code) {
+                  foreach ($data as $i => $values) {
+                    $percentage = 180;
+                    if(count($result) >= 20) break;
+                    if($code === $values->CODE){
+                      if(!array_key_exists($values->NOCCode, $result)){
+                        $result[$values->NOCCode] = round((($percentage-$key)/$percentage)*100);
                       }
                     }
                   }
                 }
-                $data = [];
-                ksort($codes);
-                $percentage =100;
-                foreach($codes as $code){
-                  foreach ($code as $key => $value){
-                    $code[$key]->percentage = $percentage;
-                  }
-                  $percentage--;
-                  $data = array_merge($data, $code);
-                }
-
-                foreach ($data as $key => $value) {
-                  if (count($result) < 20) {
-                    if (!isset($result[$value->NOCCode])) {
-                      $result[$value->NOCCode] = $value->percentage;
-                    }
-                  }
-                  else {
-                    break;
-                  }
-                }
-                // print_r($result);
-                // die;
+                $i=0;
               }else {
                 foreach ($data as $i => $values) {
                   $sum = 0;
@@ -1168,7 +1180,14 @@ function work_bc_quiz_views_pre_render(ViewExecutable $view) {
     $view->total_rows = count($filteredResults);
   }
 }
-
+/**
+ * Implements hook_validation_constraint_alter().
+ */
+function work_bc_quiz_validation_constraint_alter(array &$definitions) {
+  if (isset($definitions['EntityChanged'])) {
+    $definitions['EntityChanged']['class'] = 'Drupal\work_bc_quiz\Plugin\Validation\Constraint\CustomEntityChangedConstraint';
+  }
+}
 
 /**
  * {@inheritdoc}
