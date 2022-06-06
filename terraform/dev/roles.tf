@@ -183,4 +183,25 @@ resource "aws_iam_role_policy" "workbc_cc_container_ssm" {
   EOF  
 }
 
+resource "aws_iam_role_policy" "workbc_cc_container_ses" {
+  name = "workbc_cc_container_ses"
+  role = aws_iam_role.workbc_cc_container_role.id
 
+  policy = <<-EOF
+  {
+      "Version": "2012-10-17",
+      "Statement": [
+          {
+              "Effect": "Allow",
+              "Action": [
+                  "ses:ListIdentities",
+                  "ses:SendEmail"
+              ],
+              "Resource": [
+                  "*"
+              ]
+          }
+      ]
+  }
+  EOF  
+}

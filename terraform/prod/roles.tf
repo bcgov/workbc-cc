@@ -41,8 +41,8 @@ resource "aws_iam_role_policy" "ecs_task_execution_kms" {
           "kms:Decrypt"
         ],
         "Resource": [
-          "arn:aws:secretsmanager:ca-central-1:054099626264:secret:workbc-cc-db-creds-T79YaY",
-          "arn:aws:kms:ca-central-1:054099626264:key/cf72efe3-3d2e-4d74-8c34-26a0855d5c92"
+          "arn:aws:secretsmanager:ca-central-1:846410483170:secret:workbc-cc-db-creds-f38Ymt",
+          "arn:aws:kms:ca-central-1:846410483170:key/cb919d51-4087-4d74-9789-1a27feabfc63"
         ]
       }
     ]

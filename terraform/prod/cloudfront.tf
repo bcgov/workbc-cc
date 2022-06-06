@@ -23,7 +23,7 @@ resource "aws_cloudfront_distribution" "workbc-cc" {
 	
 	custom_header {
 	  name = "X-Forwarded-Host"
-	  value = "careerdiscoveryquizzes-test.workbc.ca"
+	  value = "careerdiscoveryquizzes.workbc.ca"
 	}
 	
   }
@@ -66,17 +66,16 @@ resource "aws_cloudfront_distribution" "workbc-cc" {
 
   restrictions {
     geo_restriction {
-      restriction_type = "whitelist"
-      locations = ["CA"]
+      restriction_type = "none"
     }
   }
 
   tags = var.common_tags
   
-  aliases = ["careerdiscoveryquizzes-test.workbc.ca"]
+  aliases = ["careerdiscoveryquizzes.workbc.ca"]
 
   viewer_certificate {
-    acm_certificate_arn = "arn:aws:acm:us-east-1:054099626264:certificate/7a41ac55-9da3-46c5-9d59-54530e771070"
+    acm_certificate_arn = "arn:aws:acm:us-east-1:846410483170:certificate/27a09302-3322-4d85-96f3-db4be28a8e24"
     ssl_support_method = "sni-only"
   }
 }
