@@ -3285,7 +3285,11 @@ span.question-prefix {
                         }
                         @media all and (max-width: 767.98px) {
                             padding: 0px 40px 0 25px;;
-                            &.career-title-2,
+
+                            &.career-title-2 {
+                                padding: 0px 40px 0 60px;
+                            }
+
                             &.career-title-3 {
                                 padding: 0px 30px 0 60px;
                             }
