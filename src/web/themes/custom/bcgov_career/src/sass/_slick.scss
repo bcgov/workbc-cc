@@ -74,7 +74,7 @@
     &.slick-loading img {
         display: none;
     }
-    
+
     & > div,
     & > div > div {
         height: 100%;
@@ -106,17 +106,4 @@
 
 .slick-dots li:not(.slick-active) button:before  {
     opacity: 0.25;
-}
-
-.carousel-slider-mobi-row {
-    .slick-track
-    {
-        display: flex !important;
-    }
-
-    .slick-slide
-    {
-        height: inherit !important;
-        padding-bottom: 50px;
-    }
 }
