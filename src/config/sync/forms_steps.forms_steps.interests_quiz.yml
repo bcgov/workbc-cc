@@ -68,7 +68,7 @@ steps:
     entity_bundle: interests_quiz
     form_mode: node.step_12
     url: /quiz/interests-quiz/step12
-    submitLabel: Next
+    submitLabel: Submit
     cancelLabel: null
     previousLabel: Back
     hideDelete: 0
