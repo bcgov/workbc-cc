@@ -15,6 +15,7 @@ use Drupal\Core\Entity\EntityInterface;
 use Drupal\views\ViewExecutable;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Drupal\work_bc_quiz\Controller\WorkBcQuizController;
+use Drupal\ultimate_cron\Entity\CronJob;
 
 /**
  * Attach work-bc-lib Library to use css and JS fiels.
@@ -445,18 +446,21 @@ function work_bc_quiz_preprocess(&$variables) {
     elseif ($node->bundle() == 'work_values_quiz') {
       $details_nid = $settings['field_work_values_quiz_list_node'];
     }
-    $email_subject = t("WorkBC's Career Discovery Quizzes - @quiztype results", ["@quiztype" => $node->type->entity->label()]);
+    $job = CronJob::load('work_bc_quiz_cron');
+    $email_subject = t("WorkBC's Career Discovery Quizzes - @quiztype results", [
+      "@quiztype" => $node->type->entity->label(),
+    ]);
     $options = ['absolute' => TRUE];
     $current_url = Url::fromRoute('<current>', [], $options);
     $front_url = Url::fromRoute('<front>', [], $options);
     $email_body = t("View your @quiztype results: @quizlink
                     \nYour result are available for next @duration. print or download to save your results.
                     \nDiscover more! Complete other career and personality quizzes and find a career path that's right for you. Career Discovery Quizzes: @front\nFind more resources on careers, funding, education and finding jobs at WorkBC.ca.", [
-        "@quiztype" => $node->type->entity->label(),
-        "@duration" => "14 days",
-        "@quizlink" => $current_url->toString(),
-        "@front" => $front_url->toString(),
-      ]);
+                      "@quiztype" => $node->type->entity->label(),
+                      "@duration" => !empty($job) ? $job->getPlugin('scheduler')->formatLabel($job)->getArguments()['@interval'] : '2 weeks',
+                      "@quizlink" => $current_url->toString(),
+                      "@front" => $front_url->toString(),
+                    ]);
     $variables['quiz_result_email_subject'] = $email_subject;
     $variables['quiz_result_email_body'] = $email_body;
 
