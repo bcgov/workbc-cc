@@ -385,6 +385,14 @@
       $(".career-content-item-inner .image-video iframe")
         .parent()
         .addClass("video");
+
+      $(
+        ".careers-mobi-main-wrapper .careers-mobi-table-wrapper .tbody .tbody-main p:first-child"
+      ).each(function () {
+        if ($(this).text() == "Great") {
+          $(this).parent().addClass("shift");
+        }
+      });
     },
   };
 })(jQuery, Drupal, drupalSettings);

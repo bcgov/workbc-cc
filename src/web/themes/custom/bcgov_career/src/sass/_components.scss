@@ -2809,6 +2809,16 @@ span.question-prefix {
                         }
                     }
                 }
+                &.shift{
+                    .compare-career-mobi {
+                        .checkmark {
+                            left: calc(50% - 9px);
+                        }
+                        input{
+                            left: calc(50% - 9px);
+                        }
+                    }    
+                }
             }
 
             .slick-dots {
