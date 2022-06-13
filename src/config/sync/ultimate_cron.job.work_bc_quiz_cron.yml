@@ -1,0 +1,29 @@
+uuid: b0fd557b-0d7b-4b02-910a-19804772e3ff
+langcode: en
+status: true
+dependencies:
+  module:
+    - work_bc_quiz
+title: 'Delete Old Quiz Nodes'
+id: work_bc_quiz_cron
+weight: 0
+module: work_bc_quiz
+callback: work_bc_quiz_cron
+scheduler:
+  id: simple
+  configuration:
+    rules:
+      - '0+@ * * * *'
+launcher:
+  id: serial
+  configuration:
+    timeouts:
+      lock_timeout: 3600
+    launcher:
+      thread: 0
+logger:
+  id: database
+  configuration:
+    method: '3'
+    expire: 1209600
+    retain: 1000
