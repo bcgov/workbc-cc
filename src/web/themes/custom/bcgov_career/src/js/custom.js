@@ -73,11 +73,17 @@
         $("body").removeClass("overlayBg");
       });
       $(".carousel-mobi-tab-item").on("click", function(){
-        $(this).parents("#myResult").find(".extradivs").addClass("displayMobiPrint");
         $(".carousel-mobi-tab-item").removeClass("active");
         $(this).addClass("active");
 
         var getTabItemId = $(this).data("href");
+        console.log(getTabItemId);
+        if(getTabItemId == "bottomcarousel"){
+          $(this).parents("#myResult").find(".extradivs").addClass("displayMobiPrint");
+        }
+        else{
+          $(this).parents("#myResult").find(".extradivs").removeClass("displayMobiPrint");
+        }
         $(".carousel-inner-mobi").removeClass("active");
         $(".carousel-inner-mobi[data-id="+getTabItemId+"]").addClass("active");
         $('.active > .carousel-slider-mobi-row').slick('slickGoTo', parseInt(0), true);
