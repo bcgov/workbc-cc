@@ -1,0 +1,46 @@
+uuid: ced4760b-d87b-477c-86ce-74015bb25fbe
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.site_setting_entity.cron.field_quiz_lifespan_hours
+    - site_settings.site_setting_entity_type.cron
+id: site_setting_entity.cron.default
+targetEntityType: site_setting_entity
+bundle: cron
+mode: default
+content:
+  field_quiz_lifespan_hours:
+    type: number
+    weight: 12
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  fieldset:
+    type: string_textfield
+    weight: -4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: -4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  user_id:
+    type: entity_reference_autocomplete
+    weight: 5
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

@@ -34,7 +34,8 @@
 	{% set counter = 0%}
 	{% for row in rows %}
 		{% if row.content['#row']._entity.field_quiz_link.value[0].title2 == 'View Your Results'%}
-			{% set counter = ( counter | default(0) ) + 1 %}
+      {{row.content['#row']._entity.field_quiz_link.value[0].title2}}
+      {% set counter = ( counter | default(0) ) + 1 %}
 		{% endif %}
 	{% endfor %}
 

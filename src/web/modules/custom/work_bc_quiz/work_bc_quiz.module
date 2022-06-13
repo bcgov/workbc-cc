@@ -333,7 +333,17 @@ function work_bc_quiz_form_node_form_alter(&$form, $formState, $form_id) {
           $query = \Drupal::database()->select('node', 'n')->fields('n', ['nid']);
           $query->condition('n.uuid', $value->uuid);
           $nid = $query->execute()->fetchField();
-          $response = new RedirectResponse(\Drupal\Core\Url::fromRoute('entity.node.canonical', ['node' => $nid])->toString());
+
+          $query = \Drupal::database()->select('forms_steps_workflow', 'n')->fields('n', ['id', 'instance_id'])->condition('n.entity_id', $nid)->range(0, 1)->execute();
+          $result = $query->fetchObject();
+          $instance_id = $result->instance_id;
+          $path = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
+          $target_url = \Drupal::service('path.validator')->getUrlIfValid($path);
+          $target_route_name = $target_url->getRouteName();
+          $target_route_parameters = $target_url->getrouteParameters();
+          $target_route_parameters['instance_id'] = $instance_id;
+          $response = new RedirectResponse(\Drupal\Core\Url::fromRoute($target_route_name, $target_route_parameters)->toString());
+          #$response = new RedirectResponse(\Drupal\Core\Url::fromRoute('entity.node.canonical', ['node' => $nid])->toString());
           $response->send();
         }
       }
