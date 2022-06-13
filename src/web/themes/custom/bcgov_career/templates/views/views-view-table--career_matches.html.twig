@@ -56,7 +56,7 @@
             </div>
             <div class="top-btn">
               <a href="{{ remove_url }}" class="clear-compare disable">Clear Compare</a>
-              <a href="{{ '/career-compare/career/' ~ current_nid }}" class="compare-career disable">Compare Careers</a>
+              <a href="{{ '/career-compare/career/' ~ current_nid ~ '/?quiz-type=' ~ quiz_type }}" class="compare-career disable">Compare Careers</a>
             </div>
           </div>
         </div>
@@ -95,7 +95,7 @@
                     <span class="match">{{ 'Match'|t }}</span>
                   </span>
                 {% if match_header == 'Your' %}
-                  <span class="match-warning" title="A career marked as Best Match is a very strong match to your interests.&#013;&#010;A career marked Great Match is a strong match and may also be of interest to you.&#013;&#010;A career marked Good Match is a less strong match.">
+                  <span class="match-warning" title="A career marked as Best Fit is a very strong match to your interests.&#013;&#010;A career marked Great Fit is a strong match.&#013;&#010;A career marked Good Fit is a less strong match and may also be of interest to you.">
                     <img src="/themes/custom/bcgov_career/src/icons/warning.svg"/>
                   </span>
                 {% endif %}
