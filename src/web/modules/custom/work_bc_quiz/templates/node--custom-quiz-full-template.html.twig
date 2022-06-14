@@ -165,7 +165,7 @@
 											{{ item.name }}
 										</div>
 										<div class="item title-description">
-											{{ item.description|render|striptags}}
+                      {{ item.description | raw}}
 										</div>
 									</div>
 								</div>
@@ -219,7 +219,7 @@
 									{{ item.name }}
 								</div>
 								<div class="item title-description">
-									{{ item.description|render|striptags}}
+                  {{ item.description | raw}}
 								</div>
 							</div>
 						</div>
@@ -245,7 +245,7 @@
 									{{ item.name }}
 								</div>
 								<div class="item title-description">
-									{{ item.description|render|striptags}}
+                  {{ item.description | raw}}
 								</div>
 							</div>
 						</div>
