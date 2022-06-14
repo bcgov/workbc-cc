@@ -73,7 +73,7 @@
                 var status = "modify";
                 step = 1;
                 snowplow_tracker_quiz(category, quiz_type, step, status);
-            } else {
+            } else if($(this).text() != 'View Your Results') {
                 var status = "new";
                 snowplow_tracker_quiz(category, quiz_type, step, status);
             }
@@ -93,31 +93,16 @@
         } 
 
         //compare career
-        
-        $('.top-career-content .top-btn a,.top-career-mobi-content .top-btn a').click(function() {
+        $('.top-career-mobi-content .top-btn a').click(function() {
             count++;
-            var noc_group = {};
+            var noc_group = [];
             var compare_count = 1;
             var action = $(this).text().slice(0, -7).trim();
-            
-            $('.career-table-row').each(function(index) {
-               index++;
-               if($(this).find('.remove-link').length > 0 && compare_count <= 3) {
-                    var noc_id =  $(this).find('.remove-link').parents('.career-table-row').find('.career-table-link .noc').text();
-                    noc_id = noc_id.replace('(','').replace(')','').trim();
-                    noc_id = noc_id.split(' ')[1];
-                    if(noc_id != undefined) {
-                        noc_group["noc_"+compare_count] = noc_id;
-                        compare_count++;
-                    }
-               }
-               
-            });
 
             $('.careers-mobi-table-wrapper .tbody-main').each(function(index) {
                 index++;
                 if($(this).find('.remove-link').length > 0 && compare_count <= 3) {
-                    var noc_id =  $(this).find('.remove-link').parents('.tbody-main').find('.career-table-link .noc').text();
+                    var noc_id =  $(this).find('.remove-link').parents('.tbody-main').find('.career-table-mobi-row-link .noc').text();
                     noc_id = noc_id.replace('(','').replace(')','').trim();
                     noc_id = noc_id.split(' ')[1];
                     if(noc_id != undefined) {
@@ -137,12 +122,51 @@
                 });
             }
         });
+        $('.top-career-content .top-btn a').click(function() {
+            count++;
+            var noc_group = [];
+            var compare_count = 1;
+            var action = $(this).text().slice(0, -7).trim();
+            
+            $('.career-table-row').each(function(index) {
+               index++;
+               if($(this).find('.remove-link').length > 0 && compare_count <= 3) {
+                    var noc_id =  $(this).find('.remove-link').parents('.career-table-row').find('.career-table-link .noc').text();
+                    noc_id = noc_id.replace('(','').replace(')','').trim();
+                    noc_id = noc_id.split(' ')[1];
+                    if(noc_id != undefined) {
+                        noc_group["noc_"+compare_count] = noc_id;
+                        compare_count++;
+                    }
+               }
+               
+            });
+            
+            if($(this).text() == "Compare Careers") {
+                $(this, context).once('num_'+count).each(function() {
+                    snowplow_tracker_compare('compare', noc_group);
+                });
+            } else {
+                $(this, context).once('num_'+count).each(function() {
+                    snowplow_tracker_compare('clear', noc_group);
+                });
+            }
+        });
 
         function snowplow_tracker_compare(action, noc_group) {
+            noc_1 = null;
+            noc_2 = null;
+            noc_3 = null;
+
+            noc_1 = noc_group['noc_1'];
+            noc_2 = noc_group['noc_2'];
+            noc_3 = noc_group['noc_3'];
             window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/career_quiz_compare/jsonschema/1-0-0",
                 "data": {
                     "action": action,
-                    noc_group
+                    "noc_1": noc_1,
+                    "noc_2": noc_2,
+                    "noc_3": noc_3
                 }
             });
         }
@@ -274,7 +298,6 @@
             var category = find_quiz_category(quiz_type);
             snowplow_tracker_quiz(category, quiz_type, step, status); 
         });
-        
         
 
         function snowplow_tracker_results(category, quiz_type, appt) {

@@ -75,7 +75,7 @@ class WorkBcQuizAutocompleteSelectWidget extends EntityReferenceAutocompleteWidg
 
     // Set the label on the added reference field, if one is in settings.
     if (!empty($ar_label)) {
-      $widget['ar_target_id']['#prefix'] = "<span class='question-prefix'>$ar_weight </span>";
+      $widget['ar_target_id']['#prefix'] = "<span class='question-prefix'>$ar_weight</span>";
       $widget['ar_target_id']['#title'] = $ar_label;
       $widget['ar_target_id']['#title_display'] = 'before';
     }
