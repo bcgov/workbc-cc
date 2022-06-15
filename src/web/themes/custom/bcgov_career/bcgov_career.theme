@@ -36,6 +36,19 @@ function bcgov_career_preprocess_page(&$variables) {
 }
 
 /**
+ * Implements hook_preprocess_node().
+ */
+function bcgov_career_preprocess_node(&$variables) {
+  $node = $variables['elements']['#node'];
+  if ($node->bundle() == 'career_profile') {
+    $quiz_type = \Drupal::request()->query->get('type');
+    $variables['quiz_color'] = _quiz_color_type($quiz_type);
+    $variables['test_career'] = 'test';
+    $variables['attributes']['class'][] = $variables['quiz_color'];
+  }
+}
+
+/**
  * Implements hook_preprocess_views_view_table().
  */
 function bcgov_career_preprocess_views_view_table(&$variables) {
@@ -184,4 +197,15 @@ function _quiz_color_type($bundle) {
     $quiz_color = Html::cleanCssIdentifier('quiz-color-' . $quiz_color_value);
   }
   return $quiz_color;
+}
+
+function bcgov_career_preprocess_html(&$variables) {
+  // Add node id to the body class.
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if($node instanceof \Drupal\node\NodeInterface && $node->bundle() == 'career_profile') {
+    $quiz_type = \Drupal::request()->query->get('type');
+    $variables['quiz_type'] = $quiz_type;
+    $variables['quiz_color'] = _quiz_color_type($quiz_type);
+    $variables['attributes']['class'][] = $variables['quiz_color'];
+  }
 }

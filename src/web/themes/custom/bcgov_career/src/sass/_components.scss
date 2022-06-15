@@ -2887,9 +2887,10 @@ span.question-prefix {
 //     }
 // }
 
+.page-node-type-career-profile,
 .career-content-main-wrapper {
     height: 100%;
-
+    
     .back-link {
         background: #e6eae9;
         padding: 10px 20px;
@@ -2936,6 +2937,27 @@ span.question-prefix {
                     border: 0;
                     padding: 20px 40px;
                     border-bottom: 4px solid #234075;
+                }
+            }
+
+            .title {
+                .quiz-color-dark-blue & {
+                    background: $quiz-dark-blue
+                }
+                .quiz-color-purple & {
+                    background: $quiz-purple;
+                }
+                .quiz-color-blue & {
+                    background: $quiz-blue;
+                }
+                .quiz-color-green & {
+                    background: $quiz-green;
+                }
+                .quiz-color-light-blue & {
+                    background: $quiz-light-blue;
+                }
+                .quiz-color-pink & {
+                    background: $quiz-pink;
                 }
             }
 
@@ -3029,6 +3051,32 @@ span.question-prefix {
                 }
 
                 a.btn {
+                    .quiz-color-dark-blue & {
+                        background: $quiz-dark-blue;
+                        border: 2px solid $quiz-blue-dark;
+                    }
+                    .quiz-color-purple & {
+                        background: $quiz-purple;
+                        border: 2px solid $quiz-purple;
+                    }
+                    .quiz-color-blue & {
+                        background: $quiz-blue;
+                        border: 2px solid $quiz-blue;
+                    }
+                    .quiz-color-green & {
+                        background: $quiz-green;
+                        border: 2px solid $quiz-green;
+                    }
+                    .quiz-color-light-blue & {
+                        background: $quiz-light-blue;
+                        border: 2px solid $quiz-light-blue;
+                    }
+                    .quiz-color-pink & {
+                        background: $quiz-pink;
+                        border: 2px solid $quiz-pink;
+                    }
+                }
+                a.btn {
                     color: #fff;
                     border: 2px solid #234075;
                     background: #234075;
@@ -3043,6 +3091,28 @@ span.question-prefix {
 
                     @media all and (max-width: 767.98px) {
                         margin-bottom: 10px;
+                    }
+
+                    &.btn-find-job {
+                        .quiz-color-dark-blue & {
+                            color: $quiz-dark-blue;
+                            border: 2px solid $quiz-blue-dark;
+                        }
+                        .quiz-color-purple & {
+                            color: $quiz-purple;
+                        }
+                        .quiz-color-blue & {
+                            color: $quiz-blue;
+                        }
+                        .quiz-color-green & {
+                            color: $quiz-green;
+                        }
+                        .quiz-color-light-blue & {
+                            color: $quiz-light-blue;
+                        }
+                        .quiz-color-pink & {
+                            color: $quiz-pink;
+                        }
                     }
 
                     &.btn-find-job {
