@@ -1041,6 +1041,9 @@ a.quiz-link {
         z-index: 0;
         top: 0;
         width: 100%;
+        @media all and (max-width: 991.98px){
+            min-height: 100%;
+        }
     }
 }
 
@@ -2808,6 +2811,16 @@ span.question-prefix {
                         }
                     }
                 }
+                &.shift{
+                    .compare-career-mobi {
+                        .checkmark {
+                            left: calc(50% - 9px);
+                        }
+                        input{
+                            left: calc(50% - 9px);
+                        }
+                    }    
+                }
             }
 
             .slick-dots {
@@ -2942,7 +2955,7 @@ span.question-prefix {
 
             .title {
                 background: #234075;
-                height: 65px;
+                height: 75px;
                 display: flex;
                 align-items: center;
                 p {

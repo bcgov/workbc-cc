@@ -223,19 +223,36 @@
     .compare-career-main-wrapper .career-content-compare {
         display: block;
     }
-    .career-content-main-wrapper .career-content-item {
-        .career-content-item-inner {
-            height: auto;
-            .title {
-                min-height: auto;
-                padding: 0 0 0px;
-                left: -40px;
-                background: transparent !important;
-                p {
-                    color: #333333;
-                    font-size: 20px;
-                    line-height: 25px;
-                    padding: 0px;
+    .career-content-main-wrapper{
+        &.career-content-compare{
+            .career-content-item.active:not(.col) {
+                max-height: none;
+                float: left;
+                max-width: 575px;
+                clear: both;
+                margin-bottom: 20px;
+                margin-left: 0px;
+                height: auto;
+                .career-content-item-inner .title{
+                    left: 0 !important;
+                    margin-bottom: 30px;
+                }
+            }
+        }
+        .career-content-item {
+            .career-content-item-inner {
+                height: auto;
+                .title {
+                    min-height: auto;
+                    padding: 0 0 0px;
+                    left: -40px;
+                    background: transparent !important;
+                    p {
+                        color: #333333;
+                        font-size: 20px;
+                        line-height: 25px;
+                        padding: 0px;
+                    }
                 }
             }
         }
