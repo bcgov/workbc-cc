@@ -158,9 +158,15 @@
             noc_2 = null;
             noc_3 = null;
 
-            noc_1 = noc_group['noc_1'];
-            noc_2 = noc_group['noc_2'];
-            noc_3 = noc_group['noc_3'];
+            if(noc_group['noc_1'] != '') {
+                noc_1 = noc_group['noc_1'];
+            }
+            if(noc_group['noc_2'] != '') {
+                noc_2 = noc_group['noc_2'];
+            }
+            if(noc_group['noc_3'] != '') {
+                noc_3 = noc_group['noc_3'];
+            }
             window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/career_quiz_compare/jsonschema/1-0-0",
                 "data": {
                     "action": action,

@@ -96,7 +96,8 @@
       <div class="back-link"><a href='javascript:history.back()'><img src="../../../../themes/custom/bcgov_career/assets/arrow-left.svg"/> Back to Quiz Results</a></div>
       <div class="career-content-item active">
         <div class="career-content-item-inner">
-          <div class="title">
+          <div class="title {{quiz_color}}">
+          {{test}}
             {% if node.label is not empty %}
               <p><span class="noc_name">{{node.field_noc_name.value}}</span><br><span class='noc-code'> (NOC {{ node.label }})</span></p>
             {% endif %}

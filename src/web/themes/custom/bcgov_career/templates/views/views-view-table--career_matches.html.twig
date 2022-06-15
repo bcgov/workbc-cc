@@ -56,7 +56,7 @@
             </div>
             <div class="top-btn">
               <a href="{{ remove_url }}" class="clear-compare disable">Clear Compare</a>
-              <a href="{{ '/career-compare/career/' ~ current_nid ~ '/?quiz-type=' ~ quiz_type }}" class="compare-career disable">Compare Careers</a>
+              <a href="{{ '/career-compare/career/' ~ current_nid }}" class="compare-career disable">Compare Careers</a>
             </div>
           </div>
         </div>
@@ -222,7 +222,7 @@
             </div>
             <div class="top-btn">
               <a href="{{ remove_url }}" class="clear-compare disable">Clear Compare</a>
-              <a href="{{ '/career-compare/career/'  ~ current_nid }}" class="compare-career disable">Compare Careers</a>
+              <a href="{{ '/career-compare/career/'  ~ current_nid ~ '?type=' ~ quiz_type}}" class="compare-career disable">Compare Careers</a>
             </div>
           </div>
         </div>
@@ -251,7 +251,7 @@
           {% set nodeURL =  url('entity.node.canonical', {'node': row.raw.nid}) %}
             <div class="tbody-main" data-id="career-item-{{ rowkey }}">
             <p class="body">{{ row.raw.match }}</p>
-              <p class="body"><a href="{{ nodeURL }}" class="career-table-mobi-row-link">{{ row.raw.field_noc_name }} </br><span class="noc">(NOC {{ row.raw.title }})</span></a></p>
+              <p class="body"><a href="{{ nodeURL }}/?type={{ quiz_type }}" class="career-table-mobi-row-link">{{ row.raw.field_noc_name }} </br><span class="noc">(NOC {{ row.raw.title }})</span></a></p>
               <p class="body">
                 {{ row.columns.entity_comparison_link_career }}
                 <label class="compare-career-mobi compare-carr" data-career="/entity-comparison/career/{{ row.raw.entity_comparison_link_career }}?destination=/node/{{ currentPath }}">
