@@ -1041,6 +1041,9 @@ a.quiz-link {
         z-index: 0;
         top: 0;
         width: 100%;
+        @media all and (max-width: 991.98px){
+            min-height: 100%;
+        }
     }
 }
 
@@ -1323,7 +1326,9 @@ body.path-quiz {
                 & + label.option + span.radio {
                     width: 20px;
                     height: 20px;
-                    display: block;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                     border: 2px solid #666;
                     border-radius: 50%;
                     background: #fff;
@@ -1341,7 +1346,6 @@ body.path-quiz {
                         background: $aq;
                         width: 12px;
                         height: 12px;
-                        margin: 2px;
                         z-index: 0;
                         position: absolute;
                         border-radius: 50%;
@@ -2807,6 +2811,16 @@ span.question-prefix {
                         }
                     }
                 }
+                &.shift{
+                    .compare-career-mobi {
+                        .checkmark {
+                            left: calc(50% - 9px);
+                        }
+                        input{
+                            left: calc(50% - 9px);
+                        }
+                    }    
+                }
             }
 
             .slick-dots {
@@ -2963,7 +2977,7 @@ span.question-prefix {
 
             .title {
                 background: #234075;
-                height: 65px;
+                height: 75px;
                 display: flex;
                 align-items: center;
                 p {
