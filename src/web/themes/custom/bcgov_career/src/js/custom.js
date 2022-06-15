@@ -225,6 +225,7 @@
             $(".hideshow-workbc span.vaa").show();
             $(".result-heading h2.vaa1").hide();
             $(".result-heading h2.vaa").show();
+            $("#myResult").animate({ scrollTop: 0 }, "slow");
           }
           else {
             $(this).addClass("hide");
@@ -244,6 +245,7 @@
             $(".result-heading h2.vaa").show();
             $(".itm.hide").hide();
             $(".extradivs.hide").removeClass("show");
+            $("html, body").animate({scrollTop: 200}, "slow");
           } else {
             $(this).addClass("hide");
             $(".itm.hide").show();

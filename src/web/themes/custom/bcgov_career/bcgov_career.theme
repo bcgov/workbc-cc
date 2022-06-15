@@ -129,6 +129,11 @@ function bcgov_career_preprocess_views_view_table(&$variables) {
       'query' => \Drupal::service('redirect.destination')->getAsArray(),
     ]);
     $variables['remove_url'] = $url->toString();
+
+    //$name = \Drupal::request()->request->get('forms_steps');
+    
+    $quiz_type = $node->bundle();
+    $variables['quiz_type'] = $quiz_type;
   }
 }
 
@@ -155,6 +160,11 @@ function bcgov_career_preprocess_table(&$variables) {
       "@link" => $url->toString(),
     ]);
     $variables['compare_url'] = $body_value;
+
+    // Retrieve an array which contains the path pieces.
+    $quiz_type = \Drupal::request()->query->get('quiz-type');
+    $variables['quiz_type'] = $quiz_type;
+    $variables['quiz_color'] = _quiz_color_type($quiz_type);
   }
 }
 

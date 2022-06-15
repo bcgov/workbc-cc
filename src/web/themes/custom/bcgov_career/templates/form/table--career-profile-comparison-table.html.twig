@@ -198,12 +198,26 @@
       </div>
     </div>
   </div>
+    {% if quiz_type == 'abilities_quiz' %}
+     {%  set job_bank_url = 'https://www.jobbank.gc.ca/abilities' %}
+    {% elseif quiz_type == 'work_preferences_quiz' %}
+      {% set job_bank_url = 'https://www.jobbank.gc.ca/workpreference' %}
+    {% elseif quiz_type == 'learning_styles_quiz' %}
+      {% set job_bank_url = 'https://www.jobbank.gc.ca/seeheardo' %}
+    {% elseif quiz_type == 'work_values_quiz' %}
+      {% set job_bank_url = 'https://www.jobbank.gc.ca/workvalue' %}
+    {% elseif quiz_type == 'multiple_intelligences_quiz' %}
+      {% set job_bank_url = 'https://www.jobbank.gc.ca/intelligence' %}
+    {% endif %}
   <div class="container-fluid">
       <div class="row">
         <div class="career-bottom-notes w-100">
           <div class="career-bottom-inner-notes">
-            <p>This quiz has been reproduced with permission from the <a href="https://www.jobbank.gc.ca/seeheardo" target="_blank">Government of Canada’s National Job Bank</a></p>
-          </div>
+            {% if quiz_type == 'interests_quiz' %}
+              <p>This page includes information from the <a href="https://www.onetcenter.org/tools.html" target="_blank">O*NET Career Exploration Tools</a> by the U.S. Department of Labor, Employment and Training Administration (USDOL/ETA). Used under the <a href="https://www.onetcenter.org/license_toolsdev.html" target="_blank">O*NET Tools Developer License</a>.  O*NET® is a trademark of USDOL/ETA. WorkBC’s Interests Quiz has modified all or some of this information. USDOL/ETA has not approved, endorsed, or tested these modifications.</p>
+            {% else %}
+              <p>This quiz has been reproduced with permission from the <a href="{{job_bank_url}}" target="_blank">Government of Canada’s National Job Bank</a></p>
+            {% endif %}          </div>
         </div>
       </div>
     </div>
