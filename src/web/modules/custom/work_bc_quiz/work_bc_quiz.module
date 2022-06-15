@@ -456,7 +456,10 @@ function work_bc_quiz_preprocess(&$variables) {
     elseif ($node->bundle() == 'work_values_quiz') {
       $details_nid = $settings['field_work_values_quiz_list_node'];
     }
-    $job = CronJob::load('work_bc_quiz_cron');
+    $quizLifespanHours = (isset($settings['cron_settings']['cron'])) ? $settings['cron_settings']['cron'] : 24;
+    $hid = 24;
+    $days = round($quizLifespanHours / $hid);
+
     $email_subject = t("WorkBC's Career Discovery Quizzes - @quiztype results", [
       "@quiztype" => $node->type->entity->label(),
     ]);
@@ -464,10 +467,10 @@ function work_bc_quiz_preprocess(&$variables) {
     $current_url = Url::fromRoute('<current>', [], $options);
     $front_url = Url::fromRoute('<front>', [], $options);
     $email_body = t("View your @quiztype results: @quizlink
-                    \nYour result are available for next @duration. print or download to save your results.
+                    \nYour result are available for next @duration days. print or download to save your results.
                     \nDiscover more! Complete other career and personality quizzes and find a career path that's right for you. Career Discovery Quizzes: @front\nFind more resources on careers, funding, education and finding jobs at WorkBC.ca.", [
                       "@quiztype" => $node->type->entity->label(),
-                      "@duration" => !empty($job) ? $job->getPlugin('scheduler')->formatLabel($job)->getArguments()['@interval'] : '2 weeks',
+                      "@duration" => $days,
                       "@quizlink" => $current_url->toString(),
                       "@front" => $front_url->toString(),
                     ]);
