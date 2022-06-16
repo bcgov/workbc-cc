@@ -3466,6 +3466,10 @@ span.question-prefix {
                     height: 10px;
                     font-size: 0;
                     border-radius: 50%;
+
+                    @media all and (max-width: 767.98px){
+                        outline: none;
+                    }
                 }
 
                 &:not(.slick-active) {
