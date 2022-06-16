@@ -371,6 +371,13 @@
                     height: 25px;
                     &.icon-message{
                         height: 19px;
+                        mask-repeat: no-repeat;
+                        mask-size: contain;
+                    }
+
+                    &.icon-print {
+                        mask-size: contain;
+                        mask-repeat: no-repeat;
                     }
                 }
             }
@@ -1933,10 +1940,14 @@ span.question-prefix {
 
 
         @media all and (max-width: 1024px){
-            max-width: 430px;
+            max-width: 500px;
             width: 100%;
             padding: 0 25px;
             flex: 0 0 100%;
+        }
+
+        @media all and (max-width: 820px){
+            max-width: 430px;
         }
 
         @media all and (max-width: 767.98px){
@@ -1971,18 +1982,13 @@ span.question-prefix {
         margin: auto;
         text-align: center;
         margin: auto;
-        min-width: 620px;
+        width: 100%;
         height: 34px;
         display: flex;
         margin-left: 0px;
         padding-left: 0px;
         border: 2px #dbdbdb solid;
-        @media all and (max-width: 767.98px) {
-            min-width: 100%;
-        }
-        @media all and (max-width: 1020.98px) {
-            min-width: 100%;
-        }
+
         li {
             display: inline-block;
             background: #ffffff;
@@ -2674,25 +2680,25 @@ span.question-prefix {
                 display: flex;
 
                 p {
-                    padding: 20px 10px 20px 15px;
+                    padding: 20px;
                     margin: 0;
                     font-family: "BC Sans Bold", sans-serif;
                     font-size: 14px;
                     color: #333333;
+
                     &:first-child {
-                        flex: 0 0 10%;
+                        min-width: 85px;
                     }
+
                     &:nth-child(2) {
-                        flex: 0 0 70%;
-                        @media all and (max-width: 640.98px){
-                            flex: 0 0 45%;
-                            padding-left: 0px;
-                        }
+                        width:100%;
                     }
+
                     &:last-child {
-                        flex: 0 0 20%;
-                        @media all and (max-width: 640.98px){
-                            flex: 0 0 30%;
+                        min-width: 125px;
+
+                        @media all and (max-width: 500px){
+                            min-width: 105px;
                         }
                     }
                 }
@@ -2710,18 +2716,12 @@ span.question-prefix {
                     margin: 0;
 
                     &:first-child {
-                        flex: 0 0 10%;
+                        min-width: 85px;
                     }
 
                     &:nth-child(2) {
-                        flex: 0 0 70%;
-                        @media all and (max-width: 640.98px){
-                            flex: 0 0 50%;
-                            width: 130px;
-                        }
-                        @media all and (max-width: 767.98px){
-                            padding-left: 33px;
-                        }
+                        width: 100%;
+
                         a {
                             color: #333;
                             text-decoration: none;
@@ -2732,12 +2732,11 @@ span.question-prefix {
                             }
                         }
                     }
-
                     &:last-child {
-                        flex: 0 0 20%;
-                        text-align: center;
-                        @media all and (max-width: 640.98px){
-                            flex: 0 0 30%;
+                       min-width: 125px;
+
+                       @media all and (max-width: 500px){
+                            min-width: 105px;
                         }
                     }
 
@@ -2819,7 +2818,7 @@ span.question-prefix {
                         input{
                             left: calc(50% - 9px);
                         }
-                    }    
+                    }
                 }
             }
 
@@ -2874,9 +2873,6 @@ span.question-prefix {
             margin: 0;
             > span{
                 display: inline-block;
-                &.matches{
-                    margin-right: 10px;
-                }
             }
             .match-warning{
                 width: 25px;
@@ -2904,7 +2900,7 @@ span.question-prefix {
 .page-node-type-career-profile,
 .career-content-main-wrapper {
     height: 100%;
-    
+
     .back-link {
         background: #e6eae9;
         padding: 10px 20px;
