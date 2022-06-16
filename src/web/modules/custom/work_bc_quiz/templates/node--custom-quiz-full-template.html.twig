@@ -164,7 +164,7 @@
 										<div class="item title-field" style="color:{{ item.color|raw }}">
 											{{ item.name }}
 										</div>
-										<div class="item title-description">
+                    <div class="item title-description {{ item.color|replace({"\#": "_"})|raw }}">
                       {{ item.description | raw}}
 										</div>
 									</div>
@@ -218,7 +218,7 @@
 								<div class="item title-field" style="color:{{ item.color|raw }}">
 									{{ item.name }}
 								</div>
-								<div class="item title-description">
+                <div class="item title-description {{ item.color|replace({"\#": "_"})|raw }}">
                   {{ item.description | raw}}
 								</div>
 							</div>
@@ -244,7 +244,7 @@
 								<div class="item title-field" style="color:{{ item.color|raw }}">
 									{{ item.name }}
 								</div>
-								<div class="item title-description">
+                <div class="item title-description {{ item.color|replace({"\#": "_"})|raw }}">
                   {{ item.description | raw}}
 								</div>
 							</div>
