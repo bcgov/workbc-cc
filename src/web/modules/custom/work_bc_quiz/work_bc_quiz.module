@@ -548,6 +548,7 @@ function work_bc_quiz_node_view(array &$build, EntityInterface $entity, EntityVi
   $node = $entity;
   // $all_quizes = ['abilities_quiz', 'multiple_intelligences_quiz'];
   if ($node->bundle() === 'abilities_quiz' || $node->bundle() === 'work_preferences_quiz' || $node->bundle() === 'interests_quiz' || $node->bundle() === 'multiple_intelligences_quiz' || $node->bundle() === 'learning_styles_quiz' || $node->bundle() === 'work_values_quiz') {
+    $build['#cache']['max-age'] = 0;
     // 'quiz' mode isn't active yet
     if ($view_mode === 'full' || $view_mode === 'quiz') {
 
@@ -585,7 +586,7 @@ function work_bc_quiz_node_view(array &$build, EntityInterface $entity, EntityVi
       foreach ($terms as $term) {
         $term_obj = Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($term->tid);
         $options_value[$term->tid]['name'] = $term->name;
-        $options_value[$term->tid]['description'] = $term->description;
+        $options_value[$term->tid]['description'] = (isset($term->description))? $term->description: '';
         $options_value[$term->tid]['tid'] = $term->tid;
         $options_value[$term->tid]['field_option_percentage'] = $term_obj->get('field_option_percentage')->value;
         // Compare max value with next term score and
@@ -731,6 +732,22 @@ function work_bc_quiz_node_view(array &$build, EntityInterface $entity, EntityVi
             }
           }
         }
+        // print("~~~".$node->bundle()."~~");
+        // Calculate the percentage value for each option.
+        $forCareermatch = [];
+        $normalized = 0;
+        foreach ($groupedResult as $key => $value) {
+          if(!empty($value['score'])){
+            $max_total = count($value['score']) * $value['highest'];
+            $percentage = round((array_sum($value['score']) / $max_total) * 100);
+            $groupedResult[$key]['percentage'] = $percentage;
+            $normalized = floor((($percentage / 100) * 4) + 1);
+            $forCareermatch[$value['short']] = $normalized;
+          }
+        }
+
+        // Sort data using usort php function.
+        usort($groupedResult, fn($b, $a) => ($a['percentage'] - $b['percentage']));
       }
       // Get uuid from node table.
       $uuid = $node->get('uuid')->getValue()[0]['value'];
@@ -749,21 +766,6 @@ function work_bc_quiz_node_view(array &$build, EntityInterface $entity, EntityVi
         $quizLink = str_replace("_", "-", $quizLink);
       }
 
-      // print("~~~".$node->bundle()."~~");
-      // Calculate the percentage value for each option.
-      $forCareermatch = [];
-      $normalized = 0;
-      foreach ($groupedResult as $key => $value) {
-        $max_total = count($value['score']) * $value['highest'];
-        $percentage = round((array_sum($value['score']) / $max_total) * 100);
-        $groupedResult[$key]['percentage'] = $percentage;
-        $normalized = floor((($percentage / 100) * 4) + 1);
-        $forCareermatch[$value['short']] = $normalized;
-        // print(" max_total: ". $max_total. "  array_sum['score']:". array_sum($value['score']). "  percentage:" .$percentage. "<br>");.
-      }
-
-      // Sort data using usort php function.
-      usort($groupedResult, fn($b, $a) => ($a['percentage'] - $b['percentage']));
       if($node->bundle() === 'work_preferences_quiz'){
 
         usort($groupedResult, '_work_bc_quiz_usort3');
@@ -970,10 +972,10 @@ function work_bc_quiz_node_view(array &$build, EntityInterface $entity, EntityVi
             $savedQuiz[$new_key] = $savedQuiz[$key];
             unset($savedQuiz[$key]);
             $savedQuiz[$new_key]->uuid = $uuid;
-            $savedQuiz[$new_key]->result = $result;
+            $savedQuiz[$new_key]->result = (isset($result))? $result:[];
           }else {
             $savedQuiz[$key]->uuid = $uuid;
-            $savedQuiz[$key]->result = $result;
+            $savedQuiz[$key]->result = (isset($result))? $result: [];
           }
         }
       }
@@ -1000,10 +1002,9 @@ function work_bc_quiz_node_view(array &$build, EntityInterface $entity, EntityVi
 
       $build['an_additional_field']['#quiz_result'] = $groupedResult;
       $build['an_additional_field']['#result_link'] = $field_value;
-      // print_r($savedQuiz);
+
       // $session->remove('SavedQuiz');   // Temp to Clear Session.
     }
-    // print_r($savedQuiz);
   }
 }
 
@@ -1036,7 +1037,8 @@ function work_bc_quiz_views_pre_render(ViewExecutable $view) {
 
         if (is_array($savedQuiz)) {
           foreach ($savedQuiz as $key => $value) {
-            $nid = end(explode("_", $key));
+            $nid_array = explode("_", $key);
+            $nid = (is_array($nid_array))? end($nid_array): '';
 
             $savedQuizTitle = str_replace("_A100", "", str_replace("_", " ", str_replace("_" . $nid, "", str_replace("save_quiz_", "", $key))));
 
