@@ -162,6 +162,10 @@ function bcgov_career_theme_suggestions_table_alter(array &$suggestions, array $
  * Implements hook_theme().
  */
 function bcgov_career_preprocess_table(&$variables) {
+  $enids = \Drupal::request()->query->get('nids');
+  if (is_array($enids)) {
+    $variables['enids'] =$enids[0];
+  }
   if ($variables['attributes']['id'] == 'career_profile-node-comparison-table') {
     $compare_ids = [];
     foreach ($variables['rows'] as $row) {
