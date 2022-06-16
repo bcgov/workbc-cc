@@ -212,6 +212,17 @@
         margin-bottom: 20px;
         margin-left: 0px;
     }
+    #comparison-table .career-content-main-wrapper .career-content-item.active{
+        max-height: none !important;
+        min-height: auto !important;
+        height: auto !important;
+    }
+    #comparison-table .compare-career-main-wrapper .career-content-compare, .page-node-type-career-profile .compare-career-main-wrapper .career-content-compare{
+        border-bottom: none !important;
+    }
+    #comparison-table .compare-career-main-wrapper .career-bottom-notes{
+        display: none !important;
+    }
     .compare-career-main-wrapper
         .career-content-compare
         .career-content-item
