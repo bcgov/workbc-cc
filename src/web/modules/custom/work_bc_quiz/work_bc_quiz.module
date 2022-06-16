@@ -446,7 +446,7 @@ function work_bc_quiz_preprocess(&$variables) {
     }
     elseif ($node->bundle() == 'interests_quiz') {
       $details_nid = $settings['field_interests_quiz_list_node_i'];
-    }
+    } 
     elseif ($node->bundle() == 'multiple_intelligences_quiz') {
       $details_nid = $settings['field_multiple_intelligences_qui'];
     }
@@ -456,7 +456,8 @@ function work_bc_quiz_preprocess(&$variables) {
     elseif ($node->bundle() == 'work_values_quiz') {
       $details_nid = $settings['field_work_values_quiz_list_node'];
     }
-    $quizLifespanHours = (isset($settings['cron_settings']['cron'])) ? $settings['cron_settings']['cron'] : 24;
+    $cron_setting = $site_settings->loadAll();
+    $quizLifespanHours = (isset($cron_setting['cron_settings']['cron'])) ? $cron_setting['cron_settings']['cron'] : 24;
     $hid = 24;
     $days = round($quizLifespanHours / $hid);
 
