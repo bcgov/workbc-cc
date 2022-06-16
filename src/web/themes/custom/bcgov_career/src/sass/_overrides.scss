@@ -254,16 +254,16 @@
             }
         }
         .careers-mobi-main-wrapper .top-career-mobi-content .content .top-btn {
-            .clear-compare {
+            .clear-compare:not(.disable) {
                 color:$quiz-dark-blue;
                 border-color: $quiz-dark-blue;
-            }
 
-            .compare-career:hover {
-                background-color: $quiz-dark-blue;
-                border-color: $quiz-dark-blue;
+                &:hover {
+                    border-color: $quiz-dark-blue;
+                }
             }
         }
+
         .main-bg .overlay-bg{
             background: $quiz-dark-blue;
         }
@@ -475,14 +475,13 @@
             }
         }
         .careers-mobi-main-wrapper .top-career-mobi-content .content .top-btn {
-            .clear-compare {
+            .clear-compare:not(.disable) {
                 color: $quiz-purple;
                 border-color:  $quiz-purple;
-            }
 
-            .compare-career:hover {
-                background-color: $quiz-purple;
-                border-color: $quiz-purple;
+                &:hover {
+                    border-color: $quiz-purple;
+                }
             }
         }
         .main-bg .overlay-bg{
@@ -695,14 +694,13 @@
             }
         }
         .careers-mobi-main-wrapper .top-career-mobi-content .content .top-btn {
-            .clear-compare {
+            .clear-compare:not(.disable) {
                 color:$quiz-blue;
                 border-color: $quiz-blue;
-            }
 
-            .compare-career:hover {
-                background-color: $quiz-blue;
-                border-color: $quiz-blue;
+                &:hover {
+                    border-color: $quiz-blue;
+                }
             }
         }
         .main-bg .overlay-bg{
@@ -915,14 +913,13 @@
             }
         }
         .careers-mobi-main-wrapper .top-career-mobi-content .content .top-btn {
-            .clear-compare {
+            .clear-compare:not(.disable) {
                 color: $quiz-green;
                 border-color: $quiz-green;
-            }
 
-            .compare-career:hover {
-                background-color: $quiz-green;
-                border-color: $quiz-green;
+                &:hover {
+                    border-color: $quiz-green;
+                }
             }
         }
         .main-bg .overlay-bg{
@@ -1149,14 +1146,13 @@
             }
         }
         .careers-mobi-main-wrapper .top-career-mobi-content .content .top-btn {
-            .clear-compare {
+            .clear-compare:not(.disable) {
                 color: $quiz-light-blue;
                 border-color: $quiz-light-blue;
-            }
 
-            .compare-career:hover {
-                background-color: $quiz-light-blue;
-                border-color: $quiz-light-blue;
+                &:hover {
+                    border-color: $quiz-light-blue;
+                }
             }
         }
         .main-bg .overlay-bg{
@@ -1370,14 +1366,13 @@
             }
         }
         .careers-mobi-main-wrapper .top-career-mobi-content .content .top-btn {
-            .clear-compare {
+            .clear-compare:not(.disable) {
                 color: $quiz-pink;
                 border-color: $quiz-pink;
-            }
 
-            .compare-career:hover {
-                background-color: $quiz-pink;
-                border-color: $quiz-pink;
+                &:hover {
+                    border-color: $quiz-pink;
+                }
             }
         }
         .main-bg .overlay-bg{
