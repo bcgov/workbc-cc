@@ -163,14 +163,21 @@ function bcgov_career_theme_suggestions_table_alter(array &$suggestions, array $
  */
 function bcgov_career_preprocess_table(&$variables) {
   $enids = \Drupal::request()->query->get('nids');
+  
+  // Retrieve an array which contains the path pieces.
+  $quiz_type = \Drupal::request()->query->get('quiz-type');
+  $variables['quiz_type'] = $quiz_type;
+  $variables['quiz_color'] = _quiz_color_type($quiz_type);
+
   if (is_array($enids)) {
-    $variables['enids'] =$enids[0];
+    $variables['enids'] = $enids[0];
   }
   if ($variables['attributes']['id'] == 'career_profile-node-comparison-table') {
     $compare_ids = [];
     foreach ($variables['rows'] as $row) {
       $compare_ids['nids'][] = $row['cells']['nid']['content'];
     }
+    $compare_ids['quiz-type'] = $quiz_type;
     $options = ['absolute' => TRUE];
     $url = Url::fromRoute('<current>', $compare_ids, $options);
     $body_value = t("View your compared careers: @link \n\nWorkBC's Career Discovery Quizzes help you learn more about your preferences and discover careers that suit you.", [
@@ -178,10 +185,6 @@ function bcgov_career_preprocess_table(&$variables) {
     ]);
     $variables['compare_url'] = $body_value;
 
-    // Retrieve an array which contains the path pieces.
-    $quiz_type = \Drupal::request()->query->get('quiz-type');
-    $variables['quiz_type'] = $quiz_type;
-    $variables['quiz_color'] = _quiz_color_type($quiz_type);
   }
 }
 
