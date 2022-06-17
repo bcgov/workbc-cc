@@ -111,7 +111,7 @@
 							<h2 class="vaa1" style="display:none;">{{ subheading_toggle }}</h2>
 						</div>
 					</div>
-					<div class="col-12 col-md-4">
+					<div class="col-12 col-md-4 d-print-none">
 						<div class="career-top-right">
 							<ul class="float-right">
 							<li class="quiz-node-print"><a href="javascript:;" class="print-window"><span title="Print Results" class="icon icon-print"></span></a></li>
@@ -191,7 +191,7 @@
 				</div>
         {% endif %}
         {% if node.bundle != 'learning_styles_quiz' %}
-          <div class="carousel-mobi-tabs">
+          <div class="carousel-mobi-tabs  d-print-none">
             <a href="javascript:;" class="carousel-mobi-tabs-trigger"><span class="text vaa">{{ subheading }}</span> <span class="vaa1" style="display:none">{{ subheading_toggle }} </span><svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="24" height="24" viewBox="0 0 64.000000 64.000000"><g transform="translate(0.000000,64.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none"><path d="M10 485 c-7 -8 -10 -25 -7 -37 10 -36 289 -308 317 -308 28 0 307 272 317 308 3 12 0 29 -7 37 -27 32 -54 16 -182 -112 l-128 -128 -128 128 c-128 128 -155 144 -182 112z"/></g></svg></a>
             <ul class="carousel-mobi-tab-items-wrapper">
               <a href="javascript:;" class="carousel-mobi-tab-close"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="14.6px" height="14.6px" viewBox="0 0 14.6 14.6" style="overflow:visible;enable-background:new 0 0 14.6 14.6;" xml:space="preserve"><style type="text/css">.st0{fill-rule:evenodd;clip-rule:evenodd;fill:#333333;}</style><defs></defs><path class="st0" d="M0.3,12.9c-0.4,0.4-0.4,1,0,1.4c0.4,0.4,1,0.4,1.4,0l5.6-5.6l5.6,5.6c0.4,0.4,1,0.4,1.4,0c0.4-0.4,0.4-1,0-1.4  L8.7,7.3l5.6-5.6c0.4-0.4,0.4-1,0-1.4c-0.4-0.4-1-0.4-1.4,0L7.3,5.9L1.7,0.3c-0.4-0.4-1-0.4-1.4,0c-0.4,0.4-0.4,1,0,1.4l5.6,5.6  L0.3,12.9z"/></svg></a>
@@ -200,7 +200,7 @@
             </ul>
           </div>
         {% endif %}
-				<div class="carousel-inner carousel-inner-mobi active" data-id="topcarousel">
+				<div class="carousel-inner carousel-inner-mobi active  d-print-none" data-id="topcarousel">
 					<div class="row carousel-slider-mobi-row">
 					{% for item in content.an_additional_field['#quiz_result'] %}
 						{% if loop.index <= 3%}
@@ -218,7 +218,7 @@
 								<div class="item title-field" style="color:{{ item.color|raw }}">
 									{{ item.name }}
 								</div>
-                <div class="item title-description {{ item.color|replace({"\#": "_"})|raw }}">
+                <div class="d-print-none item title-description {{ item.color|replace({"\#": "_"})|raw }}">
                   {{ item.description | raw}}
 								</div>
 							</div>
@@ -227,7 +227,7 @@
 					{% endfor %}
 					</div>
 				</div>
-				<div class="carousel-inner carousel-inner-mobi" data-id="bottomcarousel">
+				<div class="carousel-inner carousel-inner-mobi d-print-none" data-id="bottomcarousel">
 					<div class="row carousel-slider-mobi-row">
 					{% for item in content.an_additional_field['#quiz_result'] %}
 						<div class="col-12 itm mobi-itm ">
@@ -273,7 +273,7 @@
 	</div>
 </article>
 
-<div class="compare-popup-wrapper">
+<div class="compare-popup-wrapper d-print-none">
 	<div class="compare-popup-content">
 		<a href="javascript:;" class="compare-popup-close"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="49.67px" height="49.67px" viewBox="0 0 49.67 49.67" style="overflow:visible;enable-background:new 0 0 49.67 49.67;" xml:space="preserve"><style type="text/css">.st0{fill:#333333;}</style><defs></defs><path class="st0" d="M48.84,46.05L27.67,24.84L48.84,3.63c0.9-0.64,1.11-1.89,0.46-2.79s-1.89-1.11-2.79-0.46
 	c-0.18,0.13-0.34,0.29-0.46,0.46L24.84,22.01L3.63,0.84C2.73,0.2,1.48,0.4,0.84,1.3c-0.5,0.7-0.5,1.63,0,2.33l21.17,21.21
@@ -289,7 +289,7 @@
 	</div>
 </div>
 
-<div class="email-popup-wrapper">
+<div class="email-popup-wrapper d-print-none">
 	<div class="email-popup-content">
 		<a href="javascript:;" class="email-popup-close"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="49.67px" height="49.67px" viewBox="0 0 49.67 49.67" style="overflow:visible;enable-background:new 0 0 49.67 49.67;" xml:space="preserve"><style type="text/css">.st0{fill:#333333;}</style><defs></defs><path class="st0" d="M48.84,46.05L27.67,24.84L48.84,3.63c0.9-0.64,1.11-1.89,0.46-2.79s-1.89-1.11-2.79-0.46
 	c-0.18,0.13-0.34,0.29-0.46,0.46L24.84,22.01L3.63,0.84C2.73,0.2,1.48,0.4,0.84,1.3c-0.5,0.7-0.5,1.63,0,2.33l21.17,21.21
