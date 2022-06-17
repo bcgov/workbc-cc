@@ -19,6 +19,7 @@ resource "aws_rds_cluster" "postgres" {
   kms_key_id              = aws_kms_key.workbc-cc-kms-key.arn
   storage_encrypted       = true
   vpc_security_group_ids  = [data.aws_security_group.data.id]
+  backup_retention_period = 2
   skip_final_snapshot     = true
   final_snapshot_identifier = "ceu-finalsnapshot"
   
