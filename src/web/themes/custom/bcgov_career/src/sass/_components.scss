@@ -2700,7 +2700,12 @@ span.question-prefix {
                     color: #333333;
 
                     &:first-child {
-                        min-width: 85px;
+                        min-width: 95px;
+
+                        @media all and (max-width: 450px){
+                            min-width: 65px;
+                            padding-right: 0;
+                        }
                     }
 
                     &:nth-child(2) {
@@ -2712,6 +2717,10 @@ span.question-prefix {
 
                         @media all and (max-width: 500px){
                             min-width: 105px;
+                        }
+                        @media all and (max-width: 400px){
+                            min-width: 85px;
+                            padding-left: 0;
                         }
                     }
                 }
@@ -2729,7 +2738,12 @@ span.question-prefix {
                     margin: 0;
 
                     &:first-child {
-                        min-width: 85px;
+                        min-width: 95px;
+
+                        @media all and (max-width: 450px){
+                            min-width: 65px;
+                            padding-right: 0;
+                        }
                     }
 
                     &:nth-child(2) {
@@ -2750,6 +2764,11 @@ span.question-prefix {
 
                        @media all and (max-width: 500px){
                             min-width: 105px;
+                        }
+
+                        @media all and (max-width: 400px){
+                            min-width: 85px;
+                            padding-left: 0;
                         }
                     }
 
@@ -2826,10 +2845,10 @@ span.question-prefix {
                 &.shift{
                     .compare-career-mobi {
                         .checkmark {
-                            left: calc(50% - 9px);
+                            left: 50%;
                         }
                         input{
-                            left: calc(50% - 9px);
+                            left: 50%;
                         }
                     }
                 }
@@ -3466,6 +3485,10 @@ span.question-prefix {
                     height: 10px;
                     font-size: 0;
                     border-radius: 50%;
+
+                    @media all and (max-width: 767.98px){
+                        outline: none;
+                    }
                 }
 
                 &:not(.slick-active) {
