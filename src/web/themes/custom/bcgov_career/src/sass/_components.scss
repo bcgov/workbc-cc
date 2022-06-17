@@ -1040,6 +1040,8 @@ a.quiz-link {
         @media print { 
             min-height: auto;
             max-height: none;
+            margin-bottom: 10px;
+            max-width: 600px;
         }
     }
 }
@@ -1162,8 +1164,8 @@ body.path-quiz {
             margin-top: 35px;
         }
         @media print {
-            padding-bottom: 0;
-            margin-top: 40px;
+            padding-bottom: 0;  
+            margin-top: 30px;
         }
 
         .node-questions {
