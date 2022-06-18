@@ -19,7 +19,7 @@
 {{ title_suffix }}
 {% if description %}
 	<div class="sub-title">
-	  {{ description|length > 230 ? description|slice(0, 230)|raw : description|raw }}
+	  {{ description|length > 240 ? description|slice(0, 240)|raw : description|raw }}
 		{# <p>{{ description | raw}}</p> #}
 	</div>
 {% endif %}
