@@ -72,14 +72,23 @@
         $("body").removeClass("overlayBg");
       });
       $(".carousel-mobi-tab-item").on("click", function () {
-        $(this)
-          .parents("#myResult")
-          .find(".extradivs")
-          .addClass("displayMobiPrint");
         $(".carousel-mobi-tab-item").removeClass("active");
         $(this).addClass("active");
 
         const getTabItemId = $(this).data("href");
+        console.log(getTabItemId);
+        if (getTabItemId == "bottomcarousel") {
+          $(this)
+            .parents("#myResult")
+            .find(".extradivs")
+            .addClass("displayMobiPrint");
+        }
+ else {
+          $(this)
+            .parents("#myResult")
+            .find(".extradivs")
+            .removeClass("displayMobiPrint");
+        }
         $(".carousel-inner-mobi").removeClass("active");
         $(`.carousel-inner-mobi[data-id=${getTabItemId}]`).addClass("active");
         $(".active > .carousel-slider-mobi-row").slick(
@@ -378,6 +387,14 @@
       $(".career-content-item-inner .image-video iframe")
         .parent()
         .addClass("video");
+
+      $(
+        ".careers-mobi-main-wrapper .careers-mobi-table-wrapper .tbody .tbody-main p:first-child"
+      ).each(function () {
+        if ($(this).text() == "Great") {
+          $(this).parent().addClass("shift");
+        }
+      });
     },
   };
 })(jQuery, Drupal, drupalSettings);

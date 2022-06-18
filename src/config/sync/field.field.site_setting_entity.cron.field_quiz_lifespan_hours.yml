@@ -1,0 +1,25 @@
+uuid: 1734a7a0-3e45-44db-8426-b0d974e0cd05
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.site_setting_entity.field_quiz_lifespan_hours
+    - site_settings.site_setting_entity_type.cron
+id: site_setting_entity.cron.field_quiz_lifespan_hours
+field_name: field_quiz_lifespan_hours
+entity_type: site_setting_entity
+bundle: cron
+label: 'Quiz Lifespan Hours'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 24
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

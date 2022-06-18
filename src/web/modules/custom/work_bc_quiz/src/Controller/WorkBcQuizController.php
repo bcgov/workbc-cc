@@ -13,12 +13,14 @@ class WorkBcQuizcontroller extends ControllerBase {
    *
    */
   public function clearNodes() {
+    $site_settings = \Drupal::service('site_settings.loader');
+    $settings = $site_settings->loadAll();
+    $quizLifespanHours = (isset($settings['cron_settings']['cron'])) ? $settings['cron_settings']['cron'] : 24;
     $quiz_types = ['abilities_quiz', 'work_preferences_quiz', 'interests_quiz', 'multiple_intelligences_quiz', 'learning_styles_quiz', 'work_values_quiz'];
     $storage_handler = \Drupal::entityTypeManager()->getStorage('node');
     $query = \Drupal::entityQuery('node')->accessCheck(FALSE)
-      ->condition('created', strtotime('-24 hour'), '<=')
-      ->condition('type', $quiz_types, 'IN')
-      ->range(0, 2);
+      ->condition('created', strtotime('-'.$quizLifespanHours.' hour'), '<=')
+      ->condition('type', $quiz_types, 'IN');
     $nids = $query->execute();
     if (!empty($nids)) {
       $nodes = $storage_handler->loadMultiple($nids);

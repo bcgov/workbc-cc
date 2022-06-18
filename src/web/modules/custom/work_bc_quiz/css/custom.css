@@ -187,17 +187,25 @@ flex-direction: column;
 #myResult .quiz-list .title-description ul {margin-top: 15px; }
 
 #myResult .quiz-list .title-description ul li {
-  font-size: 22px;
+  /* font-size: 22px;
   line-height: 18px;
-  margin-bottom:15px;
+  margin-bottom:15px; */
 }
+#myResult .quiz-list .title-description ul li::marker{}
 #myResult .quiz-list .title-description ul li:marker{
   
 }
+._002857 li::marker{color:#002857}
+._89226E li::marker{color:#89226E}
+._510B76 li::marker{color:#510B76}
+._2671CA li::marker{color:#2671CA}
+._216C06 li::marker{color:#216C06}
+._007EB4 li::marker{color:#007EB4}
+
 #myResult .quiz-list .title-description ul li span{
   font-family: 'BCSans';
   font-weight: 400;
   font-style: normal;
   font-size: 15px;
-  color: rgba(85, 85, 85, 0.996078431372549);
+  color: #333333;
 }

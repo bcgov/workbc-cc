@@ -338,6 +338,9 @@
         @media all and (max-width: 767.98px){
             display: none;
         }
+        @media print { 
+            margin-bottom: 20px;
+        }
 
         h2 {
             font-family: "BC Sans", sans-serif;
@@ -371,6 +374,13 @@
                     height: 25px;
                     &.icon-message{
                         height: 19px;
+                        mask-repeat: no-repeat;
+                        mask-size: contain;
+                    }
+
+                    &.icon-print {
+                        mask-size: contain;
+                        mask-repeat: no-repeat;
                     }
                 }
             }
@@ -1027,6 +1037,12 @@ a.quiz-link {
             min-height: auto;
             max-height: 100%;
         }
+        @media print { 
+            min-height: auto;
+            max-height: none;
+            margin-bottom: 10px;
+            max-width: 600px;
+        }
     }
 }
 
@@ -1041,6 +1057,9 @@ a.quiz-link {
         z-index: 0;
         top: 0;
         width: 100%;
+        @media all and (max-width: 991.98px){
+            min-height: 100%;
+        }
     }
 }
 
@@ -1143,6 +1162,10 @@ body.path-quiz {
         @media all and (max-width: 767.98px) {
             padding: 0 25px 70px 25px;
             margin-top: 35px;
+        }
+        @media print {
+            padding-bottom: 0;  
+            margin-top: 30px;
         }
 
         .node-questions {
@@ -1323,7 +1346,9 @@ body.path-quiz {
                 & + label.option + span.radio {
                     width: 20px;
                     height: 20px;
-                    display: block;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                     border: 2px solid #666;
                     border-radius: 50%;
                     background: #fff;
@@ -1341,7 +1366,6 @@ body.path-quiz {
                         background: $aq;
                         width: 12px;
                         height: 12px;
-                        margin: 2px;
                         z-index: 0;
                         position: absolute;
                         border-radius: 50%;
@@ -1929,10 +1953,14 @@ span.question-prefix {
 
 
         @media all and (max-width: 1024px){
-            max-width: 430px;
+            max-width: 500px;
             width: 100%;
             padding: 0 25px;
             flex: 0 0 100%;
+        }
+
+        @media all and (max-width: 820px){
+            max-width: 430px;
         }
 
         @media all and (max-width: 767.98px){
@@ -1967,18 +1995,13 @@ span.question-prefix {
         margin: auto;
         text-align: center;
         margin: auto;
-        min-width: 620px;
+        width: 100%;
         height: 34px;
         display: flex;
         margin-left: 0px;
         padding-left: 0px;
         border: 2px #dbdbdb solid;
-        @media all and (max-width: 767.98px) {
-            min-width: 100%;
-        }
-        @media all and (max-width: 1020.98px) {
-            min-width: 100%;
-        }
+
         li {
             display: inline-block;
             background: #ffffff;
@@ -2670,25 +2693,34 @@ span.question-prefix {
                 display: flex;
 
                 p {
-                    padding: 20px 10px 20px 15px;
+                    padding: 20px;
                     margin: 0;
                     font-family: "BC Sans Bold", sans-serif;
                     font-size: 14px;
                     color: #333333;
+
                     &:first-child {
-                        flex: 0 0 10%;
-                    }
-                    &:nth-child(2) {
-                        flex: 0 0 70%;
-                        @media all and (max-width: 640.98px){
-                            flex: 0 0 45%;
-                            padding-left: 0px;
+                        min-width: 95px;
+
+                        @media all and (max-width: 450px){
+                            min-width: 65px;
+                            padding-right: 0;
                         }
                     }
+
+                    &:nth-child(2) {
+                        width:100%;
+                    }
+
                     &:last-child {
-                        flex: 0 0 20%;
-                        @media all and (max-width: 640.98px){
-                            flex: 0 0 30%;
+                        min-width: 125px;
+
+                        @media all and (max-width: 500px){
+                            min-width: 105px;
+                        }
+                        @media all and (max-width: 400px){
+                            min-width: 85px;
+                            padding-left: 0;
                         }
                     }
                 }
@@ -2706,18 +2738,17 @@ span.question-prefix {
                     margin: 0;
 
                     &:first-child {
-                        flex: 0 0 10%;
+                        min-width: 95px;
+
+                        @media all and (max-width: 450px){
+                            min-width: 65px;
+                            padding-right: 0;
+                        }
                     }
 
                     &:nth-child(2) {
-                        flex: 0 0 70%;
-                        @media all and (max-width: 640.98px){
-                            flex: 0 0 50%;
-                            width: 130px;
-                        }
-                        @media all and (max-width: 767.98px){
-                            padding-left: 33px;
-                        }
+                        width: 100%;
+
                         a {
                             color: #333;
                             text-decoration: none;
@@ -2728,12 +2759,16 @@ span.question-prefix {
                             }
                         }
                     }
-
                     &:last-child {
-                        flex: 0 0 20%;
-                        text-align: center;
-                        @media all and (max-width: 640.98px){
-                            flex: 0 0 30%;
+                       min-width: 125px;
+
+                       @media all and (max-width: 500px){
+                            min-width: 105px;
+                        }
+
+                        @media all and (max-width: 400px){
+                            min-width: 85px;
+                            padding-left: 0;
                         }
                     }
 
@@ -2807,6 +2842,16 @@ span.question-prefix {
                         }
                     }
                 }
+                &.shift{
+                    .compare-career-mobi {
+                        .checkmark {
+                            left: 50%;
+                        }
+                        input{
+                            left: 50%;
+                        }
+                    }
+                }
             }
 
             .slick-dots {
@@ -2860,9 +2905,6 @@ span.question-prefix {
             margin: 0;
             > span{
                 display: inline-block;
-                &.matches{
-                    margin-right: 10px;
-                }
             }
             .match-warning{
                 width: 25px;
@@ -2890,7 +2932,7 @@ span.question-prefix {
 .page-node-type-career-profile,
 .career-content-main-wrapper {
     height: 100%;
-    
+
     .back-link {
         background: #e6eae9;
         padding: 10px 20px;
@@ -2963,7 +3005,7 @@ span.question-prefix {
 
             .title {
                 background: #234075;
-                height: 65px;
+                height: 75px;
                 display: flex;
                 align-items: center;
                 p {
@@ -3376,7 +3418,7 @@ span.question-prefix {
                     left: 10px;
                     right: 0;
                     margin: 0 auto;
-                    @media all and (max-width: 640.98px){
+                    @media all and (max-width: 767.98px){
                         position: relative;
                         width: 100%;
                         bottom: 0;
@@ -3415,6 +3457,10 @@ span.question-prefix {
                     min-height: 600px;
                     padding: 20px 20px 90px;
                     height: calc(100% - 95px);
+
+                    @media all and (max-width: 767.98px){
+                        padding: 20px;
+                    }
                 }
             }
         }
@@ -3439,6 +3485,10 @@ span.question-prefix {
                     height: 10px;
                     font-size: 0;
                     border-radius: 50%;
+
+                    @media all and (max-width: 767.98px){
+                        outline: none;
+                    }
                 }
 
                 &:not(.slick-active) {

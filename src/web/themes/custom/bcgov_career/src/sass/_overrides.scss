@@ -253,6 +253,17 @@
                 border-width: 0 2px 2px 0;
             }
         }
+        .careers-mobi-main-wrapper .top-career-mobi-content .content .top-btn {
+            .clear-compare:not(.disable) {
+                color:$quiz-dark-blue;
+                border-color: $quiz-dark-blue;
+
+                &:hover {
+                    border-color: $quiz-dark-blue;
+                }
+            }
+        }
+
         .main-bg .overlay-bg{
             background: $quiz-dark-blue;
         }
@@ -461,6 +472,16 @@
             &:after {
                 border: solid $quiz-purple;
                 border-width: 0 2px 2px 0;
+            }
+        }
+        .careers-mobi-main-wrapper .top-career-mobi-content .content .top-btn {
+            .clear-compare:not(.disable) {
+                color: $quiz-purple;
+                border-color:  $quiz-purple;
+
+                &:hover {
+                    border-color: $quiz-purple;
+                }
             }
         }
         .main-bg .overlay-bg{
@@ -672,6 +693,16 @@
                 border-width: 0 2px 2px 0;
             }
         }
+        .careers-mobi-main-wrapper .top-career-mobi-content .content .top-btn {
+            .clear-compare:not(.disable) {
+                color:$quiz-blue;
+                border-color: $quiz-blue;
+
+                &:hover {
+                    border-color: $quiz-blue;
+                }
+            }
+        }
         .main-bg .overlay-bg{
             background: $quiz-blue;
         }
@@ -879,6 +910,16 @@
             &:after {
                 border: solid $quiz-green;
                 border-width: 0 2px 2px 0;
+            }
+        }
+        .careers-mobi-main-wrapper .top-career-mobi-content .content .top-btn {
+            .clear-compare:not(.disable) {
+                color: $quiz-green;
+                border-color: $quiz-green;
+
+                &:hover {
+                    border-color: $quiz-green;
+                }
             }
         }
         .main-bg .overlay-bg{
@@ -1104,6 +1145,16 @@
                 border-width: 0 2px 2px 0;
             }
         }
+        .careers-mobi-main-wrapper .top-career-mobi-content .content .top-btn {
+            .clear-compare:not(.disable) {
+                color: $quiz-light-blue;
+                border-color: $quiz-light-blue;
+
+                &:hover {
+                    border-color: $quiz-light-blue;
+                }
+            }
+        }
         .main-bg .overlay-bg{
             background: $quiz-light-blue;
         }
@@ -1312,6 +1363,16 @@
             &:after {
                 border: solid $quiz-pink;
                 border-width: 0 2px 2px 0;
+            }
+        }
+        .careers-mobi-main-wrapper .top-career-mobi-content .content .top-btn {
+            .clear-compare:not(.disable) {
+                color: $quiz-pink;
+                border-color: $quiz-pink;
+
+                &:hover {
+                    border-color: $quiz-pink;
+                }
             }
         }
         .main-bg .overlay-bg{

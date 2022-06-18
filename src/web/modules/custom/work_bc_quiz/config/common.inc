@@ -6,7 +6,7 @@
   define('PROTOCOL', strtolower($protocol[0]));
   
   function fnGetEnvironment() {
-    $config = parse_ini_file(DRUPAL_ROOT . '/modules/common/config/config.ini', true);
+    $config = parse_ini_file(DRUPAL_ROOT . '/modules/custom/work_bc_quiz/config/config.ini', true);
 
 		$env = 'LOCALHOST';
 

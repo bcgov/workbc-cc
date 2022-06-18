@@ -1,0 +1,47 @@
+uuid: 356025b1-66cc-44e2-9a70-c7dfc5db14b9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.site_setting_entity.cron.field_quiz_lifespan_hours
+    - site_settings.site_setting_entity_type.cron
+  module:
+    - user
+id: site_setting_entity.cron.default
+targetEntityType: site_setting_entity
+bundle: cron
+mode: default
+content:
+  field_quiz_lifespan_hours:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  fieldset:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: -4
+    region: content
+  name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: -4
+    region: content
+  user_id:
+    type: author
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

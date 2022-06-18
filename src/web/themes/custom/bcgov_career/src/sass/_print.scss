@@ -66,9 +66,13 @@
         height: auto !important;
         margin-top: 0%;
         display: block;
+        margin: 0;
+        color: #000;
+        background-color: #fff;
     }
     header {
-        margin-top: 50px;
+        margin-top: 0px;
+        padding-top: 0px;
         padding-bottom: 0;
     }
     header .navbar-brand a.site-logo img {
@@ -103,6 +107,9 @@
     }
     footer {
         display: none !important;
+    }
+    main .overlay-bg {
+        display: none;
     }
 
     #myResult .carousel-inner.carousel-inner-device {
@@ -212,6 +219,17 @@
         margin-bottom: 20px;
         margin-left: 0px;
     }
+    #comparison-table .career-content-main-wrapper .career-content-item.active{
+        max-height: none !important;
+        min-height: auto !important;
+        height: auto !important;
+    }
+    #comparison-table .compare-career-main-wrapper .career-content-compare, .page-node-type-career-profile .compare-career-main-wrapper .career-content-compare{
+        border-bottom: none !important;
+    }
+    #comparison-table .compare-career-main-wrapper .career-bottom-notes{
+        display: none !important;
+    }
     .compare-career-main-wrapper
         .career-content-compare
         .career-content-item
@@ -223,19 +241,36 @@
     .compare-career-main-wrapper .career-content-compare {
         display: block;
     }
-    .career-content-main-wrapper .career-content-item {
-        .career-content-item-inner {
-            height: auto;
-            .title {
-                min-height: auto;
-                padding: 0 0 0px;
-                left: -40px;
-                background: transparent !important;
-                p {
-                    color: #333333;
-                    font-size: 20px;
-                    line-height: 25px;
-                    padding: 0px;
+    .career-content-main-wrapper{
+        &.career-content-compare{
+            .career-content-item.active:not(.col) {
+                max-height: none;
+                float: left;
+                max-width: 575px;
+                clear: both;
+                margin-bottom: 20px;
+                margin-left: 0px;
+                height: auto;
+                .career-content-item-inner .title{
+                    left: 0 !important;
+                    margin-bottom: 30px;
+                }
+            }
+        }
+        .career-content-item {
+            .career-content-item-inner {
+                height: auto;
+                .title {
+                    min-height: auto;
+                    padding: 0 0 0px;
+                    left: -40px;
+                    background: transparent !important;
+                    p {
+                        color: #333333;
+                        font-size: 20px;
+                        line-height: 25px;
+                        padding: 0px;
+                    }
                 }
             }
         }
@@ -313,6 +348,7 @@
                     margin-bottom: 20px;
                 }
                 .content {
+                    display: none;
                     .top-btn{
                         display: none;
                     }
