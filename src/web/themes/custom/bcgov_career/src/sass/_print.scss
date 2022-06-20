@@ -448,25 +448,6 @@
             height: 100% !important;
             transform: none;
         }
-        // .slick-initialized *{
-        //     width: auto !important;
-        // }
-        // .slick-list{
-        //     transform: none;
-        //     overflow: inherit;
-        //     height: auto;
-        //     .slick-track{
-        //         transform: none !important;
-        //     }
-        //     .slick-slide:not(.slick-active){
-        //         display: none !important;
-        //     }
-        // }
-        // *{
-        //     display: block !important;
-        //     height: auto !important;
-        //     overflow: inherit !important;
-        // }
     }
 
     #myResult .carousel-inner.carousel-inner-mobi.work-value-quiz-mobi-carousel.active{
@@ -502,5 +483,13 @@
     }
     .path-quiz.quiz-color-dark-blue .overlay-content .block-system-main-block:not(.no-border-block){
         border-bottom: 0 !important;
+    }
+    
+    @media all and (max-width: 767.98px){
+        .page-node-type-learning-styles-quiz {
+            #myResult .quiz-list .img-field {
+                display: none;
+            }
+        }
     }
 }
