@@ -135,7 +135,7 @@
           {% endif %}
           <tbody>
           {% for rowkey, row in rows %}
-              <tr class="career-table-row {% if rowkey == "0" %}active{% endif %}" data-id="career-item-{{ rowkey }}">
+              <tr class="career-table-row {% if rowkey == '0' %}active{% endif %}" data-id="career-item-{{ rowkey }}">
               {% set nodeURL =  url('entity.node.canonical', {'node': row.raw.nid}) %}
                 <td>
                   {{ row.raw.match }}
@@ -167,7 +167,7 @@
         <div class="career-content-main-wrapper career-content-table-item">
           <h3 class='print-career-preview-label d-none d-print-block'>Career Preview</h3>
           {% for rowkey, row in rows %}
-            <div id="career-item-{{ rowkey }}" class="career-content-item {% if rowkey == "0" %}active{% endif %}" data-url="">
+            <div id="career-item-{{ rowkey }}" class="career-content-item {% if rowkey == '0' %}active{% endif %}" data-url="">
               <div class="career-content-item-inner">
               {% set noc_name = row.raw.field_noc_name ~ ' NOC' ~ '(' ~ row.raw.title ~ ')' %}
                 <div class="title" data-toggle="tip" title="{{ row.raw.field_noc_name }} (NOC {{ row.raw.title }})"><p>{{ noc_name|length > 70 ? noc_name|slice(0, 70) ~ '...' : noc_name}}</p></div>
@@ -175,7 +175,7 @@
                   <div class="image-video">
                     {% if row.raw.field_video_id != false %}
                       {% set video_link = 'https://www.youtube.com/embed/' ~ row.raw.field_video_id %}
-                      <iframe width="420" height="345" data-src="{{ video_link }}"src="{% if rowkey == "0" %}{{video_link}}{% endif %}"></iframe>
+                      <iframe width="420" height="345" data-src="{{ video_link }}"src="{% if rowkey == '0' %}{{video_link}}{% endif %}"></iframe>
                     {% elseif  row.raw.field_video_id == false %}
                       <img src="{{ row.raw.field_image }}" alt=""/>
                     {% endif %}

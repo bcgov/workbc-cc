@@ -1,8 +1,10 @@
 global-styling:
   css:
     theme:
+      css/jquery-ui.css: {}
       css/style.css: {}
   js:
+    js/jquery-ui.js: {}
     js/slick.min.js: {}
     js/magnific-popup.js: {}
     js/custom.js: {}
