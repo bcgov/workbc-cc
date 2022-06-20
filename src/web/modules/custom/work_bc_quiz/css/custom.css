@@ -167,6 +167,10 @@ body.path-quiz .preview-quiz-form .form-actions.form-actions>input[type=submit]:
 flex-direction: column;
     }
     body.path-quiz .preview-quiz-form .form-actions.form-actions>input[type=submit] {padding: 10px 6px;}
+    .page-node-type-career-profile .career-content-item .career-content-item-inner .title p, .career-content-main-wrapper .career-content-item .career-content-item-inner .title p{    z-index: 2;
+    margin-right: 40px !important;
+    margin-left: 40px !important;
+    padding: 0px !important;}
   }
   
 @media (max-width: 640.98px) {
