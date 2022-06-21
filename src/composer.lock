@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7b902a31972eff5916cf984da6db784c",
+    "content-hash": "fb642f2ebec1d982a3b15f8222a14696",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3035,61 +3035,6 @@
             "homepage": "https://www.drupal.org/project/pdf_api",
             "support": {
                 "source": "https://git.drupalcode.org/project/pdf_api"
-            }
-        },
-        {
-            "name": "drupal/phpmailer_smtp",
-            "version": "2.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/phpmailer_smtp.git",
-                "reference": "2.1.0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/phpmailer_smtp-2.1.0.zip",
-                "reference": "2.1.0",
-                "shasum": "f031fb8921e0558cc96b29171f14a3fbb9cf1c69"
-            },
-            "require": {
-                "drupal/core": "^8.8 || ^9 || ^10",
-                "phpmailer/phpmailer": "^6.6.0"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "2.1.0",
-                    "datestamp": "1655334286",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "Ian McLean (imclean)",
-                    "homepage": "http://drupal.org/u/imclean"
-                }
-            ],
-            "description": "Uses the PHPMailer library to send emails via SMTP.",
-            "homepage": "https://drupal.org/project/phpmailer_smtp",
-            "keywords": [
-                "drupal",
-                "email",
-                "mail",
-                "mail system",
-                "mailsystem",
-                "phpmailer",
-                "smtp"
-            ],
-            "support": {
-                "source": "https://git.drupalcode.org/project/phpmailer_smtp",
-                "issues": "https://www.drupal.org/project/issues/phpmailer_smtp"
             }
         },
         {
@@ -9360,5 +9305,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.1.0"
 }
