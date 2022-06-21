@@ -146,7 +146,7 @@
             <div class="career-content-item active">
               <div class="career-content-item-inner">
                 <div class="title {{quiz_color}}">
-                  <p class="{{ 'career-title-' ~ loop.index }}">{{ row.cells.field_noc_name.content }}<span class='noc-code'> (NOC {{ row.cells.title.content }})</span>
+                  <p class="career-title-mobile {{ 'career-title-' ~ loop.index }}" title="{{ row.cells.field_noc_name.content }} (NOC {{ row.cells.title.content }})">{{ row.cells.field_noc_name.content }}<span class='noc-code'> (NOC {{ row.cells.title.content }})</span>
                   </p>
                   <div class="slide-next-prev">
                     {% if rowkey == "0" %}

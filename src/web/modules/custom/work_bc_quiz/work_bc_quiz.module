@@ -1265,6 +1265,12 @@ function _work_bc_quiz_node_form_submit_previous($form, &$form_state) {
  */
 function _work_bc_quiz_custom_submit_handler($form, &$form_state) {
   $nid = $form_state->getformObject()->getEntity()->id();
+  $uid = \Drupal::currentUser()->id();
+  $session = \Drupal::request()->getSession();
+  $entity_comparison_list = $session->get("career_comparison_$nid" . "_$uid");
+  if(isset($entity_comparison_list) && !empty($entity_comparison_list)){
+    $session->set("career_comparison_$nid" . "_$uid", null);
+  }
   $form_state->setRedirect('entity.node.canonical', ['node' => $nid]);
 }
 
