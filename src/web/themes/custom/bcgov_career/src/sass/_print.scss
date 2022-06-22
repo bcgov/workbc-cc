@@ -2,6 +2,33 @@
     * {
         -webkit-transition: none !important;
         transition: none !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+
+    @-moz-document url-prefix() {
+        .myResultHeading .row.rh {
+            position: relative;
+            width: 100% !important;
+            margin: 20px 40px;
+
+            background-color: white!important;
+        }
+
+        #myResult {
+            margin-left: 20px !important;
+
+            .career-content-item-inner .title {
+               margin-left: -40px;
+            }
+        }
+
+        .results-main-block {
+            &:after {
+           display: none !important;
+            }
+        }
     }
 
     .page-node-type-learning-styles-quiz  {
@@ -11,6 +38,19 @@
 
     }
 
+    .results-main-block {
+       &:after {
+        content: "";
+        width:100%;
+        display: flex;
+        height: 3px;
+        background-color: black;
+       }
+        [class*="col-"] {
+            padding: 0;
+        }
+    }
+
     .ui-tooltip {
         display: none;
     }
@@ -18,11 +58,26 @@
     .myResultHeading .result-heading {
         display: block;
         position: static;
-        margin: 0 auto;
+        margin: 0 auto 15px;
+
+        h2 {
+            text-align: left !important;
+            margin: 0;
+        }
+
+        li {
+            font-family: 'BC Sans Regular', sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 1.6rem;
+            line-height: 2.0rem;
+            color: #333333;
+        }
     }
     .myResultHeading .row {
         margin: 0;
         display: block!important;
+
         .col-8 {
             display: block!important;
             position: static!important;
@@ -186,7 +241,6 @@
                 background: #f2f2f2 !important;
             }
             .title-description {
-                font-size: 20px;
                 strong {
                     font-weight: normal!important;
                 }
@@ -241,7 +295,6 @@
     }
 
     .compare-career-main-wrapper .career-content-compare .career-content-item:not(.col) {
-        max-height: 350px;
         float: left;
         max-width: 575px;
         clear: both;
@@ -249,7 +302,7 @@
         margin-left: 0px;
     }
     .career-content-main-wrapper .career-content-item.active {
-        max-height: 350px;
+
         float: left;
         max-width: 575px;
         clear: both;
@@ -299,8 +352,7 @@
                 height: auto;
                 .title {
                     min-height: auto;
-                    padding: 0 0 0px;
-                    left: -40px;
+                    padding: 0;
                     background: transparent !important;
                     p {
                         color: #333333;
@@ -355,7 +407,7 @@
             .block-system-main-block {
                 &:not(.no-border-block) {
                     border: 0;
-                    border-bottom: 5px solid rgba(51, 51, 51, 1) !important;
+                   // border-bottom: 5px solid rgba(51, 51, 51, 1) !important;
                 }
                 &#block-bcgov-career-content.results-main-block {
                     padding-top: 0;
