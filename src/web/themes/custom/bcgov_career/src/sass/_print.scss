@@ -4,6 +4,10 @@
         transition: none !important;
     }
 
+    .ui-tooltip {
+        display: none;
+    }
+
     .myResultHeading .result-heading {
         display: block;
         position: static;
