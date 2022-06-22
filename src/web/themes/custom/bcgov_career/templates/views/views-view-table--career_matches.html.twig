@@ -43,168 +43,236 @@
 %}
 {% set currentPath = url("<current>")|render|render %}
 <div class="careers-main-wrapper small-device-hide">
-    <div class="row">
-      <div class="col-12 col-sm-12 col-md-12 col-lg-8">
-        <div class="top-career-content">
-          <h3>Top Career Matches</h3>
-          <div class="content">
-            <div class="description">
-              <p><span class="bulb d-table-cell"></span><span class="dec-text d-table-cell">Select a career below to find out more information.</span></p>
-              <p><span class="bulb d-table-cell"></span><span class="dec-text d-table-cell"><strong>Compare up to three careers</strong> by selecting the</br>
-                the checkboxes and clicking or tapping on Compare Careers.</span>
-              </p>
-            </div>
-            <div class="top-btn">
-              <a href="{{ remove_url }}" class="clear-compare disable">Clear Compare</a>
-              <a href="{{ '/career-compare/career/' ~ current_nid ~ '/?quiz-type=' ~ quiz_type }}" class="compare-career disable">Compare Careers</a>
-            </div>
+  <div class="row">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-8">
+      <div class="top-career-content">
+        <h3>Top Career Matches</h3>
+        <div class="content">
+          <div class="description">
+            <p><span class="bulb d-table-cell"></span><span class="dec-text d-table-cell">Select a career below to find out more information.</span></p>
+            <p><span class="bulb d-table-cell"></span><span class="dec-text d-table-cell"><strong>Compare up to three careers</strong> by selecting the</br>
+              checkboxes and clicking on the Compare Careers button.</span>
+            </p>
+          </div>
+          <div class="top-btn">
+            <a href="{{ remove_url }}" class="clear-compare disable">Clear Compare</a>
+            <a href="{{ '/career-compare/career/' ~ current_nid ~ '/?quiz-type=' ~ quiz_type }}" class="compare-career disable">Compare Careers</a>
           </div>
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-12 col-md-8 col-print-12">
-        <div class="careers-table-main-wrapper">
+  </div>
+  <div class="row">
+    <div class="col-12 col-md-8 col-print-12">
+      <div class="careers-table-main-wrapper">
         <table{{ attributes.addClass(classes) }}>
-          {% if caption_needed %}
-          <caption>
-          {% if caption %}
-              {{ caption }}
-          {% else %}
-              {{ title }}
-          {% endif %}
-          {% if (summary is not empty) or (description is not empty) %}
-              <details>
-              {% if summary is not empty %}
-                  <summary>{{ summary }}</summary>
-              {% endif %}
-              {% if description is not empty %}
-                  {{ description }}
-              {% endif %}
-              </details>
-          {% endif %}
-          </caption>
-          {% endif %}
-          {% if header %}
-          <thead>
-              <tr>
-              <th>
-                <p class="matches-wrap">
-                  <span class="matches">
-                    <span class="match-per">{{ match_header }}</span>
-                    <span class="match">{{ 'Match'|t }}</span>
-                  </span>
-                {% if match_header == 'Your' %}
-                  <span class="match-warning" title="A career marked as Best Fit is a very strong match to your interests.&#013;&#010;A career marked Great Fit is a strong match.&#013;&#010;A career marked Good Fit is a less strong match and may also be of interest to you.">
-                    <img src="/themes/custom/bcgov_career/src/icons/warning.svg"/>
-                  </span>
+            {% if caption_needed %}
+            <caption>
+            {% if caption %}
+                {{ caption }}
+            {% else %}
+                {{ title }}
+            {% endif %}
+            {% if (summary is not empty) or (description is not empty) %}
+                <details>
+                {% if summary is not empty %}
+                    <summary>{{ summary }}</summary>
                 {% endif %}
-                </p>
-                </th>
-              {% for key, column in header %}
-                  {% if column.default_classes %}
+                {% if description is not empty %}
+                    {{ description }}
+                {% endif %}
+                </details>
+            {% endif %}
+            </caption>
+            {% endif %}
+            {% if header %}
+            <thead>
+                <tr>
+                <th>
+                  <p class="matches-wrap">
+                    <span class="matches">
+                      <span class="match-per">{{ match_header }}</span>
+                      <span class="match">{{ 'Match'|t }}</span>
+                    </span>
+                  {% if match_header == 'Your' %}
+                    <span class="match-warning" title="A career marked as Best Fit is a very strong match to your interests.&#013;&#010;A career marked Great Fit is a strong match.&#013;&#010;A career marked Good Fit is a less strong match and may also be of interest to you.">
+                      <img src="/themes/custom/bcgov_career/src/icons/warning.svg"/>
+                    </span>
+                  {% endif %}
+                  </p>
+                  </th>
+                {% for key, column in header %}
+                    {% if column.default_classes %}
+                    {%
+                        set column_classes = [
+                        'views-field',
+                        'views-field-' ~ fields[key],
+                        ]
+                    %}
+                    {% endif %}
+                    {% if column.content != 'NOC' %}
+                      <th{{ column.attributes.addClass(column_classes).setAttribute('scope', 'col') }}>
+                      {%- if column.wrapper_element -%}
+                          <{{ column.wrapper_element }}>
+                          {%- if column.url -%}
+                              <a href="{{ column.url }}#view-field-noc-name-table-column" title="{{ column.title }}">{{ column.content }}{{ column.sort_indicator }}</a>
+                          {%- else -%}
+                              {{ column.content | raw }}{{ column.sort_indicator }}
+                          {%- endif -%}
+                          </{{ column.wrapper_element }}>
+                      {%- else -%}
+                          {%- if column.url -%}
+                          <a href="{{ column.url }}#view-field-noc-name-table-column" title="{{ column.title }}">{{ column.content }}{{ column.sort_indicator }}</a>
+                          {%- else -%}
+                          {{- column.content | raw }}{{ column.sort_indicator }}
+                          {%- endif -%}
+                      {%- endif -%}
+                      </th>
+                    {% endif %}
+                {% endfor %}
+                </tr>
+            </thead>
+            {% endif %}
+            <tbody>
+            {% for rowkey, row in rows %}
+                <tr class="career-table-row {% if rowkey == '0' %}active{% endif %}" data-id="career-item-{{ rowkey }}">
+                {% for key, column in row.columns %}
+                {% if column.default_classes %}
                   {%
-                      set column_classes = [
-                      'views-field',
-                      'views-field-' ~ fields[key],
-                      ]
+                    set column_classes = [
+                      'views-field'
+                    ]
                   %}
+                  {% set field_nm = '' %}
+                  {% for field in column.fields %}
+                    {% set column_classes = column_classes|merge(['views-field-' ~ field]) %}
+                    {% set field_nm = field_nm ~ field %}
+                  {% endfor %}
+                {% endif %}
+                  {% if row.raw.nid is not empty %}
+                    {% set nodeURL =  url('entity.node.canonical', {'node': row.raw.nid}) %}
                   {% endif %}
-                  {% if column.content != 'NOC' %}
-                    <th{{ column.attributes.addClass(column_classes).setAttribute('scope', 'col') }}>
-                    {%- if column.wrapper_element -%}
-                        <{{ column.wrapper_element }}>
-                        {%- if column.url -%}
-                            <a href="{{ column.url }}#view-field-noc-name-table-column" title="{{ column.title }}">{{ column.content }}{{ column.sort_indicator }}</a>
+                    
+                    {% if field_nm == 'field-noc-name' %}
+                      <td>
+                        {% if row.raw.match is not empty %}
+                          {{row.raw.match}}
+                        {% endif %}
+                      </td>
+                    {% elseif field_nm == 'title' %}
+                      <td class="career-table-link" data-node-url="{{ nodeURL }}">
+                        {% if row.raw.field_noc_name is not empty %}
+                          <a href="javascript:;" class="career-table-row-link">{{ row.raw.field_noc_name }}</br> <span class="noc">(NOC {{ row.raw.title }})</span></a>
+                        {% endif %}
+                      </td>
+                    {% elseif field_nm == 'entity-comparison-link-career' %}
+                      <td class="career-table-link" data-node-url="{{ nodeURL }}">
+                        {% for content in column.content %}
+                          {{ content.separator }}{{ content.field_output }}
+                          {# data-career="/entity-comparison/career/{{ content.field_output }}?destination=/node/{{ currentPath }}" #}
+                        {% endfor %}
+                         
+                        <label class="compare-career compare-carr">
+                          <input type="checkbox" class="career-checkbox career-chkk">
+                          <span class="checkmark"></span>
+                        </label>
+                      </td>
+                    {% elseif field_nm == 'field-median-salary' or field_nm == 'field-education-level' %}
+                      <td{{ column.attributes.addClass(column_classes) }} >
+                        {%- if column.wrapper_element -%}
+                          <{{ column.wrapper_element }}>
+                          {% for content in column.content %}
+                            {{ content.separator }}{{ content.field_output }}
+                          {% endfor %}
+                          </{{ column.wrapper_element }}>
                         {%- else -%}
-                            {{ column.content | raw }}{{ column.sort_indicator }}
-                        {%- endif -%}
-                        </{{ column.wrapper_element }}>
-                    {%- else -%}
-                        {%- if column.url -%}
-                        <a href="{{ column.url }}#view-field-noc-name-table-column" title="{{ column.title }}">{{ column.content }}{{ column.sort_indicator }}</a>
-                        {%- else -%}
-                        {{- column.content | raw }}{{ column.sort_indicator }}
-                        {%- endif -%}
-                    {%- endif -%}
-                    </th>
-                  {% endif %}
-              {% endfor %}
-              </tr>
-          </thead>
-          {% endif %}
-          <tbody>
-          {% for rowkey, row in rows %}
-              <tr class="career-table-row {% if rowkey == '0' %}active{% endif %}" data-id="career-item-{{ rowkey }}">
-              {% set nodeURL =  url('entity.node.canonical', {'node': row.raw.nid}) %}
-                <td>
-                  {{ row.raw.match }}
-                </td>
-                <td class="career-table-link" data-node-url="{{ nodeURL }}">
-                    <a href="javascript:;" class="career-table-row-link">{{ row.raw.field_noc_name }}</br> <span class="noc">(NOC {{ row.raw.title }})</span></a>
-                </td>
-                <td>
-                    {{ row.columns.field_median_salary }}
-                </td>
-                <td>
-                    {{ row.columns.field_education_level }}
-                </td>
-                <td class="d-print-none">
-                  {{ row.columns.entity_comparison_link_career }}
-                  {# data-career="/entity-comparison/career/{{ row.raw.entity_comparison_link_career }}?destination=/node/{{ currentPath }}" #}
-                  <label class="compare-career compare-carr">
-                    <input type="checkbox" class="career-checkbox career-chkk">
-                    <span class="checkmark"></span>
-                  </label>
-                </td>
-              </tr>
-          {% endfor %}
-          </tbody>
-      </table>
+                          {% for content in column.content %}
+                            {{- content.separator }}{{ content.field_output -}}
+                          {% endfor %}
+                        {%- endif %}
+                      </td>
+                    {% endif %}
+                {% endfor %}
+                </tr>
+            {% endfor %}
+            </tbody>
+          </table>
       </div>
-      </div>
-      <div class="col-12 col-md-4 col-print-12">
-        <div class="career-content-main-wrapper career-content-table-item">
-          <h3 class='print-career-preview-label d-none d-print-block'>Career Preview</h3>
-          {% for rowkey, row in rows %}
-            <div id="career-item-{{ rowkey }}" class="career-content-item {% if rowkey == '0' %}active{% endif %}" data-url="">
-              <div class="career-content-item-inner">
+    </div>
+    <div class="col-12 col-md-4 col-print-12">
+      <div class="career-content-main-wrapper career-content-table-item">
+        <h3 class='print-career-preview-label d-none d-print-block'>Career Preview</h3>
+        {% for rowkey, row in rows %}
+          <div id="career-item-{{ rowkey }}" class="career-content-item {% if rowkey == '0' %}active{% endif %}" data-url="">
+            <div class="career-content-item-inner">
+            {% if row.raw.field_noc_name is not empty %}
               {% set noc_name = row.raw.field_noc_name ~ ' NOC' ~ '(' ~ row.raw.title ~ ')' %}
-                <div class="title" data-toggle="tip" title="{{ row.raw.field_noc_name }} (NOC {{ row.raw.title }})"><p>{{ noc_name|length > 70 ? noc_name|slice(0, 70) ~ '...' : noc_name}}</p></div>
-                <div class="career-inner-content">
-                  <div class="image-video">
-                    {% if row.raw.field_video_id != false %}
-                      {% set video_link = 'https://www.youtube.com/embed/' ~ row.raw.field_video_id %}
-                      <iframe width="420" height="345" data-src="{{ video_link }}"src="{% if rowkey == '0' %}{{video_link}}{% endif %}"></iframe>
-                    {% elseif  row.raw.field_video_id == false %}
-                      <img src="{{ row.raw.field_image }}" alt=""/>
-                    {% endif %}
-                  </div>
-                  <div class="data">
-                    {% if row.raw.field_median_salary is not empty %}
-                      <p class="data-item"><span class="f-d">Annual Salary</span><span class="s-d">{{ row.columns.field_median_salary }}</span></p>
-                    {% endif %}
-                    {% if row.raw.field_education_level is not empty %}
-                      <p class="data-item"><span class="f-d">Education Level</span><span class="s-d">{{ row.columns.field_education_level }}</span></p>
-                    {% endif %}
-                    {% if row.raw.field_job_openings is not empty %}
-                      <p class="data-item"><span class="f-d">Job Openings<span class="w-100">{{ row.raw.field_opening_from_to }}</span></span><span class="s-d">{{ row.raw.field_job_openings|number_format(0, '.', ',') }}</span></p>
-                    {% endif %}
-                  </div>
-                  <div class="description">
-                    <p>{{ row.raw.field_job_summary | striptags | truncate(250) | raw }}</p>
-                  </div>
-                  <div class="bottom-btn">
-                    <a class="btn btn-prim btn-career-profile" href="{{ row.raw.field_workbc_link }}" target='_blank'>View Career Profile</a>
-                    <a class="btn btn-find-job" href="{{ row.raw.field_find_job }}" target='_blank'>Find Jobs</a>
-                  </div>
+            {% endif %}
+              <div class="title" data-toggle="tip" title="{{ row.raw.field_noc_name }} (NOC {{ row.raw.title }})"><p>{{ noc_name|length > 70 ? noc_name|slice(0, 70) ~ '...' : noc_name}}</p></div>
+              <div class="career-inner-content">
+                <div class="image-video">
+                  {% if row.raw.field_video_id != false %}
+                    {% set video_link = 'https://www.youtube.com/embed/' ~ row.raw.field_video_id %}
+                    <iframe width="420" height="345" data-src="{{ video_link }}"src="{% if rowkey == '0' %}{{video_link}}{% endif %}"></iframe>
+                  {% elseif  row.raw.field_video_id == false %}
+                    <img src="{{ row.raw.field_image }}" alt=""/>
+                  {% endif %}
+                </div>
+                <div class="data">
+                {% for key, column in row.columns %}
+                  {% set field_nm = '' %}
+                  {% for field in column.fields %}
+                    {% set field_nm = field_nm ~ field %}
+                  {% endfor %}
+                  {% if field_nm == 'field-median-salary'%}
+                    <p class="data-item"><span class="f-d">Annual Salary</span><span class="s-d">
+                      {%- if column.wrapper_element -%}
+                        <{{ column.wrapper_element }}>
+                        {% for content in column.content %}
+                          {{ content.separator }}{{ content.field_output }}
+                        {% endfor %}
+                        </{{ column.wrapper_element }}>
+                      {%- else -%}
+                        {% for content in column.content %}
+                          {{- content.separator }}{{ content.field_output -}}
+                        {% endfor %}
+                      {%- endif %}
+                    </span></p>
+                  {% endif %}
+                  {% if field_nm == 'field-education-level'%}
+                    <p class="data-item"><span class="f-d">Education Level</span><span class="s-d">
+                      {%- if column.wrapper_element -%}
+                        <{{ column.wrapper_element }}>
+                        {% for content in column.content %}
+                          {{ content.separator }}{{ content.field_output }}
+                        {% endfor %}
+                        </{{ column.wrapper_element }}>
+                      {%- else -%}
+                        {% for content in column.content %}
+                          {{- content.separator }}{{ content.field_output -}}
+                        {% endfor %}
+                      {%- endif %}
+                    </span></p>
+                  {% endif %}
+                {% endfor %}
+                  {% if row.raw.field_job_openings is not empty %}
+                    <p class="data-item"><span class="f-d">Job Openings<span class="w-100">{{ row.raw.field_opening_from_to }}</span></span><span class="s-d">{{ row.raw.field_job_openings|number_format(0, '.', ',') }}</span></p>
+                  {% endif %}
+                </div>
+                <div class="description">
+                  <p>{{ row.raw.field_job_summary | striptags | truncate(250) | raw }}</p>
+                </div>
+                <div class="bottom-btn">
+                  <a class="btn btn-prim btn-career-profile" href="{{ row.raw.field_workbc_link }}" target='_blank'>View Career Profile</a>
+                  <a class="btn btn-find-job" href="{{ row.raw.field_find_job }}" target='_blank'>Find Jobs</a>
                 </div>
               </div>
             </div>
-          {%  endfor %}
-        </div>
+          </div>
+        {%  endfor %}
       </div>
     </div>
+  </div>
 </div>
 
 <div class="careers-mobi-main-wrapper small-device-show">
@@ -237,7 +305,7 @@
                   <span class="match">{{ 'Match'|t }}</span>
                 </span>
                 {% if match_header == 'Your' %}
-                <span class="match-warning" title="A career marked as Best Match is a very strong match to your interests.&#013;&#010;A career marked Great Match is a strong match and may also be of interest to you.&#013;&#010;A career marked Good Match is a less strong match.">
+                <span class="match-warning" title="A career marked as Best Fit is a very strong match to your interests.&#013;&#010;A career marked Great Fit is a strong match.&#013;&#010;A career marked Good Fit is a less strong match and may also be of interest to you.">
                   <img src="/themes/custom/bcgov_career/src/icons/warning.svg"/>
                 </span>
                 {% endif %}
@@ -248,17 +316,41 @@
           </div>
           <div class="tbody">
           {% for rowkey, row in rows %}
-          {% set nodeURL =  url('entity.node.canonical', {'node': row.raw.nid}) %}
+            {% if row.raw.nid is not empty %}
+              {% set nodeURL =  url('entity.node.canonical', {'node': row.raw.nid}) %}
+            {% endif %}
             <div class="tbody-main" data-id="career-item-{{ rowkey }}">
-            <p class="body">{{ row.raw.match }}</p>
-              <p class="body"><a href="{{ nodeURL }}/?type={{ quiz_type }}" class="career-table-mobi-row-link">{{ row.raw.field_noc_name }} </br><span class="noc">(NOC {{ row.raw.title }})</span></a></p>
-              <p class="body">
-                {{ row.columns.entity_comparison_link_career }}
-                <label class="compare-career-mobi compare-carr" data-career="/entity-comparison/career/{{ row.raw.entity_comparison_link_career }}?destination=/node/{{ currentPath }}">
-                  <input type="checkbox" class="career-mobi-checkbox career-chkk">
-                  <span class="checkmark"></span>
-                </label>
-              </p>
+              {% if row.raw.match is not empty %}
+                <p class="body">{{ row.raw.match }}</p>
+              {% endif %}
+              {% if row.raw.field_noc_name is not empty %}
+                <p class="body"><a href="{{ nodeURL }}/?type={{ quiz_type }}" class="career-table-mobi-row-link">{{ row.raw.field_noc_name }} </br><span class="noc">(NOC {{ row.raw.title }})</span></a></p>
+              {% endif %}
+              {% for key, column in row.columns %}
+                {% set field_nm = '' %}
+                {% for field in column.fields %}
+                  {% set field_nm = field_nm ~ field %}
+                {% endfor %}
+                {% if field_nm == 'entity-comparison-link-career'%}
+                  <p class="body">
+                    {%- if column.wrapper_element -%}
+                      <{{ column.wrapper_element }}>
+                      {% for content in column.content %}
+                        {{ content.separator }}{{ content.field_output }}
+                      {% endfor %}
+                      </{{ column.wrapper_element }}>
+                    {%- else -%}
+                      {% for content in column.content %}
+                        {{- content.separator }}{{ content.field_output -}}
+                      {% endfor %}
+                    {%- endif %}
+                    <label class="compare-career-mobi compare-carr" data-career="/entity-comparison/career/{{ row.raw.entity_comparison_link_career }}?destination=/node/{{ currentPath }}">
+                      <input type="checkbox" class="career-mobi-checkbox career-chkk">
+                      <span class="checkmark"></span>
+                    </label>
+                  </p>
+                {% endif %}
+              {% endfor %}
             </div>
           {% endfor %}
           </div>
