@@ -98,7 +98,6 @@ body.path-quiz .preview-quiz-form .form-actions.form-actions>input[type=submit]:
     background: unset;
     color: #000;
     border: unset;
-    outline:0px;
   }
   .path-quiz.quiz-color-pink .preview-quiz-form .form-actions.form-actions > input[type="submit"], div.path-quiz.quiz-color-pink .preview-quiz-form .form-actions.form-actions>#edit-previous{
      color:#880364;
@@ -148,7 +147,7 @@ body.path-quiz .preview-quiz-form .form-actions.form-actions>input[type=submit]:
   .wvq #myResult .itm.item_3 .title-field, .wvq .itm.item_3 .title-description ul li{color: #510B76;}
   .wvq #myResult .itm.item_4 .title-field, .wvq .itm.item_4 .title-description ul li{color: #880364;}
   .wvq #myResult .itm .title-description ul li span{    color: rgba(85, 85, 85, 0.996078431372549);}
-  
+
   @media (max-width: 767.98px){
     body.path-quiz .preview-quiz-form .form-actions.form-actions{display: inline-block;
     margin: 0px;
@@ -172,7 +171,7 @@ flex-direction: column;
     margin-left: 40px !important;
     padding: 0px !important;}
   }
-  
+
 @media (max-width: 640.98px) {
   .path-quiz .form-actions.form-actions > input#edit-previous {
     top:unset;
@@ -186,7 +185,7 @@ flex-direction: column;
 } */
 /* .col-12.extradivs2 {
     margin-left:0px !important;
-    
+
 } */
 #myResult .quiz-list .title-description ul {margin-top: 15px; }
 
@@ -197,7 +196,7 @@ flex-direction: column;
 }
 #myResult .quiz-list .title-description ul li::marker{}
 #myResult .quiz-list .title-description ul li:marker{
-  
+
 }
 ._002857 li::marker{color:#002857}
 ._89226E li::marker{color:#89226E}
