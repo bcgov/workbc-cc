@@ -4,8 +4,8 @@
         transition: none !important;
     }
 
-    .page-node-type-learning-styles-quiz .quiz-list {
-        padding-bottom: 20px;
+    .page-node-type-learning-styles-quiz  {
+        @page { size: A4; }
     }
 
     .ui-tooltip {
