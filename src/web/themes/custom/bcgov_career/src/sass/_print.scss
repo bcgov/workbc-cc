@@ -6,31 +6,6 @@
         print-color-adjust: exact !important;
     }
 
-
-    @-moz-document url-prefix() {
-        .myResultHeading .row.rh {
-            position: relative;
-            width: 100% !important;
-            margin: 20px 40px;
-
-            background-color: white!important;
-        }
-
-        #myResult {
-            margin-left: 20px !important;
-
-            .career-content-item-inner .title {
-               margin-left: -40px;
-            }
-        }
-
-        .results-main-block {
-            &:after {
-           display: none !important;
-            }
-        }
-    }
-
     .page-node-type-learning-styles-quiz  {
         #myResult .quiz-list .title-description {
             padding: 0 25px 0;
