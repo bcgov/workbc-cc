@@ -4,6 +4,13 @@
         transition: none !important;
     }
 
+    .page-node-type-learning-styles-quiz  {
+        #myResult .quiz-list .title-description {
+            padding: 0 25px 0;
+        }
+
+    }
+
     .ui-tooltip {
         display: none;
     }
