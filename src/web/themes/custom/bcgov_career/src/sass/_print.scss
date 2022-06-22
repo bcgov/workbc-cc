@@ -1,12 +1,14 @@
+@page {
+    .page-node-type-learning-styles-quiz {
+        size: A4;
+        width: 210mm;
+    }
+}
+
 @media print {
     * {
         -webkit-transition: none !important;
         transition: none !important;
-    }
-
-    .page-node-type-learning-styles-quiz  {
-        @page { size: A4; }
-        width: 210mm;
     }
 
     .ui-tooltip {
