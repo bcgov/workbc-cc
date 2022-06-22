@@ -11,15 +11,17 @@
     .myResultHeading .result-heading {
         display: block;
         position: static;
-        margin: auto;
+        margin: 0 auto;
     }
     .myResultHeading .row {
-        margin: auto!important;
+        margin: 0;
         display: block!important;
         .col-8 {
+            display: block!important;
             position: static!important;
+            width: 100%!important;
             max-width: 100%;
-            margin: auto!important;
+            margin-left: 0px;
         }
     }
     .col-print-1 {
@@ -175,6 +177,14 @@
             width: 369px;
             .field-match {
                 background: #f2f2f2 !important;
+            }
+            .title-description {
+                font-size: 20px;
+                strong {
+                    font-weight: normal!important;
+                }
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
             }
         }
         .extradivs.hide.displayMobiPrint{
