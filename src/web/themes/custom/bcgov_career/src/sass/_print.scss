@@ -13,6 +13,17 @@
 
     }
 
+    /* Temp fix for mobile work values */
+    .page-node-type-work-values-quiz {
+        #myResult .carousel-inner.carousel-inner-device.work-value-quiz-carousel.mbohide {
+            display: block !important;
+        }
+
+        #myResult .carousel-inner.carousel-inner-mobi.work-value-quiz-mobi-carousel.active {
+            display: none!important;
+        }
+    }
+
     .results-main-block {
        &:after {
         content: "";
@@ -52,6 +63,10 @@
     .myResultHeading .row {
         margin: 0;
         display: block!important;
+
+        &.rh {
+            background-color: white!important;
+        }
 
         .col-8 {
             display: block!important;
