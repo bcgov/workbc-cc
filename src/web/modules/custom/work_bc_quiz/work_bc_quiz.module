@@ -333,18 +333,19 @@ function work_bc_quiz_form_node_form_alter(&$form, $formState, $form_id) {
           $query = \Drupal::database()->select('node', 'n')->fields('n', ['nid']);
           $query->condition('n.uuid', $value->uuid);
           $nid = $query->execute()->fetchField();
-
-          $query = \Drupal::database()->select('forms_steps_workflow', 'n')->fields('n', ['id', 'instance_id'])->condition('n.entity_id', $nid)->range(0, 1)->execute();
-          $result = $query->fetchObject();
-          $instance_id = $result->instance_id;
-          $path = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
-          $target_url = \Drupal::service('path.validator')->getUrlIfValid($path);
-          $target_route_name = $target_url->getRouteName();
-          $target_route_parameters = $target_url->getrouteParameters();
-          $target_route_parameters['instance_id'] = $instance_id;
-          $response = new RedirectResponse(\Drupal\Core\Url::fromRoute($target_route_name, $target_route_parameters)->toString());
-          #$response = new RedirectResponse(\Drupal\Core\Url::fromRoute('entity.node.canonical', ['node' => $nid])->toString());
-          $response->send();
+          if(!empty($nid)){
+            $query = \Drupal::database()->select('forms_steps_workflow', 'n')->fields('n', ['id', 'instance_id'])->condition('n.entity_id', $nid)->range(0, 1)->execute();
+            $result = $query->fetchObject();
+            $instance_id = $result->instance_id;
+            $path = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
+            $target_url = \Drupal::service('path.validator')->getUrlIfValid($path);
+            $target_route_name = $target_url->getRouteName();
+            $target_route_parameters = $target_url->getrouteParameters();
+            $target_route_parameters['instance_id'] = $instance_id;
+            $response = new RedirectResponse(\Drupal\Core\Url::fromRoute($target_route_name, $target_route_parameters)->toString());
+            #$response = new RedirectResponse(\Drupal\Core\Url::fromRoute('entity.node.canonical', ['node' => $nid])->toString());
+            $response->send();
+          }
         }
       }
     }
@@ -841,12 +842,9 @@ function work_bc_quiz_node_view(array &$build, EntityInterface $entity, EntityVi
           //$occupations[$value['name']] = $scoreTotal;
           $occupation = (empty($occupation))? $value['name'].'='.$scoreTotal : $occupation . "&".$value['name'].'='.$scoreTotal."&start=1&end=222";
         }
-        
-        //$newQuiz = \Drupal::service('work_bc_quiz.WorkBcQuizController')->getCareerCodes($occupation);
         $newQuiz = new WorkBcQuizController();
         $newQuiz = $newQuiz->getCareerCodes($occupation);
-        // print_r($newQuiz);
-        // echo "<br/>";
+        
         $result = [];
         $great = [];
         $good = [];
@@ -1058,56 +1056,64 @@ function work_bc_quiz_views_pre_render(ViewExecutable $view) {
               $query->leftJoin('forms_steps_workflow', 'sf', 'sf.entity_id = n.nid');
               $query->condition('n.uuid', $value->uuid);
               $results = $query->execute()->fetchAll();
-
-              $instance_id = $results[0]->instance_id;
-              $entity_id = $results[0]->entity_id;
-              // work_values_quiz.
-              $fields = \Drupal::service('entity_field.manager')->getFieldDefinitions('node', $results[0]->type);
-              $total_fields = 0;
-              foreach ($fields as $field_name => $field_definition) {
-                if (!empty($field_definition->getTargetBundle())) {
-                  if ($field_definition->getType() == "work_bc_quiz") {
-                    $total_fields++;
-                  }
-                }
-              }
-              // Get Last Field Name.
-              foreach ($fields as $field_name => $field_definition) {
-                if (!empty($field_definition->getTargetBundle())) {
-                  if ($field_definition->getType() == "work_bc_quiz") {
-                    if (str_contains($field_name, "_" . $total_fields)) {
-                      // Get Last Fields & Table Name.
-                      $last_field = $field_name;
+              if(isset($results[0]->instance_id)){
+                $instance_id = $results[0]->instance_id;
+                $entity_id = $results[0]->entity_id;
+                // work_values_quiz.
+                $fields = \Drupal::service('entity_field.manager')->getFieldDefinitions('node', $results[0]->type);
+                $total_fields = 0;
+                foreach ($fields as $field_name => $field_definition) {
+                  if (!empty($field_definition->getTargetBundle())) {
+                    if ($field_definition->getType() == "work_bc_quiz") {
+                      $total_fields++;
                     }
                   }
                 }
-              }
-              $step = ceil($total_fields / 5);
-              // Print $results[0]->type;.
-              $results[0]->type = str_replace("multiple_intelligence_quiz", "multiple_intelligences_quiz", $results[0]->type);
+                // Get Last Field Name.
+                foreach ($fields as $field_name => $field_definition) {
+                  if (!empty($field_definition->getTargetBundle())) {
+                    if ($field_definition->getType() == "work_bc_quiz") {
+                      if (str_contains($field_name, "_" . $total_fields)) {
+                        // Get Last Fields & Table Name.
+                        $last_field = $field_name;
+                      }
+                    }
+                  }
+                }
+                $step = ceil($total_fields / 5);
+                // Print $results[0]->type;.
+                $results[0]->type = str_replace("multiple_intelligence_quiz", "multiple_intelligences_quiz", $results[0]->type);
 
-              $query2 = \Drupal::database()->select('forms_steps_workflow', 'n')->fields('n', ['step'])->condition("n.forms_steps", $results[0]->type)->condition('n.entity_id', $results[0]->nid)->orderBy('id', 'DESC');
-              $results2 = $query2->execute()->fetchAll();
-              $lastStep = count($results2);
-              // Print $lastStep ."-". $step;.
-              $quiz_type = str_replace("_", "-", $results[0]->type);
-              if (($lastStep < $step) && ($lastStep > 0)) {
-                $field_value[0]['uri'] = "internal:/quiz/" . $quiz_type . "/step" . ($lastStep + 1) . '/' . $results[0]->instance_id;
-                $field_value[0]['title'] = 'Continue Quiz';
-                $row->_entity->get('nid')->setValue(0, TRUE);
-              }
-              else {
-                if ($lastStep == $step) {
-                  $checkLastValue = \Drupal::database()
-                    ->select("node__" . $last_field, 'n')
-                    ->fields('n', [$last_field . '_ar_target_id'])
-                    ->condition("n.entity_id", $results[0]->nid);
-                  $results3 = $checkLastValue->execute()->fetchCol();
+                $query2 = \Drupal::database()->select('forms_steps_workflow', 'n')->fields('n', ['step'])->condition("n.forms_steps", $results[0]->type)->condition('n.entity_id', $results[0]->nid)->orderBy('id', 'DESC');
+                $results2 = $query2->execute()->fetchAll();
+                $lastStep = count($results2);
+                // Print $lastStep ."-". $step;.
+                $quiz_type = str_replace("_", "-", $results[0]->type);
+              
+                if (($lastStep < $step) && ($lastStep > 0)) {
+                  $field_value[0]['uri'] = "internal:/quiz/" . $quiz_type . "/step" . ($lastStep + 1) . '/' . $results[0]->instance_id;
+                  $field_value[0]['title'] = 'Continue Quiz';
+                  $row->_entity->get('nid')->setValue(0, TRUE);
+                }
+                else {
+                  if (!empty ($lastStep) && $lastStep == $step) {
+                    
+                    $checkLastValue = \Drupal::database()
+                      ->select("node__" . $last_field, 'n')
+                      ->fields('n', [$last_field . '_ar_target_id'])
+                      ->condition("n.entity_id", $results[0]->nid);
+                    $results3 = $checkLastValue->execute()->fetchCol();
 
-                  if (empty($results3[0])) {
-                    $field_value[0]['uri'] = "internal:/quiz/" . $quiz_type . "/step" . ($lastStep) . '/' . $results[0]->instance_id;
-                    $field_value[0]['title'] = 'Continue Quiz';
-                    $row->_entity->get('nid')->setValue(0, TRUE);
+                    if (empty($results3[0])) {
+                      $field_value[0]['uri'] = "internal:/quiz/" . $quiz_type . "/step" . ($lastStep) . '/' . $results[0]->instance_id;
+                      $field_value[0]['title'] = 'Continue Quiz';
+                      $row->_entity->get('nid')->setValue(0, TRUE);
+                    }
+                    else {
+                      $field_value[0]['uri'] = "internal:/quiz/$quizLink/step1/preview/" . $instance_id;
+                      $field_value[0]['title'] = 'Modify Your Answers';
+                      $row->_entity->get('nid')->setValue($entity_id, TRUE);
+                    }
                   }
                   else {
                     $field_value[0]['uri'] = "internal:/quiz/$quizLink/step1/preview/" . $instance_id;
@@ -1115,31 +1121,25 @@ function work_bc_quiz_views_pre_render(ViewExecutable $view) {
                     $row->_entity->get('nid')->setValue($entity_id, TRUE);
                   }
                 }
-                else {
-                  $field_value[0]['uri'] = "internal:/quiz/$quizLink/step1/preview/" . $instance_id;
-                  $field_value[0]['title'] = 'Modify Your Answers';
-                  $row->_entity->get('nid')->setValue($entity_id, TRUE);
+                /* else if(($lastStep == $step) && ($lastStep > 0)){
+                $field_value[0]['uri'] = "internal:/quiz/" . $quiz_type . "/step" . ($lastStep) . '/' . $results[0]->instance_id;
+                $field_value[0]['title'] = 'Continue Quiz';
+                $row->_entity->get('nid')->setValue(0, TRUE);
                 }
-              }
-              /* else if(($lastStep == $step) && ($lastStep > 0)){
-              $field_value[0]['uri'] = "internal:/quiz/" . $quiz_type . "/step" . ($lastStep) . '/' . $results[0]->instance_id;
-              $field_value[0]['title'] = 'Continue Quiz';
-              $row->_entity->get('nid')->setValue(0, TRUE);
-              }
-              else {
-              $field_value[0]['uri'] = "internal:/quiz/$quizLink/step1/preview/" . $instance_id;
-              $field_value[0]['title'] = 'Modify Your Answers';
-              $row->_entity->get('nid')->setValue($entity_id, TRUE);
-              } */
+                else {
+                $field_value[0]['uri'] = "internal:/quiz/$quizLink/step1/preview/" . $instance_id;
+                $field_value[0]['title'] = 'Modify Your Answers';
+                $row->_entity->get('nid')->setValue($entity_id, TRUE);
+                } */
 
-              if ($nid == "A100") {
-                $field_value[0]['title2'] = t("Continue Quiz");
+                if ($nid == "A100") {
+                  $field_value[0]['title2'] = t("Continue Quiz");
+                }
+                else {
+                  $field_value[0]['title2'] = t("View Your Results");
+                }
+                $row->_entity->get('field_quiz_link')->setValue($field_value, TRUE);
               }
-              else {
-                $field_value[0]['title2'] = t("View Your Results");
-              }
-              $row->_entity->get('field_quiz_link')->setValue($field_value, TRUE);
-
             }
             else {
               $field_value[0]['title2'] = t("Take The Quiz");
