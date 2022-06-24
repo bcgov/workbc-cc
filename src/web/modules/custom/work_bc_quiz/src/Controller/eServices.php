@@ -62,8 +62,6 @@ class eServices extends ControllerBase{
 		  $ch = curl_init();
       
 		  // TODO: The services are hosted by xxx and currently need authentication.
-		  //$username = 'cgi';
-      //$password = '4852wsy';
 		  // set URL and other appropriate options
 		  #curl_setopt($ch, CURLOPT_USERPWD, $username.':'.$password);
       #curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_NTLM);
