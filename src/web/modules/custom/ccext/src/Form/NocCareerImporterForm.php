@@ -126,20 +126,25 @@ class NocCareerImporterForm extends FormBase {
     $entity_type = $form_state->getValue('entity_type');
     $csv = current($form_state->getValue('csv'));
     $csvData = $this->getCsvById($csv, ',');
-
+    $newCareer = [];
+    $careerUpdated = [];
+    $failedCareer = [];
     foreach ($csvData as $key => $value) {
       if ($key != 0) {
         $title = trim(str_replace('#', '', $value[0]));
 
         $query = $this->getNodeId($title);
         $Noc_node = NULL;
+        
         if (empty($query)) {
           $Noc_node = Node::create(['type' => 'career_profile']);
           $Noc_node->enforceIsNew();
           $Noc_node->set('title', $title);
+          array_push($newCareer, $title);
         }
         else {
           $Noc_node = Node::load(reset($query));
+          array_push($careerUpdated, $title);
         }
         if ($entity_type == 'noc') {
           $field_image = trim($value[2]);
@@ -200,8 +205,25 @@ class NocCareerImporterForm extends FormBase {
             $Noc_node->set('field_find_job', ["uri" => $field_find_job]);
           }
         }
-        $Noc_node->save();
+        if(!$Noc_node->save()){
+          array_push($failedCareer, $title);
+        }
       }
+    }
+    if(!empty($newCareer)){
+      $count = count($newCareer);
+      $newCareer  = implode(",", $newCareer);
+      \Drupal::messenger()->addMessage(t("New Career(s) Imported($count): ".$newCareer), 'info');
+    }
+    if(!empty($careerUpdated)){
+      $count = count($careerUpdated);
+      $careerUpdated  = implode(",", $careerUpdated);
+      \Drupal::messenger()->addMessage(t("Career(s) Updated($count): ".$careerUpdated), 'info');
+    }
+    if(!empty($failedCareer)){ 
+      $count = count($failedCareer);
+      $failedCareer  = implode(",", $failedCareer);
+      \Drupal::messenger()->addMessage(t("Import Failed($count): ".$failedCareer), 'info');
     }
   }
 
