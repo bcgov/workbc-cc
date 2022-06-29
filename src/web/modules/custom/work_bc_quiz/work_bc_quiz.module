@@ -472,7 +472,7 @@ function work_bc_quiz_preprocess(&$variables) {
                     \nYour result are available for next @duration. print or download to save your results.
                     \nDiscover more! Complete other career and personality quizzes and find a career path that's right for you. Career Discovery Quizzes: @front\nFind more resources on careers, funding, education and finding jobs at WorkBC.ca.", [
                       "@quiztype" => $node->type->entity->label(),
-                      "@duration" => $days < 0 ? $days . ' Hours' : $days . ' days',
+                      "@duration" => $days < 1 ? $quizLifespanHours . ' hours' : $days . ' days',
                       "@quizlink" => $current_url->toString(),
                       "@front" => $front_url->toString(),
                     ]);
@@ -981,7 +981,7 @@ function work_bc_quiz_node_view(array &$build, EntityInterface $entity, EntityVi
       if($i==0){
         $key = "save_quiz_".$node->bundle()."_".$entity_id;
         $savedQuiz[$key]->uuid = $uuid;
-        $savedQuiz[$key]->result = $result;
+        $savedQuiz[$key]->result = (isset($result))? $result:[];
       }
       $session->set('SavedQuiz', $savedQuiz);
       
