@@ -12,3 +12,4 @@ ignored_config_entities:
   - system.maintenance
   - system.site
   - system.performance
+  - automated_cron.settings
