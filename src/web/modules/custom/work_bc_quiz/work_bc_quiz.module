@@ -945,12 +945,15 @@ function work_bc_quiz_node_view(array &$build, EntityInterface $entity, EntityVi
                 }
               }
             }
+          }else {
+            \Drupal::logger('work_bc_quiz')->error("Unable to open file: ".$uri);
           }
         }
         catch (RequestException $e) {
           return FALSE;
         }
       }
+
       $savedQuiz = ($session->get('SavedQuiz')) ? $session->get('SavedQuiz') : [];
       $i=0;
       
