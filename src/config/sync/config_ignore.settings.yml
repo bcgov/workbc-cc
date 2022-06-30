@@ -13,3 +13,4 @@ ignored_config_entities:
   - system.site
   - system.performance
   - automated_cron.settings
+  - 'ultimate_cron.job.*'
