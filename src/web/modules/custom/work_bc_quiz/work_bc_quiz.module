@@ -536,20 +536,19 @@ function work_bc_quiz_preprocess(&$variables) {
  * are altered in this hook.
  */
 
-
-
 /**
  * {@inheritdoc}
  */
 function work_bc_quiz_node_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+
+  $build['#cache']['max-age'] = 0;
   $session = \Drupal::request()->getSession();
-  $savedQuiz = ($session->get('SavedQuiz')) ? $session->get('SavedQuiz') : '';
 
   // Filter which Content Types would use this node view.
   $node = $entity;
   // $all_quizes = ['abilities_quiz', 'multiple_intelligences_quiz'];
+
   if ($node->bundle() === 'abilities_quiz' || $node->bundle() === 'work_preferences_quiz' || $node->bundle() === 'interests_quiz' || $node->bundle() === 'multiple_intelligences_quiz' || $node->bundle() === 'learning_styles_quiz' || $node->bundle() === 'work_values_quiz') {
-    $build['#cache']['max-age'] = 0;
     // 'quiz' mode isn't active yet
     if ($view_mode === 'full' || $view_mode === 'quiz') {
 
@@ -983,8 +982,15 @@ function work_bc_quiz_node_view(array &$build, EntityInterface $entity, EntityVi
       
       if($i==0){
         $key = "save_quiz_".$node->bundle()."_".$entity_id;
-        $savedQuiz[$key]->uuid = $uuid;
-        $savedQuiz[$key]->result = (isset($result))? $result:[];
+          if(empty($savedQuiz)){
+            $savedQuiz = [];
+          }
+          if(empty($savedQuiz[$key]) || !isset($savedQuiz[$key])){
+            $savedQuiz[$key] = new stdClass();
+          }
+          $savedQuiz[$key]->uuid = ($uuid) ? $uuid : '';
+          $savedQuiz[$key]->result = (isset($result))? $result:[];
+        
       }
       $session->set('SavedQuiz', $savedQuiz);
       
@@ -1003,6 +1009,7 @@ function work_bc_quiz_node_view(array &$build, EntityInterface $entity, EntityVi
 
       $build['an_additional_field']['#quiz_result'] = $groupedResult;
       $build['an_additional_field']['#result_link'] = $field_value;
+      $build['an_additional_field']['#saved_quiz'] = json_encode($savedQuiz);
 
       // $session->remove('SavedQuiz');   // Temp to Clear Session.
     }

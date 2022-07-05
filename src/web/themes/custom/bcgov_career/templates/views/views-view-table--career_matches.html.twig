@@ -191,6 +191,20 @@
                           {% endfor %}
                         {%- endif %}
                       </td>
+                    {% else %}
+                      <td{{ column.attributes.addClass(column_classes) }} >
+                        {%- if column.wrapper_element -%}
+                          <{{ column.wrapper_element }}>
+                          {% for content in column.content %}
+                            {{ content.separator }}{{ content.field_output }}
+                          {% endfor %}
+                          </{{ column.wrapper_element }}>
+                        {%- else -%}
+                          {% for content in column.content %}
+                            {{- content.separator }}{{ content.field_output -}}
+                          {% endfor %}
+                        {%- endif %}
+                      </td>
                     {% endif %}
                 {% endfor %}
                 </tr>
