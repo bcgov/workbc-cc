@@ -392,7 +392,7 @@
         }
         
         function find_quiz_category(quiz_type) {
-            if(quiz_type == 'abilities' || quiz_type == 'Work Preferences' || quiz_type == 'Interests') {
+            if(quiz_type == 'abilities' || quiz_type == 'work-preferences' || quiz_type == 'interests') {
                 var category = 'career';
             } else {
                 var category = 'personality';
