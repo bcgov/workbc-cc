@@ -41,8 +41,8 @@
                     appt[appt_key_score] = parseInt(appt_score.trim().slice(0, -5).trim().slice(0, -1));
                 });
     
-                var quiz_type = $('.page-title span').text().split(' ')[0].toLowerCase();
-                if(quiz_type == 'abilities' || quiz_type == 'Work Preferences' || quiz_type == 'Interests') {
+                var quiz_type = find_quiz_type_results();
+                if(quiz_type == 'abilities' || quiz_type == 'work-preferences' || quiz_type == 'interests') {
                     var category = 'career';
                 } else {
                     var category = 'personality';
@@ -307,7 +307,6 @@
         
 
         function snowplow_tracker_results(category, quiz_type, appt) {
-            console.log('hello');
             window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/career_quiz_result/jsonschema/1-0-0",
                 "data": {
                     "category": category,
@@ -390,9 +389,22 @@
 
             return quiz_type;
         }
+
+        function find_quiz_type_results() {
+            var quiz_type = $('.page-title span').text().split('-')[0];
+            var quiz_type = quiz_type.split(' ');
+            if( quiz_type.length > 2 ) {
+                quiz_type = quiz_type[0]+'_'+quiz_type[1];
+            } else {
+                quiz_type = quiz_type[2].slice(0,-5).trim().toLowerCase();
+            }
+
+            return quiz_type.toLowerCase();
+        }
         
+
         function find_quiz_category(quiz_type) {
-            if(quiz_type == 'abilities' || quiz_type == 'Work Preferences' || quiz_type == 'Interests') {
+            if(quiz_type == 'abilities' || quiz_type == 'work-preferences' || quiz_type == 'interests') {
                 var category = 'career';
             } else {
                 var category = 'personality';
