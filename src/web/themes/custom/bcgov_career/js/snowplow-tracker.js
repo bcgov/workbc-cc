@@ -42,7 +42,7 @@
                 });
     
                 var quiz_type = find_quiz_type_results();
-                if(quiz_type == 'abilities' || quiz_type == 'work-preferences' || quiz_type == 'interests') {
+                if(quiz_type == 'abilities' || quiz_type == 'work_preferences' || quiz_type == 'interests') {
                     var category = 'career';
                 } else {
                     var category = 'personality';
@@ -61,7 +61,7 @@
             quiz_type = quiz_type.substring(0, lastIndex).trim();
             quiz_type = quiz_type.replaceAll(' ', '_').toLowerCase();
 
-            if(quiz_type == 'abilities' || quiz_type == 'Work Preferences' || quiz_type == 'Interests') {
+            if(quiz_type == 'abilities' || quiz_type == 'work_preferences' || quiz_type == 'Interests') {
                 var category = 'career';
             } else {
                 var category = 'personality'
@@ -391,20 +391,20 @@
         }
 
         function find_quiz_type_results() {
-            var quiz_type = $('.page-title span').text().split('-')[0];
+            var quiz_type = $('.page-title span').text().split('-')[0].trim();
             var quiz_type = quiz_type.split(' ');
             if( quiz_type.length > 2 ) {
-                quiz_type = quiz_type[0]+'_'+quiz_type[1];
+                quiz_type_s = quiz_type[0]+'_'+quiz_type[1];
             } else {
-                quiz_type = quiz_type[2].slice(0,-5).trim().toLowerCase();
+                quiz_type_s = quiz_type[0];
             }
 
-            return quiz_type.toLowerCase();
+            return quiz_type_s.toLowerCase();
         }
         
 
         function find_quiz_category(quiz_type) {
-            if(quiz_type == 'abilities' || quiz_type == 'work-preferences' || quiz_type == 'interests') {
+            if(quiz_type == 'abilities' || quiz_type == 'work_preferences' || quiz_type == 'interests') {
                 var category = 'career';
             } else {
                 var category = 'personality';
