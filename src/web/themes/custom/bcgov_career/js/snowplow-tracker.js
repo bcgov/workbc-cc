@@ -61,7 +61,7 @@
             quiz_type = quiz_type.substring(0, lastIndex).trim();
             quiz_type = quiz_type.replaceAll(' ', '_').toLowerCase();
 
-            if(quiz_type == 'abilities' || quiz_type == 'work_preferences' || quiz_type == 'Interests') {
+            if(quiz_type == 'abilities' || quiz_type == 'work_preferences' || quiz_type == 'interests') {
                 var category = 'career';
             } else {
                 var category = 'personality'
@@ -349,7 +349,7 @@
         if($('.region-content > div').hasClass('alert-error')) {
             count++;
             var quiz_type = $('.page-title span').text().split(' ')[0];
-            if(quiz_type == 'abilities' || quiz_type == 'Work Preferences' || quiz_type == 'Interests') {
+            if(quiz_type == 'abilities' || quiz_type == 'Work Preferences' || quiz_type == 'interests') {
                 var category = 'career';
             } else {
                 var category = 'personality';
