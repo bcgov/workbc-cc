@@ -336,7 +336,8 @@
 
         function snowplow_preview_profile(click_type, source, text) {
             $(this, context).once('num_'+count).each(function() {
-                window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/career_quiz_search_click/jsonschema/1-0-0",                "data": {
+                window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/career_quiz_search_click/jsonschema/1-0-0",
+                "data": {
                     "click_type": click_type,
                     "source": source,
                     "text": text
