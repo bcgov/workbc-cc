@@ -15,7 +15,7 @@
                 
                 var quiz_type = find_quiz_type(path);
                 
-                var current_step = path[3].slice(path[3].length - 1);
+                var current_step = path[3].substring(4, path[3].length);
                 var step = parseInt(current_step);
 
                var category = find_quiz_category(quiz_type);
@@ -41,8 +41,8 @@
                     appt[appt_key_score] = parseInt(appt_score.trim().slice(0, -5).trim().slice(0, -1));
                 });
     
-                var quiz_type = $('.page-title span').text().split(' ')[0].toLowerCase();
-                if(quiz_type == 'abilities' || quiz_type == 'Work Preferences' || quiz_type == 'Interests') {
+                var quiz_type = find_quiz_type_results();
+                if(quiz_type == 'abilities' || quiz_type == 'work_preferences' || quiz_type == 'interests') {
                     var category = 'career';
                 } else {
                     var category = 'personality';
@@ -61,7 +61,7 @@
             quiz_type = quiz_type.substring(0, lastIndex).trim();
             quiz_type = quiz_type.replaceAll(' ', '_').toLowerCase();
 
-            if(quiz_type == 'abilities' || quiz_type == 'Work Preferences' || quiz_type == 'Interests') {
+            if(quiz_type == 'abilities' || quiz_type == 'work_preferences' || quiz_type == 'interests') {
                 var category = 'career';
             } else {
                 var category = 'personality'
@@ -307,7 +307,6 @@
         
 
         function snowplow_tracker_results(category, quiz_type, appt) {
-            console.log('hello');
             window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/career_quiz_result/jsonschema/1-0-0",
                 "data": {
                     "category": category,
@@ -349,17 +348,16 @@
         //Error calls
         if($('.region-content > div').hasClass('alert-error')) {
             count++;
-            var quiz_type = $('.page-title span').text().split(' ')[0];
-            if(quiz_type == 'abilities' || quiz_type == 'Work Preferences' || quiz_type == 'Interests') {
+            quiz_type = find_quiz_type();
+            if(quiz_type == 'abilities' || quiz_type == 'work_preferences' || quiz_type == 'interests') {
                 var category = 'career';
             } else {
                 var category = 'personality';
             }
 
             var path = window.location.pathname.split('/');
-            var current_step = path[3].slice(path[3].length - 1);
+            var current_step = path[3].substring(4, path[3].length);
             var step = parseInt(current_step);
-            quiz_type = path[2].split('-')[0];
 
             snowplow_error_call(category, quiz_type, step);
         }
@@ -370,7 +368,7 @@
                     "data": {
                         "error_message": "Please answer all questions before proceeding.",
                         "category": category,
-                        "quiz": "abilities",
+                        "quiz": quiz,
                         "step": step
                     }
                 }); 
@@ -390,9 +388,22 @@
 
             return quiz_type;
         }
+
+        function find_quiz_type_results() {
+            var quiz_type = $('.page-title span').text().split('-')[0].trim();
+            var quiz_type = quiz_type.split(' ');
+            if( quiz_type.length > 2 ) {
+                quiz_type_s = quiz_type[0]+'_'+quiz_type[1];
+            } else {
+                quiz_type_s = quiz_type[0];
+            }
+
+            return quiz_type_s.toLowerCase();
+        }
         
+
         function find_quiz_category(quiz_type) {
-            if(quiz_type == 'abilities' || quiz_type == 'Work Preferences' || quiz_type == 'Interests') {
+            if(quiz_type == 'abilities' || quiz_type == 'work_preferences' || quiz_type == 'interests') {
                 var category = 'career';
             } else {
                 var category = 'personality';
