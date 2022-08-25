@@ -164,7 +164,7 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
     $entity_comparison = EntityComparison::load($entity_comparison_id);
 
     // Process the current request.
-    $message_list = $this->processRequest($entity_comparison, $entity_id, $node_id);
+    $message_list = ($this->processRequest($entity_comparison, $entity_id, $node_id))? $this->processRequest($entity_comparison, $entity_id, $node_id): [];
 
     // Get destination.
     $destination = $request->query->get('destination');
@@ -196,6 +196,7 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
       $response->addCommand($replace);
 
       // Ajax messages.
+      
       foreach ($message_list as $message) {
         $response->addCommand(new MessageCommand($message['message'], NULL, $message['options']));
       }
@@ -477,7 +478,9 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
 
           // Set the fields' values.
           foreach (Element::children($comparison_fields) as $key) {
-            $row[] = $comparison_fields[$key][$field_name];
+            if(isset($comparison_fields[$key][$field_name])){
+              $row[] = $comparison_fields[$key][$field_name];
+            }
           }
           $rows[] = $row;
         }

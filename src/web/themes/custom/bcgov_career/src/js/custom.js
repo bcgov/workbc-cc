@@ -3,26 +3,25 @@
     attach(context, settings) {
       $(window).on("load resize", function () {
         const $window = $(this).width();
-        if($window > 767.98){
+        if ($window > 767.98) {
           $(".work-value-quiz-carousel").removeClass("mbohide");
           $(".work-value-quiz-mobi-carousel").addClass("deskhide");
         }
-        else{
+ else {
           $(".work-value-quiz-carousel").addClass("mbohide");
           $(".work-value-quiz-mobi-carousel").removeClass("deskhide");
         }
       });
 
-      if($("body").hasClass("path-quiz")){
-        window.onorientationchange = function()
-        {
+      if ($("body").hasClass("path-quiz")) {
+        window.onorientationchange = function () {
           window.location.reload();
-        }
+        };
       }
 
       $(".preview-quiz-form").parent().addClass("preview-block-wrapper");
 
-      $(".mobi_cari_quiz").each(function(){
+      $(".mobi_cari_quiz").each(function () {
         $(this).find(".carousel-inner > .career-item").slick({
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -32,7 +31,7 @@
         });
       });
 
-      $(".mobi-tools-resource").each(function(){
+      $(".mobi-tools-resource").each(function () {
         $(this).find("> .field__items").slick({
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -41,19 +40,19 @@
         });
       });
 
-      $(".mobi-career-content-compare").each(function(){
+      $(".mobi-career-content-compare").each(function () {
         $(this).slick({
           slidesToShow: 1,
           slidesToScroll: 1,
           infinite: false,
           dots: true,
           arrows: true,
-          nextArrow: $('.next-true'),
-          prevArrow: $('.prev-true')
+          nextArrow: $(".next-true"),
+          prevArrow: $(".prev-true")
         });
       });
 
-      $(".carousel-slider-mobi-row").each(function(){
+      $(".carousel-slider-mobi-row").each(function () {
         $(this).slick({
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -64,29 +63,39 @@
         });
       });
 
-      $(".carousel-mobi-tabs-trigger").on("click", function(){
+      $(".carousel-mobi-tabs-trigger").on("click", function () {
         $(this).next().addClass("active");
         $("body").addClass("overlayBg");
       });
-      $(".carousel-mobi-tab-close").on("click", function(){
+      $(".carousel-mobi-tab-close").on("click", function () {
         $(this).parent().removeClass("active");
         $("body").removeClass("overlayBg");
       });
-      $(".carousel-mobi-tab-item").on("click", function(){
+      $(".carousel-mobi-tab-item").on("click", function () {
         $(".carousel-mobi-tab-item").removeClass("active");
         $(this).addClass("active");
 
-        var getTabItemId = $(this).data("href");
+        const getTabItemId = $(this).data("href");
         console.log(getTabItemId);
-        if(getTabItemId == "bottomcarousel"){
-          $(this).parents("#myResult").find(".extradivs").addClass("displayMobiPrint");
+        if (getTabItemId == "bottomcarousel") {
+          $(this)
+            .parents("#myResult")
+            .find(".extradivs")
+            .addClass("displayMobiPrint");
         }
-        else{
-          $(this).parents("#myResult").find(".extradivs").removeClass("displayMobiPrint");
+ else {
+          $(this)
+            .parents("#myResult")
+            .find(".extradivs")
+            .removeClass("displayMobiPrint");
         }
         $(".carousel-inner-mobi").removeClass("active");
-        $(".carousel-inner-mobi[data-id="+getTabItemId+"]").addClass("active");
-        $('.active > .carousel-slider-mobi-row').slick('slickGoTo', parseInt(0), true);
+        $(`.carousel-inner-mobi[data-id=${getTabItemId}]`).addClass("active");
+        $(".active > .carousel-slider-mobi-row").slick(
+          "slickGoTo",
+          parseInt(0),
+          true
+        );
 
         $(this).parent().parent().removeClass("active");
         $("body").removeClass("overlayBg");
@@ -94,108 +103,133 @@
         $(".carousel-mobi-tabs-trigger > span.text").text($(this).data("text"));
       });
 
-      $(".career-table-link > a").on("click", function(){
-        var getCarDataId = $(this).parent().parent().data("id");
+      $(".career-table-link > a").on("click", function () {
+        const getCarDataId = $(this).parent().parent().data("id");
         $(".career-table-row").removeClass("active");
         $(this).parent().parent().addClass("active");
-        $(".career-content-main-wrapper .career-content-item").removeClass("active");
-        $(".career-content-main-wrapper .career-content-item#"+getCarDataId).addClass("active");
+        $(".career-content-main-wrapper .career-content-item").removeClass(
+          "active"
+        );
+        $(
+          `.career-content-main-wrapper .career-content-item#${getCarDataId}`
+        ).addClass("active");
         // image-video iframe
-        $(".career-content-main-wrapper .career-content-item .image-video iframe").removeAttr("src");
-        var src = $(".career-content-main-wrapper .career-content-item.active .image-video iframe").attr('data-src');
-        $(".career-content-main-wrapper .career-content-item.active .image-video iframe").attr("src", src);
-
-
+        $(
+          ".career-content-main-wrapper .career-content-item .image-video iframe"
+        ).removeAttr("src");
+        const src = $(
+          ".career-content-main-wrapper .career-content-item.active .image-video iframe"
+        ).attr("data-src");
+        $(
+          ".career-content-main-wrapper .career-content-item.active .image-video iframe"
+        ).attr("src", src);
       });
-
-      setTimeout(function(){
-        $(".remove-link + .compare-carr > .career-chkk").prop('checked', true);
-        var checkedLoadNum = $(".remove-link + .compare-carr > .career-chkk:checked").length;
-        if(checkedLoadNum >= 2){
-          $(".top-btn > a").removeClass("disable").attr('tabindex','0');
+      setTimeout(function () {
+        $(".remove-link + .compare-carr > .career-chkk").prop("checked", true);
+        
+        const checkedLoadNum = $(
+          ".remove-link + .compare-carr > .career-chkk:checked"
+        ).length;
+        if (checkedLoadNum >= 2) {
+          $(".top-btn > a").removeClass("disable").attr("tabindex", "0");
         }
-        else{
-          $(".top-btn > a").addClass("disable").attr('tabindex','-1');
+ else {
+          $(".top-btn > a").addClass("disable").attr("tabindex", "-1");
         }
       }, 1500);
 
-
       $(window).on("load", function () {
-        $('.career-checkbox').on("change", function(e) {
-          var checkedNum = $(".career-checkbox:checked").length;
+        $( document ).tooltip();
+        $(".career-checkbox").on("change", function (e) {
+          const checkedNum = $(".career-checkbox:checked").length;
           $(this).parents("td").find(".use-ajax").trigger("click");
           console.log($(this).parents("td").find(".use-ajax"));
-          console.log('Compare count:- ' + checkedNum);
-          if(checkedNum >= 2){
-            $(".top-btn > a").removeClass("disable").attr('tabindex','0');
+          console.log(`Compare count:- ${checkedNum}`);
+          if (checkedNum >= 2) {
+            $(".top-btn > a").removeClass("disable").attr("tabindex", "0");
           }
-          else{
-            $(".top-btn > a").addClass("disable").attr('tabindex','-1');
+ else {
+            $(".top-btn > a").addClass("disable").attr("tabindex", "-1");
           }
 
-          if(checkedNum > 3){
+          if (checkedNum > 3) {
             $(".compare-popup-wrapper").addClass("active");
-            $(this).prop('checked', false);
+            $(this).prop("checked", false);
           }
         });
 
-        $(".career-mobi-checkbox").change(function() {
-          var checkedNum = $(".career-mobi-checkbox:checked").length;
+        $(".career-mobi-checkbox").change(function () {
+          const checkedNum = $(".career-mobi-checkbox:checked").length;
           $(this).parent().prev().click();
-          if(checkedNum >= 2){
-            $(".top-career-mobi-content .top-btn > a").removeClass("disable").attr('tabindex','0');
+          if (checkedNum >= 2) {
+            $(".top-career-mobi-content .top-btn > a")
+              .removeClass("disable")
+              .attr("tabindex", "0");
           }
-          else{
-            $(".top-career-mobi-content .top-btn > a").addClass("disable").attr('tabindex','-1');
+ else {
+            $(".top-career-mobi-content .top-btn > a")
+              .addClass("disable")
+              .attr("tabindex", "-1");
           }
 
-          if(checkedNum > 3){
+          if (checkedNum > 3) {
             $(".compare-popup-wrapper").addClass("active");
-            $(this).prop('checked', false);
+            $(this).prop("checked", false);
           }
         });
 
-        $(".compare-popup-close, .close-compare-popup").on("click", function(){
-          $(".compare-popup-wrapper").removeClass("active");
-        });
+        $(".compare-popup-close, .close-compare-popup").on(
+          "click",
+          function () {
+            $(".compare-popup-wrapper").removeClass("active");
+          }
+        );
 
         // $(".compare-career-email").on("click", function(){
         //   $(".email-popup-wrapper").addClass("active");
         // });
 
-        $(".email-popup-close").on("click", function(){
+        $(".email-popup-close").on("click", function () {
           $(".email-popup-wrapper").removeClass("active");
         });
 
-        $(document).on('keyup', function(e) {
-          if (e.key == "Escape"){
+        $(document).on("keyup", function (e) {
+          if (e.key == "Escape") {
             $(".email-popup-wrapper").removeClass("active");
             $(".compare-popup-wrapper").removeClass("active");
           }
         });
       });
 
-      $('.tbody-main').each(function(i) {
-        if( i % 5 === 0 ) {
-            $(this).nextAll().addBack().slice(0,5).wrapAll('<div class="slide-tbody-main"></div>');
+      $(".tbody-main").each(function (i) {
+        if (i % 5 === 0) {
+          $(this)
+            .nextAll()
+            .addBack()
+            .slice(0, 5)
+            .wrapAll('<div class="slide-tbody-main"></div>');
         }
       });
 
-      $('.careers-mobi-table-wrapper > .tbody').slick({
+      $(".careers-mobi-table-wrapper > .tbody").slick({
         infinite: false,
         slidesToShow: 1,
         slidesToScroll: 1,
         adaptiveHeight: true,
         dots: true,
-        arrows:false
+        arrows: false,
       });
-      $(".path-quiz form .field--widget-double-reference-autocomplete-select").each(function (i) {
+      $(
+        ".path-quiz form .field--widget-double-reference-autocomplete-select"
+      ).each(function (i) {
         $(this).addClass(i % 2 ? "work-bc-quiz-even" : "work-bc-quiz-odd");
         if (!$(this).find(".form-type-radio > .radio").length) {
-          $(this).find(".form-type-radio").append("<span class='radio'></span>");
+          $(this)
+            .find(".form-type-radio")
+            .append("<span class='radio'></span>");
         }
         if (i === 0) {
-          $(this).addClass('first-item');
+          $(this).addClass("first-item");
         }
       });
 
@@ -217,17 +251,18 @@
 
       // $(".cancel-wrapper, .save-wrapper").wrapAll("<div class='save-cancel-wrapper'/>");
 
-
-        $(".hideshow-workbc", context).once("workbc").on("click", function () {
+      $(".hideshow-workbc", context)
+        .once("workbc")
+        .on("click", function () {
           if ($(".hideshow-workbc").hasClass("hide")) {
             $(this).removeClass("hide");
             $(".hideshow-workbc span.vaa1").hide();
             $(".hideshow-workbc span.vaa").show();
             $(".result-heading h2.vaa1").hide();
             $(".result-heading h2.vaa").show();
-            $("#myResult").animate({ scrollTop: 0 }, "slow");
+            $("#myResult").animate({scrollTop: 0}, "slow");
           }
-          else {
+ else {
             $(this).addClass("hide");
             $(".hideshow-workbc span.vaa").hide();
             $(".hideshow-workbc span.vaa1").show();
@@ -236,7 +271,9 @@
           }
         });
 
-        $(".hideshow", context).once("workbc").on("click", function () {
+      $(".hideshow", context)
+        .once("workbc")
+        .on("click", function () {
           if ($(".hideshow").hasClass("hide")) {
             $(this).removeClass("hide");
             $(".hideshow span.vaa1").hide();
@@ -257,15 +294,15 @@
           }
         });
 
-        $(".work-value-quiz-carousel > .row").slick({
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          infinite: true,
-          dots: false,
-          arrows: true,
-          adaptiveHeight: true,
-          nextArrow: $('.hideshow-workbc')
-        });
+      $(".work-value-quiz-carousel > .row").slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: true,
+        dots: false,
+        arrows: true,
+        adaptiveHeight: true,
+        nextArrow: $(".hideshow-workbc"),
+      });
       // if ($(window).width() < 768) {
       //   $('#block-views-block-career-quizzes-block-1 #myCarousel', context).once('workbc').carousel({
       //     pause: true,
@@ -284,22 +321,22 @@
       //     $('#block-views-block-career-quizzes-block-2 #myCarousel1 .personality:first').addClass('active');
       //   }
 
-
       // }
-      if ($('body').width() < 768) {
-
-        $('#myResult', context).once('workbc').carousel({
+      if ($("body").width() < 768) {
+        $("#myResult", context).once("workbc").carousel({
           pause: true,
           interval: false
         });
-        if ($('#myResult .itm').parent().hasClass("row")) {
-          $('#myResult .carousel-item>.itm').unwrap();
-          $('#myResult .carousel-inner>.itm').addClass('carousel-item');
-          $('#myResult .carousel-inner>.itm:first').addClass('active');
+        if ($("#myResult .itm").parent().hasClass("row")) {
+          $("#myResult .carousel-item>.itm").unwrap();
+          $("#myResult .carousel-inner>.itm").addClass("carousel-item");
+          $("#myResult .carousel-inner>.itm:first").addClass("active");
         }
       }
 
-      $(".compare-career-print > .print-window, .quiz-node-print > .print-window").on("click", function(){
+      $(
+        ".compare-career-print > .print-window, .quiz-node-print > .print-window"
+      ).on("click", function () {
         window.print();
         // var w = window.open();
         // var html = $(".path-quiz").html();
@@ -315,39 +352,50 @@
         // winPrint.close();
       });
 
-      $("#block-bcgov-career-content > form > div.form-wrapper").each(function(){
-        if($(this).find("> fieldset").hasClass("error")){
-          $(this).addClass("error-class");
+      $("#block-bcgov-career-content > form > div.form-wrapper").each(
+        function () {
+          if ($(this).find("> fieldset").hasClass("error")) {
+            $(this).addClass("error-class");
+          }
         }
-      });
+      );
 
-      $("#block-views-block-step-form-pagination-block-1").prev("#block-bcgov-career-content").addClass("no-border-block");
-      $(".path-quiz .block-forms-steps").prev("#block-bcgov-career-content").addClass("no-border-block");
+      $("#block-views-block-step-form-pagination-block-1")
+        .prev("#block-bcgov-career-content")
+        .addClass("no-border-block");
+      $(".path-quiz .block-forms-steps")
+        .prev("#block-bcgov-career-content")
+        .addClass("no-border-block");
 
-      if($("#myResult").length){
+      if ($("#myResult").length) {
         $("#block-bcgov-career-content").addClass("results-main-block");
       }
 
-      $(".path-quiz .form-actions.form-actions#edit-actions").each(function(){
-        if($(this).find("> #edit-previous").length){
+      $(".path-quiz .form-actions.form-actions#edit-actions").each(function () {
+        if ($(this).find("> #edit-previous").length) {
           $(this).addClass("hasPrev");
           $(this).parent().parent().addClass("has-prev-block");
         }
       });
 
-      //move quiz prefix
+      // move quiz prefix
       $(".field--type-work-bc-quiz").each(function () {
-        $(this).find("> .question-prefix").prependTo($(this).find(' > fieldset > legend'));
+        $(this)
+          .find("> .question-prefix")
+          .prependTo($(this).find(" > fieldset > legend"));
       });
 
-      $(".career-content-item-inner .image-video iframe").parent().addClass("video");
+      $(".career-content-item-inner .image-video iframe")
+        .parent()
+        .addClass("video");
 
-      $(".careers-mobi-main-wrapper .careers-mobi-table-wrapper .tbody .tbody-main p:first-child").each(function(){
-        if($(this).text() == "Great"){
+      $(
+        ".careers-mobi-main-wrapper .careers-mobi-table-wrapper .tbody .tbody-main p:first-child"
+      ).each(function () {
+        if ($(this).text() == "Great") {
           $(this).parent().addClass("shift");
         }
       });
-
     },
   };
 })(jQuery, Drupal, drupalSettings);

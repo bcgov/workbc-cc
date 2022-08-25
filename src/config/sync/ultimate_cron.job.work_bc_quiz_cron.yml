@@ -10,10 +10,11 @@ weight: 0
 module: work_bc_quiz
 callback: work_bc_quiz_cron
 scheduler:
-  id: simple
+  id: crontab
   configuration:
     rules:
-      - '0+@ * * * *'
+      - '1 0 * * *'
+    catch_up: 0
 launcher:
   id: serial
   configuration:

@@ -35,7 +35,6 @@
         "drupal/paragraphs": "^1.12",
         "drupal/pathauto": "^1.8",
         "drupal/pdf_api": "^2.2",
-        "drupal/phpmailer_smtp": "^2.0",
         "drupal/printable": "^2.1",
         "drupal/site_settings": "^1.19",
         "drupal/smtp": "^1.0",
@@ -101,6 +100,10 @@
             "drupal/forms_steps": {
                 "3278844 - When Using Postgresql unable to delete field and uninstall module.":
                 "https://www.drupal.org/files/issues/2022-05-04/forms_steps-entity-delete-entity-id-int-3278844-2.patch"
+            },
+            "drupal/ctools": {
+                "[error] The context is not a valid context.":
+                "https://www.drupal.org/files/issues/2022-08-03/3300682-50.patch"
             }
         },
         "drupal-core-project-message": {

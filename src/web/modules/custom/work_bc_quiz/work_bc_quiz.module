@@ -333,18 +333,19 @@ function work_bc_quiz_form_node_form_alter(&$form, $formState, $form_id) {
           $query = \Drupal::database()->select('node', 'n')->fields('n', ['nid']);
           $query->condition('n.uuid', $value->uuid);
           $nid = $query->execute()->fetchField();
-
-          $query = \Drupal::database()->select('forms_steps_workflow', 'n')->fields('n', ['id', 'instance_id'])->condition('n.entity_id', $nid)->range(0, 1)->execute();
-          $result = $query->fetchObject();
-          $instance_id = $result->instance_id;
-          $path = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
-          $target_url = \Drupal::service('path.validator')->getUrlIfValid($path);
-          $target_route_name = $target_url->getRouteName();
-          $target_route_parameters = $target_url->getrouteParameters();
-          $target_route_parameters['instance_id'] = $instance_id;
-          $response = new RedirectResponse(\Drupal\Core\Url::fromRoute($target_route_name, $target_route_parameters)->toString());
-          #$response = new RedirectResponse(\Drupal\Core\Url::fromRoute('entity.node.canonical', ['node' => $nid])->toString());
-          $response->send();
+          if(!empty($nid)){
+            $query = \Drupal::database()->select('forms_steps_workflow', 'n')->fields('n', ['id', 'instance_id'])->condition('n.entity_id', $nid)->range(0, 1)->execute();
+            $result = $query->fetchObject();
+            $instance_id = $result->instance_id;
+            $path = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
+            $target_url = \Drupal::service('path.validator')->getUrlIfValid($path);
+            $target_route_name = $target_url->getRouteName();
+            $target_route_parameters = $target_url->getrouteParameters();
+            $target_route_parameters['instance_id'] = $instance_id;
+            $response = new RedirectResponse(\Drupal\Core\Url::fromRoute($target_route_name, $target_route_parameters)->toString());
+            #$response = new RedirectResponse(\Drupal\Core\Url::fromRoute('entity.node.canonical', ['node' => $nid])->toString());
+            $response->send();
+          }
         }
       }
     }
@@ -471,7 +472,7 @@ function work_bc_quiz_preprocess(&$variables) {
                     \nYour result are available for next @duration. print or download to save your results.
                     \nDiscover more! Complete other career and personality quizzes and find a career path that's right for you. Career Discovery Quizzes: @front\nFind more resources on careers, funding, education and finding jobs at WorkBC.ca.", [
                       "@quiztype" => $node->type->entity->label(),
-                      "@duration" => $days < 0 ? $days . ' Hours' : $days . ' days',
+                      "@duration" => $days < 1 ? $quizLifespanHours . ' hours' : $days . ' days',
                       "@quizlink" => $current_url->toString(),
                       "@front" => $front_url->toString(),
                     ]);
@@ -535,20 +536,19 @@ function work_bc_quiz_preprocess(&$variables) {
  * are altered in this hook.
  */
 
-
-
 /**
  * {@inheritdoc}
  */
 function work_bc_quiz_node_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+
+  $build['#cache']['max-age'] = 0;
   $session = \Drupal::request()->getSession();
-  $savedQuiz = ($session->get('SavedQuiz')) ? $session->get('SavedQuiz') : '';
 
   // Filter which Content Types would use this node view.
   $node = $entity;
   // $all_quizes = ['abilities_quiz', 'multiple_intelligences_quiz'];
+
   if ($node->bundle() === 'abilities_quiz' || $node->bundle() === 'work_preferences_quiz' || $node->bundle() === 'interests_quiz' || $node->bundle() === 'multiple_intelligences_quiz' || $node->bundle() === 'learning_styles_quiz' || $node->bundle() === 'work_values_quiz') {
-    $build['#cache']['max-age'] = 0;
     // 'quiz' mode isn't active yet
     if ($view_mode === 'full' || $view_mode === 'quiz') {
 
@@ -841,12 +841,9 @@ function work_bc_quiz_node_view(array &$build, EntityInterface $entity, EntityVi
           //$occupations[$value['name']] = $scoreTotal;
           $occupation = (empty($occupation))? $value['name'].'='.$scoreTotal : $occupation . "&".$value['name'].'='.$scoreTotal."&start=1&end=222";
         }
-        
-        //$newQuiz = \Drupal::service('work_bc_quiz.WorkBcQuizController')->getCareerCodes($occupation);
         $newQuiz = new WorkBcQuizController();
         $newQuiz = $newQuiz->getCareerCodes($occupation);
-        // print_r($newQuiz);
-        // echo "<br/>";
+        
         $result = [];
         $great = [];
         $good = [];
@@ -947,12 +944,15 @@ function work_bc_quiz_node_view(array &$build, EntityInterface $entity, EntityVi
                 }
               }
             }
+          }else {
+            \Drupal::logger('work_bc_quiz')->error("Unable to open file: ".$uri);
           }
         }
         catch (RequestException $e) {
           return FALSE;
         }
       }
+
       $savedQuiz = ($session->get('SavedQuiz')) ? $session->get('SavedQuiz') : [];
       $i=0;
       
@@ -982,8 +982,15 @@ function work_bc_quiz_node_view(array &$build, EntityInterface $entity, EntityVi
       
       if($i==0){
         $key = "save_quiz_".$node->bundle()."_".$entity_id;
-        $savedQuiz[$key]->uuid = $uuid;
-        $savedQuiz[$key]->result = $result;
+          if(empty($savedQuiz)){
+            $savedQuiz = [];
+          }
+          if(empty($savedQuiz[$key]) || !isset($savedQuiz[$key])){
+            $savedQuiz[$key] = new stdClass();
+          }
+          $savedQuiz[$key]->uuid = ($uuid) ? $uuid : '';
+          $savedQuiz[$key]->result = (isset($result))? $result:[];
+        
       }
       $session->set('SavedQuiz', $savedQuiz);
       
@@ -1002,6 +1009,7 @@ function work_bc_quiz_node_view(array &$build, EntityInterface $entity, EntityVi
 
       $build['an_additional_field']['#quiz_result'] = $groupedResult;
       $build['an_additional_field']['#result_link'] = $field_value;
+      $build['an_additional_field']['#saved_quiz'] = json_encode($savedQuiz);
 
       // $session->remove('SavedQuiz');   // Temp to Clear Session.
     }
@@ -1058,56 +1066,64 @@ function work_bc_quiz_views_pre_render(ViewExecutable $view) {
               $query->leftJoin('forms_steps_workflow', 'sf', 'sf.entity_id = n.nid');
               $query->condition('n.uuid', $value->uuid);
               $results = $query->execute()->fetchAll();
-
-              $instance_id = $results[0]->instance_id;
-              $entity_id = $results[0]->entity_id;
-              // work_values_quiz.
-              $fields = \Drupal::service('entity_field.manager')->getFieldDefinitions('node', $results[0]->type);
-              $total_fields = 0;
-              foreach ($fields as $field_name => $field_definition) {
-                if (!empty($field_definition->getTargetBundle())) {
-                  if ($field_definition->getType() == "work_bc_quiz") {
-                    $total_fields++;
-                  }
-                }
-              }
-              // Get Last Field Name.
-              foreach ($fields as $field_name => $field_definition) {
-                if (!empty($field_definition->getTargetBundle())) {
-                  if ($field_definition->getType() == "work_bc_quiz") {
-                    if (str_contains($field_name, "_" . $total_fields)) {
-                      // Get Last Fields & Table Name.
-                      $last_field = $field_name;
+              if(isset($results[0]->instance_id)){
+                $instance_id = $results[0]->instance_id;
+                $entity_id = $results[0]->entity_id;
+                // work_values_quiz.
+                $fields = \Drupal::service('entity_field.manager')->getFieldDefinitions('node', $results[0]->type);
+                $total_fields = 0;
+                foreach ($fields as $field_name => $field_definition) {
+                  if (!empty($field_definition->getTargetBundle())) {
+                    if ($field_definition->getType() == "work_bc_quiz") {
+                      $total_fields++;
                     }
                   }
                 }
-              }
-              $step = ceil($total_fields / 5);
-              // Print $results[0]->type;.
-              $results[0]->type = str_replace("multiple_intelligence_quiz", "multiple_intelligences_quiz", $results[0]->type);
+                // Get Last Field Name.
+                foreach ($fields as $field_name => $field_definition) {
+                  if (!empty($field_definition->getTargetBundle())) {
+                    if ($field_definition->getType() == "work_bc_quiz") {
+                      if (str_contains($field_name, "_" . $total_fields)) {
+                        // Get Last Fields & Table Name.
+                        $last_field = $field_name;
+                      }
+                    }
+                  }
+                }
+                $step = ceil($total_fields / 5);
+                // Print $results[0]->type;.
+                $results[0]->type = str_replace("multiple_intelligence_quiz", "multiple_intelligences_quiz", $results[0]->type);
 
-              $query2 = \Drupal::database()->select('forms_steps_workflow', 'n')->fields('n', ['step'])->condition("n.forms_steps", $results[0]->type)->condition('n.entity_id', $results[0]->nid)->orderBy('id', 'DESC');
-              $results2 = $query2->execute()->fetchAll();
-              $lastStep = count($results2);
-              // Print $lastStep ."-". $step;.
-              $quiz_type = str_replace("_", "-", $results[0]->type);
-              if (($lastStep < $step) && ($lastStep > 0)) {
-                $field_value[0]['uri'] = "internal:/quiz/" . $quiz_type . "/step" . ($lastStep + 1) . '/' . $results[0]->instance_id;
-                $field_value[0]['title'] = 'Continue Quiz';
-                $row->_entity->get('nid')->setValue(0, TRUE);
-              }
-              else {
-                if ($lastStep == $step) {
-                  $checkLastValue = \Drupal::database()
-                    ->select("node__" . $last_field, 'n')
-                    ->fields('n', [$last_field . '_ar_target_id'])
-                    ->condition("n.entity_id", $results[0]->nid);
-                  $results3 = $checkLastValue->execute()->fetchCol();
+                $query2 = \Drupal::database()->select('forms_steps_workflow', 'n')->fields('n', ['step'])->condition("n.forms_steps", $results[0]->type)->condition('n.entity_id', $results[0]->nid)->orderBy('id', 'DESC');
+                $results2 = $query2->execute()->fetchAll();
+                $lastStep = count($results2);
+                // Print $lastStep ."-". $step;.
+                $quiz_type = str_replace("_", "-", $results[0]->type);
+              
+                if (($lastStep < $step) && ($lastStep > 0)) {
+                  $field_value[0]['uri'] = "internal:/quiz/" . $quiz_type . "/step" . ($lastStep + 1) . '/' . $results[0]->instance_id;
+                  $field_value[0]['title'] = 'Continue Quiz';
+                  $row->_entity->get('nid')->setValue(0, TRUE);
+                }
+                else {
+                  if (!empty ($lastStep) && $lastStep == $step) {
+                    
+                    $checkLastValue = \Drupal::database()
+                      ->select("node__" . $last_field, 'n')
+                      ->fields('n', [$last_field . '_ar_target_id'])
+                      ->condition("n.entity_id", $results[0]->nid);
+                    $results3 = $checkLastValue->execute()->fetchCol();
 
-                  if (empty($results3[0])) {
-                    $field_value[0]['uri'] = "internal:/quiz/" . $quiz_type . "/step" . ($lastStep) . '/' . $results[0]->instance_id;
-                    $field_value[0]['title'] = 'Continue Quiz';
-                    $row->_entity->get('nid')->setValue(0, TRUE);
+                    if (empty($results3[0])) {
+                      $field_value[0]['uri'] = "internal:/quiz/" . $quiz_type . "/step" . ($lastStep) . '/' . $results[0]->instance_id;
+                      $field_value[0]['title'] = 'Continue Quiz';
+                      $row->_entity->get('nid')->setValue(0, TRUE);
+                    }
+                    else {
+                      $field_value[0]['uri'] = "internal:/quiz/$quizLink/step1/preview/" . $instance_id;
+                      $field_value[0]['title'] = 'Modify Your Answers';
+                      $row->_entity->get('nid')->setValue($entity_id, TRUE);
+                    }
                   }
                   else {
                     $field_value[0]['uri'] = "internal:/quiz/$quizLink/step1/preview/" . $instance_id;
@@ -1115,31 +1131,25 @@ function work_bc_quiz_views_pre_render(ViewExecutable $view) {
                     $row->_entity->get('nid')->setValue($entity_id, TRUE);
                   }
                 }
-                else {
-                  $field_value[0]['uri'] = "internal:/quiz/$quizLink/step1/preview/" . $instance_id;
-                  $field_value[0]['title'] = 'Modify Your Answers';
-                  $row->_entity->get('nid')->setValue($entity_id, TRUE);
+                /* else if(($lastStep == $step) && ($lastStep > 0)){
+                $field_value[0]['uri'] = "internal:/quiz/" . $quiz_type . "/step" . ($lastStep) . '/' . $results[0]->instance_id;
+                $field_value[0]['title'] = 'Continue Quiz';
+                $row->_entity->get('nid')->setValue(0, TRUE);
                 }
-              }
-              /* else if(($lastStep == $step) && ($lastStep > 0)){
-              $field_value[0]['uri'] = "internal:/quiz/" . $quiz_type . "/step" . ($lastStep) . '/' . $results[0]->instance_id;
-              $field_value[0]['title'] = 'Continue Quiz';
-              $row->_entity->get('nid')->setValue(0, TRUE);
-              }
-              else {
-              $field_value[0]['uri'] = "internal:/quiz/$quizLink/step1/preview/" . $instance_id;
-              $field_value[0]['title'] = 'Modify Your Answers';
-              $row->_entity->get('nid')->setValue($entity_id, TRUE);
-              } */
+                else {
+                $field_value[0]['uri'] = "internal:/quiz/$quizLink/step1/preview/" . $instance_id;
+                $field_value[0]['title'] = 'Modify Your Answers';
+                $row->_entity->get('nid')->setValue($entity_id, TRUE);
+                } */
 
-              if ($nid == "A100") {
-                $field_value[0]['title2'] = t("Continue Quiz");
+                if ($nid == "A100") {
+                  $field_value[0]['title2'] = t("Continue Quiz");
+                }
+                else {
+                  $field_value[0]['title2'] = t("View Your Results");
+                }
+                $row->_entity->get('field_quiz_link')->setValue($field_value, TRUE);
               }
-              else {
-                $field_value[0]['title2'] = t("View Your Results");
-              }
-              $row->_entity->get('field_quiz_link')->setValue($field_value, TRUE);
-
             }
             else {
               $field_value[0]['title2'] = t("Take The Quiz");
@@ -1213,17 +1223,19 @@ function work_bc_quiz_validation_constraint_alter(array &$definitions) {
  * {@inheritdoc}
  */
 function work_bc_quiz_cron(){
+  $site_settings = \Drupal::service('site_settings.loader');
+  $settings = $site_settings->loadAll();
+  $quizLifespanHours = (isset($settings['cron_settings']['cron'])) ? $settings['cron_settings']['cron'] : 24;
   $quiz_types = ['abilities_quiz', 'work_preferences_quiz', 'interests_quiz', 'multiple_intelligences_quiz', 'learning_styles_quiz', 'work_values_quiz'];
   $storage_handler = \Drupal::entityTypeManager()->getStorage('node');
   $query = \Drupal::entityQuery('node')->accessCheck(FALSE)
-    ->condition('created', strtotime('-24 hour'), '<=')
-    ->condition('type', $quiz_types, 'IN')
-    ->range(0,2);
-    $nids = $query->execute();
-    if (!empty($nids)) {
-      $nodes = $storage_handler->loadMultiple($nids);
-      $storage_handler->delete($nodes);
-    }
+    ->condition('created', strtotime('-'.$quizLifespanHours.' hour'), '<=')
+    ->condition('type', $quiz_types, 'IN');
+  $nids = $query->execute();
+  if (!empty($nids)) {
+    $nodes = $storage_handler->loadMultiple($nids);
+    $storage_handler->delete($nodes);
+  }
 }
 /**
  * {@inheritdoc}
@@ -1265,6 +1277,12 @@ function _work_bc_quiz_node_form_submit_previous($form, &$form_state) {
  */
 function _work_bc_quiz_custom_submit_handler($form, &$form_state) {
   $nid = $form_state->getformObject()->getEntity()->id();
+  $uid = \Drupal::currentUser()->id();
+  $session = \Drupal::request()->getSession();
+  $entity_comparison_list = $session->get("career_comparison_$nid" . "_$uid");
+  if(isset($entity_comparison_list) && !empty($entity_comparison_list)){
+    $session->set("career_comparison_$nid" . "_$uid", null);
+  }
   $form_state->setRedirect('entity.node.canonical', ['node' => $nid]);
 }
 

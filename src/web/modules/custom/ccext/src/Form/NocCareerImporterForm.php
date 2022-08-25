@@ -126,20 +126,25 @@ class NocCareerImporterForm extends FormBase {
     $entity_type = $form_state->getValue('entity_type');
     $csv = current($form_state->getValue('csv'));
     $csvData = $this->getCsvById($csv, ',');
-
+    $newCareer = [];
+    $careerUpdated = [];
+    $failedCareer = [];
     foreach ($csvData as $key => $value) {
       if ($key != 0) {
         $title = trim(str_replace('#', '', $value[0]));
 
         $query = $this->getNodeId($title);
         $Noc_node = NULL;
+        
         if (empty($query)) {
           $Noc_node = Node::create(['type' => 'career_profile']);
           $Noc_node->enforceIsNew();
           $Noc_node->set('title', $title);
+          array_push($newCareer, $title);
         }
         else {
           $Noc_node = Node::load(reset($query));
+          array_push($careerUpdated, $title);
         }
         if ($entity_type == 'noc') {
           $field_image = trim($value[2]);
@@ -167,18 +172,58 @@ class NocCareerImporterForm extends FormBase {
           $field_workbc_link = trim($value[6]);
           $field_find_job = trim($value[7]);
           $field_opening_from_to = $form_state->getValue('career_profile_opening_year');
-
-          $Noc_node->set('field_job_summary', ['format' =>'basic_html', 'value' => $field_job_summary]);
-          $Noc_node->set('field_noc_name', $field_noc_name);
-          $Noc_node->set('field_job_openings', $field_job_openings);
-          $Noc_node->set('field_education_level', $field_education_level);
-          $Noc_node->set('field_median_salary', $field_median_salary);
-          $Noc_node->set('field_opening_from_to', $field_opening_from_to);
-          $Noc_node->set('field_workbc_link',  ["uri" => $field_workbc_link]);
-          $Noc_node->set('field_find_job', ["uri" => $field_find_job]);
+          if(!empty($field_job_summary)){
+            $field_job_summary = (strtolower($field_job_summary) != "*blank*")? $field_job_summary : "";
+            $Noc_node->set('field_job_summary', ['format' =>'basic_html', 'value' => $field_job_summary]);
+          }
+          if(!empty($field_noc_name)){
+            $field_noc_name = (strtolower($field_noc_name) != "*blank*")? $field_noc_name : "";
+            $Noc_node->set('field_noc_name', $field_noc_name);
+          }
+          if(!empty($field_job_openings)){
+            $field_job_openings = (strtolower($field_job_openings) != "*blank*")? $field_job_openings : "";
+            $Noc_node->set('field_job_openings', $field_job_openings);
+          }
+          if(!empty($field_education_level)){
+            $field_education_level = (strtolower($field_education_level) != "*blank*")? $field_education_level : "";
+            $Noc_node->set('field_education_level', $field_education_level);
+          }
+          if(!empty($field_median_salary)){
+            $field_median_salary = (strtolower($field_median_salary) != "*blank*")? $field_median_salary : "";
+            $Noc_node->set('field_median_salary', $field_median_salary);
+          }
+          if(!empty($field_opening_from_to)){
+            $field_opening_from_to = (strtolower($field_opening_from_to) != "*blank*")? $field_opening_from_to : "";
+            $Noc_node->set('field_opening_from_to', $field_opening_from_to);
+          }
+          if(!empty($field_workbc_link)){
+            $field_workbc_link = (strtolower($field_workbc_link) != "*blank*")? $field_workbc_link : "";
+            $Noc_node->set('field_workbc_link',  ["uri" => $field_workbc_link]);
+          }
+          if(!empty($field_find_job)){
+            $field_find_job = (strtolower($field_find_job) != "*blank*")? $field_find_job : "";
+            $Noc_node->set('field_find_job', ["uri" => $field_find_job]);
+          }
         }
-        $Noc_node->save();
+        if(!$Noc_node->save()){
+          array_push($failedCareer, $title);
+        }
       }
+    }
+    if(!empty($newCareer)){
+      $count = count($newCareer);
+      $newCareer  = implode(",", $newCareer);
+      \Drupal::messenger()->addMessage(t("New Career(s) Imported($count): ".$newCareer), 'info');
+    }
+    if(!empty($careerUpdated)){
+      $count = count($careerUpdated);
+      $careerUpdated  = implode(",", $careerUpdated);
+      \Drupal::messenger()->addMessage(t("Career(s) Updated($count): ".$careerUpdated), 'info');
+    }
+    if(!empty($failedCareer)){ 
+      $count = count($failedCareer);
+      $failedCareer  = implode(",", $failedCareer);
+      \Drupal::messenger()->addMessage(t("Import Failed($count): ".$failedCareer), 'info');
     }
   }
 

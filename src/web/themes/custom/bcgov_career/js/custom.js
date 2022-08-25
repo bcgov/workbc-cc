@@ -124,9 +124,9 @@
           ".career-content-main-wrapper .career-content-item.active .image-video iframe"
         ).attr("src", src);
       });
-
       setTimeout(function () {
         $(".remove-link + .compare-carr > .career-chkk").prop("checked", true);
+
         const checkedLoadNum = $(
           ".remove-link + .compare-carr > .career-chkk:checked"
         ).length;
@@ -139,6 +139,7 @@
       }, 1500);
 
       $(window).on("load", function () {
+        $(document).tooltip();
         $(".career-checkbox").on("change", function (e) {
           const checkedNum = $(".career-checkbox:checked").length;
           $(this).parents("td").find(".use-ajax").trigger("click");

@@ -33,8 +33,15 @@ class eServices extends ControllerBase{
   function fnGetCurlRequest($action, $parameters = null, $get_vars = false, $cid = NULL, $cacheExpire = 7200, $cookie_vals = '', $ret_cookies = false){
     $host = (!isset($_COOKIE['Drupal_visitor_environment']) && !defined('Drupal_visitor_environment')) ? fnGetEnvironment() : ((isset($_COOKIE['Drupal_visitor_environment'])) ? $_COOKIE['Drupal_visitor_environment'] : Drupal_visitor_environment);
     
+    $site_settings = \Drupal::service('site_settings.loader');
+    $settings = $site_settings->loadAll();
+    
+    $user = (isset($settings['onet_credentials']['onet']['field_username'])) ? $settings['onet_credentials']['onet']['field_username'] : '';
+    $password = (isset($settings['onet_credentials']['onet']['field_secret'])) ? $settings['onet_credentials']['onet']['field_secret'] : '';
     $url = $this->fnGetService('WS-HOSTS', $action, $parameters);
-   
+    if(!empty($user) && !empty($password)){
+      $url = str_replace(['@user', '@pass'], [$user, $password], $url);
+    }
     $r = array();
 		if(!empty($cookie_vals) && is_array($cookie_vals)){
 		  $cookie = implode('&', $cookie_vals);
@@ -55,8 +62,6 @@ class eServices extends ControllerBase{
 		  $ch = curl_init();
       
 		  // TODO: The services are hosted by xxx and currently need authentication.
-		  $username = 'cgi';
-      $password = '4852wsy';
 		  // set URL and other appropriate options
 		  #curl_setopt($ch, CURLOPT_USERPWD, $username.':'.$password);
       #curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_NTLM);
