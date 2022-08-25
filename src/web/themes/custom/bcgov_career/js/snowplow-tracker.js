@@ -15,7 +15,7 @@
                 
                 var quiz_type = find_quiz_type(path);
                 
-                var current_step = path[3].slice(path[3].length - 1);
+                var current_step = path[3].substring(4, path[3].length);
                 var step = parseInt(current_step);
 
                var category = find_quiz_category(quiz_type);
@@ -348,17 +348,16 @@
         //Error calls
         if($('.region-content > div').hasClass('alert-error')) {
             count++;
-            var quiz_type = $('.page-title span').text().split(' ')[0];
-            if(quiz_type == 'abilities' || quiz_type == 'Work Preferences' || quiz_type == 'interests') {
+            quiz_type = find_quiz_type();
+            if(quiz_type == 'abilities' || quiz_type == 'work_preferences' || quiz_type == 'interests') {
                 var category = 'career';
             } else {
                 var category = 'personality';
             }
 
             var path = window.location.pathname.split('/');
-            var current_step = path[3].slice(path[3].length - 1);
+            var current_step = path[3].substring(4, path[3].length);
             var step = parseInt(current_step);
-            quiz_type = path[2].split('-')[0];
 
             snowplow_error_call(category, quiz_type, step);
         }
@@ -369,7 +368,7 @@
                     "data": {
                         "error_message": "Please answer all questions before proceeding.",
                         "category": category,
-                        "quiz": "abilities",
+                        "quiz": quiz,
                         "step": step
                     }
                 }); 
