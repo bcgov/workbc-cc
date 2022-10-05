@@ -75,16 +75,6 @@ variable "fargate_memory" {
   default     = 4096
 }
 
-#variable "budget_amount" {
-#  description = "The amount of spend for the budget. Example: enter 100 to represent $100"
-#  default     = "100.0"
-#}
-
-#variable "budget_tag" {
-#  description = "The Cost Allocation Tag that will be used to build the monthly budget. "
-#  default     = "Project=Startup Sample"
-#}
-
 variable "common_tags" {
   description = "Common tags for created resources"
   default = {
