@@ -1,7 +1,7 @@
 _core:
   default_config_hash: rpfRQVoEn2ZWd_lw-iULKPiuina5CqcmzXWlz1OjTwM
 name: 'Career Discovery Quizzes'
-mail: no-reply@gov.bc.ca
+mail: no-reply@workbc.ca
 simple_address: false
 sitestyle: true
 textonly: false
@@ -11,4 +11,4 @@ format: full_html
 preserve_class: false
 advanced:
   incoming: false
-  key: B-ifz7FrZQ39ImPbeyARayto7ycTLfAlXb9iN4lSkIg
+  key: 7JWxL0PLkKe3TSh48122Jk-Mju1JHuSJ4_f8ar4T9QA
