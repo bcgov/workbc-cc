@@ -114,6 +114,7 @@ class SesMailer extends PluginBase implements MailInterface, ContainerFactoryPlu
         '%to' => $message['to'],
         '%id' => $response->get('MessageId'),
       ]);
+      \Drupal::logger('my_module')->debug('<pre><code>' . print_r($message, TRUE) . '</code></pre>');
     }
     catch (\Exception $e) {
       $this->logger->error('%type: @message in %function (line %line of %file)', Error::decodeException($e));
@@ -125,6 +126,7 @@ class SesMailer extends PluginBase implements MailInterface, ContainerFactoryPlu
         $result['message'] = $e->getMessage();
         $result['errorCode'] = $e->getCode();
       }
+      \Drupal::logger('my_module')->debug('<pre><code>' . print_r($message, TRUE) . '</code></pre>');
       $result['error'] = TRUE;
     }
     return $result;
