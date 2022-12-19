@@ -89,11 +89,52 @@ class SesMailer extends PluginBase implements MailInterface, ContainerFactoryPlu
   public function mail(array $message) {
     $result = [];
     $result['error'] = FALSE;
+
     try {
       // Credentials are set in environment variables.
+
+      $to = [];
+      if (!is_array($message['to'])) {
+        if (!empty($message['to'])) {
+          $to = explode(",", $message['to']);
+        }
+      }
+      else {
+        $to = $message['to'];
+      }
+
+      $cc = [];
+      if (array_key_exists('Cc', $message['headers'])) {
+        if (!is_array($message['headers']['Cc'])) {
+          if (!empty($message['headers']['Cc'])) {
+            $cc = explode(",", $message['headers']['Cc']);
+          }
+        }
+        else {
+          $cc = $message['headers']['Cc'];
+        }
+      }
+      
+      $bcc = [];
+      if (array_key_exists('Bcc', $message['headers'])) {
+        if (!is_array($message['headers']['Bcc'])) {
+          if (!empty($message['headers']['Bcc'])) {
+            $bcc = explode(",", $message['headers']['Bcc']);
+          }
+        }
+        else {
+          $bcc = $message['headers']['Bcc'];
+        }
+      }
+
+      // if no reply-to address is provided, default to using from address
+      $replyTo = empty($message['reply-to']) ? $message['from'] : $message['reply-to'];
+
       $response = $this->sesClient->sendEmail([
         'Destination' => [
-          'ToAddresses' => [$message['to']],
+          'ToAddresses' => $to,
+          'CcAddresses' => $cc,
+          'BccAddresses' => $bcc,
         ],
         'Message' => [
           'Body' => [
@@ -106,7 +147,7 @@ class SesMailer extends PluginBase implements MailInterface, ContainerFactoryPlu
           ],
         ],
         'ReplyToAddresses' => [$message['from']],
-        'ReturnPath' => $message['reply-to'],
+        'ReturnPath' => $replyTo,
         'Source' => $message['from'],
       ]);
       $this->logger->info('Successfully sent email from %from to %to with message ID %id', [
@@ -114,7 +155,6 @@ class SesMailer extends PluginBase implements MailInterface, ContainerFactoryPlu
         '%to' => $message['to'],
         '%id' => $response->get('MessageId'),
       ]);
-      \Drupal::logger('my_module')->debug('<pre><code>' . print_r($message, TRUE) . '</code></pre>');
     }
     catch (\Exception $e) {
       $this->logger->error('%type: @message in %function (line %line of %file)', Error::decodeException($e));
@@ -126,7 +166,6 @@ class SesMailer extends PluginBase implements MailInterface, ContainerFactoryPlu
         $result['message'] = $e->getMessage();
         $result['errorCode'] = $e->getCode();
       }
-      \Drupal::logger('my_module')->debug('<pre><code>' . print_r($message, TRUE) . '</code></pre>');
       $result['error'] = TRUE;
     }
     return $result;
