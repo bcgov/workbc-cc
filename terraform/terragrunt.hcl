@@ -5,6 +5,7 @@ locals {
   environment      = reverse(split("/", get_terragrunt_dir()))[0]
   app_image        = get_env("app_image", "")
   app_repo         = split("/", get_env("app_image"))[0]
+  aws_role         = get_env("AWS_ROLE_ARN_TO_USE")
 }
 
 generate "remote_state" {
@@ -40,7 +41,8 @@ generate "provider" {
 provider "aws" {
   region  = var.aws_region
   assume_role {
-    role_arn = "arn:aws:iam::$${var.target_aws_account_id}:role/BCGOV_$${var.target_env}_Automation_Admin_Role"
+    #role_arn = "arn:aws:iam::$${var.target_aws_account_id}:role/BCGOV_$${var.target_env}_Automation_Admin_Role"
+    role_arn = "${local.aws_role}"
   }
 }
 EOF
