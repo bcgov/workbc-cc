@@ -12,12 +12,12 @@ generate "remote_state" {
   if_exists = "overwrite"
   contents  = <<EOF
 terraform {
-  backend "remote" {
-    hostname = "${local.tfc_hostname}"
-    organization = "${local.tfc_organization}"
-    workspaces {
-      name = "${local.project}-${local.environment}-cc"
-    }
+  backend "s3" {
+    bucket = "terraform-remote-state-${local.project}-${local.environment}"
+    key = "workbc-cc.tfstate"
+    region = "ca-central-1"
+    dynamodb_table = "terraform-remote-state-lock-${local.project}"
+    encrypt = true
   }
 }
 EOF
