@@ -9,7 +9,7 @@ global-styling:
     js/magnific-popup.js: {}
     js/custom.js: {}
     js/snowplow-tracker.js: {}
-    //kit.fontawesome.com/761d09e00e.js: { type: external }
+    //kit.fontawesome.com/3046fe4f86.js: { type: external }
   dependencies:
     - core/jquery
     - core/drupal

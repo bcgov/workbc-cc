@@ -260,7 +260,7 @@ input:focus-visible, .btn:focus-visible {
 }
 
 .no-padding-device{
-    @media  all and(max-width: 767.98px){
+    @media  all and (max-width: 767.98px){
         padding: 0;
     }
 }

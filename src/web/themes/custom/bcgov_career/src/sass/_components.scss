@@ -2158,7 +2158,7 @@ span.question-prefix {
             width: auto;
             margin-bottom: 25px;
 
-            @media all and(max-width: 767.98px) {
+            @media all and (max-width: 767.98px) {
                 margin: 0 auto 25px auto;
                 height: 95px;
             }
@@ -2186,12 +2186,12 @@ span.question-prefix {
             color: #fff;
             font-size: 1.5rem;
             line-height: 1.8rem;
-            @media all and(max-width: 767.98px) {
+            @media all and (max-width: 767.98px) {
                 padding: 0 30px;
             }
         }
 
-        @media all and(max-width: 767.98px) {
+        @media all and (max-width: 767.98px) {
             text-align: center;
             position: relative;
             max-width: 350px;
