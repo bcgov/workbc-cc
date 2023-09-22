@@ -10602,15 +10602,29 @@ footer #block-socialnetwork .social-icons a {
 }
 footer #block-socialnetwork .social-icons a.social-twitter {
   background: #1e3050;
+  overflow: visible;
+  border-radius: 0;
+}
+footer #block-socialnetwork .social-icons a.social-twitter img {
+  margin-top: -16px;
+  vertical-align: top;
 }
 footer #block-socialnetwork .social-icons a.social-youtube {
   background: #d21c22;
 }
 footer #block-socialnetwork .social-icons a.social-linkedin {
   background: #006caa;
+  overflow: visible;
+  border-radius: 0;
+}
+footer #block-socialnetwork .social-icons a.social-linkedin img {
+  vertical-align: top;
 }
 footer #block-socialnetwork .social-icons a.social-facebook {
   background: #3d5b98;
+}
+footer #block-socialnetwork .social-icons a.social-facebook img {
+  vertical-align: top;
 }
 footer #block-socialnetwork .social-icons span {
   text-indent: -9999px;

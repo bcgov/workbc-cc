@@ -137,6 +137,13 @@ footer {
 
                 &.social-twitter {
                     background: #1e3050;
+                    overflow: visible;
+                    border-radius: 0;
+
+                    img {
+                        margin-top: -16px;
+                        vertical-align: top;
+                    }
                 }
 
                 &.social-youtube {
@@ -145,10 +152,20 @@ footer {
 
                 &.social-linkedin {
                     background: #006caa;
+                    overflow: visible;
+                    border-radius: 0;
+
+                    img {
+                        vertical-align: top;
+                    }
                 }
 
                 &.social-facebook {
                     background: #3d5b98;
+
+                    img {
+                        vertical-align: top;
+                    }
                 }
             }
 
