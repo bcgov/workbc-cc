@@ -10600,31 +10600,22 @@ footer #block-socialnetwork .social-icons a {
   line-height: 40px;
   color: #fff;
 }
-footer #block-socialnetwork .social-icons a.social-twitter {
-  background: #1e3050;
-  overflow: visible;
-  border-radius: 0;
-}
-footer #block-socialnetwork .social-icons a.social-twitter img {
-  margin-top: -16px;
+footer #block-socialnetwork .social-icons a img {
   vertical-align: top;
+}
+footer #block-socialnetwork .social-icons a.social-twitter {
+  border-radius: 0;
+  height: 43px;
 }
 footer #block-socialnetwork .social-icons a.social-youtube {
   background: #d21c22;
 }
 footer #block-socialnetwork .social-icons a.social-linkedin {
-  background: #006caa;
-  overflow: visible;
   border-radius: 0;
 }
 footer #block-socialnetwork .social-icons a.social-linkedin img {
-  vertical-align: top;
-}
-footer #block-socialnetwork .social-icons a.social-facebook {
-  background: #3d5b98;
-}
-footer #block-socialnetwork .social-icons a.social-facebook img {
-  vertical-align: top;
+  width: 40px;
+  height: 40px;
 }
 footer #block-socialnetwork .social-icons span {
   text-indent: -9999px;

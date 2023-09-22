@@ -135,15 +135,13 @@ footer {
                 line-height: 40px;
                 color: #fff;
 
-                &.social-twitter {
-                    background: #1e3050;
-                    overflow: visible;
-                    border-radius: 0;
+                img {
+                    vertical-align: top;
+                }
 
-                    img {
-                        margin-top: -16px;
-                        vertical-align: top;
-                    }
+                &.social-twitter {
+                    border-radius: 0;
+                    height: 43px;
                 }
 
                 &.social-youtube {
@@ -151,21 +149,15 @@ footer {
                 }
 
                 &.social-linkedin {
-                    background: #006caa;
-                    overflow: visible;
                     border-radius: 0;
 
                     img {
-                        vertical-align: top;
+                        width: 40px;
+                        height: 40px;
                     }
                 }
 
                 &.social-facebook {
-                    background: #3d5b98;
-
-                    img {
-                        vertical-align: top;
-                    }
                 }
             }
 
