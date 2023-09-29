@@ -2,6 +2,7 @@
 
 variable "target_env" {
   description = "AWS workload account env (e.g. dev, test, prod, sandbox, unclass)"
+  default = "test"
 }
 
 variable "target_aws_account_id" {
