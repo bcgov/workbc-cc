@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "description": "Bootstrap 4 subthem for bcgov",
   "main": "gulpfile.js",
-  "type": "module",
+  "engines": {
+    "node": "11.15"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "gulp sass"
   },
   "author": "Gurjinder Singh",
   "license": "ISC",
