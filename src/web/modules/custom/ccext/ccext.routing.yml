@@ -20,6 +20,7 @@ ccext.compate_action_remove:
     _controller: '\Drupal\ccext\Controller\CcextComparisonController::actionRemove'
   requirements:
     _permission: 'access content'
+
 ccext.sendemail:
   path: '/result/send'
   defaults:
@@ -33,3 +34,11 @@ ccext.action:
     _controller: '\Drupal\ccext\Controller\CcextComparisonController::action'
   requirements:
     _permission: 'access content'
+
+ccext.report_environment:
+  path: '/admin/reports/environment'
+  defaults:
+    _controller: '\Drupal\ccext\Controller\ReportsController::environment'
+    _title: 'WorkBC environment'
+  requirements:
+    _permission: 'administer site configuration'
