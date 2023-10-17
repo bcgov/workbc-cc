@@ -34,7 +34,7 @@ jobs:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: ${{ secrets.AWS_ROLE_ARN_TO_USE_DEV }}
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN_TO_USE_PROD }}
           aws-region: ${{ secrets.AWS_REGION }}
 
       - uses: peter-murray/terragrunt-github-action@v1.0.0
