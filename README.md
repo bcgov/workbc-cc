@@ -6,9 +6,10 @@ WorkBC Career Discovery Quizzes
 Career Discovery Quizzes, a subsite of [WorkBC.ca](https://www.workbc.ca).
 # Initial setup
 - Copy `.env.example` to `.env`
+- Create private directory: `mkdir src/private`
 - Start the environment: `docker-compose up`
 - Adjust folder permissions:
-  - `mkdir src/private && docker-compose exec php sudo chown www-data /var/www/html/private`
+  - `docker-compose exec php sudo chown www-data /var/www/html/private`
   - `docker-compose exec php sudo chown www-data /var/www/html/config/sync`
 - Import the data dump:
   - `gunzip -k -c src/scripts/workbc-cc.sql.gz | docker-compose exec -T postgres psql -U drupal workbc-cc`

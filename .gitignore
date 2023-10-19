@@ -92,3 +92,4 @@ src/web/sites/default/settings.azure-migrate.php
 # Local development #
 #####################
 !src/scripts/**/*.sql*
+.idea/
