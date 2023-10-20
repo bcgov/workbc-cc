@@ -104,6 +104,10 @@
             "drupal/ctools": {
                 "[error] The context is not a valid context.":
                 "https://www.drupal.org/files/issues/2022-08-03/3300682-50.patch"
+            },
+            "drupal/backup_migrate": {
+                "PostgreSQL support": "patches/drupal/backup_migrate/0003-postgresql-support.patch",
+                "Directory restore": "patches/drupal/backup_migrate/backup-migrate-restore-public-files-3245802-3.patch"
             }
         },
         "drupal-core-project-message": {

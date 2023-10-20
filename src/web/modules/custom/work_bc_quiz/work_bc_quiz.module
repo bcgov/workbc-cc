@@ -190,7 +190,7 @@ function work_bc_quiz_form_node_form_alter(&$form, $formState, $form_id) {
   $node = $formState->getFormObject()->getEntity();
   $quizTypes = new WorkBcQuizController();
   $quizTypes = $quizTypes->getQuizTypes();
-  
+
   if (!$node->isNew() && in_array($node->bundle(), $quizTypes)) {
     $form['web_submission'] = [
       '#type' => 'hidden',
@@ -198,22 +198,22 @@ function work_bc_quiz_form_node_form_alter(&$form, $formState, $form_id) {
     ];
   }
   $nodeTypeToPreventEdit = [
-    'node_abilities_quiz_edit_form', 
+    'node_abilities_quiz_edit_form',
     'node_work_preferences_quiz_edit_form',
     'node_interests_quiz_edit_form',
     'node_multiple_intelligences_quiz_edit_form',
     'node_learning_styles_quiz_edit_form',
     'node_work_values_quiz_edit_form',
     ];
-  
-  if(in_array($form_id, $nodeTypeToPreventEdit)){ 
+
+  if(in_array($form_id, $nodeTypeToPreventEdit)){
     $current_user = \Drupal::currentUser();
     $user=\Drupal\user\Entity\User::load($current_user->id());
     if(!$user->hasRole("administrator")){
       throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
     }
   }
-  
+
   $nodeTypeToHideTitle = [
     "abilities_quiz",
     "abilities_quiz_step_1",
@@ -291,8 +291,6 @@ function work_bc_quiz_form_node_form_alter(&$form, $formState, $form_id) {
         '#weight' => 3,
       ];
       $form['actions']['next']['#attributes']['class'][] = 'button button--primary js-form-submit form-submit btn btn-primary form-next';
-      // $form['actions']['next']['#attributes']['id'][] = 'edit-next';
-      // $form['actions']['next']['#attributes']['name'][] = 'edit-next';
     }
     $form['actions']['m_cancel'] = [
       '#type' => 'submit',
@@ -311,6 +309,12 @@ function work_bc_quiz_form_node_form_alter(&$form, $formState, $form_id) {
     $form['actions']['submit']['#prefix'] = '<div class="save-wrapper save-cancel" >';
     $form['actions']['submit']['#suffix'] = '</div>';
     $form['actions']['submit']['#weight'] = 7;
+    $form['actions']['submit']['#value'] = 'Submit';
+
+    if (!str_contains($form_id, "step_$last_page")) {
+      $form['actions']['submit']['#attributes']['hidden'] = 'hidden';
+      $form['actions']['m_cancel']['#attributes']['hidden'] = 'hidden';
+    }
 
     $form['actions']['previous']['#submit'][] = '_work_bc_quiz_node_form_submit_previous';
     $form['actions']['previous']['#value'] = t('< Previous');
@@ -418,7 +422,7 @@ function work_bc_quiz_entity_presave(EntityInterface $entity) {
       $new_quiz->uuid = $entity->uuid();
       $new_quiz->user = 'owner';
       $new_quiz->result = [];
-      
+
       $savedQuiz[$key] = $new_quiz;
       $session->set('SavedQuiz', $savedQuiz);
     }
@@ -447,7 +451,7 @@ function work_bc_quiz_preprocess(&$variables) {
     }
     elseif ($node->bundle() == 'interests_quiz') {
       $details_nid = $settings['field_interests_quiz_list_node_i'];
-    } 
+    }
     elseif ($node->bundle() == 'multiple_intelligences_quiz') {
       $details_nid = $settings['field_multiple_intelligences_qui'];
     }
@@ -772,7 +776,7 @@ function work_bc_quiz_node_view(array &$build, EntityInterface $entity, EntityVi
 
         $top_three = [];
         $values = [];
-        
+
         foreach( $groupedResult as $key => $value){
           $i = $key+1;
           $values[$i] = $value['name'];
@@ -826,14 +830,14 @@ function work_bc_quiz_node_view(array &$build, EntityInterface $entity, EntityVi
         $quizType = str_replace(['_'], ["-"], $node->bundle());
         $nextlink = "/quiz/" . $quizType . "/step" . $step . "/" . $instance_id;
       }
-      
+
       if($node->bundle() == 'interests_quiz'){
         $base_path = Url::fromRoute('<front>', [], ['absolute' => TRUE])->toString();
         //$occupations = [];
-        $occupation = ''; 
+        $occupation = '';
         foreach($groupedResult as $value){
           $value['name'] = str_replace(' ', '%20',$value['name']);
-          //$occupations[$value['name']] = []; 
+          //$occupations[$value['name']] = [];
           $scoreTotal = 0;
           foreach($value['score'] as $score){
             $scoreTotal += ++$score;
@@ -843,7 +847,7 @@ function work_bc_quiz_node_view(array &$build, EntityInterface $entity, EntityVi
         }
         $newQuiz = new WorkBcQuizController();
         $newQuiz = $newQuiz->getCareerCodes($occupation);
-        
+
         $result = [];
         $great = [];
         $good = [];
@@ -854,9 +858,9 @@ function work_bc_quiz_node_view(array &$build, EntityInterface $entity, EntityVi
             if ($data = file_get_contents($uri, TRUE)) {
               $data = json_decode($data);
               foreach ($data as $i => $table) {
-                
+
                 foreach($newQuiz['career'] as $key => $value){
-                  
+
                   if($value['code'] == $table->O_NET_SOC_2019){
                     if(!array_key_exists($table->NOC, $result) && !array_key_exists($table->NOC, $great) && !array_key_exists($table->NOC, $good)){
                       if(strtolower($value['fit']) == "best"){
@@ -872,7 +876,7 @@ function work_bc_quiz_node_view(array &$build, EntityInterface $entity, EntityVi
                 }
                 if((count($result) + count($great) + count($good)) >= 20) break;
               }
-              
+
               foreach ($great as $key => $value){
                 if(!isset($result[$key])){
                   $result[$key] = $value;
@@ -955,10 +959,10 @@ function work_bc_quiz_node_view(array &$build, EntityInterface $entity, EntityVi
 
       $savedQuiz = ($session->get('SavedQuiz')) ? $session->get('SavedQuiz') : [];
       $i=0;
-      
+
       $ownerUser = false;
       foreach ($savedQuiz as $key => $value) {
-        
+
         if ($value->uuid == $uuid) {
           if((isset($value->user) && $value->user == 'owner')){
             $ownerUser = true;
@@ -979,7 +983,7 @@ function work_bc_quiz_node_view(array &$build, EntityInterface $entity, EntityVi
           }
         }
       }
-      
+
       if($i==0){
         $key = "save_quiz_".$node->bundle()."_".$entity_id;
           if(empty($savedQuiz)){
@@ -990,12 +994,12 @@ function work_bc_quiz_node_view(array &$build, EntityInterface $entity, EntityVi
           }
           $savedQuiz[$key]->uuid = ($uuid) ? $uuid : '';
           $savedQuiz[$key]->result = (isset($result))? $result:[];
-        
+
       }
       $session->set('SavedQuiz', $savedQuiz);
-      
+
       if($ownerUser === true){
-        // Modify quiz link only for quiz owner 
+        // Modify quiz link only for quiz owner
         $field_value[0]['uri'] = "/quiz/$quizLink/step1/preview/" . $instance_id;
         $field_value[0]['title'] = t('Modify Your Answers');
       }
@@ -1003,7 +1007,7 @@ function work_bc_quiz_node_view(array &$build, EntityInterface $entity, EntityVi
       // quiz/$quizLink/step1/preview/".$instance_id;.
       $field_value[1]['uri'] = "/";
       $field_value[1]['title'] = t('Take Next Quiz');
-      
+
       $build['an_additional_field']['#quiz_error']['errors'] = $quizError;
       $build['an_additional_field']['#quiz_error']['nextlink'] = $nextlink;
 
@@ -1099,7 +1103,7 @@ function work_bc_quiz_views_pre_render(ViewExecutable $view) {
                 $lastStep = count($results2);
                 // Print $lastStep ."-". $step;.
                 $quiz_type = str_replace("_", "-", $results[0]->type);
-              
+
                 if (($lastStep < $step) && ($lastStep > 0)) {
                   $field_value[0]['uri'] = "internal:/quiz/" . $quiz_type . "/step" . ($lastStep + 1) . '/' . $results[0]->instance_id;
                   $field_value[0]['title'] = 'Continue Quiz';
@@ -1107,7 +1111,7 @@ function work_bc_quiz_views_pre_render(ViewExecutable $view) {
                 }
                 else {
                   if (!empty ($lastStep) && $lastStep == $step) {
-                    
+
                     $checkLastValue = \Drupal::database()
                       ->select("node__" . $last_field, 'n')
                       ->fields('n', [$last_field . '_ar_target_id'])

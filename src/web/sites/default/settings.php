@@ -785,6 +785,8 @@ $settings['file_tmp_path'] = '/tmp';
 $settings['trusted_host_patterns'] = [
   '^localhost$',
   '^127\.0\.0\.1$',
+  'workbc-cc\.docker\.localhost',
+  'workbc-cc\.localhost',
   '^careercompass-dev\.workbc\.ca$',
   '^careerdiscoveryquizzes-dev\.workbc\.ca$',
   '^careerdiscoveryquizzes-test\.workbc\.ca$',

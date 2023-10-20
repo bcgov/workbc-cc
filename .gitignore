@@ -12,16 +12,15 @@ src/web/profiles/contrib/
 src/web/profiles/README.txt
 /console/
 
-# ddev congfig
+# ddev config
 .ddev
+.env
 src/.ddev
 src/.lando.yml
-# Ignore local service.yml
-*services.local.yml
-*settings.local.php
+#*services.local.yml
+#*settings.local.php
 #*settings.*.php
 src/web/sites/default/settings.php
-
 *settings.ddev.postgres.php
 
 # Ignore scaffold files
@@ -57,7 +56,6 @@ src/private
 # node_module
 node_modules/
 
-
 # Ignore Drupal's file directory
 src/web/sites/*/files
 !src/web/sites/default/files/.htaccess
@@ -90,3 +88,8 @@ Thumbs.db
 # One-off environment settings files #
 ######################################
 src/web/sites/default/settings.azure-migrate.php
+
+# Local development #
+#####################
+!src/scripts/**/*.sql*
+.idea/
