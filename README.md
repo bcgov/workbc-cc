@@ -19,6 +19,12 @@ Career Discovery Quizzes, a subsite of [WorkBC.ca](https://www.workbc.ca).
 ```
 - Run the sync script: `docker-compose exec php scripts/sync.sh`
 - Open http://workbc-cc.docker.localhost:8000/ to view the site and login as `aest-local` (obtain the password from your admin or change the password using `drush upwd aest-local 'password'`)
+
+# Compile CSS
+- Install SASS globally using `npm install -g sass`
+- From the `./src/web/themes/custom/bcgov_career` folder
+- Run `sass src/sass:css` or `sass --watch src/sass:css`
+
 # Architecture
 The solution architecture is as below.
 ![Architecture](https://user-images.githubusercontent.com/79226696/177882962-f257ef30-6751-4873-a6b3-e0cfffbd0df8.png)
