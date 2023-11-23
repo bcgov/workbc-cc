@@ -21,9 +21,9 @@ Career Discovery Quizzes, a subsite of [WorkBC.ca](https://www.workbc.ca).
 - Open http://workbc-cc.docker.localhost:8000/ to view the site and login as `aest-local` (obtain the password from your admin or change the password using `drush upwd aest-local 'password'`)
 
 # Compile CSS
-- Install SASS globally using `npm install -g sass`
-- From the `./src/web/themes/custom/bcgov_career` folder
-- Run `sass src/sass:css` or `sass --watch src/sass:css`
+- Ensure you are running `node v11.15` (e.g. using [nvm](https://github.com/nvm-sh/nvm))
+- Change folder to `./src/web/themes/custom/bcgov_career`
+- Run `npm i && npm run sass`
 
 # Architecture
 The solution architecture is as below.
