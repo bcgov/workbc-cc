@@ -12,6 +12,7 @@ ignored_config_entities:
   - system.maintenance
   - system.site
   - system.performance
+  - update.settings
   - automated_cron.settings
   - 'ultimate_cron.job.*'
   - mimemail.settings
