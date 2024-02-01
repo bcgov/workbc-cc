@@ -49,7 +49,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: Build Drupal docker image
         run: |
-          docker build . -t ${{ secrets.AWS_ECR_URI }}:${{ github.sha }} --build-arg TIMEOUT=3s --build-arg MAX_CHILDREN=8
+          docker build . -t ${{ secrets.AWS_ECR_URI }}:${{ github.sha }}
       - name: Push Drupal docker image
         run: |
           docker push ${{ secrets.AWS_ECR_URI }}:${{ github.sha }}
