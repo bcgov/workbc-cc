@@ -23,8 +23,8 @@ resource "aws_rds_cluster" "postgres" {
   final_snapshot_identifier = "ceu-finalsnapshot"
   
   serverlessv2_scaling_configuration {
-    max_capacity = 8.0
-    min_capacity = 2.0
+    max_capacity = 16.0
+    min_capacity = 4.0
   }
 
   tags = var.common_tags
