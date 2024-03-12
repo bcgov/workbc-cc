@@ -1549,23 +1549,212 @@ function noc2021ProcessValidation() {
   $results = noc2021ValidateProfileCount();
   $errors = array_merge($errors, $results);
 
-  // $results = noc2021ValidateProfileHasContent();
-  // $errors = array_merge($errors, $results);
+  $results = noc2021ValidateProfileHasContent();
+  $errors = array_merge($errors, $results);
 
-  // $results = noc2021ValidateProfiles();
-  // $errors = array_merge($errors, $results);
+  $results = noc2021ValidateProfiles();
+  $errors = array_merge($errors, $results);
 
-  // $results = noc2021ValidateProfilePaths();
-  // $errors = array_merge($errors, $results);
+  $results = noc2021ValidateProfilePaths();
+  $errors = array_merge($errors, $results);
   
-  // $results = noc2021ValidateProfileRedirects();
-  // $errors = array_merge($errors, $results);
+  $results = noc2021ValidateProfileRedirects();
+  $errors = array_merge($errors, $results);
   
-  // $results = noc2021ValidateUnpublishedProfiles();
-  // $errors = array_merge($errors, $results);
+  $results = noc2021ValidateUnpublishedProfiles();
+  $errors = array_merge($errors, $results);
 
-  // $results = noc2021ValidateUnpublishedProfileRedirects();
-  // $errors = array_merge($errors, $results);
+  $results = noc2021ValidateUnpublishedProfileRedirects();
+  $errors = array_merge($errors, $results);
+
+  return $errors;
+}
+
+
+function noc2021ValidateUnpublishedProfileRedirects() {
+  
+  $map = load2021to2016map();
+
+  $oldPaths = loadCareerProfilePaths();
+
+  $errors = [];
+
+  $nids = \Drupal::entityQuery('node')
+  ->condition('status', 0)
+  ->condition('type', 'career_profile')
+  ->execute();
+
+  $lFirst = true;
+  $nodes = \Drupal\node\Entity\Node::loadMultiple($nids);
+  foreach ($nodes as $node) { 
+    $expectedURL = substr(findPath($node->field_noc_2016->value, $oldPaths),1);
+
+    $database = \Drupal::database();
+    $result = $database->select('redirect', 'r')
+              ->fields('r', ['rid', 'type', 'redirect_source__path', 'redirect_redirect__uri'])
+              ->condition('r.redirect_source__path', $expectedURL, '=')
+              ->execute()->fetchObject();
+
+    if (!$result) {
+      $errors[] = "Missing redirect for unpublished profile. Expected URL: '" . $expectedURL . "' (Node ID: " . $node->id() . ")"; 
+    }
+    else {
+      $nid = str_replace("internal:/node/", "", $result->redirect_redirect__uri);
+      $ref = \Drupal\node\Entity\Node::load($nid);
+      if (!in_array($node->field_noc_2016->value, $map[$ref->title->value]['noc2016'])) {
+        $errors[] = "Unpublished profile: " . $node->field_noc_2016->value . " is not associated with the profile (" . $ref->title->value . ") it is being redirected to";
+      }
+    }
+  }
+  return $errors;
+}
+
+
+function noc2021ValidateUnpublishedProfiles() {
+  
+  $map = load2021to2016map();
+
+  $errors = [];
+
+  $nids = \Drupal::entityQuery('node')
+  ->condition('status', 0)
+  ->condition('type', 'career_profile')
+  ->execute();
+
+  $nodes = \Drupal\node\Entity\Node::loadMultiple($nids);
+
+  foreach ($nodes as $node) {
+    if (strlen($node->field_noc_2016->value) <> 4) {
+      $errors[] = "Invalid NOC #: " . $node->field_noc_2016->value . " Unpublished profile NOC 2016 fields should have a 4 digit number (Node ID: " . $node->id() . ")"; 
+    }
+  }
+  return $errors;
+}
+
+
+function noc2021ValidateProfilePaths() {
+  
+  $errors = [];
+
+  $nids = \Drupal::entityQuery('node')
+  ->condition('status', 1)
+  ->condition('type', 'career_profile')
+  ->execute();
+
+  $nodes = \Drupal\node\Entity\Node::loadMultiple($nids);
+
+  foreach ($nodes as $node) {
+    $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/'.$node->id());
+    if (preg_match("/-\d$/", $alias)) {
+      $errors[] = "NOC #: " . $node->field_noc->value . " url contains trailing '-#': " . $alias;
+    }  
+  }
+  return $errors;
+}
+
+
+function noc2021ValidateProfileRedirects() {
+  
+  $map = load2021to2016map();
+
+  $oldPaths = loadCareerProfilePaths();
+
+  $errors = [];
+
+  $nids = \Drupal::entityQuery('node')
+  ->condition('status', 1)
+  ->condition('type', 'career_profile')
+  ->execute();
+
+  $nodes = \Drupal\node\Entity\Node::loadMultiple($nids);
+
+  $newPaths = [];
+  foreach ($nodes as $node) {
+    $newPaths[] = array(
+      'noc' => $node->field_noc->value,
+      'path' => \Drupal::service('path_alias.manager')->getAliasByPath('/node/'.$node->id()),
+    );
+  }
+
+  // check all old paths either work for an existing NOC 2021 Career Profile or redirects to one.
+  foreach ($oldPaths as $oldPath) {
+    $noc2021 = findNoc($oldPath['path'], $newPaths);
+    if (!$noc2021) {
+      $searchPath = substr($oldPath['path'],1);
+      $database = \Drupal::database();
+      $result = $database->select('redirect', 'r')
+                ->fields('r', ['rid', 'type', 'redirect_source__path', 'redirect_redirect__uri'])
+                ->condition('r.redirect_source__path', $searchPath, '=')
+                ->execute()->fetchObject();
+      if (!$result) {
+        $errors[] = "NOC 2016 #: " . $oldPath['noc'] . " path (" . $oldPath['path'] . ") has no redirection";
+      }
+      else {
+        $nid = str_replace("internal:/node/", "", $result->redirect_redirect__uri);
+        $redirect = \Drupal\node\Entity\Node::load($nid);
+        if ($redirect->status->getString() == 0 || $redirect->bundle() <> "career_profile") {
+          $errors[] = "NOC 2016 #: " . $oldPath['noc'] . " path (" . $oldPath['path'] . ") is redirecting to an invalid node (" . $nid . ")";
+        }    
+      }
+    }
+  }
+  return $errors;
+}
+
+
+function noc2021ValidateProfiles() {
+  
+  $map = load2021to2016map();
+
+  $errors = [];
+
+  $nids = \Drupal::entityQuery('node')
+  ->condition('status', 1)
+  ->condition('type', 'career_profile')
+  ->execute();
+
+  $nodes = \Drupal\node\Entity\Node::loadMultiple($nids);
+
+  foreach ($nodes as $node) {
+    if (strlen($node->title->value) <> 5) {
+      $errors[] = "Invalid NOC #: " . $node->title->value . " (Node ID: " . $node->id() . ")";
+    }
+    else if ($map[$node->title->value]) {
+      if ($node->field_noc_name->value <> $map[$node->title->value]['title2021']) {
+        $errors[] = "Invalid Title: '" . $node->field_noc_name->value . "' - Expected title: '" . $map[$node->field_noc->value]['title2021'] . "' (NOC #: " . $node->title->value . " Node ID: " . $node->id() . ")";
+      }
+    }
+    else {
+      $errors[] = "Invalid NOC #: " . $node->title->value . " (Node ID: " . $node->id() . ")";
+    }
+
+    if (!in_array($node->field_noc_2016->value, $map[$node->title->value]['noc2016'])) {
+      $errors[] = "NOC 2016 #: " . $node->field_noc_2016->value . " does not correspond with NOC 2021 #: " . $node->title->value;
+    }
+
+  }
+  return $errors;
+}
+
+
+function noc2021ValidateProfileHasContent() {
+
+  $errors = [];
+
+  $nids = \Drupal::entityQuery('node')
+  ->condition('status', 1)
+  ->condition('type', 'career_profile')
+  ->execute();
+
+  $profiles = \Drupal\node\Entity\Node::loadMultiple($nids);
+
+  foreach ($profiles as $profile) {
+    if (empty($profile->title->value) ||
+        empty($profile->field_noc_name->value) ||
+        empty($profile->field_job_openings->value)) {
+      $errors[] = "Missing content NOC #: " . $profile->title->value;
+    }
+  }
 
   return $errors;
 }
@@ -1596,7 +1785,6 @@ function noc2021ValidateProfileCount() {
     }
   }
 
-  ksm($map);
   foreach ($nodes as $node) {
     if (!isset($map[$node->title->value])) {
       $errors[] = "Extra NOC #: " . $node->title->value . " - Career Profile not found in map.";
@@ -1615,4 +1803,30 @@ function profileExists($noc2021, $nodes) {
     }
   }
   return $found;
+}
+
+
+// find NOC by path
+function findNoc($search, $nocs) {
+  $result = false;
+  foreach ($nocs as $noc) {
+    if ($search == $noc['path']) {
+      $result = $noc['noc'];
+      break;
+    }
+  }
+  return $result;
+}
+
+
+// find path by NOC
+function findPath($search, $nocs) {
+  $result = "";
+  foreach ($nocs as $noc) {
+    if ($search == $noc['noc']) {
+      $result = $noc['path'];
+      break;
+    }
+  }
+  return $result;
 }
