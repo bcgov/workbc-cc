@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.career_profile.field_job_openings
     - field.field.node.career_profile.field_job_summary
     - field.field.node.career_profile.field_median_salary
+    - field.field.node.career_profile.field_noc_2016
     - field.field.node.career_profile.field_noc_name
     - field.field.node.career_profile.field_opening_from_to
     - field.field.node.career_profile.field_video_id
@@ -27,13 +28,13 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 11
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
   field_education_level:
     type: entity_reference_autocomplete
-    weight: 4
+    weight: 3
     region: content
     settings:
       match_operator: CONTAINS
@@ -43,7 +44,7 @@ content:
     third_party_settings: {  }
   field_find_job:
     type: link_default
-    weight: 26
+    weight: 13
     region: content
     settings:
       placeholder_url: ''
@@ -51,7 +52,7 @@ content:
     third_party_settings: {  }
   field_image:
     type: image_image
-    weight: 27
+    weight: 14
     region: content
     settings:
       progress_indicator: throbber
@@ -59,14 +60,14 @@ content:
     third_party_settings: {  }
   field_job_openings:
     type: number
-    weight: 2
+    weight: 1
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_job_summary:
     type: text_textarea
-    weight: 9
+    weight: 6
     region: content
     settings:
       rows: 5
@@ -74,14 +75,14 @@ content:
     third_party_settings: {  }
   field_median_salary:
     type: number
-    weight: 5
+    weight: 4
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_noc_name:
     type: string_textfield
-    weight: 29
+    weight: 16
     region: content
     settings:
       size: 60
@@ -89,7 +90,7 @@ content:
     third_party_settings: {  }
   field_opening_from_to:
     type: string_textfield
-    weight: 3
+    weight: 2
     region: content
     settings:
       size: 60
@@ -97,7 +98,7 @@ content:
     third_party_settings: {  }
   field_video_id:
     type: string_textfield
-    weight: 28
+    weight: 15
     region: content
     settings:
       size: 60
@@ -105,7 +106,7 @@ content:
     third_party_settings: {  }
   field_workbc_link:
     type: link_default
-    weight: 6
+    weight: 5
     region: content
     settings:
       placeholder_url: ''
@@ -113,27 +114,27 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 14
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 12
+    weight: 9
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 15
+    weight: 12
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 13
+    weight: 10
     region: content
     settings:
       display_label: true
@@ -148,7 +149,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 10
+    weight: 7
     region: content
     settings:
       match_operator: CONTAINS
@@ -156,4 +157,5 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_noc_2016: true

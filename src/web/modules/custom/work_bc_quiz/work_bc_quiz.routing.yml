@@ -7,3 +7,28 @@ work_bc_quiz.clear_old_node_cron:
     _permission: 'access content'
   options:
     no_cache: 'TRUE'
+work_bc_quiz.report_noc2021_validation:
+  path: '/admin/reports/noc2021-validation'
+  defaults:
+    _controller: '\Drupal\work_bc_quiz\Controller\WorkBcQuizController::noc2021Validation'
+    _title: 'NOC 2021 Migration Validation'
+  requirements:
+    _permission: 'administer site configuration'
+work_bc_quiz.noc_migration:
+  path: '/admin/noc-migration'
+  defaults:
+    _title: 'Migration to NOC 2021'
+    _controller: '\Drupal\work_bc_quiz\Controller\WorkBcQuizController::noc2021Migration'
+  requirements:
+    _permission: 'administer site configuration'
+  options:
+    no_cache: 'TRUE'
+work_bc_quiz.noc_migration_education:
+  path: '/admin/noc-migration-education'
+  defaults:
+    _title: 'Migration to NOC 2021'
+    _controller: '\Drupal\work_bc_quiz\Controller\WorkBcQuizController::noc2021MigrationEducation'
+  requirements:
+    _permission: 'administer site configuration'
+  options:
+    no_cache: 'TRUE'

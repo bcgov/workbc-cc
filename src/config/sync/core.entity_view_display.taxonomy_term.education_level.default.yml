@@ -1,0 +1,23 @@
+uuid: d1188f32-4655-4138-9029-e05574e24629
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.education_level.field_teer
+    - taxonomy.vocabulary.education_level
+  module:
+    - text
+id: taxonomy_term.education_level.default
+targetEntityType: taxonomy_term
+bundle: education_level
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_teer: true

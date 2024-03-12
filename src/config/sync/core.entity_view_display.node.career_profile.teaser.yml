@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.career_profile.field_job_openings
     - field.field.node.career_profile.field_job_summary
     - field.field.node.career_profile.field_median_salary
+    - field.field.node.career_profile.field_noc_2016
     - field.field.node.career_profile.field_noc_name
     - field.field.node.career_profile.field_opening_from_to
     - field.field.node.career_profile.field_video_id
@@ -43,6 +44,7 @@ hidden:
   field_job_openings: true
   field_job_summary: true
   field_median_salary: true
+  field_noc_2016: true
   field_noc_name: true
   field_opening_from_to: true
   field_video_id: true

@@ -7,7 +7,7 @@ dependencies:
     - node.type.work_values_quiz
     - taxonomy.vocabulary.work_values_categories
   content:
-    - 'taxonomy_term:work_values_categories:441d54ef-5ddf-4885-9ef4-725001189f66'
+    - 'taxonomy_term:work_values_categories:cbcc03f5-bd60-4c03-bcd6-29c5c706468a'
   module:
     - work_bc_quiz
 id: node.work_values_quiz.field_work_values_10
@@ -21,7 +21,7 @@ translatable: false
 default_value:
   -
     ar_target_id: null
-    target_uuid: 441d54ef-5ddf-4885-9ef4-725001189f66
+    target_uuid: cbcc03f5-bd60-4c03-bcd6-29c5c706468a
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'

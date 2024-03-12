@@ -7,7 +7,7 @@ dependencies:
     - node.type.interests_quiz
     - taxonomy.vocabulary.interests_categories
   content:
-    - 'taxonomy_term:interests_categories:fad783b8-7d42-4866-a2bd-5bf6b699b8a0'
+    - 'taxonomy_term:interests_categories:e25663c9-3194-4993-a85d-383bf4c0493c'
   module:
     - work_bc_quiz
 id: node.interests_quiz.field_interests_57
@@ -21,7 +21,7 @@ translatable: false
 default_value:
   -
     ar_target_id: null
-    target_uuid: fad783b8-7d42-4866-a2bd-5bf6b699b8a0
+    target_uuid: e25663c9-3194-4993-a85d-383bf4c0493c
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'

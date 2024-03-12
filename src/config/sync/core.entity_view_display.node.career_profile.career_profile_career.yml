@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.career_profile.field_job_openings
     - field.field.node.career_profile.field_job_summary
     - field.field.node.career_profile.field_median_salary
+    - field.field.node.career_profile.field_noc_2016
     - field.field.node.career_profile.field_noc_name
     - field.field.node.career_profile.field_opening_from_to
     - field.field.node.career_profile.field_video_id
@@ -123,5 +124,6 @@ content:
     weight: 8
     region: content
 hidden:
+  field_noc_2016: true
   link_for_entity_comparison_career: true
   links: true
