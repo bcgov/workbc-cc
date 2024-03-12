@@ -1671,7 +1671,7 @@ function noc2021ValidateProfileRedirects() {
   $newPaths = [];
   foreach ($nodes as $node) {
     $newPaths[] = array(
-      'noc' => $node->field_noc->value,
+      'noc' => $node->title->value,
       'path' => \Drupal::service('path_alias.manager')->getAliasByPath('/node/'.$node->id()),
     );
   }
@@ -1728,7 +1728,7 @@ function noc2021ValidateProfiles() {
       $errors[] = "Invalid NOC #: " . $node->title->value . " (Node ID: " . $node->id() . ")";
     }
 
-    if (!in_array($node->field_noc_2016->value, $map[$node->title->value]['noc2016'])) {
+    if (!isset($map[$node->title->value]) || !in_array($node->field_noc_2016->value, $map[$node->title->value]['noc2016'])) {
       $errors[] = "NOC 2016 #: " . $node->field_noc_2016->value . " does not correspond with NOC 2021 #: " . $node->title->value;
     }
 
