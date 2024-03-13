@@ -105,6 +105,4 @@ class WorkBcQuizcontroller extends ControllerBase {
     ];
   }
 
-
-
 }

@@ -14,4 +14,3 @@ work_bc_quiz.report_noc2021_validation:
     _title: 'NOC 2021 Migration Validation'
   requirements:
     _permission: 'administer site configuration'
-    

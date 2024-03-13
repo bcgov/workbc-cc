@@ -1445,6 +1445,72 @@ function loadConcordance() {
   return empty($concordance) ? false : $concordance;
 }
 
+
+function loadCareerProvincial() {
+  $path = DRUPAL_ROOT;
+  $path = preg_replace('/web$/', '', $path);
+  $file = fopen($path . "/scripts/migration/data/career_provincial.csv", 'r');
+  if($file !== FALSE){
+    $careers = [];
+    while (($item = fgetcsv($file)) !== FALSE) {
+      if ($item) {
+        $careers[] = $item;
+      }
+    }
+    fclose($file);
+
+    // remove '#' from NOC number
+    foreach ($careers as $key => $noc) {
+      if ($noc) {
+        $careers[$key][0] = substr($careers[$key][0], 1);
+      }
+    }
+  }
+  return empty($careers) ? false : $careers;
+}
+
+
+function loadWages() {
+  $path = DRUPAL_ROOT;
+  $path = preg_replace('/web$/', '', $path);
+  $file = fopen($path . "/scripts/migration/data/wages.csv", 'r');
+  if($file !== FALSE){
+    $careers = [];
+    while (($item = fgetcsv($file)) !== FALSE) {
+      if ($item) {
+        $careers[] = $item;
+      }
+    }
+    fclose($file);
+  }
+  return empty($careers) ? false : $careers;
+}
+
+
+function loadEducation() {
+  $path = DRUPAL_ROOT;
+  $path = preg_replace('/web$/', '', $path);
+  $file = fopen($path . "/scripts/migration/data/education.csv", 'r');
+  if($file !== FALSE){
+    $careers = [];
+    while (($item = fgetcsv($file)) !== FALSE) {
+      if ($item) {
+        $careers[] = $item;
+      }
+    }
+    fclose($file);
+
+    // remove '#' from NOC number
+    foreach ($careers as $key => $noc) {
+      if ($noc) {
+        $careers[$key][0] = substr($careers[$key][0], 1);
+      }
+    }    
+  }
+  return empty($careers) ? false : $careers;
+}
+
+
 function saveCareerProfilePaths() {
 
   $nids = \Drupal::entityQuery('node')
@@ -1601,7 +1667,7 @@ function noc2021ValidateUnpublishedProfileRedirects() {
     else {
       $nid = str_replace("internal:/node/", "", $result->redirect_redirect__uri);
       $ref = \Drupal\node\Entity\Node::load($nid);
-      if (!in_array($node->field_noc_2016->value, $map[$ref->title->value]['noc2016'])) {
+      if (!isset($map[$ref->title->value]) || !in_array($node->field_noc_2016->value, $map[$ref->title->value]['noc2016'])) {
         $errors[] = "Unpublished profile: " . $node->field_noc_2016->value . " is not associated with the profile (" . $ref->title->value . ") it is being redirected to";
       }
     }
@@ -1751,7 +1817,7 @@ function noc2021ValidateProfileHasContent() {
   foreach ($profiles as $profile) {
     if (empty($profile->title->value) ||
         empty($profile->field_noc_name->value) ||
-        empty($profile->field_job_openings->value)) {
+        empty($profile->field_opening_from_to->value)) {
       $errors[] = "Missing content NOC #: " . $profile->title->value;
     }
   }
@@ -1825,6 +1891,18 @@ function findPath($search, $nocs) {
   foreach ($nocs as $noc) {
     if ($search == $noc['noc']) {
       $result = $noc['path'];
+      break;
+    }
+  }
+  return $result;
+}
+
+// find NOC by path
+function getNocData($search, $data) {
+  $result = false;
+  foreach ($data as $noc) {
+    if ($search == $noc[0]) {
+      $result = $noc;
       break;
     }
   }
