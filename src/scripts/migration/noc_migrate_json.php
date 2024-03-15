@@ -46,8 +46,6 @@ $json = preg_replace_callback(
   );
 
 
-
-// json_encode($NOC2016);
 // Write in the file
 $fp = fopen("php://stdout", 'w');
 fwrite($fp, $json);

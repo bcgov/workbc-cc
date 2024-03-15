@@ -479,8 +479,8 @@ NOC 2016 Code (4-digit),NOC 2016 Label,NOC 2016 Skill level,NOC 2021 Code (5-dig
 8231,Underground production and development miners,B,83100,Underground production and development miners,3,N/A
 8232,"Oil and gas well drillers, servicers, testers and related workers",B,83101,"Oil and gas well drillers, servicers, testers and related workers",3,N/A
 8241,Logging machinery operators,B,83110,Logging machinery operators,3,N/A
-8252,"Agricultural service contractors, farm supervisors and specialized livestock workers",B,72600,"Air pilots, flight engineers and flying instructors",2,"NOC 8252 was split. Job title ""Aerial crop dusting service contractor"" moved from NOC 8252 to NOC 72600."
-,,,82030,Agricultural service contractors and farm supervisors,2,NOC 8252 was split. Job titles related to agricultural service contractors and farm supervisors moved from NOC 8252 to NOC 82030.
+8252,"Agricultural service contractors, farm supervisors and specialized livestock workers",B,82030,Agricultural service contractors and farm supervisors,2,NOC 8252 was split. Job titles related to agricultural service contractors and farm supervisors moved from NOC 8252 to NOC 82030.
+,,,72600,"Air pilots, flight engineers and flying instructors",2,"NOC 8252 was split. Job title ""Aerial crop dusting service contractor"" moved from NOC 8252 to NOC 72600."
 ,,,84120,Specialized livestock workers and farm machinery operators,4,NOC 8252 was split. Job titles related to specialized livestock work moved from NOC 8252 to NOC 84120.
 ,,,85100,Livestock labourers,5,"NOC 8252 was split. Job title ""Feedlot herd attendant"" moved from NOC 8252 to NOC 85100."
 8255,"Contractors and supervisors, landscaping, grounds maintenance and horticulture services",B,82031,"Contractors and supervisors, landscaping, grounds maintenance and horticulture services",2,N/A
