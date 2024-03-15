@@ -3,14 +3,14 @@
 /**
  * Update JSON files to use new NOC 2021 codes.
  *
- * Usage: php csv_extract.php --range start1-end1 [--cols length] [--range start2-end2] ... < /path/to/input.csv > /path/to/output.csv
+ * Usage: php noc_migrate_json.php --noc field --title field < /path/to/input.csv > /path/to/output.csv'
  */
 
 $opts = getopt('', [
     'noc:',
     'title:'
 ]);
-$usage = 'Usage: php csv_extract.php --noc field --title field < /path/to/input.csv > /path/to/output.csv';
+$usage = 'Usage: php noc_migrate_json.php --noc field --title field < /path/to/input.csv > /path/to/output.csv';
 if (!array_key_exists('noc', $opts)) {
     die("No noc code field provided\n" . $usage . PHP_EOL);
 }
