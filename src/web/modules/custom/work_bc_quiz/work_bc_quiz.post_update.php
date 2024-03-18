@@ -115,7 +115,7 @@ function work_bc_quiz_post_update_350_2_noc_migration(&$sandbox = NULL) {
 
   $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
 
-  $workbc_url = getenv('WORKBC_URL');
+  $workbc_url = rtrim(getenv('WORKBC_URL'), '/') . '/';
 
   $message = "No action taken.";
   $noc = array_shift($sandbox['concordance']);
@@ -133,7 +133,7 @@ function work_bc_quiz_post_update_350_2_noc_migration(&$sandbox = NULL) {
         $split->title = $noc[3];
         $split->field_noc_name = $noc[4];
 
-        $split->field_workbc_link = $workbc_url . "/career/" . $noc[3];
+        $split->field_workbc_link = $workbc_url . "career/" . $noc[3];
 
         $data = getNocData($noc[3], $sandbox['education']);
         $terms = \Drupal::entityTypeManager()
@@ -207,7 +207,7 @@ function work_bc_quiz_post_update_350_2_noc_migration(&$sandbox = NULL) {
         $node->title = $noc[3];
         $node->field_noc_name = $noc[4];
 
-        $node->field_workbc_link = $workbc_url . "/career/" . $noc[3];
+        $node->field_workbc_link = $workbc_url . "career/" . $noc[3];
         
         $data = getNocData($noc[3], $sandbox['education']);
         $terms = \Drupal::entityTypeManager()
