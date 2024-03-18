@@ -1606,9 +1606,6 @@ function load2021to2016map() {
   return $map;
 }
 
-
-
-
 function noc2021ProcessValidation() {
   $errors = [];
   
