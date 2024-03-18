@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.career_profile.field_job_openings
     - field.field.node.career_profile.field_job_summary
     - field.field.node.career_profile.field_median_salary
+    - field.field.node.career_profile.field_noc_2016
     - field.field.node.career_profile.field_noc_name
     - field.field.node.career_profile.field_opening_from_to
     - field.field.node.career_profile.field_video_id
@@ -30,7 +31,7 @@ content:
     settings:
       link: false
     third_party_settings: {  }
-    weight: 3
+    weight: 2
     region: content
   field_find_job:
     type: link
@@ -42,7 +43,7 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 9
+    weight: 6
     region: content
   field_image:
     type: image
@@ -57,7 +58,7 @@ content:
       image_loading:
         attribute: lazy
     third_party_settings: {  }
-    weight: 10
+    weight: 7
     region: content
   field_job_openings:
     type: number_integer
@@ -66,14 +67,14 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 2
+    weight: 1
     region: content
   field_job_summary:
     type: text_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 5
+    weight: 3
     region: content
   field_median_salary:
     type: number_integer
@@ -82,7 +83,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 1
+    weight: 0
     region: content
   field_noc_name:
     type: string
@@ -90,7 +91,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 12
+    weight: 9
     region: content
   field_opening_from_to:
     type: string
@@ -98,7 +99,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 8
+    weight: 5
     region: content
   field_video_id:
     type: string
@@ -106,7 +107,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 11
+    weight: 8
     region: content
   field_workbc_link:
     type: link
@@ -118,8 +119,9 @@ content:
       rel: '0'
       target: '0'
     third_party_settings: {  }
-    weight: 6
+    weight: 4
     region: content
 hidden:
+  field_noc_2016: true
   link_for_entity_comparison_career: true
   links: true

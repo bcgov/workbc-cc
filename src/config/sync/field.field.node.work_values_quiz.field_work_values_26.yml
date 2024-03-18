@@ -7,21 +7,21 @@ dependencies:
     - node.type.work_values_quiz
     - taxonomy.vocabulary.work_values_categories
   content:
-    - 'taxonomy_term:work_values_categories:a3a1ff6a-fa5f-4610-a77e-8a23cbb7bd57'
+    - 'taxonomy_term:work_values_categories:1955e613-a3e6-46c4-b63d-958445cce42e'
   module:
     - work_bc_quiz
 id: node.work_values_quiz.field_work_values_26
 field_name: field_work_values_26
 entity_type: node
 bundle: work_values_quiz
-label: 'I like work where Ican solve problems and decide how things should be done.'
+label: 'I like work where I can solve problems and decide how things should be done.'
 description: ''
 required: false
 translatable: false
 default_value:
   -
     ar_target_id: null
-    target_uuid: a3a1ff6a-fa5f-4610-a77e-8a23cbb7bd57
+    target_uuid: 1955e613-a3e6-46c4-b63d-958445cce42e
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'

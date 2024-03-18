@@ -3,6 +3,7 @@
 namespace Drupal\work_bc_quiz\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\redirect\Entity\Redirect;
 
 /**
  *
@@ -81,4 +82,27 @@ class WorkBcQuizcontroller extends ControllerBase {
     }
     return $quiz_types;
   }
+
+
+  public function noc2021Validation() {
+    
+    $errors = [];
+    $errors = noc2021ProcessValidation();
+    
+    if (empty($errors)) {
+      $markup = "<p>No validation errors found.</p>";
+    }
+    else {
+      $markup = "";
+      foreach ($errors as $error) {
+        $markup .= "<p>" . $error . "</p>";
+      }
+    }
+
+    return [
+      '#type' => 'markup',
+      '#markup' => $markup,
+    ];
+  }
+
 }
