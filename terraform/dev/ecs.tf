@@ -101,6 +101,18 @@ resource "aws_ecs_task_definition" "app" {
 			{
 				name = "POSTGRES_HOST",
 				value = "${aws_rds_cluster.postgres.endpoint}"
+			},
+			{
+				name = "WORKBC_URL",
+				value = "https://devnoc.workbc.ca"
+			},
+			{
+				name = "WORKBC_URL",
+				value = "https://test.workbc.ca"
+			},
+			{
+				name = "WORKBC_URL",
+				value = "https://www.workbc.ca"
 			}
 		]
 		secrets = [
