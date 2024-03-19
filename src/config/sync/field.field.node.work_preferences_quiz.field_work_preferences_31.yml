@@ -7,7 +7,7 @@ dependencies:
     - node.type.work_preferences_quiz
     - taxonomy.vocabulary.work_preferences_categories
   content:
-    - 'taxonomy_term:work_preferences_categories:752325c5-8260-4c83-aa1c-57e14d88d683'
+    - 'taxonomy_term:work_preferences_categories:9a2b2afe-0195-4db0-8039-c0fa105152dc'
   module:
     - work_bc_quiz
 id: node.work_preferences_quiz.field_work_preferences_31
@@ -21,7 +21,7 @@ translatable: false
 default_value:
   -
     ar_target_id: null
-    target_uuid: 752325c5-8260-4c83-aa1c-57e14d88d683
+    target_uuid: 9a2b2afe-0195-4db0-8039-c0fa105152dc
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'

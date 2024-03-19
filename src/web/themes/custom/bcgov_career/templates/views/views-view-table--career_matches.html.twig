@@ -152,7 +152,7 @@
                   {% if row.raw.nid is not empty %}
                     {% set nodeURL =  url('entity.node.canonical', {'node': row.raw.nid}) %}
                   {% endif %}
-                    
+
                     {% if field_nm == 'field-noc-name' %}
                       <td>
                         {% if row.raw.match is not empty %}
@@ -171,7 +171,7 @@
                           {{ content.separator }}{{ content.field_output }}
                           {# data-career="/entity-comparison/career/{{ content.field_output }}?destination=/node/{{ currentPath }}" #}
                         {% endfor %}
-                         
+
                         <label class="compare-career compare-carr">
                           <input type="checkbox" class="career-checkbox career-chkk">
                           <span class="checkmark"></span>
@@ -220,7 +220,7 @@
           <div id="career-item-{{ rowkey }}" class="career-content-item {% if rowkey == '0' %}active{% endif %}" data-url="">
             <div class="career-content-item-inner">
             {% if row.raw.field_noc_name is not empty %}
-              {% set noc_name = row.raw.field_noc_name ~ ' NOC' ~ '(' ~ row.raw.title ~ ')' %}
+              {% set noc_name = row.raw.field_noc_name ~ ' (NOC ' ~ row.raw.title ~ ')' %}
             {% endif %}
               <div class="title" data-toggle="tip" title="{{ row.raw.field_noc_name }} (NOC {{ row.raw.title }})"><p>{{ noc_name|length > 70 ? noc_name|slice(0, 70) ~ '...' : noc_name}}</p></div>
               <div class="career-inner-content">

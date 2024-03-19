@@ -7,7 +7,7 @@ dependencies:
     - node.type.work_values_quiz
     - taxonomy.vocabulary.work_values_categories
   content:
-    - 'taxonomy_term:work_values_categories:cb0a57af-a2ad-426f-8b1c-72221efb3686'
+    - 'taxonomy_term:work_values_categories:edf70ef1-31b6-4258-b66d-39308a9c0760'
   module:
     - work_bc_quiz
 id: node.work_values_quiz.field_work_values_9
@@ -21,7 +21,7 @@ translatable: false
 default_value:
   -
     ar_target_id: null
-    target_uuid: cb0a57af-a2ad-426f-8b1c-72221efb3686
+    target_uuid: edf70ef1-31b6-4258-b66d-39308a9c0760
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'
@@ -41,11 +41,15 @@ settings:
       abilities_categories: 0
       abilities_options: 0
       education_level: 0
+      interests_categories: 0
+      interests_options: 0
       learning_styles_categories: 0
       learning_styles_options: 0
       multiple_intelligence_categories: 0
       multiple_intelligence_options: 0
       tags: 0
+      work_preferences_categories: 0
+      work_preferences_options: 0
       work_values_categories: 0
     ar_label: ''
     ar_weight: '9'

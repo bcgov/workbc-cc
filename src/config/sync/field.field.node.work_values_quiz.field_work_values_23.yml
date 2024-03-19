@@ -7,21 +7,21 @@ dependencies:
     - node.type.work_values_quiz
     - taxonomy.vocabulary.work_values_categories
   content:
-    - 'taxonomy_term:work_values_categories:ef2ca3d3-a348-482f-bb37-797b6a08fbeb'
+    - 'taxonomy_term:work_values_categories:e8a79bcf-b836-498b-b497-82de40c02c3c'
   module:
     - work_bc_quiz
 id: node.work_values_quiz.field_work_values_23
 field_name: field_work_values_23
 entity_type: node
 bundle: work_values_quiz
-label: 'I want work where Iget to interact with a team of other people.'
+label: 'I want work where I get to interact with a team of other people.'
 description: ''
 required: false
 translatable: false
 default_value:
   -
     ar_target_id: null
-    target_uuid: ef2ca3d3-a348-482f-bb37-797b6a08fbeb
+    target_uuid: e8a79bcf-b836-498b-b497-82de40c02c3c
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'

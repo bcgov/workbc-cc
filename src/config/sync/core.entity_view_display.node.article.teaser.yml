@@ -35,12 +35,12 @@ content:
     settings:
       image_link: content
       image_style: medium
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
       image_loading:
         attribute: lazy
-      svg_attributes:
-        width: ''
-        height: ''
-      svg_render_as_image: true
     third_party_settings: {  }
     weight: -1
     region: content
