@@ -91,7 +91,7 @@ function work_bc_quiz_post_update_350_2_noc_migration(&$sandbox = NULL) {
     $sandbox['concordance'] = loadConcordance();
     $sandbox['provincial'] = loadCareerProvincial();
     $sandbox['wages'] = loadWages();
-    $sandbox['education'] = loadEducation();    
+    $sandbox['education'] = loadEducation();
     $sandbox['count'] = count($sandbox['concordance']);
     $sandbox['last_noc'] = 0;
     $sandbox['last_noc_2016'] = 0;
@@ -134,6 +134,7 @@ function work_bc_quiz_post_update_350_2_noc_migration(&$sandbox = NULL) {
         $split->field_noc_name = $noc[4];
 
         $split->field_workbc_link = $workbc_url . "career/" . $noc[3];
+        $split->field_find_job = $workbc_url . "Jobs-Careers/Find-Jobs/Jobs.aspx?Searchnoc=" . $sandbox['last_noc_2016'];
 
         $data = getNocData($noc[3], $sandbox['education']);
         $terms = \Drupal::entityTypeManager()
@@ -144,7 +145,7 @@ function work_bc_quiz_post_update_350_2_noc_migration(&$sandbox = NULL) {
 
         $data = getNocData($noc[3], $sandbox['provincial']);
         $split->field_job_openings = $data[6];
-        
+
         $data = getNocData($noc[3], $sandbox['wages']);
         $split->field_median_salary = round($data[5]);
 
@@ -172,7 +173,7 @@ function work_bc_quiz_post_update_350_2_noc_migration(&$sandbox = NULL) {
         }
       }
     }
-    else { 
+    else {
       $nodes = \Drupal::entityTypeManager()->getStorage('node')->loadByProperties(['title' => $noc[0]]);
       $node = array_shift($nodes);
 
@@ -198,7 +199,7 @@ function work_bc_quiz_post_update_350_2_noc_migration(&$sandbox = NULL) {
         $redirect_storage = \Drupal::entityTypeManager()->getStorage('redirect');
         $redirects = $redirect_storage->loadByProperties(['redirect_source__path' => $old_path]);
         $redirect = array_shift($redirects);
-        
+
         $redirect->setRedirect($new_path);
         $redirect->save();
       }
@@ -208,7 +209,8 @@ function work_bc_quiz_post_update_350_2_noc_migration(&$sandbox = NULL) {
         $node->field_noc_name = $noc[4];
 
         $node->field_workbc_link = $workbc_url . "career/" . $noc[3];
-        
+        $node->field_find_job = $workbc_url . "Jobs-Careers/Find-Jobs/Jobs.aspx?Searchnoc=" . $sandbox['last_noc_2016'];
+
         $data = getNocData($noc[3], $sandbox['education']);
         $terms = \Drupal::entityTypeManager()
           ->getStorage('taxonomy_term')
@@ -218,7 +220,7 @@ function work_bc_quiz_post_update_350_2_noc_migration(&$sandbox = NULL) {
 
         $data = getNocData($noc[3], $sandbox['provincial']);
         $node->field_job_openings = $data[6];
-        
+
         $data = getNocData($noc[3], $sandbox['wages']);
         $node->field_median_salary = round($data[5]);
 
@@ -238,7 +240,7 @@ function work_bc_quiz_post_update_350_2_noc_migration(&$sandbox = NULL) {
       $sandbox['last_noc_nid'] = $node->id();
     }
   }
-  
+
   if (empty($sandbox['concordance'])) {
     // archive noc 2214
     $noc = "2214";
