@@ -48,3 +48,7 @@ resource "aws_rds_cluster_instance" "postgres" {
   engine             = aws_rds_cluster.postgres.engine
   engine_version     = aws_rds_cluster.postgres.engine_version
 }
+
+data "aws_rds_cluster" "postgres2" {
+  cluster_identifier      = "workbc-postgres-cluster"
+}
