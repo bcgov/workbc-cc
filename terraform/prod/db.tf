@@ -6,7 +6,7 @@ resource "aws_db_subnet_group" "data_subnet" {
 
   tags = var.common_tags
 }
-
+/*
 resource "aws_rds_cluster" "postgres" {
   cluster_identifier      = "ceu-postgres-cluster"
   engine                  = "aurora-postgresql"
@@ -28,7 +28,7 @@ resource "aws_rds_cluster" "postgres" {
   }
 
   tags = var.common_tags
-}
+}*/
 
 # create this manually
 data "aws_secretsmanager_secret_version" "creds" {
@@ -40,14 +40,14 @@ locals {
     data.aws_secretsmanager_secret_version.creds.secret_string
   )
 }
-  
+/*  
 resource "aws_rds_cluster_instance" "postgres" {
   count = 2
   cluster_identifier = aws_rds_cluster.postgres.id
   instance_class     = "db.serverless"
   engine             = aws_rds_cluster.postgres.engine
   engine_version     = aws_rds_cluster.postgres.engine_version
-}
+}*/
 
 data "aws_rds_cluster" "postgres2" {
   cluster_identifier      = "workbc-postgres-cluster"
