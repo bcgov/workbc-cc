@@ -9,6 +9,6 @@ fi
 
 docker-compose exec -T postgres psql -U drupal workbc-cc < src/scripts/workbc-cc.reset.sql
 gunzip -k -c "src/private/backup_migrate/$1" | docker-compose exec -T postgres psql -U drupal workbc-cc
-docker-compose exec php drush upwd admin 'password'
+docker-compose exec php drush upwd aest-local 'password'
 docker-compose exec php scripts/sync.sh -y
 docker-compose exec php drush en -y devel views_ui

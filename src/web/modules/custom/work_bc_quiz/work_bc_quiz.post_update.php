@@ -199,9 +199,10 @@ function work_bc_quiz_post_update_350_2_noc_migration(&$sandbox = NULL) {
         $redirect_storage = \Drupal::entityTypeManager()->getStorage('redirect');
         $redirects = $redirect_storage->loadByProperties(['redirect_source__path' => $old_path]);
         $redirect = array_shift($redirects);
-
-        $redirect->setRedirect($new_path);
-        $redirect->save();
+        if ($redirect) {
+          $redirect->setRedirect($new_path);
+          $redirect->save();
+        }
       }
       // else update
       else {
