@@ -49,7 +49,6 @@ module:
   path_alias: 0
   pgsql: 0
   rdf: 0
-  redirect: 0
   search: 0
   ses_mailer: 0
   shortcut: 0

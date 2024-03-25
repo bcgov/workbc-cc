@@ -190,19 +190,19 @@ function work_bc_quiz_post_update_350_2_noc_migration(&$sandbox = NULL) {
         $sandbox['last_noc_type'] = "merge";
 
         // save old path alias
-        $old_path = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $node->id(), $langcode);
+        // $old_path = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $node->id(), $langcode);
         $node->save();
 
-        $old_path = ltrim($old_path, '/');
-        $new_path = 'node/'. $sandbox['noc_map'][$noc[3]]['nid'];
+        // $old_path = ltrim($old_path, '/');
+        // $new_path = 'node/'. $sandbox['noc_map'][$noc[3]]['nid'];
 
-        $redirect_storage = \Drupal::entityTypeManager()->getStorage('redirect');
-        $redirects = $redirect_storage->loadByProperties(['redirect_source__path' => $old_path]);
-        $redirect = array_shift($redirects);
-        if ($redirect) {
-          $redirect->setRedirect($new_path);
-          $redirect->save();
-        }
+        // $redirect_storage = \Drupal::entityTypeManager()->getStorage('redirect');
+        // $redirects = $redirect_storage->loadByProperties(['redirect_source__path' => $old_path]);
+        // $redirect = array_shift($redirects);
+        // if ($redirect) {
+        //   $redirect->setRedirect($new_path);
+        //   $redirect->save();
+        // }
       }
       // else update
       else {
