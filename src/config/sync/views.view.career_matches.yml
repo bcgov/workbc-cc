@@ -209,7 +209,7 @@ display:
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
-          empty: ''
+          empty: 'Not available'
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
@@ -236,7 +236,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: field
-          label: 'Education Level'
+          label: 'Training, Education, Experience and Responsibilities'
           exclude: false
           alter:
             alter_text: false
