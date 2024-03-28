@@ -120,11 +120,7 @@
                 <p class="data-item"><span class="f-d">Training, Education, Experience and Responsibilities</span><span class="s-d">{{ node.field_education_level.entity.name.value }}</span></p>
               {% endif %}
               {% if node.field_job_openings.value is not empty %}
-                {% if node.field_job_openings.value < 0 %}
-                  <p class="data-item"><span class="f-d">Job Openings</br><span>{{ node.field_opening_from_to.value }}</span></span><span class="s-d">{{ 0 |number_format(-4, ',') }}</span></p>
-                {% else %}
-                  <p class="data-item"><span class="f-d">Job Openings</br><span>{{ node.field_opening_from_to.value }}</span></span><span class="s-d">{{ node.field_job_openings.value|number_format(-4, ',') }}</span></p>
-                {% endif %}
+                <p class="data-item"><span class="f-d">Job Openings</br><span>{{ node.field_opening_from_to.value }}</span></span><span class="s-d">{{ max(0,node.field_job_openings.value)|number_format(-4, ',') }}</span></p>
               {% else %}
                 <p class="data-item"><span class="f-d">Job Openings</br><span>{{ node.field_opening_from_to.value }}</span></span><span class="s-d">Not available</span></p>              
               {% endif %}

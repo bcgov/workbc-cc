@@ -125,11 +125,7 @@
                       <p class="d-flex data-item justify-content-lg-start"><span class="f-d">Training, Education, Experience and Responsibilities</span><span class="s-d">{{ row.cells.field_education_level.content }}</span></p>
                     {% endif %}
                     {% if row.cells.field_job_openings.content is not empty %}
-                      {% if row.cells.field_job_openings.content < 0 %}
-                        <p class="d-flex data-item justify-content-lg-start"><span class="f-d">Job Openings<span class="w-100">{{ row.cells.field_opening_from_to.content }}</span></span><span class="s-d">{{ 0|number_format(0, '.', ',') }}</span></p>
-                      {% else %}
-                        <p class="d-flex data-item justify-content-lg-start"><span class="f-d">Job Openings<span class="w-100">{{ row.cells.field_opening_from_to.content }}</span></span><span class="s-d">{{ row.cells.field_job_openings.content|number_format(0, '.', ',') }}</span></p>
-                      {% endif %}
+                      <p class="d-flex data-item justify-content-lg-start"><span class="f-d">Job Openings<span class="w-100">{{ row.cells.field_opening_from_to.content }}</span></span><span class="s-d">{{ max(0,row.cells.field_job_openings.content)|number_format(0, '.', ',') }}</span></p>
                     {% else %}
                       <p class="d-flex data-item justify-content-lg-start"><span class="f-d">Job Openings<span class="w-100">{{ row.cells.field_opening_from_to.content }}</span></span><span class="s-d">Not available</span></p>
                     {% endif %}
@@ -193,11 +189,7 @@
                       <p class="d-flex data-item justify-content-lg-start"><span class="f-d">Training, Education, Experience and Responsibilities</span><span class="s-d">{{ row.cells.field_education_level.content }}</span></p>
                     {% endif %}
                     {% if row.cells.field_job_openings.content is not empty %}
-                      {% if row.cells.field_job_openings.content < 0 %}
-                        <p class="d-flex data-item justify-content-lg-start"><span class="f-d">Job Openings<span class='w-100'>{{ row.cells.field_opening_from_to.content }}</span></span><span class="s-d">{{ 0|number_format(0, '.', ',') }}</span></p>
-                      {% else %}
-                        <p class="d-flex data-item justify-content-lg-start"><span class="f-d">Job Openings<span class='w-100'>{{ row.cells.field_opening_from_to.content }}</span></span><span class="s-d">{{ row.cells.field_job_openings.content|number_format(0, '.', ',') }}</span></p>
-                      {% endif %}
+                      <p class="d-flex data-item justify-content-lg-start"><span class="f-d">Job Openings<span class='w-100'>{{ row.cells.field_opening_from_to.content }}</span></span><span class="s-d">{{ max(0,row.cells.field_job_openings.content)|number_format(0, '.', ',') }}</span></p>
                     {% else %}
                       <p class="d-flex data-item justify-content-lg-start"><span class="f-d">Job Openings<span class='w-100'>{{ row.cells.field_opening_from_to.content }}</span></span><span class="s-d">Not available</span></p>
                     {% endif %}

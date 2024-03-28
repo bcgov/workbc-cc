@@ -278,11 +278,7 @@
                   {% endif %}
                 {% endfor %}
                   {% if row.raw.field_job_openings is not empty %}
-                    {% if row.raw.field_job_openings < 0 %}
-                      <p class="data-item"><span class="f-d">Job Openings<span class="w-100">{{ row.raw.field_opening_from_to }}</span></span><span class="s-d">{{ 0|number_format(0, '.', ',') }}</span></p>
-                    {% else %}
-                      <p class="data-item"><span class="f-d">Job Openings<span class="w-100">{{ row.raw.field_opening_from_to }}</span></span><span class="s-d">{{ row.raw.field_job_openings|number_format(0, '.', ',') }}</span></p>
-                    {% endif %}
+                    <p class="data-item"><span class="f-d">Job Openings<span class="w-100">{{ row.raw.field_opening_from_to }}</span></span><span class="s-d">{{ max(0,row.raw.field_job_openings)|number_format(0, '.', ',') }}</span></p>
                   {% else %}
                     <p class="data-item"><span class="f-d">Job Openings<span class="w-100">{{ row.raw.field_opening_from_to }}</span></span><span class="s-d">Not available</span></p>
                   {% endif %}
