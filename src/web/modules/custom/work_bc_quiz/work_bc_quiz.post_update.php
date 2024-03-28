@@ -265,3 +265,46 @@ function work_bc_quiz_post_update_350_2_noc_migration(&$sandbox = NULL) {
   return t("[NOC-350] $message");
 }
 
+
+
+/**
+ * NOC 2021 data migration.
+ *
+ * As per ticket NOC-350.
+ */
+function work_bc_quiz_post_update_350_3_noc_migration(&$sandbox = NULL) {
+  if (!isset($sandbox['profiles'])) {
+    $nids = \Drupal::entityQuery('node')->condition('type','career_profile')->execute();
+    $sandbox['profiles'] = \Drupal\node\Entity\Node::loadMultiple($nids);
+    $sandbox['provincial'] = loadCareerProvincial();
+    $sandbox['wages'] = loadWages();
+    $sandbox['count'] = count($sandbox['profiles']);
+  }
+
+  $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+
+  $message = "Skip unpublished Career Profile";
+  $profile = array_shift($sandbox['profiles']);
+  if (!empty($profile) && $profile->isPublished()) {
+    $noc = $profile->title->value;
+
+    $data = getNocData($noc, $sandbox['provincial']);
+    if (empty($data[6]) || is_null($data[6]) || $data[6] == "NA") {
+      $profile->field_job_openings = null;
+    }
+    else {
+      $profile->field_job_openings = $data[6];
+    }
+
+    $data = getNocData($noc, $sandbox['wages']);
+    $profile->field_median_salary = ($data[5] == "NA") ? null : round($data[5]);
+    
+    $profile->save();
+    
+    $message = "NOC 2021 data migration: Update Data " . $profile->field_noc->value . " - " . $profile->title->value;
+  }
+
+  $sandbox['#finished'] = empty($sandbox['profiles']) ? 1 : ($sandbox['count'] - count($sandbox['profiles'])) / $sandbox['count'];
+  return t("[NOC-350] $message");
+}
+

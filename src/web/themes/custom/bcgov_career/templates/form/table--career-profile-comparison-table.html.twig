@@ -118,12 +118,20 @@
                   <div class="data">
                     {% if row.cells.field_median_salary.content is not empty %}
                       <p class="d-flex data-item justify-content-lg-start"><span class="f-d">Annual Salary</span><span class="s-d">${{ row.cells.field_median_salary.content|number_format(0, '.', ',') }}</span></p>
+                    {% else %}                      
+                      <p class="d-flex data-item justify-content-lg-start"><span class="f-d">Annual Salary</span><span class="s-d">Not available</span></p>
                     {% endif %}
                     {% if row.cells.field_education_level.content is not empty %}
-                      <p class="d-flex data-item justify-content-lg-start"><span class="f-d">Education Level</span><span class="s-d">{{ row.cells.field_education_level.content }}</span></p>
+                      <p class="d-flex data-item justify-content-lg-start"><span class="f-d">Training, Education, Experience and Responsibilities</span><span class="s-d">{{ row.cells.field_education_level.content }}</span></p>
                     {% endif %}
                     {% if row.cells.field_job_openings.content is not empty %}
-                      <p class="d-flex data-item justify-content-lg-start"><span class="f-d">Job Openings<span class="w-100">{{ row.cells.field_opening_from_to.content }}</span></span><span class="s-d">{{ row.cells.field_job_openings.content|number_format(0, '.', ',') }}</span></p>
+                      {% if row.cells.field_job_openings.content < 0 %}
+                        <p class="d-flex data-item justify-content-lg-start"><span class="f-d">Job Openings<span class="w-100">{{ row.cells.field_opening_from_to.content }}</span></span><span class="s-d">{{ 0|number_format(0, '.', ',') }}</span></p>
+                      {% else %}
+                        <p class="d-flex data-item justify-content-lg-start"><span class="f-d">Job Openings<span class="w-100">{{ row.cells.field_opening_from_to.content }}</span></span><span class="s-d">{{ row.cells.field_job_openings.content|number_format(0, '.', ',') }}</span></p>
+                      {% endif %}
+                    {% else %}
+                      <p class="d-flex data-item justify-content-lg-start"><span class="f-d">Job Openings<span class="w-100">{{ row.cells.field_opening_from_to.content }}</span></span><span class="s-d">Not available</span></p>
                     {% endif %}
                   </div>
                   <div class="description">
@@ -178,12 +186,20 @@
                   <div class="data">
                     {% if row.cells.field_median_salary.content is not empty %}
                       <p class="d-flex data-item justify-content-lg-start"><span class="f-d">Annual Salary</span><span class="s-d">${{ row.cells.field_median_salary.content|number_format(0, '.', ',') }}</span></p>
+                    {% else %}
+                      <p class="d-flex data-item justify-content-lg-start"><span class="f-d">Annual Salary</span><span class="s-d">Not available</span></p>
                     {% endif %}
                     {% if row.cells.field_education_level.content is not empty %}
-                      <p class="d-flex data-item justify-content-lg-start"><span class="f-d">Education Level</span><span class="s-d">{{ row.cells.field_education_level.content }}</span></p>
+                      <p class="d-flex data-item justify-content-lg-start"><span class="f-d">Training, Education, Experience and Responsibilities</span><span class="s-d">{{ row.cells.field_education_level.content }}</span></p>
                     {% endif %}
                     {% if row.cells.field_job_openings.content is not empty %}
-                      <p class="d-flex data-item justify-content-lg-start"><span class="f-d">Job Openings<span class='w-100'>{{ row.cells.field_opening_from_to.content }}</span></span><span class="s-d">{{ row.cells.field_job_openings.content|number_format(0, '.', ',') }}</span></p>
+                      {% if row.cells.field_job_openings.content < 0 %}
+                        <p class="d-flex data-item justify-content-lg-start"><span class="f-d">Job Openings<span class='w-100'>{{ row.cells.field_opening_from_to.content }}</span></span><span class="s-d">{{ 0|number_format(0, '.', ',') }}</span></p>
+                      {% else %}
+                        <p class="d-flex data-item justify-content-lg-start"><span class="f-d">Job Openings<span class='w-100'>{{ row.cells.field_opening_from_to.content }}</span></span><span class="s-d">{{ row.cells.field_job_openings.content|number_format(0, '.', ',') }}</span></p>
+                      {% endif %}
+                    {% else %}
+                      <p class="d-flex data-item justify-content-lg-start"><span class="f-d">Job Openings<span class='w-100'>{{ row.cells.field_opening_from_to.content }}</span></span><span class="s-d">Not available</span></p>
                     {% endif %}
                   </div>
                   <div class="description">
