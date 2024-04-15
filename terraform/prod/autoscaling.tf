@@ -62,8 +62,8 @@ resource "aws_cloudwatch_metric_alarm" "service_memory_high" {
   metric_name         = "MemoryUtilization"
   namespace           = "AWS/ECS"
   period              = "30"
-  statistic           = "Average"
-  threshold           = "75"
+  statistic           = "Maximum"
+  threshold           = "60"
 
   dimensions = {
     ClusterName = aws_ecs_cluster.main.name
