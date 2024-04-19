@@ -470,7 +470,7 @@ progress_steps:
     label: 'Step 8'
     weight: 7
     routes:
-      interests_quiz_step_8: interests_quiz
+      interests_quiz_step_8: interests_quiz_step_8
       interests_quiz_step_1: 0
       interests_quiz_step_2: 0
       interests_quiz_step_3: 0
