@@ -266,7 +266,6 @@ function work_bc_quiz_post_update_350_2_noc_migration(&$sandbox = NULL) {
 }
 
 
-
 /**
  * NOC 2021 data migration.
  *
@@ -302,6 +301,39 @@ function work_bc_quiz_post_update_350_3_noc_migration(&$sandbox = NULL) {
     $profile->save();
     
     $message = "NOC 2021 data migration: Update Data " . $profile->field_noc->value . " - " . $profile->title->value;
+  }
+
+  $sandbox['#finished'] = empty($sandbox['profiles']) ? 1 : ($sandbox['count'] - count($sandbox['profiles'])) / $sandbox['count'];
+  return t("[NOC-350] $message");
+}
+
+
+/**
+ * NOC 2021 data migration.
+ *
+ * As per tickets NOC-359 & NOC-94 update job descriptions.
+ */
+function work_bc_quiz_post_update_350_4_noc_migration(&$sandbox = NULL) {
+  if (!isset($sandbox['profiles'])) {
+    $nids = \Drupal::entityQuery('node')->condition('type','career_profile')->execute();
+    $sandbox['profiles'] = \Drupal\node\Entity\Node::loadMultiple($nids);
+    $sandbox['summaries'] = loadOccupationSummaries();
+    $sandbox['count'] = count($sandbox['profiles']);
+  }
+
+  $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+
+  $message = "Skip unpublished Career Profile";
+  $profile = array_shift($sandbox['profiles']);
+  if (!empty($profile) && $profile->isPublished()) {
+    $noc = $profile->title->value;
+
+    $data = getNocData($noc, $sandbox['summaries']);
+    $profile->field_job_summary = $data[2];
+   
+    $profile->save();
+    
+    $message = "NOC 2021 data migration: Update career description " . $profile->field_noc->value . " - " . $profile->title->value;
   }
 
   $sandbox['#finished'] = empty($sandbox['profiles']) ? 1 : ($sandbox['count'] - count($sandbox['profiles'])) / $sandbox['count'];
