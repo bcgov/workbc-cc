@@ -126,7 +126,7 @@
               {% endif %}
             </div>
             <div class="description">
-              {{ node.field_job_summary.value | striptags | truncate(250, true, '...') | raw }}
+              {{ node.field_job_summary.value | striptags | truncate(400, true, '...') | raw }}
             </div>
             <div class="bottom-btn">
               <a class="btn btn-career-profile" href="{{ node.field_workbc_link.0.uri }}" target='_blank'>View Career Profile</a>
