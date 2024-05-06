@@ -1511,6 +1511,26 @@ function loadEducation() {
 }
 
 
+function loadOccupationSummaries() {
+  $path = DRUPAL_ROOT;
+  $path = preg_replace('/web$/', '', $path);
+  $file = fopen($path . "/scripts/migration/data/noc_2021_occupation_summaries.csv", 'r');
+  if($file !== FALSE){
+    $summaries = [];
+    while (($item = fgetcsv($file)) !== FALSE) {
+      if ($item) {
+        $summaries[] = $item;
+      }
+    }
+    fclose($file);
+    
+    // drop header row
+    array_shift($summaries);
+  }
+  return empty($summaries) ? false : $summaries;
+}
+
+
 function saveCareerProfilePaths() {
 
   $nids = \Drupal::entityQuery('node')

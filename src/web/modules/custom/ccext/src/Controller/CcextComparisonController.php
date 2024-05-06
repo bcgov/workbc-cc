@@ -420,7 +420,7 @@ class CcextComparisonController extends ControllerBase implements ContainerInjec
               switch ($field_name) {
                 case 'field_job_summary':
                   $summary_value = $entity->field_job_summary->value;
-                  $field_value[$field_name] = Unicode::truncate($summary_value, 250, TRUE, TRUE);
+                  $field_value[$field_name] = Unicode::truncate($summary_value, 400, TRUE, TRUE);
                   break;
 
                 case 'field_education_level':
