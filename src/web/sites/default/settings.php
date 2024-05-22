@@ -805,3 +805,31 @@ if (file_exists($app_root . '/' . $site_path . '/settings.openshift.php') && get
   include $app_root . '/' . $site_path . '/settings.local.php';
 }
 
+/**
+ * Environment-specific configuration.
+ *
+ * 'aws-dev', 'aws-test', 'aws-prod' project environments are used
+ * on respective AWS stages.
+ *
+ * 'dev' project environment is intended for use in local
+ * docker development environments.
+ *
+ * 'local' project environment has been set up for possible
+ * future use, if necessary.
+ */
+
+ if (in_array(getenv('PROJECT_ENVIRONMENT'), [
+  'dev',
+  'aws-dev',
+  'local'
+])) {
+  $settings['config_exclude_modules'] = [
+    'devel',
+    'devel_generate',
+    'devel_kint_extras',
+    'webform_devel',
+    'views_ui',
+    'webform_ui',
+    'dblog'
+  ];
+}
