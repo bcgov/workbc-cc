@@ -105,6 +105,10 @@ resource "aws_ecs_task_definition" "app" {
 			{
 				name = "WORKBC_URL",
 				value = "https://www.workbc.ca"
+			},
+			{
+				name = "PROJECT_ENVIRONMENT",
+				value = "aws-prod"
 			}
 
 		]
