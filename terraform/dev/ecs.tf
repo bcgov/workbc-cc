@@ -105,7 +105,12 @@ resource "aws_ecs_task_definition" "app" {
 			{
 				name = "WORKBC_URL",
 				value = "https://devnoc.workbc.ca"
+			},
+			{
+				name = "PROJECT_ENVIRONMENT",
+				value = "aws-dev"
 			}
+
 
 		]
 		secrets = [
