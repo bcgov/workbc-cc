@@ -116,7 +116,7 @@
   {
     "NOCCode": "73311",
     "OCCUPATION": "Railway Conductors",
-    "Career": "Railway conductors and brakemen \/ women",
+    "Career": "Railway conductors and brakemen/women",
     "CODE": "DMs"
   },
   {
@@ -152,19 +152,19 @@
   {
     "NOCCode": "00018",
     "OCCUPATION": "Senior Managers - Financial, Communications and Other Business Services",
-    "Career": "Senior managers - financial, communications and other business services",
+    "Career": "Senior managers - public and private sector",
     "CODE": "DMs"
   },
   {
     "NOCCode": "00018",
     "OCCUPATION": "Senior Managers - Health, Education, Social and Community Services and Membership Organizations",
-    "Career": "Senior managers - health, education, social and community services and membership organizations",
+    "Career": "Senior managers - public and private sector",
     "CODE": "DMs"
   },
   {
     "NOCCode": "00018",
     "OCCUPATION": "Senior Managers - Trade, Broadcasting and Other Services, n.e.c.",
-    "Career": "Senior managers - trade, broadcasting and other services",
+    "Career": "Senior managers - public and private sector",
     "CODE": "DMs"
   },
   {
@@ -198,9 +198,9 @@
     "CODE": "DSM"
   },
   {
-    "NOCCode": "22114",
+    "NOCCode": "82031",
     "OCCUPATION": "Supervisors, Landscape and Horticulture",
-    "Career": "Landscape and horticulture technicians and specialists",
+    "Career": "Contractors and supervisors, landscaping, grounds maintenance and horticulture services",
     "CODE": "DSM"
   },
   {
@@ -240,15 +240,15 @@
     "CODE": "MDS"
   },
   {
-    "NOCCode": "12104",
+    "NOCCode": "43203",
     "OCCUPATION": "Immigration Officers",
-    "Career": "Employment insurance and revenue officers",
+    "Career": "Border services, customs, and immigration officers",
     "CODE": "MDS"
   },
   {
     "NOCCode": "42200",
     "OCCUPATION": "Notaries Public",
-    "Career": "Paralegal and related occupations",
+    "Career": "Paralegals and related occupations",
     "CODE": "MDS"
   },
   {
@@ -318,9 +318,9 @@
     "CODE": "MDs"
   },
   {
-    "NOCCode": "65320",
+    "NOCCode": "62029",
     "OCCUPATION": "Dry Cleaning and Laundry Supervisors",
-    "Career": "Dry cleaning, laundry and related occupations",
+    "Career": "Other services supervisors",
     "CODE": "MDs"
   },
   {
@@ -396,9 +396,9 @@
     "CODE": "Mds"
   },
   {
-    "NOCCode": "10019",
+    "NOCCode": "14103",
     "OCCUPATION": "Court Officers",
-    "Career": "Other administrative services managers",
+    "Career": "Court clerks and related court services occupations",
     "CODE": "Mds"
   },
   {
@@ -408,9 +408,9 @@
     "CODE": "Mds"
   },
   {
-    "NOCCode": "10019",
+    "NOCCode": "42200",
     "OCCUPATION": "Justices of the Peace",
-    "Career": "Other administrative services managers",
+    "Career": "Paralegals and related occupations",
     "CODE": "Mds"
   },
   {
@@ -426,9 +426,9 @@
     "CODE": "Mds"
   },
   {
-    "NOCCode": "72999",
+    "NOCCode": "42200",
     "OCCUPATION": "Trademark Agents",
-    "Career": "Other technical trades and related occupations",
+    "Career": "Paralegals and related occupations",
     "CODE": "Mds"
   },
   {
@@ -474,9 +474,9 @@
     "CODE": "MSd"
   },
   {
-    "NOCCode": "62100",
+    "NOCCode": "75101",
     "OCCUPATION": "Grain Elevator Operators",
-    "Career": "Technical sales specialists - wholesale trade",
+    "Career": "Material handlers",
     "CODE": "MSd"
   },
   {
@@ -511,8 +511,8 @@
   },
   {
     "NOCCode": "64300",
-    "OCCUPATION": "Ma\ufffdtres d'h\ufffdtel and Hosts\/Hostesses",
-    "Career": "Ma\u00eetres d'h\u00f4tel and hosts \/ hostesses",
+    "OCCUPATION": "Maîtres d'hôtel and Hosts/Hostesses",
+    "Career": "Maîtres d'hôtel and hosts/hostesses",
     "CODE": "MSd"
   },
   {
@@ -602,13 +602,13 @@
   {
     "NOCCode": "42200",
     "OCCUPATION": "Independent Paralegals",
-    "Career": "Paralegal and related occupations",
+    "Career": "Paralegals and related occupations",
     "CODE": "SMD"
   },
   {
-    "NOCCode": "31300",
+    "NOCCode": "31301",
     "OCCUPATION": "Nursing Consultants",
-    "Career": "Nursing coordinators and supervisors",
+    "Career": "Registered nurses and registered psychiatric nurses",
     "CODE": "SMD"
   },
   {
@@ -624,9 +624,9 @@
     "CODE": "SMD"
   },
   {
-    "NOCCode": "62029",
+    "NOCCode": "65211",
     "OCCUPATION": "Other Service Providers",
-    "Career": "Other services supervisors",
+    "Career": "Operators and attendants in amusement, recreation and sport",
     "CODE": "SMD"
   },
   {
@@ -708,9 +708,9 @@
     "CODE": "SMd"
   },
   {
-    "NOCCode": "13112",
+    "NOCCode": "14101",
     "OCCUPATION": "Medical and Dental Receptionists",
-    "Career": "Medical administrative assistants",
+    "Career": "Receptionists",
     "CODE": "SMd"
   },
   {
@@ -948,9 +948,9 @@
     "CODE": "IOD"
   },
   {
-    "NOCCode": "21231",
+    "NOCCode": "21311",
     "OCCUPATION": "Computer and Telecommunications Hardware Engineers",
-    "Career": "Software engineers and designers",
+    "Career": "Computer engineers (except software engineers and designers)",
     "CODE": "IOD"
   },
   {
@@ -996,9 +996,9 @@
     "CODE": "IOD"
   },
   {
-    "NOCCode": "21102",
+    "NOCCode": "21109",
     "OCCUPATION": "Materials Scientists",
-    "Career": "Geoscientists and oceanographers",
+    "Career": "Other professional occupations in physical sciences",
     "CODE": "IOD"
   },
   {
@@ -1038,9 +1038,9 @@
     "CODE": "IOD"
   },
   {
-    "NOCCode": "31209",
+    "NOCCode": "31303",
     "OCCUPATION": "Orthoptists",
-    "Career": "Other professional occupations in health diagnosing and treating",
+    "Career": "Physician assistants, midwives and allied health professionals",
     "CODE": "IOD"
   },
   {
@@ -1068,9 +1068,9 @@
     "CODE": "IOD"
   },
   {
-    "NOCCode": "31100",
+    "NOCCode": "31101",
     "OCCUPATION": "Specialists in Surgery",
-    "Career": "Specialists in clinical and laboratory medicine",
+    "Career": "Specialists in surgery",
     "CODE": "IOD"
   },
   {
@@ -1104,9 +1104,9 @@
     "CODE": "OIM"
   },
   {
-    "NOCCode": "32124",
+    "NOCCode": "32129",
     "OCCUPATION": "Ocularists",
-    "Career": "Pharmacy technicians",
+    "Career": "Other medical technologists and technicians",
     "CODE": "OIM"
   },
   {
@@ -1116,15 +1116,15 @@
     "CODE": "OIM"
   },
   {
-    "NOCCode": "32124",
+    "NOCCode": "32129",
     "OCCUPATION": "Prosthetic and Orthotic Technicians",
-    "Career": "Pharmacy technicians",
+    "Career": "Other medical technologists and technicians",
     "CODE": "OIM"
   },
   {
-    "NOCCode": "72999",
+    "NOCCode": "72423",
     "OCCUPATION": "Recreation Vehicle Technicians",
-    "Career": "Other technical trades and related occupations",
+    "Career": "Motorcycle, all-terrain vehicle and other related mechanics",
     "CODE": "OIM"
   },
   {
@@ -1350,9 +1350,9 @@
     "CODE": "MIs"
   },
   {
-    "NOCCode": "64401",
+    "NOCCode": "74100",
     "OCCUPATION": "Postal Clerks",
-    "Career": "Postal services representatives",
+    "Career": "Mail and parcel sorters and related occupations",
     "CODE": "Mis"
   },
   {
@@ -1370,7 +1370,7 @@
   {
     "NOCCode": "42200",
     "OCCUPATION": "Legal Assistants and Paralegals",
-    "Career": "Paralegal and related occupations",
+    "Career": "Paralegals and related occupations",
     "CODE": "MSI"
   },
   {
@@ -1464,9 +1464,9 @@
     "CODE": "IMS"
   },
   {
-    "NOCCode": "31111",
+    "NOCCode": "31201",
     "OCCUPATION": "Chiropractors",
-    "Career": "Optometrists",
+    "Career": "Chiropractors",
     "CODE": "ISM"
   },
   {
@@ -1482,9 +1482,9 @@
     "CODE": "ISM"
   },
   {
-    "NOCCode": "41311",
+    "NOCCode": "43201",
     "OCCUPATION": "Classification Officers, Correctional Institutions",
-    "Career": "Probation and parole officers",
+    "Career": "Correctional service officers",
     "CODE": "SMI"
   },
   {
@@ -1518,9 +1518,9 @@
     "CODE": "SMi"
   },
   {
-    "NOCCode": "40020",
+    "NOCCode": "55109",
     "OCCUPATION": "Fashion Models",
-    "Career": "Administrators - post-secondary education and vocational training",
+    "Career": "Other performers",
     "CODE": "SMi"
   },
   {
@@ -1542,9 +1542,9 @@
     "CODE": "SIM"
   },
   {
-    "NOCCode": "31204",
+    "NOCCode": "32109",
     "OCCUPATION": "Other Professional Occupations in Therapy and Assessment",
-    "Career": "Kinesiologists and other professional occupations in therapy and assessment",
+    "Career": "Other technical occupations in therapy and assessment",
     "CODE": "SIM"
   },
   {
@@ -1554,15 +1554,15 @@
     "CODE": "SIM"
   },
   {
-    "NOCCode": "32200",
+    "NOCCode": "32209",
     "OCCUPATION": "Reflexologists",
-    "Career": "Traditional Chinese medicine practitioners and acupuncturists",
+    "Career": "Other practitioners of natural healing",
     "CODE": "SIM"
   },
   {
-    "NOCCode": "32200",
+    "NOCCode": "32209",
     "OCCUPATION": "Rolfers",
-    "Career": "Traditional Chinese medicine practitioners and acupuncturists",
+    "Career": "Other practitioners of natural healing",
     "CODE": "SIM"
   },
   {
@@ -1644,9 +1644,9 @@
     "CODE": "MOs"
   },
   {
-    "NOCCode": "44101",
+    "NOCCode": "65310",
     "OCCUPATION": "Housekeepers",
-    "Career": "Home support workers, caregivers and related occupations",
+    "Career": "Light duty cleaners",
     "CODE": "MOs"
   },
   {
@@ -1668,9 +1668,9 @@
     "CODE": "MOs"
   },
   {
-    "NOCCode": "42100",
+    "NOCCode": "44200",
     "OCCUPATION": "Occupations Unique to the Armed Forces",
-    "Career": "Police officers (except commissioned)",
+    "Career": "Primary combat members of the Canadian Armed Forces",
     "CODE": "MOs"
   },
   {
@@ -1698,9 +1698,9 @@
     "CODE": "MOs"
   },
   {
-    "NOCCode": "74102",
+    "NOCCode": "75201",
     "OCCUPATION": "Couriers, Messengers and Door-to-Door Distributors",
-    "Career": "Couriers and messengers",
+    "Career": "Delivery service drivers and door-to-door distributors",
     "CODE": "Mos"
   },
   {
@@ -1734,15 +1734,15 @@
     "CODE": "MSO"
   },
   {
-    "NOCCode": "32109",
+    "NOCCode": "33109",
     "OCCUPATION": "Audio Prosthetists",
-    "Career": "Other technical occupations in therapy and assessment",
+    "Career": "Other assisting occupations in support of health services",
     "CODE": "MSO"
   },
   {
-    "NOCCode": "32109",
+    "NOCCode": "33109",
     "OCCUPATION": "Audiometric Assistants",
-    "Career": "Other technical occupations in therapy and assessment",
+    "Career": "Other assisting occupations in support of health services",
     "CODE": "MSO"
   },
   {
@@ -1800,9 +1800,9 @@
     "CODE": "MSO"
   },
   {
-    "NOCCode": "32109",
+    "NOCCode": "33109",
     "OCCUPATION": "Ophthalmic Medical Assistants",
-    "Career": "Other technical occupations in therapy and assessment",
+    "Career": "Other assisting occupations in support of health services",
     "CODE": "MSO"
   },
   {
@@ -2028,9 +2028,9 @@
     "CODE": "SMo"
   },
   {
-    "NOCCode": "42203",
+    "NOCCode": "14301",
     "OCCUPATION": "Instructors and Teachers of Persons with Disabilities",
-    "Career": "Instructors of persons with disabilities",
+    "Career": "Correspondence, publication and regulatory clerks",
     "CODE": "SMo"
   },
   {
@@ -2082,9 +2082,9 @@
     "CODE": "ISo"
   },
   {
-    "NOCCode": "55109",
+    "NOCCode": "53121",
     "OCCUPATION": "Circus Performers",
-    "Career": "Other performers",
+    "Career": "Actors, comedians and circus performers",
     "CODE": "ISo"
   },
   {
@@ -2106,9 +2106,9 @@
     "CODE": "OIS"
   },
   {
-    "NOCCode": "72204",
+    "NOCCode": "72205",
     "OCCUPATION": "Cable Television Service Technicians",
-    "Career": "Telecommunications line and cable installers and repairers",
+    "Career": "Telecommunications equipment installation and cable television service technicians",
     "CODE": "Ois"
   },
   {
@@ -2125,8 +2125,8 @@
   },
   {
     "NOCCode": "83121",
-    "OCCUPATION": "Fishing Vessel Skippers and Fishermen\/women",
-    "Career": "Fishermen \/ women",
+    "OCCUPATION": "Fishing Vessel Skippers and Fishermen/women",
+    "Career": "Fishermen/women",
     "CODE": "ODi"
   },
   {
@@ -2154,9 +2154,9 @@
     "CODE": "OID"
   },
   {
-    "NOCCode": "32124",
+    "NOCCode": "32129",
     "OCCUPATION": "Prosthetists and Orthotists",
-    "Career": "Pharmacy technicians",
+    "Career": "Other medical technologists and technicians",
     "CODE": "OID"
   },
   {
@@ -2196,9 +2196,9 @@
     "CODE": "DIS"
   },
   {
-    "NOCCode": "11202",
+    "NOCCode": "41402",
     "OCCUPATION": "Business Development Officers and Marketing Researchers and Consultants",
-    "Career": "Professional occupations in advertising, marketing and public relations",
+    "Career": "Business development officers and market researchers and analysts",
     "CODE": "DIS"
   },
   {
@@ -2328,9 +2328,9 @@
     "CODE": "Dim"
   },
   {
-    "NOCCode": "21211",
+    "NOCCode": "21222",
     "OCCUPATION": "Systems Auditors",
-    "Career": "Data scientists",
+    "Career": "Information systems specialists",
     "CODE": "MDI"
   },
   {
@@ -2382,9 +2382,9 @@
     "CODE": "MID"
   },
   {
-    "NOCCode": "11109",
+    "NOCCode": "11102",
     "OCCUPATION": "Financial Planners",
-    "Career": "Other financial officers",
+    "Career": "Financial advisors",
     "CODE": "MID"
   },
   {
@@ -2406,9 +2406,9 @@
     "CODE": "MID"
   },
   {
-    "NOCCode": "21211",
+    "NOCCode": "21220",
     "OCCUPATION": "Systems Security Analysts",
-    "Career": "Data scientists",
+    "Career": "Cybersecurity specialists",
     "CODE": "MID"
   },
   {
@@ -2448,9 +2448,9 @@
     "CODE": "MId"
   },
   {
-    "NOCCode": "12113",
+    "NOCCode": "11101",
     "OCCUPATION": "Financial Analysts",
-    "Career": "Statistical officers and related research support occupations",
+    "Career": "Financial and investment analysts",
     "CODE": "MId"
   },
   {
@@ -2478,9 +2478,9 @@
     "CODE": "MId"
   },
   {
-    "NOCCode": "82030",
+    "NOCCode": "84120",
     "OCCUPATION": "Specialized Livestock Workers",
-    "Career": "Agricultural service contractors and farm supervisors",
+    "Career": "Specialized livestock workers and farm machinery operators",
     "CODE": "MId"
   },
   {
@@ -2515,7 +2515,7 @@
   },
   {
     "NOCCode": "14301",
-    "OCCUPATION": "Editorial Assistants and Publication Clerks",
+    "OCCUPATION": "Classified Advertising Clerks",
     "Career": "Correspondence, publication and regulatory clerks",
     "CODE": "Mid"
   },
@@ -2550,9 +2550,9 @@
     "CODE": "Mid"
   },
   {
-    "NOCCode": "12111",
+    "NOCCode": "14100",
     "OCCUPATION": "Health Records Technicians",
-    "Career": "Health information management occupations",
+    "Career": "General office support workers",
     "CODE": "Mid"
   },
   {
@@ -2592,9 +2592,9 @@
     "CODE": "Mid"
   },
   {
-    "NOCCode": "12112",
+    "NOCCode": "14100",
     "OCCUPATION": "Records Management Clerks",
-    "Career": "Records management technicians",
+    "Career": "General office support workers",
     "CODE": "Mid"
   },
   {
@@ -2641,7 +2641,7 @@
   },
   {
     "NOCCode": "41400",
-    "OCCUPATION": "Occupational\/Industrial Hygienists",
+    "OCCUPATION": "Occupational/Industrial Hygienists",
     "Career": "Natural and applied science policy researchers, consultants and program officers",
     "CODE": "IDM"
   },
@@ -2748,21 +2748,21 @@
     "CODE": "IMD"
   },
   {
-    "NOCCode": "21211",
+    "NOCCode": "21221",
     "OCCUPATION": "Information Systems Business Analysts and Consultants",
-    "Career": "Data scientists",
+    "Career": "Business systems specialists",
     "CODE": "IMD"
   },
   {
-    "NOCCode": "21211",
+    "NOCCode": "21222",
     "OCCUPATION": "Information Systems Quality Assurance Analysts",
-    "Career": "Data scientists",
+    "Career": "Information systems specialists",
     "CODE": "IMD"
   },
   {
-    "NOCCode": "21230",
+    "NOCCode": "21232",
     "OCCUPATION": "Interactive Media Developers",
-    "Career": "Computer systems developers and programmers",
+    "Career": "Software developers and programmers",
     "CODE": "IMD"
   },
   {
@@ -2778,9 +2778,9 @@
     "CODE": "IMD"
   },
   {
-    "NOCCode": "21311",
+    "NOCCode": "21231",
     "OCCUPATION": "Software Engineers",
-    "Career": "Computer engineers (except software engineers and designers)",
+    "Career": "Software engineers and designers",
     "CODE": "IMD"
   },
   {
@@ -2857,7 +2857,7 @@
   },
   {
     "NOCCode": "52119",
-    "OCCUPATION": "Settings Shop Foremen\/women",
+    "OCCUPATION": "Settings Shop Foremen/women",
     "Career": "Other technical and coordinating occupations in motion pictures, broadcasting and the performing arts",
     "CODE": "DMO"
   },
@@ -2910,9 +2910,9 @@
     "CODE": "MDO"
   },
   {
-    "NOCCode": "12104",
+    "NOCCode": "43203",
     "OCCUPATION": "Customs Officers and Inspectors",
-    "Career": "Employment insurance and revenue officers",
+    "Career": "Border services, customs, and immigration officers",
     "CODE": "MDO"
   },
   {
@@ -3210,9 +3210,9 @@
     "CODE": "OMd"
   },
   {
-    "NOCCode": "84101",
+    "NOCCode": "83101",
     "OCCUPATION": "Oil and Gas Well Drilling Workers",
-    "Career": "Oil and gas well drilling and related workers and services operators",
+    "Career": "Oil and gas well drillers, servicers, testers and related workers",
     "CODE": "OMd"
   },
   {
@@ -3264,9 +3264,9 @@
     "CODE": "DMS"
   },
   {
-    "NOCCode": "11109",
+    "NOCCode": "10021",
     "OCCUPATION": "Credit Managers",
-    "Career": "Other financial officers",
+    "Career": "Banking, credit and other investment managers",
     "CODE": "DMS"
   },
   {
@@ -3306,9 +3306,9 @@
     "CODE": "DMS"
   },
   {
-    "NOCCode": "53111",
+    "NOCCode": "51120",
     "OCCUPATION": "Film, Radio and Television Producers",
-    "Career": "Motion pictures, broadcasting, photography and performing arts assistants and operators",
+    "Career": "Producers, directors, choreographers and related occupations",
     "CODE": "IDS"
   },
   {
@@ -3408,9 +3408,9 @@
     "CODE": "ISD"
   },
   {
-    "NOCCode": "64201",
+    "NOCCode": "65229",
     "OCCUPATION": "Psychic Consultants",
-    "Career": "Image, social and other personal consultants",
+    "Career": "Other support occupations in personal services",
     "CODE": "ISD"
   },
   {
@@ -3426,9 +3426,9 @@
     "CODE": "ISD"
   },
   {
-    "NOCCode": "31204",
+    "NOCCode": "31202",
     "OCCUPATION": "Exercise Therapists",
-    "Career": "Kinesiologists and other professional occupations in therapy and assessment",
+    "Career": "Physiotherapists",
     "CODE": "SDI"
   },
   {
@@ -3498,21 +3498,21 @@
     "CODE": "SID"
   },
   {
-    "NOCCode": "32200",
+    "NOCCode": "32209",
     "OCCUPATION": "Herbalists",
-    "Career": "Traditional Chinese medicine practitioners and acupuncturists",
+    "Career": "Other practitioners of natural healing",
     "CODE": "SID"
   },
   {
-    "NOCCode": "32200",
+    "NOCCode": "32209",
     "OCCUPATION": "Homeopaths",
-    "Career": "Traditional Chinese medicine practitioners and acupuncturists",
+    "Career": "Other practitioners of natural healing",
     "CODE": "SID"
   },
   {
-    "NOCCode": "31302",
+    "NOCCode": "31303",
     "OCCUPATION": "Midwives",
-    "Career": "Nurse practitioners",
+    "Career": "Physician assistants, midwives and allied health professionals",
     "CODE": "SID"
   },
   {
@@ -3582,9 +3582,9 @@
     "CODE": "MIO"
   },
   {
-    "NOCCode": "33109",
+    "NOCCode": "33103",
     "OCCUPATION": "Pharmacy Assistants",
-    "Career": "Other assisting occupations in support of health services",
+    "Career": "Pharmacy technical assistants and pharmacy assistants",
     "CODE": "MIO"
   },
   {
@@ -3600,9 +3600,9 @@
     "CODE": "MIo"
   },
   {
-    "NOCCode": "13110",
+    "NOCCode": "14100",
     "OCCUPATION": "Administrative Clerks",
-    "Career": "Administrative assistants",
+    "Career": "General office support workers",
     "CODE": "MIo"
   },
   {
@@ -3630,9 +3630,9 @@
     "CODE": "Mio"
   },
   {
-    "NOCCode": "64401",
+    "NOCCode": "74100",
     "OCCUPATION": "Mail Sorters",
-    "Career": "Postal services representatives",
+    "Career": "Mail and parcel sorters and related occupations",
     "CODE": "Mio"
   },
   {
@@ -3690,9 +3690,9 @@
     "CODE": "MOI"
   },
   {
-    "NOCCode": "33101",
+    "NOCCode": "31303",
     "OCCUPATION": "Pathologists' Assistants",
-    "Career": "Medical laboratory assistants and related technical occupations",
+    "Career": "Physician assistants, midwives and allied health professionals",
     "CODE": "MOI"
   },
   {
@@ -3768,9 +3768,9 @@
     "CODE": "MOi"
   },
   {
-    "NOCCode": "22231",
+    "NOCCode": "74201",
     "OCCUPATION": "Engine Room Crew, Water Transport",
-    "Career": "Engineering inspectors and regulatory officers",
+    "Career": "Water transport deck and engine room crew",
     "CODE": "MOi"
   },
   {
@@ -4134,9 +4134,9 @@
     "CODE": "IMO"
   },
   {
-    "NOCCode": "31201",
+    "NOCCode": "31209",
     "OCCUPATION": "Chiropodists and Podiatrists",
-    "Career": "Chiropractors",
+    "Career": "Other professional occupations in health diagnosing and treating",
     "CODE": "IMO"
   },
   {
@@ -4170,9 +4170,9 @@
     "CODE": "IMO"
   },
   {
-    "NOCCode": "51111",
+    "NOCCode": "51112",
     "OCCUPATION": "Technical Writers",
-    "Career": "Authors and writers (except technical)",
+    "Career": "Technical writers",
     "CODE": "IMo"
   },
   {
@@ -4321,7 +4321,7 @@
   },
   {
     "NOCCode": "94151",
-    "OCCUPATION": "Film Strippers\/Assemblers",
+    "OCCUPATION": "Film Strippers/Assemblers",
     "Career": "Camera, platemaking and other prepress occupations",
     "CODE": "OMI"
   },
@@ -4375,7 +4375,7 @@
   },
   {
     "NOCCode": "72421",
-    "OCCUPATION": "Major Appliance Repairers\/Technicians",
+    "OCCUPATION": "Major Appliance Repairers/Technicians",
     "Career": "Appliance servicers and repairers",
     "CODE": "OMI"
   },
@@ -4435,8 +4435,8 @@
   },
   {
     "NOCCode": "72403",
-    "OCCUPATION": "Railway Carmen\/women",
-    "Career": "Railway carmen \/ women",
+    "OCCUPATION": "Railway Carmen/women",
+    "Career": "Railway carmen/women",
     "CODE": "OMI"
   },
   {
@@ -4561,8 +4561,8 @@
   },
   {
     "NOCCode": "73311",
-    "OCCUPATION": "Brakemen\/women",
-    "Career": "Railway conductors and brakemen \/ women",
+    "OCCUPATION": "Brakemen/women",
+    "Career": "Railway conductors and brakemen/women",
     "CODE": "OMi"
   },
   {
@@ -4674,9 +4674,9 @@
     "CODE": "OMi"
   },
   {
-    "NOCCode": "32112",
+    "NOCCode": "33100",
     "OCCUPATION": "Dental Laboratory Bench Workers",
-    "Career": "Dental technologists and technicians",
+    "Career": "Dental assistants and dental laboratory assistants",
     "CODE": "OMi"
   },
   {
@@ -4800,9 +4800,9 @@
     "CODE": "OMi"
   },
   {
-    "NOCCode": "53111",
+    "NOCCode": "52119",
     "OCCUPATION": "Grips and Riggers",
-    "Career": "Motion pictures, broadcasting, photography and performing arts assistants and operators",
+    "Career": "Other technical and coordinating occupations in motion pictures, broadcasting and the performing arts",
     "CODE": "OMi"
   },
   {
@@ -4962,14 +4962,14 @@
     "CODE": "OMi"
   },
   {
-    "NOCCode": "84101",
+    "NOCCode": "83101",
     "OCCUPATION": "Oil and Gas Well Services Operators",
-    "Career": "Oil and gas well drilling and related workers and services operators",
+    "Career": "Oil and gas well drillers, servicers, testers and related workers",
     "CODE": "OMi"
   },
   {
     "NOCCode": "33109",
-    "OCCUPATION": "Optical\/Ophthalmic Laboratory Technicians and Assistants",
+    "OCCUPATION": "Optical/Ophthalmic Laboratory Technicians and Assistants",
     "Career": "Other assisting occupations in support of health services",
     "CODE": "OMi"
   },
@@ -5088,15 +5088,15 @@
     "CODE": "OMi"
   },
   {
-    "NOCCode": "74200",
+    "NOCCode": "75211",
     "OCCUPATION": "Railway Track Maintenance Workers",
-    "Career": "Railway yard and track maintenance workers",
+    "Career": "Railway and motor transport labourers",
     "CODE": "OMi"
   },
   {
-    "NOCCode": "74200",
+    "NOCCode": "75211",
     "OCCUPATION": "Railway Yard Workers",
-    "Career": "Railway yard and track maintenance workers",
+    "Career": "Railway and motor transport labourers",
     "CODE": "OMi"
   },
   {
@@ -5280,9 +5280,9 @@
     "CODE": "OIM"
   },
   {
-    "NOCCode": "32124",
+    "NOCCode": "32129",
     "OCCUPATION": "Dietary Technicians",
-    "Career": "Pharmacy technicians",
+    "Career": "Other medical technologists and technicians",
     "CODE": "OIM"
   },
   {
@@ -5358,9 +5358,9 @@
     "CODE": "OIM"
   },
   {
-    "NOCCode": "94101",
+    "NOCCode": "72101",
     "OCCUPATION": "Metal Mould Makers",
-    "Career": "Foundry workers",
+    "Career": "Tool and die makers",
     "CODE": "OIM"
   },
   {
@@ -5478,9 +5478,9 @@
     "CODE": "DIM"
   },
   {
-    "NOCCode": "80010",
+    "NOCCode": "90011",
     "OCCUPATION": "Natural Gas Supply Managers",
-    "Career": "Managers in natural resources production and fishing",
+    "Career": "Utilities managers",
     "CODE": "DIM"
   },
   {
