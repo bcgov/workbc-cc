@@ -10,7 +10,7 @@ resource "aws_db_subnet_group" "data_subnet" {
 resource "aws_rds_cluster" "postgres" {
   cluster_identifier      = "ceu-postgres-cluster"
   engine                  = "aurora-postgresql"
-  engine_version          = "13.8"
+  engine_version          = "13.12"
   master_username         = local.db_creds.adm_username
   master_password         = local.db_creds.adm_password
   backup_retention_period = 5
