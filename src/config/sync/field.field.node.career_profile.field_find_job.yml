@@ -11,7 +11,7 @@ id: node.career_profile.field_find_job
 field_name: field_find_job
 entity_type: node
 bundle: career_profile
-label: 'Find Job'
+label: 'Find Job (OBSOLETE)'
 description: ''
 required: false
 translatable: false

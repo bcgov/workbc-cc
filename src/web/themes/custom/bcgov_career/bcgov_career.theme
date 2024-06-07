@@ -45,6 +45,7 @@ function bcgov_career_preprocess_node(&$variables) {
     $variables['quiz_color'] = _quiz_color_type($quiz_type);
     $variables['test_career'] = 'test';
     $variables['attributes']['class'][] = $variables['quiz_color'];
+    $variables['workbc_url'] = getenv("WORKBC_URL");
   }
 }
 
@@ -154,6 +155,7 @@ function bcgov_career_preprocess_views_view_table(&$variables) {
     $quiz_type = $node->bundle();
     $variables['quiz_type'] = $quiz_type;
   }
+  $variables['workbc_url'] = getenv("WORKBC_URL");
 }
 
 /**
@@ -190,7 +192,7 @@ function bcgov_career_preprocess_table(&$variables) {
       "@link" => $url->toString(),
     ]);
     $variables['compare_url'] = $body_value;
-
+    $variables['workbc_url'] = getenv("WORKBC_URL");
   }
 }
 
