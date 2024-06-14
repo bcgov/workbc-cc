@@ -1,0 +1,46 @@
+<?php
+use Drupal\Core\Database\Database;
+
+/**
+ * Implements hook_schema().
+ */
+function workbc_cdq_career_match_schema(){
+    $schema['workbc_cdq_career_match'] = array(
+        'description' => 'The table for storing the webform quiz submission career match information',
+        'fields' => array(
+            'id' => array(
+                'description' => 'Primary identifier for webform submission',
+                'type' => 'serial',
+                'not null' => TRUE,
+                'unsigned' => TRUE,
+            ),
+            'sid' => array(
+                'description' => 'Primary identifier for webform submission',
+                'type' => 'int',
+                'not null' => TRUE,
+                'unsigned' => TRUE,
+            ),
+            'nid' => array(
+                'description' => 'Primary identifier for Career Profile content type',
+                'type' => 'int',
+                'not null' => TRUE,
+                'unsigned' => TRUE,
+            ),            
+            'career_match' => array(
+                'description' => '% career match for Career Profile',
+                'type' => 'numeric', 
+                'precision' => 5, 
+                'scale' => 2, 
+                'not null' => FALSE, 
+                'unsigned' => TRUE,                 
+            ),
+        ),
+        'primary key' => array('id'),
+        'indexes' => [
+            'sid' => ['sid'],
+            'nid' => ['nid'],
+            'career_match' => ['career_match'],
+          ],        
+    );
+    return $schema;
+}

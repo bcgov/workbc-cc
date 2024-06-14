@@ -1,0 +1,23 @@
+workbc_cdq_custom.abilities_quiz_results:
+  path: '/quizzes/abilities-quiz/results'
+  defaults:
+    _controller: '\Drupal\workbc_cdq_custom\Controller\QuizResultsController::abilities_quiz_results'
+    _title: 'Abilities Quiz Results'
+  requirements:
+    _permission: 'access content'
+
+workbc_cdq_custom.interests_quiz_results:
+  path: '/quizzes/interests-quiz/results'
+  defaults:
+    _controller: '\Drupal\workbc_cdq_custom\Controller\QuizResultsController::interests_quiz_results'
+    _title: 'Interests Quiz Results'
+  requirements:
+    _permission: 'access content'
+
+workbc_cdq_custom.work_preferences_quiz_results:
+  path: '/quizzes/work-preferences-quiz/results'
+  defaults:
+    _controller: '\Drupal\workbc_cdq_custom\Controller\QuizResultsController::work_preferences_quiz_results'
+    _title: 'Work Preferences Quiz Results'
+  requirements:
+    _permission: 'access content'

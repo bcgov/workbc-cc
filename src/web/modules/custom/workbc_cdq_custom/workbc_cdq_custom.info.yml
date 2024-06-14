@@ -1,0 +1,8 @@
+name: WorkBC CDQ Custom
+type: module
+description: Provides custom functionality for WorkBC Career Discovery Quizzes website.
+package: WorkBC
+dependencies:
+  - webform
+  - block
+core_version_requirement: ^10

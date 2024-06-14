@@ -1,0 +1,11 @@
+<?php
+
+function workbc_cdq_career_match_preprocess_views_view_field(&$variables) {
+
+  if ($variables['view']->id() === "quiz_career_match" && $variables['field']->realField === "career_match") {
+    $value = $variables['field']->getValue($variables['row']);
+    $output = $variables['field']->advancedRender($variables['row']);
+    $output = str_replace($value, round($value, 0), $output);
+    $variables['output'] = $output;
+  }
+}

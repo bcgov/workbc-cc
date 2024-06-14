@@ -1,0 +1,36 @@
+<?php
+
+use Drupal\webform\Entity\Webform;
+use Drupal\webform\Entity\WebformSubmission;
+
+function quizzesList() {
+
+  return [
+    'abilities_quiz' => 'Abilities Quiz',
+    'work_preferences_quiz' => 'Work Preferences Quiz', 
+    'interests_quiz' => 'Interests Quiz',
+  ];
+}
+
+
+function getUserSubmission($webform_id) {
+
+  $current_user = \Drupal::currentUser(); 
+
+  // ksm($current_user);
+
+  $query = \Drupal::entityQuery('webform_submission')
+  ->condition('uid', $current_user->id())
+  ->condition('webform_id', $webform_id)
+  ->range(0, 1)
+  ->accessCheck(false);
+
+  $results = $query->execute();
+  if ($results) {
+    $sid = array_shift($results);
+    $webform_submission = WebformSubmission::load($sid);
+  }
+
+  return isset($webform_submission) ? $webform_submission : false;
+}
+
