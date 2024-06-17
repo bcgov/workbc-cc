@@ -1,0 +1,14 @@
+{
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/infojunkie/PhpSpreadsheet.git"
+        }
+    ],
+    "require": {
+        "phpoffice/phpspreadsheet": "dev-master"
+    },
+    "require-dev": {
+        "ext-sqlite3": "*"
+    }
+}
