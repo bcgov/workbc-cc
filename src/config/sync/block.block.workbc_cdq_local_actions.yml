@@ -1,0 +1,20 @@
+uuid: b6c92dab-16ee-40a7-8864-3dd1c0beb0e3
+langcode: en
+status: true
+dependencies:
+  theme:
+    - workbc_cdq
+_core:
+  default_config_hash: vMDhmrR4lANeqgnUdb7dMM2N6Vi8DrKtte_gdUIjibA
+id: workbc_cdq_local_actions
+theme: workbc_cdq
+region: content
+weight: -2
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

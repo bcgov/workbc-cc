@@ -1,0 +1,19 @@
+uuid: 2ce2d26e-cc55-4969-bdce-354608688e79
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_noc
+    - node.type.career_profile
+id: node.career_profile.field_noc
+field_name: field_noc
+entity_type: node
+bundle: career_profile
+label: NOC
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,27 @@
+uuid: d5d01d68-3c6c-487b-ace8-eefdde4654bb
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - workbc_cdq
+_core:
+  default_config_hash: Wj0S6zFHH0hbeNlWrqWXlPnDuP9OqJatRdS1do5_PY4
+id: workbc_cdq_main_navigation
+theme: workbc_cdq
+region: nav_main
+weight: 0
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: true
+visibility: {  }

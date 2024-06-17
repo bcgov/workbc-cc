@@ -1,0 +1,38 @@
+uuid: 52749967-3b0a-4804-8482-a9e2e20f697e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.career_profile_career_profile_comparison
+    - field.field.node.career_profile.body
+    - field.field.node.career_profile.field_annual_salary
+    - field.field.node.career_profile.field_education_level
+    - field.field.node.career_profile.field_job_openings
+    - field.field.node.career_profile.field_noc
+    - node.type.career_profile
+  module:
+    - user
+id: node.career_profile.career_profile_career_profile_comparison
+targetEntityType: node
+bundle: career_profile
+mode: career_profile_career_profile_comparison
+content:
+  link_for_entity_comparison_career_profile_comparison:
+    type: entity_comparison_link
+    label: above
+    settings:
+      enitity_comparison: ''
+    third_party_settings: {  }
+    weight: 100
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  body: true
+  field_annual_salary: true
+  field_education_level: true
+  field_job_openings: true
+  field_noc: true

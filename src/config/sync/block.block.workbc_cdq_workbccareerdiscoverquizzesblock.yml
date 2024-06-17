@@ -1,0 +1,25 @@
+uuid: b0c2cffc-091a-460a-bc2f-fca8d1000354
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+    - workbc_cdq_custom
+  theme:
+    - workbc_cdq
+id: workbc_cdq_workbccareerdiscoverquizzesblock
+theme: workbc_cdq
+region: content
+weight: 0
+provider: null
+plugin: workbc_quizzes_block
+settings:
+  id: workbc_quizzes_block
+  label: 'WorkBC Career Discover Quizzes block'
+  label_display: '0'
+  provider: workbc_cdq_custom
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

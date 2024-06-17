@@ -1,0 +1,14 @@
+uuid: de638772-7dad-4180-9e3e-04c1ac99b599
+langcode: en
+status: true
+dependencies: {  }
+id: rating
+label: Rating
+category: General
+likert: false
+options: |-
+  5: 'Strongly Agree'
+  4: Agree
+  3: Neutral
+  2: Disagree
+  1: 'Strongly Disagree'

@@ -1,0 +1,25 @@
+uuid: aa07e7f5-f007-48f6-a35a-ddbd549d49a8
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - workbc_cdq
+_core:
+  default_config_hash: Y1IY0OZBRbrsT-6TE2-q0-FT1SzY3Jm5G4P6IFDuMOw
+id: workbc_cdq_branding
+theme: workbc_cdq
+region: nav_branding
+weight: -6
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: false
+visibility: {  }

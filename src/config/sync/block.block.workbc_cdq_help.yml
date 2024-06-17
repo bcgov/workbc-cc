@@ -1,0 +1,22 @@
+uuid: 0d015cbc-8810-4e05-b19a-87b25608359f
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - workbc_cdq
+_core:
+  default_config_hash: gw5uXRPodJzS0xU5SIUWszcrF47V-IQG3UN6BL9pwOM
+id: workbc_cdq_help
+theme: workbc_cdq
+region: content
+weight: -3
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

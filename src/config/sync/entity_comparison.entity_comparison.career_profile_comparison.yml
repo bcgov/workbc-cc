@@ -1,0 +1,14 @@
+uuid: 5e6ec789-b0c3-40e3-86f7-32cc0357b88f
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_display.node.career_profile.career_profile_career_profile_comparison
+    - core.entity_view_mode.node.career_profile_career_profile_comparison
+id: career_profile_comparison
+label: 'Career Profile Comparison'
+add_link_text: 'Add to comparison list'
+remove_link_text: 'Remove from the comparison'
+limit: 3
+entity_type: node
+bundle_type: career_profile

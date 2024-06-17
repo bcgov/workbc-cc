@@ -1,0 +1,20 @@
+uuid: b7be2992-cab6-4ce4-9f55-e8fc7ccf9988
+langcode: en
+status: true
+dependencies:
+  theme:
+    - workbc_cdq
+_core:
+  default_config_hash: 6xZeICHxttFH3z1x32AMH7_nFKeylgtmVXe8mnb57to
+id: workbc_cdq_page_title
+theme: workbc_cdq
+region: content
+weight: -6
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility: {  }

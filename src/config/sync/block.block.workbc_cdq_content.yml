@@ -1,0 +1,22 @@
+uuid: 72267d48-8052-425e-a14c-ebe61cdfaa1e
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - workbc_cdq
+_core:
+  default_config_hash: 7srDbmKPBqb8mD5Hsc0Y3IJK9AhvPc3RbOmNJoPeui8
+id: workbc_cdq_content
+theme: workbc_cdq
+region: content
+weight: -1
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

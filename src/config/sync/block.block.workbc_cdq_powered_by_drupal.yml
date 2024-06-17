@@ -1,0 +1,22 @@
+uuid: 9b437ebe-379f-4b0d-9847-5ecb0e61d2ed
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - workbc_cdq
+_core:
+  default_config_hash: RvUB5zSmGMCE-qQS8UQDppSnxf3mhSPrr6giBgjf8Dc
+id: workbc_cdq_powered_by_drupal
+theme: workbc_cdq
+region: footer
+weight: 0
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }

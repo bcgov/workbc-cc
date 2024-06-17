@@ -1,0 +1,41 @@
+uuid: 6dc2bcde-1f48-4a8a-82e3-51ce84363133
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.education_level.field_teer
+    - taxonomy.vocabulary.education_level
+  module:
+    - text
+id: taxonomy_term.education_level.default
+targetEntityType: taxonomy_term
+bundle: education_level
+mode: default
+content:
+  description:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_teer:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  path: true
+  status: true

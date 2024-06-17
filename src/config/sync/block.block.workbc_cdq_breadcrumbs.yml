@@ -1,0 +1,22 @@
+uuid: 624fc1ba-e8ef-4387-a85f-831b47b389af
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - workbc_cdq
+_core:
+  default_config_hash: G8DA4vfK9phE-qD82iwoVM2-MlG0kMrsK7zZxbn095g
+id: workbc_cdq_breadcrumbs
+theme: workbc_cdq
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

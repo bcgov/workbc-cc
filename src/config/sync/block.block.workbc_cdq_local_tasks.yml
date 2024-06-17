@@ -1,0 +1,22 @@
+uuid: 343fa19f-fa7f-41ae-8928-cab2a5ebdb27
+langcode: en
+status: true
+dependencies:
+  theme:
+    - workbc_cdq
+_core:
+  default_config_hash: sbrc9Y4r9ClwmfvUePtfnwsJgtfqqXaUS9yBZoQzZo0
+id: workbc_cdq_local_tasks
+theme: workbc_cdq
+region: content
+weight: -4
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: true
+visibility: {  }

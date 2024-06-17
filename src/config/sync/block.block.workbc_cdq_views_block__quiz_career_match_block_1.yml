@@ -1,0 +1,30 @@
+uuid: 0037fd20-35ad-4f33-b7c3-07c7f6ef2a39
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.quiz_career_match
+  module:
+    - system
+    - views
+  theme:
+    - workbc_cdq
+id: workbc_cdq_views_block__quiz_career_match_block_1
+theme: workbc_cdq
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:quiz_career_match-block_1'
+settings:
+  id: 'views_block:quiz_career_match-block_1'
+  label: ''
+  label_display: '0'
+  provider: views
+  context_mapping: {  }
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '/quizzes/*/results'
