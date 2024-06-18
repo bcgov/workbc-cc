@@ -7,8 +7,5 @@
     ],
     "require": {
         "phpoffice/phpspreadsheet": "dev-master"
-    },
-    "require-dev": {
-        "ext-sqlite3": "*"
     }
 }
