@@ -1,0 +1,18 @@
+uuid: 304b2c7f-0f20-4199-b553-264d7d99e421
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.restricted_html
+  module:
+    - filter
+    - search
+    - system
+id: anonymous
+label: 'Anonymous user'
+weight: -10
+is_admin: null
+permissions:
+  - 'access content'
+  - 'search content'
+  - 'use text format restricted_html'

@@ -398,7 +398,7 @@ display:
           admin_label: ''
           entity_type: node
           plugin_id: entity_comparison_link
-          label: 'Add to comparison list'
+          label: 'Compare Careers'
           exclude: false
           alter:
             alter_text: false

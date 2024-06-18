@@ -1,0 +1,24 @@
+uuid: 0bc0fdaa-e20b-486f-b688-797ee0ec6fd4
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.basic_html
+    - filter.format.webform_default
+  module:
+    - file
+    - filter
+    - search
+    - shortcut
+    - system
+id: authenticated
+label: 'Authenticated user'
+weight: -9
+is_admin: null
+permissions:
+  - 'access content'
+  - 'access shortcuts'
+  - 'delete own files'
+  - 'search content'
+  - 'use text format basic_html'
+  - 'use text format webform_default'
