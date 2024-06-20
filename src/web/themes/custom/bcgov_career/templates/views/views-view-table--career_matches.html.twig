@@ -238,7 +238,7 @@
                   {% for field in column.fields %}
                     {% set field_nm = field_nm ~ field %}
                   {% endfor %}
-                  {% if field_nm == 'field-median-salary'%}
+                  {% if 'field-median-salary' in field_nm %}
                     <p class="data-item"><span class="f-d">Annual Salary</span><span class="s-d">
                       {%- if column.wrapper_element -%}
                         <{{ column.wrapper_element }}>
@@ -261,7 +261,7 @@
                       {%- endif %}
                     </span></p>
                   {% endif %}
-                  {% if field_nm == 'field-education-level'%}
+                  {% if 'field-education-level' in field_nm %}
                     <p class="data-item"><span class="f-d">Training, Education, Experience and Responsibilities</span><span class="s-d">
                       {%- if column.wrapper_element -%}
                         <{{ column.wrapper_element }}>
