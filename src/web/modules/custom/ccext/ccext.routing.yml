@@ -1,0 +1,44 @@
+ccext.career:
+  path: '/career-compare/{_entity_comparison_id}/{node_id}'
+  defaults:
+    _controller: '\Drupal\ccext\Controller\CcextComparisonController::compare'
+    _title_callback: '\Drupal\ccext\Controller\CcextComparisonController::title'
+  requirements:
+    _permission: 'access content'
+
+ccext.form:
+  path: '/admin/config/development/csv-importer'
+  defaults:
+    _form: '\Drupal\ccext\Form\NocCareerImporterForm'
+    _title: 'NOC & Career Profile Import CSV'
+  requirements:
+    _permission: 'access csv importer'
+
+ccext.compate_action_remove:
+  path: '/career-compare/remove/{node_id}'
+  defaults:
+    _controller: '\Drupal\ccext\Controller\CcextComparisonController::actionRemove'
+  requirements:
+    _permission: 'access content'
+
+ccext.sendemail:
+  path: '/result/send'
+  defaults:
+    _controller: '\Drupal\ccext\Controller\EmailController::senEmail'
+  requirements:
+    _permission: 'access content'
+
+ccext.action:
+  path: '/career-comparison/{entity_comparison_id}/{entity_id}'
+  defaults:
+    _controller: '\Drupal\ccext\Controller\CcextComparisonController::action'
+  requirements:
+    _permission: 'access content'
+
+ccext.report_environment:
+  path: '/admin/reports/environment'
+  defaults:
+    _controller: '\Drupal\ccext\Controller\ReportsController::environment'
+    _title: 'WorkBC environment'
+  requirements:
+    _permission: 'administer site configuration'

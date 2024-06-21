@@ -26,14 +26,14 @@ class QuizResultsController extends ControllerBase {
 
       $markup = "";
 
-      $total = 0;
-      foreach ($data as $key => $value) {
-        $markup .= "<p>" . $key . ": <b>" . $value . "</b></p>";
-        $total += $value;
-      }
+      // $total = 0;
+      // foreach ($data as $key => $value) {
+      //   $markup .= "<p>" . $key . ": <b>" . $value . "</b></p>";
+      //   $total += $value;
+      // }
 
-      $markup .= "<p></p>";
-      $markup .= "<p>Total Score: <b>" . $total . "</b></p>";
+      // $markup .= "<p></p>";
+      // $markup .= "<p>Total Score: <b>" . $total . "</b></p>";
     }
     else {
       $markup = "No results found";
@@ -57,14 +57,14 @@ class QuizResultsController extends ControllerBase {
 
       $markup = "";
 
-      $total = 0;
-      foreach ($data as $key => $value) {
-        $markup .= "<p>" . $key . ": <b>" . $value . "</b></p>";
-        $total += $value;
-      }
+      // $total = 0;
+      // foreach ($data as $key => $value) {
+      //   $markup .= "<p>" . $key . ": <b>" . $value . "</b></p>";
+      //   $total += $value;
+      // }
 
-      $markup .= "<p></p>";
-      $markup .= "<p>Total Score: <b>" . $total . "</b></p>";
+      // $markup .= "<p></p>";
+      // $markup .= "<p>Total Score: <b>" . $total . "</b></p>";
     }
     else {
       $markup = "No results found";
@@ -88,14 +88,14 @@ class QuizResultsController extends ControllerBase {
 
       $markup = "";
 
-      $total = 0;
-      foreach ($data as $key => $value) {
-        $markup .= "<p>" . $key . ": <b>" . $value . "</b></p>";
-        $total += $value;
-      }
+      // $total = 0;
+      // foreach ($data as $key => $value) {
+      //   $markup .= "<p>" . $key . ": <b>" . $value . "</b></p>";
+      //   $total += $value;
+      // }
 
-      $markup .= "<p></p>";
-      $markup .= "<p>Total Score: <b>" . $total . "</b></p>";
+      // $markup .= "<p></p>";
+      // $markup .= "<p>Total Score: <b>" . $total . "</b></p>";
     }
     else {
       $markup = "No results found";
