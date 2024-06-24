@@ -957,7 +957,7 @@ display:
               responsive: ''
             field_teer:
               sortable: true
-              default_sort_order: asc
+              default_sort_order: desc
               align: ''
               separator: ''
               empty_column: false
