@@ -12,12 +12,14 @@ dependencies:
     - field.storage.node.field_opening_from_to
     - field.storage.node.field_video_id
     - field.storage.node.field_workbc_link
+    - field.storage.taxonomy_term.field_teer
     - node.type.career_profile
   module:
     - entity_comparison
     - link
     - node
     - svg_image
+    - taxonomy
     - text
     - user
 id: career_matches
@@ -236,7 +238,7 @@ display:
           admin_label: ''
           plugin_id: field
           label: 'Training, Education, Experience and Responsibilities'
-          exclude: false
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -281,6 +283,69 @@ display:
           settings:
             link: false
           group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_teer:
+          id: field_teer
+          table: taxonomy_term__field_teer
+          field: field_teer
+          relationship: field_education_level
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: 'Training, Education, Experience and Responsibilities'
+          exclude: false
+          alter:
+            alter_text: true
+            text: '{{ field_education_level }} '
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: views-field-field-education-level
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -847,21 +912,29 @@ display:
           row_class: ''
           default_row_class: true
           columns:
+            field_noc_name: field_noc_name
             title: title
-            field_noc: field_noc
             field_median_salary: field_median_salary
             field_education_level: field_education_level
+            field_teer: field_teer
             entity_comparison_link_career: entity_comparison_link_career
+            field_image: field_image
+            field_job_openings: field_job_openings
+            field_job_summary: field_job_summary
+            field_opening_from_to: field_opening_from_to
+            field_workbc_link: field_workbc_link
+            nid: nid
+            field_video_id: field_video_id
           default: '-1'
           info:
-            title:
+            field_noc_name:
               sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            field_noc:
+            title:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -882,7 +955,61 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
+            field_teer:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
             entity_comparison_link_career:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_image:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_job_openings:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_job_summary:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_opening_from_to:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_workbc_link:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            nid:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_video_id:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -910,7 +1037,16 @@ display:
           distinct: false
           replica: false
           query_tags: {  }
-      relationships: {  }
+      relationships:
+        field_education_level:
+          id: field_education_level
+          table: node__field_education_level
+          field: field_education_level
+          relationship: none
+          group_type: group
+          admin_label: 'field_education_level: Taxonomy term'
+          plugin_id: standard
+          required: false
       use_ajax: false
       header: {  }
       footer: {  }
@@ -933,6 +1069,7 @@ display:
         - 'config:field.storage.node.field_opening_from_to'
         - 'config:field.storage.node.field_video_id'
         - 'config:field.storage.node.field_workbc_link'
+        - 'config:field.storage.taxonomy_term.field_teer'
   block_1:
     id: block_1
     display_title: 'Career list Block'
@@ -959,3 +1096,4 @@ display:
         - 'config:field.storage.node.field_opening_from_to'
         - 'config:field.storage.node.field_video_id'
         - 'config:field.storage.node.field_workbc_link'
+        - 'config:field.storage.taxonomy_term.field_teer'
