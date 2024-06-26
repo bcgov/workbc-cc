@@ -93,3 +93,4 @@ src/web/sites/default/settings.azure-migrate.php
 #####################
 !src/scripts/**/*.sql*
 .idea/
+.vscode/

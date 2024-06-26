@@ -28,3 +28,28 @@ Career Discovery Quizzes, a subsite of [WorkBC.ca](https://www.workbc.ca).
 # Architecture
 The solution architecture is as below.
 ![Architecture](https://user-images.githubusercontent.com/79226696/177882962-f257ef30-6751-4873-a6b3-e0cfffbd0df8.png)
+
+# Debugging and troubleshooting
+
+## Xdebug on VS Code
+- The Docker Compose file is ready for Xdebug on Windows/Mac/Linux
+- Add a `.vscode/launch.json` file with the following:
+```json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Listen for Xdebug on workbc-cc",
+      "type": "php",
+      "request": "launch",
+      "port": 9003,
+      "pathMappings": {
+        "/var/www/html/": "/path/to/your/workbc-cc/src"
+      }
+    }
+  ]
+}
+```
+- Click Run > Start Debugging on VS Code
+- Set some breakpoints in your Drupal code
+- Navigate to the app in your browser to trigger the breakpoints
