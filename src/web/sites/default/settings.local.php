@@ -1,7 +1,7 @@
 <?php
 
 $databases['default']['default'] = array (
-  'database' => 'workbc-cc',
+  'database' => 'workbc-cc-refactor',
   'username' => 'drupal',
   'password' => 'drupal',
   'prefix' => '',
