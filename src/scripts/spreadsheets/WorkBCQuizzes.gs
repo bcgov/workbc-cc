@@ -29,5 +29,5 @@ function MatchOnetCareers(answers) {
     }
   };
   const answers_onet = answers.split('').map((char) => { return parseInt(char)+1; }).join('');
-  return ImportJSONAdvanced("https://services.onetcenter.org/ws/mnm/interestprofiler/careers?answers=" + answers_onet, fetchOptions, "/career/title,/career/code", "noHeaders", includeXPath_, defaultTransform_);
+  return ImportJSONAdvanced("https://services.onetcenter.org/ws/mnm/interestprofiler/careers?end=1000&answers=" + answers_onet, fetchOptions, "/career/title,/career/code,/career/fit", "noHeaders", includeXPath_, defaultTransform_);
 }
