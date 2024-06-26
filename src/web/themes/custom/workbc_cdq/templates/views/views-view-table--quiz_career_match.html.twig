@@ -42,10 +42,6 @@
   ]
 %}
 
-{#
-{{ devel_dump(rows) }}
-#}
-
 {% set currentPath = url("<current>")|render|render %}
 <div class="careers-main-wrapper small-device-hide">
   <div class="row">
@@ -168,6 +164,7 @@
       <div class="career-content-main-wrapper career-content-table-item">
         <h3 class='print-career-preview-label d-none d-print-block'>Career Preview</h3>
         {% for rowkey, row in rows %}
+        {{ devel_dump(row.raw) }}
           <div id="career-item-{{ rowkey }}" class="career-content-item {% if rowkey == '0' %}active{% endif %}" data-url="">
             <div class="career-content-item-inner">
 
@@ -178,7 +175,7 @@
               <div class="career-inner-content">
                 <div class="image-video">
                   {% if row.raw.video_id != false %}
-                    {% set video_link = 'https://www.youtube.com/embed/' ~ row.raw.field_video_id %}
+                    {% set video_link = 'https://www.youtube.com/embed/' ~ row.raw.video_id %}
                     <iframe width="420" height="345" data-src="{{ video_link }}"src="{% if rowkey == '0' %}{{video_link}}{% endif %}"></iframe>
                   {% elseif  row.raw.video_id == false %}
                     <img src="{{ row.raw.image }}" alt=""/>
@@ -234,7 +231,7 @@
             <div class="description">
               <p><span class="bulb d-table-cell"></span><span class="dec-text d-table-cell">Select a career below to find out more information.</span></p>
               <p><span class="bulb d-table-cell"></span><span class="dec-text d-table-cell">
-                <strong>Compare up to three careers</strong> by selecting the checkboxes and clicking on the Compare Careers button.</span>
+                <strong>Compare up to three careers</strong>xx by selecting the checkboxes and clicking on the Compare Careers button.</span>
               </p>
             </div>
             <div class="top-btn">
@@ -270,7 +267,7 @@
             {% endif %}
             <div class="tbody-main" data-id="career-item-{{ rowkey }}">
               {% if row.raw.match is not empty %}
-                <p class="body">{{ row.raw.match }}</p>
+                <p class="body">{{ row.raw.match }}xx</p>
               {% endif %}
               {% if row.raw.field_noc_name is not empty %}
                 <p class="body"><a href="{{ nodeURL }}/?type={{ quiz_type }}" class="career-table-mobi-row-link">{{ row.raw.field_noc_name }} </br><span class="noc">(NOC {{ row.raw.title }})</span></a></p>
@@ -280,6 +277,7 @@
                 {% for field in column.fields %}
                   {% set field_nm = field_nm ~ field %}
                 {% endfor %}
+                {{ devel_dump(field_nm) }}
                 {% if field_nm == 'entity-comparison-link-career'%}
                   <p class="body">
                     {%- if column.wrapper_element -%}

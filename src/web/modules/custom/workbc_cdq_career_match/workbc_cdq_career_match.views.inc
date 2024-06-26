@@ -101,5 +101,22 @@ function workbc_cdq_career_match_views_data() {
     ],  
   ];
 
+  $data['workbc_cdq_career_match']['selected']= [
+    'real field' => 'selected',
+    'title' => t('Selected'),
+    'field' => [
+      'id' => 'boolean',
+    ],
+    'sort' => [
+      'id' => 'standard',
+    ],
+    'filter' => [
+      'id' => 'boolean',
+    ],
+    'argument' => [
+      'id' => 'numeric',
+    ],  
+  ];
+
   return $data;
 }

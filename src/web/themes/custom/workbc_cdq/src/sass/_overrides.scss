@@ -1,0 +1,1630 @@
+// Career-compare multi-color
+#comparison-table, .page-node-type-career-profile{
+    &.quiz-color-dark-blue{
+        .compare-career-main-wrapper{
+            .career-content-compare{
+                border-bottom: 4px solid $quiz-dark-blue;
+                .career-content-item{
+                    .career-content-item-inner{
+                        .title{
+                            background: $quiz-dark-blue;
+                        }
+                        .bottom-btn{
+                            a.btn{
+                                border: 2px solid $quiz-dark-blue;
+                                background: $quiz-dark-blue;
+                                &:hover{
+                                    background: $quiz-dark-blue-dark;
+                                    border-color: $quiz-dark-blue-dark;
+                                }
+                                &.btn-find-job{
+                                    border: 2px solid $quiz-dark-blue;
+                                    color: $quiz-dark-blue;
+                                    background: transparent;
+                                    &:hover{
+                                        background: #e6eae9;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .email-popup-wrapper{
+            .form-input button{
+                background-color: $quiz-dark-blue;
+                &:hover{
+                    background-color: $quiz-dark-blue-dark;
+                }
+            }
+        }
+    }
+    &.quiz-color-purple{
+        .compare-career-main-wrapper{
+            .career-content-compare{
+                border-bottom: 4px solid $quiz-purple;
+                .career-content-item{
+                    .career-content-item-inner{
+                        .title{
+                            background: $quiz-purple;
+                        }
+                        .bottom-btn{
+                            a.btn{
+                                border: 2px solid $quiz-purple;
+                                background: $quiz-purple;
+                                &:hover{
+                                    background: $quiz-purple-dark;
+                                    border-color: $quiz-purple-dark;
+                                }
+                                &.btn-find-job{
+                                    border: 2px solid $quiz-purple;
+                                    color: $quiz-purple;
+                                    background: transparent;
+                                    &:hover{
+                                        background: #e6eae9;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .email-popup-wrapper{
+            .form-input button{
+                background: $quiz-purple;
+                &:hover{
+                    background: $quiz-purple-dark;
+                }
+            }
+        }
+    }
+    &.quiz-color-blue{
+        .compare-career-main-wrapper{
+            .career-content-compare{
+                border-bottom: 4px solid $quiz-blue;
+                .career-content-item{
+                    .career-content-item-inner{
+                        .title{
+                            background: $quiz-blue;
+                        }
+                        .bottom-btn{
+                            a.btn{
+                                border: 2px solid $quiz-blue;
+                                background: $quiz-blue;
+                                &:hover{
+                                    background: $quiz-blue-dark;
+                                    border-color: $quiz-blue-dark;
+                                }
+                                &.btn-find-job{
+                                    border: 2px solid $quiz-blue;
+                                    color: $quiz-blue;
+                                    background: transparent;
+                                    &:hover{
+                                        background: #e6eae9;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .email-popup-wrapper{
+            .form-input button{
+                background: $quiz-blue;
+                &:hover{
+                    background: $quiz-blue-dark;
+                }
+            }
+        }
+    }
+    &.quiz-color-green{
+        .compare-career-main-wrapper{
+            .career-content-compare{
+                border-bottom: 4px solid $quiz-green;
+                .career-content-item{
+                    .career-content-item-inner{
+                        .title{
+                            background: $quiz-green;
+                        }
+                        .bottom-btn{
+                            a.btn{
+                                border: 2px solid $quiz-green;
+                                background: $quiz-green;
+                                &:hover{
+                                    background: $quiz-green-dark;
+                                    border-color: $quiz-green-dark;
+                                }
+                                &.btn-find-job{
+                                    border: 2px solid $quiz-green;
+                                    color: $quiz-green;
+                                    background: transparent;
+                                    &:hover{
+                                        background: #e6eae9;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .email-popup-wrapper{
+            .form-input button{
+                background: $quiz-green;
+                &:hover{
+                    background: $quiz-green-dark;
+                }
+            }
+        }
+    }
+    &.quiz-color-light-blue{
+        .compare-career-main-wrapper{
+            .career-content-compare{
+                border-bottom: 4px solid $quiz-light-blue;
+                .career-content-item{
+                    .career-content-item-inner{
+                        .title{
+                            background: $quiz-light-blue;
+                        }
+                        .bottom-btn{
+                            a.btn{
+                                border: 2px solid $quiz-light-blue;
+                                background: $quiz-light-blue;
+                                &:hover{
+                                    background: $quiz-light-blue-dark;
+                                    border-color: $quiz-light-blue-dark;
+                                }
+                                &.btn-find-job{
+                                    border: 2px solid $quiz-light-blue;
+                                    color: $quiz-light-blue;
+                                    background: transparent;
+                                    &:hover{
+                                        background: #e6eae9;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .email-popup-wrapper{
+            .form-input button{
+                background: $quiz-light-blue;
+                &:hover{
+                    background: $quiz-light-blue-dark;
+                }
+            }
+        }
+    }
+    &.quiz-color-pink{
+        .compare-career-main-wrapper{
+            .career-content-compare{
+                border-bottom: 4px solid $quiz-pink;
+                .career-content-item{
+                    .career-content-item-inner{
+                        .title{
+                            background: $quiz-pink;
+                        }
+                        .bottom-btn{
+                            a.btn{
+                                border: 2px solid $quiz-pink;
+                                background: $quiz-pink;
+                                &:hover{
+                                    background: $quiz-pink-dark;
+                                    border-color: $quiz-pink-dark;
+                                }
+                                &.btn-find-job{
+                                    border: 2px solid $quiz-pink;
+                                    color: $quiz-pink;
+                                    background: transparent;
+                                    &:hover{
+                                        background: #e6eae9;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .email-popup-wrapper{
+            .form-input button{
+                background: $quiz-pink;
+                &:hover{
+                    background: $quiz-pink-dark;
+                }
+            }
+        }
+    }
+}
+
+// page quiz multi color override
+.path-quiz{
+    &.quiz-color-dark-blue{
+        .careers-mobi-main-wrapper .careers-mobi-table-wrapper .tbody .tbody-main .compare-career-mobi input:checked ~ .checkmark {
+            border: 1px solid $quiz-dark-blue;
+
+            &:after {
+                border: solid $quiz-dark-blue;
+                border-width: 0 2px 2px 0;
+            }
+        }
+        .careers-mobi-main-wrapper .top-career-mobi-content .content .top-btn {
+            .clear-compare:not(.disable) {
+                color:$quiz-dark-blue;
+                border-color: $quiz-dark-blue;
+
+                &:hover {
+                    border-color: $quiz-dark-blue;
+                }
+            }
+
+            .compare-career{
+                &:hover{
+                    background: $quiz-dark-blue;
+                    border-color:$quiz-dark-blue;
+                }
+            }
+        }
+
+        .main-bg .overlay-bg{
+            background: $quiz-dark-blue;
+        }
+        .region-content{
+            .form-radios{
+                input:checked{
+                    & + label.option + span.radio{
+                        border: 2px solid $quiz-dark-blue;
+                        &::before{
+                            background: $quiz-dark-blue;
+                        }
+                    }
+                }
+            }
+        }
+        .form-actions{
+            input[name="op"]{
+                background: $quiz-dark-blue;
+                &:hover{
+                    background: $quiz-dark-blue-dark;
+                }
+            }
+            input[name="previous_action"]{
+                border: 2px solid $quiz-dark-blue;
+                color: $quiz-dark-blue;
+            }
+        }
+        .block-forms-steps{
+            ol{
+                li{
+                    &:first-child{
+                        border-left: 5px solid $quiz-dark-blue;
+                    }
+                    &.previous-step{
+                        background: $quiz-dark-blue;
+                        color: $quiz-dark-blue;
+                    }
+                }
+            }
+        }
+        .overlay-content{
+            .block-system-main-block{
+                border-top: 9px solid $quiz-dark-blue-dark;
+                &:not(.no-border-block){
+                    border-bottom: 5px solid $quiz-dark-blue;
+                }
+            }
+            #block-views-block-step-form-pagination-block-1{
+                border-bottom: 5px solid $quiz-dark-blue;
+            }
+        }
+        .block-forms-steps{
+            border-bottom: 5px solid $quiz-dark-blue;
+        }
+
+        #myResult{
+            .hideshow {
+                color: $quiz-dark-blue;
+
+                svg {
+                    fill: $quiz-dark-blue;
+                }
+            }
+        }
+
+        .career-content-main-wrapper{
+            .career-content-item{
+                .career-content-item-inner{
+                    .title{
+                        background: $quiz-dark-blue;
+                    }
+                    .bottom-btn{
+                        a.btn{
+                            background: $quiz-dark-blue;
+                            &:hover{
+                                background: $quiz-dark-blue-dark;
+                                border-color: $quiz-dark-blue-dark;
+                            }
+                            &.btn-find-job{
+                                border: 2px solid $quiz-dark-blue;
+                                color: $quiz-dark-blue;
+                                background: transparent;
+                                &:hover{
+                                    background: #e6eae9;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        #myResult{
+            .bottom-links .link{
+                &.link_1{
+                    a{
+                        border: 2px solid $quiz-dark-blue;
+                        color: $quiz-dark-blue;
+                        background: transparent;
+                        &:hover{
+                            background: #e6eae9;
+                        }
+                    }
+                }
+                &.link_2{
+                    a{
+                        background: $quiz-dark-blue;
+                        border: 2px solid $quiz-dark-blue !important;
+                        &:hover{
+                            background: $quiz-dark-blue-dark;
+                            border-color: $quiz-dark-blue-dark;
+                        }
+                    }
+                }
+            }
+        }
+
+        .careers-main-wrapper{
+            table{
+                tbody{
+                    .compare-career{
+                        input:checked{
+                            &~ .checkmark{
+                                border: 1px solid $quiz-dark-blue;
+                                &::after{
+                                    border: solid $quiz-dark-blue;
+                                    border-width: 0 3px 3px 0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .top-career-content{
+                .content{
+                    .top-btn{
+                        .clear-compare:not(.disable){
+                            border: 2px solid $quiz-dark-blue;
+                            color: $quiz-dark-blue;
+                            background: transparent;
+                            &:hover{
+                                background: #e6eae9;
+                            }
+                        }
+                        .compare-career{
+                            &:hover{
+                                background: $quiz-dark-blue;
+                                border-color: $quiz-dark-blue;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .preview-quiz-form{
+            #edit-m-cancel{
+                border: 2px solid $quiz-dark-blue;
+                color: $quiz-dark-blue;
+                background: transparent;
+                &:hover{
+                    background: #e6eae9;
+                }
+            }
+            .form-actions{
+                &.form-actions{
+                    > #edit-submit{
+                        color: $quiz-dark-blue;
+                    }
+                    > #edit-previous{
+                        color: #666666;
+                    }
+                }
+            }
+        }
+
+        ul.pagging{
+            li.pag{
+                a{
+                    color: $quiz-dark-blue;
+                    &.active {
+                      background: $quiz-dark-blue;
+                      color: #fff;
+                    }
+                    &:hover{
+                        background: #f2f2f2;
+                    }
+                }
+            }
+        }
+
+        .email-popup-wrapper{
+            .form-input button{
+                background: $quiz-dark-blue;
+                &:hover{
+                    background-color: $quiz-dark-blue-dark;
+                }
+            }
+        }
+    }
+
+    &.quiz-color-purple{
+        .careers-mobi-main-wrapper .careers-mobi-table-wrapper .tbody .tbody-main .compare-career-mobi input:checked ~ .checkmark {
+            border: 1px solid $quiz-purple;
+
+            &:after {
+                border: solid $quiz-purple;
+                border-width: 0 2px 2px 0;
+            }
+        }
+        .careers-mobi-main-wrapper .top-career-mobi-content .content .top-btn {
+            .clear-compare:not(.disable) {
+                color: $quiz-purple;
+                border-color:  $quiz-purple;
+
+                &:hover {
+                    border-color: $quiz-purple;
+                }
+            }
+            .compare-career{
+                &:hover{
+                    background: $quiz-purple;
+                    border-color:$quiz-purple;
+                }
+            }
+        }
+        .main-bg .overlay-bg{
+            background: $quiz-purple;
+        }
+        .region-content{
+            .form-radios{
+                input:checked{
+                    & + label.option + span.radio{
+                        border: 2px solid $quiz-purple;
+                        &::before{
+                            background: $quiz-purple;
+                        }
+                    }
+                }
+            }
+        }
+        .form-actions{
+            input[name="op"]{
+                background: $quiz-purple;
+                &:hover{
+                    background: $quiz-purple-dark;
+                }
+            }
+            input[name="previous_action"]{
+                border: 2px solid $quiz-purple;
+                color: $quiz-purple;
+            }
+        }
+        .block-forms-steps{
+            ol{
+                li{
+                    &:first-child{
+                        border-left: 5px solid $quiz-purple;
+                    }
+                    &.previous-step{
+                        background: $quiz-purple;
+                        color: $quiz-purple;
+                    }
+                }
+            }
+        }
+        .overlay-content{
+            .block-system-main-block{
+                border-top: 9px solid $quiz-purple-dark;
+                &:not(.no-border-block){
+                    border-bottom: 5px solid $quiz-purple;
+                }
+            }
+            #block-views-block-step-form-pagination-block-1{
+                border-bottom: 5px solid $quiz-purple;
+            }
+        }
+        .block-forms-steps{
+            border-bottom: 5px solid $quiz-purple;
+        }
+
+        #myResult{
+            .hideshow{
+                color: $quiz-purple;
+
+                svg {
+                    fill: $quiz-purple;
+                }
+            }
+        }
+
+        .career-content-main-wrapper{
+            .career-content-item{
+                .career-content-item-inner{
+                    .title{
+                        background: $quiz-purple;
+                    }
+                    .bottom-btn{
+                        a.btn{
+                            background: $quiz-purple;
+                            &:hover{
+                                background: $quiz-purple-dark;
+                                border-color:  $quiz-purple-dark;
+                            }
+                            &.btn-find-job{
+                                border: 2px solid $quiz-purple;
+                                color: $quiz-purple;
+                                background: transparent;
+                                &:hover{
+                                    background: #e6eae9;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        #myResult{
+            .bottom-links .link{
+                &.link_1{
+                    a{
+                        border: 2px solid $quiz-purple;
+                        color: $quiz-purple;
+                        background: transparent;
+                        &:hover{
+                            background: #e6eae9;
+                        }
+                    }
+                }
+                &.link_2{
+                    a{
+                        background: $quiz-purple;
+                        border: 2px solid $quiz-purple !important;
+                        &:hover{
+                            background: $quiz-purple-dark;
+                            border-color: $quiz-purple-dark;
+                        }
+                    }
+                }
+            }
+        }
+
+        .careers-main-wrapper{
+            table{
+                tbody{
+                    .compare-career{
+                        input:checked{
+                            &~ .checkmark{
+                                border: 1px solid $quiz-purple;
+                                &::after{
+                                    border: solid $quiz-purple;
+                                    border-width: 0 3px 3px 0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .top-career-content{
+                .content{
+                    .top-btn{
+                        .clear-compare:not(.disable){
+                            border: 2px solid $quiz-purple;
+                            color: $quiz-purple;
+                            background: transparent;
+                            &:hover{
+                                background: #e6eae9;
+                            }
+                        }
+                        .compare-career{
+                            &:hover{
+                                background: $quiz-purple;
+                                border-color: $quiz-purple;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .preview-quiz-form{
+            #edit-m-cancel{
+                border: 2px solid $quiz-purple;
+                color: $quiz-purple;
+                background: transparent;
+                &:hover{
+                    background: #e6eae9;
+                }
+            }
+            .form-actions{
+                &.form-actions{
+                    > #edit-submit{
+                        color: $quiz-purple;
+                    }
+                    > #edit-previous{
+                        color: #666666;
+                    }
+                }
+            }
+        }
+
+        ul.pagging{
+            li.pag{
+                a{
+                    color: $quiz-purple;
+                    &.active{
+                        background: $quiz-purple;
+                        color: #fff;
+                    }
+                    &:hover{
+                        background: #f2f2f2;
+                    }
+                }
+            }
+        }
+        .email-popup-wrapper{
+            .form-input button{
+                background: $quiz-purple;
+                &:hover{
+                    background: $quiz-purple-dark;
+                }
+            }
+        }
+    }
+
+    &.quiz-color-blue{
+        .careers-mobi-main-wrapper .careers-mobi-table-wrapper .tbody .tbody-main .compare-career-mobi input:checked ~ .checkmark {
+            border: 1px solid $quiz-blue;
+
+            &:after {
+                border: solid $quiz-blue;
+                border-width: 0 2px 2px 0;
+            }
+        }
+        .careers-mobi-main-wrapper .top-career-mobi-content .content .top-btn {
+            .clear-compare:not(.disable) {
+                color:$quiz-blue;
+                border-color: $quiz-blue;
+
+                &:hover {
+                    border-color: $quiz-blue;
+                }
+            }
+            .compare-career{
+                &:hover{
+                    background: $quiz-blue;
+                    border-color: $quiz-purple;
+                }
+            }
+        }
+        .main-bg .overlay-bg{
+            background: $quiz-blue;
+        }
+        .region-content{
+            .form-radios{
+                input:checked{
+                    & + label.option + span.radio{
+                        border: 2px solid $quiz-blue;
+                        &::before{
+                            background: $quiz-blue;
+                        }
+                    }
+                }
+            }
+        }
+        .form-actions{
+            input[name="op"]{
+                background: $quiz-blue;
+                &:hover{
+                    background: $quiz-blue-dark;
+                }
+            }
+            input[name="previous_action"]{
+                border: 2px solid $quiz-blue;
+                color: $quiz-blue;
+            }
+        }
+        .block-forms-steps{
+            ol{
+                li{
+                    &:first-child{
+                        border-left: 5px solid $quiz-blue;
+                    }
+                    &.previous-step{
+                        background: $quiz-blue;
+                        color: $quiz-blue;
+                    }
+                }
+            }
+        }
+        .overlay-content{
+            .block-system-main-block{
+                border-top: 9px solid $quiz-blue-dark;
+                &:not(.no-border-block){
+                    border-bottom: 5px solid $quiz-blue;
+                }
+            }
+            #block-views-block-step-form-pagination-block-1{
+                border-bottom: 5px solid $quiz-blue;
+            }
+        }
+        .block-forms-steps{
+            border-bottom: 5px solid $quiz-blue;
+        }
+
+        #myResult{
+            .hideshow{
+                color: $quiz-blue;
+
+                svg {
+                    fill: $quiz-blue;
+                }
+            }
+        }
+
+        .career-content-main-wrapper{
+            .career-content-item{
+                .career-content-item-inner{
+                    .title{
+                        background: $quiz-blue;
+                    }
+                    .bottom-btn{
+                        a.btn{
+                            background: $quiz-blue;
+                            &:hover{
+                                background: $quiz-blue-dark;
+                                border-color: $quiz-blue-dark;
+                            }
+                            &.btn-find-job{
+                                border: 2px solid $quiz-blue;
+                                color: $quiz-blue;
+                                background: transparent;
+                                &:hover{
+                                    background: #e6eae9;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        #myResult{
+            .bottom-links .link{
+                &.link_1{
+                    a{
+                        border: 2px solid $quiz-blue;
+                        color: $quiz-blue;
+                        background: transparent;
+                        &:hover{
+                            background: #e6eae9;
+                        }
+                    }
+                }
+                &.link_2{
+                    a{
+                        background: $quiz-blue;
+                        border: 2px solid $quiz-blue !important;
+                        &:hover{
+                            background: $quiz-blue-dark;
+                            border-color: $quiz-blue-dark;
+                        }
+                    }
+                }
+            }
+        }
+
+        .careers-main-wrapper{
+            table{
+                tbody{
+                    .compare-career{
+                        input:checked{
+                            &~ .checkmark{
+                                border: 1px solid $quiz-blue;
+                                &::after{
+                                    border: solid $quiz-blue;
+                                    border-width: 0 3px 3px 0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .top-career-content{
+                .content{
+                    .top-btn{
+                        .clear-compare:not(.disable){
+                            border: 2px solid $quiz-blue;
+                            color: $quiz-blue;
+                            background: transparent;
+                            &:hover{
+                                background: #e6eae9;
+                            }
+                        }
+                        .compare-career{
+                            &:hover{
+                                background: $quiz-blue;
+                                border-color: $quiz-blue;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .preview-quiz-form{
+            #edit-m-cancel{
+                border: 2px solid $quiz-blue;
+                color: $quiz-blue;
+                background: transparent;
+                &:hover{
+                    background: #e6eae9;
+                }
+            }
+            .form-actions{
+                &.form-actions{
+                    > #edit-submit{
+                        color: $quiz-blue;
+                    }
+                    > #edit-previous{
+                        color: #666666;
+                    }
+                }
+            }
+        }
+
+        ul.pagging{
+            li.pag{
+                a{
+                    color: $quiz-blue;
+                    &.active{
+                        background: $quiz-blue;
+                        color: #fff;
+                    }
+                    &:hover{
+                        background: #f2f2f2;
+                    }
+                }
+            }
+        }
+        .email-popup-wrapper{
+            .form-input button{
+                background: $quiz-blue;
+                &:hover{
+                    background: $quiz-blue-dark;
+                }
+            }
+        }
+    }
+
+    &.quiz-color-green{
+        .careers-mobi-main-wrapper .careers-mobi-table-wrapper .tbody .tbody-main .compare-career-mobi input:checked ~ .checkmark {
+            border: 1px solid $quiz-green;
+
+            &:after {
+                border: solid $quiz-green;
+                border-width: 0 2px 2px 0;
+            }
+        }
+        .careers-mobi-main-wrapper .top-career-mobi-content .content .top-btn {
+            .clear-compare:not(.disable) {
+                color: $quiz-green;
+                border-color: $quiz-green;
+
+                &:hover {
+                    border-color: $quiz-green;
+                }
+            }
+            .compare-career{
+                &:hover{
+                    background:  $quiz-green;
+                    border-color:  $quiz-green;
+                }
+            }
+        }
+        .main-bg .overlay-bg{
+            background: $quiz-green;
+        }
+        .region-content{
+            .form-radios{
+                input:checked{
+                    & + label.option + span.radio{
+                        border: 2px solid $quiz-green;
+                        &::before{
+                            background: $quiz-green;
+                        }
+                    }
+                }
+            }
+        }
+        .form-actions{
+            input[name="op"]{
+                background: $quiz-green;
+                &:hover{
+                    background: $quiz-green-dark;
+                }
+            }
+            input[name="previous_action"]{
+                border: 2px solid $quiz-green;
+                color: $quiz-green;
+            }
+        }
+        .block-forms-steps{
+            ol{
+                li{
+                    &:first-child{
+                        border-left: 5px solid $quiz-green;
+                    }
+                    &.previous-step{
+                        background: $quiz-green;
+                        color: $quiz-green;
+                    }
+                }
+            }
+        }
+        .overlay-content{
+            .block-system-main-block{
+                border-top: 9px solid $quiz-green-dark;
+                &:not(.no-border-block){
+                    border-bottom: 5px solid $quiz-green;
+                }
+            }
+            #block-views-block-step-form-pagination-block-1{
+                border-bottom: 5px solid $quiz-green;
+            }
+        }
+        .block-forms-steps{
+            border-bottom: 5px solid $quiz-green;
+        }
+
+        #myResult{
+            .hideshow{
+                color: $quiz-green;
+
+                svg {
+                    fill: $quiz-green;
+                }
+            }
+        }
+
+        .career-content-main-wrapper{
+            .career-content-item{
+                .career-content-item-inner{
+                    .title{
+                        background: $quiz-green;
+                    }
+                    .bottom-btn{
+                        a.btn{
+                            background: $quiz-green;
+                            &:hover{
+                                background: $quiz-green-dark;
+                                border-color: $quiz-green-dark;
+                            }
+                            &.btn-find-job{
+                                border: 2px solid $quiz-green;
+                                color: $quiz-green;
+                                background: transparent;
+                                &:hover{
+                                    background: #e6eae9;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        #myResult{
+            .bottom-links .link{
+                &.link_1{
+                    a{
+                        border: 2px solid $quiz-green;
+                        color: $quiz-green;
+                        background: transparent;
+                        &:hover{
+                            background: #e6eae9;
+                        }
+                    }
+                }
+                &.link_2{
+                    a{
+                        background: $quiz-green;
+                        border: 2px solid $quiz-green !important;
+                        &:hover{
+                            background: $quiz-green-dark;
+                            border-color: $quiz-green-dark;
+                        }
+                    }
+                }
+            }
+        }
+
+        .careers-main-wrapper{
+            table{
+                tbody{
+                    .compare-career{
+                        input:checked{
+                            &~ .checkmark{
+                                border: 1px solid $quiz-green;
+                                &::after{
+                                    border: solid $quiz-green;
+                                    border-width: 0 3px 3px 0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .top-career-content{
+                .content{
+                    .top-btn{
+                        .clear-compare:not(.disable){
+                            border: 2px solid $quiz-green;
+                            color: $quiz-green;
+                            background: transparent;
+                            &:hover{
+                                background: #e6eae9;
+                            }
+                        }
+                        .compare-career{
+                            &:hover{
+                                background: $quiz-green;
+                                border-color: $quiz-green;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .preview-quiz-form{
+            #edit-m-cancel{
+                border: 2px solid $quiz-green;
+                color: $quiz-green;
+                background: transparent;
+                &:hover{
+                    background: #e6eae9;
+                }
+            }
+            .save-cancel.save-wrapper {
+                #edit-submit {
+                    color: white;
+                    background: $quiz-green;
+                    border: 2px solid $quiz-green;
+                }
+            }
+            .form-actions.form-actions>input[type=submit] {
+                background: unset;
+                color: $quiz-green;
+                border: 0px;
+                margin:0;
+                padding: 11px 24px;
+            }
+            .form-actions{
+                &.form-actions{
+                    > #edit-submit{
+                        color: $quiz-green;
+                    }
+                    > #edit-previous{
+                        color: $quiz-green;
+                    }
+                }
+            }
+        }
+
+        ul.pagging{
+            li.pag{
+                a{
+                    color: $quiz-green;
+                    &.active{
+                        background: $quiz-green;
+                        color: #fff;
+                    }
+                    &:hover{
+                        background: #f2f2f2;
+                    }
+                }
+            }
+        }
+        .email-popup-wrapper{
+            .form-input button{
+                background: $quiz-green;
+                &:hover{
+                    background: $quiz-green-dark;
+                }
+            }
+        }
+    }
+
+    &.quiz-color-light-blue{
+        .careers-mobi-main-wrapper .careers-mobi-table-wrapper .tbody .tbody-main .compare-career-mobi input:checked ~ .checkmark {
+            border: 1px solid $quiz-light-blue;
+
+            &:after {
+                border: solid $quiz-light-blue;
+                border-width: 0 2px 2px 0;
+            }
+        }
+        .careers-mobi-main-wrapper .top-career-mobi-content .content .top-btn {
+            .clear-compare:not(.disable) {
+                color: $quiz-light-blue;
+                border-color: $quiz-light-blue;
+
+                &:hover {
+                    border-color: $quiz-light-blue;
+                }
+            }
+            .compare-career{
+                &:hover{
+                    background:  $quiz-light-blue;
+                    border-color:  $quiz-light-blue;
+                }
+            }
+        }
+        .main-bg .overlay-bg{
+            background: $quiz-light-blue;
+        }
+        .region-content{
+            .form-radios{
+                input:checked{
+                    & + label.option + span.radio{
+                        border: 2px solid $quiz-light-blue;
+                        &::before{
+                            background: $quiz-light-blue;
+                        }
+                    }
+                }
+            }
+        }
+        .form-actions{
+            input[name="op"]{
+                background: $quiz-light-blue;
+                &:hover{
+                    background: $quiz-light-blue-dark;
+                }
+            }
+            input[name="previous_action"]{
+                border: 2px solid $quiz-light-blue;
+                color: $quiz-light-blue;
+            }
+        }
+        .block-forms-steps{
+            ol{
+                li{
+                    &:first-child{
+                        border-left: 5px solid $quiz-light-blue;
+                    }
+                    &.previous-step{
+                        background: $quiz-light-blue;
+                        color: $quiz-light-blue;
+                    }
+                }
+            }
+        }
+        .overlay-content{
+            .block-system-main-block{
+                border-top: 9px solid $quiz-light-blue-dark;
+                &:not(.no-border-block){
+                    border-bottom: 5px solid $quiz-light-blue;
+                }
+            }
+            #block-views-block-step-form-pagination-block-1{
+                border-bottom: 5px solid $quiz-light-blue;
+            }
+        }
+        .block-forms-steps{
+            border-bottom: 5px solid $quiz-light-blue;
+        }
+
+        #myResult{
+            .hideshow{
+                color: $quiz-light-blue;
+
+                svg {
+                    fill: $quiz-light-blue;
+                }
+            }
+        }
+
+        .career-content-main-wrapper{
+            .career-content-item{
+                .career-content-item-inner{
+                    .title{
+                        background: $quiz-light-blue;
+                    }
+                    .bottom-btn{
+                        a.btn{
+                            background: $quiz-light-blue;
+                            &:hover{
+                                background: $quiz-light-blue-dark;
+                                border-color: $quiz-light-blue-dark;
+                            }
+                            &.btn-find-job{
+                                border: 2px solid $quiz-light-blue;
+                                color: $quiz-light-blue;
+                                background: transparent;
+                                &:hover{
+                                    background: #e6eae9;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        #myResult{
+            .bottom-links .link{
+                &.link_1{
+                    a{
+                        border: 2px solid $quiz-light-blue;
+                        color: $quiz-light-blue;
+                        background: transparent;
+                        &:hover{
+                            background: #e6eae9;
+                        }
+                    }
+                }
+                &.link_2{
+                    a{
+                        background: $quiz-light-blue;
+                        border: 2px solid $quiz-light-blue !important;
+                        &:hover{
+                            background: $quiz-light-blue-dark;
+                            border-color: $quiz-light-blue-dark;
+                        }
+                    }
+                }
+            }
+        }
+
+        .careers-main-wrapper{
+            table{
+                tbody{
+                    .compare-career{
+                        input:checked{
+                            &~ .checkmark{
+                                border: 1px solid $quiz-light-blue;
+                                &::after{
+                                    border: solid $quiz-light-blue;
+                                    border-width: 0 3px 3px 0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .top-career-content{
+                .content{
+                    .top-btn{
+                        .clear-compare:not(.disable){
+                            border: 2px solid $quiz-light-blue;
+                            color: $quiz-light-blue;
+                            background: transparent;
+                            &:hover{
+                                background: #e6eae9;
+                            }
+                        }
+                        .compare-career{
+                            &:hover{
+                                background: $quiz-light-blue;
+                                border-color: $quiz-light-blue;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .preview-quiz-form{
+            #edit-m-cancel{
+                border: 2px solid $quiz-light-blue;
+                color: $quiz-light-blue;
+                background: transparent;
+                &:hover{
+                    background: #e6eae9;
+                }
+            }
+            .form-actions{
+                &.form-actions{
+                    > #edit-submit{
+                        color: $quiz-light-blue;
+                    }
+                    > #edit-previous{
+                        color: #666666;
+                    }
+                }
+            }
+        }
+
+        ul.pagging{
+            li.pag{
+                a{
+                    color: $quiz-light-blue;
+                    &.active{
+                        background: $quiz-light-blue;
+                        color: #fff;
+                    }
+                    &:hover{
+                        background: #f2f2f2;
+                    }
+                }
+            }
+        }
+
+        .email-popup-wrapper{
+            .form-input button{
+                background: $quiz-light-blue;
+                &:hover{
+                    background: $quiz-light-blue-dark;
+                }
+            }
+        }
+    }
+
+    &.quiz-color-pink{
+        .careers-mobi-main-wrapper .careers-mobi-table-wrapper .tbody .tbody-main .compare-career-mobi input:checked ~ .checkmark {
+            border: 1px solid $quiz-pink;
+
+            &:after {
+                border: solid $quiz-pink;
+                border-width: 0 2px 2px 0;
+            }
+        }
+        .careers-mobi-main-wrapper .top-career-mobi-content .content .top-btn {
+            .clear-compare:not(.disable) {
+                color: $quiz-pink;
+                border-color: $quiz-pink;
+
+                &:hover {
+                    border-color: $quiz-pink;
+                }
+            }
+            .compare-career{
+                &:hover{
+                    background:  $quiz-pink;
+                    border-color:  $quiz-pink;
+                }
+            }
+        }
+        .main-bg .overlay-bg{
+            background: $quiz-pink;
+        }
+        .region-content{
+            .form-radios{
+                input:checked{
+                    & + label.option + span.radio{
+                        border: 2px solid $quiz-pink;
+                        &::before{
+                            background: $quiz-pink;
+                        }
+                    }
+                }
+            }
+        }
+        .form-actions{
+            input[name="op"]{
+                background: $quiz-pink;
+                &:hover{
+                    background: $quiz-pink-dark;
+                }
+            }
+            input[name="previous_action"]{
+                border: 2px solid $quiz-pink;
+                color: $quiz-pink;
+            }
+        }
+        .block-forms-steps{
+            ol{
+                li{
+                    &:first-child{
+                        border-left: 5px solid $quiz-pink;
+                    }
+                    &.previous-step{
+                        background: $quiz-pink;
+                        color: $quiz-pink;
+                    }
+                }
+            }
+        }
+        .overlay-content{
+            .block-system-main-block{
+                border-top: 9px solid $quiz-pink-dark;
+                &:not(.no-border-block){
+                    border-bottom: 5px solid $quiz-pink;
+                }
+            }
+            #block-views-block-step-form-pagination-block-1{
+                border-bottom: 5px solid $quiz-pink;
+            }
+        }
+        .block-forms-steps{
+            border-bottom: 5px solid $quiz-pink;
+        }
+
+        #myResult{
+            .hideshow{
+                color: $quiz-pink;
+
+                svg {
+                    fill: $quiz-pink;
+                }
+            }
+        }
+
+        .career-content-main-wrapper{
+            .career-content-item{
+                .career-content-item-inner{
+                    .title{
+                        background: $quiz-pink;
+                    }
+                    .bottom-btn{
+                        a.btn{
+                            background: $quiz-pink;
+                            &:hover{
+                                background: $quiz-pink-dark;
+                                border-color: $quiz-pink-dark;
+                            }
+                            &.btn-find-job{
+                                border: 2px solid $quiz-pink;
+                                color: $quiz-pink;
+                                background: transparent;
+                                &:hover{
+                                    background: #e6eae9;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        #myResult{
+            .bottom-links .link{
+                &.link_1{
+                    a{
+                        border: 2px solid $quiz-pink;
+                        color: $quiz-pink;
+                        background: transparent;
+                        &:hover{
+                            background: #e6eae9;
+                        }
+                    }
+                }
+                &.link_2{
+                    a{
+                        background: $quiz-pink;
+                        border: 2px solid $quiz-pink !important;
+                        &:hover{
+                            background: $quiz-pink-dark;
+                            border-color: $quiz-pink-dark;
+                        }
+                    }
+                }
+            }
+        }
+
+        .careers-main-wrapper{
+            table{
+                tbody{
+                    .compare-career{
+                        input:checked{
+                            &~ .checkmark{
+                                border: 1px solid $quiz-pink;
+                                &::after{
+                                    border: solid $quiz-pink;
+                                    border-width: 0 3px 3px 0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .top-career-content{
+                .content{
+                    .top-btn{
+                        .clear-compare:not(.disable){
+                            border: 2px solid $quiz-pink;
+                            color: $quiz-pink;
+                            background: transparent;
+                            &:hover{
+                                background: #e6eae9;
+                            }
+                        }
+                        .compare-career{
+                            &:hover{
+                                background: $quiz-pink;
+                                border-color: $quiz-pink;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .preview-quiz-form{
+            #edit-m-cancel{
+                border: 2px solid $quiz-pink;
+                color: $quiz-pink;
+                background: transparent;
+                &:hover{
+                    background: #e6eae9;
+                }
+            }
+            .form-actions{
+                &.form-actions{
+                    > #edit-submit{
+                        color: $quiz-pink;
+                    }
+                    > #edit-previous{
+                        color: #666666;
+                    }
+                }
+            }
+        }
+
+        ul.pagging{
+            li.pag{
+                a{
+                    color: $quiz-pink;
+                    &.active{
+                        background: $quiz-pink;
+                        color: #fff;
+                    }
+                    &:hover{
+                        background: #f2f2f2;
+                    }
+                }
+            }
+        }
+
+        .email-popup-wrapper{
+            .form-input button{
+                background: $quiz-pink;
+                &:hover{
+                    background: $quiz-pink-dark;
+                }
+            }
+        }
+    }
+}
+
+
+// Random overrides
+.btn-prim {
+    border: none !important;
+    border-radius: 0 !important;
+}
+
+.btn:focus {
+    box-shadow: none;
+}
+
+.display-4 {
+  font-weight: 400;
+}

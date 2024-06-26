@@ -1,5 +1,8 @@
 <?php
 
+
+use Drupal\Core\Url;
+
 /**
  * @file
  * WorkBC CDQ theme file.
@@ -15,12 +18,17 @@ function workbc_cdq_preprocess_views_view_table(&$variables) {
     $preview = [];
     foreach ($variables['result'] as $key => $result) {
       $node = $result->_relationship_entities['nid'];
+      $image_url = "";
+      if ($node->field_image->entity) {
+        $image_url = $node->field_image->entity->createFileUrl();
+      }
+      
       $term = $node->field_education_level->referencedEntities();
       $raw = array(
         'title' => $node->title->value . " (NOC " . $node->field_noc->value . ")",
         'job_summary' => substr(strip_tags($node->body->value), 0, 400),
-        'video_id' => 'isFI0eqGFBg',
-        'image' => '[image]',
+        'video_id' => $node->field_video_id->value,
+        'image' => $image_url,
         'annual_salary' => $node->field_annual_salary->value,
         'education_level' => $term[0]->getName(),
         'job_openings' => $node->field_job_openings->value,
@@ -28,6 +36,5 @@ function workbc_cdq_preprocess_views_view_table(&$variables) {
       );
       $variables['rows'][$key]['raw'] = $raw;
     }
-    ksm($variables['rows']);
   }
 }

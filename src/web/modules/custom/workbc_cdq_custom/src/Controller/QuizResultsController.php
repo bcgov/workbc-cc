@@ -109,4 +109,55 @@ class QuizResultsController extends ControllerBase {
   }
 
 
+  public function import_career_profile_updates() {
+
+    $profiles = $this->loadCareerProfileUpdates();
+    ksm($profiles);
+
+    $ctr = 5;
+    foreach($profiles as $profile) {
+      if ($ctr > 0) {
+        ksm($profile);
+      }
+      $nodes = \Drupal::entityTypeManager()
+      ->getStorage('node')
+      ->loadByProperties(['field_noc' => $profile[0]]);
+      $node = reset($nodes);
+      if ($node) {
+        $node->field_video_id = $profile[2];
+        $node->field_noc_2016 = $profile[1];
+        $node->save();
+      }
+      if ($ctr > 0) {
+        ksm($node);
+      }
+      $ctr--;
+    }
+
+    $markup = "Career Profile video id import";
+  
+    return [
+      '#type' => 'markup',
+      '#markup' => $markup,
+      '#cache' => ['max-age' => 0],
+    ];
+  }
+
+
+  function loadCareerProfileUpdates() {
+    $path = DRUPAL_ROOT;
+    $path = preg_replace('/web$/', '', $path);
+    $file = fopen($path . "cdq-career-profile-update.csv", 'r');
+    if($file !== FALSE){
+      $videosIds = [];
+      while (($item = fgetcsv($file, 0, "|")) !== FALSE) {
+        if (!empty($item[1])) {
+          $videosIds[] = $item;
+        }
+      }
+      fclose($file);
+  
+    }
+    return empty($videosIds) ? false : $videosIds;
+  }
 }

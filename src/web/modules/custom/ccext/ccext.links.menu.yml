@@ -1,5 +1,0 @@
-ccext.report_environment:
-  title: 'WorkBC environment'
-  parent: system.admin_reports
-  route_name: ccext.report_environment
-  description: 'Report of system environment.'

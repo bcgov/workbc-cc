@@ -42,14 +42,14 @@ elements: |-
   page_2:
     '#type': webform_wizard_page
     '#title': 'Page 2'
-    question_4:
-      '#type': radios
-      '#title': 'Question 4'
-      '#options': likert_agreement
-      '#required': true
     question_5:
       '#type': radios
       '#title': 'Question 5'
+      '#options': likert_agreement
+      '#required': true
+    question_4:
+      '#type': radios
+      '#title': 'Question 4'
       '#options': likert_agreement
       '#required': true
     question_6:
@@ -65,14 +65,14 @@ elements: |-
       '#title': 'Question 7'
       '#options': likert_agreement
       '#required': true
-    question_8:
-      '#type': radios
-      '#title': 'Question 8'
-      '#options': likert_agreement
-      '#required': true
     question_9:
       '#type': radios
       '#title': 'Question 9'
+      '#options': likert_agreement
+      '#required': true
+    question_8:
+      '#type': radios
+      '#title': 'Question 8'
       '#options': likert_agreement
       '#required': true
 css: ''
