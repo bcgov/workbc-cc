@@ -12,7 +12,7 @@ Career Discovery Quizzes, a subsite of [WorkBC.ca](https://www.workbc.ca).
   - `docker-compose exec php sudo chown www-data /var/www/html/private`
   - `docker-compose exec php sudo chown www-data /var/www/html/config/sync`
 - Import the data dump:
-  - `gunzip -k -c src/scripts/workbc-cc.sql.gz | docker-compose exec -T postgres psql -U drupal workbc-cc`
+  - `gunzip -k -c src/scripts/workbc-cc.sql.gz | docker-compose exec -T postgres psql -U drupal workbc-cc-refactor`
 - Edit your `hosts` file to add the following line:
 ```
 127.0.0.1       workbc-cc.docker.localhost
