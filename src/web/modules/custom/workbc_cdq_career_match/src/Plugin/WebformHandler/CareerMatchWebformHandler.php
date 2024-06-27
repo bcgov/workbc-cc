@@ -40,7 +40,7 @@ class CareerMatchWebformHandler extends WebformHandlerBase {
   public function postDelete(WebformSubmissionInterface $webform_submission) {
     $query = \Drupal::database()->delete('workbc_cdq_career_match');
     $query->condition('sid', $webform_submission->id());
-    $query->execute();    
+    $query->execute();
   }
 
 
@@ -54,11 +54,9 @@ class CareerMatchWebformHandler extends WebformHandlerBase {
               ->execute();
     $nodes = \Drupal\node\Entity\Node::loadMultiple($nids);
 
-    // ksm($webform_submission);
-
     $data = $webform_submission->getData();
     $total = array_sum($data);
-    
+
     $score = "";
     foreach ($data as $value) {
       $score .= $value;

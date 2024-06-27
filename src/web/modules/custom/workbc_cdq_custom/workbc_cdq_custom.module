@@ -7,7 +7,7 @@ function quizzesList() {
 
   return [
     'abilities_quiz' => 'Abilities Quiz',
-    'work_preferences_quiz' => 'Work Preferences Quiz', 
+    'work_preferences_quiz' => 'Work Preferences Quiz',
     'interests_quiz' => 'Interests Quiz',
   ];
 }
@@ -15,9 +15,7 @@ function quizzesList() {
 
 function getUserSubmission($webform_id) {
 
-  $current_user = \Drupal::currentUser(); 
-
-  // ksm($current_user);
+  $current_user = \Drupal::currentUser();
 
   $query = \Drupal::entityQuery('webform_submission')
   ->condition('uid', $current_user->id())

@@ -24,13 +24,6 @@ class QuizzesBlock extends BlockBase {
    * {@inheritdoc}
    */
   public function build() {
-    global $_SESSION;
-
-    $current_user = \Drupal::currentUser(); 
-
-    // $session = \Drupal::request()->getSession();
-    // ksm($_SESSION);
-
     $quizzes = quizzesList();
     $markup = "";
     foreach ($quizzes as $key => $quiz) {
@@ -38,7 +31,6 @@ class QuizzesBlock extends BlockBase {
 
       if ($webform) {
         $results = getUserSubmission($key);
-        // ksm($results);
         if ($results) {
           $markup .= "<h2>" . $quiz . "</h2>";
           if (!$results->isDraft()) {
@@ -81,7 +73,5 @@ class QuizzesBlock extends BlockBase {
   public function getCacheMaxAge() {
       return 0;
   }
-
-
 
 }

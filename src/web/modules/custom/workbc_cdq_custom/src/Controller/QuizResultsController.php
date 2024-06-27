@@ -20,7 +20,6 @@ class QuizResultsController extends ControllerBase {
     // $results = $this->getSubmission('abilities_quiz');
     $results = getUserSubmission('abilities_quiz');
     if ($results) {
-      // ksm($results->getData());
 
       $data = $results->getData();
 
@@ -51,7 +50,6 @@ class QuizResultsController extends ControllerBase {
 
     $results = getUserSubmission('work_preferences_quiz');
     if ($results) {
-      // ksm($results->getData());
 
       $data = $results->getData();
 
@@ -82,7 +80,6 @@ class QuizResultsController extends ControllerBase {
 
     $results = getUserSubmission('interests_quiz');
     if ($results) {
-      // ksm($results->getData());
 
       $data = $results->getData();
 
@@ -112,13 +109,8 @@ class QuizResultsController extends ControllerBase {
   public function import_career_profile_updates() {
 
     $profiles = $this->loadCareerProfileUpdates();
-    ksm($profiles);
 
-    $ctr = 5;
     foreach($profiles as $profile) {
-      if ($ctr > 0) {
-        ksm($profile);
-      }
       $nodes = \Drupal::entityTypeManager()
       ->getStorage('node')
       ->loadByProperties(['field_noc' => $profile[0]]);
@@ -128,14 +120,10 @@ class QuizResultsController extends ControllerBase {
         $node->field_noc_2016 = $profile[1];
         $node->save();
       }
-      if ($ctr > 0) {
-        ksm($node);
-      }
-      $ctr--;
     }
 
     $markup = "Career Profile video id import";
-  
+
     return [
       '#type' => 'markup',
       '#markup' => $markup,
@@ -156,7 +144,7 @@ class QuizResultsController extends ControllerBase {
         }
       }
       fclose($file);
-  
+
     }
     return empty($videosIds) ? false : $videosIds;
   }
