@@ -152,7 +152,6 @@
                   {% if row.raw.nid is not empty %}
                     {% set nodeURL =  url('entity.node.canonical', {'node': row.raw.nid}) %}
                   {% endif %}
-
                     {% if field_nm == 'field-noc-name' %}
                       <td>
                         {% if row.raw.match is not empty %}
@@ -177,7 +176,7 @@
                           <span class="checkmark"></span>
                         </label>
                       </td>
-                    {% elseif field_nm == 'field-median-salary' or field_nm == 'field-education-level' %}
+                    {% elseif field_nm == 'field-median-salary' or field_nm == 'field-teer' %}
                       <td{{ column.attributes.addClass(column_classes) }} >
                         {%- if column.wrapper_element -%}
                           <{{ column.wrapper_element }}>
@@ -261,7 +260,7 @@
                       {%- endif %}
                     </span></p>
                   {% endif %}
-                  {% if 'field-education-level' in field_nm %}
+                  {% if 'field-teer' in field_nm %}
                     <p class="data-item"><span class="f-d">Training, Education, Experience and Responsibilities</span><span class="s-d">
                       {%- if column.wrapper_element -%}
                         <{{ column.wrapper_element }}>
