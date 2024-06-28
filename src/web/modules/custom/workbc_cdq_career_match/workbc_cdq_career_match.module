@@ -19,23 +19,27 @@ function workbc_cdq_career_match_webform_third_party_settings_form_alter(array &
   /** @var \Drupal\webform\WebformInterface $webform */
   $webform = $form_state->getFormObject()->getEntity();
 
-  $form['third_party_settings']['workbc_cdq'] = [
+  // Ignore for non-quiz webforms.
+  if (!str_contains($webform->id(), '_quiz')) return;
+
+  $form['third_party_settings']['workbc_cdq_career_match'] = [
     '#type' => 'details',
     '#title' => t('WorkBC CDQ settings'),
     '#open' => TRUE,
   ];
   $vocabularies = \Drupal::entityTypeManager()->getStorage('taxonomy_vocabulary')->loadMultiple();
-  $form['third_party_settings']['workbc_cdq']['categories'] = [
+  $form['third_party_settings']['workbc_cdq_career_match']['categories'] = [
     '#type' => 'select',
     '#title' => t('Quiz categories'),
     '#description' => t('The categories that apply to the questions of this quiz.'),
-    '#default_value' => $webform->getThirdPartySetting('workbc_cdq', 'categories'),
-    '#options' => array_merge([0 => '- none - '], array_reduce(array_keys($vocabularies), function($options, $key) use($vocabularies) {
+    '#required' => true,
+    '#default_value' => $webform->getThirdPartySetting('workbc_cdq_career_match', 'categories'),
+    '#options' => array_reduce(array_keys($vocabularies), function($options, $key) use($vocabularies) {
       if (str_contains($key, 'categories')) {
         $options[$key] = $vocabularies[$key]->get('name');
       }
       return $options;
-    }, []))
+    }, [])
   ];
 }
 
@@ -72,12 +76,15 @@ function workbc_cdq_career_match_webform_element_configuration_form_alter(&$form
   $webform = $element_plugin->getWebform();
   $settings = $webform->get('third_party_settings');
 
+  // Ignore other than radios elements.
+  if ($element_type !== 'radios') return;
+
   // Append custom properties details container and textfield element.
   $t_args = [
     '@label' => $element_label,
     '@type' => $element_type,
   ];
-  $form['workbc_cdq'] = [
+  $form['workbc_cdq_career_match'] = [
     '#type' => 'details',
     '#title' => t('WorkBC CDQ properties'),
     '#description' => t('Properties related to WorkBC CDQ.'),
@@ -87,13 +94,13 @@ function workbc_cdq_career_match_webform_element_configuration_form_alter(&$form
     // @see \Drupal\webform\Plugin\WebformElementBase::buildConfigurationForm
     '#weight' => -10,
   ];
-  $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($settings['workbc_cdq']['categories']);
-  $form['workbc_cdq']['category'] = [
+  $form['workbc_cdq_career_match']['category'] = [
     '#type' => 'select',
     '#title' => t('Question category'),
     '#description' => t('The category to which this question belongs.', $t_args),
-    '#options' => array_reduce($terms, function($options, $term) {
-      $options[$term->tid] = $term->name;
+    '#required' => true,
+    '#options' => array_reduce(\Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($settings['workbc_cdq_career_match']['categories']), function($options, $term) {
+      $options[$term->name] = $term->name;
       return $options;
     })
   ];

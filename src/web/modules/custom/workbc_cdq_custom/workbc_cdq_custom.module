@@ -5,6 +5,7 @@ use Drupal\webform\Entity\WebformSubmission;
 
 function quizzesList() {
 
+  // TODO Read from Webform entity and filter by `_quiz`.
   return [
     'abilities_quiz' => 'Abilities Quiz',
     'work_preferences_quiz' => 'Work Preferences Quiz',

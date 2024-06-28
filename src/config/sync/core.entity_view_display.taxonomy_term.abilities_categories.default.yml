@@ -1,0 +1,34 @@
+uuid: 41b95bb0-2861-4e9b-90b1-a6b9a21ca86b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.abilities_categories.field_icon
+    - taxonomy.vocabulary.abilities_categories
+  module:
+    - image
+    - text
+id: taxonomy_term.abilities_categories.default
+targetEntityType: taxonomy_term
+bundle: abilities_categories
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_icon:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

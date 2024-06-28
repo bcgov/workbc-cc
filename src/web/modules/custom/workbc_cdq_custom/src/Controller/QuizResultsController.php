@@ -17,22 +17,29 @@ class QuizResultsController extends ControllerBase {
 
   public function abilities_quiz_results() {
 
-    // $results = $this->getSubmission('abilities_quiz');
     $results = getUserSubmission('abilities_quiz');
     if ($results) {
-
-      $data = $results->getData();
+      $quiz = $results->getWebform();
+      $questions = $quiz->getElementsDecodedAndFlattened();
+      $answers = $results->getData();
+      $settings = $quiz->get('third_party_settings');
+      $categories = array_reduce(\Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($settings['workbc_cdq_career_match']['categories']), function($categories, $category) {
+        $categories[$category->name] = 0;
+        return $categories;
+      });
 
       $markup = "";
-
-      // $total = 0;
-      // foreach ($data as $key => $value) {
-      //   $markup .= "<p>" . $key . ": <b>" . $value . "</b></p>";
-      //   $total += $value;
-      // }
-
-      // $markup .= "<p></p>";
-      // $markup .= "<p>Total Score: <b>" . $total . "</b></p>";
+      foreach ($answers as $key => $value) {
+        $question = $questions[$key]['#title'];
+        $category = $questions[$key]['#category'];
+        $score = floatval($value);
+        $markup .= "<p>$question ($category): <b>$score</b></p>";
+        $categories[$category] += $score;
+      }
+      $markup .= "<hr>";
+      foreach ($categories as $category => $score) {
+        $markup .= "<p>$category: <b>$score</b></p>";
+      }
     }
     else {
       $markup = "No results found";

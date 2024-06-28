@@ -10,6 +10,8 @@ third_party_settings:
     auto_save: true
     auto_save_time: 5000
     optimistic_locking: false
+  workbc_cdq_career_match:
+    categories: abilities_categories
 weight: 0
 open: null
 close: null
@@ -27,54 +29,63 @@ elements: |-
     question_1:
       '#type': radios
       '#title': 'Question 1'
-      '#options': likert_agreement
+      '#options': abilities_options
       '#required': true
+      '#category': 'General learning ability'
     question_2:
       '#type': radios
       '#title': 'Question 2'
-      '#options': likert_agreement
+      '#options': abilities_options
       '#required': true
+      '#category': 'Verbal ability'
     question_3:
       '#type': radios
       '#title': 'Question 3'
-      '#options': likert_agreement
+      '#options': abilities_options
       '#required': true
+      '#category': 'Numerical ability'
   page_2:
     '#type': webform_wizard_page
     '#title': 'Page 2'
-    question_5:
-      '#type': radios
-      '#title': 'Question 5'
-      '#options': likert_agreement
-      '#required': true
     question_4:
       '#type': radios
       '#title': 'Question 4'
-      '#options': likert_agreement
+      '#options': abilities_options
       '#required': true
+      '#category': 'Spatial perception'
+    question_5:
+      '#type': radios
+      '#title': 'Question 5'
+      '#options': abilities_options
+      '#required': true
+      '#category': 'Form perception'
     question_6:
       '#type': radios
       '#title': 'Question 6'
-      '#options': likert_agreement
+      '#options': abilities_options
       '#required': true
+      '#category': 'Clerical perception'
   page_3:
     '#type': webform_wizard_page
     '#title': 'Page 3'
     question_7:
       '#type': radios
       '#title': 'Question 7'
-      '#options': likert_agreement
+      '#options': abilities_options
       '#required': true
-    question_9:
-      '#type': radios
-      '#title': 'Question 9'
-      '#options': likert_agreement
-      '#required': true
+      '#category': 'Motor co-ordination'
     question_8:
       '#type': radios
       '#title': 'Question 8'
-      '#options': likert_agreement
+      '#options': abilities_options
       '#required': true
+      '#category': 'Finger dexterity'
+    question_9:
+      '#type': radios
+      '#title': 'Question 9'
+      '#options': abilities_options
+      '#required': true
+      '#category': 'Manual dexterity'
 css: ''
 javascript: ''
 settings:
