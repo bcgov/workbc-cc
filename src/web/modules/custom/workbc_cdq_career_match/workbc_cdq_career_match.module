@@ -1,5 +1,7 @@
 <?php
 
+use Drupal\Core\Form\FormStateInterface;
+
 function workbc_cdq_career_match_preprocess_views_view_field(&$variables) {
 
   if ($variables['view']->id() === "quiz_career_match" && $variables['field']->realField === "career_match") {
@@ -8,4 +10,91 @@ function workbc_cdq_career_match_preprocess_views_view_field(&$variables) {
     $output = str_replace($value, round($value, 0), $output);
     $variables['output'] = $output;
   }
+}
+
+/**
+ * Implements hook_webform_third_party_settings_form_alter().
+ */
+function workbc_cdq_career_match_webform_third_party_settings_form_alter(array &$form, FormStateInterface $form_state) {
+  /** @var \Drupal\webform\WebformInterface $webform */
+  $webform = $form_state->getFormObject()->getEntity();
+
+  $form['third_party_settings']['workbc_cdq'] = [
+    '#type' => 'details',
+    '#title' => t('WorkBC CDQ settings'),
+    '#open' => TRUE,
+  ];
+  $vocabularies = \Drupal::entityTypeManager()->getStorage('taxonomy_vocabulary')->loadMultiple();
+  $form['third_party_settings']['workbc_cdq']['categories'] = [
+    '#type' => 'select',
+    '#title' => t('Quiz categories'),
+    '#description' => t('The categories that apply to the questions of this quiz.'),
+    '#default_value' => $webform->getThirdPartySetting('workbc_cdq', 'categories'),
+    '#options' => array_merge([0 => '- none - '], array_reduce(array_keys($vocabularies), function($options, $key) use($vocabularies) {
+      if (str_contains($key, 'categories')) {
+        $options[$key] = $vocabularies[$key]->get('name');
+      }
+      return $options;
+    }, []))
+  ];
+}
+
+/**
+ * Implements hook_webform_element_default_properties_alter().
+ */
+function workbc_cdq_career_match_webform_element_default_properties_alter(array &$properties, array &$definition) {
+  // Add custom data property to all webform elements.
+  // Setting the custom property to an empty string makes the corresponding
+  // element defined via hook_webform_element_configuration_form_alter()
+  // automatically visible.
+  $properties['category'] = '';
+}
+
+/**
+ * Implements hook_webform_element_translatable_properties_alter().
+ */
+function workbc_cdq_career_match_webform_element_translatable_properties_alter(array &$properties, array &$definition) {
+  // Make the custom data property translatable.
+  $properties[] = 'category';
+}
+
+/**
+ * Implements hook_webform_element_configuration_form_alter().
+ */
+function workbc_cdq_career_match_webform_element_configuration_form_alter(&$form, FormStateInterface $form_state) {
+  // If you want add element properties to specific element type, you can use
+  // the below code to the current element's type and more.
+  /** @var Drupal\webform_ui\Form\WebformUiElementEditForm $form_object */
+  $form_object = $form_state->getFormObject();
+  $element_plugin = $form_object->getWebformElementPlugin();
+  $element_label = $element_plugin->getPluginLabel();
+  $element_type = $element_plugin->getTypeName();
+  $webform = $element_plugin->getWebform();
+  $settings = $webform->get('third_party_settings');
+
+  // Append custom properties details container and textfield element.
+  $t_args = [
+    '@label' => $element_label,
+    '@type' => $element_type,
+  ];
+  $form['workbc_cdq'] = [
+    '#type' => 'details',
+    '#title' => t('WorkBC CDQ properties'),
+    '#description' => t('Properties related to WorkBC CDQ.'),
+    '#open' => TRUE,
+    // Add custom properties after all fieldset elements, which have a
+    // weight of -20.
+    // @see \Drupal\webform\Plugin\WebformElementBase::buildConfigurationForm
+    '#weight' => -10,
+  ];
+  $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($settings['workbc_cdq']['categories']);
+  $form['workbc_cdq']['category'] = [
+    '#type' => 'select',
+    '#title' => t('Question category'),
+    '#description' => t('The category to which this question belongs.', $t_args),
+    '#options' => array_reduce($terms, function($options, $term) {
+      $options[$term->tid] = $term->name;
+      return $options;
+    })
+  ];
 }
