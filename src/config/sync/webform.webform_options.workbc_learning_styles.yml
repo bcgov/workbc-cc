@@ -1,0 +1,12 @@
+uuid: f1c98085-a160-47ac-8fd1-1db9148f5fd8
+langcode: en
+status: true
+dependencies: {  }
+id: workbc_learning_styles
+label: 'WorkBC: Learning Styles'
+category: WorkBC
+likert: true
+options: |-
+  '12.5': Usually
+  '6.25': Neutral
+  0: Rarely

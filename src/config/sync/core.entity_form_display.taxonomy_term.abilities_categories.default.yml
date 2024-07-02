@@ -3,11 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.taxonomy_term.abilities_categories.field_icon
-    - image.style.thumbnail
     - taxonomy.vocabulary.abilities_categories
   module:
-    - image
     - path
     - text
 id: taxonomy_term.abilities_categories.default
@@ -22,14 +19,6 @@ content:
     settings:
       rows: 5
       placeholder: ''
-    third_party_settings: {  }
-  field_icon:
-    type: image_image
-    weight: 5
-    region: content
-    settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
     third_party_settings: {  }
   name:
     type: string_textfield

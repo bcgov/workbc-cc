@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 name: 'Education Level'
 vid: education_level
-description: ''
+description: 'Training, education, experience and responsibilities (TEER) levels.'
 weight: 0

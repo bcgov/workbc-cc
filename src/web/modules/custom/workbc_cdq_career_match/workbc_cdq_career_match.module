@@ -35,9 +35,7 @@ function workbc_cdq_career_match_webform_third_party_settings_form_alter(array &
     '#required' => true,
     '#default_value' => $webform->getThirdPartySetting('workbc_cdq_career_match', 'categories'),
     '#options' => array_reduce(array_keys($vocabularies), function($options, $key) use($vocabularies) {
-      if (str_contains($key, 'categories')) {
-        $options[$key] = $vocabularies[$key]->get('name');
-      }
+      $options[$key] = $vocabularies[$key]->get('name');
       return $options;
     }, [])
   ];

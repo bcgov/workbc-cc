@@ -8,5 +8,5 @@ The core idea of this experiment is to utilize an [Excel interpreter](https://gi
 ## Usage
 - Download a local copy of the quiz spreadsheets at https://github.com/bcgov/workbc-ssot/tree/noc/migration/data/CDQ
 - `composer install`
-- `php "10-1. Quizzes - Algo Check - Shared.php" "/path/to/workbc-ssot/migration/data/CDQ/10-1. Quizzes - Algo Check - Shared.xlsx"`
-- Repeat for the other scripts
+- Copy `.env.example` to `.env`, filling in the O*NET API credentials
+- Run `quizzes.sh`

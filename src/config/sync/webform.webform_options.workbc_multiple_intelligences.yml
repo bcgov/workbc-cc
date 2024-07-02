@@ -1,0 +1,14 @@
+uuid: 43ced1f9-d347-488a-8f1e-5223b9cd7a6d
+langcode: en
+status: true
+dependencies: {  }
+id: workbc_multiple_intelligences
+label: 'WorkBC: Multiple Intelligences'
+category: WorkBC
+likert: true
+options: |-
+  '12.5': 'Strongly Agree'
+  '9.375': Agree
+  '6.25': Neutral
+  '3.125': Disagree
+  0: 'Strongly Disagree'

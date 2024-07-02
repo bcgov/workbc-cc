@@ -3,10 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.taxonomy_term.abilities_categories.field_icon
     - taxonomy.vocabulary.abilities_categories
   module:
-    - image
     - text
 id: taxonomy_term.abilities_categories.default
 targetEntityType: taxonomy_term
@@ -19,16 +17,5 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 0
-    region: content
-  field_icon:
-    type: image
-    label: above
-    settings:
-      image_link: ''
-      image_style: ''
-      image_loading:
-        attribute: lazy
-    third_party_settings: {  }
-    weight: 1
     region: content
 hidden: {  }

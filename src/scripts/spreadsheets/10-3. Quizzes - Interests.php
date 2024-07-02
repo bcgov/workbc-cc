@@ -10,6 +10,9 @@ require './OnetWebService.php';
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Calculation\Calculation;
 
+$dotenv = Dotenv\Dotenv::createUnsafeImmutable(__DIR__);
+$dotenv->safeLoad();
+
 if (!isset($argv[1]) || !file_exists($argv[1]) || empty(getenv('ONET_USERNAME')) || empty(getenv('ONET_PASSWORD'))) {
   die("Usage: ONET_USERNAME=username ONET_PASSWORD=password php {$argv[0]} /path/to/interests-quiz.xlsx\n");
 }

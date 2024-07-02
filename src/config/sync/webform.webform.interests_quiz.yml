@@ -10,6 +10,8 @@ third_party_settings:
     auto_save: true
     auto_save_time: 5000
     optimistic_locking: false
+  workbc_cdq_career_match:
+    categories: interests_categories
 weight: 0
 open: null
 close: null

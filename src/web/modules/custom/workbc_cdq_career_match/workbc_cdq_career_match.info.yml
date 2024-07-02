@@ -1,6 +1,6 @@
 name: WorkBC CDQ Career Match
 type: module
-description: Provides custom functionality for WorkBC Career Discovery Quiz webform submissions.
+description: Provides custom functionality for WorkBC Career Discovery Quiz webform submissions, scoring and career matching.
 package: WorkBC
 dependencies:
   - webform

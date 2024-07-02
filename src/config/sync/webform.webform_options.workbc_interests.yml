@@ -1,0 +1,14 @@
+uuid: adf03082-5685-4443-af7d-8787d6d1d198
+langcode: en
+status: true
+dependencies: {  }
+id: workbc_interests
+label: 'WorkBC: Interests'
+category: WorkBC
+likert: true
+options: |-
+  - 'Very Difficult'
+  - Difficult
+  - Unsure
+  - Easy
+  - 'Very Easy'
