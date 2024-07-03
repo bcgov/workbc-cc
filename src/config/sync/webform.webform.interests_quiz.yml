@@ -26,56 +26,398 @@ elements: |-
   page_1:
     '#type': webform_wizard_page
     '#title': 'Page 1'
-    question_1:
+    i_would_like_to_building_kitchen_cabinets:
       '#type': radios
-      '#title': 'Question 1'
-      '#options': likert_agreement
+      '#title': 'I would like to building kitchen cabinets.'
+      '#options': workbc_interests
+      '#category': Realistic
       '#required': true
-    question_2:
+    i_would_enjoy_laying_brick_or_tile:
       '#type': radios
-      '#title': 'Question 2'
-      '#options': likert_agreement
+      '#title': 'I would enjoy laying brick or tile.'
+      '#options': workbc_interests
+      '#category': Realistic
       '#required': true
-    question_3:
+    i_would_like_to_develop_a_new_medicine:
       '#type': radios
-      '#title': 'Question 3'
-      '#options': likert_agreement
+      '#title': 'I would like to develop a new medicine.'
+      '#options': workbc_interests
+      '#category': Investigative
+      '#required': true
+    i_would_like_studying_ways_to_reduce_water_pollution:
+      '#type': radios
+      '#title': 'I would like studying ways to reduce water pollution.'
+      '#options': workbc_interests
+      '#category': Investigative
+      '#required': true
+    i_like_writing_books_or_plays:
+      '#type': radios
+      '#title': 'I like writing books or plays.'
+      '#options': workbc_interests
+      '#category': Artistic
       '#required': true
   page_2:
     '#type': webform_wizard_page
     '#title': 'Page 2'
-    question_4:
+    i_enjoy_playing_a_musical_instrument:
       '#type': radios
-      '#title': 'Question 4'
-      '#options': likert_agreement
+      '#title': 'I enjoy playing a musical instrument.'
+      '#options': workbc_interests
+      '#category': Artistic
       '#required': true
-    question_5:
+    i_like_teaching_people_an_exercise_routine:
       '#type': radios
-      '#title': 'Question 5'
-      '#options': likert_agreement
+      '#title': 'I like teaching people an exercise routine.'
+      '#options': workbc_interests
+      '#category': Social
       '#required': true
-    question_6:
+    i_enjoy_helping_people_with_personal_or_emotional_problems:
       '#type': radios
-      '#title': 'Question 6'
-      '#options': likert_agreement
+      '#title': 'I enjoy helping people with personal or emotional problems.'
+      '#options': workbc_interests
+      '#category': Social
+      '#required': true
+    i_would_enjoy_buying_and_selling_stocks_and_bonds:
+      '#type': radios
+      '#title': 'I would enjoy buying and selling stocks and bonds.'
+      '#options': workbc_interests
+      '#category': Enterprising
+      '#required': true
+    i_would_like_to_manage_a_retail_store:
+      '#type': radios
+      '#title': 'I would like to manage a retail store.'
+      '#options': workbc_interests
+      '#category': Enterprising
       '#required': true
   page_3:
     '#type': webform_wizard_page
     '#title': 'Page 3'
-    question_7:
+    i_like_developing_a_spreadsheet_using_computer_software:
       '#type': radios
-      '#title': 'Question 7'
-      '#options': likert_agreement
+      '#title': 'I like developing a spreadsheet using computer software.'
+      '#options': workbc_interests
+      '#category': Conventional
       '#required': true
-    question_8:
+    i_would_enjoy_proofreading_records_or_forms:
       '#type': radios
-      '#title': 'Question 8'
-      '#options': likert_agreement
+      '#title': 'I would enjoy proofreading records or forms.'
+      '#options': workbc_interests
+      '#category': Conventional
       '#required': true
-    question_9:
+    i_like_repairing_appliances:
       '#type': radios
-      '#title': 'Question 9'
-      '#options': likert_agreement
+      '#title': 'I like repairing appliances.'
+      '#options': workbc_interests
+      '#category': Realistic
+      '#required': true
+    i_would_like_to_raise_fish_in_a_fish_hatchery:
+      '#type': radios
+      '#title': 'I would like to raise fish in a fish hatchery.'
+      '#options': workbc_interests
+      '#category': Realistic
+      '#required': true
+    i_would_like_to_conduct_chemical_experiments:
+      '#type': radios
+      '#title': 'I would like to conduct chemical experiments.'
+      '#options': workbc_interests
+      '#category': Investigative
+      '#required': true
+  page_4:
+    '#type': webform_wizard_page
+    '#title': 'Page 4'
+    studying_the_movement_of_planets:
+      '#type': radios
+      '#title': 'Studying the movement of planets.'
+      '#options': workbc_interests
+      '#category': Investigative
+      '#required': true
+    composing_or_arranging_music:
+      '#type': radios
+      '#title': 'Composing or arranging music.'
+      '#options': workbc_interests
+      '#category': Artistic
+      '#required': true
+    drawing_pictures:
+      '#type': radios
+      '#title': 'Drawing pictures.'
+      '#options': workbc_interests
+      '#category': Artistic
+      '#required': true
+    giving_career_guidance_to_people:
+      '#type': radios
+      '#title': 'Giving career guidance to people.'
+      '#options': workbc_interests
+      '#category': Social
+      '#required': true
+    performing_rehabilitation_therapy:
+      '#type': radios
+      '#title': 'Performing rehabilitation therapy.'
+      '#options': workbc_interests
+      '#category': Social
+      '#required': true
+  page_5:
+    '#type': webform_wizard_page
+    '#title': 'Page 5'
+    operating_a_beauty_salon_or_barber_shop:
+      '#type': radios
+      '#title': 'Operating a beauty salon or barber shop.'
+      '#options': workbc_interests
+      '#category': Enterprising
+      '#required': true
+    managing_a_department_within_a_large_company:
+      '#type': radios
+      '#title': 'Managing a department within a large company.'
+      '#options': workbc_interests
+      '#category': Enterprising
+      '#required': true
+    installing_software_across_computers_on_a_large_network:
+      '#type': radios
+      '#title': 'Installing software across computers on a large network.'
+      '#options': workbc_interests
+      '#category': Conventional
+      '#required': true
+    operating_a_calculator:
+      '#type': radios
+      '#title': 'Operating a calculator.'
+      '#options': workbc_interests
+      '#category': Conventional
+      '#required': true
+    assembling_electronic_parts:
+      '#type': radios
+      '#title': 'Assembling electronic parts.'
+      '#options': workbc_interests
+      '#category': Realistic
+      '#required': true
+  page_6:
+    '#type': webform_wizard_page
+    '#title': 'Page 6'
+    driving_a_truck_to_deliver_packages_to_offices_and_homes:
+      '#type': radios
+      '#title': 'Driving a truck to deliver packages to offices and homes.'
+      '#options': workbc_interests
+      '#category': Realistic
+      '#required': true
+    examining_blood_samples_using_a_microscope:
+      '#type': radios
+      '#title': 'Examining blood samples using a microscope.'
+      '#options': workbc_interests
+      '#category': Investigative
+      '#required': true
+    investigating_the_cause_of_a_fire:
+      '#type': radios
+      '#title': 'Investigating the cause of a fire.'
+      '#options': workbc_interests
+      '#category': Investigative
+      '#required': true
+    creating_special_effects_for_movies:
+      '#type': radios
+      '#title': 'Creating special effects for movies.'
+      '#options': workbc_interests
+      '#category': Artistic
+      '#required': true
+    painting_sets_for_plays:
+      '#type': radios
+      '#title': 'Painting sets for plays.'
+      '#options': workbc_interests
+      '#category': Artistic
+      '#required': true
+  page_7:
+    '#type': webform_wizard_page
+    '#title': 'Page 7'
+    doing_volunteer_work_at_a_non_profit_organization:
+      '#type': radios
+      '#title': 'Doing volunteer work at a non-profit organization.'
+      '#options': workbc_interests
+      '#category': Social
+      '#required': true
+    teaching_children_how_to_play_sports:
+      '#type': radios
+      '#title': 'Teaching children how to play sports.'
+      '#options': workbc_interests
+      '#category': Social
+      '#required': true
+    starting_my_own_business:
+      '#type': radios
+      '#title': 'Starting my own business.'
+      '#options': workbc_interests
+      '#category': Enterprising
+      '#required': true
+    negotiating_business_contracts:
+      '#type': radios
+      '#title': 'Negotiating business contracts.'
+      '#options': workbc_interests
+      '#category': Enterprising
+      '#required': true
+    storing_shipping_and_receiving_records:
+      '#type': radios
+      '#title': 'Storing shipping and receiving records.'
+      '#options': workbc_interests
+      '#category': Conventional
+      '#required': true
+  page_8:
+    '#type': webform_wizard_page
+    '#title': 'Page 8'
+    calculating_the_wages_of_employees:
+      '#type': radios
+      '#title': 'Calculating the wages of employees.'
+      '#options': workbc_interests
+      '#category': Conventional
+      '#required': true
+    testing_the_quality_of_parts_before_shipment:
+      '#type': radios
+      '#title': 'Testing the quality of parts before shipment.'
+      '#options': workbc_interests
+      '#category': Realistic
+      '#required': true
+    repairing_and_installing_locks:
+      '#type': radios
+      '#title': 'Repairing and installing locks.'
+      '#options': workbc_interests
+      '#category': Realistic
+      '#required': true
+    developing_a_better_way_to_predict_the_weather:
+      '#type': radios
+      '#title': 'Developing a better way to predict the weather.'
+      '#options': workbc_interests
+      '#category': Investigative
+      '#required': true
+    working_in_a_biology_lab:
+      '#type': radios
+      '#title': 'Working in a biology lab.'
+      '#options': workbc_interests
+      '#category': Investigative
+      '#required': true
+  page_9:
+    '#type': webform_wizard_page
+    '#title': 'Page 9'
+    writing_scripts_for_movies_or_tv_shows:
+      '#type': radios
+      '#title': 'Writing scripts for movies or TV shows.'
+      '#options': workbc_interests
+      '#category': Artistic
+      '#required': true
+    performing_jazz_or_tap_dance:
+      '#type': radios
+      '#title': 'Performing jazz or tap dance.'
+      '#options': workbc_interests
+      '#category': Artistic
+      '#required': true
+    teaching_sign_language_to_people_who_are_deaf_or_hard_of_hearing:
+      '#type': radios
+      '#title': 'Teaching sign language to people who are deaf or hard of hearing.'
+      '#options': workbc_interests
+      '#category': Social
+      '#required': true
+    helping_conduct_a_group_therapy_session:
+      '#type': radios
+      '#title': 'Helping conduct a group therapy session.'
+      '#options': workbc_interests
+      '#category': Social
+      '#required': true
+    representing_a_client_in_a_lawsuit:
+      '#type': radios
+      '#title': 'Representing a client in a lawsuit.'
+      '#options': workbc_interests
+      '#category': Enterprising
+      '#required': true
+  page_10:
+    '#type': webform_wizard_page
+    '#title': 'Page 10'
+    marketing_a_new_line_of_clothing:
+      '#type': radios
+      '#title': 'Marketing a new line of clothing.'
+      '#options': workbc_interests
+      '#category': Enterprising
+      '#required': true
+    taking_inventory_of_supplies_using_a_hand_held_computer:
+      '#type': radios
+      '#title': 'Taking inventory of supplies using a hand-held computer.'
+      '#options': workbc_interests
+      '#category': Conventional
+      '#required': true
+    recording_rent_payments:
+      '#type': radios
+      '#title': 'Recording rent payments.'
+      '#options': workbc_interests
+      '#category': Conventional
+      '#required': true
+    setting_up_and_operating_machines_to_make_products:
+      '#type': radios
+      '#title': 'Setting up and operating machines to make products.'
+      '#options': workbc_interests
+      '#category': Realistic
+      '#required': true
+    putting_out_forest_fires:
+      '#type': radios
+      '#title': 'Putting out forest fires.'
+      '#options': workbc_interests
+      '#category': Realistic
+      '#required': true
+  page_11:
+    '#type': webform_wizard_page
+    '#title': 'Page 11'
+    inventing_a_replacement_for_sugar:
+      '#type': radios
+      '#title': 'Inventing a replacement for sugar.'
+      '#options': workbc_interests
+      '#category': Investigative
+      '#required': true
+    doing_laboratory_tests_to_identify_diseases:
+      '#type': radios
+      '#title': 'Doing laboratory tests to identify diseases.'
+      '#options': workbc_interests
+      '#category': Investigative
+      '#required': true
+    singing_in_a_band:
+      '#type': radios
+      '#title': 'Singing in a band.'
+      '#options': workbc_interests
+      '#category': Artistic
+      '#required': true
+    editing_movies:
+      '#type': radios
+      '#title': 'Editing movies.'
+      '#options': workbc_interests
+      '#category': Artistic
+      '#required': true
+    taking_care_of_children_at_a_day_care_center:
+      '#type': radios
+      '#title': 'Taking care of children at a day-care center.'
+      '#options': workbc_interests
+      '#category': Social
+      '#required': true
+  page_12:
+    '#type': webform_wizard_page
+    '#title': 'Page 12'
+    teaching_a_high_school_class:
+      '#type': radios
+      '#title': 'Teaching a high-school class.'
+      '#options': workbc_interests
+      '#category': Social
+      '#required': true
+    selling_merchandise_at_a_department_store:
+      '#type': radios
+      '#title': 'Selling merchandise at a department store.'
+      '#options': workbc_interests
+      '#category': Enterprising
+      '#required': true
+    manage_a_clothing_store:
+      '#type': radios
+      '#title': 'Manage a clothing store.'
+      '#options': workbc_interests
+      '#category': Enterprising
+      '#required': true
+    keeping_inventory_records:
+      '#type': radios
+      '#title': 'Keeping inventory records.'
+      '#options': workbc_interests
+      '#category': Conventional
+      '#required': true
+    stamping_sorting_and_distributing_mail_for_an_organization:
+      '#type': radios
+      '#title': 'Stamping, sorting, and distributing mail for an organization.'
+      '#options': workbc_interests
+      '#category': Conventional
       '#required': true
 css: ''
 javascript: ''
