@@ -20,7 +20,7 @@ function workbc_cdq_career_match_webform_third_party_settings_form_alter(array &
   $webform = $form_state->getFormObject()->getEntity();
 
   // Ignore for non-quiz webforms.
-  if (!str_contains($webform->id(), '_quiz')) return;
+  if (!str_ends_with($webform->id(), '_quiz')) return;
 
   $form['third_party_settings']['workbc_cdq_career_match'] = [
     '#type' => 'details',
@@ -34,6 +34,18 @@ function workbc_cdq_career_match_webform_third_party_settings_form_alter(array &
     '#description' => t('The categories that apply to the questions of this quiz.'),
     '#required' => true,
     '#default_value' => $webform->getThirdPartySetting('workbc_cdq_career_match', 'categories'),
+    '#options' => array_reduce(array_keys($vocabularies), function($options, $key) use($vocabularies) {
+      $options[$key] = $vocabularies[$key]->get('name');
+      return $options;
+    }, [])
+  ];
+
+  $form['third_party_settings']['workbc_cdq_career_match']['time'] = [
+    '#type' => 'textfield',
+    '#title' => t('Time'),
+    '#description' => t('The typical time it takes to fill this quiz.'),
+    '#required' => true,
+    '#default_value' => $webform->getThirdPartySetting('workbc_cdq_career_match', 'time'),
     '#options' => array_reduce(array_keys($vocabularies), function($options, $key) use($vocabularies) {
       $options[$key] = $vocabularies[$key]->get('name');
       return $options;

@@ -1,23 +1,20 @@
 <?php
 
-use Drupal\webform\Entity\Webform;
 use Drupal\webform\Entity\WebformSubmission;
 
 function quizzesList() {
-
-  // TODO Read from Webform entity and filter by `_quiz`.
-  return [
-    'abilities_quiz' => 'Abilities Quiz',
-    'work_preferences_quiz' => 'Work Preferences Quiz',
-    'interests_quiz' => 'Interests Quiz',
-  ];
+  $forms = \Drupal::entityTypeManager()->getStorage('webform')->loadMultiple();
+  return array_reduce($forms, function($quizzes, $form) {
+    if (str_ends_with($form->id(), '_quiz')) {
+      $quizzes[$form->id()] = $form->get('title');
+    }
+    return $quizzes;
+  }, []);
 }
-
 
 function getUserSubmission($webform_id) {
 
   $current_user = \Drupal::currentUser();
-
   $query = \Drupal::entityQuery('webform_submission')
   ->condition('uid', $current_user->id())
   ->condition('webform_id', $webform_id)
@@ -32,4 +29,3 @@ function getUserSubmission($webform_id) {
 
   return isset($webform_submission) ? $webform_submission : false;
 }
-

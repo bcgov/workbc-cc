@@ -12,6 +12,7 @@ third_party_settings:
     optimistic_locking: false
   workbc_cdq_career_match:
     categories: work_preferences_categories
+    time: '10 minutes'
 weight: 0
 open: null
 close: null
