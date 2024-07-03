@@ -22,7 +22,166 @@ id: learning_styles_quiz
 title: 'Learning Styles Quiz'
 description: ''
 categories: {  }
-elements: null
+elements: |-
+  page_1:
+    '#type': webform_wizard_page
+    '#title': 'Page 1'
+    i_remember_better_from_lectures_with_explanations_and_discussion:
+      '#type': radios
+      '#title': 'I remember better from lectures with explanations and discussions.'
+      '#options': workbc_learning_styles
+      '#category': Hearing
+      '#required': true
+    i_learn_information_more_easily_if_it_is_written_on_the_board:
+      '#type': radios
+      '#title': 'I learn information more easily if it is written on the board.'
+      '#options': workbc_learning_styles
+      '#category': Seeing
+      '#required': true
+    i_like_to_take_notes_and_write_down_the_information_i_read:
+      '#type': radios
+      '#title': 'I like to take notes and write down the information I read.'
+      '#options': workbc_learning_styles
+      '#category': Seeing
+      '#required': true
+    i_enjoy_the_use_of_posters_and_models_in_the_classroom:
+      '#type': radios
+      '#title': 'I enjoy the use of posters and models in the classroom.'
+      '#options': workbc_learning_styles
+      '#category': Doing
+      '#required': true
+    i_need_a_verbal_explanation_of_diagrams_and_graphs:
+      '#type': radios
+      '#title': 'I need a verbal explanation of diagrams and graphs.'
+      '#options': workbc_learning_styles
+      '#category': Hearing
+      '#required': true
+  page_2:
+    '#type': webform_wizard_page
+    '#title': 'Page 2'
+    i_enjoy_working_with_my_hands:
+      '#type': radios
+      '#title': 'I enjoy working with my hands.'
+      '#options': workbc_learning_styles
+      '#category': Doing
+      '#required': true
+    i_enjoy_making_graphs_and_charts:
+      '#type': radios
+      '#title': 'I enjoy making graphs and charts.'
+      '#options': workbc_learning_styles
+      '#category': Seeing
+      '#required': true
+    i_am_able_to_tell_if_sounds_match_when_presented_with_pairs_of_s:
+      '#type': radios
+      '#title': 'I am able to tell if sounds match when presented with pairs of sounds.'
+      '#options': workbc_learning_styles
+      '#category': Hearing
+      '#required': true
+    i_remember_best_by_writing_things_down_several_times:
+      '#type': radios
+      '#title': 'I remember best by writing things down several times.'
+      '#options': workbc_learning_styles
+      '#category': Doing
+      '#required': true
+    i_can_follow_directions_on_maps:
+      '#type': radios
+      '#title': 'I can follow directions on maps.'
+      '#options': workbc_learning_styles
+      '#category': Seeing
+      '#required': true
+  page_3:
+    '#type': webform_wizard_page
+    '#title': 'Page 3'
+    i_do_better_at_academic_subjects_by_listening_to_lectures_and_ta:
+      '#type': radios
+      '#title': 'I do better at academic subjects by listening to lectures and tapes.'
+      '#options': workbc_learning_styles
+      '#category': Hearing
+      '#required': true
+    i_like_to_play_with_coins_keys_pens_or_other_objects_when_learni:
+      '#type': radios
+      '#title': 'I like to play with coins, keys, pens or other objects when learning.'
+      '#options': workbc_learning_styles
+      '#category': Doing
+      '#required': true
+    i_learn_to_spell_better_by_repeating_the_words_out_loud_than_by:
+      '#type': radios
+      '#title': 'I learn to spell better by repeating the words out loud than by writing them down.'
+      '#options': workbc_learning_styles
+      '#category': Hearing
+      '#required': true
+    i_understand_a_news_article_better_when_i_read_a_newspaper_than:
+      '#type': radios
+      '#title': 'I understand a news article better when I read a newspaper than when I listen to the radio.'
+      '#options': workbc_learning_styles
+      '#category': Seeing
+      '#required': true
+    i_chew_gum_or_snack_when_i_study:
+      '#type': radios
+      '#title': 'I chew gum or snack when I study.'
+      '#options': workbc_learning_styles
+      '#category': Doing
+      '#required': true
+  page_4:
+    '#type': webform_wizard_page
+    '#title': 'Page 4'
+    i_feel_the_best_way_to_remember_something_is_to_picture_it_in_my:
+      '#type': radios
+      '#title': 'I feel the best way to remember something is to picture it in my head.'
+      '#options': workbc_learning_styles
+      '#category': Seeing
+      '#required': true
+    i_learn_how_something_works_by_taking_it_apart_and_putting_it_ba:
+      '#type': radios
+      '#title': 'I learn how something works by taking it apart and putting it back together.'
+      '#options': workbc_learning_styles
+      '#category': Doing
+      '#required': true
+    i_would_rather_listen_to_a_lecture_than_read_the_same_material_i:
+      '#type': radios
+      '#title': 'I would rather listen to a lecture than read the same material in a text book.'
+      '#options': workbc_learning_styles
+      '#category': Hearing
+      '#required': true
+    i_am_good_at_solving_jigsaw_puzzles_and_mazes:
+      '#type': radios
+      '#title': 'I am good at solving jigsaw puzzles and mazes.'
+      '#options': workbc_learning_styles
+      '#category': Seeing
+      '#required': true
+    i_grip_objects_in_my_hands_while_learning:
+      '#type': radios
+      '#title': 'I grip objects in my hands while learning.'
+      '#options': workbc_learning_styles
+      '#category': Doing
+      '#required': true
+  page_5:
+    '#type': webform_wizard_page
+    '#title': 'Page 5'
+    i_prefer_listening_to_the_news_on_the_radio_than_reading_about_i:
+      '#type': radios
+      '#title': 'I prefer listening to the news on the radio than reading about it in the newspaper.'
+      '#options': workbc_learning_styles
+      '#category': Hearing
+      '#required': true
+    i_prefer_to_get_information_by_reading_about_it:
+      '#type': radios
+      '#title': 'I prefer to get information by reading about it.'
+      '#options': workbc_learning_styles
+      '#category': Seeing
+      '#required': true
+    i_enjoy_classes_with_physical_activity_and_movement:
+      '#type': radios
+      '#title': 'I enjoy classes with physical activity and movement.'
+      '#options': workbc_learning_styles
+      '#category': Doing
+      '#required': true
+    i_follow_verbal_directions_better_than_written_ones:
+      '#type': radios
+      '#title': 'I follow verbal directions better than written ones.'
+      '#options': workbc_learning_styles
+      '#category': Hearing
+      '#required': true
 css: ''
 javascript: ''
 settings:

@@ -22,7 +22,226 @@ id: work_values_quiz
 title: 'Work Values Quiz'
 description: ''
 categories: {  }
-elements: null
+elements: |-
+  page_1:
+    '#type': webform_wizard_page
+    '#title': 'Page 1'
+    the_idea_of_making_money_motivates_me_a_great_deal:
+      '#type': radios
+      '#title': 'The idea of making money motivates me a great deal.'
+      '#options': workbc_work_values
+      '#category': 'Your work motivations'
+      '#required': true
+    i_m_motivated_by_work_that_allows_me_to_help_other_people_either:
+      '#type': radios
+      '#title': 'I’m motivated by work that allows me to help other people, either individually or in small groups.'
+      '#options': workbc_work_values
+      '#category': 'Your work motivations'
+      '#required': true
+    i_m_not_interested_in_managing_other_people_i_m_motivated_by_wor:
+      '#type': radios
+      '#title': 'I’m not interested in managing other people. I’m motivated by work that allows me to manage just myself.'
+      '#options': workbc_work_values
+      '#category': 'Your work motivations'
+      '#required': true
+    money_is_not_as_important_to_me_as_a_personal_sense_of_satisfac:
+      '#type': radios
+      '#title': 'Money is not as important to me as a personal sense of satisfaction.'
+      '#options': workbc_work_values
+      '#required': true
+      '#category': 'Your work motivations'
+    i_want_work_that_absorbs_me_even_if_it_takes_up_my_leisure_time:
+      '#type': radios
+      '#title': 'I want work that absorbs me, even if it takes up my leisure time.'
+      '#options': workbc_work_values
+      '#category': 'Your work motivations'
+      '#required': true
+  page_2:
+    '#type': webform_wizard_page
+    '#title': 'Page 2'
+    i_m_motivated_by_work_that_will_improve_the_world:
+      '#type': radios
+      '#title': "I'm motivated by work that will improve the world."
+      '#options': workbc_work_values
+      '#category': 'Your work motivations'
+      '#required': true
+    it_s_important_to_me_to_get_public_recognition_for_the_work_that:
+      '#type': radios
+      '#title': 'It’s important to me to get public recognition for the work that I do.'
+      '#options': workbc_work_values
+      '#category': 'Your work motivations'
+      '#required': true
+    i_m_motivated_by_work_that_will_lead_to_a_management_position:
+      '#type': radios
+      '#title': 'I’m motivated by work that will lead to a management position.'
+      '#options': workbc_work_values
+      '#category': 'Your work motivations'
+      '#required': true
+    i_want_work_that_leaves_me_leisure_time_for_my_family_and_friend:
+      '#type': radios
+      '#title': 'I want work that leaves me leisure time for my family and friends.'
+      '#options': workbc_work_values
+      '#category': 'Your work motivations'
+      '#required': true
+    i_would_like_to_travel_and_experience_different_cultures_and_pla:
+      '#type': radios
+      '#title': 'I would like to travel and experience different cultures and places.'
+      '#options': workbc_work_values
+      '#category': 'Your preferred work setting'
+      '#required': true
+  page_3:
+    '#type': webform_wizard_page
+    '#title': 'Page 3'
+    i_want_a_calm_peaceful_work_setting:
+      '#type': radios
+      '#title': 'I want a calm, peaceful work setting.'
+      '#options': workbc_work_values
+      '#category': 'Your preferred work setting'
+      '#required': true
+    i_would_like_to_work_outside_all_or_some_of_the_time:
+      '#type': radios
+      '#title': 'I would like to work outside all or some of the time.'
+      '#options': workbc_work_values
+      '#category': 'Your preferred work setting'
+      '#required': true
+    i_like_work_that_is_physically_challenging:
+      '#type': radios
+      '#title': 'I like work that is physically challenging.'
+      '#options': workbc_work_values
+      '#category': 'Your preferred work setting'
+      '#required': true
+    i_prefer_indoor_work:
+      '#type': radios
+      '#title': 'I prefer indoor work.'
+      '#options': workbc_work_values
+      '#category': 'Your preferred work setting'
+      '#required': true
+    i_want_work_that_challenges_my_intellectual_capacities:
+      '#type': radios
+      '#title': 'I want work that challenges my intellectual capacities.'
+      '#options': workbc_work_values
+      '#required': true
+      '#category': 'Your preferred work setting'
+  page_4:
+    '#type': webform_wizard_page
+    '#title': 'Page 4'
+    i_prefer_not_to_travel_for_work:
+      '#type': radios
+      '#title': 'I prefer not to travel for work.'
+      '#options': workbc_work_values
+      '#required': true
+      '#category': 'Your preferred work setting'
+    i_enjoy_a_workplace_with_a_lot_of_fast_paced_activity:
+      '#type': radios
+      '#title': 'I enjoy a workplace with a lot of fast-paced activity.'
+      '#options': workbc_work_values
+      '#category': 'Your preferred work setting'
+      '#required': true
+    i_like_to_work_independently_with_little_or_no_supervision:
+      '#type': radios
+      '#title': 'I like to work independently with little or no supervision.'
+      '#options': workbc_work_values
+      '#category': 'How you like to interact with others'
+      '#required': true
+    i_like_work_that_lets_me_persuade_or_negotiate_with_others:
+      '#type': radios
+      '#title': 'I like work that lets me persuade or negotiate with others.'
+      '#options': workbc_work_values
+      '#category': 'How you like to interact with others'
+      '#required': true
+    i_like_to_compete_and_put_my_skills_and_abilities_against_others:
+      '#type': radios
+      '#title': 'I like to compete and put my skills and abilities against others.'
+      '#options': workbc_work_values
+      '#category': 'How you like to interact with others'
+      '#required': true
+  page_5:
+    '#type': webform_wizard_page
+    '#title': 'Page 5'
+    i_would_like_to_work_with_the_public:
+      '#type': radios
+      '#title': 'I would like to work with the public.'
+      '#options': workbc_work_values
+      '#category': 'How you like to interact with others'
+      '#required': true
+    i_want_work_where_i_set_and_meet_my_own_personal_goals:
+      '#type': radios
+      '#title': 'I want work where I set and meet my own personal goals.'
+      '#options': workbc_work_values
+      '#category': 'How you like to interact with others'
+      '#required': true
+    i_want_work_where_iget_to_interact_with_a_team_of_other_people:
+      '#type': radios
+      '#title': 'I want work where Iget to interact with a team of other people.'
+      '#options': workbc_work_values
+      '#category': 'How you like to interact with others'
+      '#required': true
+    i_prefer_to_work_away_from_the_public:
+      '#type': radios
+      '#title': 'I prefer to work away from the public.'
+      '#options': workbc_work_values
+      '#category': 'How you like to interact with others'
+      '#required': true
+    i_want_work_where_ican_influence_the_attitudes_or_opinions_of_ot:
+      '#type': radios
+      '#title': 'I want work where Ican influence the attitudes or opinions of others.'
+      '#options': workbc_work_values
+      '#category': 'How you like to interact with others'
+      '#required': true
+  page_6:
+    '#type': webform_wizard_page
+    '#title': 'Page 6'
+    i_like_work_where_i_can_solve_problems_and_decide_how_things_sho:
+      '#type': radios
+      '#title': 'I like work where I can solve problems and decide how things should be done.'
+      '#options': workbc_work_values
+      '#category': 'Your work styles'
+      '#required': true
+    i_enjoy_work_that_has_fixed_hours_and_a_set_schedule:
+      '#type': radios
+      '#title': 'I enjoy work that has fixed hours and a set schedule.'
+      '#options': workbc_work_values
+      '#category': 'Your work styles'
+      '#required': true
+    i_want_work_with_responsibilities_that_change_frequently:
+      '#type': radios
+      '#title': 'I want work with responsibilities that change frequently.'
+      '#options': workbc_work_values
+      '#category': 'Your work styles'
+      '#required': true
+    i_want_work_that_lets_me_use_my_creativity_to_think_up_new_ways:
+      '#type': radios
+      '#title': 'I want work that lets me use my creativity to think up new ways to do things.'
+      '#options': workbc_work_values
+      '#category': 'Your work styles'
+      '#required': true
+    i_want_the_freedom_to_work_to_my_own_schedule:
+      '#type': radios
+      '#title': 'I want the freedom to work to my own schedule.'
+      '#options': workbc_work_values
+      '#category': 'Your work styles'
+      '#required': true
+  page_7:
+    '#type': webform_wizard_page
+    '#title': 'Page 7'
+    i_enjoy_work_that_requires_attention_to_detail_and_accuracy:
+      '#type': radios
+      '#title': 'I enjoy work that requires attention to detail and accuracy.'
+      '#options': workbc_work_values
+      '#category': 'Your work styles'
+      '#required': true
+    i_prefer_a_work_situation_where_my_responsibilities_are_the_same:
+      '#type': radios
+      '#title': 'I prefer a work situation where my responsibilities are the same every day.'
+      '#options': workbc_work_values
+      '#category': 'Your work styles'
+      '#required': true
+    i_want_a_work_situation_that_s_exciting_and_high_pressure:
+      '#type': radios
+      '#title': 'I want a work situation that’s exciting and high-pressure.'
+      '#options': workbc_work_values
+      '#category': 'Your work styles'
+      '#required': true
 css: ''
 javascript: ''
 settings:
