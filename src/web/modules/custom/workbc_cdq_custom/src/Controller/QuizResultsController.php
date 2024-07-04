@@ -9,6 +9,16 @@ namespace Drupal\workbc_cdq_custom\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 
+function round_up($value, $precision=0) {
+  $power = pow(10,$precision);
+  return ceil($value*$power)/$power;
+}
+
+function round_down($value, $precision=0) {
+  $power = pow(10,$precision);
+  return floor($value*$power)/$power;
+}
+
 class QuizResultsController extends ControllerBase {
 
   protected function getScores($submission) {
@@ -32,6 +42,10 @@ class QuizResultsController extends ControllerBase {
       $categories[$category]['count'] += 1;
       $results[$questions[$key]['#category']] = $score;
     }
+    foreach ($categories as &$category) {
+      $category['percent'] = $category['score'] / ($category['count'] * 4);
+      $category['normalized'] = round_down($category['score'] / $category['count'], 1) + 1;
+    }
     return [
       'categories' => $categories,
       'answers' => $results,
@@ -42,9 +56,10 @@ class QuizResultsController extends ControllerBase {
     $submission = getUserSubmission('abilities_quiz');
     if ($submission) {
       $markup = "";
-      foreach ($this->getScores($submission)['categories'] as $category => $data) {
-        $percent = $data['score'] / ($data['count'] * 4) * 100;
-        $markup .= "<p>$category: <b>$percent%</b></p>";
+      foreach ($this->getScores($submission)['categories'] as $category_name => $category) {
+        $percent = $category['percent'] * 100;
+        $normalized = $category['normalized'];
+        $markup .= "<p>$category_name: <b>$percent% ($normalized)</b></p>";
       }
     }
     else {
