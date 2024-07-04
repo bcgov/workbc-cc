@@ -1,0 +1,8 @@
+uuid: 689ada91-8be7-49bb-82a3-1a297eba12c4
+langcode: en
+status: true
+dependencies: {  }
+name: 'Abilities Categories'
+vid: abilities_categories
+description: 'Sub categories for Abilities quiz.'
+weight: 0

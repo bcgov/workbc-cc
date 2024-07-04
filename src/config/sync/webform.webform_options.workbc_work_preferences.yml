@@ -1,0 +1,14 @@
+uuid: 77b05432-3b98-417f-8b77-218272f80bfe
+langcode: en
+status: true
+dependencies: {  }
+id: workbc_work_preferences
+label: 'WorkBC: Work Preferences'
+category: WorkBC
+likert: true
+options: |-
+  - 'Very Difficult'
+  - Difficult
+  - Unsure
+  - Easy
+  - 'Very Easy'

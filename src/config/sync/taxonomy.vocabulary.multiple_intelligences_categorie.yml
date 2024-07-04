@@ -1,0 +1,8 @@
+uuid: 804246a7-f8f5-4df9-b7bb-109a1f172600
+langcode: en
+status: true
+dependencies: {  }
+name: 'Multiple Intelligences Categories'
+vid: multiple_intelligences_categorie
+description: 'Sub categories for Multiple Intelligences quiz.'
+weight: 0

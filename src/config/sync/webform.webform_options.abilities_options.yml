@@ -1,0 +1,14 @@
+uuid: 5f1e6388-8e51-4312-9d53-be953caeba98
+langcode: en
+status: true
+dependencies: {  }
+id: abilities_options
+label: 'WorkBC: Abilities'
+category: WorkBC
+likert: true
+options: |-
+  - 'Very Difficult'
+  - Difficult
+  - 'About Average'
+  - Easy
+  - 'Very Easy'

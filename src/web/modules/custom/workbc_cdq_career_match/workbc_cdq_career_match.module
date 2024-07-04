@@ -102,23 +102,37 @@ function workbc_cdq_career_match_webform_third_party_settings_form_alter(array &
   /** @var \Drupal\webform\WebformInterface $webform */
   $webform = $form_state->getFormObject()->getEntity();
 
-  $form['third_party_settings']['workbc_cdq'] = [
+  // Ignore for non-quiz webforms.
+  if (!str_ends_with($webform->id(), '_quiz')) return;
+
+  $form['third_party_settings']['workbc_cdq_career_match'] = [
     '#type' => 'details',
     '#title' => t('WorkBC CDQ settings'),
     '#open' => TRUE,
   ];
   $vocabularies = \Drupal::entityTypeManager()->getStorage('taxonomy_vocabulary')->loadMultiple();
-  $form['third_party_settings']['workbc_cdq']['categories'] = [
+  $form['third_party_settings']['workbc_cdq_career_match']['categories'] = [
     '#type' => 'select',
     '#title' => t('Quiz categories'),
     '#description' => t('The categories that apply to the questions of this quiz.'),
-    '#default_value' => $webform->getThirdPartySetting('workbc_cdq', 'categories'),
-    '#options' => array_merge([0 => '- none - '], array_reduce(array_keys($vocabularies), function($options, $key) use($vocabularies) {
-      if (str_contains($key, 'categories')) {
-        $options[$key] = $vocabularies[$key]->get('name');
-      }
+    '#required' => true,
+    '#default_value' => $webform->getThirdPartySetting('workbc_cdq_career_match', 'categories'),
+    '#options' => array_reduce(array_keys($vocabularies), function($options, $key) use($vocabularies) {
+      $options[$key] = $vocabularies[$key]->get('name');
       return $options;
-    }, []))
+    }, [])
+  ];
+
+  $form['third_party_settings']['workbc_cdq_career_match']['time'] = [
+    '#type' => 'textfield',
+    '#title' => t('Time'),
+    '#description' => t('The typical time it takes to fill this quiz.'),
+    '#required' => true,
+    '#default_value' => $webform->getThirdPartySetting('workbc_cdq_career_match', 'time'),
+    '#options' => array_reduce(array_keys($vocabularies), function($options, $key) use($vocabularies) {
+      $options[$key] = $vocabularies[$key]->get('name');
+      return $options;
+    }, [])
   ];
 }
 
@@ -155,29 +169,146 @@ function workbc_cdq_career_match_webform_element_configuration_form_alter(&$form
   $webform = $element_plugin->getWebform();
   $settings = $webform->get('third_party_settings');
 
+  // Ignore other than radios elements.
+  if ($element_type !== 'radios') return;
+
   // Append custom properties details container and textfield element.
   $t_args = [
     '@label' => $element_label,
     '@type' => $element_type,
   ];
-  $form['workbc_cdq'] = [
+  $form['workbc_cdq_career_match'] = [
     '#type' => 'details',
     '#title' => t('WorkBC CDQ properties'),
     '#description' => t('Properties related to WorkBC CDQ.'),
     '#open' => TRUE,
-    // Add custom properties after all fieldset elements, which have a
-    // weight of -20.
-    // @see \Drupal\webform\Plugin\WebformElementBase::buildConfigurationForm
     '#weight' => -10,
   ];
-  $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($settings['workbc_cdq']['categories']);
-  $form['workbc_cdq']['category'] = [
+  $form['workbc_cdq_career_match']['category'] = [
     '#type' => 'select',
     '#title' => t('Question category'),
     '#description' => t('The category to which this question belongs.', $t_args),
-    '#options' => array_reduce($terms, function($options, $term) {
-      $options[$term->tid] = $term->name;
+    '#required' => true,
+    '#options' => array_reduce(\Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($settings['workbc_cdq_career_match']['categories']), function($options, $term) {
+      $options[$term->name] = $term->name;
       return $options;
     })
   ];
+}
+
+function round_up($value, $precision=0) {
+  $power = pow(10,$precision);
+  return ceil($value*$power)/$power;
+}
+
+function round_down($value, $precision=0) {
+  $power = pow(10,$precision);
+  return floor($value*$power)/$power;
+}
+
+function getSubmissionScore($submission) {
+  $quiz = $submission->getWebform();
+  $questions = array_filter($quiz->getElementsInitializedAndFlattened(), function($question) {
+    return $question['#type'] === 'radios';
+  });
+  $answers = $submission->getData();
+  $settings = $quiz->get('third_party_settings');
+  $categories = array_reduce(\Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($settings['workbc_cdq_career_match']['categories']), function($categories, $category) {
+    $categories[$category->name] = [
+      'score' => 0,
+      'count' => 0,
+      'term' => $category,
+    ];
+    return $categories;
+  });
+  $results = [];
+  $answer_string = '';
+  foreach ($questions as $key => $question) {
+    $category = $question['#category'];
+    $value = $answers[$key];
+    $score = floatval($value);
+    $categories[$category]['score'] += $score;
+    $categories[$category]['count'] += 1;
+    $results[$category] = $score;
+    $answer_string .= strval(array_search($value, array_keys($question['#options'])));
+  }
+  if (\Drupal::currentUser()->hasPermission('override quiz answers')) {
+    $url = Url::fromRoute('<current>', ['answers' => $answer_string], ['absolute' => true]);
+    \Drupal::messenger()->addMessage(t(
+      'To reuse the current set of answers, use the following URL:<br><code>@url</code>',
+      ['@url' => $url->toString()]
+    ));
+  }
+  foreach ($categories as &$category) {
+    $category['percent'] = $category['score'] / ($category['count'] * 4);
+    $category['normalized'] = round_down($category['score'] / $category['count'], 1) + 1;
+  }
+  return [
+    'categories' => $categories,
+    'answers' => $results,
+  ];
+}
+
+const COLUMN_ABILITIES_NOC=0;
+const COLUMN_ABILITIES_GLA=1;
+const COLUMN_ABILITIES_VA=2;
+const COLUMN_ABILITIES_NA=3;
+const COLUMN_ABILITIES_SP=4;
+const COLUMN_ABILITIES_FP=5;
+const COLUMN_ABILITIES_CP=6;
+const COLUMN_ABILITIES_MC=7;
+const COLUMN_ABILITIES_FD=8;
+const COLUMN_ABILITIES_MD=9;
+const COLUMN_ABILITIES_MATCH=10;
+
+function matchAbilitiesCareers($submission, $score) {
+  // 1. Load abilities-quiz.csv category weights.
+  $abilities_weights = \Drupal::state()->get('workbc.abilities_weights', []);
+  if (empty($abilities_weights)) {
+    $abilities_weights = array_map('str_getcsv', file(__DIR__ . '/scoring/abilities-quiz.csv'));
+    \Drupal::state()->set('workbc.abilities_weights', $abilities_weights);
+  }
+
+  // 2. Normalize category weights according to incoming category scores.
+  // 3. Compute career matches.
+  $mapCategories = [
+    COLUMN_ABILITIES_GLA => 'General learning ability',
+    COLUMN_ABILITIES_VA => 'Verbal ability',
+    COLUMN_ABILITIES_NA => 'Numerical ability',
+    COLUMN_ABILITIES_SP => 'Spatial perception',
+    COLUMN_ABILITIES_FP => 'Form perception',
+    COLUMN_ABILITIES_CP => 'Clerical perception',
+    COLUMN_ABILITIES_MC => 'Motor co-ordination',
+    COLUMN_ABILITIES_FD => 'Finger dexterity',
+    COLUMN_ABILITIES_MD => 'Manual dexterity',
+  ];
+  array_walk($abilities_weights, function(&$row) use($score, $mapCategories) {
+    $total = 0;
+    foreach ($mapCategories as $column => $category) {
+      $adjusted_weight = abs($score['categories'][$category]['normalized'] - (6 - $row[$column]));
+      $row[$column] = $adjusted_weight;
+      $total += $adjusted_weight;
+    }
+    $row[COLUMN_ABILITIES_MATCH] = round(100 * (36 - $total) / 36);
+  });
+
+  // 4. Return top results > 70% as NOCs.
+  $results = array_filter($abilities_weights, function($row) {
+    return $row[COLUMN_ABILITIES_MATCH] > 70;
+  });
+  usort($results, function($r1, $r2) {
+    return $r2[COLUMN_ABILITIES_MATCH] - $r1[COLUMN_ABILITIES_MATCH];
+  });
+  $seen = [];
+  $results = array_filter($results, function($row) use(&$seen) {
+    if (array_key_exists($row[COLUMN_ABILITIES_NOC], $seen)) return false;
+    $seen[$row[COLUMN_ABILITIES_NOC]] = true;
+    return true;
+  });
+  return array_map(function($row) {
+    return [
+      'noc' => $row[COLUMN_ABILITIES_NOC],
+      'match' => $row[COLUMN_ABILITIES_MATCH]
+    ];
+  }, $results);
 }

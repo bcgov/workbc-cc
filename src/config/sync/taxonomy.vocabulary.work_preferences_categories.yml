@@ -1,0 +1,8 @@
+uuid: b6a2a1cc-0496-4fe7-99a0-fd8bca1fae5f
+langcode: en
+status: true
+dependencies: {  }
+name: 'Work Preferences Categories'
+vid: work_preferences_categories
+description: 'Sub categories for Work Preferences quiz.'
+weight: 0

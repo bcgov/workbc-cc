@@ -1,0 +1,370 @@
+uuid: b6bd74fc-d0f2-4a7f-b7e5-64c251264a1b
+langcode: en
+status: open
+dependencies:
+  module:
+    - webformautosave
+    - workbc_cdq_career_match
+third_party_settings:
+  webformautosave:
+    auto_save: false
+    auto_save_time: null
+    optimistic_locking: false
+  workbc_cdq_career_match:
+    categories: learning_styles_categories
+    time: '5 minutes'
+weight: 0
+open: null
+close: null
+uid: 1
+template: false
+archive: false
+id: learning_styles_quiz
+title: 'Learning Styles Quiz'
+description: ''
+categories: {  }
+elements: |-
+  page_1:
+    '#type': webform_wizard_page
+    '#title': 'Page 1'
+    i_remember_better_from_lectures_with_explanations_and_discussion:
+      '#type': radios
+      '#title': 'I remember better from lectures with explanations and discussions.'
+      '#options': workbc_learning_styles
+      '#category': Hearing
+      '#required': true
+    i_learn_information_more_easily_if_it_is_written_on_the_board:
+      '#type': radios
+      '#title': 'I learn information more easily if it is written on the board.'
+      '#options': workbc_learning_styles
+      '#category': Seeing
+      '#required': true
+    i_like_to_take_notes_and_write_down_the_information_i_read:
+      '#type': radios
+      '#title': 'I like to take notes and write down the information I read.'
+      '#options': workbc_learning_styles
+      '#category': Seeing
+      '#required': true
+    i_enjoy_the_use_of_posters_and_models_in_the_classroom:
+      '#type': radios
+      '#title': 'I enjoy the use of posters and models in the classroom.'
+      '#options': workbc_learning_styles
+      '#category': Doing
+      '#required': true
+    i_need_a_verbal_explanation_of_diagrams_and_graphs:
+      '#type': radios
+      '#title': 'I need a verbal explanation of diagrams and graphs.'
+      '#options': workbc_learning_styles
+      '#category': Hearing
+      '#required': true
+  page_2:
+    '#type': webform_wizard_page
+    '#title': 'Page 2'
+    i_enjoy_working_with_my_hands:
+      '#type': radios
+      '#title': 'I enjoy working with my hands.'
+      '#options': workbc_learning_styles
+      '#category': Doing
+      '#required': true
+    i_enjoy_making_graphs_and_charts:
+      '#type': radios
+      '#title': 'I enjoy making graphs and charts.'
+      '#options': workbc_learning_styles
+      '#category': Seeing
+      '#required': true
+    i_am_able_to_tell_if_sounds_match_when_presented_with_pairs_of_s:
+      '#type': radios
+      '#title': 'I am able to tell if sounds match when presented with pairs of sounds.'
+      '#options': workbc_learning_styles
+      '#category': Hearing
+      '#required': true
+    i_remember_best_by_writing_things_down_several_times:
+      '#type': radios
+      '#title': 'I remember best by writing things down several times.'
+      '#options': workbc_learning_styles
+      '#category': Doing
+      '#required': true
+    i_can_follow_directions_on_maps:
+      '#type': radios
+      '#title': 'I can follow directions on maps.'
+      '#options': workbc_learning_styles
+      '#category': Seeing
+      '#required': true
+  page_3:
+    '#type': webform_wizard_page
+    '#title': 'Page 3'
+    i_do_better_at_academic_subjects_by_listening_to_lectures_and_ta:
+      '#type': radios
+      '#title': 'I do better at academic subjects by listening to lectures and tapes.'
+      '#options': workbc_learning_styles
+      '#category': Hearing
+      '#required': true
+    i_like_to_play_with_coins_keys_pens_or_other_objects_when_learni:
+      '#type': radios
+      '#title': 'I like to play with coins, keys, pens or other objects when learning.'
+      '#options': workbc_learning_styles
+      '#category': Doing
+      '#required': true
+    i_learn_to_spell_better_by_repeating_the_words_out_loud_than_by:
+      '#type': radios
+      '#title': 'I learn to spell better by repeating the words out loud than by writing them down.'
+      '#options': workbc_learning_styles
+      '#category': Hearing
+      '#required': true
+    i_understand_a_news_article_better_when_i_read_a_newspaper_than:
+      '#type': radios
+      '#title': 'I understand a news article better when I read a newspaper than when I listen to the radio.'
+      '#options': workbc_learning_styles
+      '#category': Seeing
+      '#required': true
+    i_chew_gum_or_snack_when_i_study:
+      '#type': radios
+      '#title': 'I chew gum or snack when I study.'
+      '#options': workbc_learning_styles
+      '#category': Doing
+      '#required': true
+  page_4:
+    '#type': webform_wizard_page
+    '#title': 'Page 4'
+    i_feel_the_best_way_to_remember_something_is_to_picture_it_in_my:
+      '#type': radios
+      '#title': 'I feel the best way to remember something is to picture it in my head.'
+      '#options': workbc_learning_styles
+      '#category': Seeing
+      '#required': true
+    i_learn_how_something_works_by_taking_it_apart_and_putting_it_ba:
+      '#type': radios
+      '#title': 'I learn how something works by taking it apart and putting it back together.'
+      '#options': workbc_learning_styles
+      '#category': Doing
+      '#required': true
+    i_would_rather_listen_to_a_lecture_than_read_the_same_material_i:
+      '#type': radios
+      '#title': 'I would rather listen to a lecture than read the same material in a text book.'
+      '#options': workbc_learning_styles
+      '#category': Hearing
+      '#required': true
+    i_am_good_at_solving_jigsaw_puzzles_and_mazes:
+      '#type': radios
+      '#title': 'I am good at solving jigsaw puzzles and mazes.'
+      '#options': workbc_learning_styles
+      '#category': Seeing
+      '#required': true
+    i_grip_objects_in_my_hands_while_learning:
+      '#type': radios
+      '#title': 'I grip objects in my hands while learning.'
+      '#options': workbc_learning_styles
+      '#category': Doing
+      '#required': true
+  page_5:
+    '#type': webform_wizard_page
+    '#title': 'Page 5'
+    i_prefer_listening_to_the_news_on_the_radio_than_reading_about_i:
+      '#type': radios
+      '#title': 'I prefer listening to the news on the radio than reading about it in the newspaper.'
+      '#options': workbc_learning_styles
+      '#category': Hearing
+      '#required': true
+    i_prefer_to_get_information_by_reading_about_it:
+      '#type': radios
+      '#title': 'I prefer to get information by reading about it.'
+      '#options': workbc_learning_styles
+      '#category': Seeing
+      '#required': true
+    i_enjoy_classes_with_physical_activity_and_movement:
+      '#type': radios
+      '#title': 'I enjoy classes with physical activity and movement.'
+      '#options': workbc_learning_styles
+      '#category': Doing
+      '#required': true
+    i_follow_verbal_directions_better_than_written_ones:
+      '#type': radios
+      '#title': 'I follow verbal directions better than written ones.'
+      '#options': workbc_learning_styles
+      '#category': Hearing
+      '#required': true
+css: ''
+javascript: ''
+settings:
+  ajax: false
+  ajax_scroll_top: form
+  ajax_progress_type: ''
+  ajax_effect: ''
+  ajax_speed: null
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  page_theme_name: ''
+  form_title: both
+  form_submit_once: false
+  form_open_message: ''
+  form_close_message: ''
+  form_exception_message: ''
+  form_previous_submissions: true
+  form_confidential: false
+  form_confidential_message: ''
+  form_disable_remote_addr: false
+  form_convert_anonymous: false
+  form_prepopulate: false
+  form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_unsaved: false
+  form_disable_back: false
+  form_submit_back: false
+  form_disable_autocomplete: false
+  form_novalidate: false
+  form_disable_inline_errors: false
+  form_required: false
+  form_autofocus: false
+  form_details_toggle: false
+  form_reset: false
+  form_access_denied: default
+  form_access_denied_title: ''
+  form_access_denied_message: ''
+  form_access_denied_attributes: {  }
+  form_file_limit: ''
+  form_attributes: {  }
+  form_method: ''
+  form_action: ''
+  share: false
+  share_node: false
+  share_theme_name: ''
+  share_title: true
+  share_page_body_attributes: {  }
+  submission_label: ''
+  submission_exception_message: ''
+  submission_locked_message: ''
+  submission_log: false
+  submission_excluded_elements: {  }
+  submission_exclude_empty: false
+  submission_exclude_empty_checkbox: false
+  submission_views: {  }
+  submission_views_replace: {  }
+  submission_user_columns: {  }
+  submission_user_duplicate: false
+  submission_access_denied: default
+  submission_access_denied_title: ''
+  submission_access_denied_message: ''
+  submission_access_denied_attributes: {  }
+  previous_submission_message: ''
+  previous_submissions_message: ''
+  autofill: false
+  autofill_message: ''
+  autofill_excluded_elements: {  }
+  wizard_progress_bar: true
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_progress_link: false
+  wizard_progress_states: false
+  wizard_start_label: ''
+  wizard_preview_link: false
+  wizard_confirmation: true
+  wizard_confirmation_label: ''
+  wizard_auto_forward: true
+  wizard_auto_forward_hide_next_button: false
+  wizard_keyboard: true
+  wizard_track: ''
+  wizard_prev_button_label: ''
+  wizard_next_button_label: ''
+  wizard_toggle: false
+  wizard_toggle_show_label: ''
+  wizard_toggle_hide_label: ''
+  wizard_page_type: container
+  wizard_page_title_tag: h2
+  preview: 0
+  preview_label: ''
+  preview_title: ''
+  preview_message: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  preview_exclude_empty_checkbox: false
+  draft: none
+  draft_multiple: false
+  draft_auto_save: false
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  draft_pending_single_message: ''
+  draft_pending_multiple_message: ''
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_title: ''
+  confirmation_message: ''
+  confirmation_attributes: {  }
+  confirmation_back: true
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
+  confirmation_exclude_query: false
+  confirmation_exclude_token: false
+  confirmation_update: false
+  limit_total: null
+  limit_total_interval: null
+  limit_total_message: ''
+  limit_total_unique: false
+  limit_user: null
+  limit_user_interval: null
+  limit_user_message: ''
+  limit_user_unique: false
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
+  purge: none
+  purge_days: null
+  results_disabled: false
+  results_disabled_ignore: false
+  results_customize: false
+  token_view: false
+  token_update: false
+  token_delete: false
+  serial_disabled: false
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+  view_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  test:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  configuration:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+handlers: {  }
+variants: {  }

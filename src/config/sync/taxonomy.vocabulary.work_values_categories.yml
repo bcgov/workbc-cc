@@ -1,0 +1,8 @@
+uuid: e7a571fa-288c-41ce-9cdb-d616e5bc7a44
+langcode: en
+status: true
+dependencies: {  }
+name: 'Work Values Categories'
+vid: work_values_categories
+description: 'Sub categories for Work Values quiz.'
+weight: 0

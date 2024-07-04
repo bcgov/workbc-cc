@@ -20,7 +20,7 @@ $calculation->getDebugLog()->setWriteDebugLog(true);
 $calculation->setArrayReturnType(Calculation::RETURN_ARRAY_AS_ARRAY);
 
 $sheet = $spreadsheet->setActiveSheetIndexByName('Abilities-NewQOrder');
-$answers = '00444444444444444444444444444444444444';
+$answers = '004444444444444444444444444444444444444';
 $columns = 'JIHGF';
 foreach (str_split($answers) as $a => $answer) {
   foreach (str_split($columns) as $c => $column) {

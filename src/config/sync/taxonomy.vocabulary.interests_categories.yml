@@ -1,0 +1,8 @@
+uuid: 38646e39-b676-4c5f-bddb-8235ab4c6ddf
+langcode: en
+status: true
+dependencies: {  }
+name: 'Interests Categories'
+vid: interests_categories
+description: 'Sub categories for Interests quiz.'
+weight: 0

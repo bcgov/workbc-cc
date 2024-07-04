@@ -1,0 +1,634 @@
+uuid: 6a48e115-7332-432d-b063-06045573dabf
+langcode: en
+status: open
+dependencies:
+  module:
+    - webformautosave
+    - workbc_cdq_career_match
+third_party_settings:
+  webformautosave:
+    auto_save: false
+    auto_save_time: null
+    optimistic_locking: false
+  workbc_cdq_career_match:
+    categories: multiple_intelligences_categorie
+    time: '10 minutes'
+weight: 0
+open: null
+close: null
+uid: 1
+template: false
+archive: false
+id: multiple_intelligences_quiz
+title: 'Multiple Intelligences Quiz'
+description: ''
+categories: {  }
+elements: |-
+  page_1:
+    '#type': webform_wizard_page
+    '#title': 'Page 1'
+    i_am_a_private_person_and_like_my_private_inner_world:
+      '#type': radios
+      '#title': 'I am a private person and like my private inner world.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Self Smart'
+      '#required': true
+    i_like_to_move_tap_or_fidgets_when_sitting:
+      '#type': radios
+      '#title': 'I like to move, tap or fidgets when sitting.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Body Smart'
+      '#required': true
+    i_work_best_in_an_organized_work_area:
+      '#type': radios
+      '#title': 'I work best in an organized work area.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Number Smart'
+      '#required': true
+    i_have_a_collection_i_e_shells_mugs_rocks_hockey_cards:
+      '#type': radios
+      '#title': 'I have a collection (i.e., shells, mugs, rocks, hockey cards).'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Nature Smart'
+      '#required': true
+    i_work_best_through_interaction_with_people:
+      '#type': radios
+      '#title': 'I work best through interaction with people.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'People Smart'
+      '#required': true
+  page_2:
+    '#type': webform_wizard_page
+    '#title': 'Page 2'
+    i_like_puns_and_other_wordplays:
+      '#type': radios
+      '#title': 'I like puns and other wordplays.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Word Smart'
+      '#required': true
+    i_play_music_in_my_head:
+      '#type': radios
+      '#title': 'I play music in my head.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Sound Smart'
+      '#required': true
+    i_understand_colour_combinations_and_what_colours_work_well_toge:
+      '#type': radios
+      '#title': 'I understand colour combinations and what colours work well together.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Picture Smart'
+      '#required': true
+    i_feel_comfortable_and_get_positive_reinforcement_when_dealing_w:
+      '#type': radios
+      '#title': 'I feel comfortable and get positive reinforcement when dealing with language and words.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Word Smart'
+      '#required': true
+    i_notice_similarities_and_differences_in_trees_flowers_and_other:
+      '#type': radios
+      '#title': 'I notice similarities and differences in trees, flowers and other things in nature.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Nature Smart'
+      '#required': true
+  page_3:
+    '#type': webform_wizard_page
+    '#title': 'Page 3'
+    i_make_up_a_rhyme_to_remember_something:
+      '#type': radios
+      '#title': 'I make up a rhyme to remember something.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Sound Smart'
+      '#required': true
+    i_have_a_few_close_friends:
+      '#type': radios
+      '#title': 'I have a few close friends.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Self Smart'
+      '#required': true
+    i_enjoy_team_sports_rather_than_individual_sports:
+      '#type': radios
+      '#title': 'I enjoy team sports rather than individual sports.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'People Smart'
+      '#required': true
+    i_enjoy_math_and_or_science:
+      '#type': radios
+      '#title': 'I enjoy math and/or science.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Number Smart'
+      '#required': true
+    i_participate_in_extreme_sports_i_e_sea_kayaking_snowboarding_mo:
+      '#type': radios
+      '#title': 'I participate in extreme sports (i.e., sea kayaking, snowboarding, mountain biking).'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Body Smart'
+      '#required': true
+  page_4:
+    '#type': webform_wizard_page
+    '#title': 'Page 4'
+    i_enjoy_completing_crosswords_and_other_word_games_like_scrabble:
+      '#type': radios
+      '#title': 'I enjoy completing crosswords and other word games like Scrabble.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Word Smart'
+      '#required': true
+    being_around_people_energizes_me:
+      '#type': radios
+      '#title': 'Being around people energizes me.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'People Smart'
+      '#required': true
+    it_is_easy_for_me_to_follow_the_beat_of_music:
+      '#type': radios
+      '#title': 'It is easy for me to follow the beat of music.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Sound Smart'
+      '#required': true
+    i_keep_and_maintain_a_to_do_list:
+      '#type': radios
+      '#title': 'I keep and maintain a to-do list.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Number Smart'
+      '#required': true
+    i_have_strong_opinions_about_controversial_issues:
+      '#type': radios
+      '#title': 'I have strong opinions about controversial issues.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Self Smart'
+      '#required': true
+  page_5:
+    '#type': webform_wizard_page
+    '#title': 'Page 5'
+    i_am_actively_involved_in_protecting_the_environment:
+      '#type': radios
+      '#title': 'I am actively involved in protecting the environment.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Nature Smart'
+      '#required': true
+    i_read_charts_and_maps_easily:
+      '#type': radios
+      '#title': 'I read charts and maps easily.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Picture Smart'
+      '#required': true
+    i_am_curious_as_to_how_things_feel_and_i_tend_to_touch_objects_a:
+      '#type': radios
+      '#title': 'I am curious as to how things feel and I tend to touch objects and examine the texture.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Body Smart'
+      '#required': true
+    i_am_well_co_ordinated:
+      '#type': radios
+      '#title': 'I am well co-ordinated.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Body Smart'
+      '#required': true
+    i_work_best_when_the_activity_is_self_paced:
+      '#type': radios
+      '#title': 'I work best when the activity is self-paced.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Self Smart'
+      '#required': true
+  page_6:
+    '#type': webform_wizard_page
+    '#title': 'Page 6'
+    i_remember_things_exactly_as_they_are_said_to_me:
+      '#type': radios
+      '#title': 'I remember things exactly as they are said to me.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Word Smart'
+      '#required': true
+    i_like_setting_songs_and_poems_to_music:
+      '#type': radios
+      '#title': 'I like setting songs and poems to music.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Sound Smart'
+      '#required': true
+    i_enjoy_digging_for_and_discovering_artifacts_and_unusual_items:
+      '#type': radios
+      '#title': 'I enjoy digging for and discovering artifacts and unusual items.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Nature Smart'
+      '#required': true
+    i_prefer_group_activities_rather_than_ones_you_do_alone:
+      '#type': radios
+      '#title': 'I prefer group activities rather than ones you do alone.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'People Smart'
+      '#required': true
+    i_have_a_good_sense_of_direction:
+      '#type': radios
+      '#title': 'I have a good sense of direction.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Picture Smart'
+      '#required': true
+  page_7:
+    '#type': webform_wizard_page
+    '#title': 'Page 7'
+    i_like_to_take_part_in_debates_and_or_discussions:
+      '#type': radios
+      '#title': 'I like to take part in debates and/or discussions.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Word Smart'
+      '#required': true
+    i_keep_time_when_music_is_playing:
+      '#type': radios
+      '#title': 'I keep time when music is playing.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Sound Smart'
+      '#required': true
+    i_like_to_watch_the_scenes_and_activities_in_movies:
+      '#type': radios
+      '#title': 'I like to watch the scenes and activities in movies.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Picture Smart'
+      '#required': true
+    i_like_to_ask_why_questions_and_seek_clarification_of_issues_and:
+      '#type': radios
+      '#title': 'I like to ask “why” questions and seek clarification of issues and concerns.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Number Smart'
+      '#required': true
+    i_like_working_with_my_hands:
+      '#type': radios
+      '#title': 'I like working with my hands.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Body Smart'
+      '#required': true
+  page_8:
+    '#type': webform_wizard_page
+    '#title': 'Page 8'
+    i_enjoy_learning_about_different_cultures:
+      '#type': radios
+      '#title': 'I enjoy learning about different cultures.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'People Smart'
+      '#required': true
+    i_enjoy_playing_brainteasers_and_games_that_involve_logical_thin:
+      '#type': radios
+      '#title': 'I enjoy playing brainteasers and games that involve logical thinking such as Jeopardy and Clue.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Number Smart'
+      '#required': true
+    i_am_not_easily_influenced_by_other_people:
+      '#type': radios
+      '#title': 'I am not easily influenced by other people.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Self Smart'
+      '#required': true
+    i_prefer_to_be_outdoors_rather_than_indoors:
+      '#type': radios
+      '#title': 'I prefer to be outdoors rather than indoors.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Nature Smart'
+      '#required': true
+    i_work_best_when_i_have_a_day_planner_or_timetable:
+      '#type': radios
+      '#title': 'I work best when I have a day planner or timetable.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Number Smart'
+      '#required': true
+  page_9:
+    '#type': webform_wizard_page
+    '#title': 'Page 9'
+    i_have_vivid_dreams_when_sleeping:
+      '#type': radios
+      '#title': 'I have vivid dreams when sleeping.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Picture Smart'
+      '#required': true
+    i_prefer_writing_long_and_short_answer_responses_rather_than_mul:
+      '#type': radios
+      '#title': 'I prefer writing long and short answer responses rather than multiple-choice responses.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Word Smart'
+      '#required': true
+    i_like_planting_and_caring_for_a_garden:
+      '#type': radios
+      '#title': 'I like planting and caring for a garden.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Nature Smart'
+      '#required': true
+    i_can_hear_an_off_key_note:
+      '#type': radios
+      '#title': 'I can hear an off-key note.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Sound Smart'
+      '#required': true
+    i_usually_talk_over_my_personal_problems_with_a_friend:
+      '#type': radios
+      '#title': 'I usually talk over my personal problems with a friend.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'People Smart'
+      '#required': true
+  page_10:
+    '#type': webform_wizard_page
+    '#title': 'Page 10'
+    i_have_a_good_understanding_of_my_feelings_and_how_i_will_react:
+      '#type': radios
+      '#title': 'I have a good understanding of my feelings and how I will react to situations.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Self Smart'
+      '#required': true
+    i_prefer_to_be_physically_involved_rather_than_sitting_and_watch:
+      '#type': radios
+      '#title': 'I prefer to be physically involved rather than sitting and watching.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Body Smart'
+      '#required': true
+    i_find_it_easy_to_engage_in_musical_activities:
+      '#type': radios
+      '#title': 'I find it easy to engage in musical activities.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Sound Smart'
+      '#required': true
+    i_understand_best_by_doing_i_e_touching_moving_and_interacting:
+      '#type': radios
+      '#title': 'I understand best by doing (i.e. touching, moving and interacting).'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Body Smart'
+      '#required': true
+    i_often_raise_questions_concerning_values_and_beliefs:
+      '#type': radios
+      '#title': 'I often raise questions concerning values and beliefs.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Self Smart'
+      '#required': true
+  page_11:
+    '#type': webform_wizard_page
+    '#title': 'Page 11'
+    i_quickly_grasp_cause_and_effect_relationships:
+      '#type': radios
+      '#title': 'I quickly grasp cause and effect relationships.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Number Smart'
+      '#required': true
+    i_can_anticipate_the_moves_and_consequences_in_a_game_plan_i_e_h:
+      '#type': radios
+      '#title': 'I can anticipate the moves and consequences in a game plan (i.e., hockey sense, chess sense).'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Picture Smart'
+      '#required': true
+    i_enjoy_solving_jigsaw_maze_and_or_other_visual_puzzles:
+      '#type': radios
+      '#title': 'I enjoy solving jigsaw, maze and/or other visual puzzles.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Picture Smart'
+      '#required': true
+    i_enjoy_keeping_a_written_journal_and_or_writing_stories_and_art:
+      '#type': radios
+      '#title': 'I enjoy keeping a written journal and/or writing stories and articles.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Word Smart'
+      '#required': true
+    i_enjoy_fishing_and_tracking:
+      '#type': radios
+      '#title': 'I enjoy fishing and tracking.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Nature Smart'
+      '#required': true
+  page_12:
+    '#type': webform_wizard_page
+    '#title': 'Page 12'
+    i_enjoy_sharing_my_ideas_and_feelings_with_others:
+      '#type': radios
+      '#title': 'I enjoy sharing my ideas and feelings with others.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'People Smart'
+      '#required': true
+    i_enjoy_creating_things_with_my_hands:
+      '#type': radios
+      '#title': 'I enjoy creating things with my hands.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Body Smart'
+      '#required': true
+    i_like_to_read_a_lot:
+      '#type': radios
+      '#title': 'I like to read a lot.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Word Smart'
+      '#required': true
+    i_feel_proud_of_my_musical_accomplishments:
+      '#type': radios
+      '#title': 'I feel proud of my musical accomplishments.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Sound Smart'
+      '#required': true
+    i_learn_best_when_i_can_go_on_field_trips_to_explore_and_observe:
+      '#type': radios
+      '#title': 'I learn best when I can go on field trips to explore and observe nature exhibits, museums, or the outdoors.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Nature Smart'
+      '#required': true
+  page_13:
+    '#type': webform_wizard_page
+    '#title': 'Page 13'
+    i_am_good_at_estimating:
+      '#type': radios
+      '#title': 'I am good at estimating.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Number Smart'
+      '#required': true
+    i_work_best_in_a_co_operative_group_where_i_can_discuss_issues_w:
+      '#type': radios
+      '#title': 'I work best in a co-operative group where I can discuss issues with others.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'People Smart'
+      '#required': true
+    i_understand_that_i_am_responsible_for_my_own_behaviour:
+      '#type': radios
+      '#title': 'I understand that I am responsible for my own behaviour.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Self Smart'
+      '#required': true
+    i_remember_things_best_by_seeing_them:
+      '#type': radios
+      '#title': 'I remember things best by seeing them.'
+      '#options': workbc_multiple_intelligences
+      '#category': 'Picture Smart'
+      '#required': true
+css: ''
+javascript: ''
+settings:
+  ajax: false
+  ajax_scroll_top: form
+  ajax_progress_type: ''
+  ajax_effect: ''
+  ajax_speed: null
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  page_theme_name: ''
+  form_title: both
+  form_submit_once: false
+  form_open_message: ''
+  form_close_message: ''
+  form_exception_message: ''
+  form_previous_submissions: true
+  form_confidential: false
+  form_confidential_message: ''
+  form_disable_remote_addr: false
+  form_convert_anonymous: false
+  form_prepopulate: false
+  form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_unsaved: false
+  form_disable_back: false
+  form_submit_back: false
+  form_disable_autocomplete: false
+  form_novalidate: false
+  form_disable_inline_errors: false
+  form_required: false
+  form_autofocus: false
+  form_details_toggle: false
+  form_reset: false
+  form_access_denied: default
+  form_access_denied_title: ''
+  form_access_denied_message: ''
+  form_access_denied_attributes: {  }
+  form_file_limit: ''
+  form_attributes: {  }
+  form_method: ''
+  form_action: ''
+  share: false
+  share_node: false
+  share_theme_name: ''
+  share_title: true
+  share_page_body_attributes: {  }
+  submission_label: ''
+  submission_exception_message: ''
+  submission_locked_message: ''
+  submission_log: false
+  submission_excluded_elements: {  }
+  submission_exclude_empty: false
+  submission_exclude_empty_checkbox: false
+  submission_views: {  }
+  submission_views_replace: {  }
+  submission_user_columns: {  }
+  submission_user_duplicate: false
+  submission_access_denied: default
+  submission_access_denied_title: ''
+  submission_access_denied_message: ''
+  submission_access_denied_attributes: {  }
+  previous_submission_message: ''
+  previous_submissions_message: ''
+  autofill: false
+  autofill_message: ''
+  autofill_excluded_elements: {  }
+  wizard_progress_bar: true
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_progress_link: false
+  wizard_progress_states: false
+  wizard_start_label: ''
+  wizard_preview_link: false
+  wizard_confirmation: true
+  wizard_confirmation_label: ''
+  wizard_auto_forward: true
+  wizard_auto_forward_hide_next_button: false
+  wizard_keyboard: true
+  wizard_track: ''
+  wizard_prev_button_label: ''
+  wizard_next_button_label: ''
+  wizard_toggle: false
+  wizard_toggle_show_label: ''
+  wizard_toggle_hide_label: ''
+  wizard_page_type: container
+  wizard_page_title_tag: h2
+  preview: 0
+  preview_label: ''
+  preview_title: ''
+  preview_message: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  preview_exclude_empty_checkbox: false
+  draft: none
+  draft_multiple: false
+  draft_auto_save: false
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  draft_pending_single_message: ''
+  draft_pending_multiple_message: ''
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_title: ''
+  confirmation_message: ''
+  confirmation_attributes: {  }
+  confirmation_back: true
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
+  confirmation_exclude_query: false
+  confirmation_exclude_token: false
+  confirmation_update: false
+  limit_total: null
+  limit_total_interval: null
+  limit_total_message: ''
+  limit_total_unique: false
+  limit_user: null
+  limit_user_interval: null
+  limit_user_message: ''
+  limit_user_unique: false
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
+  purge: none
+  purge_days: null
+  results_disabled: false
+  results_disabled_ignore: false
+  results_customize: false
+  token_view: false
+  token_update: false
+  token_delete: false
+  serial_disabled: false
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+  view_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  test:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  configuration:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+handlers: {  }
+variants: {  }

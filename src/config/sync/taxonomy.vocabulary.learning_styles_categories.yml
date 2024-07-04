@@ -1,0 +1,8 @@
+uuid: 50e2af03-0688-4804-ab4e-9e349fa15d5f
+langcode: en
+status: true
+dependencies: {  }
+name: 'Learning Styles Categories'
+vid: learning_styles_categories
+description: 'Sub categories for Learning Styles quiz.'
+weight: 0

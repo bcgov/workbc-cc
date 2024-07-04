@@ -1,22 +1,80 @@
 <?php
 
-use Drupal\webform\Entity\Webform;
 use Drupal\webform\Entity\WebformSubmission;
 
 function quizzesList() {
-
-  return [
-    'abilities_quiz' => 'Abilities Quiz',
-    'work_preferences_quiz' => 'Work Preferences Quiz',
-    'interests_quiz' => 'Interests Quiz',
-  ];
+  $forms = \Drupal::entityTypeManager()->getStorage('webform')->loadMultiple();
+  return array_reduce($forms, function($quizzes, $form) {
+    if (str_ends_with($form->id(), '_quiz')) {
+      $quizzes[$form->id()] = $form->get('title');
+    }
+    return $quizzes;
+  }, []);
 }
 
+function getSubmissionOverrides($webform_id) {
+  // Check whether current user has permission to override answers.
+  if (!\Drupal::currentUser()->hasPermission('override quiz answers')) {
+    \Drupal::messenger()->addError(t(
+      'Current user cannot override quiz answers. Ignoring.'
+    ));
+    return false;
+  }
+
+  /** @var \Drupal\webform\WebformInterface $quiz */
+  $quiz = \Drupal::entityTypeManager()->getStorage('webform')->load($webform_id);
+
+  // Inject answers from URL query if found.
+  $answers_override = \Drupal::request()->get('answers');
+  if (empty($answers_override)) {
+    return false;
+  }
+
+  // Check override length;
+  $questions = array_filter($quiz->getElementsInitializedAndFlattened(), function($question) {
+    return $question['#type'] === 'radios';
+  });
+  if (strlen($answers_override) != count($questions)) {
+    \Drupal::messenger()->addError(t(
+      'Answers override has wrong length @len, expecting @exp. Ignoring.',
+      ['@len' => strlen($answers_override), '@exp' => count($questions)]
+    ));
+    return false;
+  }
+
+  // Populate answers, checking option validity.
+  $submission = [];
+  $answers = [];
+  foreach (array_keys($questions) as $i => $k) {
+    $answer_index = intval($answers_override[$i]);
+    if ($answer_index > count($questions[$k]['#options'])) {
+      \Drupal::messenger()->addError(t(
+        'Answer for question @question has invalid value @value, expecting 0-@max. Ignoring.',
+        ['@question' => $i, '@value' => $answer_index, '@max' => count($questions[$k]['#options'])-1]
+      ));
+      return false;
+    }
+    $options_keys = array_keys($questions[$k]['#options']);
+    $submission[$k] = strval($options_keys[$answer_index]);
+    $answers[$k] = $questions[$k]['#options'][$options_keys[$answer_index]];
+  }
+  \Drupal::messenger()->addMessage(t(
+    'Answers override in effect:<br><pre>@answers</pre>', ['@answers' => print_r($answers, true)]
+  ));
+  return $submission;
+}
 
 function getUserSubmission($webform_id) {
+  $override = getSubmissionOverrides($webform_id);
+  if ($override) {
+    $submission = WebformSubmission::create([
+      'webform_id' => $webform_id,
+      'data' => $override,
+    ]);
+    return $submission;
+  }
 
   $current_user = \Drupal::currentUser();
-
   $query = \Drupal::entityQuery('webform_submission')
   ->condition('uid', $current_user->id())
   ->condition('webform_id', $webform_id)
@@ -26,9 +84,8 @@ function getUserSubmission($webform_id) {
   $results = $query->execute();
   if ($results) {
     $sid = array_shift($results);
-    $webform_submission = WebformSubmission::load($sid);
+    $submission = WebformSubmission::load($sid);
   }
 
-  return isset($webform_submission) ? $webform_submission : false;
+  return isset($submission) ? $submission : false;
 }
-

@@ -22,20 +22,27 @@ workbc_cdq_custom.work_preferences_quiz_results:
   requirements:
     _permission: 'access content'
 
-workbc_cdq_custom.compare_careers:
-  path: '/test/compare-careers/{webform_submission}'
+workbc_cdq_custom.multiple_intelligences_quiz_results:
+  path: '/quizzes/multiple-intelligences-quiz/results'
   defaults:
-    _controller: '\Drupal\workbc_cdq_custom\Controller\CompareCareersController::compare_careers'
-    _title: 'Compare Careers'
+    _controller: '\Drupal\workbc_cdq_custom\Controller\QuizResultsController::multiple_intelligences_quiz_results'
+    _title: 'Multiple Intelligences Quiz Results'
   requirements:
     _permission: 'access content'
 
-
-workbc_cdq_custom.import_video_ids:
-  path: '/admin/career-profile/import'
+workbc_cdq_custom.learning_styles_quiz_results:
+  path: '/quizzes/learning-styles-quiz/results'
   defaults:
-    _controller: '\Drupal\workbc_cdq_custom\Controller\QuizResultsController::import_career_profile_updates'
-    _title: 'Career Profile Video ID Import'
+    _controller: '\Drupal\workbc_cdq_custom\Controller\QuizResultsController::learning_styles_quiz_results'
+    _title: 'Learning Styles Quiz Results'
+  requirements:
+    _permission: 'access content'
+
+workbc_cdq_custom.work_values_quiz_results:
+  path: '/quizzes/work-values-quiz/results'
+  defaults:
+    _controller: '\Drupal\workbc_cdq_custom\Controller\QuizResultsController::work_values_quiz_results'
+    _title: 'Work Values Quiz Results'
   requirements:
     _permission: 'access content'
 
