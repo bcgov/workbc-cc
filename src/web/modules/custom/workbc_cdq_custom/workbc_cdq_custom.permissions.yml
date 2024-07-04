@@ -1,0 +1,3 @@
+'override quiz answers':
+  title: 'Override quiz answers'
+  description: 'Override quiz answers via the URL ?answers argument for testing purposes.'

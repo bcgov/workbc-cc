@@ -14,13 +14,14 @@ function quizzesList() {
 
 function getSubmissionOverrides($webform_id) {
   // Check whether current user has permission to override answers.
-  if (!\Drupal::currentUser()->hasPermission('workbc: can override answers')) {
+  if (!\Drupal::currentUser()->hasPermission('override quiz answers')) {
     \Drupal::messenger()->addError(t(
       'Current user cannot override quiz answers. Ignoring.'
     ));
     return false;
   }
 
+  /** @var \Drupal\webform\WebformInterface $quiz */
   $quiz = \Drupal::entityTypeManager()->getStorage('webform')->load($webform_id);
 
   // Inject answers from URL query if found.
@@ -42,8 +43,8 @@ function getSubmissionOverrides($webform_id) {
   }
 
   // Populate answers, checking option validity.
+  $submission = [];
   $answers = [];
-  $info = [];
   foreach (array_keys($questions) as $i => $k) {
     $answer_index = intval($answers_override[$i]);
     if ($answer_index > count($questions[$k]['#options'])) {
@@ -54,18 +55,16 @@ function getSubmissionOverrides($webform_id) {
       return false;
     }
     $options_keys = array_keys($questions[$k]['#options']);
-    $answers[$k] = strval($options_keys[$answer_index]);
-    $info[$k] = $questions[$k]['#options'][$options_keys[$answer_index]];
+    $submission[$k] = strval($options_keys[$answer_index]);
+    $answers[$k] = $questions[$k]['#options'][$options_keys[$answer_index]];
   }
   \Drupal::messenger()->addMessage(t(
-    'Answers override in effect.'
+    'Answers override in effect:<br><pre>@answers</pre>', ['@answers' => print_r($answers, true)]
   ));
-  ksm($info);
-  return $answers;
+  return $submission;
 }
 
 function getUserSubmission($webform_id) {
-
   $override = getSubmissionOverrides($webform_id);
   if ($override) {
     $submission = WebformSubmission::create([
