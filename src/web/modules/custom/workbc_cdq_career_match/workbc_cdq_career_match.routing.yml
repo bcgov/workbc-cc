@@ -1,0 +1,6 @@
+workbc_cdq_career_match.update_selected:
+  path: '/career-match/update-selected'
+  defaults:
+    _controller: '\Drupal\workbc_cdq_career_match\Controller\cdqCareerMatch::update_selected'
+  requirements:
+    _permission: 'access content'

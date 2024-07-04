@@ -6,3 +6,5 @@ dependencies:
   - webform
   - block
 core_version_requirement: ^10
+libraries:
+  - workbc_cdq_career_match/workbc-cdq-career-match

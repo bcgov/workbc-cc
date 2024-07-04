@@ -1,0 +1,15 @@
+uuid: 71380c8a-9aa6-44c1-a332-7ee5901d549b
+langcode: en
+status: true
+dependencies: {  }
+name: career_profile_preview
+label: 'Career Profile Preview (330 x 195)'
+effects:
+  4ebe9d79-fe3a-4e02-a1a8-0bd7e498d08a:
+    uuid: 4ebe9d79-fe3a-4e02-a1a8-0bd7e498d08a
+    id: image_scale_and_crop
+    weight: 2
+    data:
+      width: 330
+      height: 185
+      anchor: center-center

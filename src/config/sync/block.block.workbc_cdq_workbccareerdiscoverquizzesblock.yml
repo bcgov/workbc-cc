@@ -10,7 +10,7 @@ dependencies:
 id: workbc_cdq_workbccareerdiscoverquizzesblock
 theme: workbc_cdq
 region: content
-weight: 0
+weight: 1
 provider: null
 plugin: workbc_quizzes_block
 settings:

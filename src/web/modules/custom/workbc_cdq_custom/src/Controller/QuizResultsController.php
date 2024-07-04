@@ -148,4 +148,26 @@ class QuizResultsController extends ControllerBase {
     }
     return empty($videosIds) ? false : $videosIds;
   }
+
+
+  public function cdq_test() {
+
+    $id = (int)"681";
+    $selected = 0;
+    ksm($id);
+    ksm($selected);
+        $query = \Drupal::database()->update('workbc_cdq_career_match');
+        $query->fields(['selected' => $selected]);
+        $query->condition('id', $id);
+        $query->execute();
+
+    $markup = "Testing...";
+
+    return [
+      '#type' => 'markup',
+      '#markup' => $markup,
+      '#cache' => ['max-age' => 0],
+    ];
+  }
+
 }

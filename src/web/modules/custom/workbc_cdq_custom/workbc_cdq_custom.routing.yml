@@ -2,7 +2,7 @@ workbc_cdq_custom.abilities_quiz_results:
   path: '/quizzes/abilities-quiz/results'
   defaults:
     _controller: '\Drupal\workbc_cdq_custom\Controller\QuizResultsController::abilities_quiz_results'
-    _title: 'Abilities Quiz Results'
+    _title: 'Abilities Quiz - Results'
   requirements:
     _permission: 'access content'
 
@@ -10,7 +10,7 @@ workbc_cdq_custom.interests_quiz_results:
   path: '/quizzes/interests-quiz/results'
   defaults:
     _controller: '\Drupal\workbc_cdq_custom\Controller\QuizResultsController::interests_quiz_results'
-    _title: 'Interests Quiz Results'
+    _title: 'Interests Quiz - Results'
   requirements:
     _permission: 'access content'
 
@@ -18,14 +18,31 @@ workbc_cdq_custom.work_preferences_quiz_results:
   path: '/quizzes/work-preferences-quiz/results'
   defaults:
     _controller: '\Drupal\workbc_cdq_custom\Controller\QuizResultsController::work_preferences_quiz_results'
-    _title: 'Work Preferences Quiz Results'
+    _title: 'Work Preferences Quiz - Results'
   requirements:
     _permission: 'access content'
+
+workbc_cdq_custom.compare_careers:
+  path: '/test/compare-careers/{webform_submission}'
+  defaults:
+    _controller: '\Drupal\workbc_cdq_custom\Controller\CompareCareersController::compare_careers'
+    _title: 'Compare Careers'
+  requirements:
+    _permission: 'access content'
+
 
 workbc_cdq_custom.import_video_ids:
   path: '/admin/career-profile/import'
   defaults:
     _controller: '\Drupal\workbc_cdq_custom\Controller\QuizResultsController::import_career_profile_updates'
     _title: 'Career Profile Video ID Import'
+  requirements:
+    _permission: 'access content'
+
+workbc_cdq_custom.test:
+  path: '/admin/cdq/test'
+  defaults:
+    _controller: '\Drupal\workbc_cdq_custom\Controller\QuizResultsController::cdq_test'
+    _title: 'CDQ Test'
   requirements:
     _permission: 'access content'

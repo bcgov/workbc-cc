@@ -1,0 +1,315 @@
+@font-face {
+  font-family:'BC Sans Regular';
+  src:local('BC Sans Regular'),
+  local('BC Sans Regular'),
+  url('../assets/fonts/BCSans-Regular.woff2') format('woff2'),
+  url('../assets/fonts/BCSans-Regular.woff') format('woff');
+  font-weight:400;
+  font-style:normal
+}
+@font-face {
+  font-family:'BC Sans';
+  src:local('BC Sans'),
+  local('BC Sans'),
+  url('../assets/fonts/BCSans-Regular.woff2') format('woff2'),
+  url('../assets/fonts/BCSans-Regular.woff') format('woff');
+  font-weight:400;
+  font-style:normal
+}
+@font-face {
+  font-family:'BCSans';
+  src:local('BCSans'),
+  local('BCSans'),
+  url('../assets/fonts/BCSans-Regular.woff2') format('woff2'),
+  url('../assets/fonts/BCSans-Regular.woff') format('woff');
+  font-weight:400;
+  font-style:normal
+}
+@font-face {
+  font-family:'BC Sans Bold';
+  src:local('BC Sans Bold'),
+  local('BC Sans Bold'),
+  url('../assets/fonts/BCSans-Bold.woff2') format('woff2'),
+  url('../assets/fonts/BCSans-Bold.woff') format('woff');
+  font-weight:400;
+  font-style:normal
+}
+
+body {
+  font-family: "BC Sans Regular", "BC Sans", sans-serif !important;
+  font-style: normal !important;
+}
+
+.container {
+  padding-left: 75px !important;
+  padding-right: 75px !important;
+  padding-bottom: 30px;
+}
+
+#block-workbc-cdq-page-title {
+  /* background-color: #234075;
+  color: white;   */
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 5px;
+  margin-bottom: 35px;
+}
+
+.cdq-back-link {
+  padding: 20px 0;
+  @media all and (max-width: 767.98px) {
+      padding: 5px 0;
+  }
+  a {
+      font-family: "BC Sans", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 18px;
+      color: #073573;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      
+      &:hover {
+          text-decoration: none;
+      }
+      @media all and (max-width: 767.98px) {
+          padding-left: 15px;
+      }
+
+      img {
+          height: 14px;
+          margin-right: 10px;
+      }
+  }
+}
+
+.views-view-responsive-grid--horizontal {
+  --views-responsive-grid--layout-gap: 20px !important;
+}
+
+.careers-main-wrapper {
+  font-size: 15px;
+}
+
+.career-table-row.active .views-field-title {
+  color: #2a7de2;
+}
+
+.views-field-title:hover {
+  color: #2a7de2;
+}
+
+.career-content-item {
+  display: none;
+}
+
+.career-content-item.active {
+  display: block;
+}
+
+.career-inner-content {
+  border: 2px solid #e6eae9;
+  padding: 20px;
+  height: auto;
+}
+
+.career-content-item-inner .title {
+  background-color: #234075;
+  color: white;
+  font-weight: bold;
+  height: 75px;
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  align-items: center;
+
+  p {
+    margin: 0px;
+  }
+}
+
+.career-content-item-inner .data .data-item {
+  border-bottom: 2px solid rgba(51, 51, 51, 0.2);
+  padding-bottom: 5px;
+  display: flex;
+  align-items: flex-start;
+  &:last-child {
+      border-bottom: 0;
+  }
+
+  span {
+      display: inline-block;
+      width: 100%;
+  }
+
+  .s-d {
+      font-family: "BC Sans Bold", "BC Sans Regular", "BC Sans", sans-serif;
+      font-weight: bold;
+  }
+}
+
+.career-content-item-inner {
+
+  a.btn {
+    border: 2px solid #234075;
+    border-radius: 0 !important;
+    background: #234075;
+    color: #fff;
+
+    &.btn-find-job {
+        border: 2px solid #234075;
+        background: #fff;
+        color: #234075;
+
+        &:hover {
+            background: #e6eae9;
+        }
+    }
+
+    &:hover {
+        background: rgba(0, 40, 85, 1);
+    }
+  }
+}
+
+
+.career-inner-content .image-video {
+  max-height: 195px;
+  padding-bottom: 10px;
+}
+
+
+.career-content-item-inner .image-video iframe {
+  width: 100%;
+  max-height: 185px;
+}
+
+.career-content-item-inner .image-video iframe img {
+  width: 100%;
+  max-height: 185px !important;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+
+.top-career-content {
+  h3 {
+      font-family: "BC Sans", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 1.7rem;
+      line-height: 2.2rem;
+      color: #333333;
+      margin-bottom: 40px;
+  }
+
+  .content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+
+      .description {
+          p {
+              .dec-text {
+                  font-family: "BC Sans", sans-serif;
+                  font-weight: 400;
+                  font-style: normal;
+                  font-size: 15px;
+                  color: #555555;
+                  position: relative;
+                  padding-left: 10px;
+              }
+              .bulb::before {
+                  content: "";
+                  background: url(../src/icons/bulb.svg) no-repeat;
+                  width: 14px;
+                  height: 22px;
+                  position: relative;
+                  display: inline-block;
+                  top: 6px;
+              }
+          }
+      }
+
+      .top-btn {
+          margin-top: 20px;
+          display: flex;
+          margin-left: 0;
+          > a.disable {
+              color: rgba(0, 0, 0, 0.298039215686275);
+              background: #f2f2f2;
+              border: 2px solid rgba(0, 0, 0, 0.298039215686275);
+              pointer-events: none;
+
+              &:hover {
+                  color: rgba(0, 0, 0, 0.298039215686275);
+                  background: #f2f2f2;
+                  border: 2px solid rgba(0, 0, 0, 0.298039215686275);
+              }
+          }
+
+          .clear-compare {
+              color: #234075;
+              border: 2px solid #234075;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              padding: 9px 10px;
+              text-decoration: none;
+              margin-right: 6px;
+              min-width: 155px;
+              text-align: center;
+
+              &:hover {
+                  background: #ececec;
+              }
+          }
+
+          .compare-career {
+              color: #fff;
+              border: 2px solid #e3a82b;
+              background: #e3a82b;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              padding: 9px 10px;
+              text-decoration: none;
+              min-width: 155px;
+              text-align: center;
+
+              &:hover {
+                  background: #002855;
+                  border: 2px solid #002855;
+              }
+          }
+      }
+  }
+}
+
+
+
+
+
+
+
+
+
+.popup-overlay {
+  visibility:hidden;
+}
+  
+.popup-content {
+  visibility:hidden;
+}
+
+.popup-overlay.active{
+  visibility:visible;
+}
+  
+.popup-content.active {
+  visibility:visible;
+}

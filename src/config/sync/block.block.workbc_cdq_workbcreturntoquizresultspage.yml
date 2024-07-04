@@ -1,0 +1,25 @@
+uuid: 0aca9167-98fe-4460-9e59-03751158e73e
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+    - workbc_cdq_career_match
+  theme:
+    - workbc_cdq
+id: workbc_cdq_workbcreturntoquizresultspage
+theme: workbc_cdq
+region: content
+weight: -6
+provider: null
+plugin: workbc_return_to_results
+settings:
+  id: workbc_return_to_results
+  label: 'WorkBC Return to Quiz Results page'
+  label_display: '0'
+  provider: workbc_cdq_career_match
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '/compare-careers/*'
