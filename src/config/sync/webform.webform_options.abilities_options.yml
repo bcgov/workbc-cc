@@ -7,8 +7,8 @@ label: 'WorkBC: Abilities'
 category: WorkBC
 likert: true
 options: |-
-  - 'Very Difficult'
-  - Difficult
-  - 'About Average'
-  - Easy
-  - 'Very Easy'
+  4: 'Very Easy'
+  3: Easy
+  2: 'About Average'
+  1: Difficult
+  0: 'Very Difficult'

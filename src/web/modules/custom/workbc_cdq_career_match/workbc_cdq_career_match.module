@@ -196,16 +196,6 @@ function workbc_cdq_career_match_webform_element_configuration_form_alter(&$form
   ];
 }
 
-function round_up($value, $precision=0) {
-  $power = pow(10,$precision);
-  return ceil($value*$power)/$power;
-}
-
-function round_down($value, $precision=0) {
-  $power = pow(10,$precision);
-  return floor($value*$power)/$power;
-}
-
 function getSubmissionScore($submission) {
   $quiz = $submission->getWebform();
   $questions = array_filter($quiz->getElementsInitializedAndFlattened(), function($question) {
@@ -241,7 +231,7 @@ function getSubmissionScore($submission) {
   }
   foreach ($categories as &$category) {
     $category['percent'] = $category['score'] / ($category['count'] * 4);
-    $category['normalized'] = round_down($category['score'] / $category['count'], 1) + 1;
+    $category['normalized'] = floor($category['score'] / $category['count']) + 1;
   }
   return [
     'categories' => $categories,
@@ -311,4 +301,12 @@ function matchAbilitiesCareers($submission, $score) {
       'match' => $row[COLUMN_ABILITIES_MATCH]
     ];
   }, $results);
+}
+
+function matchInterestsCareers($submission, $score) {
+  return [];
+}
+
+function matchWorkPreferencesCareers($submission, $score) {
+  return [];
 }
