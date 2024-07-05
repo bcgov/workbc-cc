@@ -1,0 +1,357 @@
+taxonomies:
+  abilities_categories:
+    -
+      vid: abilities_categories
+      tid: '7'
+      langcode: en
+      name: 'General learning ability'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 1fce8053-934c-4800-9032-81d9899d35dd
+    -
+      vid: abilities_categories
+      tid: '8'
+      langcode: en
+      name: 'Verbal ability'
+      description__value: null
+      description__format: null
+      weight: '1'
+      parent: '0'
+      uuid: 6ee8fa2f-7762-4441-a6f9-004b87d96fba
+    -
+      vid: abilities_categories
+      tid: '9'
+      langcode: en
+      name: 'Numerical ability'
+      description__value: null
+      description__format: null
+      weight: '2'
+      parent: '0'
+      uuid: 90826b88-ee36-406f-bb3c-87ff2ea50a12
+    -
+      vid: abilities_categories
+      tid: '10'
+      langcode: en
+      name: 'Spatial perception'
+      description__value: null
+      description__format: null
+      weight: '3'
+      parent: '0'
+      uuid: 56b8b3e4-21fd-40b9-b5ce-2d4fca95137f
+    -
+      vid: abilities_categories
+      tid: '11'
+      langcode: en
+      name: 'Form perception'
+      description__value: null
+      description__format: null
+      weight: '4'
+      parent: '0'
+      uuid: 9606ad29-5836-4b21-b9cc-0f5a6acea506
+    -
+      vid: abilities_categories
+      tid: '12'
+      langcode: en
+      name: 'Clerical perception'
+      description__value: null
+      description__format: null
+      weight: '5'
+      parent: '0'
+      uuid: bc00cb0d-77fe-4de6-9925-35095e437269
+    -
+      vid: abilities_categories
+      tid: '13'
+      langcode: en
+      name: 'Motor co-ordination'
+      description__value: null
+      description__format: null
+      weight: '6'
+      parent: '0'
+      uuid: 6daac0a2-9329-44a2-bd2e-45758d47f5c0
+    -
+      vid: abilities_categories
+      tid: '14'
+      langcode: en
+      name: 'Finger dexterity'
+      description__value: null
+      description__format: null
+      weight: '7'
+      parent: '0'
+      uuid: 7fa2a2e4-b2cd-4301-b20f-fbacf7d2af32
+    -
+      vid: abilities_categories
+      tid: '15'
+      langcode: en
+      name: 'Manual dexterity'
+      description__value: null
+      description__format: null
+      weight: '8'
+      parent: '0'
+      uuid: 4ed75f31-4068-41d6-b90c-4443b21a7d56
+  interests_categories:
+    -
+      vid: interests_categories
+      tid: '25'
+      langcode: en
+      name: Enterprising
+      description__value: null
+      description__format: null
+      weight: '4'
+      parent: '0'
+      uuid: 0dcfe0c4-edfe-4272-adf4-e7b28610267d
+    -
+      vid: interests_categories
+      tid: '26'
+      langcode: en
+      name: Conventional
+      description__value: null
+      description__format: null
+      weight: '5'
+      parent: '0'
+      uuid: b45b7c19-01dd-4e3a-a0be-609ad2e1b0f6
+    -
+      vid: interests_categories
+      tid: '21'
+      langcode: en
+      name: Realistic
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 1f8ae6af-6cbd-4720-8e5f-77dc769a761d
+    -
+      vid: interests_categories
+      tid: '22'
+      langcode: en
+      name: Investigative
+      description__value: null
+      description__format: null
+      weight: '1'
+      parent: '0'
+      uuid: 4a3dcce4-a062-488c-b9fc-952f9b5196de
+    -
+      vid: interests_categories
+      tid: '23'
+      langcode: en
+      name: Artistic
+      description__value: null
+      description__format: null
+      weight: '2'
+      parent: '0'
+      uuid: a5bfac07-81fd-44dc-bae6-85af9307579a
+    -
+      vid: interests_categories
+      tid: '24'
+      langcode: en
+      name: Social
+      description__value: null
+      description__format: null
+      weight: '3'
+      parent: '0'
+      uuid: 797d5aff-ee37-4a43-990c-c67ea7204a29
+  learning_styles_categories:
+    -
+      vid: learning_styles_categories
+      tid: '35'
+      langcode: en
+      name: Hearing
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: e1e2b217-5d64-4381-bb6d-231b4f5c62ed
+    -
+      vid: learning_styles_categories
+      tid: '36'
+      langcode: en
+      name: Doing
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: bbafcc5c-a9fb-4baf-b132-d1dda8c4e2e4
+    -
+      vid: learning_styles_categories
+      tid: '37'
+      langcode: en
+      name: Seeing
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 6f766940-d66c-4343-8d72-df028c71dbf1
+  multiple_intelligences_categorie:
+    -
+      vid: multiple_intelligences_categorie
+      tid: '27'
+      langcode: en
+      name: 'Body Smart'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 10f5f559-6621-4c0d-9129-a32197910524
+    -
+      vid: multiple_intelligences_categorie
+      tid: '28'
+      langcode: en
+      name: 'Nature Smart'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 8b9f75a9-4d51-48b2-a2ff-16e777a34cbd
+    -
+      vid: multiple_intelligences_categorie
+      tid: '29'
+      langcode: en
+      name: 'Number Smart'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: ba929e1c-c757-436b-a0b7-fe6477770d52
+    -
+      vid: multiple_intelligences_categorie
+      tid: '30'
+      langcode: en
+      name: 'People Smart'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 455b1557-d854-49ce-b6a9-ef12f0dffd58
+    -
+      vid: multiple_intelligences_categorie
+      tid: '31'
+      langcode: en
+      name: 'Picture Smart'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 906ef725-852b-49ed-a25e-0f3afe29da0d
+    -
+      vid: multiple_intelligences_categorie
+      tid: '32'
+      langcode: en
+      name: 'Self Smart'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: cc4fca78-a6cc-4e5f-b892-6833941b59e0
+    -
+      vid: multiple_intelligences_categorie
+      tid: '33'
+      langcode: en
+      name: 'Sound Smart'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: ba6fbc0b-a91f-41c2-9850-970792588cf5
+    -
+      vid: multiple_intelligences_categorie
+      tid: '34'
+      langcode: en
+      name: 'Word Smart'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: d7a0ad30-c82e-4768-97e1-8d8da54a12ba
+  work_preferences_categories:
+    -
+      vid: work_preferences_categories
+      tid: '16'
+      langcode: en
+      name: Social
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: aecd0368-5c6f-457d-aca2-d49ee80ec6a2
+    -
+      vid: work_preferences_categories
+      tid: '17'
+      langcode: en
+      name: Directive
+      description__value: null
+      description__format: null
+      weight: '1'
+      parent: '0'
+      uuid: 20916f7b-4b46-4ab0-828e-c7d8ce5f548a
+    -
+      vid: work_preferences_categories
+      tid: '18'
+      langcode: en
+      name: Innovative
+      description__value: null
+      description__format: null
+      weight: '2'
+      parent: '0'
+      uuid: a6148c0d-affa-4a01-8248-adf4aab09d6a
+    -
+      vid: work_preferences_categories
+      tid: '19'
+      langcode: en
+      name: Methodical
+      description__value: null
+      description__format: null
+      weight: '3'
+      parent: '0'
+      uuid: 73536b58-0d14-4254-b0db-12af60b2468f
+    -
+      vid: work_preferences_categories
+      tid: '20'
+      langcode: en
+      name: Objective
+      description__value: null
+      description__format: null
+      weight: '4'
+      parent: '0'
+      uuid: 09d2efd5-131b-4ed7-b9b9-235b87278b13
+  work_values_categories:
+    -
+      vid: work_values_categories
+      tid: '38'
+      langcode: en
+      name: 'Your work motivations'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 746b84de-887f-4029-8069-e1ce2cd5b828
+    -
+      vid: work_values_categories
+      tid: '39'
+      langcode: en
+      name: 'Your preferred work setting'
+      description__value: null
+      description__format: null
+      weight: '1'
+      parent: '0'
+      uuid: e735736d-e725-40bb-a5b6-086d5bb587dd
+    -
+      vid: work_values_categories
+      tid: '40'
+      langcode: en
+      name: 'How you like to interact with others'
+      description__value: null
+      description__format: null
+      weight: '2'
+      parent: '0'
+      uuid: 8e9928a2-97e6-4254-adde-c93f58246231
+    -
+      vid: work_values_categories
+      tid: '41'
+      langcode: en
+      name: 'Your work styles'
+      description__value: null
+      description__format: null
+      weight: '3'
+      parent: '0'
+      uuid: 328cdf05-53d1-4dee-8427-9b4c047a32b0
