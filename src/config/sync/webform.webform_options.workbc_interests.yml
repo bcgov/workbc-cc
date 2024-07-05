@@ -7,8 +7,8 @@ label: 'WorkBC: Interests'
 category: WorkBC
 likert: true
 options: |-
-  - 'Very Difficult'
-  - Difficult
-  - Unsure
-  - Easy
-  - 'Very Easy'
+  4: 'Very Easy'
+  3: Easy
+  2: Unsure
+  1: Difficult
+  0: 'Very Difficult'
