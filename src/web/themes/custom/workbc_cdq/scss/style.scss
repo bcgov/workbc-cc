@@ -6,4 +6,8 @@
 @import 'variables_bootstrap';
 
 // Include bootstrap.
-@import '../../../themes/contrib/bootstrap5/scss/style';
+@import '../../../contrib/bootstrap5/scss/style';
+
+
+// Global
+@import 'global';

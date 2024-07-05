@@ -27,6 +27,7 @@
         "drupal/entity_comparison": "4.0",
         "drupal/structure_sync": "^2.0",
         "drupal/svg_image": "^3.0",
+        "drupal/system_stream_wrapper": "^2.0",
         "drupal/upgrade_status": "^4.3",
         "drupal/webform": "6.2",
         "drupal/webformautosave": "2.0"

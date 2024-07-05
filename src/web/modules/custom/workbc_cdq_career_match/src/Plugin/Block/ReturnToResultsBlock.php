@@ -28,7 +28,7 @@ class ReturnToResultsBlock extends BlockBase {
   global $base_url;
 
   $theme = \Drupal::theme()->getActiveTheme();
-$default_image_url = $base_url.'/'. $theme->getPath() .'/images/image.jpg';
+  $default_image_url = $base_url.'/'. $theme->getPath() .'/images/image.jpg';
 
     $markup = "";
 

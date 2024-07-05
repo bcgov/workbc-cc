@@ -181,12 +181,17 @@ function workbc_cdq_career_match_webform_element_configuration_form_alter(&$form
 
 function getCareerProfileInfo(\Drupal\node\NodeInterface $node) {
 
-  $image_url = "";
-  if ($node->field_image->entity) {
-    $style = ImageStyle::load('career_profile_preview');
-    $image_url = $style->buildUrl($node->field_image->entity->getFileUri());
-  }
+  global $base_url;
 
+  $active_theme = \Drupal::service('theme.manager')->getActiveTheme()->getName();
+  
+  $theme = \Drupal::theme()->getActiveTheme();
+  $noc = $node->field_noc_2016->value;
+  $image_uri =  'theme://' . $active_theme . '/assets/profiles/' . $noc . '-NOC-profile.png';
+  if ($image_uri) {
+    $style = ImageStyle::load('career_profile_preview');
+    $image_url = $style->buildUrl($image_uri);
+  }
 
   $term = $node->field_education_level->referencedEntities();
   $info = array(
