@@ -17,7 +17,7 @@ class QuizResultsController extends ControllerBase {
       $markup = "";
       $score = getSubmissionScore($submission);
       foreach ($score['categories'] as $category_name => $category) {
-        $percent = $category['percent'] * 100;
+        $percent = $category['percent'];
         $normalized = $category['normalized'];
         $markup .= "<p>$category_name: <b>$percent% ($normalized)</b></p>";
       }

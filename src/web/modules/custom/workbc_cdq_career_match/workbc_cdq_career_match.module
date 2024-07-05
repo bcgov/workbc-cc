@@ -2,7 +2,11 @@
 
 use Drupal\Core\Url;
 use Drupal\image\Entity\ImageStyle;
+use Drupal\Core\Form\FormStateInterface;
 
+/**
+* Implements hook_page_attachments_alter().
+*/
 function workbc_cdq_career_match_page_attachments_alter(array &$attachments) {
 	$attachments['#attached']['library'][] = 'workbc_cdq_career_match/workbc-cdq-career-match';
 }
@@ -19,33 +23,34 @@ function workbc_cdq_career_match_theme($existing, $type, $theme, $path) {
     'views_view_field__quiz_career_match__selected' => [
       'template' => 'views/views-view-field--quiz_career_match--selected',
       'base hook' => 'view'
-    ],    
+    ],
     'views_view_fields__cdq_compare_careers__page' => [
       'template' => 'views/views-view-fields--cdq_compare_careers--page',
       'base hook' => 'view'
-    ],     
+    ],
   ];
 }
 
-
+/**
+* Implements hook_preprocess_views_view_table().
+*/
 function workbc_cdq_career_match_preprocess_views_view_table(&$variables) {
 
   $view = $variables['view'];
-
   if ($view->id() == "quiz_career_match") {
-    $results = $variables['result'];
-
-    $preview = [];
     foreach ($variables['result'] as $key => $result) {
       $node = $result->_relationship_entities['nid'];
-      $variables['rows'][$key]['raw'] = workbc_cdq_career_profile_info($node);
+      $variables['rows'][$key]['raw'] = getCareerProfileInfo($node);
       $variables['submission_id'] = $variables['view']->args[0];
+      // TODO Replace with same config setting as current CDQ.
       $variables['workbc_url'] = rtrim("https://devnoc.workbc.ca", "/");
     }
   }
 }
 
-
+/**
+* Implements hook_preprocess_views_view_field().
+*/
 function workbc_cdq_career_match_preprocess_views_view_field(&$variables) {
 
   if ($variables['view']->id() === "quiz_career_match" && $variables['field']->realField === "selected") {
@@ -59,41 +64,17 @@ function workbc_cdq_career_match_preprocess_views_view_field(&$variables) {
   }
 }
 
+/**
+* Implements hook_preprocess_views_view_fields().
+*/
 function workbc_cdq_career_match_preprocess_views_view_fields(&$variables) {
 
   $node = $variables['row']->_relationship_entities['nid'];
-  $info = workbc_cdq_career_profile_info($node);
+  $info = getCareerProfileInfo($node);
   $variables['raw'] = $info;
+  // TODO Replace with same config setting as current CDQ.
   $variables['workbc_url'] = rtrim("https://devnoc.workbc.ca", "/");
 }
-
-
-
-function workbc_cdq_career_profile_info(\Drupal\node\NodeInterface $node) {
-
-  $image_url = "";
-  if ($node->field_image->entity) {
-    $style = ImageStyle::load('career_profile_preview');
-    $image_url = $style->buildUrl($node->field_image->entity->getFileUri());
-  }
-
-
-  $term = $node->field_education_level->referencedEntities();
-  $info = array(
-    'title' => $node->title->value . " (NOC " . $node->field_noc->value . ")",
-    'noc' => $node->field_noc->value,
-    'job_summary' => substr(strip_tags($node->body->value), 0, 400),
-    'video_id' => $node->field_video_id->value,
-    'image' => $image_url,
-    'annual_salary' => $node->field_annual_salary->value,
-    'education_level' => $term[0]->getName(),
-    'job_openings' => $node->field_job_openings->value,
-    'job_openings_range' => '(1995 - 2005)',
-  );
-
-  return $info;
-}
-
 
 /**
  * Implements hook_webform_third_party_settings_form_alter().
@@ -196,6 +177,33 @@ function workbc_cdq_career_match_webform_element_configuration_form_alter(&$form
   ];
 }
 
+/*************************** HELPER FUNCTIONS ***************************/
+
+function getCareerProfileInfo(\Drupal\node\NodeInterface $node) {
+
+  $image_url = "";
+  if ($node->field_image->entity) {
+    $style = ImageStyle::load('career_profile_preview');
+    $image_url = $style->buildUrl($node->field_image->entity->getFileUri());
+  }
+
+
+  $term = $node->field_education_level->referencedEntities();
+  $info = array(
+    'title' => $node->title->value . " (NOC " . $node->field_noc->value . ")",
+    'noc' => $node->field_noc->value,
+    'job_summary' => substr(strip_tags($node->body->value), 0, 400),
+    'video_id' => $node->field_video_id->value,
+    'image' => $image_url,
+    'annual_salary' => $node->field_annual_salary->value,
+    'education_level' => $term[0]->getName(),
+    'job_openings' => $node->field_job_openings->value,
+    'job_openings_range' => '(1995 - 2005)',
+  );
+
+  return $info;
+}
+
 function getSubmissionScore($submission) {
   $quiz = $submission->getWebform();
   $questions = array_filter($quiz->getElementsInitializedAndFlattened(), function($question) {
@@ -230,9 +238,12 @@ function getSubmissionScore($submission) {
     ));
   }
   foreach ($categories as &$category) {
-    $category['percent'] = $category['score'] / ($category['count'] * 4);
+    $category['percent'] = round(100 * $category['score'] / ($category['count'] * 4));
     $category['normalized'] = floor($category['score'] / $category['count']) + 1;
   }
+  uasort($categories, function($c1, $c2) {
+    return $c2['percent'] - $c1['percent'];
+  });
   return [
     'categories' => $categories,
     'answers' => $results,
