@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "607f9284bad0bdba93bf8f9ab551cf86",
+    "content-hash": "abfbbf66b372f2acbfa105e238a08f99",
     "packages": [
         {
             "name": "graham-campbell/result-type",
@@ -259,16 +259,10 @@
         {
             "name": "phpoffice/phpspreadsheet",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/infojunkie/PhpSpreadsheet.git",
-                "reference": "134d3b2d72c5237f9c2e172df0f32e083c155150"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/infojunkie/PhpSpreadsheet/zipball/134d3b2d72c5237f9c2e172df0f32e083c155150",
-                "reference": "134d3b2d72c5237f9c2e172df0f32e083c155150",
-                "shasum": ""
+                "type": "path",
+                "url": "/home/kratib/src/infojunkie/PhpSpreadsheet",
+                "reference": "21924e77d2a0f88dd86ee72313ea6b354d5b4aa0"
             },
             "require": {
                 "ext-ctype": "*",
@@ -313,7 +307,6 @@
                 "mpdf/mpdf": "Option for rendering PDF with PDF Writer",
                 "tecnickcom/tcpdf": "Option for rendering PDF with PDF Writer"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -382,10 +375,9 @@
                 "xls",
                 "xlsx"
             ],
-            "support": {
-                "source": "https://github.com/infojunkie/PhpSpreadsheet/tree/master"
-            },
-            "time": "2024-06-29T03:28:26+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "phpoption/phpoption",

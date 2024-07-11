@@ -43,52 +43,28 @@ class CareerMatchWebformHandler extends WebformHandlerBase {
     $query->execute();
   }
 
-
   /**
    * {@inheritdoc}
    */
   public function postSave(WebformSubmissionInterface $webform_submission, $update = TRUE) {
-    $nids = \Drupal::entityQuery('node')
-              ->accessCheck(TRUE)
-              ->condition('type','career_profile')
-              ->execute();
-    $nodes = \Drupal\node\Entity\Node::loadMultiple($nids);
-
-    $data = $webform_submission->getData();
-    $total = array_sum($data);
-
-    $score = "";
-    foreach ($data as $value) {
-      $score .= $value;
-    }
-    $profiles = [];
-    $first = true;
-    foreach ($nodes as $profile) {
-      $seed = intval($profile->field_noc->value . $score);
-      srand($seed);
-      $profiles[] = [
-        'sid' =>  $webform_submission->id(),
-        'nid' => $profile->id(),
-        'career_match' => rand(1, 99) > 90 ? rand(30, 99) : 0,
-      ];
-    }
-
-    array_multisort( array_column($profiles, "career_match"), SORT_DESC, $profiles );
-    $matches = array_slice($profiles, 0, 20);
-
+    $scores = getSubmissionScore($webform_submission);
+    $matches = matchCareers($webform_submission, $scores);
+    if (empty($matches)) return;
+    $matches = array_slice($matches, 0, 20);
+    $nids = \Drupal::database()->query("SELECT field_noc_value, entity_id FROM {node__field_noc} WHERE field_noc_value IN (:nocs[])", [
+      ':nocs[]' => array_map(function($match) { return $match['noc']; }, $matches)
+    ])->fetchAllAssoc('field_noc_value');
     if ($update) {
       $query = \Drupal::database()->delete('workbc_cdq_career_match');
       $query->condition('sid', $webform_submission->id());
       $query->execute();
     }
-
     foreach ($matches as $match) {
       $query = \Drupal::database()->insert('workbc_cdq_career_match');
       $query->fields(['sid', 'nid', 'career_match']);
-      $query->values([$match['sid'], $match['nid'], $match['career_match']]);
+      $query->values([$webform_submission->id(), $nids[$match['noc']]->entity_id, $match['match']]);
       $query->execute();
     }
-
   }
 
 

@@ -70,7 +70,21 @@ function getUserSubmission($webform_id) {
     $submission = WebformSubmission::create([
       'webform_id' => $webform_id,
       'data' => $override,
+      'notes' => 'Created by overridden answers.'
     ]);
+    $submission->save();
+
+    if ($submission->id()) {
+      $older_sids = \Drupal::entityQuery('webform_submission')
+      ->condition('webform_id', $webform_id)
+      ->condition('sid', $submission->id(), '<>')
+      ->accessCheck(false)
+      ->execute();
+      \Drupal::entityTypeManager()->getStorage('webform_submission')->delete(
+        \Drupal::entityTypeManager()->getStorage('webform_submission')->loadMultiple(array_keys($older_sids))
+      );
+    }
+
     return $submission;
   }
 
@@ -79,6 +93,7 @@ function getUserSubmission($webform_id) {
   ->condition('uid', $current_user->id())
   ->condition('webform_id', $webform_id)
   ->range(0, 1)
+  ->sort('changed', 'DESC')
   ->accessCheck(false);
 
   $results = $query->execute();
