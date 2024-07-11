@@ -21,11 +21,6 @@ class QuizResultsController extends ControllerBase {
         $normalized = $category['normalized'];
         $markup .= "<p>$category_name: <b>$percent% ($normalized)</b></p>";
       }
-      $markup .= '<hr>';
-      $matches = matchAbilitiesCareers($submission, $score);
-      foreach ($matches as $match) {
-        $markup .= "<p>{$match['noc']}: <b>{$match['match']}%</b></p>";
-      }
     }
     else {
       $markup = "No results found";
@@ -41,9 +36,11 @@ class QuizResultsController extends ControllerBase {
     $submission = getUserSubmission('work_preferences_quiz');
     if ($submission) {
       $markup = "";
-      foreach (getSubmissionScore($submission)['categories'] as $category => $data) {
-        $percent = $data['score'] / ($data['count'] * 4) * 100;
-        $markup .= "<p>$category: <b>$percent%</b></p>";
+      $score = getSubmissionScore($submission);
+      foreach ($score['categories'] as $category_name => $category) {
+        $percent = $category['percent'];
+        $normalized = $category['normalized'];
+        $markup .= "<p>$category_name: <b>$percent% ($normalized)</b></p>";
       }
     }
     else {
@@ -60,9 +57,11 @@ class QuizResultsController extends ControllerBase {
     $submission = getUserSubmission('interests_quiz');
     if ($submission) {
       $markup = "";
-      foreach (getSubmissionScore($submission)['categories'] as $category => $data) {
-        $percent = $data['score'] / ($data['count'] * 4) * 100;
-        $markup .= "<p>$category: <b>$percent%</b></p>";
+      $score = getSubmissionScore($submission);
+      foreach ($score['categories'] as $category_name => $category) {
+        $percent = $category['percent'];
+        $normalized = $category['normalized'];
+        $markup .= "<p>$category_name: <b>$percent% ($normalized)</b></p>";
       }
     }
     else {
@@ -79,9 +78,11 @@ class QuizResultsController extends ControllerBase {
     $submission = getUserSubmission('multiple_intelligences_quiz');
     if ($submission) {
       $markup = "";
-      foreach (getSubmissionScore($submission)['categories'] as $category => $data) {
-        $percent = $data['score'] / ($data['count'] * 4) * 100;
-        $markup .= "<p>$category: <b>$percent%</b></p>";
+      $score = getSubmissionScore($submission);
+      foreach ($score['categories'] as $category_name => $category) {
+        $percent = $category['percent'];
+        $normalized = $category['normalized'];
+        $markup .= "<p>$category_name: <b>$percent% ($normalized)</b></p>";
       }
     }
     else {
@@ -98,9 +99,11 @@ class QuizResultsController extends ControllerBase {
     $submission = getUserSubmission('learning_styles_quiz');
     if ($submission) {
       $markup = "";
-      foreach (getSubmissionScore($submission)['categories'] as $category => $data) {
-        $percent = $data['score'] / ($data['count'] * 4) * 100;
-        $markup .= "<p>$category: <b>$percent%</b></p>";
+      $score = getSubmissionScore($submission);
+      foreach ($score['categories'] as $category_name => $category) {
+        $percent = $category['percent'];
+        $normalized = $category['normalized'];
+        $markup .= "<p>$category_name: <b>$percent% ($normalized)</b></p>";
       }
     }
     else {
@@ -117,9 +120,11 @@ class QuizResultsController extends ControllerBase {
     $submission = getUserSubmission('work_values_quiz');
     if ($submission) {
       $markup = "";
-      foreach (getSubmissionScore($submission)['categories'] as $category => $data) {
-        $percent = $data['score'] / ($data['count'] * 4) * 100;
-        $markup .= "<p>$category: <b>$percent%</b></p>";
+      $score = getSubmissionScore($submission);
+      foreach ($score['categories'] as $category_name => $category) {
+        $percent = $category['percent'];
+        $normalized = $category['normalized'];
+        $markup .= "<p>$category_name: <b>$percent% ($normalized)</b></p>";
       }
     }
     else {
@@ -131,26 +136,4 @@ class QuizResultsController extends ControllerBase {
       '#cache' => ['max-age' => 0],
     ];
   }
-
-
-  public function cdq_test() {
-
-    $id = (int)"681";
-    $selected = 0;
-    ksm($id);
-    ksm($selected);
-        $query = \Drupal::database()->update('workbc_cdq_career_match');
-        $query->fields(['selected' => $selected]);
-        $query->condition('id', $id);
-        $query->execute();
-
-    $markup = "Testing...";
-
-    return [
-      '#type' => 'markup',
-      '#markup' => $markup,
-      '#cache' => ['max-age' => 0],
-    ];
-  }
-
 }

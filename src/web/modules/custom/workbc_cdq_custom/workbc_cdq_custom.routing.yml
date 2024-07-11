@@ -45,11 +45,3 @@ workbc_cdq_custom.work_values_quiz_results:
     _title: 'Work Values Quiz Results'
   requirements:
     _permission: 'access content'
-
-workbc_cdq_custom.test:
-  path: '/admin/cdq/test'
-  defaults:
-    _controller: '\Drupal\workbc_cdq_custom\Controller\QuizResultsController::cdq_test'
-    _title: 'CDQ Test'
-  requirements:
-    _permission: 'access content'

@@ -36,6 +36,7 @@ class WebformSubmissionByUser extends ArgumentDefaultPluginBase implements Cache
     ->condition('uid', $current_user->id())
     ->condition('webform_id', $webform_id)
     ->range(0, 1)
+    ->sort('changed', 'DESC')
     ->accessCheck(false);
 
     $results = $query->execute();

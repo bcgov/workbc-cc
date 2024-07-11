@@ -1,12 +1,12 @@
 {
     "repositories": [
         {
-            "type": "vcs",
-            "url": "https://github.com/infojunkie/PhpSpreadsheet.git"
+            "type": "path",
+            "url": "/home/kratib/src/infojunkie/PhpSpreadsheet"
         }
     ],
     "require": {
-        "phpoffice/phpspreadsheet": "dev-master",
+        "phpoffice/phpspreadsheet": "@dev",
         "vlucas/phpdotenv": "^5.6"
     }
 }

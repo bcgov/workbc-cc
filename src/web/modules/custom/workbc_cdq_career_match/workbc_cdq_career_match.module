@@ -3,6 +3,7 @@
 use Drupal\Core\Url;
 use Drupal\image\Entity\ImageStyle;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\webform\Entity\WebformSubmission;
 
 /**
 * Implements hook_page_attachments_alter().
@@ -181,12 +182,7 @@ function workbc_cdq_career_match_webform_element_configuration_form_alter(&$form
 /*************************** HELPER FUNCTIONS ***************************/
 
 function getCareerProfileInfo(\Drupal\node\NodeInterface $node) {
-
-  global $base_url;
-
   $active_theme = \Drupal::service('theme.manager')->getActiveTheme()->getName();
-  
-  $theme = \Drupal::theme()->getActiveTheme();
   $noc = $node->field_noc_2016->value;
   $image_uri =  'theme://' . $active_theme . '/assets/profiles/' . $noc . '-NOC-profile.png';
   if ($image_uri) {
@@ -325,5 +321,19 @@ function matchInterestsCareers($submission, $score) {
 }
 
 function matchWorkPreferencesCareers($submission, $score) {
+  return [];
+}
+
+function matchCareers(WebformSubmission $submission, $score) {
+  switch ($submission->getWebform()->id()) {
+    case 'abilities_quiz':
+      return matchAbilitiesCareers($submission, $score);
+    case 'work_preferences_quiz':
+      return matchWorkPreferencesCareers($submission, $score);
+    case 'interests_quiz':
+      return matchInterestsCareers($submission, $score);
+    default:
+      // TODO Log a warning.
+  }
   return [];
 }
