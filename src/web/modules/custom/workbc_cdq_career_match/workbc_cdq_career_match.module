@@ -15,7 +15,7 @@ function workbc_cdq_career_match_page_attachments_alter(array &$attachments) {
 * Implements hook_theme().
 */
 function workbc_cdq_career_match_theme($existing, $type, $theme, $path) {
-  return [
+  return [      
     'views_view_table__quiz_career_match' => [
       'template' => 'views/views-view-table--quiz_career_match',
       'base hook' => 'view'
@@ -28,6 +28,7 @@ function workbc_cdq_career_match_theme($existing, $type, $theme, $path) {
       'template' => 'views/views-view-fields--cdq_compare_careers--page',
       'base hook' => 'view'
     ],
+
   ];
 }
 

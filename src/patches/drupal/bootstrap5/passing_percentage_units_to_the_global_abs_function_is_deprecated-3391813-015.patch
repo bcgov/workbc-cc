@@ -1,0 +1,17 @@
+diff --git a/scss/drupal/_theme.scss b/scss/drupal/_theme.scss
+index ef1c99919fbc4aab5abad39aabfc493f9b6bff75..35f2bd1ac66b135fbfd93a446d52a379b5b7d637 100755
+--- a/scss/drupal/_theme.scss
++++ b/scss/drupal/_theme.scss
+@@ -1,9 +1,11 @@
++@use "sass:math";
++
+ @each $state, $value in $theme-colors {
+   $alert-background: shift-color($value, $alert-bg-scale);
+   $alert-border: shift-color($value, $alert-border-scale);
+   $alert-color: shift-color($value, $alert-color-scale);
+   @if (contrast-ratio($alert-background, $alert-color) < $min-contrast-ratio) {
+-    $alert-color: mix($value, color-contrast($alert-background), abs($alert-color-scale));
++    $alert-color: mix($value, color-contrast($alert-background), math.abs($alert-color-scale));
+   }
+   .color-#{$state} {
+     --#{$prefix}alert-color: #{$alert-color};

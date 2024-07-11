@@ -1,0 +1,231 @@
+#front-page-hero {
+  background-color: lightpink;
+
+  h1  {
+    font-weight: bold;
+  }
+}
+
+
+// Banner
+.banner-main-wrapper {
+  .desktop-banner {
+      min-height: 480px;
+      background-size: 2000px 524px;
+      background-position: right bottom;
+      background-repeat: no-repeat;
+      background-color: rgb(242, 244, 243);
+
+      @media all and (min-width: 991.98px) and (max-width: 1280px) {
+          background-position: -700px bottom;
+      }
+
+      // @media all and (min-width: 991.98px) and (max-width: 1080px) {
+      //     background-position: -770px bottom;
+      // }
+
+      @media all and (max-width: 991.98px) {
+          display: none;
+      }
+
+      .banner-content {
+          &.flex-content {
+              min-height: 480px;
+              display: flex;
+              // align-items: center;
+              padding-top: 99px;
+          }
+          @media all and (max-width: 1180px) {
+              padding-left: 15px;
+          }
+
+          .sub-title {
+              font-family: "BC Sans", sans-serif;
+              font-weight: 400;
+              font-style: normal;
+              font-size: 2.5rem;
+              line-height: 3rem;
+              max-width: 360px;
+              margin-bottom: 30px;
+              color: #333333;
+          }
+
+          .banner-inner {
+              h1 {
+                  font-size: 54px;
+                  line-height: 54px;
+                  font-family: "BC Sans Bold", sans-serif;
+                  font-weight: normal;
+                  font-style: normal;
+                  margin-bottom: 30px;
+                  @media all and (max-width: 991.98px) {
+                      font-size: 40px;
+                      line-height: 40px;
+                  }
+                  @media all and (max-width: 450.98px) {
+                      font-size: 35px;
+                      line-height: 40px;
+                  }
+              }
+          }
+      }
+  }
+
+  .mobile-banner {
+      display: none;
+
+      @media all and (max-width: 991.98px) {
+          display: block;
+          min-height: 435px;
+          background-size: cover;
+          // padding-top: 20px;
+          background-position: right bottom;
+          background-repeat: no-repeat;
+          background-attachment: scroll;
+          background-size: cover;
+          background-origin: border-box;
+          background-color: rgba(242, 244, 243, 1);
+          overflow-y: hidden;
+          overflow-x: hidden;
+          .banner-inner {
+              h1 {
+                  font-size: 40px;
+                  line-height: 40px;
+                  font-family: "BC Sans Bold", sans-serif;
+                  margin-bottom: 10px;
+                  margin-top: 20px;
+              }
+          }
+
+          .banner-content {
+              &.flex-content {
+                  min-height: 435px;
+                  display: flex;
+                  text-align: center;
+                  max-width: 350px;
+                  margin: 0 auto;
+              }
+
+              p.sub-title {
+                  font-size: 2.1rem;
+                  font-family: "BC Sans", sans-serif;
+                  line-height: 2.6rem;
+                  margin-bottom: 25px;
+                  padding: 0;
+                  max-width: 305px;
+                  margin: 0 auto;
+                  color: #333333;
+                  @media all and (max-width: 450.98px) {
+                      font-size: 1.8rem;
+                  }
+              }
+          }
+      }
+      @media all and (max-width: 450.98px) {
+          .banner-inner {
+              h1 {
+                  font-size: 32px;
+                  margin-bottom: 5px;
+              }
+         }
+      }
+  }
+}
+
+
+// Intro text
+.intro-text-wrapper {
+  min-height: 180px;
+  background: #234075;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  @media all and (max-width: 767.98px) {
+      min-height: 160px;
+  }
+
+  .intro-content {
+      p {
+          font-family: "BC Sans", sans-serif;
+          font-weight: 400;
+          font-style: normal;
+          font-size: 2.1rem;
+          color: #ffffff;
+          text-align: center;
+          line-height: 3rem;
+          margin-bottom: 0;
+
+          @media all and (max-width: 767.98px) {
+              font-size: 1.8rem;
+              line-height: 2.5rem;
+              display: inline;
+          }
+      }
+  }
+}
+
+.head-des {
+  margin: 30px 0px;
+  margin-bottom: 0px;
+  text-align: center;
+  @media all and (max-width: 767.98px) {
+      margin: 20px 0px;
+  }
+  .description {
+      p {
+          color: #595959;
+      }
+  }
+}
+
+//Quizzes
+
+.head-des {
+  margin: 30px 0px;
+  margin-bottom: 0px;
+  text-align: center;
+  @media all and (max-width: 767.98px) {
+      margin: 20px 0px;
+  }
+
+  h2 {
+      font-family: "BC Sans Regular", sans-serif;
+      font-weight: normal;
+      font-size: 45px;
+      color: #333333;
+      text-align: center;
+      margin-bottom: 30px;
+      @media all and (max-width: 767.98px) {
+          font-size: 36px;
+      }
+  }
+
+  .description {
+      p {
+       color: #595959;
+      }
+
+      @media all and (max-width: 767.98px) {
+          padding: 0 30px;
+      }
+  }
+}
+
+.all-quiz-status {
+  background: rgb(230, 234, 233);
+  margin: 20px 0px;
+  padding: 7px 30px;
+  text-align: right;
+  margin-bottom: 30px;
+  font-family: "BC Sans", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.5rem;
+  text-align: right;
+  line-height: 3rem;
+  color: #333333;
+  @media all and (max-width: 767.98px) {
+      text-align: center;
+  }
+}

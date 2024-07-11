@@ -382,7 +382,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: field
-          label: 'Education Level'
+          label: 'Training, Education, Experience and Responsibilities'
           exclude: false
           alter:
             alter_text: false
