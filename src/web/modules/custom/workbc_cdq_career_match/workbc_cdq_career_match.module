@@ -258,6 +258,9 @@ const COLUMN_ABILITIES_FD=8;
 const COLUMN_ABILITIES_MD=9;
 const COLUMN_ABILITIES_MATCH=10;
 
+const COLUMN_WORK_PREFERENCES_NOC=0;
+const COLUMN_WORK_PREFERENCES_CODE=1;
+
 function matchAbilitiesCareers($submission, $score) {
   // 1. Load abilities-quiz.csv category weights.
   $abilities_weights = \Drupal::state()->get('workbc.abilities_weights', []);
@@ -364,6 +367,8 @@ function matchInterestsCareers($submission, $score) {
           'noc' => $noc,
           'match' => $values[$match->fit],
         ];
+
+        // Abort when we have 20 results.
         if (count($results) >= 20) break 2;
       }
     }
@@ -372,7 +377,52 @@ function matchInterestsCareers($submission, $score) {
 }
 
 function matchWorkPreferencesCareers($submission, $score) {
-  return [];
+  // 1. Load work-preferences-quiz.csv category matches.
+  $work_preferences_matches = \Drupal::state()->get('workbc.work_preferences_matches', []);
+  if (empty($work_preferences_matches)) {
+    $work_preferences_matches = array_map('str_getcsv', file(__DIR__ . '/scoring/work-preferences-quiz.csv'));
+    \Drupal::state()->set('workbc.abilities_weights', $work_preferences_matches);
+  }
+
+  // 2. Generate permutations for top categories in specified order.
+  //    Each permutation is a 3-letter code made up of the first letter of each category.
+  //    Each number in the permutation represents the Nth category from the top.
+  //    Then, for each code, we generate 3 more versions: UUU, UUl, Ull where U = uppercase, l = lowercase.
+  //
+  // 3. Lookup careers matches for each permutation and calculate match score.
+  $terms = array_keys($score);
+  $results = [];
+  foreach(['123', '132', '213', '231', '312', '321', '124', '142', '214'] as $permutation_index => $permutation) {
+    $raw_code = array_reduce(str_split($permutation), function($code, $digit) use($terms) {
+      $code .= $terms[intval($digit)-1][0];
+      return $code;
+    }, '');
+    foreach (['UUU', 'UUl', 'Ull'] as $case_permutation_index => $case_permutation) {
+      $flip_code = array_reduce(str_split($case_permutation), function($code, $case) use($raw_code) {
+        $letter = $raw_code[strlen($code)];
+        $code .= $case === 'U' ? strtoupper($letter) : strtolower($letter);
+        return $code;
+      }, '');
+
+      // The match score is a normalization formula lifted from legacy CDQ because it's not coded in the original quiz sheet.
+      // It is proportional to the rank of the current permutation.
+      $index = $permutation_index * strlen($permutation) + $case_permutation_index;
+      $score = round((180 - $index) / 180 * 100);
+      $results = array_merge($results, array_map(function($match) use($score) {
+        return [
+          'noc' => $match[COLUMN_WORK_PREFERENCES_NOC],
+          'match' => $score,
+        ];
+      }, array_filter($work_preferences_matches, function($match) use($flip_code) {
+        return $match[COLUMN_WORK_PREFERENCES_CODE] == $flip_code;
+      })));
+
+      // Abort when we have 20 results.
+      if (count($results) >= 20) break 2;
+    }
+  }
+
+  return $results;
 }
 
 function matchCareers(WebformSubmission $submission, $score) {
