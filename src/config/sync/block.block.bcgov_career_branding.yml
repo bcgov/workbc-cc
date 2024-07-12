@@ -1,4 +1,4 @@
-uuid: aa07e7f5-f007-48f6-a35a-ddbd549d49a8
+uuid: 7c08ccb4-b4b7-4104-b2f2-cbb1486c6503
 langcode: en
 status: true
 dependencies:
@@ -6,12 +6,10 @@ dependencies:
     - system
   theme:
     - workbc_cdq
-_core:
-  default_config_hash: Y1IY0OZBRbrsT-6TE2-q0-FT1SzY3Jm5G4P6IFDuMOw
-id: workbc_cdq_branding
+id: bcgov_career_branding
 theme: workbc_cdq
-region: nav_branding
-weight: -6
+region: header
+weight: 0
 provider: null
 plugin: system_branding_block
 settings:
@@ -21,5 +19,5 @@ settings:
   provider: system
   use_site_logo: true
   use_site_name: true
-  use_site_slogan: false
+  use_site_slogan: true
 visibility: {  }

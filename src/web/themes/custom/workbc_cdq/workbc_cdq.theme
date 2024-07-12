@@ -1,2 +1,6 @@
 <?php
 
+function workbc_cdq_preprocess_page(&$variables) {
+
+  $variables['copyright_year'] = date("Y");
+}

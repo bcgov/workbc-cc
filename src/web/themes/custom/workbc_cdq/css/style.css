@@ -13224,6 +13224,10 @@ footer #block-socialnetwork .social-icons a.social-twitter {
 footer #block-socialnetwork .social-icons a.social-youtube {
   background: #d21c22;
 }
+footer #block-socialnetwork .social-icons a.social-youtube img {
+  width: 40px;
+  height: 40px;
+}
 footer #block-socialnetwork .social-icons a.social-linkedin {
   border-radius: 0;
 }
@@ -13262,6 +13266,9 @@ footer nav#block-bcgov-career-footer .navbar-nav .nav-item .nav-link:hover, foot
 }
 footer nav#block-bcgov-career-footer .navbar-nav .nav-item:last-child .nav-link, footer nav#block-bcgov-career-footer .navbar-nav .nav-item:last-child .media-library-view--widget .view-header a, .media-library-view--widget .view-header footer nav#block-bcgov-career-footer .navbar-nav .nav-item:last-child a {
   border-right: 0;
+}
+footer #block-copyrights {
+  margin-left: 7px;
 }
 @media all and (max-width: 991.98px) {
   footer #block-copyrights {

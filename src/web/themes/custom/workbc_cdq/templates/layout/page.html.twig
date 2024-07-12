@@ -97,63 +97,20 @@ set footer_classes = ' ' ~
   set content_classes = (page.sidebar_first and page.sidebar_second) ? 'col-12 col-lg-6' : ((page.sidebar_first or page.sidebar_second) ? 'col-12 col-lg-9' : 'col-12' )
    %}
 
-    <div class="banner-main-wrapper">
-      <div class="desktop-banner" style="background-image:url(/themes/custom/workbc_cdq/assets/images/u5257_state0.png);">
-        <div class="container-fluid">
-          <div class="banner-content flex-content">
-            <div class="banner-inner">
-              <h1>Career Discovery Quizzes</h1>
-              <p class="sub-title">Learn more about yourself and explore what careers might be the best fit for you.</p>
-              <a class="cta-btn-blue" href="/#career-quizzes">View Quizzes</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="paragraph paragraph--type--rich-text paragraph--view-mode--default">
-      <div class="intro-text-wrapper">
-        <div class="container-fluid">
-          <div class="intro-content px-3">       
-            <div class="clearfix text-formatted field field--name-field-rich-text field--type-text-long field--label-hidden field__item"><p><span><span><span lang="EN-CA" xml:lang="EN-CA" xml:lang="EN-CA">Complete one or more of the quizzes to help you explore your career direction.</span></span></span></p></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-        <div class="view-header">
-          <div class="container">
-            <div class="head-des">   
-              <h2 id="career-quizzes">Career Quizzes</h2>
-              <div class="description"><p>Take the career quizzes below to discover how your abilities, work preferences and interests can help you explore careers that suit you best.</p></div>
-		        </div>
-          </div>
-        </div>
-
 
   <div class="{{ b5_top_container }}">
-
+    {% if page.breadcrumb %}
+      {{ page.breadcrumb }}
+    {% endif %}
     <div class="row g-0">
       {% if page.sidebar_first %}
         <div class="order-2 order-lg-1 {{ sidebar_first_classes }}">
           {{ page.sidebar_first }}
         </div>
       {% endif %}
-
-
-
-
       <div class="order-1 order-lg-2 {{ content_classes }}">
-
-
-
         {{ page.content }}
-
       </div>
-      {% include '@workbc_cdq/templates/includes/front-page_resources.html.twig' %}
-
-
-
       {% if page.sidebar_second %}
         <div class="order-3 {{ sidebar_second_classes }}">
           {{ page.sidebar_second }}
