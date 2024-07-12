@@ -25,12 +25,11 @@ class WebformSubmissionByUser extends ArgumentDefaultPluginBase implements Cache
   public function getArgument() {
 
     $current_user = \Drupal::currentUser();
-
     $current_path = \Drupal::service('path.current')->getPath();
-
-    $webform_id = ltrim($current_path, "/quizzes/");
-    $webform_id = rtrim($webform_id, "/results");
-    $webform_id = str_replace("-", "_", $webform_id);
+    if (!preg_match('/quizzes\/(.*?)\/results/', $current_path, $matches)) {
+      return false;
+    }
+    $webform_id = str_replace('-', '_', $matches[1]);
 
     $query = \Drupal::entityQuery('webform_submission')
     ->condition('uid', $current_user->id())
@@ -38,16 +37,11 @@ class WebformSubmissionByUser extends ArgumentDefaultPluginBase implements Cache
     ->range(0, 1)
     ->sort('changed', 'DESC')
     ->accessCheck(false);
-
     $results = $query->execute();
     if ($results) {
-      $sid = array_shift($results);
+      return array_shift($results);
     }
-
-    if (!empty($sid)) {
-      return $sid;
-    }
-    return FALSE;
+    return false;
   }
 
   /**

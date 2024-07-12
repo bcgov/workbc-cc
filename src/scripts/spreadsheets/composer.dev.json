@@ -1,0 +1,12 @@
+{
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../../../../infojunkie/phpSpreadsheet"
+        }
+    ],
+    "require": {
+        "phpoffice/phpspreadsheet": "@dev",
+        "vlucas/phpdotenv": "^5.6"
+    }
+}

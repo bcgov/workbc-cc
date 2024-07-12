@@ -16,7 +16,7 @@ class QuizResultsController extends ControllerBase {
     if ($submission) {
       $markup = "";
       $score = getSubmissionScore($submission);
-      foreach ($score['categories'] as $category_name => $category) {
+      foreach ($score as $category_name => $category) {
         $percent = $category['percent'];
         $normalized = $category['normalized'];
         $markup .= "<p>$category_name: <b>$percent% ($normalized)</b></p>";
@@ -37,7 +37,7 @@ class QuizResultsController extends ControllerBase {
     if ($submission) {
       $markup = "";
       $score = getSubmissionScore($submission);
-      foreach ($score['categories'] as $category_name => $category) {
+      foreach ($score as $category_name => $category) {
         $percent = $category['percent'];
         $normalized = $category['normalized'];
         $markup .= "<p>$category_name: <b>$percent% ($normalized)</b></p>";
@@ -58,7 +58,7 @@ class QuizResultsController extends ControllerBase {
     if ($submission) {
       $markup = "";
       $score = getSubmissionScore($submission);
-      foreach ($score['categories'] as $category_name => $category) {
+      foreach ($score as $category_name => $category) {
         $percent = $category['percent'];
         $normalized = $category['normalized'];
         $markup .= "<p>$category_name: <b>$percent% ($normalized)</b></p>";
@@ -79,7 +79,7 @@ class QuizResultsController extends ControllerBase {
     if ($submission) {
       $markup = "";
       $score = getSubmissionScore($submission);
-      foreach ($score['categories'] as $category_name => $category) {
+      foreach ($score as $category_name => $category) {
         $percent = $category['percent'];
         $normalized = $category['normalized'];
         $markup .= "<p>$category_name: <b>$percent% ($normalized)</b></p>";
@@ -100,7 +100,7 @@ class QuizResultsController extends ControllerBase {
     if ($submission) {
       $markup = "";
       $score = getSubmissionScore($submission);
-      foreach ($score['categories'] as $category_name => $category) {
+      foreach ($score as $category_name => $category) {
         $percent = $category['percent'];
         $normalized = $category['normalized'];
         $markup .= "<p>$category_name: <b>$percent% ($normalized)</b></p>";
@@ -121,7 +121,7 @@ class QuizResultsController extends ControllerBase {
     if ($submission) {
       $markup = "";
       $score = getSubmissionScore($submission);
-      foreach ($score['categories'] as $category_name => $category) {
+      foreach ($score as $category_name => $category) {
         $percent = $category['percent'];
         $normalized = $category['normalized'];
         $markup .= "<p>$category_name: <b>$percent% ($normalized)</b></p>";

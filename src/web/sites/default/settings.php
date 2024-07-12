@@ -852,6 +852,11 @@ $settings['trusted_host_patterns'] = [
   '^workbc-cc\.b89n0c-test\.nimbus\.cloud\.gov\.bc\.ca$',
 ];
 
+$config['workbc']['onet'] = [
+  'username' => getenv('ONET_USERNAME'),
+  'password' => getenv('ONET_PASSWORD')
+];
+
 // Ensure it all works from the CLI too (i.e. drush)
 if (file_exists($app_root . '/' . $site_path . '/settings.openshift.php') && getenv('OPENSHIFT_BUILD_NAME') != '') {
   include $app_root . '/' . $site_path . '/settings.openshift.php';
