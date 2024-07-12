@@ -561,3 +561,144 @@
 
     }
   }
+
+
+  .tools-resource-wrapper {
+    background: rgba(35, 64, 117, 1);
+    border-bottom: 4px solid rgba(252, 181, 21, 1);
+    padding: 45px 0 72px;
+    margin: 45px 0 0;
+
+    a {
+        text-decoration: none;
+    }
+
+    @media all and (max-width: 767.98px) {
+        padding: 45px 0 30px;
+    }
+
+    .field--name-field-title {
+        display: none;
+    }
+
+    .title {
+        margin-bottom: 55px;
+
+        @media all and (max-width: 767.98px) {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #fff;
+            font-family: "BC Sans", sans-serif;
+            font-size: 3.6rem;
+            line-height: 4rem;
+            font-weight: normal;
+            font-weight: 700;
+            @media all and (max-width: 767.98px) {
+                font-size: 30px;
+            }
+
+        }
+    }
+
+    .tools-resource-item {
+        text-align: center;
+        position: relative;
+        min-height: 250px;
+
+        &::after {
+            content: "";
+            height: 100%;
+            width: 2px;
+            position: absolute;
+            background: rgba(125, 144, 167, 0.462745098039216);
+            right: -7px;
+            bottom: -30px;
+
+            @media all and (max-width: 767.98px) {
+                display: none;
+            }
+        }
+
+        img {
+            height: 80px;
+            width: auto;
+            margin-bottom: 25px;
+
+            @media all and (max-width: 767.98px) {
+                margin: 0 auto 25px auto;
+                height: 95px;
+            }
+        }
+
+        h3 {
+            color: #fff;
+            margin-bottom: 25px;
+            font-size: 2rem;
+            line-height: 2.6rem;
+            font-family: "BC Sans Bold", "BC Sans Regular", "BC Sans", sans-serif;
+            max-width: 200px;
+            margin: 0 auto 25px;
+            min-height: 52px;
+            font-weight: normal;
+            @media all and (max-width: 767.98px) {
+                font-size: 20px;
+            }
+            a {
+                color: #fff;
+            }
+        }
+
+        p.description {
+            color: #fff;
+            font-size: 1.5rem;
+            line-height: 1.8rem;
+            @media all and (max-width: 767.98px) {
+                padding: 0 30px;
+            }
+        }
+
+        @media all and (max-width: 767.98px) {
+            text-align: center;
+            position: relative;
+            max-width: 350px;
+            margin: 0 auto;
+        }
+    }
+
+    .slick-arrow {
+        display: none !important;
+    }
+
+    .slick-dots {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        justify-content: center;
+        margin-top: 50px;
+
+        > li {
+            > button {
+                padding: 0;
+                font-size: 0;
+                width: 10px;
+                height: 10px;
+                border: 0;
+                border-radius: 50%;
+                margin-left: 15px;
+                background: #979696;
+                &:focus, &:focus-visible{
+                    outline: 0;
+                }
+            }
+
+            &.slick-active {
+                > button {
+                    background: #fff;
+                }
+            }
+        }
+    }
+}

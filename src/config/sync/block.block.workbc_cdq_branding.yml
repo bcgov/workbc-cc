@@ -1,4 +1,4 @@
-uuid: 7c08ccb4-b4b7-4104-b2f2-cbb1486c6503
+uuid: 4b42921c-00c0-4ee8-83cf-c64ee528ec37
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     - system
   theme:
     - workbc_cdq
-id: bcgov_career_branding
+id: workbc_cdq_branding
 theme: workbc_cdq
 region: header
 weight: 0

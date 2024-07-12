@@ -26,7 +26,9 @@ class QuizzesBlock extends BlockBase {
   public function build() {
     $quizzes = quizzesList();
     $markup = "";
+    $keys = [];
     foreach ($quizzes as $key => $quiz) {
+      $keys[] = $key;
       $webform = \Drupal::entityTypeManager()->getStorage('webform')->load($key);
 
       if ($webform) {
@@ -62,13 +64,20 @@ class QuizzesBlock extends BlockBase {
       }
     }
 
-
     return array(
       '#type' => 'markup',
       '#markup' => $markup,
     );
 
   }
+
+
+  public function buildQuiz($key) {
+    $markup = "";
+
+    return $markup;
+  }
+
 
   public function getCacheMaxAge() {
       return 0;

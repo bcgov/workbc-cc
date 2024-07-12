@@ -12,6 +12,41 @@ function quizzesList() {
   }, []);
 }
 
+function quizzesInfo() {
+  $info = [];
+
+  $info['abilities_quiz'] = array(
+    'description' => 'Assess your talents and discover occupations that match.',
+    'time' => 10,
+    'questions' => 39,
+  );
+  $info['work_preferences_quiz'] = array(
+    'description' => 'Identify how you like to work and find careers that align with your preferences.',
+    'time' => 10,
+    'questions' => 50,
+  );
+  $info['interests_quiz'] = array(
+    'description' => 'See where your interests are and narrow your focus to careers that fit.',
+    'time' => 10,
+    'questions' => 60,
+  );
+  $info['multiple_intelligences_quiz'] = array(
+    'description' => 'Discover your unique way of thinking and understanding.',
+    'time' => 10,
+    'questions' => 64,
+  );
+  $info['learning_styles_quiz'] = array(
+    'description' => 'Determine whether you learn better by seeing, listening or doing.',
+    'time' => 5,
+    'questions' => 24,
+  );
+  $info['work_values_quiz'] = array(
+    'description' => 'Examine what values are important to you in your work environment.',
+    'time' => 10,
+    'questions' => 33,
+  );          
+
+}
 function getSubmissionOverrides($webform_id) {
   // Check whether current user has permission to override answers.
   if (!\Drupal::currentUser()->hasPermission('override quiz answers')) {
