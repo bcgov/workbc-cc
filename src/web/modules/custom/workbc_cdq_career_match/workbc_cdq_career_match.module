@@ -221,7 +221,6 @@ function getSubmissionScore($submission) {
     ];
     return $categories;
   });
-  $results = [];
   $answer_string = '';
   foreach ($questions as $key => $question) {
     $category = $question['#category'];
@@ -229,7 +228,6 @@ function getSubmissionScore($submission) {
     $score = floatval($value);
     $categories[$category]['score'] += $score;
     $categories[$category]['count'] += 1;
-    $results[$category] = $score;
     $answer_string .= strval(array_search($value, array_keys($question['#options'])));
   }
   if (\Drupal::currentUser()->hasPermission('override quiz answers')) {
@@ -246,10 +244,7 @@ function getSubmissionScore($submission) {
   uasort($categories, function($c1, $c2) {
     return $c2['percent'] - $c1['percent'];
   });
-  return [
-    'categories' => $categories,
-    'answers' => $results,
-  ];
+  return $categories;
 }
 
 const COLUMN_ABILITIES_NOC=0;
@@ -288,7 +283,7 @@ function matchAbilitiesCareers($submission, $score) {
   array_walk($abilities_weights, function(&$row) use($score, $mapCategories) {
     $total = 0;
     foreach ($mapCategories as $column => $category) {
-      $adjusted_weight = abs($score['categories'][$category]['normalized'] - (6 - $row[$column]));
+      $adjusted_weight = abs($score[$category]['normalized'] - (6 - $row[$column]));
       $row[$column] = $adjusted_weight;
       $total += $adjusted_weight;
     }
@@ -317,7 +312,64 @@ function matchAbilitiesCareers($submission, $score) {
 }
 
 function matchInterestsCareers($submission, $score) {
-  return [];
+  // 1. Query O*NET API for the matches.
+  /** @var Drupal\workbc_cdq_career_match\Services\OnetWebService **/
+  $onet = \Drupal::service('workbc_cdq.onet');
+  $credentials = \Drupal::config('workbc')->get('onet');
+  $onet->set_auth($credentials['username'], $credentials['password']);
+  $answers = array_reduce($submission->getData(), function($answer_string, $answer) {
+    return $answer_string . strval($answer + 1);
+  }, '');
+  $matches = $onet->call('mnm/interestprofiler/careers', [
+    'answers' => $answers,
+    'end' => 1000,
+  ]);
+  if (!empty($matches->error)) {
+    \Drupal::logger('workbc_cdq')->error('Request to O*NET career match failed with error: @error', [
+      '@error' => $matches->error,
+    ]);
+    \Drupal::messenger()->addError(t(
+      'An error ocurred while trying to find matching careers. Please report this error to a system administrator.',
+    ));
+    return;
+  }
+
+  // 2. Load O*NET to NOC concordance map.
+  $onet_nocs = \Drupal::state()->get('workbc.onet_nocs', []);
+  if (empty($onet_nocs)) {
+    $json = json_decode(file_get_contents(__DIR__ . '/scoring/onet_nocs.json'));
+    $onet_nocs = array_reduce($json, function($onet_nocs, $entry) {
+      $soc2019 = $entry->soc2019;
+      if (array_key_exists($soc2019, $onet_nocs)) {
+        $onet_nocs[$soc2019][] = $entry->noc2021;
+      }
+      else {
+        $onet_nocs[$soc2019] = [$entry->noc2021];
+      }
+      return $onet_nocs;
+    }, []);
+    \Drupal::state()->set('workbc.onet_nocs', $onet_nocs);
+  }
+
+  // 3. Lookup NOC careers for each O*NET SOC match, breaking at 20 results.
+  $results = [];
+  $values = [
+    'Best' => 100,
+    'Great' => 75,
+    'Good' => 50,
+  ];
+  foreach ($matches->career as $match) {
+    foreach ($onet_nocs[$match->code] as $noc) {
+      if (!array_key_exists($noc, $results)) {
+        $results[$noc] = [
+          'noc' => $noc,
+          'match' => $values[$match->fit],
+        ];
+        if (count($results) >= 20) break 2;
+      }
+    }
+  }
+  return array_values($results);
 }
 
 function matchWorkPreferencesCareers($submission, $score) {
@@ -333,7 +385,10 @@ function matchCareers(WebformSubmission $submission, $score) {
     case 'interests_quiz':
       return matchInterestsCareers($submission, $score);
     default:
-      // TODO Log a warning.
+      \Drupal::logger('workbc_cdq')->warning('Request to match careers for quiz @quiz. Ignoring.', [
+        '@quiz' => $submission->getWebform()->id()
+      ]);
+      break;
   }
   return [];
 }
