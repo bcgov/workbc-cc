@@ -3,4 +3,10 @@
 function workbc_cdq_preprocess_page(&$variables) {
 
   $variables['copyright_year'] = date("Y");
+
+  if ($variables['is_front']) {
+    ksm($variables);
+    // $quiz['']
+  }
+
 }

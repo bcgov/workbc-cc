@@ -64,6 +64,8 @@ class QuizzesBlock extends BlockBase {
       }
     }
 
+    ksm($keys);
+
     return array(
       '#type' => 'markup',
       '#markup' => $markup,
