@@ -368,7 +368,6 @@ function matchInterestsCareers($submission, $score) {
       }
     }
   }
-  ksm($results);
   return array_values($results);
 }
 

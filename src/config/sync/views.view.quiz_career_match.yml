@@ -688,3 +688,22 @@ display:
         - 'config:field.storage.node.field_annual_salary'
         - 'config:field.storage.node.field_education_level'
         - 'config:field.storage.node.field_noc'
+  block_2:
+    id: block_2
+    display_title: 'Block for Interests Quiz'
+    display_plugin: block
+    position: 2
+    display_options:
+      display_description: ''
+      display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+      tags:
+        - 'config:field.storage.node.field_annual_salary'
+        - 'config:field.storage.node.field_education_level'
+        - 'config:field.storage.node.field_noc'
