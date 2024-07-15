@@ -1,0 +1,42 @@
+<div class="quiz-list item_{{ item_no }}">
+  <div class="img-field">
+    <img src="/themes/custom/workbc_cdq/assets/icons/{{ quiz['id']|replace({'_':'-'})}}-icon.svg" />
+  </div>
+  
+	<div class="title-field">
+	  <h4>{{ quiz['title']}}</h4>
+  </div>
+	
+	<div class="row">
+		{% if quiz['status'] == 'completed' %}
+	  	<div class="col-md-12 complete">
+		    <div class="cq">
+	      	<span></span> Quiz Complete
+	    	</div>
+	  	</div>
+		{% else %}
+			<div class="col-6 col-md-6 float-left quiz-duration">
+			 	<span></span>{{ quiz['time'] }}
+			</div>
+			<div class="col-6 col-md-6 float-right quiz-questions"> 
+				<span></span>{{ quiz['count'] }} questions
+			</div>
+				
+		{% endif %}
+	</div>
+	
+	<div class="quiz-description">
+	  <p>{{ quiz['description'] }}</p>
+	</div>
+	
+	<div class="views-field views-field-field-quiz-link quiz_link">
+		{% if quiz['status'] == 'completed' %}
+	  	<a href="{{ quiz['results_link'] }}" class="quiz-link text-capitalize">View Your Results</a>
+	  	<a href="{{ quiz['quiz_link'] }}" class="result-link"> Modify Your Answers </a>
+		{% elseif quiz['status'] == 'incomplete' %}			
+			<a href="{{ quiz['quiz_link'] }}" class="quiz-link">Continue Quiz</a>		
+		{% else %}
+			<a href="{{ quiz['quiz_link'] }}" class="quiz-link">Take the Quiz</a>
+		{% endif %}
+	</div>
+</div>

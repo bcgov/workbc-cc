@@ -12469,16 +12469,6 @@ a > .ck-content code {
 .ck-content .head-des .description p {
   color: #595959;
 }
-.ck-content .head-des {
-  margin: 30px 0px;
-  margin-bottom: 0px;
-  text-align: center;
-}
-@media all and (max-width: 767.98px) {
-  .ck-content .head-des {
-    margin: 20px 0px;
-  }
-}
 .ck-content .head-des h2, .ck-content .head-des .h2 {
   font-family: "BC Sans Regular", sans-serif;
   font-weight: normal;
@@ -12518,6 +12508,258 @@ a > .ck-content code {
   .ck-content .all-quiz-status {
     text-align: center;
   }
+}
+.ck-content .cari_quiz .quiz-list {
+  padding: 45px 12px 30px 12px;
+  border: 2px solid rgb(238, 238, 238);
+  height: 100%;
+  position: relative;
+  font-family: "BC Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+  color: rgb(102, 102, 102);
+  min-height: 450px;
+  background: #fff;
+}
+@media all and (max-width: 991.98px) {
+  .ck-content .cari_quiz .quiz-list {
+    padding: 30px 12px 70px 12px;
+    min-height: 506px;
+  }
+}
+.ck-content .cari_quiz .quiz-list .img-field {
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 0;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ck-content .cari_quiz .quiz-list .title-field {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.ck-content .cari_quiz .quiz-list .title-field h4, .ck-content .cari_quiz .quiz-list .title-field .h4 {
+  font-family: "BC Sans Bold", "BC Sans Regular", "BC Sans", sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 2.4rem;
+  color: #234075;
+}
+.ck-content .cari_quiz .quiz-list .quiz-description {
+  padding: 18px 22px;
+  min-height: 106px;
+}
+@media all and (max-width: 991.98px) {
+  .ck-content .cari_quiz .quiz-list .quiz-description {
+    min-height: auto;
+  }
+}
+.ck-content .cari_quiz .quiz-list .quiz-questions {
+  padding: 0px;
+  font-family: "BC Sans", sans-serif;
+  font-size: 16px;
+  line-height: normal;
+  font-weight: 700;
+  color: #595959;
+}
+.ck-content .cari_quiz .quiz-list .quiz-questions span {
+  float: left;
+  width: 34px;
+  height: 25px;
+  background: url(../src/icons/list.svg) no-repeat;
+}
+@media all and (max-width: 1024.98px) {
+  .ck-content .cari_quiz .quiz-list .quiz-questions {
+    font-size: 14px;
+  }
+}
+.ck-content .cari_quiz .quiz-list .quiz-duration {
+  padding: 0px;
+  font-family: "BC Sans", sans-serif;
+  font-size: 16px;
+  line-height: normal;
+  font-weight: 700;
+  color: #595959;
+}
+.ck-content .cari_quiz .quiz-list .quiz-duration span {
+  float: left;
+  width: 34px;
+  height: 25px;
+  background: url(../src/icons/time.svg) no-repeat;
+}
+@media all and (max-width: 1024.98px) {
+  .ck-content .cari_quiz .quiz-list .quiz-duration {
+    font-size: 14px;
+  }
+}
+.ck-content .cari_quiz .quiz-list .complete span {
+  float: left;
+  width: 25px;
+  height: 25px;
+  background: url(../src/icons/check-dark.svg) no-repeat;
+  background-position: 0px;
+}
+.ck-content .cari_quiz .quiz-list .complete .cq {
+  font-family: "BC Sans", sans-serif;
+  font-size: 1.6rem;
+  text-align: center;
+  margin: auto;
+  width: 160px;
+  font-weight: bold;
+  color: #277a0f;
+}
+@media all and (max-width: 450.98px) {
+  .ck-content .cari_quiz .quiz-list .complete {
+    font-size: 1.5rem;
+  }
+}
+.ck-content .cari_quiz .quiz-list .row {
+  background: rgb(242, 242, 242);
+  padding: 12px 15px;
+  margin: 0px;
+}
+.ck-content .cari_quiz .quiz-list p {
+  text-align: center;
+}
+.ck-content .cari_quiz .quiz-list .breadcrumb {
+  margin-bottom: 0px;
+}
+.ck-content .cari_quiz .quiz-list a.quiz-link:hover {
+  text-decoration: none;
+}
+.ck-content .slide.carousel .quiz_link {
+  margin-top: 15px;
+}
+.ck-content .slide.carousel .career .item_1 .title-field h4, .ck-content .slide.carousel .career .item_1 .title-field .h4 {
+  color: rgb(7, 53, 115);
+}
+.ck-content .slide.carousel .career .item_1 a.quiz-link {
+  background: rgb(7, 53, 115);
+  color: #fff;
+  border-color: rgb(7, 53, 115);
+}
+.ck-content .slide.carousel .career .item_1 a.quiz-link:hover {
+  background: rgb(0, 30, 64);
+}
+.ck-content .slide.carousel .career .item_1 a.quiz-link + a.result-link {
+  color: rgb(7, 53, 115);
+}
+.ck-content .slide.carousel .career .item_1 a.quiz-link + a.result-link:hover {
+  color: rgb(7, 53, 115);
+}
+.ck-content .slide.carousel .career .item_2 .title-field h4, .ck-content .slide.carousel .career .item_2 .title-field .h4 {
+  color: rgb(81, 11, 118);
+}
+.ck-content .slide.carousel .career .item_2 a.quiz-link {
+  background: rgb(81, 11, 118);
+  color: #fff;
+  border-color: rgb(81, 11, 118);
+}
+.ck-content .slide.carousel .career .item_2 a.quiz-link:hover {
+  background: rgb(49, 5, 70);
+}
+.ck-content .slide.carousel .career .item_2 a.quiz-link + a.result-link {
+  color: rgb(81, 11, 118);
+}
+.ck-content .slide.carousel .career .item_2 a.quiz-link + a.result-link:hover {
+  color: rgb(81, 11, 118);
+}
+.ck-content .slide.carousel .career .item_3 .title-field h4, .ck-content .slide.carousel .career .item_3 .title-field .h4 {
+  color: rgb(38, 113, 202);
+}
+.ck-content .slide.carousel .career .item_3 a.quiz-link {
+  background: rgb(38, 113, 202);
+  color: #fff;
+  border-color: rgb(38, 113, 202);
+}
+.ck-content .slide.carousel .career .item_3 a.quiz-link:hover {
+  background: rgb(14, 62, 117);
+}
+.ck-content .slide.carousel .career .item_3 a.quiz-link + a.result-link {
+  color: rgb(38, 113, 202);
+}
+.ck-content .slide.carousel .career .item_3 a.quiz-link + a.result-link:hover {
+  color: rgb(38, 113, 202);
+}
+@media all and (min-width: 991.98px) and (max-width: 1110.98px) {
+  .ck-content .slide.carousel .personality .title-field h4, .ck-content .slide.carousel .personality .title-field .h4 {
+    min-height: 60px;
+  }
+}
+.ck-content .slide.carousel .personality .item_1 .title-field h4, .ck-content .slide.carousel .personality .item_1 .title-field .h4 {
+  color: rgb(33, 108, 6);
+}
+.ck-content .slide.carousel .personality .item_1 a.quiz-link {
+  background: rgb(33, 108, 6);
+  color: #fff;
+  border-color: rgb(33, 108, 6);
+}
+.ck-content .slide.carousel .personality .item_1 a.quiz-link:hover {
+  background: rgb(22, 76, 3);
+}
+.ck-content .slide.carousel .personality .item_1 a.quiz-link + a.result-link {
+  color: rgb(33, 108, 6);
+}
+.ck-content .slide.carousel .personality .item_1 a.quiz-link + a.result-link:hover {
+  color: rgb(33, 108, 6);
+}
+.ck-content .slide.carousel .personality .item_2 .title-field h4, .ck-content .slide.carousel .personality .item_2 .title-field .h4 {
+  color: rgb(0, 126, 180);
+}
+.ck-content .slide.carousel .personality .item_2 a.quiz-link {
+  background: rgb(0, 126, 180);
+  color: #fff;
+  border-color: rgb(0, 126, 180);
+}
+.ck-content .slide.carousel .personality .item_2 a.quiz-link:hover {
+  background: rgb(0, 68, 106);
+}
+.ck-content .slide.carousel .personality .item_2 a.quiz-link + a.result-link {
+  color: rgb(0, 126, 180);
+}
+.ck-content .slide.carousel .personality .item_2 a.quiz-link + a.result-link:hover {
+  color: rgb(0, 126, 180);
+}
+.ck-content .slide.carousel .personality .item_3 .title-field h4, .ck-content .slide.carousel .personality .item_3 .title-field .h4 {
+  color: rgb(136, 3, 100);
+}
+.ck-content .slide.carousel .personality .item_3 a.quiz-link {
+  background: rgb(136, 3, 100);
+  color: #fff;
+  border-color: rgb(136, 3, 100);
+}
+.ck-content .slide.carousel .personality .item_3 a.quiz-link:hover {
+  background: rgb(68, 0, 49);
+}
+.ck-content .slide.carousel .personality .item_3 a.quiz-link + a.result-link {
+  color: rgb(136, 3, 100);
+}
+.ck-content .slide.carousel .personality .item_3 a.quiz-link + a.result-link:hover {
+  color: rgb(136, 3, 100);
+}
+.ck-content a.quiz-link {
+  border: 1px solid #3db2e3;
+  padding: 8px 10px;
+  color: #3db2e3;
+  text-decoration: none;
+  text-align: center;
+  width: 230px;
+  max-width: 100%;
+  margin: auto;
+  text-align: center;
+  display: block;
+  font-size: 15px;
+}
+.ck-content .result-link {
+  text-align: center;
+  width: 100%;
+  display: inline-block;
+  padding-top: 6px;
+  color: #510B76;
+  font-size: 15px;
 }
 .ck-content .careers-table-main-wrapper {
   height: 100%;

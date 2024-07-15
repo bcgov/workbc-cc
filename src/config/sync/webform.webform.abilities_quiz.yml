@@ -13,6 +13,7 @@ third_party_settings:
   workbc_cdq_career_match:
     categories: abilities_categories
     time: '10 minutes'
+    description: 'Assess your talents and discover occupations that match.'
 weight: 0
 open: null
 close: null

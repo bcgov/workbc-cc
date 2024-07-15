@@ -13,6 +13,7 @@ third_party_settings:
   workbc_cdq_career_match:
     categories: multiple_intelligences_categorie
     time: '10 minutes'
+    description: 'Discover your unique way of thinking and understanding.'
 weight: 0
 open: null
 close: null

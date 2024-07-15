@@ -121,16 +121,6 @@ set footer_classes = ' ' ~
       </div>
     </div>
 
-        <div class="view-header">
-          <div class="container">
-            <div class="head-des">   
-              <h2 id="career-quizzes">Career Quizzes</h2>
-              <div class="description"><p>Take the career quizzes below to discover how your abilities, work preferences and interests can help you explore careers that suit you best.</p></div>
-		        </div>
-          </div>
-        </div>
-
-
   <div class="{{ b5_top_container }}">
 
     <div class="row g-0">
@@ -144,13 +134,91 @@ set footer_classes = ' ' ~
 
 
       <div class="order-1 order-lg-2 {{ content_classes }}">
-
-
-
         {{ page.content }}
+
+        <div class="row">
+	        <div class="col-md-12">
+		        <div class="head-des">   
+              <h2 id="career-quizzes">Career Quizzes</h2>
+              <div class="description"><p>Take the career quizzes below to discover how your abilities, work preferences and interests can help you explore careers that suit you best.</p></div>
+		        </div>
+          </div>
+        </div>
+
+	      <div class="row">
+		      <div class="col-md-12">
+			      <div class="all-quiz-status">
+				      <span class="q-done">{{ career_count }}</span> of <span class="q-total">3</span> <span class="label">Career Quizzes Completed</span>
+			      </div>
+		      </div>
+	      </div>
+
+        <div id="myCarousel"  class="views-view-grid container-fluid slide carousel cari_quiz">
+          <div class="carousel-inner">
+	          <div class="row career-item active">
+	            <div class="career col-md-12 col-lg-4 col-xl-4">
+                {% set quiz = quiz_info['abilities_quiz'] %}
+                {% set item_no = 1 %}
+                {% include '@workbc_cdq/templates/includes/front-page-quiz-card.html.twig' with { quiz, quiz_no } %}
+	            </div>
+	            <div class="career col-md-12 col-lg-4 col-xl-4">
+                {% set quiz = quiz_info['work_preferences_quiz'] %}
+                {% set item_no = 2 %}
+                {% include '@workbc_cdq/templates/includes/front-page-quiz-card.html.twig' with { quiz, quiz_no } %}
+	            </div>
+	            <div class="career col-md-12 col-lg-4 col-xl-4">
+                {% set quiz = quiz_info['interests_quiz'] %}
+                {% set item_no = 3 %}
+                {% include '@workbc_cdq/templates/includes/front-page-quiz-card.html.twig' with { quiz, quiz_no } %}
+	            </div>
+	          </div>
+          </div>
+        </div>
+  
+        <div class="row">
+	        <div class="col-md-12">
+		        <div class="head-des">
+			        <h2>Personality Quizzes</h2>
+              <div class="description"><p>Take the personality quizzes below to better understand how you think, how you learn, and what matters most to you in a job</p></div>
+		        </div>
+	        </div>
+        </div>
+
+
+
+	      <div class="row">
+		      <div class="col-md-12">
+			      <div class="all-quiz-status">
+				      <span class="q-done">{{ personality_count }}</span> of <span class="q-total">3</span> <span class="label">Personality Quizzes Completed</span>
+			      </div>
+		      </div>
+	      </div>
+
+        <div id="myCarouselMobi"  class="views-view-grid container-fluid slide carousel cari_quiz mobi_cari_quiz">
+          <div class="carousel-inner">
+	          <div class="row career-item active">
+	            <div class="personality col-md-12 col-lg-4 col-xl-4">
+                {% set quiz = quiz_info['multiple_intelligences_quiz'] %}
+                {% set item_no = 1 %}
+                {% include '@workbc_cdq/templates/includes/front-page-quiz-card.html.twig' with { quiz, quiz_no } %}
+	            </div>
+	            <div class="personality col-md-12 col-lg-4 col-xl-4">
+                {% set quiz = quiz_info['learning_styles_quiz'] %}
+                {% set item_no = 2 %}
+                {% include '@workbc_cdq/templates/includes/front-page-quiz-card.html.twig' with { quiz, quiz_no } %}
+	            </div>
+	            <div class="personality col-md-12 col-lg-4 col-xl-4">
+                {% set quiz = quiz_info['work_values_quiz'] %}
+                {% set item_no = 3 %}
+                {% include '@workbc_cdq/templates/includes/front-page-quiz-card.html.twig' with { quiz, quiz_no } %}
+	            </div>
+	          </div>
+          </div>
+        </div>
 
       </div>
       
+
 
 
 

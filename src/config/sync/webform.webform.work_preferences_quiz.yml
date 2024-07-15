@@ -13,6 +13,7 @@ third_party_settings:
   workbc_cdq_career_match:
     categories: work_preferences_categories
     time: '10 minutes'
+    description: 'Identify how you like to work and find careers that align with your preferences.'
 weight: 0
 open: null
 close: null

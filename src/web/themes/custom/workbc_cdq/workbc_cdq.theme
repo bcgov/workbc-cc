@@ -1,12 +1,78 @@
 <?php
 
+use Drupal\Core\Url;
+use Drupal\Core\Link;
+
+
 function workbc_cdq_preprocess_page(&$variables) {
 
   $variables['copyright_year'] = date("Y");
 
   if ($variables['is_front']) {
-    ksm($variables);
-    // $quiz['']
+    $quizzes = quizzesList();
+    $career_list = ['abilities_quiz', 'work_preferences_quiz', 'interests_quiz'];
+
+    $career_count = 0;
+    $personality_count = 0;
+    $quiz_info = [];
+    foreach ($quizzes as $key => $quiz) {  
+      $quiz_info[$key] = workbc_cdq_quiz_info($key);
+      if ($quiz_info[$key]['status'] == "completed") {
+        if (in_array($key, $career_list)) {
+          $career_count++;
+        }
+        else {
+          $personality_count++;
+        }
+      }
+    }
+    $variables['quiz_info'] = $quiz_info;
+    $variables['career_count'] = $career_count;
+    $variables['personality_count'] = $personality_count;
+  }
+}
+
+
+function workbc_cdq_quiz_info($id) {
+  $info = [];
+
+  $webform = \Drupal::entityTypeManager()->getStorage('webform')->load($id);
+  $elements = $webform->getElementsDecodedAndFlattened();
+
+  $count = 0;
+  foreach ($elements as $element) {
+    if ($element['#type'] == "radios") $count++;
   }
 
+  $results = getUserSubmission($id);
+  if ($results) {
+    if (!$results->isDraft()) {
+      $status = "completed";
+      $results_link = Url::fromUri('route:workbc_cdq_custom.' . $id . '_results')->toString();
+      $url = Url::fromRoute('entity.webform.canonical', ['webform' => $id, 'token' => $results->getToken()]);
+      $quiz_link = $url->toString();
+    }
+    else {
+      $status = "incomplete";
+      $quiz_link = $results->getTokenUrl()->toString();
+    }
+  }
+  else {
+    $status = "not_started";
+    $url = Url::fromRoute('entity.webform.canonical', ['webform' => $id]);
+    $quiz_link = $url->toString();
+  }
+
+  $info['id'] = $id;
+  $info['title'] = $webform->get('title');
+  $info['description'] = $webform->getThirdPartySetting('workbc_cdq_career_match', 'description');
+  $info['time'] = $webform->getThirdPartySetting('workbc_cdq_career_match', 'time');
+  $info['count'] = $count;
+  $info['status'] = $status;
+  $info['quiz_link'] = $quiz_link;
+  if (isset($results_link)) {
+    $info['results_link'] = $results_link;
+  }
+
+  return $info;
 }

@@ -47,26 +47,28 @@ class CareerMatchWebformHandler extends WebformHandlerBase {
    * {@inheritdoc}
    */
   public function postSave(WebformSubmissionInterface $webform_submission, $update = TRUE) {
-    $scores = getSubmissionScore($webform_submission);
-    $matches = matchCareers($webform_submission, $scores);
-    if (empty($matches)) return;
-    $matches = array_slice($matches, 0, 20);
-    $nids = \Drupal::database()->query("SELECT field_noc_value, entity_id FROM {node__field_noc} WHERE field_noc_value IN (:nocs[])", [
-      ':nocs[]' => array_map(function($match) { return $match['noc']; }, $matches)
-    ])->fetchAllAssoc('field_noc_value');
-    if ($update) {
-      $query = \Drupal::database()->delete('workbc_cdq_career_match');
-      $query->condition('sid', $webform_submission->id());
-      $query->execute();
-    }
-    foreach ($matches as $match) {
-      $query = \Drupal::database()->insert('workbc_cdq_career_match');
-      $query->fields(['sid', 'nid', 'career_match']);
-      $query->values([$webform_submission->id(), $nids[$match['noc']]->entity_id, $match['match']]);
-      $query->execute();
+
+    if ($webform_submission->getState() == "completed") {
+      $scores = getSubmissionScore($webform_submission);
+      $matches = matchCareers($webform_submission, $scores);
+      if (empty($matches)) return;
+      $matches = array_slice($matches, 0, 20);
+      $nids = \Drupal::database()->query("SELECT field_noc_value, entity_id FROM {node__field_noc} WHERE field_noc_value IN (:nocs[])", [
+        ':nocs[]' => array_map(function($match) { return $match['noc']; }, $matches)
+      ])->fetchAllAssoc('field_noc_value');
+      if ($update) {
+        $query = \Drupal::database()->delete('workbc_cdq_career_match');
+        $query->condition('sid', $webform_submission->id());
+        $query->execute();
+      }
+      foreach ($matches as $match) {
+        $query = \Drupal::database()->insert('workbc_cdq_career_match');
+        $query->fields(['sid', 'nid', 'career_match']);
+        $query->values([$webform_submission->id(), $nids[$match['noc']]->entity_id, $match['match']]);
+        $query->execute();
+      }
     }
   }
-
 
 
   /**

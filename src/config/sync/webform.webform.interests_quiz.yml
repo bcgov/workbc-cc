@@ -13,6 +13,7 @@ third_party_settings:
   workbc_cdq_career_match:
     categories: interests_categories
     time: '10 minutes'
+    description: 'See where your interests are and narrow your focus to careers that fit.'
 weight: 0
 open: null
 close: null

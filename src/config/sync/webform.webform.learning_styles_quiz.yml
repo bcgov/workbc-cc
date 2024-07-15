@@ -13,6 +13,7 @@ third_party_settings:
   workbc_cdq_career_match:
     categories: learning_styles_categories
     time: '5 minutes'
+    description: 'Determine whether you learn better by seeing, listening or doing.'
 weight: 0
 open: null
 close: null
