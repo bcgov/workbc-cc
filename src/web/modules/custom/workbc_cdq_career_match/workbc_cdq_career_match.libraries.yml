@@ -1,7 +1,4 @@
 workbc-cdq-career-match:
-    css:
-       theme:
-        css/workbc-cdq-career-match.css: {}
     js:
         js/workbc-cdq-career-match.js: {}
     dependencies:

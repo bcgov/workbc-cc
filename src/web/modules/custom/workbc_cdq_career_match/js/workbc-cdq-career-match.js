@@ -21,7 +21,6 @@
               dataType: 'json',
               data: { 'id' : careerMatchId, 'selected': selected},
               success: function (response) {
-                console.log('success');
               }
             });
           }
@@ -36,7 +35,6 @@
         });  
         
         $('.clear-compare').on('click', function() {
-          console.log('clear compare');
           $('.compare-career-checkbox').each(function() {
             if ($(this).is(':checked')) {
               let careerMatchId = $(this).data('career-match-id');
@@ -46,10 +44,8 @@
                 dataType: 'json',
                 data: { 'id' : careerMatchId, 'selected': false},
                 success: function (response) {
-                  console.log('success');
                 }
               });              
-              console.log(careerMatchId);
             }
           });
         });
@@ -66,7 +62,7 @@
               $(this).closest('.career-table-row').removeClass("active");
             });
             $(this).closest('.career-table-row').addClass("active");
-          });
+        });
 
         function totalSelected() {
           let total = 0;
@@ -79,18 +75,40 @@
           return total;
         }
 
-        console.log("Total Selected: " + totalSelected()); 
         if (totalSelected() > 1) {
-          console.log("gonna remove disable");
           $('.clear-compare').removeClass("disable");
           $('.compare-career').removeClass("disable");
         }
-        else {
-          console.log("TEST ->");
-        }
+      });
+
+      $(once('cdqcategoryresults', '.quiz-category-results-wrapper', context)).each(function () {
+
+        $('.category-results-toggle').on('click', function() {
+          console.log("toggle");
+          if ($(".category-results-toggle").hasClass("hide")) {
+            console.log("01 - hide extras");
+            $(this).removeClass("hide");
+            $(".extradivs").addClass("hide");
+            $(".category-results-toggle span.vaa1").hide();
+            $(".category-results-toggle span.vaa").show();
+            $(".result-heading h3.vaa1").hide();
+            $(".result-heading h3.vaa").show();
+            $("#myResult").animate({scrollTop: 0}, "slow");
+          }
+          else {
+            console.log("02 - show extras");
+            $(this).addClass("hide");
+            $(".extradivs").removeClass("hide");
+            $(".category-results-toggle span.vaa").hide();
+            $(".category-results-toggle span.vaa1").show();
+            $(".result-heading h3.vaa").hide();
+            $(".result-heading h3.vaa1").show();
+          }
+          
+        });
       });
 
     }
   };
-
+ 
 })(Drupal, jQuery, once, drupalSettings);

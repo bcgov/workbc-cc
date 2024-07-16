@@ -12492,7 +12492,7 @@ a > .ck-content code {
 }
 .ck-content .all-quiz-status {
   background: rgb(230, 234, 233);
-  margin: 20px 0px;
+  margin: 20px 7px;
   padding: 7px 30px;
   text-align: right;
   margin-bottom: 30px;
@@ -13317,6 +13317,268 @@ a > .ck-content code {
 }
 .ck-content .tools-resource-wrapper .slick-dots > li.slick-active > button {
   background: #fff;
+}
+.ck-content #myResult .row {
+  padding-bottom: 30px;
+}
+.learning-styles-quiz .ck-content #myResult {
+  margin-top: 20px;
+}
+@media all and (max-width: 767.98px) {
+  .ck-content #myResult .carousel-inner.carousel-inner-device {
+    display: none;
+  }
+}
+.ck-content #myResult .carousel-inner.carousel-inner-mobi {
+  display: none;
+}
+@media all and (max-width: 767.98px) {
+  .ck-content #myResult .carousel-inner.carousel-inner-mobi.active, .ck-content #myResult .media-library-view--widget .view-header a.carousel-inner.carousel-inner-mobi.is-active, .ck-content .media-library-view--widget .view-header #myResult a.carousel-inner.carousel-inner-mobi.is-active {
+    display: block;
+  }
+}
+.ck-content #myResult .carousel-inner.carousel-inner-mobi .slick-dots {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  bottom: 0;
+}
+.ck-content #myResult .carousel-inner.carousel-inner-mobi .slick-dots li {
+  margin-right: 10px;
+}
+.ck-content #myResult .carousel-inner.carousel-inner-mobi .slick-dots li button {
+  background: #979696;
+  border: 0;
+  font-size: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  outline: 0;
+}
+.ck-content #myResult .carousel-inner.carousel-inner-mobi .slick-dots li.slick-active button {
+  background: #333333;
+}
+.ck-content #myResult .work-value-quiz-carousel .itm .quiz-list {
+  max-width: 464px;
+}
+.ck-content #myResult .work-value-quiz-carousel .itm:nth-child(odd) .quiz-list {
+  margin: 0 0 auto auto;
+}
+.ck-content #myResult .work-value-quiz-carousel .itm:nth-child(even) .quiz-list {
+  margin: auto auto 0 0;
+}
+.ck-content #myResult .work-value-quiz-carousel .hideshow-workbc {
+  max-width: 950px;
+  margin: 0 auto;
+  text-decoration: none;
+}
+.ck-content #myResult .work-value-quiz-carousel .hideshow-workbc:hover {
+  text-decoration: none;
+}
+.ck-content #myResult .quiz-list {
+  border: 2px solid rgb(238, 238, 238);
+}
+@media all and (min-width: 767.98px) {
+  .ck-content #myResult .quiz-list {
+    min-height: 365px;
+    height: 100%;
+  }
+}
+.ck-content #myResult .quiz-list .field-match {
+  text-align: center;
+  background: #f2f2f2;
+  padding: 2px 0px;
+  color: #333333;
+  font-size: 1.5rem;
+  line-height: 2.1rem;
+}
+.ck-content #myResult .quiz-list .img-field {
+  text-align: center;
+  margin-top: 16px;
+}
+.ck-content #myResult .quiz-list .img-field img {
+  height: 72px;
+  width: auto;
+  margin: 0 auto;
+}
+.ck-content #myResult .quiz-list .title-field {
+  text-align: center;
+  font-size: 2rem;
+  line-height: 2.8rem;
+  margin: 16px 0 22px;
+}
+.ck-content #myResult .quiz-list .title-description {
+  padding: 0 25px 20px;
+  color: #333333;
+  font-family: "BC Sans Regular", sans-serif;
+  font-size: 1.6rem;
+  color: #333333;
+}
+.ck-content #myResult .career-result {
+  margin-top: 25px;
+}
+.ck-content #myResult .itm.hide {
+  display: none;
+}
+.ck-content #myResult .itm.show {
+  display: block;
+}
+.ck-content #myResult .category-results-toggle {
+  margin-right: 0;
+  width: auto;
+  text-align: right;
+  font-family: "BC Sans Bold", sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 14px;
+  color: #234075;
+  text-align: right;
+  line-height: 30px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.ck-content #myResult .category-results-toggle:focus-visible {
+  outline: none;
+}
+.ck-content #myResult .category-results-toggle:focus-visible > span {
+  border: 2px dashed #d21c22;
+}
+.ck-content #myResult .category-results-toggle > span {
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.ck-content #myResult .category-results-toggle > span > svg {
+  margin-left: 10px;
+}
+.ck-content #myResult .category-results-toggle > span:hover {
+  text-decoration: underline;
+}
+.ck-content #myResult .hideshow-workbc {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.ck-content #myResult .hideshow-workbc > span {
+  font-family: "BCSans";
+  font-weight: 700;
+  font-style: normal;
+  font-size: 14px;
+  color: #880364;
+  text-align: right;
+  line-height: 30px;
+  cursor: pointer;
+}
+.ck-content #myResult .hideshow-workbc > svg {
+  margin-left: 10px;
+}
+.ck-content #myResult .hideshow-workbc .slick-next-workbc.vaa1 {
+  display: none;
+}
+.ck-content #myResult .work-value-quiz-carousel {
+  overflow: visible;
+}
+.ck-content #myResult .work-value-quiz-carousel .slick-dots {
+  display: none;
+}
+.ck-content #myResult .work-value-quiz-carousel .slick-prev.slick-arrow {
+  display: none !important;
+}
+.ck-content #myResult .bottom-links {
+  margin-top: 60px;
+}
+.ck-content #myResult .bottom-links .links-inner {
+  display: flex;
+  justify-content: flex-end;
+}
+@media all and (max-width: 767.98px) {
+  .ck-content #myResult .bottom-links .links-inner {
+    padding: 0;
+  }
+}
+@media all and (max-width: 640.98px) {
+  .ck-content #myResult .bottom-links .links-inner {
+    flex-direction: column-reverse;
+  }
+  .ck-content #myResult .bottom-links .links-inner .link.link_1 {
+    margin-bottom: 0;
+  }
+  .ck-content #myResult .bottom-links .links-inner .link.link_2 {
+    margin-bottom: 15px;
+  }
+}
+.ck-content #myResult .bottom-links .link a {
+  color: #333;
+  text-shadow: none;
+  margin-top: 7px;
+  border-radius: 0px;
+  font-size: 15px;
+  padding: 13px 20px;
+  border: 2px solid rgb(7, 53, 115);
+  font-family: "BC Sans Regular", "BC Sans", sans-serif;
+  font-weight: normal;
+}
+.ck-content #myResult .bottom-links .link a:hover {
+  text-decoration: none;
+}
+.ck-content #myResult .bottom-links .link.link_1 a {
+  height: 50px;
+  background: #fff;
+  color: rgb(7, 53, 115);
+  min-width: 174px;
+  display: inline-block;
+  margin-top: 0;
+  margin-right: 10px;
+}
+@media all and (max-width: 640.98px) {
+  .ck-content #myResult .bottom-links .link.link_1 a {
+    width: 100%;
+    min-width: auto;
+    height: auto;
+    padding: 10px 5px;
+  }
+}
+.ck-content #myResult .bottom-links .link.link_1 a:hover {
+  background-color: rgb(230, 234, 233);
+  border-color: rgb(35, 64, 117);
+  text-decoration: none;
+}
+@media all and (max-width: 640.98px) {
+  .ck-content #myResult .bottom-links .link.link_1 {
+    margin-bottom: 15px;
+  }
+}
+.ck-content #myResult .bottom-links .link.link_2 a {
+  height: 50px;
+  background-color: rgb(35, 64, 117);
+  color: #fff;
+  min-width: 174px;
+  display: inline-block;
+  margin: 0;
+  text-align: center;
+  width: 100%;
+}
+@media all and (max-width: 640.98px) {
+  .ck-content #myResult .bottom-links .link.link_2 a {
+    width: 100%;
+    min-width: auto;
+    height: auto;
+    padding: 10px 5px;
+  }
+}
+.ck-content #myResult .bottom-links .link.link_2 a:hover {
+  background-color: rgb(0, 40, 85);
+}
+.ck-content .extradivs.hide {
+  display: none !important;
+}
+.ck-content .extradivs.hide.show .itm.hide {
+  display: block !important;
 }
 
 /*# sourceMappingURL=ck5style.css.map */

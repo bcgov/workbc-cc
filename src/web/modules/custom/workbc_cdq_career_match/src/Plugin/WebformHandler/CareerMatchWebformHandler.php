@@ -47,11 +47,21 @@ class CareerMatchWebformHandler extends WebformHandlerBase {
    * {@inheritdoc}
    */
   public function postSave(WebformSubmissionInterface $webform_submission, $update = TRUE) {
-
-    if ($webform_submission->getState() == "completed") {
+ksm("postSave");
+ksm($webform_submission->getState());
+ksm(getenv("DB_NAME"));
+ksm(getenv("ONET_PASSWORD"));
+ksm(getenv("ONET_PASSWORD"));
+    if ($webform_submission->getState() == "completed" || $webform_submission->getState()) {
+      ksm("savin' stuff");
       $scores = getSubmissionScore($webform_submission);
+      ksm($scores);
       $matches = matchCareers($webform_submission, $scores);
-      if (empty($matches)) return;
+      ksm($matches);
+      if (empty($matches)) {
+        ksm("no matches found");
+        return;
+      }
       $matches = array_slice($matches, 0, 20);
       $nids = \Drupal::database()->query("SELECT field_noc_value, entity_id FROM {node__field_noc} WHERE field_noc_value IN (:nocs[])", [
         ':nocs[]' => array_map(function($match) { return $match['noc']; }, $matches)

@@ -29,7 +29,18 @@ function workbc_cdq_career_match_theme($existing, $type, $theme, $path) {
       'template' => 'views/views-view-fields--cdq_compare_careers--page',
       'base hook' => 'view'
     ],
-
+    'views_view_fields__cdq_compare_careers__page' => [
+      'template' => 'views/views-view-fields--cdq_compare_careers--page',
+      'base hook' => 'view'
+    ],
+    'workbc_cdq_quiz_results_categories' => [
+      'template' => 'workbc-cdq-quiz-results-categories',
+      'base hook' => 'page',
+      'variables' => [
+        'category' => "",
+        'score' => NULL
+      ]
+    ]
   ];
 }
 
@@ -49,6 +60,7 @@ function workbc_cdq_career_match_preprocess_views_view_table(&$variables) {
     }
   }
 }
+
 
 /**
 * Implements hook_preprocess_views_view_field().

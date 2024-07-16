@@ -7,7 +7,7 @@ use Drupal\Core\Link;
 function workbc_cdq_preprocess_page(&$variables) {
 
   $variables['copyright_year'] = date("Y");
-
+ 
   if ($variables['is_front']) {
     $quizzes = quizzesList();
     $career_list = ['abilities_quiz', 'work_preferences_quiz', 'interests_quiz'];
