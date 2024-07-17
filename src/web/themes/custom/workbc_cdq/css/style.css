@@ -14457,7 +14457,8 @@ a.quiz-link {
 #myResult .itm.show {
   display: block;
 }
-#myResult .category-results-toggle {
+#myResult .category-results-toggle,
+#myResult .work-values-toggle {
   margin-right: 0;
   width: auto;
   text-align: right;
@@ -14472,22 +14473,27 @@ a.quiz-link {
   justify-content: flex-end;
   align-items: center;
 }
-#myResult .category-results-toggle:focus-visible {
+#myResult .category-results-toggle:focus-visible,
+#myResult .work-values-toggle:focus-visible {
   outline: none;
 }
-#myResult .category-results-toggle:focus-visible > span {
+#myResult .category-results-toggle:focus-visible > span,
+#myResult .work-values-toggle:focus-visible > span {
   border: 2px dashed #d21c22;
 }
-#myResult .category-results-toggle > span {
+#myResult .category-results-toggle > span,
+#myResult .work-values-toggle > span {
   cursor: pointer;
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
-#myResult .category-results-toggle > span > svg {
+#myResult .category-results-toggle > span > svg,
+#myResult .work-values-toggle > span > svg {
   margin-left: 10px;
 }
-#myResult .category-results-toggle > span:hover {
+#myResult .category-results-toggle > span:hover,
+#myResult .work-values-toggle > span:hover {
   text-decoration: underline;
 }
 #myResult .hideshow-workbc {
@@ -14604,6 +14610,14 @@ a.quiz-link {
 }
 #myResult .bottom-links .link.link_2 a:hover {
   background-color: rgb(0, 40, 85);
+}
+
+.important-values.hide {
+  display: none !important;
+}
+
+.somewhat-values.hide {
+  display: none !important;
 }
 
 .extradivs.hide {

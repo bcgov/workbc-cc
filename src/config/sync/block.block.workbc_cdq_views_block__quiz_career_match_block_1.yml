@@ -27,4 +27,4 @@ visibility:
   request_path:
     id: request_path
     negate: false
-    pages: '/quizzes/*/results'
+    pages: "/quizzes/abilities-quiz/results\r\n/quizzes/work-preferences-quiz/results\r\n/quizzes/interests-quiz/results"

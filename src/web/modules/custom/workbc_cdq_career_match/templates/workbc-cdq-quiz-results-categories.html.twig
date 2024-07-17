@@ -1,15 +1,18 @@
 {# quiz results - categories  #}
 
 <div class="quiz-category-results-wrapper">
-  <div class="row">
-  	<div class="col-12">
-		  <div class="result-heading">
-  			<h3 class="vaa">Top Three {{ category }}</h3>
-	      <h3 class="vaa1" style="display:none;">All {{ category }}</h3>
-		  </div>
-	  </div>
-  </div>
 
+  {% if score|length > 3 %}
+    <div class="row">
+  	  <div class="col-12">
+  		  <div class="result-heading">
+  			  <h3 class="vaa">Top Three {{ category }}</h3>
+	        <h3 class="vaa1" style="display:none;">All {{ category }}</h3>
+		    </div>
+	    </div>
+    </div>
+  {% endif %}
+  
   <div id="myResult" data-ride="carousel" class="carousel slide">
     <div class="row">
       {% for key, cat in score|slice(0,3) %}
@@ -35,6 +38,7 @@
       {% endfor %}
     </div>
 
+{% if score|length > 3 %}
 
     <div class="extradivs hide">
       {% for key, cat in score|slice(3) %}
@@ -83,5 +87,7 @@
       </span>
     </a>
   </div>
+
+{% endif %}
 
 </div>

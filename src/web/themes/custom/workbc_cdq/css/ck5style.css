@@ -13426,7 +13426,8 @@ a > .ck-content code {
 .ck-content #myResult .itm.show {
   display: block;
 }
-.ck-content #myResult .category-results-toggle {
+.ck-content #myResult .category-results-toggle,
+.ck-content #myResult .work-values-toggle {
   margin-right: 0;
   width: auto;
   text-align: right;
@@ -13441,22 +13442,27 @@ a > .ck-content code {
   justify-content: flex-end;
   align-items: center;
 }
-.ck-content #myResult .category-results-toggle:focus-visible {
+.ck-content #myResult .category-results-toggle:focus-visible,
+.ck-content #myResult .work-values-toggle:focus-visible {
   outline: none;
 }
-.ck-content #myResult .category-results-toggle:focus-visible > span {
+.ck-content #myResult .category-results-toggle:focus-visible > span,
+.ck-content #myResult .work-values-toggle:focus-visible > span {
   border: 2px dashed #d21c22;
 }
-.ck-content #myResult .category-results-toggle > span {
+.ck-content #myResult .category-results-toggle > span,
+.ck-content #myResult .work-values-toggle > span {
   cursor: pointer;
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
-.ck-content #myResult .category-results-toggle > span > svg {
+.ck-content #myResult .category-results-toggle > span > svg,
+.ck-content #myResult .work-values-toggle > span > svg {
   margin-left: 10px;
 }
-.ck-content #myResult .category-results-toggle > span:hover {
+.ck-content #myResult .category-results-toggle > span:hover,
+.ck-content #myResult .work-values-toggle > span:hover {
   text-decoration: underline;
 }
 .ck-content #myResult .hideshow-workbc {
@@ -13573,6 +13579,12 @@ a > .ck-content code {
 }
 .ck-content #myResult .bottom-links .link.link_2 a:hover {
   background-color: rgb(0, 40, 85);
+}
+.ck-content .important-values.hide {
+  display: none !important;
+}
+.ck-content .somewhat-values.hide {
+  display: none !important;
 }
 .ck-content .extradivs.hide {
   display: none !important;

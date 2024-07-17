@@ -84,9 +84,7 @@
       $(once('cdqcategoryresults', '.quiz-category-results-wrapper', context)).each(function () {
 
         $('.category-results-toggle').on('click', function() {
-          console.log("toggle");
           if ($(".category-results-toggle").hasClass("hide")) {
-            console.log("01 - hide extras");
             $(this).removeClass("hide");
             $(".extradivs").addClass("hide");
             $(".category-results-toggle span.vaa1").hide();
@@ -96,7 +94,6 @@
             $("#myResult").animate({scrollTop: 0}, "slow");
           }
           else {
-            console.log("02 - show extras");
             $(this).addClass("hide");
             $(".extradivs").removeClass("hide");
             $(".category-results-toggle span.vaa").hide();
@@ -108,6 +105,31 @@
         });
       });
 
+      $(once('cdqworkvalues', '.quiz-work-values-wrapper', context)).each(function () {
+        $('.work-values-toggle').on('click', function() {
+          console.log("toggle");
+          if ($(".important-values").hasClass("hide")) {
+            $(this).removeClass("hide");
+            $(".somewhat-values").addClass("hide");
+            $(".important-values").removeClass("hide");
+            $(".work-values-toggle span.vaa1").hide();
+            $(".work-values-toggle span.vaa").show();
+            $(".result-heading h3.vaa1").hide();
+            $(".result-heading h3.vaa").show();
+            $("#myResult").animate({scrollTop: 0}, "slow");
+          }
+          else {
+            $(this).addClass("hide");
+            $(".somewhat-values").removeClass("hide");
+            $(".important-values").addClass("hide");
+            $(".work-values-toggle span.vaa").hide();
+            $(".work-values-toggle span.vaa1").show();
+            $(".result-heading h3.vaa").hide();
+            $(".result-heading h3.vaa1").show();
+          }
+          
+        });
+      });
     }
   };
  

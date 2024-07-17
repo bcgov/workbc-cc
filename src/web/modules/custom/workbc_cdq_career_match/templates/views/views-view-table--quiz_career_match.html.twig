@@ -216,7 +216,7 @@
             {% endif %}
             <div class="tbody-main" data-id="career-item-{{ rowkey }}">
               {% if row.raw.match is not empty %}
-                <p class="body">{{ row.raw.match }}xx</p>
+                <p class="body">{{ row.raw.match }}</p>
               {% endif %}
               {% if row.raw.field_noc_name is not empty %}
                 <p class="body"><a href="{{ nodeURL }}/?type={{ quiz_type }}" class="career-table-mobi-row-link">{{ row.raw.field_noc_name }} </br><span class="noc">(NOC {{ row.raw.title }})</span></a></p>

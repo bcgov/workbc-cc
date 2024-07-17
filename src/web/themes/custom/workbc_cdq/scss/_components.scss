@@ -834,7 +834,8 @@
         display: block;
     }
 
-    .category-results-toggle {
+    .category-results-toggle,
+    .work-values-toggle {
         margin-right: 0;
         width: auto;
         text-align: right;
@@ -988,6 +989,15 @@
         }
     }
 }
+
+.important-values.hide {
+    display: none !important;
+}
+
+.somewhat-values.hide {
+    display: none !important;
+}
+
 
 .extradivs.hide {
     display: none !important;
