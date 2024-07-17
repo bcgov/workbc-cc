@@ -16,7 +16,7 @@ function workbc_cdq_career_match_page_attachments_alter(array &$attachments) {
 * Implements hook_theme().
 */
 function workbc_cdq_career_match_theme($existing, $type, $theme, $path) {
-  return [      
+  return [
     'views_view_table__quiz_career_match' => [
       'template' => 'views/views-view-table--quiz_career_match',
       'base hook' => 'view'
@@ -49,7 +49,7 @@ function workbc_cdq_career_match_theme($existing, $type, $theme, $path) {
         'score' => NULL
       ]
     ]
-    
+
   ];
 }
 
@@ -141,7 +141,7 @@ function workbc_cdq_career_match_webform_third_party_settings_form_alter(array &
     '#description' => t('Short description for this quiz.'),
     '#required' => true,
     '#default_value' => $webform->getThirdPartySetting('workbc_cdq_career_match', 'description'),
-  ];  
+  ];
 }
 
 /**
@@ -243,6 +243,7 @@ function getSubmissionScore($submission) {
       'score' => 0,
       'count' => 0,
       'term' => $category,
+      'answers' => [],
     ];
     return $categories;
   });
@@ -253,6 +254,10 @@ function getSubmissionScore($submission) {
     $score = floatval($value);
     $categories[$category]['score'] += $score;
     $categories[$category]['count'] += 1;
+    $categories[$category]['answers'][$key] = [
+      'value' => $value,
+      'title' => $questions[$key]['#title']
+    ];
     $answer_string .= strval(array_search($value, array_keys($question['#options'])));
   }
   if (\Drupal::currentUser()->hasPermission('override quiz answers')) {
@@ -263,65 +268,28 @@ function getSubmissionScore($submission) {
     ));
   }
   foreach ($categories as &$category) {
-    $category['percent'] = round(100 * $category['score'] / ($category['count'] * 4));
-    $category['normalized'] = floor($category['score'] / $category['count']) + 1;
+    switch ($quiz->id()) {
+      case 'work_values_quiz':
+        // Do nothing.
+        break;
+      case 'multiple_intelligences_quiz':
+      case 'learning_styles_quiz':
+        $category['percent'] = round($category['score']);
+        $category['normalized'] = floor($category['score'] / $category['count']) + 1;
+        break;
+      default:
+        $category['percent'] = round(100 * $category['score'] / ($category['count'] * 4));
+        $category['normalized'] = floor($category['score'] / $category['count']) + 1;
+        break;
+    }
   }
-  uasort($categories, function($c1, $c2) {
-    return $c2['percent'] - $c1['percent'];
-  });
+  if ($quiz->id() !== 'work_values_quiz') {
+    uasort($categories, function($c1, $c2) {
+      return $c2['percent'] - $c1['percent'];
+    });
+  }
   return $categories;
 }
-
-
-function getSubmissionValues($submission) {
-  $quiz = $submission->getWebform();
-  $questions = array_filter($quiz->getElementsInitializedAndFlattened(), function($question) {
-    return $question['#type'] === 'radios';
-  });
-  $answers = $submission->getData();
-  $settings = $quiz->get('third_party_settings');
-  $categories = array_reduce(\Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($settings['workbc_cdq_career_match']['categories']), function($categories, $category) {
-    $categories[$category->name] = [
-      'score' => 0,
-      'count' => 0,
-      'term' => $category,
-      'important' => [],
-      'somewhat' => [],
-    ];
-    return $categories;
-  });
-  $answer_string = '';
-  foreach ($questions as $key => $question) {
-    $category = $question['#category'];
-    $value = $answers[$key];
-    $score = floatval($value);
-    $categories[$category]['score'] += $score;
-    $categories[$category]['count'] += 1;
-    if ($answers[$key] == "2") {
-      $categories[$category]['important'][] = $questions[$key]['#title'];
-    }
-    elseif ($answers[$key] == "1") {
-      $categories[$category]['somewhat'][] = $questions[$key]['#title'];
-    }
-    $answer_string .= strval(array_search($value, array_keys($question['#options'])));
-  }
-  if (\Drupal::currentUser()->hasPermission('override quiz answers')) {
-    $url = Url::fromRoute('<current>', ['answers' => $answer_string], ['absolute' => true]);
-    \Drupal::messenger()->addMessage(t(
-      'To reuse the current set of answers, use the following URL:<br><code>@url</code>',
-      ['@url' => $url->toString()]
-    ));
-  }
-  // foreach ($categories as &$category) {
-  //   $category['percent'] = round(100 * $category['score'] / ($category['count'] * 4));
-  //   $category['normalized'] = floor($category['score'] / $category['count']) + 1;
-  // }
-  // uasort($categories, function($c1, $c2) {
-  //   return $c2['percent'] - $c1['percent'];
-  // });
-  return $categories;
-}
-
 
 const COLUMN_ABILITIES_NOC=0;
 const COLUMN_ABILITIES_GLA=1;

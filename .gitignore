@@ -43,7 +43,7 @@ src/web/index.php
 src/web/robots.txt
 src/web/sites/default/default.services.yml
 src/web/sites/default/default.settings.php
-src/web/sites/development.services.yml
+#src/web/sites/development.services.yml
 src/web/sites/example.settings.local.php
 src/web/sites/example.sites.php
 src/web/sites/README.txt

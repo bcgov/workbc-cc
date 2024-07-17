@@ -49,7 +49,7 @@ class QuizResultsController extends ControllerBase {
           'icon' => 'finger-dexterity',
         ],
         'Manual dexterity' => [
-          'color' => '510B76',                
+          'color' => '510B76',
           'icon' => 'manual-dexterity',
         ],
       ];
@@ -147,7 +147,7 @@ class QuizResultsController extends ControllerBase {
       foreach ($score as $category_name => $category) {
         $score[$category_name]['description'] = $category['term']->description__value;
         $score[$category_name]['color'] = $info[$category_name]['color'];
-        $score[$category_name]['image'] = $info[$category_name]['icon'];       
+        $score[$category_name]['image'] = $info[$category_name]['icon'];
       }
     }
     else {
@@ -272,13 +272,23 @@ class QuizResultsController extends ControllerBase {
         'Your work styles' => [
           'color' => '880364',
           'icon' => 'work-style',
-        ],                        
+        ],
       ];
-      $score = getSubmissionValues($submission);
+      $score = getSubmissionScore($submission);
       foreach ($score as $category_name => $category) {
         $score[$category_name]['description'] = $category['term']->description__value;
         $score[$category_name]['color'] = $info[$category_name]['color'];
-        $score[$category_name]['image'] = $info[$category_name]['icon'];       
+        $score[$category_name]['image'] = $info[$category_name]['icon'];
+        $score[$category_name]['important'] = array_map(function($answer) {
+          return $answer['title'];
+        }, array_filter($score[$category_name]['answers'], function($answer) {
+          return $answer['value'] == '2';
+        }));
+        $score[$category_name]['somewhat'] = array_map(function($answer) {
+          return $answer['title'];
+        }, array_filter($score[$category_name]['answers'], function($answer) {
+          return $answer['value'] == '1';
+        }));
       }
     }
     else {

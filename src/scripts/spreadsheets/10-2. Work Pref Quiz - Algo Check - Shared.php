@@ -42,6 +42,12 @@ foreach (str_split($answers) as $a => $answer) {
   }
 }
 $cell = $sheet->getCell('O18');
-$cell->setValue('={FILTER(INDIRECT(P16&"AF7:AH36"),INDIRECT(P16&"AH7:AH36")<>"")}');
+$cell->setValue('=IFERROR(__xludf.DUMMYFUNCTION("{
+FILTER(INDIRECT(P16&""AF7:AH36""), INDIRECT(P16&""AH7:AH36"")<>"""");
+FILTER(INDIRECT(P16&""AI7:AK36""), INDIRECT(P16&""AK7:AK36"")<>"""");
+FILTER(INDIRECT(P16&""AL7:AN36""), INDIRECT(P16&""AN7:AN36"")<>"""");
+FILTER(INDIRECT(P16&""AO7:AQ36""), INDIRECT(P16&""AQ7:AQ36"")<>"""");
+FILTER(INDIRECT(P16&""AR7:AT36""), INDIRECT(P16&""AT7:AT36"")<>"""");
+FILTER(INDIRECT(P16&""AU7:AW36""), INDIRECT(P16&""AW7:AW36"")<>"""")}"),3141)');
 $result = $calculation->calculate($cell);
 echo json_encode($result);
