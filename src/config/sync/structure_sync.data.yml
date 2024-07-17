@@ -5,8 +5,8 @@ taxonomies:
       tid: '7'
       langcode: en
       name: 'General learning ability'
-      description__value: null
-      description__format: null
+      description__value: '<p>General learning ability is the capability to “catch on” or understand instructions and underlying principles; to reason and make judgements.</p>'
+      description__format: basic_html
       weight: '0'
       parent: '0'
       uuid: 1fce8053-934c-4800-9032-81d9899d35dd
@@ -15,8 +15,8 @@ taxonomies:
       tid: '8'
       langcode: en
       name: 'Verbal ability'
-      description__value: null
-      description__format: null
+      description__value: '<p>Verbal ability is the capability to understand the meaning of words and the ideas associated with them, and to use them effectively; to comprehend language, to understand relationships between words and to understand the meaning of whole sentences and paragraphs; to present information or ideas clearly.</p>'
+      description__format: basic_html
       weight: '1'
       parent: '0'
       uuid: 6ee8fa2f-7762-4441-a6f9-004b87d96fba
@@ -25,8 +25,8 @@ taxonomies:
       tid: '9'
       langcode: en
       name: 'Numerical ability'
-      description__value: null
-      description__format: null
+      description__value: '<p>Numerical ability is the capability to solve math problems quickly and accurately.</p>'
+      description__format: basic_html
       weight: '2'
       parent: '0'
       uuid: 90826b88-ee36-406f-bb3c-87ff2ea50a12
@@ -35,8 +35,8 @@ taxonomies:
       tid: '10'
       langcode: en
       name: 'Spatial perception'
-      description__value: null
-      description__format: null
+      description__value: '<p>Spatial perception is the ability to think visually about geometric forms and comprehend the two-dimensional representation of three-dimensional objects; to recognize the relationships resulting from the movement of objects in space. May be used in such tasks as blueprint reading.</p>'
+      description__format: basic_html
       weight: '3'
       parent: '0'
       uuid: 56b8b3e4-21fd-40b9-b5ce-2d4fca95137f
@@ -45,8 +45,8 @@ taxonomies:
       tid: '11'
       langcode: en
       name: 'Form perception'
-      description__value: null
-      description__format: null
+      description__value: '<p>Form perception is the ability to perceive details in objects and in imagery, to make visual comparisons and distinguish differences in shapes and shadings of figures, as well as widths and lengths of lines.</p>'
+      description__format: basic_html
       weight: '4'
       parent: '0'
       uuid: 9606ad29-5836-4b21-b9cc-0f5a6acea506
@@ -55,28 +55,18 @@ taxonomies:
       tid: '12'
       langcode: en
       name: 'Clerical perception'
-      description__value: null
-      description__format: null
+      description__value: '<p>Clerical perception is the ability to perceive pertinent details in verbal or tabular material; to observe differences in copy, to proofread words and numbers, and to avoid perceptual errors in arithmetical computation.</p>'
+      description__format: basic_html
       weight: '5'
       parent: '0'
       uuid: bc00cb0d-77fe-4de6-9925-35095e437269
     -
       vid: abilities_categories
-      tid: '13'
-      langcode: en
-      name: 'Motor co-ordination'
-      description__value: null
-      description__format: null
-      weight: '6'
-      parent: '0'
-      uuid: 6daac0a2-9329-44a2-bd2e-45758d47f5c0
-    -
-      vid: abilities_categories
       tid: '14'
       langcode: en
       name: 'Finger dexterity'
-      description__value: null
-      description__format: null
+      description__value: '<p>Finger dexterity is the ability to move your fingers and manipulate small objects with your fingers rapidly and/or accurately.</p>'
+      description__format: basic_html
       weight: '7'
       parent: '0'
       uuid: 7fa2a2e4-b2cd-4301-b20f-fbacf7d2af32
@@ -85,232 +75,242 @@ taxonomies:
       tid: '15'
       langcode: en
       name: 'Manual dexterity'
-      description__value: null
-      description__format: null
+      description__value: '<p>Manual dexterity is the ability to move your hands easily and skillfully; to work with your hands in placing and turning motions.</p>'
+      description__format: basic_html
       weight: '8'
       parent: '0'
       uuid: 4ed75f31-4068-41d6-b90c-4443b21a7d56
+    -
+      vid: abilities_categories
+      tid: '13'
+      langcode: en
+      name: 'Motor co-ordination'
+      description__value: '<p>Motor co-ordination is the ability to co-ordinate eyes, hands and fingers rapidly and accurately when required to respond with precise movements.</p>'
+      description__format: basic_html
+      weight: '6'
+      parent: '0'
+      uuid: 6daac0a2-9329-44a2-bd2e-45758d47f5c0
   interests_categories:
     -
       vid: interests_categories
-      tid: '25'
-      langcode: en
-      name: Enterprising
-      description__value: null
-      description__format: null
-      weight: '4'
-      parent: '0'
-      uuid: 0dcfe0c4-edfe-4272-adf4-e7b28610267d
-    -
-      vid: interests_categories
-      tid: '26'
-      langcode: en
-      name: Conventional
-      description__value: null
-      description__format: null
-      weight: '5'
-      parent: '0'
-      uuid: b45b7c19-01dd-4e3a-a0be-609ad2e1b0f6
-    -
-      vid: interests_categories
-      tid: '21'
+      tid: '16'
       langcode: en
       name: Realistic
-      description__value: null
-      description__format: null
+      description__value: '<p>People with Realistic interests like work that includes practical, hands-on problems and answers. Often people with Realistic interests do not like careers that involve paperwork or working closely with others.</p><p>They like:</p><ul><li>Working with plants and animals.</li><li>Real-world materials like wood, tools, and machinery.</li><li>Outside work.</li></ul>'
+      description__format: basic_html
       weight: '0'
       parent: '0'
       uuid: 1f8ae6af-6cbd-4720-8e5f-77dc769a761d
     -
       vid: interests_categories
-      tid: '22'
+      tid: '20'
+      langcode: en
+      name: Enterprising
+      description__value: '<p>People with Enterprising interests like work that has to do with starting up and carrying out business projects. The people like taking action rather than thinking about things.</p><p>They like:</p><ul><li>Persuading and leading people.</li><li>Making decisions.</li><li>Taking risks for profits.</li></ul>'
+      description__format: basic_html
+      weight: '4'
+      parent: '0'
+      uuid: 0dcfe0c4-edfe-4272-adf4-e7b28610267d
+    -
+      vid: interests_categories
+      tid: '17'
       langcode: en
       name: Investigative
-      description__value: null
-      description__format: null
+      description__value: '<p>People with Investigative interests like work that has to do with ideas and thinking rather than physical activity or leading people.</p><p>They like:</p><ul><li>Searching for facts.</li><li>Figuring out problems.</li></ul>'
+      description__format: basic_html
       weight: '1'
       parent: '0'
       uuid: 4a3dcce4-a062-488c-b9fc-952f9b5196de
     -
       vid: interests_categories
-      tid: '23'
+      tid: '18'
       langcode: en
       name: Artistic
-      description__value: null
-      description__format: null
+      description__value: '<p>People with Artistic interests like work that deals with the artistic side of things, such as acting, music, art and design.</p><p>They like:</p><ul><li>Creativity in their work.</li><li>Work that can be done without following a set of rules.</li></ul>'
+      description__format: basic_html
       weight: '2'
       parent: '0'
       uuid: a5bfac07-81fd-44dc-bae6-85af9307579a
     -
       vid: interests_categories
-      tid: '24'
+      tid: '19'
       langcode: en
       name: Social
-      description__value: null
-      description__format: null
+      description__value: '<p>People with Social interests like working with others to help them learn and grow. They like working with people more than working with objects, machines, or information.</p><p>They like:</p><ul><li>Teaching.</li><li>Giving advice.</li><li>Helping and being of service to people.</li></ul>'
+      description__format: basic_html
       weight: '3'
       parent: '0'
       uuid: 797d5aff-ee37-4a43-990c-c67ea7204a29
+    -
+      vid: interests_categories
+      tid: '21'
+      langcode: en
+      name: Conventional
+      description__value: '<p>People with Conventional interests like work that follows set procedures and routines. They prefer working with information and paying attention to details rather than working with ideas.</p><p>They like:</p><ul><li>Working with clear rules.</li><li>Following a strong leader.</li></ul>'
+      description__format: basic_html
+      weight: '5'
+      parent: '0'
+      uuid: b45b7c19-01dd-4e3a-a0be-609ad2e1b0f6
   learning_styles_categories:
     -
       vid: learning_styles_categories
-      tid: '35'
+      tid: '22'
       langcode: en
       name: Hearing
-      description__value: null
-      description__format: null
+      description__value: '<p>You need to hear information and learn best from lectures and conversations.</p>'
+      description__format: basic_html
       weight: '0'
       parent: '0'
       uuid: e1e2b217-5d64-4381-bb6d-231b4f5c62ed
     -
       vid: learning_styles_categories
-      tid: '36'
-      langcode: en
-      name: Doing
-      description__value: null
-      description__format: null
-      weight: '0'
-      parent: '0'
-      uuid: bbafcc5c-a9fb-4baf-b132-d1dda8c4e2e4
-    -
-      vid: learning_styles_categories
-      tid: '37'
+      tid: '24'
       langcode: en
       name: Seeing
-      description__value: null
-      description__format: null
+      description__value: '<p>You need to see information in a visual format and learn best from written information, diagrams and pictures.</p>'
+      description__format: basic_html
       weight: '0'
       parent: '0'
       uuid: 6f766940-d66c-4343-8d72-df028c71dbf1
+    -
+      vid: learning_styles_categories
+      tid: '23'
+      langcode: en
+      name: Doing
+      description__value: '<p>You need to receive information through touch and feel, and learn best from hands-on work and movement.</p>'
+      description__format: basic_html
+      weight: '0'
+      parent: '0'
+      uuid: bbafcc5c-a9fb-4baf-b132-d1dda8c4e2e4
   multiple_intelligences_categorie:
     -
       vid: multiple_intelligences_categorie
-      tid: '27'
-      langcode: en
-      name: 'Body Smart'
-      description__value: null
-      description__format: null
-      weight: '0'
-      parent: '0'
-      uuid: 10f5f559-6621-4c0d-9129-a32197910524
-    -
-      vid: multiple_intelligences_categorie
-      tid: '28'
+      tid: '26'
       langcode: en
       name: 'Nature Smart'
-      description__value: null
-      description__format: null
+      description__value: '<p>You can distinguish among, classify and use features of your environment. Gardeners, florists and geologists have this intelligence about nature.</p>'
+      description__format: basic_html
       weight: '0'
       parent: '0'
       uuid: 8b9f75a9-4d51-48b2-a2ff-16e777a34cbd
     -
       vid: multiple_intelligences_categorie
-      tid: '29'
+      tid: '27'
       langcode: en
       name: 'Number Smart'
-      description__value: null
-      description__format: null
+      description__value: '<p>You appreciate abstract relationships and can use numbers effectively. Scientists, mathematicians and philosophers have this intelligence.</p>'
+      description__format: basic_html
       weight: '0'
       parent: '0'
       uuid: ba929e1c-c757-436b-a0b7-fe6477770d52
     -
       vid: multiple_intelligences_categorie
-      tid: '30'
+      tid: '28'
       langcode: en
       name: 'People Smart'
-      description__value: null
-      description__format: null
+      description__value: '<p>You’re able to recognize and understand the motivations and feelings of other people. Teachers, psychologists, and salespeople have this intelligence.</p>'
+      description__format: basic_html
       weight: '0'
       parent: '0'
       uuid: 455b1557-d854-49ce-b6a9-ef12f0dffd58
     -
       vid: multiple_intelligences_categorie
-      tid: '31'
+      tid: '29'
       langcode: en
       name: 'Picture Smart'
-      description__value: null
-      description__format: null
+      description__value: "<p>You're able to perceive visual and spatial information and can create effective mental pictures. Architects, artists and engineers have this intelligence.</p>"
+      description__format: basic_html
       weight: '0'
       parent: '0'
       uuid: 906ef725-852b-49ed-a25e-0f3afe29da0d
     -
       vid: multiple_intelligences_categorie
-      tid: '32'
+      tid: '30'
       langcode: en
       name: 'Self Smart'
-      description__value: null
-      description__format: null
+      description__value: '<p>You’re able to distinguish among your own feelings, build accurate mental models of yourself and draw on these models to make decisions about your life. People with strength in this intelligence are found in all walks of life.</p>'
+      description__format: basic_html
       weight: '0'
       parent: '0'
       uuid: cc4fca78-a6cc-4e5f-b892-6833941b59e0
     -
       vid: multiple_intelligences_categorie
-      tid: '33'
+      tid: '31'
       langcode: en
       name: 'Sound Smart'
-      description__value: null
-      description__format: null
+      description__value: '<p>You can create, communicate and understand meanings made from sound. Composers and musicians have this intelligence.</p>'
+      description__format: basic_html
       weight: '0'
       parent: '0'
       uuid: ba6fbc0b-a91f-41c2-9850-970792588cf5
     -
       vid: multiple_intelligences_categorie
-      tid: '34'
+      tid: '32'
       langcode: en
       name: 'Word Smart'
-      description__value: null
-      description__format: null
+      description__value: '<p>You make sense out of the world through language and can use words effectively either speaking or in writing. Writers and editors have this intelligence.</p>'
+      description__format: basic_html
       weight: '0'
       parent: '0'
       uuid: d7a0ad30-c82e-4768-97e1-8d8da54a12ba
+    -
+      vid: multiple_intelligences_categorie
+      tid: '25'
+      langcode: en
+      name: 'Body Smart'
+      description__value: '<p>You use all or part of your body to create products or solve problems. Athletes, surgeons, dancers and craftspeople have this intelligence.</p>'
+      description__format: basic_html
+      weight: '0'
+      parent: '0'
+      uuid: 10f5f559-6621-4c0d-9129-a32197910524
   work_preferences_categories:
     -
       vid: work_preferences_categories
-      tid: '16'
+      tid: '33'
       langcode: en
       name: Social
-      description__value: null
-      description__format: null
+      description__value: '<p>Social people like interacting with others. They enjoy caring for and assisting others in identifying their needs and solving their concerns.</p><p>Social people like working and co-operating with others and they prefer to be involved in work that requires interpersonal contact.</p>'
+      description__format: basic_html
       weight: '0'
       parent: '0'
       uuid: aecd0368-5c6f-457d-aca2-d49ee80ec6a2
     -
       vid: work_preferences_categories
-      tid: '17'
+      tid: '34'
       langcode: en
       name: Directive
-      description__value: null
-      description__format: null
+      description__value: '<p>Directive people like to take charge and control situations. They like taking responsibility for projects that require planning, decision making and co-ordinating the work of others.</p><p>They are able to give direction and instructions easily. They enjoy organizing their own activities and they see themselves as independent and self-directing.</p>'
+      description__format: basic_html
       weight: '1'
       parent: '0'
       uuid: 20916f7b-4b46-4ab0-828e-c7d8ce5f548a
     -
       vid: work_preferences_categories
-      tid: '18'
+      tid: '35'
       langcode: en
       name: Innovative
-      description__value: null
-      description__format: null
+      description__value: '<p>Innovative people like to explore things in depth and arrive at solutions to problems by experimenting. They are interested in initiating and creating different ways to solve questions and present information.</p><p>They enjoy scientific subjects. Innovative persons prefer to be challenged with new and unexpected experiences and they adjust to change easily.</p>'
+      description__format: basic_html
       weight: '2'
       parent: '0'
       uuid: a6148c0d-affa-4a01-8248-adf4aab09d6a
     -
       vid: work_preferences_categories
-      tid: '19'
+      tid: '36'
       langcode: en
       name: Methodical
-      description__value: null
-      description__format: null
+      description__value: '<p>Methodical people like to have clear rules and organized methods to guide their activities. They prefer working under the direction or supervision of others according to given instructions, or to be guided by established policies and procedures.</p><p>Those who are methodical like to work on one thing until it is completed. They enjoy following a set routine and prefer work that is free from the unexpected.</p>'
+      description__format: basic_html
       weight: '3'
       parent: '0'
       uuid: 73536b58-0d14-4254-b0db-12af60b2468f
     -
       vid: work_preferences_categories
-      tid: '20'
+      tid: '37'
       langcode: en
       name: Objective
-      description__value: null
-      description__format: null
+      description__value: '<p>Objective people enjoy working with tools, equipment, instruments and machinery. They like to repair and/or fabricate things from various materials according to specifications and using established techniques.</p><p>Objective people are interested in finding out how things operate and how they are built.</p>'
+      description__format: basic_html
       weight: '4'
       parent: '0'
       uuid: 09d2efd5-131b-4ed7-b9b9-235b87278b13
