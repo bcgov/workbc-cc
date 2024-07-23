@@ -231,7 +231,7 @@ function getCareerProfileInfo(\Drupal\node\NodeInterface $node) {
   return $info;
 }
 
-function getSubmissionScore($submission) {
+function getSubmissionScore(WebformSubmission $submission) {
   $quiz = $submission->getWebform();
   $questions = array_filter($quiz->getElementsInitializedAndFlattened(), function($question) {
     return $question['#type'] === 'radios';
@@ -261,7 +261,10 @@ function getSubmissionScore($submission) {
     $answer_string .= strval(array_search($value, array_keys($question['#options'])));
   }
   if (\Drupal::currentUser()->hasPermission('override quiz answers')) {
-    $url = Url::fromRoute('<current>', ['answers' => $answer_string], ['absolute' => true]);
+    $url = Url::fromRoute('<current>', [
+      'answers' => $answer_string,
+      'token' => $submission->getToken(),
+    ], ['absolute' => true]);
     \Drupal::messenger()->addMessage(t(
       'To reuse the current set of answers, use the following URL:<br><code>@url</code>',
       ['@url' => $url->toString()]

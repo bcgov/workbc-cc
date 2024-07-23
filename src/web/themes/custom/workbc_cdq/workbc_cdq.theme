@@ -1,13 +1,11 @@
 <?php
 
 use Drupal\Core\Url;
-use Drupal\Core\Link;
-
 
 function workbc_cdq_preprocess_page(&$variables) {
 
   $variables['copyright_year'] = date("Y");
- 
+
   if ($variables['is_front']) {
     $quizzes = quizzesList();
     $career_list = ['abilities_quiz', 'work_preferences_quiz', 'interests_quiz'];
@@ -15,7 +13,7 @@ function workbc_cdq_preprocess_page(&$variables) {
     $career_count = 0;
     $personality_count = 0;
     $quiz_info = [];
-    foreach ($quizzes as $key => $quiz) {  
+    foreach ($quizzes as $key => $quiz) {
       $quiz_info[$key] = workbc_cdq_quiz_info($key);
       if ($quiz_info[$key]['status'] == "completed") {
         if (in_array($key, $career_list)) {
@@ -29,6 +27,9 @@ function workbc_cdq_preprocess_page(&$variables) {
     $variables['quiz_info'] = $quiz_info;
     $variables['career_count'] = $career_count;
     $variables['personality_count'] = $personality_count;
+
+    // Disable cache on front page for the quiz links.
+    $variables['page']['#cache']['max-age'] = 0;
   }
 }
 
@@ -36,6 +37,7 @@ function workbc_cdq_preprocess_page(&$variables) {
 function workbc_cdq_quiz_info($id) {
   $info = [];
 
+  /** @var \Drupal\webform\WebformInterface $webform */
   $webform = \Drupal::entityTypeManager()->getStorage('webform')->load($id);
   $elements = $webform->getElementsDecodedAndFlattened();
 
@@ -48,7 +50,9 @@ function workbc_cdq_quiz_info($id) {
   if ($results) {
     if (!$results->isDraft()) {
       $status = "completed";
-      $results_link = Url::fromUri('route:workbc_cdq_custom.' . $id . '_results')->toString();
+      $results_link = Url::fromUri('route:workbc_cdq_custom.' . $id . '_results', [
+        'query' => ['token' => $results->getToken()]
+      ])->toString();
       $url = Url::fromRoute('entity.webform.canonical', ['webform' => $id, 'token' => $results->getToken()]);
       $quiz_link = $url->toString();
     }
