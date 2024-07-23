@@ -28,6 +28,8 @@ elements: |-
   page_1:
     '#type': webform_wizard_page
     '#title': 'Page 1'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     i_would_like_to_building_kitchen_cabinets:
       '#type': radios
       '#title': 'I would like to building kitchen cabinets.'
@@ -61,6 +63,8 @@ elements: |-
   page_2:
     '#type': webform_wizard_page
     '#title': 'Page 2'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     i_enjoy_playing_a_musical_instrument:
       '#type': radios
       '#title': 'I enjoy playing a musical instrument.'
@@ -94,6 +98,8 @@ elements: |-
   page_3:
     '#type': webform_wizard_page
     '#title': 'Page 3'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     i_like_developing_a_spreadsheet_using_computer_software:
       '#type': radios
       '#title': 'I like developing a spreadsheet using computer software.'
@@ -127,6 +133,8 @@ elements: |-
   page_4:
     '#type': webform_wizard_page
     '#title': 'Page 4'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     studying_the_movement_of_planets:
       '#type': radios
       '#title': 'Studying the movement of planets.'
@@ -160,6 +168,8 @@ elements: |-
   page_5:
     '#type': webform_wizard_page
     '#title': 'Page 5'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     operating_a_beauty_salon_or_barber_shop:
       '#type': radios
       '#title': 'Operating a beauty salon or barber shop.'
@@ -193,6 +203,8 @@ elements: |-
   page_6:
     '#type': webform_wizard_page
     '#title': 'Page 6'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     driving_a_truck_to_deliver_packages_to_offices_and_homes:
       '#type': radios
       '#title': 'Driving a truck to deliver packages to offices and homes.'
@@ -226,6 +238,8 @@ elements: |-
   page_7:
     '#type': webform_wizard_page
     '#title': 'Page 7'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     doing_volunteer_work_at_a_non_profit_organization:
       '#type': radios
       '#title': 'Doing volunteer work at a non-profit organization.'
@@ -259,6 +273,8 @@ elements: |-
   page_8:
     '#type': webform_wizard_page
     '#title': 'Page 8'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     calculating_the_wages_of_employees:
       '#type': radios
       '#title': 'Calculating the wages of employees.'
@@ -292,6 +308,8 @@ elements: |-
   page_9:
     '#type': webform_wizard_page
     '#title': 'Page 9'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     writing_scripts_for_movies_or_tv_shows:
       '#type': radios
       '#title': 'Writing scripts for movies or TV shows.'
@@ -325,6 +343,8 @@ elements: |-
   page_10:
     '#type': webform_wizard_page
     '#title': 'Page 10'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     marketing_a_new_line_of_clothing:
       '#type': radios
       '#title': 'Marketing a new line of clothing.'
@@ -358,6 +378,8 @@ elements: |-
   page_11:
     '#type': webform_wizard_page
     '#title': 'Page 11'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     inventing_a_replacement_for_sugar:
       '#type': radios
       '#title': 'Inventing a replacement for sugar.'
@@ -391,6 +413,8 @@ elements: |-
   page_12:
     '#type': webform_wizard_page
     '#title': 'Page 12'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     teaching_a_high_school_class:
       '#type': radios
       '#title': 'Teaching a high-school class.'

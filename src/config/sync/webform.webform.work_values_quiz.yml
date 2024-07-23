@@ -28,6 +28,8 @@ elements: |-
   page_1:
     '#type': webform_wizard_page
     '#title': 'Page 1'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     the_idea_of_making_money_motivates_me_a_great_deal:
       '#type': radios
       '#title': 'The idea of making money motivates me a great deal.'
@@ -61,6 +63,8 @@ elements: |-
   page_2:
     '#type': webform_wizard_page
     '#title': 'Page 2'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     i_m_motivated_by_work_that_will_improve_the_world:
       '#type': radios
       '#title': "I'm motivated by work that will improve the world."
@@ -94,6 +98,8 @@ elements: |-
   page_3:
     '#type': webform_wizard_page
     '#title': 'Page 3'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     i_want_a_calm_peaceful_work_setting:
       '#type': radios
       '#title': 'I want a calm, peaceful work setting.'
@@ -127,6 +133,8 @@ elements: |-
   page_4:
     '#type': webform_wizard_page
     '#title': 'Page 4'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     i_prefer_not_to_travel_for_work:
       '#type': radios
       '#title': 'I prefer not to travel for work.'
@@ -160,6 +168,8 @@ elements: |-
   page_5:
     '#type': webform_wizard_page
     '#title': 'Page 5'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     i_would_like_to_work_with_the_public:
       '#type': radios
       '#title': 'I would like to work with the public.'
@@ -193,6 +203,8 @@ elements: |-
   page_6:
     '#type': webform_wizard_page
     '#title': 'Page 6'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     i_like_work_where_i_can_solve_problems_and_decide_how_things_sho:
       '#type': radios
       '#title': 'I like work where I can solve problems and decide how things should be done.'
@@ -226,6 +238,8 @@ elements: |-
   page_7:
     '#type': webform_wizard_page
     '#title': 'Page 7'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     i_enjoy_work_that_requires_attention_to_detail_and_accuracy:
       '#type': radios
       '#title': 'I enjoy work that requires attention to detail and accuracy.'

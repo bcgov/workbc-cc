@@ -1008,33 +1008,212 @@
 }
 
 
-.webform-submission-abilities-quiz-form .webform-type-radios {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+.webform-submission-abilities-quiz-form,
+.webform-submission-work-preferences-quiz-form,
+.webform-submission-interests-quiz-form,
+.webform-submission-multiple-intelligences-quiz-form,
+.webform-submission-learning-styles-quiz-form,
+.webform-submission-work-values-quiz-form {
 
-    legend {
-        width: 40%    
-    }
-
-    .fieldset-wrapper {
-        width: 60%;
-    }
-
-    .form-radios {
+    .webform-type-radios {
+        width: 100%;
         display: flex;
-        justify-content: space-evenly;
+        flex-direction: row;
+        align-items: center;
+
+        legend {
+            width: 40%;
+            font-weight: normal;
+        }
+
+        .fieldset-wrapper {
+            width: 60%;
+        }
+
+        .form-radios {
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .form-type-radio input {
+            border: 0px;
+            width: 100%;
+            height: 1.5em;
+            margin: 10px;
+        }
+
+        .form-type-radio label.option {
+            display: none;
+        }
+
+        .form-required::after {
+            background-image: none;
+        }
     }
+
+}
+
+
+.webform-button--next,
+.webform-button--submit {
+    border: 2px solid #234075;
+    border-radius: 0 !important;
+    background: #234075;
+    color: #fff;
+    font-size: 15px;
+    padding: 15px 4px;
+    min-width: 170px;
+    float: right;
+
+    &:hover {
+        background: rgba(0, 40, 85, 1);
+    }
+} 
+    
+.webform-button--previous,
+.webform-button--draft {
+    border: 2px solid #234075;
+    border-radius: 0 !important;
+    background: #fff;
+    color: #234075;
+    font-size: 15px;
+    padding: 15px 4px;
+    min-width: 170px;
+    
+    &:hover {
+        background: #e6eae9;
+    }
+}   
+
+
+.webform-submission-abilities-quiz-form {
+    .webform-button--next,
+    .webform-button--submit {
+        border: 2px solid $quiz-dark-blue;
+        background: $quiz-dark-blue;
+    
+        &:hover {
+            background: $quiz-dark-blue-dark;
+        }
+    } 
+
+    .webform-button--previous,
+    .webform-button--draft {
+        border: 2px solid $quiz-dark-blue;
+        color: $quiz-dark-blue;
+    }       
 
     .form-type-radio input {
-        border: 0px;
-        width: 100%;
-        height: 1.5em;
-        margin: 10px;
-    }
+        accent-color: $quiz-dark-blue;
+    }    
+}
 
-    .form-type-radio label.option {
-        display: none;
-    }
+.webform-submission-work-preferences-quiz-form {
+    .webform-button--next,
+    .webform-button--submit {
+        border: 2px solid $quiz-purple;
+        background: $quiz-purple;
+    
+        &:hover {
+            background: $quiz-purple-dark;
+        }
+    } 
+
+    .webform-button--previous,
+    .webform-button--draft {
+        border: 2px solid $quiz-purple;
+        color: $quiz-purple;
+    }   
+
+    .form-type-radio input {
+        accent-color: $quiz-purple;
+    }    
+}
+
+.webform-submission-interests-quiz-form {
+    .webform-button--next,
+    .webform-button--submit {
+        border: 2px solid $quiz-blue;
+        background: $quiz-blue;
+    
+        &:hover {
+            background: $quiz-blue-dark;
+        }
+    } 
+
+    .webform-button--previous,
+    .webform-button--draft {
+        border: 2px solid $quiz-blue;
+        color: $quiz-blue;
+    }  
+
+    .form-type-radio input {
+        accent-color: $quiz-blue;
+    }      
+}
+
+.webform-submission-multiple-intelligences-quiz-form {
+    .webform-button--next,
+    .webform-button--submit {
+        border: 2px solid $quiz-green;
+        background: $quiz-green;
+    
+        &:hover {
+            background: $quiz-green-dark;
+        }
+    } 
+
+    .webform-button--previous,
+    .webform-button--draft {
+        border: 2px solid $quiz-green;
+        color: $quiz-green;
+    }  
+
+    .form-type-radio input {
+        accent-color: $quiz-green;
+    }      
+}
+
+.webform-submission-learning-styles-quiz-form {
+    .webform-button--next,
+    .webform-button--submit {
+        border: 2px solid $quiz-light-blue;
+        background: $quiz-light-blue;
+    
+        &:hover {
+            background: $quiz-light-blue-dark;
+        }
+    } 
+
+    .webform-button--previous,
+    .webform-button--draft {
+        border: 2px solid $quiz-light-blue;
+        color: $quiz-light-blue;
+    }  
+
+    .form-type-radio input {
+        accent-color: $quiz-light-blue;
+    }  
+}
+
+.webform-submission-work-values-quiz-form {
+    .webform-button--next,
+    .webform-button--submit {
+        border: 2px solid $quiz-pink;
+        background: $quiz-pink;
+    
+        &:hover {
+            background: $quiz-pink-dark;
+        }
+    } 
+
+    .webform-button--previous,
+    .webform-button--draft {
+        border: 2px solid $quiz-pink;
+        color: $quiz-pink;
+    }  
+
+    .form-type-radio input {
+        accent-color: $quiz-pink;
+    }  
 }

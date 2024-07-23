@@ -28,6 +28,8 @@ elements: |-
   page_1:
     '#type': webform_wizard_page
     '#title': 'Page 1'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     i_am_a_private_person_and_like_my_private_inner_world:
       '#type': radios
       '#title': 'I am a private person and like my private inner world.'
@@ -61,6 +63,8 @@ elements: |-
   page_2:
     '#type': webform_wizard_page
     '#title': 'Page 2'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     i_like_puns_and_other_wordplays:
       '#type': radios
       '#title': 'I like puns and other wordplays.'
@@ -94,6 +98,8 @@ elements: |-
   page_3:
     '#type': webform_wizard_page
     '#title': 'Page 3'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     i_make_up_a_rhyme_to_remember_something:
       '#type': radios
       '#title': 'I make up a rhyme to remember something.'
@@ -127,6 +133,8 @@ elements: |-
   page_4:
     '#type': webform_wizard_page
     '#title': 'Page 4'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     i_enjoy_completing_crosswords_and_other_word_games_like_scrabble:
       '#type': radios
       '#title': 'I enjoy completing crosswords and other word games like Scrabble.'
@@ -160,6 +168,8 @@ elements: |-
   page_5:
     '#type': webform_wizard_page
     '#title': 'Page 5'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     i_am_actively_involved_in_protecting_the_environment:
       '#type': radios
       '#title': 'I am actively involved in protecting the environment.'
@@ -193,6 +203,8 @@ elements: |-
   page_6:
     '#type': webform_wizard_page
     '#title': 'Page 6'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     i_remember_things_exactly_as_they_are_said_to_me:
       '#type': radios
       '#title': 'I remember things exactly as they are said to me.'
@@ -226,6 +238,8 @@ elements: |-
   page_7:
     '#type': webform_wizard_page
     '#title': 'Page 7'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     i_like_to_take_part_in_debates_and_or_discussions:
       '#type': radios
       '#title': 'I like to take part in debates and/or discussions.'
@@ -259,6 +273,8 @@ elements: |-
   page_8:
     '#type': webform_wizard_page
     '#title': 'Page 8'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     i_enjoy_learning_about_different_cultures:
       '#type': radios
       '#title': 'I enjoy learning about different cultures.'
@@ -292,6 +308,8 @@ elements: |-
   page_9:
     '#type': webform_wizard_page
     '#title': 'Page 9'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     i_have_vivid_dreams_when_sleeping:
       '#type': radios
       '#title': 'I have vivid dreams when sleeping.'
@@ -325,6 +343,8 @@ elements: |-
   page_10:
     '#type': webform_wizard_page
     '#title': 'Page 10'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     i_have_a_good_understanding_of_my_feelings_and_how_i_will_react:
       '#type': radios
       '#title': 'I have a good understanding of my feelings and how I will react to situations.'
@@ -358,6 +378,8 @@ elements: |-
   page_11:
     '#type': webform_wizard_page
     '#title': 'Page 11'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     i_quickly_grasp_cause_and_effect_relationships:
       '#type': radios
       '#title': 'I quickly grasp cause and effect relationships.'
@@ -391,6 +413,8 @@ elements: |-
   page_12:
     '#type': webform_wizard_page
     '#title': 'Page 12'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     i_enjoy_sharing_my_ideas_and_feelings_with_others:
       '#type': radios
       '#title': 'I enjoy sharing my ideas and feelings with others.'
@@ -424,6 +448,8 @@ elements: |-
   page_13:
     '#type': webform_wizard_page
     '#title': 'Page 13'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     i_am_good_at_estimating:
       '#type': radios
       '#title': 'I am good at estimating.'

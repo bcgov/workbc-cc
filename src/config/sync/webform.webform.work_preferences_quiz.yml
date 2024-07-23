@@ -28,6 +28,8 @@ elements: |-
   page_1:
     '#type': webform_wizard_page
     '#title': 'Page 1'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     i_like_to_work_at_the_same_thing_for_a_long_time:
       '#type': radios
       '#title': 'I like to work at the same thing for a long time.'
@@ -61,6 +63,8 @@ elements: |-
   page_2:
     '#type': webform_wizard_page
     '#title': 'Page 2'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     i_would_like_to_have_a_job_where_i_work_at_a_steady_pace_all_day:
       '#type': radios
       '#title': 'I would like to have a job where I work at a steady pace all day.'
@@ -94,6 +98,8 @@ elements: |-
   page_3:
     '#type': webform_wizard_page
     '#title': 'Page 3'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     i_enjoy_books_and_television_programs_on_scientific_subjects_suc:
       '#type': radios
       '#title': 'I enjoy books and television programs on scientific subjects such as astronomy and biology.'
@@ -127,6 +133,8 @@ elements: |-
   page_4:
     '#type': webform_wizard_page
     '#title': 'Page 4'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     i_would_like_a_job_where_i_could_direct_control_and_plan_the_act:
       '#type': radios
       '#title': 'I would like a job where I could direct, control and plan the activities of other workers.'
@@ -160,6 +168,8 @@ elements: |-
   page_5:
     '#type': webform_wizard_page
     '#title': 'Page 5'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     i_would_like_a_job_that_is_involved_in_community_service:
       '#type': radios
       '#title': 'I would like a job that is involved in community service.'
@@ -169,9 +179,9 @@ elements: |-
     i_would_like_to_have_a_job_where_i_always_know_what_is_expected:
       '#type': radios
       '#title': 'I would like to have a job where I always know what is expected of me.'
-      '#options': workbc_work_values
-      '#category': Methodical
+      '#options': workbc_work_preferences
       '#required': true
+      '#category': Methodical
     i_would_like_a_job_where_i_had_to_deal_with_people_all_day:
       '#type': radios
       '#title': 'I would like a job where I had to deal with people all day.'
@@ -193,6 +203,8 @@ elements: |-
   page_6:
     '#type': webform_wizard_page
     '#title': 'Page 6'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     i_like_working_with_my_hands_doing_things_such_as_plumbing_repai:
       '#type': radios
       '#title': 'I like working with my hands, doing things such as plumbing repairs, sewing, fixing cars, or wallpapering.'
@@ -226,6 +238,8 @@ elements: |-
   page_7:
     '#type': webform_wizard_page
     '#title': 'Page 7'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     i_enjoy_working_with_materials_such_as_wood_stone_clay_fabric_or:
       '#type': radios
       '#title': 'I enjoy working with materials such as wood, stone, clay, fabric or metal.'
@@ -259,6 +273,8 @@ elements: |-
   page_8:
     '#type': webform_wizard_page
     '#title': 'Page 8'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     i_enjoy_working_with_tools_equipment_or_technical_instruments:
       '#type': radios
       '#title': 'I enjoy working with tools, equipment or technical instruments.'
@@ -292,6 +308,8 @@ elements: |-
   page_9:
     '#type': webform_wizard_page
     '#title': 'Page 9'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     i_would_like_a_job_where_i_can_take_responsibility_for_decisions:
       '#type': radios
       '#title': 'I would like a job where I can take responsibility for decisions.'
@@ -325,6 +343,8 @@ elements: |-
   page_10:
     '#type': webform_wizard_page
     '#title': 'Page 10'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     i_would_like_a_job_interviewing_people_to_get_their_opinions_abo:
       '#type': radios
       '#title': 'I would like a job interviewing people to get their opinions about things or events.'
@@ -355,6 +375,10 @@ elements: |-
       '#options': workbc_work_preferences
       '#category': Objective
       '#required': true
+  actions:
+    '#type': webform_actions
+    '#title': 'Submit button(s)'
+    '#submit__label': Submit
 css: ''
 javascript: ''
 settings:
@@ -367,7 +391,7 @@ settings:
   page_submit_path: ''
   page_confirm_path: ''
   page_theme_name: ''
-  form_title: both
+  form_title: source_entity_webform
   form_submit_once: false
   form_open_message: ''
   form_close_message: ''

@@ -28,6 +28,8 @@ elements: |-
   page_1:
     '#type': webform_wizard_page
     '#title': 'Page 1'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     i_remember_better_from_lectures_with_explanations_and_discussion:
       '#type': radios
       '#title': 'I remember better from lectures with explanations and discussions.'
@@ -61,6 +63,8 @@ elements: |-
   page_2:
     '#type': webform_wizard_page
     '#title': 'Page 2'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     i_enjoy_working_with_my_hands:
       '#type': radios
       '#title': 'I enjoy working with my hands.'
@@ -94,6 +98,8 @@ elements: |-
   page_3:
     '#type': webform_wizard_page
     '#title': 'Page 3'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     i_do_better_at_academic_subjects_by_listening_to_lectures_and_ta:
       '#type': radios
       '#title': 'I do better at academic subjects by listening to lectures and tapes.'
@@ -127,6 +133,8 @@ elements: |-
   page_4:
     '#type': webform_wizard_page
     '#title': 'Page 4'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     i_feel_the_best_way_to_remember_something_is_to_picture_it_in_my:
       '#type': radios
       '#title': 'I feel the best way to remember something is to picture it in my head.'
@@ -160,6 +168,8 @@ elements: |-
   page_5:
     '#type': webform_wizard_page
     '#title': 'Page 5'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     i_prefer_listening_to_the_news_on_the_radio_than_reading_about_i:
       '#type': radios
       '#title': 'I prefer listening to the news on the radio than reading about it in the newspaper.'

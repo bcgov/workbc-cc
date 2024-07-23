@@ -28,6 +28,8 @@ elements: |-
   page_1:
     '#type': webform_wizard_page
     '#title': 'Page 1'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     i_learn_and_understand_things_quickly:
       '#type': radios
       '#title': 'I learn and understand things quickly.'
@@ -61,6 +63,8 @@ elements: |-
   page_2:
     '#type': webform_wizard_page
     '#title': 'Page 2'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     i_can_hit_a_moving_object_such_as_a_baseball_with_a_bat:
       '#type': radios
       '#title': 'I can hit a moving object, such as a baseball with a bat.'
@@ -94,6 +98,8 @@ elements: |-
   page_3:
     '#type': webform_wizard_page
     '#title': 'Page 3'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     i_can_move_my_hands_to_manipulate_things:
       '#type': radios
       '#title': 'I can move my hands to manipulate things.'
@@ -127,6 +133,8 @@ elements: |-
   page_4:
     '#type': webform_wizard_page
     '#title': 'Page 4'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     i_can_proofread_printed_pages:
       '#type': radios
       '#title': 'I can proofread printed pages.'
@@ -160,6 +168,8 @@ elements: |-
   page_5:
     '#type': webform_wizard_page
     '#title': 'Page 5'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     i_am_good_at_picking_out_differences_in_two_similar_pictures:
       '#type': radios
       '#title': 'I am good at picking out differences in two similar pictures.'
@@ -193,6 +203,8 @@ elements: |-
   page_6:
     '#type': webform_wizard_page
     '#title': 'Page 6'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     repairing_small_objects_using_my_fingers:
       '#type': radios
       '#title': 'Repairing small objects using my fingers.'
@@ -226,6 +238,8 @@ elements: |-
   page_7:
     '#type': webform_wizard_page
     '#title': 'Page 7'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     making_small_finger_movements_like_playing_a_violin:
       '#type': radios
       '#title': 'Making small finger movements like playing a violin.'
@@ -259,6 +273,8 @@ elements: |-
   page_8:
     '#type': webform_wizard_page
     '#title': 'Page 8'
+    '#prev_button_label': Back
+    '#next_button_label': Next
     transferring_numbers_or_other_information_from_one_place_to_anot:
       '#type': radios
       '#title': 'Transferring numbers or other information from one place to another without errors.'
