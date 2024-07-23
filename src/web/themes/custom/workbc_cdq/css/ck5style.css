@@ -13592,5 +13592,30 @@ a > .ck-content code {
 .ck-content .extradivs.hide.show .itm.hide {
   display: block !important;
 }
+.ck-content .webform-submission-abilities-quiz-form .webform-type-radios {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.ck-content .webform-submission-abilities-quiz-form .webform-type-radios legend {
+  width: 40%;
+}
+.ck-content .webform-submission-abilities-quiz-form .webform-type-radios .fieldset-wrapper {
+  width: 60%;
+}
+.ck-content .webform-submission-abilities-quiz-form .webform-type-radios .form-radios {
+  display: flex;
+  justify-content: space-evenly;
+}
+.ck-content .webform-submission-abilities-quiz-form .webform-type-radios .form-type-radio input {
+  border: 0px;
+  width: 100%;
+  height: 1.5em;
+  margin: 10px;
+}
+.ck-content .webform-submission-abilities-quiz-form .webform-type-radios .form-type-radio label.option {
+  display: none;
+}
 
 /*# sourceMappingURL=ck5style.css.map */
