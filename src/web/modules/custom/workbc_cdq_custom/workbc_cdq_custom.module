@@ -65,7 +65,7 @@ function getSubmissionOverrides($webform_id) {
   return $submission;
 }
 
-function getUserSubmission($webform_id): WebformSubmission {
+function getUserSubmission($webform_id) {
   $override = getSubmissionOverrides($webform_id);
   if ($override) {
     $submission = WebformSubmission::create([

@@ -1020,10 +1020,15 @@
         display: flex;
         flex-direction: row;
         align-items: center;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        padding: 20px;
 
         legend {
             width: 40%;
             font-weight: normal;
+            font-size: 15px;
+            color: #333333;
         }
 
         .fieldset-wrapper {
@@ -1037,19 +1042,71 @@
 
         .form-type-radio input {
             border: 0px;
-            width: 100%;
+            width: 117px;
             height: 1.5em;
             margin: 10px;
         }
 
-        .form-type-radio label.option {
-            display: none;
+        .form-radios label {
+            // position: absolute;
+            display: block;
+            position: relative;
+            top: -110px;
+            text-align: center;
+            width: 117px;
+            margin: 0 auto;
+            font-size: 14px;
+            color: #666666;
         }
 
         .form-required::after {
             background-image: none;
         }
     }
+   
+    .webform-type-radios:not(.workbc-quiz-fieldset-first) {
+        .form-type-radio label {
+            display: none;
+        }        
+    }
+
+    .workbc-quiz-fieldset-odd {
+        background-color: #f2f2f2;
+    }
+
+    .workbc-quiz-fieldset-even {
+        background-color: #fff;           
+    }
+
+    .webform-header-radios {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        padding: 20px;
+
+        .webform-header-legend {
+            width: 40%;
+            font-weight: normal;
+            font-size: 15px;
+        }
+
+        .webform-header-labels {
+            width: 60%;
+            display: flex;
+            justify-content: space-evenly;
+            margin-left: 70px;
+            margin-right: 20px;
+        }
+
+        .webform-header-label {
+            width: 100px;
+            display: flex;
+            justify-content: center;
+        }
+    }    
 
 }
 
@@ -1216,4 +1273,66 @@
     .form-type-radio input {
         accent-color: $quiz-pink;
     }  
+}
+
+
+
+#block-workbc-cdq-workbcquizpagetitle {
+    background-color: $quiz-dark-blue;
+    color: white;
+    margin-top: 55px;
+    border-bottom: 5px solid $quiz-dark-blue-dark;
+
+    h2 {
+        text-align: left;
+        color: white;
+        margin-bottom: 35px;
+    }
+
+    .sub-title {
+        max-width: 568px;
+        min-height: 65px;
+        max-height: 65px;
+        margin-bottom: 30px;        
+    }
+
+    p {
+        color: white;
+    }
+}
+
+
+.node-questions {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 15px;
+
+    .quiz-duration {
+        color: #fff;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+
+        span {
+            display: inline-block;
+            width: 34px;
+            height: 25px;            
+            background: url(../src/icons/time-white.svg) no-repeat;
+        }
+    }
+
+    .quiz-questions {
+        color: #fff;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        margin-right: 24px;
+
+        span {
+            display: inline-block;
+            width: 34px;
+            height: 25px;
+            background: url(../src/icons/list-white.svg) no-repeat;
+        }
+    }
 }

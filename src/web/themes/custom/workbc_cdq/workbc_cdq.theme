@@ -69,6 +69,7 @@ function workbc_cdq_quiz_info($id) {
 
   $info['id'] = $id;
   $info['title'] = $webform->get('title');
+  $info['subtitle'] = $webform->getThirdPartySetting('workbc_cdq_career_match', 'subtitle');
   $info['description'] = $webform->getThirdPartySetting('workbc_cdq_career_match', 'description');
   $info['time'] = $webform->getThirdPartySetting('workbc_cdq_career_match', 'time');
   $info['count'] = $count;
@@ -79,4 +80,37 @@ function workbc_cdq_quiz_info($id) {
   }
 
   return $info;
+}
+
+
+function workbc_cdq_preprocess_fieldset(&$variables) {
+  static $current = 1;
+  if (isset($variables['element']['#webform_element']) && $variables['element']['#webform_element'] && $variables['element']['#type'] == "radios") {
+    if ($current % 2 == 0) {
+      $variables['attributes']['class'][] = "workbc-quiz-fieldset-even";
+    }
+    else {
+      $variables['attributes']['class'][] = "workbc-quiz-fieldset-odd";
+    }
+    if ($current == 1) {
+      $variables['attributes']['class'][] = "workbc-quiz-fieldset-first";
+    }
+    $current++;
+  }
+}
+
+
+function workbc_cdq_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  if ($form_id == "webform_submission_work_preferences_quiz_edit_form") {
+    // ksm($form_id);
+    // ksm($form);
+    // $form['progress']['#weight'] = 1;
+    // $form['actions']['wizard_next']['#weight'] = 5;
+    // $form['actions']['wizard_prev']['#weight'] = 5;
+
+    // unset($form['progress']['#weight']);
+    // $progress = $form['progress'];
+    // $form['elements']['progress'] = $progress;
+    // ksm($form);
+  }
 }

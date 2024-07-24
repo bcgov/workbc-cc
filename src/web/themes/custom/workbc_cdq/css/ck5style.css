@@ -13602,6 +13602,9 @@ a > .ck-content code {
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 20px;
 }
 .ck-content .webform-submission-abilities-quiz-form .webform-type-radios legend,
 .ck-content .webform-submission-work-preferences-quiz-form .webform-type-radios legend,
@@ -13611,6 +13614,8 @@ a > .ck-content code {
 .ck-content .webform-submission-work-values-quiz-form .webform-type-radios legend {
   width: 40%;
   font-weight: normal;
+  font-size: 15px;
+  color: #333333;
 }
 .ck-content .webform-submission-abilities-quiz-form .webform-type-radios .fieldset-wrapper,
 .ck-content .webform-submission-work-preferences-quiz-form .webform-type-radios .fieldset-wrapper,
@@ -13636,17 +13641,24 @@ a > .ck-content code {
 .ck-content .webform-submission-learning-styles-quiz-form .webform-type-radios .form-type-radio input,
 .ck-content .webform-submission-work-values-quiz-form .webform-type-radios .form-type-radio input {
   border: 0px;
-  width: 100%;
+  width: 117px;
   height: 1.5em;
   margin: 10px;
 }
-.ck-content .webform-submission-abilities-quiz-form .webform-type-radios .form-type-radio label.option,
-.ck-content .webform-submission-work-preferences-quiz-form .webform-type-radios .form-type-radio label.option,
-.ck-content .webform-submission-interests-quiz-form .webform-type-radios .form-type-radio label.option,
-.ck-content .webform-submission-multiple-intelligences-quiz-form .webform-type-radios .form-type-radio label.option,
-.ck-content .webform-submission-learning-styles-quiz-form .webform-type-radios .form-type-radio label.option,
-.ck-content .webform-submission-work-values-quiz-form .webform-type-radios .form-type-radio label.option {
-  display: none;
+.ck-content .webform-submission-abilities-quiz-form .webform-type-radios .form-radios label,
+.ck-content .webform-submission-work-preferences-quiz-form .webform-type-radios .form-radios label,
+.ck-content .webform-submission-interests-quiz-form .webform-type-radios .form-radios label,
+.ck-content .webform-submission-multiple-intelligences-quiz-form .webform-type-radios .form-radios label,
+.ck-content .webform-submission-learning-styles-quiz-form .webform-type-radios .form-radios label,
+.ck-content .webform-submission-work-values-quiz-form .webform-type-radios .form-radios label {
+  display: block;
+  position: relative;
+  top: -110px;
+  text-align: center;
+  width: 117px;
+  margin: 0 auto;
+  font-size: 14px;
+  color: #666666;
 }
 .ck-content .webform-submission-abilities-quiz-form .webform-type-radios .form-required::after,
 .ck-content .webform-submission-work-preferences-quiz-form .webform-type-radios .form-required::after,
@@ -13655,6 +13667,76 @@ a > .ck-content code {
 .ck-content .webform-submission-learning-styles-quiz-form .webform-type-radios .form-required::after,
 .ck-content .webform-submission-work-values-quiz-form .webform-type-radios .form-required::after {
   background-image: none;
+}
+.ck-content .webform-submission-abilities-quiz-form .webform-type-radios:not(.workbc-quiz-fieldset-first) .form-type-radio label,
+.ck-content .webform-submission-work-preferences-quiz-form .webform-type-radios:not(.workbc-quiz-fieldset-first) .form-type-radio label,
+.ck-content .webform-submission-interests-quiz-form .webform-type-radios:not(.workbc-quiz-fieldset-first) .form-type-radio label,
+.ck-content .webform-submission-multiple-intelligences-quiz-form .webform-type-radios:not(.workbc-quiz-fieldset-first) .form-type-radio label,
+.ck-content .webform-submission-learning-styles-quiz-form .webform-type-radios:not(.workbc-quiz-fieldset-first) .form-type-radio label,
+.ck-content .webform-submission-work-values-quiz-form .webform-type-radios:not(.workbc-quiz-fieldset-first) .form-type-radio label {
+  display: none;
+}
+.ck-content .webform-submission-abilities-quiz-form .workbc-quiz-fieldset-odd,
+.ck-content .webform-submission-work-preferences-quiz-form .workbc-quiz-fieldset-odd,
+.ck-content .webform-submission-interests-quiz-form .workbc-quiz-fieldset-odd,
+.ck-content .webform-submission-multiple-intelligences-quiz-form .workbc-quiz-fieldset-odd,
+.ck-content .webform-submission-learning-styles-quiz-form .workbc-quiz-fieldset-odd,
+.ck-content .webform-submission-work-values-quiz-form .workbc-quiz-fieldset-odd {
+  background-color: #f2f2f2;
+}
+.ck-content .webform-submission-abilities-quiz-form .workbc-quiz-fieldset-even,
+.ck-content .webform-submission-work-preferences-quiz-form .workbc-quiz-fieldset-even,
+.ck-content .webform-submission-interests-quiz-form .workbc-quiz-fieldset-even,
+.ck-content .webform-submission-multiple-intelligences-quiz-form .workbc-quiz-fieldset-even,
+.ck-content .webform-submission-learning-styles-quiz-form .workbc-quiz-fieldset-even,
+.ck-content .webform-submission-work-values-quiz-form .workbc-quiz-fieldset-even {
+  background-color: #fff;
+}
+.ck-content .webform-submission-abilities-quiz-form .webform-header-radios,
+.ck-content .webform-submission-work-preferences-quiz-form .webform-header-radios,
+.ck-content .webform-submission-interests-quiz-form .webform-header-radios,
+.ck-content .webform-submission-multiple-intelligences-quiz-form .webform-header-radios,
+.ck-content .webform-submission-learning-styles-quiz-form .webform-header-radios,
+.ck-content .webform-submission-work-values-quiz-form .webform-header-radios {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 20px;
+}
+.ck-content .webform-submission-abilities-quiz-form .webform-header-radios .webform-header-legend,
+.ck-content .webform-submission-work-preferences-quiz-form .webform-header-radios .webform-header-legend,
+.ck-content .webform-submission-interests-quiz-form .webform-header-radios .webform-header-legend,
+.ck-content .webform-submission-multiple-intelligences-quiz-form .webform-header-radios .webform-header-legend,
+.ck-content .webform-submission-learning-styles-quiz-form .webform-header-radios .webform-header-legend,
+.ck-content .webform-submission-work-values-quiz-form .webform-header-radios .webform-header-legend {
+  width: 40%;
+  font-weight: normal;
+  font-size: 15px;
+}
+.ck-content .webform-submission-abilities-quiz-form .webform-header-radios .webform-header-labels,
+.ck-content .webform-submission-work-preferences-quiz-form .webform-header-radios .webform-header-labels,
+.ck-content .webform-submission-interests-quiz-form .webform-header-radios .webform-header-labels,
+.ck-content .webform-submission-multiple-intelligences-quiz-form .webform-header-radios .webform-header-labels,
+.ck-content .webform-submission-learning-styles-quiz-form .webform-header-radios .webform-header-labels,
+.ck-content .webform-submission-work-values-quiz-form .webform-header-radios .webform-header-labels {
+  width: 60%;
+  display: flex;
+  justify-content: space-evenly;
+  margin-left: 70px;
+  margin-right: 20px;
+}
+.ck-content .webform-submission-abilities-quiz-form .webform-header-radios .webform-header-label,
+.ck-content .webform-submission-work-preferences-quiz-form .webform-header-radios .webform-header-label,
+.ck-content .webform-submission-interests-quiz-form .webform-header-radios .webform-header-label,
+.ck-content .webform-submission-multiple-intelligences-quiz-form .webform-header-radios .webform-header-label,
+.ck-content .webform-submission-learning-styles-quiz-form .webform-header-radios .webform-header-label,
+.ck-content .webform-submission-work-values-quiz-form .webform-header-radios .webform-header-label {
+  width: 100px;
+  display: flex;
+  justify-content: center;
 }
 .ck-content .webform-button--next,
 .ck-content .webform-button--submit {
@@ -13786,6 +13868,56 @@ a > .ck-content code {
 }
 .ck-content .webform-submission-work-values-quiz-form .form-type-radio input {
   accent-color: #880364;
+}
+.ck-content #block-workbc-cdq-workbcquizpagetitle {
+  background-color: #234075;
+  color: white;
+  margin-top: 55px;
+  border-bottom: 5px solid #002855;
+}
+.ck-content #block-workbc-cdq-workbcquizpagetitle h2, .ck-content #block-workbc-cdq-workbcquizpagetitle .h2 {
+  text-align: left;
+  color: white;
+  margin-bottom: 35px;
+}
+.ck-content #block-workbc-cdq-workbcquizpagetitle .sub-title {
+  max-width: 568px;
+  min-height: 65px;
+  max-height: 65px;
+  margin-bottom: 30px;
+}
+.ck-content #block-workbc-cdq-workbcquizpagetitle p {
+  color: white;
+}
+.ck-content .node-questions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 15px;
+}
+.ck-content .node-questions .quiz-duration {
+  color: #fff;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+.ck-content .node-questions .quiz-duration span {
+  display: inline-block;
+  width: 34px;
+  height: 25px;
+  background: url(../src/icons/time-white.svg) no-repeat;
+}
+.ck-content .node-questions .quiz-questions {
+  color: #fff;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  margin-right: 24px;
+}
+.ck-content .node-questions .quiz-questions span {
+  display: inline-block;
+  width: 34px;
+  height: 25px;
+  background: url(../src/icons/list-white.svg) no-repeat;
 }
 
 /*# sourceMappingURL=ck5style.css.map */
