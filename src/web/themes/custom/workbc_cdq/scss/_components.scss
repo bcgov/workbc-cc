@@ -1279,7 +1279,7 @@
 #block-workbc-cdq-workbcquizpagetitle {
 
     color: white;
-    margin-top: 55px;
+    padding-top: 55px;
 
     h2 {
         text-align: left;
@@ -1291,7 +1291,7 @@
         max-width: 568px;
         min-height: 65px;
         max-height: 65px;
-        margin-bottom: 30px;        
+        margin-bottom: 35px;        
     }
 
     p {
@@ -1299,35 +1299,118 @@
     }
 }
 
+.main-quiz-container {
+    position: relative;
+    background-color: #e6eae9;
+}
 
-.cdq-quiz-dark-blue {
+.cdq-quiz .region-content {
+    background-color: white;
+}
+
+.cdq-quiz .col-12 {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.cdq-quiz .overlay-bg {
+    min-height: 395px;
+    position: absolute;
+    z-index: 0;
+    top: 34px;
+    left: 0px;
+    width: 100%;    
+}
+
+.cdq-quiz .cdq-content {
+    position: relative;
+    background-color: white;
+    padding-bottom: 20px;
+}
+
+.cdq-abilities-quiz .cdq-content {
+    border-bottom: 6px solid $quiz-purple-dark;
+}
+
+.cdq-work-preferences-quiz .cdq-content {
+    border-bottom: 6px solid $quiz-purple-dark;
+}
+
+.cdq-interests-quiz .cdq-content {
+    border-bottom: 6px solid $quiz-blue-dark;
+}
+
+.cdq-multiple-intelligences-quiz .cdq-content {
+    border-bottom: 6px solid $quiz-green-dark;
+}
+
+.cdq-learning-styles-quiz .cdq-content {
+    border-bottom: 6px solid $quiz-light-blue-dark;
+}
+
+.cdq-work-values-quiz .cdq-content {
+    border-bottom: 6px solid $quiz-pink-dark;
+}
+
+
+.cdq-quiz #block-workbc-cdq-content {
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.cdq-abilities-quiz .overlay-bg {
     background-color: $quiz-dark-blue;
-    border-bottom: 5px solid $quiz-dark-blue-dark;
 }
 
-.cdq-quiz-blue {
-    background-color: $quiz-blue;
-    border-bottom: 5px solid $quiz-blue-dark;
-}
-
-.cdq-quiz-light-blue {
-    background-color: $quiz-light-blue;
-    border-bottom: 5px solid $quiz-light-blue-dark;
-}
-
-.cdq-quiz-purple {
+.cdq-work-preferences-quiz .overlay-bg {
     background-color: $quiz-purple;
-    border-bottom: 5px solid $quiz-purple-dark;
+}
+
+.cdq-interests-quiz .overlay-bg {
+    background-color: $quiz-blue;
+}
+
+.cdq-multiple-intelligences-quiz .overlay-bg {
+    background-color: $quiz-green;
+}
+
+.cdq-learning-styles-quiz .overlay-bg {
+    background-color: $quiz-light-blue;
+}
+
+.cdq-work-values-quiz .overlay-bg {
+    background-color: $quiz-pink;
+}
+
+
+.cdq-abilities-quiz .block-workbc-quiz-page-title  {
+    background-color: $quiz-dark-blue;
+    border-bottom: 9px solid $quiz-dark-blue-dark;
+}
+
+.cdq-interests-quiz .block-workbc-quiz-page-title {
+    background-color: $quiz-blue;
+    border-bottom: 9px solid $quiz-blue-dark;
+}
+
+.cdq-learning-styles-quiz .block-workbc-quiz-page-title  {
+    background-color: $quiz-light-blue;
+    border-bottom: 9px solid $quiz-light-blue-dark;
+}
+
+.cdq-work-preferences-quiz .block-workbc-quiz-page-title {
+    background-color: $quiz-purple;
+    border-bottom: 9px solid $quiz-purple-dark;
 }
  
-.cdq-quiz-pink {
+.cdq-work-values-quiz .block-workbc-quiz-page-title  {
     background-color: $quiz-pink;
-    border-bottom: 5px solid $quiz-pink-dark;
+    border-bottom: 9px solid $quiz-pink-dark;
 }
 
-.cdq-quiz-green {
+.cdq-multiple-intelligences-quiz .block-workbc-quiz-page-title  {
     background-color: $quiz-green;
-    border-bottom: 5px solid $quiz-green-dark;
+    border-bottom: 9px solid $quiz-green-dark;
 } 
 
 

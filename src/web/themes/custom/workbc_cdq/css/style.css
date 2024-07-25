@@ -12800,42 +12800,6 @@ em.placeholder {
   max-width: 100% !important;
 }
 
-details.card:not([open]) summary.card-header, .view-media-library .media-library-views-form .media-library-item--grid details.views-field-rendered-entity:not([open]) summary.card-header, .media-library-selection details.media-library-item.media-library-item--grid:not([open]) summary.card-header, details.card:not([open]) .view-media-library .media-library-views-form .media-library-item--grid summary.views-field-media-library-select-form, .view-media-library .media-library-views-form .media-library-item--grid details.card:not([open]) summary.views-field-media-library-select-form, .view-media-library .media-library-views-form .media-library-item--grid details.views-field-rendered-entity:not([open]) summary.views-field-media-library-select-form, .media-library-selection .view-media-library .media-library-views-form details.media-library-item.media-library-item--grid:not([open]) summary.views-field-media-library-select-form, .view-media-library .media-library-views-form .media-library-selection details.media-library-item.media-library-item--grid:not([open]) summary.views-field-media-library-select-form,
-details.card:not([open]) .view-media-library .media-library-views-form .media-library-item--grid summary.views-field-media-bulk-form,
-.view-media-library .media-library-views-form .media-library-item--grid details.card:not([open]) summary.views-field-media-bulk-form,
-.view-media-library .media-library-views-form .media-library-item--grid details.views-field-rendered-entity:not([open]) summary.views-field-media-bulk-form,
-.media-library-selection .view-media-library .media-library-views-form details.media-library-item.media-library-item--grid:not([open]) summary.views-field-media-bulk-form,
-.view-media-library .media-library-views-form .media-library-selection details.media-library-item.media-library-item--grid:not([open]) summary.views-field-media-bulk-form {
-  border-radius: var(--bs-card-inner-border-radius) var(--bs-card-inner-border-radius) var(--bs-card-inner-border-radius) var(--bs-card-inner-border-radius);
-  border-bottom: 0;
-}
-
-.accordion details {
-  overflow: unset;
-}
-.accordion details[open] .accordion-button {
-  color: var(--bs-accordion-active-color);
-  background-color: var(--bs-accordion-active-bg);
-}
-.accordion details[open] .accordion-button::after {
-  background-image: var(--bs-accordion-btn-active-icon);
-  transform: var(--bs-accordion-btn-icon-transform);
-}
-.accordion details:not([open]) {
-  border-bottom: 0;
-}
-.accordion details:not([open]) .accordion-button {
-  color: var(--bs-accordion-btn-color);
-  background-color: var(--bs-accordion-btn-bg);
-  border: unset;
-  border-bottom-right-radius: var(--bs-accordion-border-radius);
-  border-bottom-left-radius: var(--bs-accordion-border-radius);
-}
-.accordion details:not([open]) .accordion-button::after {
-  background-image: var(--bs-accordion-btn-active-icon);
-  transform: unset;
-}
-
 .alert-dismissible .close {
   color: #000;
 }
@@ -14916,7 +14880,7 @@ a.quiz-link {
 
 #block-workbc-cdq-workbcquizpagetitle {
   color: white;
-  margin-top: 55px;
+  padding-top: 55px;
 }
 #block-workbc-cdq-workbcquizpagetitle h2, #block-workbc-cdq-workbcquizpagetitle .h2 {
   text-align: left;
@@ -14927,40 +14891,122 @@ a.quiz-link {
   max-width: 568px;
   min-height: 65px;
   max-height: 65px;
-  margin-bottom: 30px;
+  margin-bottom: 35px;
 }
 #block-workbc-cdq-workbcquizpagetitle p {
   color: white;
 }
 
-.cdq-quiz-dark-blue {
+.main-quiz-container {
+  position: relative;
+  background-color: #e6eae9;
+}
+
+.cdq-quiz .region-content {
+  background-color: white;
+}
+
+.cdq-quiz .col-12 {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.cdq-quiz .overlay-bg {
+  min-height: 395px;
+  position: absolute;
+  z-index: 0;
+  top: 34px;
+  left: 0px;
+  width: 100%;
+}
+
+.cdq-quiz .cdq-content {
+  position: relative;
+  background-color: white;
+  padding-bottom: 20px;
+}
+
+.cdq-abilities-quiz .cdq-content {
+  border-bottom: 6px solid #310546;
+}
+
+.cdq-work-preferences-quiz .cdq-content {
+  border-bottom: 6px solid #310546;
+}
+
+.cdq-interests-quiz .cdq-content {
+  border-bottom: 6px solid #0e3e75;
+}
+
+.cdq-multiple-intelligences-quiz .cdq-content {
+  border-bottom: 6px solid #164c03;
+}
+
+.cdq-learning-styles-quiz .cdq-content {
+  border-bottom: 6px solid #005f88;
+}
+
+.cdq-work-values-quiz .cdq-content {
+  border-bottom: 6px solid #440031;
+}
+
+.cdq-quiz #block-workbc-cdq-content {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.cdq-abilities-quiz .overlay-bg {
   background-color: #234075;
-  border-bottom: 5px solid #002855;
 }
 
-.cdq-quiz-blue {
-  background-color: #2671ca;
-  border-bottom: 5px solid #0e3e75;
-}
-
-.cdq-quiz-light-blue {
-  background-color: #007eb4;
-  border-bottom: 5px solid #005f88;
-}
-
-.cdq-quiz-purple {
+.cdq-work-preferences-quiz .overlay-bg {
   background-color: #510b76;
-  border-bottom: 5px solid #310546;
 }
 
-.cdq-quiz-pink {
-  background-color: #880364;
-  border-bottom: 5px solid #440031;
+.cdq-interests-quiz .overlay-bg {
+  background-color: #2671ca;
 }
 
-.cdq-quiz-green {
+.cdq-multiple-intelligences-quiz .overlay-bg {
   background-color: #216c06;
-  border-bottom: 5px solid #164c03;
+}
+
+.cdq-learning-styles-quiz .overlay-bg {
+  background-color: #007eb4;
+}
+
+.cdq-work-values-quiz .overlay-bg {
+  background-color: #880364;
+}
+
+.cdq-abilities-quiz .block-workbc-quiz-page-title {
+  background-color: #234075;
+  border-bottom: 9px solid #002855;
+}
+
+.cdq-interests-quiz .block-workbc-quiz-page-title {
+  background-color: #2671ca;
+  border-bottom: 9px solid #0e3e75;
+}
+
+.cdq-learning-styles-quiz .block-workbc-quiz-page-title {
+  background-color: #007eb4;
+  border-bottom: 9px solid #005f88;
+}
+
+.cdq-work-preferences-quiz .block-workbc-quiz-page-title {
+  background-color: #510b76;
+  border-bottom: 9px solid #310546;
+}
+
+.cdq-work-values-quiz .block-workbc-quiz-page-title {
+  background-color: #880364;
+  border-bottom: 9px solid #440031;
+}
+
+.cdq-multiple-intelligences-quiz .block-workbc-quiz-page-title {
+  background-color: #216c06;
+  border-bottom: 9px solid #164c03;
 }
 
 .node-questions {

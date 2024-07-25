@@ -31,6 +31,17 @@ function workbc_cdq_preprocess_page(&$variables) {
     // Disable cache on front page for the quiz links.
     $variables['page']['#cache']['max-age'] = 0;
   }
+
+  $quiz = getCurrentQuiz();
+  if ($quiz) {
+    $variables['attributes']['class'][] = "cdq-quiz";
+    $variables['attributes']['class'][] = "cdq-" . str_replace('_', '-', $quiz);
+    $variables['is_quiz'] = true;
+  }
+  else {
+    $variables['is_quiz'] = false;    
+  }
+
 }
 
 

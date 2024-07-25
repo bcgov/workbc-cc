@@ -82,7 +82,11 @@ set footer_classes = ' ' ~
 
 </header>
 
-<main role="main">
+{% if is_quiz %}
+  <main role="main" class="main-quiz-container">
+{% else %}
+  <main role="main">
+{% endif %}
   <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
   {%
@@ -98,11 +102,12 @@ set footer_classes = ' ' ~
    %}
 
 
-  <div class="{{ b5_top_container }}">
+  <div class="{{ b5_top_container }} {{ attributes.class }}">
     {% if page.breadcrumb %}
       {{ page.breadcrumb }}
     {% endif %}
-    <div class="row g-0">
+    <div class="overlay-bg"></div>
+    <div class="row g-0 cdq-content">
       {% if page.sidebar_first %}
         <div class="order-2 order-lg-1 {{ sidebar_first_classes }}">
           {{ page.sidebar_first }}

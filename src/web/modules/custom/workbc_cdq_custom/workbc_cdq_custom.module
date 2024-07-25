@@ -12,6 +12,15 @@ function quizzesList() {
   }, []);
 }
 
+function getCurrentQuiz() {
+
+  $path = \Drupal::service('path.current')->getPath();
+  $path = explode("/", $path);
+  if (isset($path[2]) && $path[1] == "webform" && array_key_exists($path[2], quizzesList())) {
+    $quiz = $path[2];
+  }
+  return isset($quiz) ? $quiz : false;
+}
 
 function getSubmissionOverrides($webform_id) {
   // Inject answers from URL query if found.
