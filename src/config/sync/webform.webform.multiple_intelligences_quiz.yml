@@ -14,6 +14,7 @@ third_party_settings:
     categories: multiple_intelligences_categorie
     time: '10 minutes'
     description: 'Discover your unique way of thinking and understanding.'
+    subtitle: '<p>Take this quiz to discover your unique way of thinking or “smarts.” Research shows that people have eight different types of intelligence, usually with strength in three or four.</p>'
 weight: 0
 open: null
 close: null

@@ -14,6 +14,7 @@ third_party_settings:
     categories: work_values_categories
     time: '10 minutes'
     description: 'Examine what values are important to you in your work environment.'
+    subtitle: '<p>Reflect on your work values. This quiz can help you find out your work style and motivations, your preferred work settings and how you like to interact with others. Rate statements below according to how important each one is to you.</p>'
 weight: 0
 open: null
 close: null

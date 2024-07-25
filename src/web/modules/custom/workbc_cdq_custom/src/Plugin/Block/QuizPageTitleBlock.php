@@ -25,9 +25,11 @@ class QuizPageTitleBlock extends BlockBase {
    */
   public function build() {
 
-    $id = "abilities_quiz";
-    $quiz = workbc_cdq_quiz_info($id);
-// ksm($quiz);
+    $path = \Drupal::service('path.current')->getPath();
+    $path = explode("/", $path);
+
+    $quiz = workbc_cdq_quiz_info($path[2]);
+
     $markup = "";
     $markup .= '<h2 class="cdq-quiz-title">' . $quiz['title'] . '</h2>';
     $markup .= '<div class="sub-title">';

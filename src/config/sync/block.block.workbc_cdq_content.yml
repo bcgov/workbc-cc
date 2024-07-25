@@ -11,7 +11,7 @@ _core:
 id: workbc_cdq_content
 theme: workbc_cdq
 region: content
-weight: -1
+weight: 0
 provider: null
 plugin: system_main_block
 settings:

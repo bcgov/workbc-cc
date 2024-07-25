@@ -14,6 +14,7 @@ third_party_settings:
     categories: abilities_categories
     time: '10 minutes'
     description: 'Assess your talents and discover occupations that match.'
+    subtitle: "<p><strong>See what careers match your abilities.</strong></p>\r\n<p>Everyone has tasks they find easier to perform. Identify your level of abilities below to discover your top aptitudes and find careers that match.</p>"
 weight: 0
 open: null
 close: null

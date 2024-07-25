@@ -14,6 +14,7 @@ third_party_settings:
     categories: work_preferences_categories
     time: '10 minutes'
     description: 'Identify how you like to work and find careers that align with your preferences.'
+    subtitle: '<p>Your interests and work preferences are important considerations when choosing a career. Answer the questions below to find careers you may enjoy.</p>'
 weight: 0
 open: null
 close: null
