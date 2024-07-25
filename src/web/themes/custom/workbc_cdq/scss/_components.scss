@@ -1276,12 +1276,10 @@
 }
 
 
-
 #block-workbc-cdq-workbcquizpagetitle {
-    background-color: $quiz-dark-blue;
+
     color: white;
     margin-top: 55px;
-    border-bottom: 5px solid $quiz-dark-blue-dark;
 
     h2 {
         text-align: left;
@@ -1300,6 +1298,37 @@
         color: white;
     }
 }
+
+
+.cdq-quiz-dark-blue {
+    background-color: $quiz-dark-blue;
+    border-bottom: 5px solid $quiz-dark-blue-dark;
+}
+
+.cdq-quiz-blue {
+    background-color: $quiz-blue;
+    border-bottom: 5px solid $quiz-blue-dark;
+}
+
+.cdq-quiz-light-blue {
+    background-color: $quiz-light-blue;
+    border-bottom: 5px solid $quiz-light-blue-dark;
+}
+
+.cdq-quiz-purple {
+    background-color: $quiz-purple;
+    border-bottom: 5px solid $quiz-purple-dark;
+}
+ 
+.cdq-quiz-pink {
+    background-color: $quiz-pink;
+    border-bottom: 5px solid $quiz-pink-dark;
+}
+
+.cdq-quiz-green {
+    background-color: $quiz-green;
+    border-bottom: 5px solid $quiz-green-dark;
+} 
 
 
 .node-questions {
