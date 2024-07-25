@@ -14,6 +14,12 @@ function quizzesList() {
 
 
 function getSubmissionOverrides($webform_id) {
+  // Inject answers from URL query if found.
+  $answers_override = \Drupal::request()->get('answers');
+  if (empty($answers_override)) {
+    return false;
+  }
+
   // Check whether current user has permission to override answers.
   if (!\Drupal::currentUser()->hasPermission('override quiz answers')) {
     \Drupal::messenger()->addError(t(
@@ -24,12 +30,6 @@ function getSubmissionOverrides($webform_id) {
 
   /** @var \Drupal\webform\WebformInterface $quiz */
   $quiz = \Drupal::entityTypeManager()->getStorage('webform')->load($webform_id);
-
-  // Inject answers from URL query if found.
-  $answers_override = \Drupal::request()->get('answers');
-  if (empty($answers_override)) {
-    return false;
-  }
 
   // Check override length;
   $questions = array_filter($quiz->getElementsInitializedAndFlattened(), function($question) {
