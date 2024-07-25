@@ -19,7 +19,7 @@
         "cweagans/composer-patches": "~1.7",
         "drupal/admin_toolbar": "3.4",
         "drupal/backup_migrate": "5.0.3",
-        "drupal/bootstrap5": "4.0",
+        "drupal/bootstrap5": "^4.0",
         "drupal/core-composer-scaffold": "^10.2",
         "drupal/core-project-message": "^10.2",
         "drupal/core-recommended": "^10.2",
