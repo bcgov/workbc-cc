@@ -15,6 +15,9 @@ third_party_settings:
     time: '10 minutes'
     description: 'Identify how you like to work and find careers that align with your preferences.'
     subtitle: '<p>Your interests and work preferences are important considerations when choosing a career. Answer the questions below to find careers you may enjoy.</p>'
+    results_subtitle: '<p>Based on your answers, here are your top work preferences and potential career matches.</p>'
+    top_text: 'Top Three Work Preferences'
+    all_text: 'All Work Preferences'
 weight: 0
 open: null
 close: null
@@ -421,7 +424,9 @@ settings:
   form_access_denied_message: ''
   form_access_denied_attributes: {  }
   form_file_limit: ''
-  form_attributes: {  }
+  form_attributes:
+    class:
+      - cdq-work-preferences-quiz
   form_method: ''
   form_action: ''
   share: false

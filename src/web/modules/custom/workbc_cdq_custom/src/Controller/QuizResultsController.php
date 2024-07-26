@@ -13,7 +13,8 @@ use Drupal\image\Entity\ImageStyle;
 class QuizResultsController extends ControllerBase {
 
   public function abilities_quiz_results() {
-    $submission = getUserSubmission('abilities_quiz');
+    $id = 'abilities_quiz';
+    $submission = getUserSubmission($id);
     if ($submission) {
       $info = [
         'General learning ability' => [
@@ -53,6 +54,10 @@ class QuizResultsController extends ControllerBase {
           'icon' => 'manual-dexterity',
         ],
       ];
+
+      $url = Url::fromRoute('entity.webform.canonical', ['webform' => $id, 'token' => $submission->getToken()]);
+      $quiz_link = $url->toString();
+
       $score = getSubmissionScore($submission);
       foreach ($score as $category_name => $category) {
         $score[$category_name]['description'] = $category['term']->description__value;
@@ -65,7 +70,8 @@ class QuizResultsController extends ControllerBase {
     }
     return [
       '#theme' => 'workbc_cdq_quiz_results_categories',
-      '#category' => $this->t('Aptitudes'),
+      '#category_top' => $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'top_text'),
+      '#category_all' => $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'all_text'),
       '#score' => $score,
       '#cache' => ['max-age' => 0],
     ];
@@ -106,9 +112,11 @@ class QuizResultsController extends ControllerBase {
     else {
       $score = NULL;
     }
+
     return [
       '#theme' => 'workbc_cdq_quiz_results_categories',
-      '#category' => $this->t('Work Preferences'),
+      '#category_top' => $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'top_text'),
+      '#category_all' => $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'all_text'),
       '#score' => $score,
       '#cache' => ['max-age' => 0],
     ];
@@ -155,7 +163,8 @@ class QuizResultsController extends ControllerBase {
     }
     return [
       '#theme' => 'workbc_cdq_quiz_results_categories',
-      '#category' => $this->t('Interests'),
+      '#category_top' => $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'top_text'),
+      '#category_all' => $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'all_text'),
       '#score' => $score,
       '#cache' => ['max-age' => 0],
     ];
@@ -212,7 +221,8 @@ class QuizResultsController extends ControllerBase {
     }
     return [
       '#theme' => 'workbc_cdq_quiz_results_categories',
-      '#category' => $this->t('Types of Smart'),
+      '#category_top' => $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'top_text'),
+      '#category_all' => $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'all_text'),
       '#score' => $score,
       '#cache' => ['max-age' => 0],
     ];
@@ -247,7 +257,8 @@ class QuizResultsController extends ControllerBase {
     }
     return [
       '#theme' => 'workbc_cdq_quiz_results_categories',
-      '#category' => $this->t('Learning Styles'),
+      '#category_top' => $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'top_text'),
+      '#category_all' => $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'all_text'),
       '#score' => $score,
       '#cache' => ['max-age' => 0],
     ];
@@ -296,7 +307,8 @@ class QuizResultsController extends ControllerBase {
     }
     return [
       '#theme' => 'workbc_cdq_quiz_results_work_values',
-      '#category' => $this->t('Work Values'),
+      '#category_top' => $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'top_text'),
+      '#category_all' => $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'all_text'),
       '#score' => $score,
       '#cache' => ['max-age' => 0],
     ];

@@ -30,15 +30,27 @@ class QuizPageTitleBlock extends BlockBase {
 
     $current_quiz = getCurrentQuiz();
     if ($current_quiz) {
-      $quiz = workbc_cdq_quiz_info($current_quiz);
+      $quiz = workbc_cdq_quiz_info($current_quiz['id']);
       $markup .= '<h2 class="cdq-quiz-title">' . $quiz['title'] . '</h2>';
-      $markup .= '<div class="sub-title">';
-      $markup .= $quiz['subtitle'];
-      $markup .= '</div>';
-      $markup .= '<div class="node-questions">';
-      $markup .= '<div class="quiz-questions"> <span></span>' . $quiz['count'] . ' questions</div>';
-      $markup .= '<div class="quiz-duration"> <span></span>' . $quiz['time'] .'</div>';
-      $markup .= '</div>';
+      if ($current_quiz['page'] == 'quiz') {
+        $markup .= '<div class="sub-title">';
+        if ($quiz['status'] <> "completed") {
+          $markup .= $quiz['subtitle'];
+        }
+        else {
+          $markup .= "You can modify your answers below.  When complete, click Submit on the last page.";
+        }
+        $markup .= '</div>';
+        $markup .= '<div class="node-questions">';
+        $markup .= '<div class="quiz-questions"> <span></span>' . $quiz['count'] . ' questions</div>';
+        $markup .= '<div class="quiz-duration"> <span></span>' . $quiz['time'] .'</div>';
+        $markup .= '</div>';
+      }
+      else if ($current_quiz['page'] == 'results') {
+        $markup .= '<div class="sub-title">';        
+        $markup .= $quiz['results_subtitle'];
+        $markup .= '</div>';
+      }
     }
 
     return array(

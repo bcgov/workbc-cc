@@ -15,6 +15,9 @@ third_party_settings:
     time: '10 minutes'
     description: 'Assess your talents and discover occupations that match.'
     subtitle: "<p><strong>See what careers match your abilities.</strong></p>\r\n<p>Everyone has tasks they find easier to perform. Identify your level of abilities below to discover your top aptitudes and find careers that match.</p>"
+    results_subtitle: '<p>Find out about your key aptitudes and see what types of job you are more likely to be good at based on your current skill set.</p>'
+    top_text: 'Top Aptitudes'
+    all_text: 'All Aptitudes'
 weight: 0
 open: null
 close: null
@@ -312,7 +315,7 @@ settings:
   page_submit_path: ''
   page_confirm_path: ''
   page_theme_name: ''
-  form_title: both
+  form_title: source_entity_webform
   form_submit_once: false
   form_open_message: ''
   form_close_message: ''
@@ -372,7 +375,7 @@ settings:
   wizard_progress_bar: true
   wizard_progress_pages: false
   wizard_progress_percentage: false
-  wizard_progress_link: false
+  wizard_progress_link: true
   wizard_progress_states: false
   wizard_start_label: ''
   wizard_preview_link: false

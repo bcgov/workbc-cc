@@ -33,16 +33,22 @@ function workbc_cdq_preprocess_page(&$variables) {
   }
 
   $quiz = getCurrentQuiz();
-  if ($quiz) {
-    $variables['attributes']['class'][] = "cdq-quiz";
-    $variables['attributes']['class'][] = "cdq-" . str_replace('_', '-', $quiz);
-    $variables['is_quiz'] = true;
-  }
-  else {
-    $variables['is_quiz'] = false;    
-  }
 
+  $variables['is_quiz'] = false;  
+  $variables['is_results'] = false;  
+  if ($quiz) {
+    $variables['attributes']['class'][] = "cdq-" . $quiz['page'];
+    $variables['attributes']['class'][] = "cdq-" . str_replace('_', '-', $quiz['id']);
+    if ($quiz['page'] == 'quiz') {
+      $variables['is_quiz'] = true;
+    }
+    else if ($quiz['page'] == 'results') {
+      $variables['is_results'] = true;
+      $variables['quiz'] = workbc_cdq_quiz_info($quiz['id']);
+    }
+  }
 }
+
 
 
 function workbc_cdq_quiz_info($id) {
@@ -81,7 +87,10 @@ function workbc_cdq_quiz_info($id) {
   $info['id'] = $id;
   $info['title'] = $webform->get('title');
   $info['subtitle'] = $webform->getThirdPartySetting('workbc_cdq_career_match', 'subtitle');
+  $info['results_subtitle'] = $webform->getThirdPartySetting('workbc_cdq_career_match', 'results_subtitle');
   $info['description'] = $webform->getThirdPartySetting('workbc_cdq_career_match', 'description');
+  $info['top_text'] = $webform->getThirdPartySetting('workbc_cdq_career_match', 'top_text');
+  $info['all_text'] = $webform->getThirdPartySetting('workbc_cdq_career_match', 'all_text');
   $info['time'] = $webform->getThirdPartySetting('workbc_cdq_career_match', 'time');
   $info['count'] = $count;
   $info['status'] = $status;

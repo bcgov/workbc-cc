@@ -82,7 +82,7 @@ set footer_classes = ' ' ~
 
 </header>
 
-{% if is_quiz %}
+{% if is_quiz or is_results %}
   <main role="main" class="main-quiz-container">
 {% else %}
   <main role="main">
@@ -115,6 +115,16 @@ set footer_classes = ' ' ~
       {% endif %}
       <div class="order-1 order-lg-2 {{ content_classes }}">
         {{ page.content }}
+
+        {% if is_results %}
+          <div class="careers-main-wrapper small-device-hide">
+            <div class="row bottom-links">
+              <a class="btn btn-modify" href="{{ quiz['quiz_link']}}" >Modify Your Answers</a>       
+              <a class="btn btn-prim" href="/" >Take Next Quiz</a>
+            </div>
+          </div>
+        {% endif %}
+
       </div>
       {% if page.sidebar_second %}
         <div class="order-3 {{ sidebar_second_classes }}">

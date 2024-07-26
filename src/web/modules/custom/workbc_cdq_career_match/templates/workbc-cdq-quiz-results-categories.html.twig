@@ -1,13 +1,12 @@
 {# quiz results - categories  #}
 
 <div class="quiz-category-results-wrapper">
-
   {% if score|length > 3 %}
     <div class="row">
   	  <div class="col-12">
   		  <div class="result-heading">
-  			  <h3 class="vaa">Top Three {{ category }}</h3>
-	        <h3 class="vaa1" style="display:none;">All {{ category }}</h3>
+  			  <h3 class="vaa">{{ category_top }}</h3>
+	        <h3 class="vaa1" style="display:none;">{{ category_all }}</h3>
 		    </div>
 	    </div>
     </div>

@@ -4,8 +4,8 @@
     <div class="row">
   	  <div class="col-12">
   		  <div class="result-heading">
-  			  <h3 class="vaa">Your Important {{ category }}</h3>
-	        <h3 class="vaa1" style="display:none;">Your Somewhat Important {{ category }}</h3>
+  			  <h3 class="vaa">{{ category_top }}</h3>
+	        <h3 class="vaa1" style="display:none;">{{ category_all }}</h3>
 		    </div>
 	    </div>
     </div>
@@ -30,7 +30,7 @@
 		          </div>
               <div class="item title-description _216C06">
                 <p><strong>Important Values:</strong></p>
-                <ul>
+                <ul style="color:#{{ values['color']}}">
                   {% for item in values['important'] %}
                     <li><p>{{ item }}</p></li>
                   {% endfor %}

@@ -19,7 +19,7 @@ function workbc_cdq_career_match_theme($existing, $type, $theme, $path) {
   return [
     'views_view_table__quiz_career_match' => [
       'template' => 'views/views-view-table--quiz_career_match',
-      'base hook' => 'view'
+      'base hook' => 'view',
     ],
     'views_view_field__quiz_career_match__selected' => [
       'template' => 'views/views-view-field--quiz_career_match--selected',
@@ -37,15 +37,19 @@ function workbc_cdq_career_match_theme($existing, $type, $theme, $path) {
       'template' => 'workbc-cdq-quiz-results-categories',
       'base hook' => 'page',
       'variables' => [
-        'category' => "",
+        'quiz_link' => '',
+        'category_top' => '',
+        'category_all' => '',
         'score' => NULL
       ]
     ],
     'workbc_cdq_quiz_results_work_values' => [
       'template' => 'workbc-cdq-quiz-results-work-values',
       'base hook' => 'page',
-      'variables' => [
-        'category' => "",
+      'variables' => [   
+        'quiz_link' => '',
+        'category_top' => '',
+        'category_all' => '',
         'score' => NULL
       ]
     ]
@@ -150,6 +154,30 @@ function workbc_cdq_career_match_webform_third_party_settings_form_alter(array &
     '#required' => true,
     '#default_value' => $webform->getThirdPartySetting('workbc_cdq_career_match', 'subtitle'),
   ];  
+
+  $form['third_party_settings']['workbc_cdq_career_match']['results_subtitle'] = [
+    '#type' => 'textarea',
+    '#title' => t('Quiz results page subtitle'),
+    '#description' => t('Short description for display on quiz results page.'),
+    '#required' => true,
+    '#default_value' => $webform->getThirdPartySetting('workbc_cdq_career_match', 'results_subtitle'),
+  ];    
+
+  $form['third_party_settings']['workbc_cdq_career_match']['top_text'] = [
+    '#type' => 'textfield',
+    '#title' => t('Quiz results top categories header'),
+    '#description' => t('Quiz results category header for top categories.'),
+    '#required' => false,
+    '#default_value' => $webform->getThirdPartySetting('workbc_cdq_career_match', 'top_text'),
+  ];
+
+  $form['third_party_settings']['workbc_cdq_career_match']['all_text'] = [
+    '#type' => 'textfield',
+    '#title' => t('Quiz results all categories header'),
+    '#description' => t('Quiz results category header for all categories.'),
+    '#required' => false,
+    '#default_value' => $webform->getThirdPartySetting('workbc_cdq_career_match', 'all_text'),
+  ];
 }
 
 /**

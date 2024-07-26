@@ -14,13 +14,30 @@ function quizzesList() {
 
 function getCurrentQuiz() {
 
+  $valid_paths = ['webform', 'quizzes'];
+
   $path = \Drupal::service('path.current')->getPath();
   $path = explode("/", $path);
-  if (isset($path[2]) && $path[1] == "webform" && array_key_exists($path[2], quizzesList())) {
-    $quiz = $path[2];
+  if (isset($path[1]) && $path[1] == "compare-careers") {
+    $submission = WebformSubmission::load($path[2]);
+    $quiz['id'] = $submission->getWebform()->id();
+    $quiz['page'] = "compare";
+  }
+  else if (isset($path[2])) {
+    $path[2] = str_replace('-', '_', $path[2]);
+    if (in_array($path[1], $valid_paths) && array_key_exists($path[2], quizzesList())) {
+      $quiz['id'] = $path[2];
+      if ($path[1] == 'webform') {
+        $quiz['page'] = 'quiz';
+      }
+      else {
+        $quiz['page'] = 'results';
+      }
+    }
   }
   return isset($quiz) ? $quiz : false;
 }
+
 
 function getSubmissionOverrides($webform_id) {
   // Inject answers from URL query if found.

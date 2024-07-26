@@ -15,6 +15,9 @@ third_party_settings:
     time: '5 minutes'
     description: 'Determine whether you learn better by seeing, listening or doing.'
     subtitle: '<p>This quiz is a good first step in exploring how you learn. It will help you figure out which of the three learning types you are most like: doer, listener or seer. Rate the statements indicating how often each would apply to you.</p>'
+    results_subtitle: '<p>Based on your answers, see which learning style you are most comfortable with.</p>'
+    top_text: ''
+    all_text: ''
 weight: 0
 open: null
 close: null

@@ -15,6 +15,9 @@ third_party_settings:
     time: '10 minutes'
     description: 'See where your interests are and narrow your focus to careers that fit.'
     subtitle: '<p>Take this quiz to help you better understand your interests and how they relate to potential careers. Quiz results will reveal your top interests: artistic, realistic, investigative, conventional, enterprising or social.</P>'
+    results_subtitle: '<p>Based on your answers, below is your Interest Profile and corresponding careers. The more a career meets your interests, the more likely it will be satisfying and rewarding to you.</p>'
+    top_text: 'Your Interest Profile'
+    all_text: 'All Interests'
 weight: 0
 open: null
 close: null
@@ -458,7 +461,7 @@ settings:
   page_submit_path: ''
   page_confirm_path: ''
   page_theme_name: ''
-  form_title: both
+  form_title: source_entity_webform
   form_submit_once: false
   form_open_message: ''
   form_close_message: ''
@@ -518,7 +521,7 @@ settings:
   wizard_progress_bar: true
   wizard_progress_pages: false
   wizard_progress_percentage: false
-  wizard_progress_link: false
+  wizard_progress_link: true
   wizard_progress_states: false
   wizard_start_label: ''
   wizard_preview_link: false
