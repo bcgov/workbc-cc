@@ -1,0 +1,44 @@
+<?php
+
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
+use Psr\Http\Message\ResponseInterface;
+
+/**
+ * Implements hook_cron.
+ *
+ * Fetch latest dates for datasets of interest.
+ * Compare latest date with local update date for each dataset.
+ * For each stale dataset, enqueue an SsotDownloader job.
+ */
+function workbc_cdq_ssot_cron() {
+  $dates = ssot(
+    'sources?' . http_build_query([
+      'select' => 'endpoint,date',
+      'endpoint' => 'in.("wages","education","career_provincial")'
+    ])
+  );
+}
+
+function ssot($endpoint, $method = 'GET', $options = [], $body = null): ResponseInterface | null
+{
+  $ssot = rtrim(\Drupal::config('workbc')->get('ssot_url'), '/');
+  $client = new Client();
+  try {
+    switch (strtolower($method)) {
+      case 'get':
+        $response = $client->get($ssot . '/' . $endpoint, $options);
+        break;
+      case 'post':
+      case 'patch':
+        $options['body'] = $body;
+        $response = $client->request($method, $ssot . '/' . $endpoint, $options);
+        break;
+    }
+    return $response;
+  }
+  catch (RequestException $e) {
+    \Drupal::logger('workbc')->error($e->getMessage());
+    return null;
+  }
+}
