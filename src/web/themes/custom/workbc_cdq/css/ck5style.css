@@ -13793,8 +13793,8 @@ a > .ck-content code {
 .ck-content .webform-button--submit:hover {
   background: rgb(0, 40, 85);
 }
-.ck-content .webform-button--previous,
-.ck-content .webform-button--draft {
+.ck-content .webform-button--previous {
+  margin-left: 0px;
   border: 2px solid #234075;
   border-radius: 0 !important;
   background: #fff;
@@ -13803,9 +13803,11 @@ a > .ck-content code {
   padding: 15px 4px;
   min-width: 170px;
 }
-.ck-content .webform-button--previous:hover,
-.ck-content .webform-button--draft:hover {
+.ck-content .webform-button--previous:hover {
   background: #e6eae9;
+}
+.ck-content .webform-button--draft {
+  display: none;
 }
 .ck-content .webform-submission-abilities-quiz-form .webform-button--next,
 .ck-content .webform-submission-abilities-quiz-form .webform-button--submit {

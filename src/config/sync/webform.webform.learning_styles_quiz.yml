@@ -7,8 +7,8 @@ dependencies:
     - workbc_cdq_career_match
 third_party_settings:
   webformautosave:
-    auto_save: false
-    auto_save_time: null
+    auto_save: true
+    auto_save_time: 5000
     optimistic_locking: false
   workbc_cdq_career_match:
     categories: learning_styles_categories
@@ -295,7 +295,7 @@ settings:
   preview_excluded_elements: {  }
   preview_exclude_empty: true
   preview_exclude_empty_checkbox: false
-  draft: none
+  draft: all
   draft_multiple: false
   draft_auto_save: false
   draft_saved_message: ''

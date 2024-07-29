@@ -29,7 +29,7 @@ function workbc_cdq_preprocess_page(&$variables) {
     $variables['personality_count'] = $personality_count;
 
     // Disable cache on front page for the quiz links.
-    $variables['page']['#cache']['max-age'] = 0;
+    $variables['#cache']['max-age'] = 0;
   }
 
   $quiz = getCurrentQuiz();

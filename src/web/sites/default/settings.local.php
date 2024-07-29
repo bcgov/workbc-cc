@@ -20,7 +20,7 @@ $databases['default']['default'] = array (
 /**
  * Control caching in the local development environment.
  */
-const LOCAL_CACHE_ACTIVE = FALSE;
+const LOCAL_CACHE_ACTIVE = TRUE;
 
 /**
  * Enable local development services.

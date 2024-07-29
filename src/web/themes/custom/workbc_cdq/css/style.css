@@ -14832,8 +14832,8 @@ a.quiz-link {
   background: rgb(0, 40, 85);
 }
 
-.webform-button--previous,
-.webform-button--draft {
+.webform-button--previous {
+  margin-left: 0px;
   border: 2px solid #234075;
   border-radius: 0 !important;
   background: #fff;
@@ -14842,9 +14842,12 @@ a.quiz-link {
   padding: 15px 4px;
   min-width: 170px;
 }
-.webform-button--previous:hover,
-.webform-button--draft:hover {
+.webform-button--previous:hover {
   background: #e6eae9;
+}
+
+.webform-button--draft {
+  display: none;
 }
 
 .webform-submission-abilities-quiz-form .webform-button--next,

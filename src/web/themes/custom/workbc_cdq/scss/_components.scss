@@ -1210,8 +1210,8 @@
     }
 } 
     
-.webform-button--previous,
-.webform-button--draft {
+.webform-button--previous {
+    margin-left: 0px;
     border: 2px solid #234075;
     border-radius: 0 !important;
     background: #fff;
@@ -1225,6 +1225,9 @@
     }
 }   
 
+.webform-button--draft {
+    display: none;
+}
 
 .webform-submission-abilities-quiz-form {
     .webform-button--next,
