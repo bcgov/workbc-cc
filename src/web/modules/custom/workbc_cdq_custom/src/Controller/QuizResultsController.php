@@ -8,6 +8,7 @@
 namespace Drupal\workbc_cdq_custom\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\Core\Url;
 use Drupal\image\Entity\ImageStyle;
 
 class QuizResultsController extends ControllerBase {
