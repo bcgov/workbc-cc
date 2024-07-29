@@ -1,0 +1,3 @@
+services:
+  workbc_cdq_ssot.queue_worker:
+    class: Drupal\workbc_cdq_ssot\Plugin\QueueWorker\SsotDownloader

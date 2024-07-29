@@ -857,6 +857,8 @@ $config['workbc']['onet'] = [
   'password' => getenv('ONET_PASSWORD')
 ];
 
+$config['workbc']['ssot_url'] = getenv('SSOT_URL');
+
 // Ensure it all works from the CLI too (i.e. drush)
 if (file_exists($app_root . '/' . $site_path . '/settings.openshift.php') && getenv('OPENSHIFT_BUILD_NAME') != '') {
   include $app_root . '/' . $site_path . '/settings.openshift.php';

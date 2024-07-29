@@ -34,6 +34,7 @@ module:
   path: 0
   path_alias: 0
   pgsql: 0
+  queue_ui: 0
   search: 0
   shortcut: 0
   structure_sync: 0
@@ -49,6 +50,7 @@ module:
   webformautosave: 0
   workbc_cdq_career_match: 0
   workbc_cdq_custom: 0
+  workbc_cdq_ssot: 0
   views: 10
   standard: 1000
 theme:
