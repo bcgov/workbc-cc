@@ -90,6 +90,85 @@ taxonomies:
       weight: '6'
       parent: '0'
       uuid: 6daac0a2-9329-44a2-bd2e-45758d47f5c0
+  education_level:
+    -
+      vid: education_level
+      tid: '4'
+      langcode: en
+      name: Management
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: b7f5b80a-140d-43f3-9aa6-a3bbe1067e3f
+      field_teer:
+        -
+          value: '0'
+    -
+      vid: education_level
+      tid: '6'
+      langcode: en
+      name: 'University Degree'
+      description__value: null
+      description__format: null
+      weight: '1'
+      parent: '0'
+      uuid: b86b315c-52b9-4212-9511-41bd6adf77bf
+      field_teer:
+        -
+          value: '1'
+    -
+      vid: education_level
+      tid: '1'
+      langcode: en
+      name: 'College Diploma or Apprenticeship, 2 or more years'
+      description__value: null
+      description__format: null
+      weight: '2'
+      parent: '0'
+      uuid: 74413b8d-4484-46c2-974f-499e674aca8b
+      field_teer:
+        -
+          value: '2'
+    -
+      vid: education_level
+      tid: '2'
+      langcode: en
+      name: 'College Diploma or Apprenticeship, less than 2 years'
+      description__value: null
+      description__format: null
+      weight: '3'
+      parent: '0'
+      uuid: 02b21311-71ae-4876-a6a2-1e94240e7d3d
+      field_teer:
+        -
+          value: '3'
+    -
+      vid: education_level
+      tid: '3'
+      langcode: en
+      name: 'High School Diploma'
+      description__value: null
+      description__format: null
+      weight: '4'
+      parent: '0'
+      uuid: b11da2ea-cbf4-4c6f-94ef-5f3efc075e43
+      field_teer:
+        -
+          value: '4'
+    -
+      vid: education_level
+      tid: '5'
+      langcode: en
+      name: 'No Formal Education'
+      description__value: null
+      description__format: null
+      weight: '5'
+      parent: '0'
+      uuid: acc97894-e663-4bf8-8722-6e8585b7c9b0
+      field_teer:
+        -
+          value: '5'
   interests_categories:
     -
       vid: interests_categories
