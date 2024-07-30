@@ -127,9 +127,11 @@ class SsotDownloader extends QueueWorkerBase implements ContainerFactoryPluginIn
     }
 
     // Update local date for dataset.
-    // $local_dates = $data['local_dates'];
-    // $local_dates[$data['endpoint']] = $data['ssot_date'];
-    // \Drupal::state()->set('workbc.ssot_dates', $local_dates);
+    $local_dates = $data['local_dates'];
+    foreach ($updated_datasets as $endpoint => $ssot_date) {
+      $local_dates[$endpoint] = $ssot_date;
+    }
+    \Drupal::state()->set('workbc.ssot_dates', $local_dates);
 
     Timer::stop('ssot_downloader');
     \Drupal::logger('workbc')->notice('Updated SSOT datasets in @time: @datasets', [

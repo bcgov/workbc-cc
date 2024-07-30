@@ -27,6 +27,7 @@ module:
   image: 0
   keycloak: 0
   link: 0
+  manage_state: 0
   menu_link_content: 0
   menu_ui: 0
   node: 0
