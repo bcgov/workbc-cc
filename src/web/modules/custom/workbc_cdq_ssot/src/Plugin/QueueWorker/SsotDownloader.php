@@ -126,7 +126,7 @@ class SsotDownloader extends QueueWorkerBase implements ContainerFactoryPluginIn
       $career->save();
     }
 
-    // Update local date for dataset.
+    // Update local date for updated datasets.
     $local_dates = $data['local_dates'];
     foreach ($updated_datasets as $endpoint => $ssot_date) {
       $local_dates[$endpoint] = $ssot_date;
