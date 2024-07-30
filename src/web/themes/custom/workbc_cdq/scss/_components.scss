@@ -416,6 +416,12 @@
     padding-top: 50px;
   }
 
+  .quiz-category-results-wrapper {
+    .result-heading {
+        padding-bottom: 40px;
+    }
+  }
+
   .careers-main-wrapper table {
 
     input[type=checkbox] {
@@ -868,6 +874,10 @@
 }
 
 #myResult {
+
+    margin-left: -11px;
+    margin-right: -11px;
+
     .row {
         padding-bottom: 30px;
     }
@@ -875,6 +885,7 @@
     .learning-styles-quiz & {
         margin-top: 20px;
     }
+
     .carousel-inner{
         &.carousel-inner-device{
             @media all and (max-width: 767.98px){
@@ -988,6 +999,11 @@
 
     .career-result {
         margin-top: 25px;
+    }
+
+    .itm {
+        padding-left: 10px;
+        padding-right: 10px;
     }
 
     .itm.hide {
@@ -1547,6 +1563,8 @@
 
 
 .view-cdq-compare-careers {
+    
+    position: relative;
 
     .view-header {
         padding-bottom: 25px;

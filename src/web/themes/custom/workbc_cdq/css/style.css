@@ -13273,6 +13273,10 @@ footer #block-footerbclogo p {
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 #front-page-hero {
   background-color: lightpink;
 }
@@ -14088,6 +14092,10 @@ a.quiz-link {
   padding-top: 50px;
 }
 
+.quiz-category-results-wrapper .result-heading {
+  padding-bottom: 40px;
+}
+
 .careers-main-wrapper table input[type=checkbox] {
   transform: scale(1.7);
   border-radius: 0px;
@@ -14471,6 +14479,10 @@ a.quiz-link {
   background: #fff;
 }
 
+#myResult {
+  margin-left: -11px;
+  margin-right: -11px;
+}
 #myResult .row {
   padding-bottom: 30px;
 }
@@ -14572,6 +14584,10 @@ a.quiz-link {
 }
 #myResult .career-result {
   margin-top: 25px;
+}
+#myResult .itm {
+  padding-left: 10px;
+  padding-right: 10px;
 }
 #myResult .itm.hide {
   display: none;
@@ -15097,6 +15113,9 @@ a.quiz-link {
   background: url(../src/icons/list-white.svg) no-repeat;
 }
 
+.view-cdq-compare-careers {
+  position: relative;
+}
 .view-cdq-compare-careers .view-header {
   padding-bottom: 25px;
 }

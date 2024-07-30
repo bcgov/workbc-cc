@@ -12277,6 +12277,9 @@ a > .ck-content code {
     text-align: left;
   }
 }
+.ck-content html {
+  scroll-behavior: smooth;
+}
 .ck-content #front-page-hero {
   background-color: lightpink;
 }
@@ -13072,6 +13075,9 @@ a > .ck-content code {
 .ck-content .quiz-work-values-wrapper {
   padding-top: 50px;
 }
+.ck-content .quiz-category-results-wrapper .result-heading {
+  padding-bottom: 40px;
+}
 .ck-content .careers-main-wrapper table input[type=checkbox] {
   transform: scale(1.7);
   border-radius: 0px;
@@ -13440,6 +13446,10 @@ a > .ck-content code {
 .ck-content .tools-resource-wrapper .slick-dots > li.slick-active > button {
   background: #fff;
 }
+.ck-content #myResult {
+  margin-left: -11px;
+  margin-right: -11px;
+}
 .ck-content #myResult .row {
   padding-bottom: 30px;
 }
@@ -13541,6 +13551,10 @@ a > .ck-content code {
 }
 .ck-content #myResult .career-result {
   margin-top: 25px;
+}
+.ck-content #myResult .itm {
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .ck-content #myResult .itm.hide {
   display: none;
@@ -14043,6 +14057,9 @@ a > .ck-content code {
   width: 34px;
   height: 25px;
   background: url(../src/icons/list-white.svg) no-repeat;
+}
+.ck-content .view-cdq-compare-careers {
+  position: relative;
 }
 .ck-content .view-cdq-compare-careers .view-header {
   padding-bottom: 25px;
