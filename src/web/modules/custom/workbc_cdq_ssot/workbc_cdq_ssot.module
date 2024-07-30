@@ -48,10 +48,11 @@ function workbc_cdq_ssot_cron() {
   $ssot_dates = json_decode($result->getBody());
 
   // Compare each local date with remote date, scheduling a download job if needed.
+  $datasets = [];
   foreach ($ssot_dates as $ssot_date) {
     $date1 = DateTimeImmutable::createFromFormat('Y/m/d', $ssot_date->date);
     if (!$date1) {
-      \Drupal::logger('workbc')->error('Error parsing date <strong>@date</strong> for SSOT dataset <strong>@dataset</strong>: @errors', [
+      \Drupal::logger('workbc')->error('Error parsing date @date for SSOT dataset @dataset: @errors', [
         '@date' => $ssot_date->date,
         '@dataset' => $ssot_date->endpoint,
         '@errors' => print_r(DateTimeImmutable::getLastErrors()),
@@ -60,23 +61,25 @@ function workbc_cdq_ssot_cron() {
     }
     $date2 = empty($local_dates[$ssot_date->endpoint]) ? false : DateTimeImmutable::createFromFormat('Y/m/d', $local_dates[$ssot_date->endpoint]);
     if (!$date2 || $date2 < $date1) {
-      \Drupal::logger('workbc')->notice('Found an update for SSOT dataset <strong>@dataset</strong>. Fetching.', [
+      \Drupal::logger('workbc')->notice('Found an update for SSOT dataset @dataset. Adding to download job.', [
         '@dataset' => $ssot_date->endpoint
       ]);
-      Drupal::queue('ssot_downloader')->createItem(array_merge(
-        [
-          'local_dates' => $local_dates,
-          'ssot_date' => $ssot_date->date,
-          'endpoint' => $ssot_date->endpoint,
-        ],
-        SSOT_DATASETS[$ssot_date->endpoint]
-      ));
+      $datasets[] = [
+        'endpoint' => $ssot_date->endpoint,
+        'ssot_date' => $ssot_date->date,
+      ];
     }
     else {
-      \Drupal::logger('workbc')->notice('No update for SSOT dataset <strong>@dataset</strong>.', [
+      \Drupal::logger('workbc')->notice('No update for SSOT dataset @dataset.', [
         '@dataset' => $ssot_date->endpoint
       ]);
     }
+  }
+  if (!empty($datasets)) {
+    Drupal::queue('ssot_downloader')->createItem([
+      'local_dates' => $local_dates,
+      'datasets' => $datasets,
+    ]);
   }
 }
 

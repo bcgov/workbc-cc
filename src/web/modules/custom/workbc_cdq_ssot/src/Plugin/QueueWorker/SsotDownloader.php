@@ -5,6 +5,7 @@ namespace Drupal\workbc_cdq_ssot\Plugin\QueueWorker;
 use Drupal\Core\Queue\QueueWorkerBase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
+use Drupal\Component\Utility\Timer;
 
 /**
  * SSOT data fetcher.
@@ -46,18 +47,12 @@ class SsotDownloader extends QueueWorkerBase implements ContainerFactoryPluginIn
    * Update the local dataset update date.
    */
   public function processItem($data) {
-    \Drupal::logger('workbc')->notice('Updating SSOT dataset <strong>@dataset</strong>...', [
-      '@dataset' => $data['endpoint'],
+    \Drupal::logger('workbc')->notice('Updating SSOT datasets: @datasets', [
+      '@datasets' => join(', ', array_map(function($dataset) {
+        return $dataset['endpoint'];
+      }, $data['datasets']))
     ]);
-
-    // Formulate SSOT query given dataset information.
-    $endpoint = $data['endpoint'] . '?' . http_build_query(array_merge(
-      ['select' => $data['fields']],
-      array_key_exists('filters', $data) ? $data['filters'] : [],
-      array_key_exists('order', $data) ? ['order' => $data['order']] : [],
-    ));
-    $result = ssot($endpoint);
-    if (!$result) return;
+    Timer::start('ssot_downloader');
 
     // Load all career profiles.
     $storage = \Drupal::service('entity_type.manager')->getStorage('node');
@@ -65,20 +60,50 @@ class SsotDownloader extends QueueWorkerBase implements ContainerFactoryPluginIn
       'type' => 'career_profile',
     ]);
 
-    // Index the dataset by NOC.
-    $dataset = array_reduce(json_decode($result->getBody(), true), function($dataset, $entry) use($data) {
-      $dataset[$entry[$data['noc_key']]] = $entry;
-      return $dataset;
-    }, []);
+    // Load all updated datasets.
+    $updated_datasets = [];
+    foreach ($data['datasets'] as &$dataset) {
+      $metadata = SSOT_DATASETS[$dataset['endpoint']];
 
-    // Call the dataset-specific update function.
-    $method = 'update_' . $data['endpoint'];
-    $this->$method($data['endpoint'], $dataset, $careers);
+      // Formulate SSOT query given dataset information.
+      $endpoint = $dataset['endpoint'] . '?' . http_build_query(array_merge(
+        ['select' => $metadata['fields']],
+        array_key_exists('filters', $metadata) ? $metadata['filters'] : [],
+        array_key_exists('order', $metadata) ? ['order' => $metadata['order']] : [],
+      ));
+      $result = ssot($endpoint);
+      if (!$result) {
+        \Drupal::logger('workbc')->warning('Error fetching SSOT dataset @dataset at @endpoint. Ignoring.', [
+          '@dataset' => $dataset['endpoint'],
+          '@endpoint' => $endpoint,
+        ]);
+        continue;
+      };
+
+      // SPECIAL CASE
+      // For career_provincial, delete the cached job openings range which may change now.
+      if ($dataset['endpoint'] === 'career_provincial') {
+        \Drupal::state()->delete('workbc.ssot_job_openings_range');
+      }
+
+      // Index the dataset by NOC.
+      $entries = array_reduce(json_decode($result->getBody(), true), function($entries, $entry) use($metadata) {
+        $entries[$entry[$metadata['noc_key']]] = $entry;
+        return $entries;
+      }, []);
+
+      // Call the dataset-specific update function.
+      $method = 'update_' . $dataset['endpoint'];
+      $this->$method($dataset['endpoint'], $entries, $careers);
+
+      // Indicate we have updated this dataset.
+      $updated_datasets[$dataset['endpoint']] = $dataset['ssot_date'];
+    }
 
     // Save the careers.
     foreach ($careers as $career) {
       $career->setNewRevision(true);
-      $career->setRevisionLogMessage('Updating SSOT dataset ' . $data['endpoint']);
+      $career->setRevisionLogMessage('Updating SSOT datasets: ' . join(', ', array_keys($updated_datasets)));
       $career->setRevisionCreationTime(time());
       $career->setRevisionUserId(1);
       $career->save();
@@ -89,8 +114,10 @@ class SsotDownloader extends QueueWorkerBase implements ContainerFactoryPluginIn
     // $local_dates[$data['endpoint']] = $data['ssot_date'];
     // \Drupal::state()->set('workbc.ssot_dates', $local_dates);
 
-    \Drupal::logger('workbc')->notice('Updated SSOT dataset <strong>@dataset</strong>...', [
-      '@dataset' => $data['endpoint'],
+    Timer::stop('ssot_downloader');
+    \Drupal::logger('workbc')->notice('Updated SSOT datasets in @time: @datasets', [
+      '@datasets' => join(', ', array_keys($updated_datasets)),
+      '@time' => Timer::read('ssot_downloader') . 'ms'
     ]);
   }
 
@@ -124,8 +151,6 @@ class SsotDownloader extends QueueWorkerBase implements ContainerFactoryPluginIn
   }
 
   private function update_career_provincial($endpoint, $dataset, &$careers) {
-    // Delete the cached job openings range which may change now.
-    \Drupal::state()->delete('workbc.ssot_job_openings_range');
   }
 
   private function update_career_trek($endpoint, $dataset, &$careers) {
