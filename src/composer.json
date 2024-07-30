@@ -18,14 +18,15 @@
         "composer/installers": "^2.0",
         "cweagans/composer-patches": "~1.7",
         "drupal/admin_toolbar": "3.4",
-        "drupal/backup_migrate": "5.0.3",
+        "drupal/backup_migrate": "^5.0",
         "drupal/bootstrap5": "^4.0",
-        "drupal/core-composer-scaffold": "^10.2",
-        "drupal/core-project-message": "^10.2",
-        "drupal/core-recommended": "^10.2",
+        "drupal/core-composer-scaffold": "~10.2.7",
+        "drupal/core-project-message": "~10.2.7",
+        "drupal/core-recommended": "~10.2.7",
         "drupal/devel": "5.1",
         "drupal/devel_kint_extras": "1.1",
         "drupal/entity_comparison": "4.0",
+        "drupal/keycloak": "^1.8",
         "drupal/queue_ui": "^3.1",
         "drupal/structure_sync": "^2.0",
         "drupal/svg_image": "^3.0",
@@ -119,6 +120,10 @@
             "drupal/core": "-p2"
         },
         "patches": {
+            "drupal/backup_migrate": {
+                "PostgreSQL support": "patches/drupal/backup_migrate/0003-postgresql-support.patch",
+                "Directory restore": "patches/drupal/backup_migrate/backup-migrate-restore-public-files-3245802-3.patch"
+            },
             "drupal/bootstrap5": {
                 "math.abs": "patches/drupal/bootstrap5/passing_percentage_units_to_the_global_abs_function_is_deprecated-3391813-015.patch"
             }
