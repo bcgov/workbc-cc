@@ -46,7 +46,7 @@ function workbc_cdq_career_match_theme($existing, $type, $theme, $path) {
     'workbc_cdq_quiz_results_work_values' => [
       'template' => 'workbc-cdq-quiz-results-work-values',
       'base hook' => 'page',
-      'variables' => [   
+      'variables' => [
         'quiz_link' => '',
         'category_top' => '',
         'category_all' => '',
@@ -68,8 +68,7 @@ function workbc_cdq_career_match_preprocess_views_view_table(&$variables) {
       $node = $result->_relationship_entities['nid'];
       $variables['rows'][$key]['raw'] = getCareerProfileInfo($node);
       $variables['submission_id'] = $variables['view']->args[0];
-      // TODO Replace with same config setting as current CDQ.
-      $variables['workbc_url'] = rtrim("https://devnoc.workbc.ca", "/");
+      $variables['workbc_url'] = \Drupal::config('workbc')->get('workbc_url');
     }
   }
 }
@@ -99,8 +98,7 @@ function workbc_cdq_career_match_preprocess_views_view_fields(&$variables) {
   $node = $variables['row']->_relationship_entities['nid'];
   $info = getCareerProfileInfo($node);
   $variables['raw'] = $info;
-  // TODO Replace with same config setting as current CDQ.
-  $variables['workbc_url'] = rtrim("https://devnoc.workbc.ca", "/");
+  $variables['workbc_url'] = \Drupal::config('workbc')->get('workbc_url');
 }
 
 /**
@@ -153,7 +151,7 @@ function workbc_cdq_career_match_webform_third_party_settings_form_alter(array &
     '#description' => t('Short description for display on quiz page.'),
     '#required' => true,
     '#default_value' => $webform->getThirdPartySetting('workbc_cdq_career_match', 'subtitle'),
-  ];  
+  ];
 
   $form['third_party_settings']['workbc_cdq_career_match']['results_subtitle'] = [
     '#type' => 'textarea',
@@ -161,7 +159,7 @@ function workbc_cdq_career_match_webform_third_party_settings_form_alter(array &
     '#description' => t('Short description for display on quiz results page.'),
     '#required' => true,
     '#default_value' => $webform->getThirdPartySetting('workbc_cdq_career_match', 'results_subtitle'),
-  ];    
+  ];
 
   $form['third_party_settings']['workbc_cdq_career_match']['top_text'] = [
     '#type' => 'textfield',
@@ -251,6 +249,21 @@ function getCareerProfileInfo(\Drupal\node\NodeInterface $node) {
     $image_url = $style->buildUrl($image_uri);
   }
 
+  // Get the job openings date range from the SSOT schema.
+  $job_openings_range = \Drupal::state()->get('workbc.ssot_job_openings_range', '');
+  if (empty($job_openings_range)) {
+    $result = ssot('');
+    if ($result) {
+      $schema = json_decode($result->getBody(), true);
+      $label = $schema['definitions']['career_provincial']['properties']['expected_job_openings_10y']['description'];
+      preg_match('#\{(.*?)\}#', $label, $matches);
+      if (!empty($matches)) {
+        $job_openings_range = $matches[1];
+        \Drupal::state()->set('workbc.ssot_job_openings_range', $job_openings_range);
+      }
+    }
+  }
+
   $term = $node->field_education_level->referencedEntities();
   $info = array(
     'title' => $node->title->value . " (NOC " . $node->field_noc->value . ")",
@@ -261,7 +274,7 @@ function getCareerProfileInfo(\Drupal\node\NodeInterface $node) {
     'annual_salary' => $node->field_annual_salary->value,
     'education_level' => $term[0]->getName(),
     'job_openings' => $node->field_job_openings->value,
-    'job_openings_range' => '(1995 - 2005)',
+    'job_openings_range' => $job_openings_range,
   );
 
   return $info;

@@ -33,9 +33,8 @@ function workbc_cdq_preprocess_page(&$variables) {
   }
 
   $quiz = getCurrentQuiz();
-
-  $variables['is_quiz'] = false;  
-  $variables['is_results'] = false;  
+  $variables['is_quiz'] = false;
+  $variables['is_results'] = false;
   if ($quiz) {
     $variables['attributes']['class'][] = "cdq-" . $quiz['page'];
     $variables['attributes']['class'][] = "cdq-" . str_replace('_', '-', $quiz['id']);
