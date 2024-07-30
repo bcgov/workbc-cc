@@ -1,0 +1,5 @@
+workbc_cdq_custom.report_environment:
+  title: 'WorkBC environment'
+  parent: system.admin_reports
+  route_name: workbc_cdq_custom.report_environment
+  description: 'Report of system environment.'
