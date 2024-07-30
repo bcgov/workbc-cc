@@ -18,6 +18,8 @@ use Drupal\Component\Utility\Timer;
  */
 class SsotDownloader extends QueueWorkerBase implements ContainerFactoryPluginInterface {
 
+  private Array $levels;
+
   /**
   * Main constructor.
   *
@@ -92,16 +94,31 @@ class SsotDownloader extends QueueWorkerBase implements ContainerFactoryPluginIn
         return $entries;
       }, []);
 
-      // Call the dataset-specific update function.
+      // update each career with the dataset-specific update function.
       $method = 'update_' . $dataset['endpoint'];
-      $this->$method($dataset['endpoint'], $entries, $careers);
+      $missing_nocs = [];
+      foreach ($careers as &$career) {
+        $noc = $career->get('field_noc')->value;
+        if (!array_key_exists($noc, $entries)) {
+          $missing_nocs[] = $noc;
+          continue;
+        }
+        $entry = $entries[$noc];
+        $this->$method($dataset['endpoint'], $entry, $career);
+      }
+      if (!empty($missing_nocs)) {
+        \Drupal::logger('workbc')->warning('Could not find the following NOCs in dataset @dataset: @nocs', [
+          '@nocs' => join(', ', $missing_nocs),
+          '@dataset' => $dataset['endpoint'],
+        ]);
+      }
 
       // Indicate we have updated this dataset.
       $updated_datasets[$dataset['endpoint']] = $dataset['ssot_date'];
     }
 
     // Save the careers.
-    foreach ($careers as $career) {
+    foreach ($careers as &$career) {
       $career->setNewRevision(true);
       $career->setRevisionLogMessage('Updating SSOT datasets: ' . join(', ', array_keys($updated_datasets)));
       $career->setRevisionCreationTime(time());
@@ -121,38 +138,32 @@ class SsotDownloader extends QueueWorkerBase implements ContainerFactoryPluginIn
     ]);
   }
 
-  private function update_nocs($endpoint, $dataset, &$careers) {
-    $levels = array_reduce(\Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadByProperties(['vid' => 'education_level']), function($levels, $level) {
-      $levels[strval($level->field_teer->value)] = $level->id();
-      return $levels;
-    }, []);
-    foreach ($careers as &$career) {
-      $noc = $career->get('field_noc')->value;
-      if (!array_key_exists($noc, $dataset)) {
-        \Drupal::logger('workbc')->warning('Could not find NOC @noc in dataset @dataset. Ignoring.', [
-          '@noc' => $noc,
-          '@dataset' => $endpoint,
-        ]);
-        continue;
-      }
-      $entry = $dataset[$noc];
-      $career->setTitle($entry['label_en']);
-      $career->set('body', [
-        'value' => $entry['definition_en'],
-        'format' => 'plain_text',
-      ]);
-      $career->set('field_education_level', [
-        ['target_id' => $levels[strval($entry['teer_level'])]]
-      ]);
+  private function update_nocs($endpoint, $entry, &$career) {
+    if (empty($this->levels)) {
+      $this->levels = array_reduce(\Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadByProperties(['vid' => 'education_level']), function($levels, $level) {
+        $levels[strval($level->field_teer->value)] = $level->id();
+        return $levels;
+      }, []);
     }
+    $career->setTitle($entry['label_en']);
+    $career->set('body', [
+      'value' => $entry['definition_en'],
+      'format' => 'plain_text',
+    ]);
+    $career->set('field_education_level', [
+      ['target_id' => $this->levels[strval($entry['teer_level'])]]
+    ]);
   }
 
-  private function update_wages($endpoint, $dataset, &$careers) {
+  private function update_wages($endpoint, $entry, &$career) {
+    $career->set('field_annual_salary', $entry['calculated_median_annual_salary']);
   }
 
-  private function update_career_provincial($endpoint, $dataset, &$careers) {
+  private function update_career_provincial($endpoint, $entry, &$career) {
+    $career->set('field_job_openings', $entry['expected_job_openings_10y']);
   }
 
-  private function update_career_trek($endpoint, $dataset, &$careers) {
+  private function update_career_trek($endpoint, $entry, &$career) {
+    $career->set('field_video_id', str_replace('https://youtu.be/', '', $entry['youtube_link']));
   }
 }

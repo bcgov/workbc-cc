@@ -271,9 +271,9 @@ function getCareerProfileInfo(\Drupal\node\NodeInterface $node) {
     'job_summary' => substr(strip_tags($node->body->value), 0, 400),
     'video_id' => $node->field_video_id->value,
     'image' => $image_url,
-    'annual_salary' => $node->field_annual_salary->value,
+    'annual_salary' => $node->field_annual_salary->value ?? 'Not available',
     'education_level' => $term[0]->getName(),
-    'job_openings' => $node->field_job_openings->value,
+    'job_openings' => $node->field_job_openings->value ?? 'Not available',
     'job_openings_range' => $job_openings_range,
   );
 
