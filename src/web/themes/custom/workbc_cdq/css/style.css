@@ -14068,10 +14068,6 @@ a.quiz-link {
   margin-right: 10px;
 }
 
-.view-cdq-compare-careers .view-header {
-  padding-bottom: 25px;
-}
-
 .views-view-responsive-grid--horizontal {
   --views-responsive-grid--layout-gap: 20px !important;
 }
@@ -15099,6 +15095,20 @@ a.quiz-link {
   width: 34px;
   height: 25px;
   background: url(../src/icons/list-white.svg) no-repeat;
+}
+
+.view-cdq-compare-careers .view-header {
+  padding-bottom: 25px;
+}
+.view-cdq-compare-careers .bottom-btn {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 15px;
+}
+.view-cdq-compare-careers .btn-career-profile,
+.view-cdq-compare-careers .btn-find-job {
+  width: 155px !important;
+  height: 51px !important;
 }
 
 /*# sourceMappingURL=style.css.map */

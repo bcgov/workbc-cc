@@ -395,10 +395,6 @@
     }
   }
   
-  .view-cdq-compare-careers .view-header {
-    padding-bottom: 25px;
-  }
-
   .views-view-responsive-grid--horizontal {
     --views-responsive-grid--layout-gap: 20px !important;
   }
@@ -1422,6 +1418,11 @@
     }
 }
 
+// .cdq-quiz {
+//     #block-workbc-cdq-content {
+//         margin-top: 75px;
+//     }
+// }
 
 .cdq-content {
     .cdq-abilities-quiz & {
@@ -1543,3 +1544,23 @@
         }
     }
 }
+
+
+.view-cdq-compare-careers {
+
+    .view-header {
+        padding-bottom: 25px;
+    }
+
+    .bottom-btn {
+        position: absolute;
+        bottom: 0;
+        margin-bottom: 15px;
+    }
+
+    .btn-career-profile,
+    .btn-find-job {
+        width: 155px !important;
+        height: 51px !important;
+    }
+  }

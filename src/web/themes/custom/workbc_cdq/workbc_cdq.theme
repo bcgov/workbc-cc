@@ -124,13 +124,17 @@ function workbc_cdq_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $for
   if ($form_id == "webform_submission_work_preferences_quiz_edit_form") {
     // ksm($form_id);
     // ksm($form);
-    // $form['progress']['#weight'] = 1;
-    // $form['actions']['wizard_next']['#weight'] = 5;
-    // $form['actions']['wizard_prev']['#weight'] = 5;
 
     // unset($form['progress']['#weight']);
     // $progress = $form['progress'];
+    // unset($form['progress']);
+
+    // $actions = $form['elements']['actions'];
+    // unset($form['elements']['actions']);
+
     // $form['elements']['progress'] = $progress;
+    // $form['elements']['actions'] = $actions;
+    
     // ksm($form);
   }
 }

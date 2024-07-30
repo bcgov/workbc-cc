@@ -6,14 +6,12 @@ dependencies:
     - field.field.node.career_profile.body
     - field.field.node.career_profile.field_annual_salary
     - field.field.node.career_profile.field_education_level
-    - field.field.node.career_profile.field_image
     - field.field.node.career_profile.field_job_openings
     - field.field.node.career_profile.field_noc
     - field.field.node.career_profile.field_noc_2016
     - field.field.node.career_profile.field_video_id
     - node.type.career_profile
   module:
-    - image
     - text
     - user
 id: node.career_profile.default
@@ -46,17 +44,6 @@ content:
       link: true
     third_party_settings: {  }
     weight: 5
-    region: content
-  field_image:
-    type: image
-    label: above
-    settings:
-      image_link: ''
-      image_style: ''
-      image_loading:
-        attribute: lazy
-    third_party_settings: {  }
-    weight: 7
     region: content
   field_job_openings:
     type: number_integer
