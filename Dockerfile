@@ -1,4 +1,4 @@
-FROM wdst-ocp-drupal-base:1.0
+FROM 075458558257.dkr.ecr.ca-central-1.amazonaws.com/drupal-base:6.0
 
 ARG TIMEOUT
 ARG MAX_CHILDREN
@@ -6,7 +6,7 @@ ARG START_SERVERS
 ARG MIN_SPARE
 ARG MAX_SPARE
 ARG SPAWN_RATE
-RUN sed -i '/;slowlog/c\slowlog = /var/log/slow.log' /usr/local/etc/php-fpm.d/www.conf
+#RUN sed -i '/;slowlog/c\slowlog = /var/log/slow.log' /usr/local/etc/php-fpm.d/www.conf
 RUN sed -i "/;request_slowlog_timeout/c\request_slowlog_timeout = $TIMEOUT" /usr/local/etc/php-fpm.d/www.conf
 RUN sed -i "/pm.max_children = 5/c\pm.max_children = $MAX_CHILDREN" /usr/local/etc/php-fpm.d/www.conf
 RUN sed -i "/pm.start_servers = 2/c\pm.start_servers = $START_SERVERS" /usr/local/etc/php-fpm.d/www.conf
