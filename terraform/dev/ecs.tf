@@ -206,7 +206,7 @@ resource "aws_ecs_task_definition" "app" {
 		networkMode = "awsvpc"
 
 		entryPoint = ["sh", "-c"]
-		command = ["drush cr; drush updb -y; drush cr; drush cim -y;"]
+		command = ["drush cr; drush updb -y; drush cim -y; drush deploy:hook -y; drush cr;"]
 		environment = [
 			{
 				name = "POSTGRES_PORT",
