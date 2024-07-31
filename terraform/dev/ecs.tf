@@ -109,6 +109,10 @@ resource "aws_ecs_task_definition" "app" {
 			{
 				name = "PROJECT_ENVIRONMENT",
 				value = "aws-dev"
+			},
+			{
+				name = "SSOT_URL",
+				value = "https://workbc-ssot.b89n0c-dev.nimbus.cloud.gov.bc.ca"
 			}
 
 
@@ -121,6 +125,14 @@ resource "aws_ecs_task_definition" "app" {
 			{
 				name = "POSTGRES_PASSWORD",
 				valueFrom = "${data.aws_secretsmanager_secret_version.creds.arn}:password::"
+			},
+			{
+				name = "ONET_USERNAME",
+				valueFrom = "${data.aws_secretsmanager_secret_version.creds.arn}:onet_username::"
+			},
+			{
+				name = "ONET_PASSWORD",
+				valueFrom = "${data.aws_secretsmanager_secret_version.creds.arn}:onet_password::"
 			}
 		]
 
