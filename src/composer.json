@@ -20,6 +20,7 @@
         "drupal/admin_toolbar": "3.4",
         "drupal/backup_migrate": "^5.0",
         "drupal/bootstrap5": "^4.0",
+        "drupal/config_ignore": "^3.3",
         "drupal/core-composer-scaffold": "~10.2.7",
         "drupal/core-project-message": "~10.2.7",
         "drupal/core-recommended": "~10.2.7",

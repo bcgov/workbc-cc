@@ -13,6 +13,7 @@ module:
   ckeditor5: 0
   comment: 0
   config: 0
+  config_ignore: 0
   contact: 0
   contextual: 0
   datetime: 0
@@ -27,7 +28,6 @@ module:
   image: 0
   keycloak: 0
   link: 0
-  manage_state: 0
   menu_link_content: 0
   menu_ui: 0
   node: 0

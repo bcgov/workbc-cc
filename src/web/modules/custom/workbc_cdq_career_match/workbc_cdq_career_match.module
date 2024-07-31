@@ -384,7 +384,7 @@ function matchAbilitiesCareers($submission, $score) {
   array_walk($abilities_weights, function(&$row) use($score, $mapCategories) {
     $total = 0;
     foreach ($mapCategories as $column => $category) {
-      $adjusted_weight = abs($score[$category]['normalized'] - (6 - $row[$column]));
+      $adjusted_weight = abs($score[$category]['normalized'] - (6 - intval($row[$column])));
       $row[$column] = $adjusted_weight;
       $total += $adjusted_weight;
     }
