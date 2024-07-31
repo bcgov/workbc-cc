@@ -24,7 +24,7 @@ Career Discovery Quizzes, a subsite of [WorkBC.ca](https://www.workbc.ca).
 
 # Updating local dev environment from a deployment stage
 You may want to get the latest data from a deployment stage (DEV, TEST or PROD). In that case, follow these steps:
-- Take a full database dump: `docker-compose exec -T postgres pg_dump --clean --username workbc workbc-cc-refactor | gzip > workbc-cc.sql.gz`
+- Take a full database dump: `docker-compose exec -T postgres pg_dump --clean --username workbc workbc-cc-refactor | gzip > src/scripts/workbc-cc.sql.gz`
 - Reset your database `docker-compose exec -T postgres psql -U workbc workbc-cc-refactor < src/scripts/workbc-cc.reset.sql`
 - Download a fresh dump from your desired stage via Backup/Migrate module at `https://careerdiscoveryquizzes-<STAGE>.workbc.ca/admin/config/development/backup_migrate` and select Backup Source **Default Drupal Database**
 - Restore the fresh dump on your local at http://workbc.docker.localhost:8000/admin/config/development/backup_migrate/restore
