@@ -11877,6 +11877,7 @@ a > .ck-content code {
   overflow-x: hidden;
   font-family: "BC Sans Regular";
   font-weight: 400;
+  scroll-behavior: smooth;
 }
 .ck-content body.overlayBg {
   overflow: hidden;
@@ -12048,7 +12049,7 @@ a > .ck-content code {
   height: 22px;
 }
 .ck-content html {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth !important;
 }
 .ck-content header {
   padding: 35px 0;
@@ -12276,9 +12277,6 @@ a > .ck-content code {
   .ck-content footer #block-footerbclogo p {
     text-align: left;
   }
-}
-.ck-content html {
-  scroll-behavior: smooth;
 }
 .ck-content #front-page-hero {
   background-color: lightpink;
@@ -13077,6 +13075,59 @@ a > .ck-content code {
 }
 .ck-content .quiz-category-results-wrapper .result-heading {
   padding-bottom: 40px;
+}
+.ck-content .quiz-category-results-wrapper .career-top-right {
+  display: flex;
+  justify-content: flex-end;
+}
+.ck-content .quiz-category-results-wrapper .career-top-right ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+@media all and (max-width: 767.98px) {
+  .ck-content .quiz-category-results-wrapper .career-top-right ul {
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    margin: 0;
+    padding: 8px 0 3px;
+  }
+  .ck-content .quiz-category-results-wrapper .career-top-right ul .icon {
+    width: 28px;
+    height: 25px;
+  }
+  .ck-content .quiz-category-results-wrapper .career-top-right ul .icon.icon-message {
+    height: 19px;
+  }
+}
+.ck-content .quiz-category-results-wrapper .career-top-right ul li {
+  display: inline;
+  cursor: pointer;
+}
+.ck-content .quiz-category-results-wrapper .career-top-right ul li > a {
+  display: inline-block;
+  font-size: 2.5rem;
+}
+.ck-content .quiz-category-results-wrapper .career-top-right ul li.quiz-node-print {
+  margin-right: 30px;
+}
+@media all and (max-width: 767.98px) {
+  .ck-content .quiz-category-results-wrapper .career-top-right ul li.quiz-node-print {
+    margin-right: 15px;
+  }
+}
+.ck-content .quiz-category-results-wrapper .career-top-right ul li span.icon.icon-message {
+  mask-repeat: no-repeat;
+  mask-size: contain;
+}
+.ck-content .quiz-category-results-wrapper .career-top-right ul li span.icon.icon-print {
+  mask-size: contain;
+  mask-repeat: no-repeat;
+}
+.ck-content .quiz-category-results-wrapper .career-top-right ul li span.icon:hover {
+  background: #9b9b9b;
 }
 .ck-content .careers-main-wrapper table input[type=checkbox] {
   transform: scale(1.7);

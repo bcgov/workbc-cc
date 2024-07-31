@@ -11,6 +11,8 @@ use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Url;
 use Drupal\image\Entity\ImageStyle;
 
+define ("NEW_LINE", "%0D%0A");
+
 class QuizResultsController extends ControllerBase {
 
   public function abilities_quiz_results() {
@@ -118,6 +120,8 @@ class QuizResultsController extends ControllerBase {
       '#theme' => 'workbc_cdq_quiz_results_categories',
       '#category_top' => $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'top_text'),
       '#category_all' => $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'all_text'),
+      '#email_subject' => "WorkBC's Career Discovery Quizzes - Work Preferences Quiz results",
+      '#email_body' => $this->results_email_body($submission),
       '#score' => $score,
       '#cache' => ['max-age' => 0],
     ];
@@ -313,5 +317,25 @@ class QuizResultsController extends ControllerBase {
       '#score' => $score,
       '#cache' => ['max-age' => 0],
     ];
+  }
+
+
+  function results_email_body($submission) {
+
+
+
+    $results_link = "<da link>";
+    $body = "View your Work Preferences Quiz results:" . $results_link;
+    $body .= NEW_LINE;
+    $body .= "Your result are available for next 14 days. print or download to save your results.";
+    $body .= NEW_LINE. NEW_LINE;
+    $body .= "Discover more! Complete other career and personality quizzes and find a career path that's right for you.";
+    $body .= "Career Discovery Quizzes: https://careerdiscoveryquizzes-dev.workbc.ca/";
+    $body .= "Find more resources on careers, funding, education and finding jobs at WorkBC.ca.";
+
+    ksm($body);
+    // $body = htmlspecialchars($body);
+    ksm($body);
+    return $body;
   }
 }

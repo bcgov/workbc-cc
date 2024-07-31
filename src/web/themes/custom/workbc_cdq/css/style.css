@@ -12849,6 +12849,7 @@ body {
   overflow-x: hidden;
   font-family: "BC Sans Regular";
   font-weight: 400;
+  scroll-behavior: smooth;
 }
 body.overlayBg {
   overflow: hidden;
@@ -13040,7 +13041,7 @@ input:focus-visible, .btn:focus-visible, button.link:focus-visible, .button:focu
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth !important;
 }
 
 header {
@@ -13271,10 +13272,6 @@ footer #block-footerbclogo p {
   footer #block-footerbclogo p {
     text-align: left;
   }
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 #front-page-hero {
@@ -14094,6 +14091,59 @@ a.quiz-link {
 
 .quiz-category-results-wrapper .result-heading {
   padding-bottom: 40px;
+}
+.quiz-category-results-wrapper .career-top-right {
+  display: flex;
+  justify-content: flex-end;
+}
+.quiz-category-results-wrapper .career-top-right ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+@media all and (max-width: 767.98px) {
+  .quiz-category-results-wrapper .career-top-right ul {
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    margin: 0;
+    padding: 8px 0 3px;
+  }
+  .quiz-category-results-wrapper .career-top-right ul .icon {
+    width: 28px;
+    height: 25px;
+  }
+  .quiz-category-results-wrapper .career-top-right ul .icon.icon-message {
+    height: 19px;
+  }
+}
+.quiz-category-results-wrapper .career-top-right ul li {
+  display: inline;
+  cursor: pointer;
+}
+.quiz-category-results-wrapper .career-top-right ul li > a {
+  display: inline-block;
+  font-size: 2.5rem;
+}
+.quiz-category-results-wrapper .career-top-right ul li.quiz-node-print {
+  margin-right: 30px;
+}
+@media all and (max-width: 767.98px) {
+  .quiz-category-results-wrapper .career-top-right ul li.quiz-node-print {
+    margin-right: 15px;
+  }
+}
+.quiz-category-results-wrapper .career-top-right ul li span.icon.icon-message {
+  mask-repeat: no-repeat;
+  mask-size: contain;
+}
+.quiz-category-results-wrapper .career-top-right ul li span.icon.icon-print {
+  mask-size: contain;
+  mask-repeat: no-repeat;
+}
+.quiz-category-results-wrapper .career-top-right ul li span.icon:hover {
+  background: #9b9b9b;
 }
 
 .careers-main-wrapper table input[type=checkbox] {

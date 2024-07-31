@@ -105,6 +105,7 @@ body {
     overflow-x: hidden;
     font-family:'BC Sans Regular';
     font-weight: 400;
+    scroll-behavior: smooth;
     &.overlayBg{
         overflow: hidden;
         &::before{
@@ -288,5 +289,5 @@ input:focus-visible, .btn:focus-visible {
 }
 
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth !important;
 }
