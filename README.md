@@ -31,6 +31,11 @@ You may want to get the latest data from a deployment stage (DEV, TEST or PROD).
 - Repeat the above two steps for Backup Source **Public Files Directory** in case you also need the latest files
 - Run the sync script: `docker-compose exec php scripts/sync.sh`
 
+# Compiling Theme
+In order to compile the theme (workbc_cdq) you must:
+- Install SASS (https://sass-lang.com/install)
+- run `sass scss/style.scss css/style.css && sass scss/ck5style.scss css/ck5style.css` (or `sass scss/style.scss css/style.css; sass scss/ck5style.scss css/ck5style.css` in Windows Powershell) in the theme folder `/src/web/themes/custom/workbc_cdq`
+
 # Debugging and troubleshooting
 
 ## Xdebug on VS Code
