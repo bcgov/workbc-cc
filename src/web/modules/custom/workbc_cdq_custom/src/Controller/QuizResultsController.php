@@ -322,20 +322,27 @@ class QuizResultsController extends ControllerBase {
 
   function results_email_body($submission) {
 
+    $id = $submission->getWebform()->id();
 
+    $options = [
+      'absolute' => TRUE,
+      'https' => TRUE,
+    ];
+    $home_link = Url::fromRoute('<front>', [], $options)->toString();
 
-    $results_link = "<da link>";
-    $body = "View your Work Preferences Quiz results:" . $results_link;
-    $body .= NEW_LINE;
+    $options['query'] = ['token' => $submission->getToken()];
+    $results_link = Url::fromUri('route:workbc_cdq_custom.' . $id . '_results', $options)->toString();
+
+    $body = "View your Work Preferences Quiz results: " . $results_link;
+    $body .= NEW_LINE . NEW_LINE;
     $body .= "Your result are available for next 14 days. print or download to save your results.";
-    $body .= NEW_LINE. NEW_LINE;
+    $body .= NEW_LINE . NEW_LINE;
     $body .= "Discover more! Complete other career and personality quizzes and find a career path that's right for you.";
-    $body .= "Career Discovery Quizzes: https://careerdiscoveryquizzes-dev.workbc.ca/";
-    $body .= "Find more resources on careers, funding, education and finding jobs at WorkBC.ca.";
+    $body .= NEW_LINE . NEW_LINE;    
+    $body .= "Career Discovery Quizzes: " . $home_link;
+    $body .= NEW_LINE . NEW_LINE;    
+    $body .= "Find more resources on careers, funding, education and finding jobs at https://WorkBC.ca.";
 
-    ksm($body);
-    // $body = htmlspecialchars($body);
-    ksm($body);
     return $body;
   }
 }
