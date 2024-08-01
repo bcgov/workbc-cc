@@ -345,4 +345,26 @@ class QuizResultsController extends ControllerBase {
 
     return $body;
   }
+
+  
+  function compare_email_body($submission) {
+
+    $id = $submission->getWebform()->id();
+
+    $options = [
+      'absolute' => TRUE,
+      'https' => TRUE,
+    ];
+    $home_link = Url::fromRoute('<front>', [], $options)->toString();
+
+    $options['query'] = ['token' => $submission->getToken()];
+    $compare_link = Url::fromUri('route:workbc_cdq_custom.' . $id . '_results', $options)->toString();
+
+    $body = "View your compared careers: " . $compare_link;
+    $body .= NEW_LINE . NEW_LINE;
+    $body .= "WorkBC's Career Discovery Quizzes help you learn more about your preferences and discover careers that suit you.";
+
+    return $body;
+  }
+
 }

@@ -52,6 +52,8 @@ function workbc_cdq_career_match_theme($existing, $type, $theme, $path) {
         'quiz_link' => '',
         'category_top' => '',
         'category_all' => '',
+        'email_subject' => '',
+        'email_body' => '',        
         'score' => NULL
       ]
     ]
