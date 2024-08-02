@@ -11,8 +11,6 @@ use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Url;
 use Drupal\image\Entity\ImageStyle;
 
-define ("NEW_LINE", "%0D%0A");
-
 class QuizResultsController extends ControllerBase {
 
   public function abilities_quiz_results() {
@@ -75,6 +73,8 @@ class QuizResultsController extends ControllerBase {
       '#theme' => 'workbc_cdq_quiz_results_categories',
       '#category_top' => $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'top_text'),
       '#category_all' => $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'all_text'),
+      '#email_subject' => "WorkBC's Career Discovery Quizzes - Abilities Quiz results",
+      '#email_body' => results_email_body($submission),      
       '#score' => $score,
       '#cache' => ['max-age' => 0],
     ];
@@ -121,7 +121,7 @@ class QuizResultsController extends ControllerBase {
       '#category_top' => $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'top_text'),
       '#category_all' => $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'all_text'),
       '#email_subject' => "WorkBC's Career Discovery Quizzes - Work Preferences Quiz results",
-      '#email_body' => $this->results_email_body($submission),
+      '#email_body' => results_email_body($submission),
       '#score' => $score,
       '#cache' => ['max-age' => 0],
     ];
@@ -170,6 +170,8 @@ class QuizResultsController extends ControllerBase {
       '#theme' => 'workbc_cdq_quiz_results_categories',
       '#category_top' => $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'top_text'),
       '#category_all' => $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'all_text'),
+      '#email_subject' => "WorkBC's Career Discovery Quizzes - Interests Quiz results",
+      '#email_body' => results_email_body($submission),      
       '#score' => $score,
       '#cache' => ['max-age' => 0],
     ];
@@ -228,6 +230,8 @@ class QuizResultsController extends ControllerBase {
       '#theme' => 'workbc_cdq_quiz_results_categories',
       '#category_top' => $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'top_text'),
       '#category_all' => $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'all_text'),
+      '#email_subject' => "WorkBC's Career Discovery Quizzes - Multiple Intelligences Quiz results",
+      '#email_body' => results_email_body($submission),      
       '#score' => $score,
       '#cache' => ['max-age' => 0],
     ];
@@ -264,6 +268,8 @@ class QuizResultsController extends ControllerBase {
       '#theme' => 'workbc_cdq_quiz_results_categories',
       '#category_top' => $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'top_text'),
       '#category_all' => $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'all_text'),
+      '#email_subject' => "WorkBC's Career Discovery Quizzes - Learning Styles Quiz results",
+      '#email_body' => results_email_body($submission),      
       '#score' => $score,
       '#cache' => ['max-age' => 0],
     ];
@@ -314,57 +320,11 @@ class QuizResultsController extends ControllerBase {
       '#theme' => 'workbc_cdq_quiz_results_work_values',
       '#category_top' => $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'top_text'),
       '#category_all' => $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'all_text'),
+      '#email_subject' => "WorkBC's Career Discovery Quizzes - Work Values Quiz results",
+      '#email_body' => results_email_body($submission),
       '#score' => $score,
       '#cache' => ['max-age' => 0],
     ];
-  }
-
-
-  function results_email_body($submission) {
-
-    $id = $submission->getWebform()->id();
-
-    $options = [
-      'absolute' => TRUE,
-      'https' => TRUE,
-    ];
-    $home_link = Url::fromRoute('<front>', [], $options)->toString();
-
-    $options['query'] = ['token' => $submission->getToken()];
-    $results_link = Url::fromUri('route:workbc_cdq_custom.' . $id . '_results', $options)->toString();
-
-    $body = "View your Work Preferences Quiz results: " . $results_link;
-    $body .= NEW_LINE . NEW_LINE;
-    $body .= "Your result are available for next 14 days. print or download to save your results.";
-    $body .= NEW_LINE . NEW_LINE;
-    $body .= "Discover more! Complete other career and personality quizzes and find a career path that's right for you.";
-    $body .= NEW_LINE . NEW_LINE;    
-    $body .= "Career Discovery Quizzes: " . $home_link;
-    $body .= NEW_LINE . NEW_LINE;    
-    $body .= "Find more resources on careers, funding, education and finding jobs at https://WorkBC.ca.";
-
-    return $body;
-  }
-
-  
-  function compare_email_body($submission) {
-
-    $id = $submission->getWebform()->id();
-
-    $options = [
-      'absolute' => TRUE,
-      'https' => TRUE,
-    ];
-    $home_link = Url::fromRoute('<front>', [], $options)->toString();
-
-    $options['query'] = ['token' => $submission->getToken()];
-    $compare_link = Url::fromUri('route:workbc_cdq_custom.' . $id . '_results', $options)->toString();
-
-    $body = "View your compared careers: " . $compare_link;
-    $body .= NEW_LINE . NEW_LINE;
-    $body .= "WorkBC's Career Discovery Quizzes help you learn more about your preferences and discover careers that suit you.";
-
-    return $body;
   }
 
 }

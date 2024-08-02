@@ -416,12 +416,16 @@
     padding-top: 50px;
   }
 
-  .quiz-category-results-wrapper {
-    .result-heading {
+  .quiz-category-results-wrapper,
+  .quiz-work-values-wrapper,
+  .view-cdq-compare-careers {
+
+    .result-heading,
+    .view-header {
         padding-bottom: 40px;
     }
 
-    .career-top-right{
+    .career-top-right {
         display: flex;
         justify-content: flex-end;
         

@@ -5,6 +5,8 @@ use Drupal\image\Entity\ImageStyle;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\webform\Entity\WebformSubmission;
 
+define ("NEW_LINE", "%0D%0A");
+
 /**
 * Implements hook_page_attachments_alter().
 */
@@ -93,6 +95,23 @@ function workbc_cdq_career_match_preprocess_views_view_field(&$variables) {
     $variables['output'] = $output;
   }
 }
+
+
+/**
+* Implements hook_template_preprocess_views_view().
+*/
+function workbc_cdq_career_match_preprocess_views_view(&$variables) {
+
+  if ($variables['id'] == 'cdq_compare_careers') {
+    $view = $variables['view'];
+    $id = $view->args[0];
+    $submission = WebformSubmission::load($id);
+
+    $variables['email_subject'] = "WorkBC's Career Discovery Quizzes - Compare Careers";
+    $variables['email_body'] = compare_email_body($submission);
+  }
+}
+
 
 /**
 * Implements hook_preprocess_views_view_fields().
@@ -541,4 +560,50 @@ function matchCareers(WebformSubmission $submission, $score) {
       break;
   }
   return [];
+}
+
+function results_email_body($submission) {
+
+  $id = $submission->getWebform()->id();
+  $quiz_name = $submission->getWebform()->get('title');
+
+  $options = [
+    'absolute' => TRUE,
+    'https' => TRUE,
+  ];
+  $home_link = Url::fromRoute('<front>', [], $options)->toString();
+
+  $options['query'] = ['token' => $submission->getToken()];
+  $results_link = Url::fromUri('route:workbc_cdq_custom.' . $id . '_results', $options)->toString();
+
+  $body = "View your ". $quiz_name . " results: " . $results_link;
+  $body .= NEW_LINE . NEW_LINE;
+  $body .= "Your result are available for next 14 days. print or download to save your results.";
+  $body .= NEW_LINE . NEW_LINE;
+  $body .= "Discover more! Complete other career and personality quizzes and find a career path that's right for you.";
+  $body .= NEW_LINE . NEW_LINE;    
+  $body .= "Career Discovery Quizzes: " . $home_link;
+  $body .= NEW_LINE . NEW_LINE;    
+  $body .= "Find more resources on careers, funding, education and finding jobs at https://WorkBC.ca.";
+
+  return $body;
+}
+
+
+function compare_email_body($submission) {
+
+  $id = $submission->getWebform()->id();
+
+  $options = [
+    'absolute' => TRUE,
+    'https' => TRUE,
+  ];
+  $compare_link = Url::fromRoute('<front>', [], $options)->toString();
+  $compare_link .= "compare-careers/" . $submission->id();
+  
+  $body = "View your compared careers: " . $compare_link;
+  $body .= NEW_LINE . NEW_LINE;
+  $body .= "WorkBC's Career Discovery Quizzes help you learn more about your preferences and discover careers that suit you.";
+
+  return $body;
 }

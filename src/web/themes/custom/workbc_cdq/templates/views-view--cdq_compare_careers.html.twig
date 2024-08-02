@@ -43,12 +43,24 @@
 <div{{ attributes.addClass(classes) }}>
   {{ title_prefix }}
   {% if title %}
-    {{ title }}
+    >{{ title }}<
   {% endif %}
   {{ title_suffix }}
   {% if header %}
-    <div class="view-header">
-      {{ header }}
+    <div class="row">
+  	  <div class="col-8">
+        <div class="view-header">
+          {{ header }}
+        </div>
+    	</div>
+			<div class="col-12 col-md-4 d-print-none">
+				<div class="career-top-right">
+					<ul class="float-right">
+			  		<li class="quiz-node-print"><a href="javascript:;" class="print-window"><span title="Print Results" class="icon icon-print"></span></a></li>
+				  	<li class="quiz-node-email"><a href="mailto:?subject={{ email_subject }}&body={{ email_body }}"><span title="Email Results" class="icon icon-message"></span></a></li>
+					</ul>
+				</div>
+			</div>      
     </div>
   {% endif %}
   {% if exposed %}

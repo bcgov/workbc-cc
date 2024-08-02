@@ -130,6 +130,13 @@
           
         });
       });
+
+      $(once('cdqprint', '.career-top-right', context)).each(function () {
+        $(".compare-career-print > .print-window, .quiz-node-print > .print-window").on("click", function () {
+          window.print();
+        });
+      });
+
     }
   };
  
