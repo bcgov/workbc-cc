@@ -402,7 +402,6 @@ $settings['update_free_access'] = FALSE;
  */
   $settings['reverse_proxy_trusted_headers'] = \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_FOR | \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_HOST | \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_PORT | \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_PROTO | \Symfony\Component\HttpFoundation\Request::HEADER_FORWARDED;
 
-
 /**
  * Page caching:
  *
@@ -836,21 +835,21 @@ $settings['file_private_path'] = '../private';
 $settings['file_tmp_path'] = '/tmp';
 
 // Trusted host entries.
-$settings['trusted_host_patterns'] = [
-  '^localhost$',
-  '^127\.0\.0\.1$',
-  'workbc-cc\.docker\.localhost',
-  'workbc-cc\.localhost',
-  '^careercompass-dev\.workbc\.ca$',
-  '^careerdiscoveryquizzes-dev\.workbc\.ca$',
-  '^careerdiscoveryquizzes-test\.workbc\.ca$',
-  '^careerdiscoveryquizzes\.workbc\.ca$',
-  '^career\.lndo\.site$',
-  '^career\.ddev\.site$',
-  '^workbc-cc\.b89n0c-prod\.nimbus\.cloud\.gov\.bc\.ca$',
-  '^workbc-cc\.b89n0c-dev\.nimbus\.cloud\.gov\.bc\.ca$',
-  '^workbc-cc\.b89n0c-test\.nimbus\.cloud\.gov\.bc\.ca$',
-];
+ $settings['trusted_host_patterns'] = [
+   '^localhost$',
+   '^127\.0\.0\.1$',
+   'workbc-cc\.docker\.localhost',
+   'workbc-cc\.localhost',
+   '^careercompass-dev\.workbc\.ca$',
+   '^careerdiscoveryquizzes-dev\.workbc\.ca$',
+   '^careerdiscoveryquizzes-test\.workbc\.ca$',
+   '^careerdiscoveryquizzes\.workbc\.ca$',
+   '^career\.lndo\.site$',
+   '^career\.ddev\.site$',
+   '^workbc-cc\.b89n0c-prod\.nimbus\.cloud\.gov\.bc\.ca$',
+   '^workbc-cc\.b89n0c-dev\.nimbus\.cloud\.gov\.bc\.ca$',
+   '^workbc-cc\.b89n0c-test\.nimbus\.cloud\.gov\.bc\.ca$',
+ ];
 
 $config['workbc']['onet'] = [
   'username' => getenv('ONET_USERNAME'),
