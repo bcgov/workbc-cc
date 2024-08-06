@@ -355,7 +355,7 @@ $settings['update_free_access'] = FALSE;
  * Be aware, however, that it is likely that this would allow IP
  * address spoofing unless more advanced precautions are taken.
  */
- $settings['reverse_proxy'] = TRUE;
+$settings['reverse_proxy'] = TRUE;
 
 /**
  * Reverse proxy addresses.
@@ -364,7 +364,7 @@ $settings['update_free_access'] = FALSE;
  * IPv4/IPv6 addresses or subnets in CIDR notation. This setting is required if
  * $settings['reverse_proxy'] is TRUE.
  */
- $settings['reverse_proxy_addresses'] = array($_SERVER['REMOTE_ADDR']);
+$settings['reverse_proxy_addresses'] = array($_SERVER['REMOTE_ADDR']);
 
 /**
  * Reverse proxy trusted headers.
@@ -400,7 +400,7 @@ $settings['update_free_access'] = FALSE;
  * @see \Symfony\Component\HttpFoundation\Request::HEADER_FORWARDED
  * @see \Symfony\Component\HttpFoundation\Request::setTrustedProxies
  */
-  $settings['reverse_proxy_trusted_headers'] = \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_FOR | \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_HOST | \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_PORT | \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_PROTO | \Symfony\Component\HttpFoundation\Request::HEADER_FORWARDED;
+$settings['reverse_proxy_trusted_headers'] = \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_FOR | \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_HOST | \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_PORT | \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_PROTO | \Symfony\Component\HttpFoundation\Request::HEADER_FORWARDED;
 
 /**
  * Page caching:
@@ -835,21 +835,21 @@ $settings['file_private_path'] = '../private';
 $settings['file_tmp_path'] = '/tmp';
 
 // Trusted host entries.
- $settings['trusted_host_patterns'] = [
-   '^localhost$',
-   '^127\.0\.0\.1$',
-   'workbc-cc\.docker\.localhost',
-   'workbc-cc\.localhost',
-   '^careercompass-dev\.workbc\.ca$',
-   '^careerdiscoveryquizzes-dev\.workbc\.ca$',
-   '^careerdiscoveryquizzes-test\.workbc\.ca$',
-   '^careerdiscoveryquizzes\.workbc\.ca$',
-   '^career\.lndo\.site$',
-   '^career\.ddev\.site$',
-   '^workbc-cc\.b89n0c-prod\.nimbus\.cloud\.gov\.bc\.ca$',
-   '^workbc-cc\.b89n0c-dev\.nimbus\.cloud\.gov\.bc\.ca$',
-   '^workbc-cc\.b89n0c-test\.nimbus\.cloud\.gov\.bc\.ca$',
- ];
+$settings['trusted_host_patterns'] = [
+  '^localhost$',
+  '^127\.0\.0\.1$',
+  'workbc-cc\.docker\.localhost',
+  'workbc-cc\.localhost',
+  '^careercompass-dev\.workbc\.ca$',
+  '^careerdiscoveryquizzes-dev\.workbc\.ca$',
+  '^careerdiscoveryquizzes-test\.workbc\.ca$',
+  '^careerdiscoveryquizzes\.workbc\.ca$',
+  '^career\.lndo\.site$',
+  '^career\.ddev\.site$',
+  '^workbc-cc\.b89n0c-prod\.nimbus\.cloud\.gov\.bc\.ca$',
+  '^workbc-cc\.b89n0c-dev\.nimbus\.cloud\.gov\.bc\.ca$',
+  '^workbc-cc\.b89n0c-test\.nimbus\.cloud\.gov\.bc\.ca$',
+];
 
 $config['workbc']['onet'] = [
   'username' => getenv('ONET_USERNAME'),
@@ -889,6 +889,7 @@ if (file_exists($app_root . '/' . $site_path . '/settings.openshift.php') && get
     'devel',
     'devel_generate',
     'devel_kint_extras',
+    'devel_php',
     'webform_devel',
     'views_ui',
     'webform_ui',

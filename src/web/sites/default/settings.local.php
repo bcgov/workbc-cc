@@ -15,8 +15,6 @@ $databases['default']['default'] = array (
   'driver' => 'pgsql',
 );
 
-
-
 /**
  * Control caching in the local development environment.
  */
@@ -82,8 +80,6 @@ if (!LOCAL_CACHE_ACTIVE) {
 if (!LOCAL_CACHE_ACTIVE) {
   $settings['cache']['bins']['dynamic_page_cache'] = 'cache.backend.null';
 }
-
-
 
 ini_set('memory_limit', '1G');
 if (class_exists('Kint')) {
