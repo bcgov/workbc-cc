@@ -14,8 +14,7 @@ use Drupal\image\Entity\ImageStyle;
 class QuizResultsController extends ControllerBase {
 
   public function abilities_quiz_results() {
-    $id = 'abilities_quiz';
-    $submission = getUserSubmission($id);
+    $submission = getUserSubmission('abilities_quiz');
     if ($submission) {
       $info = [
         'General learning ability' => [
@@ -55,9 +54,6 @@ class QuizResultsController extends ControllerBase {
           'icon' => 'manual-dexterity',
         ],
       ];
-
-      $url = Url::fromRoute('entity.webform.canonical', ['webform' => $id, 'token' => $submission->getToken()]);
-      $quiz_link = $url->toString();
 
       $score = getSubmissionScore($submission);
       foreach ($score as $category_name => $category) {

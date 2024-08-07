@@ -6,3 +6,4 @@ name: 'Interests Categories'
 vid: interests_categories
 description: 'Sub categories for Interests quiz.'
 weight: 0
+new_revision: false

@@ -39,7 +39,7 @@ function getCurrentQuiz() {
 }
 
 
-function getSubmissionOverrides($webform_id) {
+function getSubmissionOverrides($webform_id, $current_submission) {
   // Inject answers from URL query if found.
   $answers_override = \Drupal::request()->get('answers');
   if (empty($answers_override)) {
@@ -85,6 +85,16 @@ function getSubmissionOverrides($webform_id) {
     $submission[$k] = strval($options_keys[$answer_index]);
     $answers[$k] = $questions[$k]['#options'][$options_keys[$answer_index]];
   }
+
+  // Ignore if answers didn't change.
+  if ($current_submission && $current_submission->getData() == $submission) {
+    \Drupal::messenger()->addWarning(t(
+      'Answers override is the same as current submission. Ignoring.'
+    ));
+    return false;
+  }
+
+  // Return overridden answers.
   \Drupal::messenger()->addMessage(t(
     'Answers override in effect:<br><pre>@answers</pre>', ['@answers' => print_r($answers, true)]
   ));
@@ -92,29 +102,7 @@ function getSubmissionOverrides($webform_id) {
 }
 
 function getUserSubmission($webform_id) {
-  $override = getSubmissionOverrides($webform_id);
-  if ($override) {
-    $submission = WebformSubmission::create([
-      'webform_id' => $webform_id,
-      'data' => $override,
-      'notes' => 'Created by overridden answers.'
-    ]);
-    $submission->save();
-
-    if ($submission->id()) {
-      $older_sids = \Drupal::entityQuery('webform_submission')
-      ->condition('webform_id', $webform_id)
-      ->condition('sid', $submission->id(), '<>')
-      ->accessCheck(false)
-      ->execute();
-      \Drupal::entityTypeManager()->getStorage('webform_submission')->delete(
-        \Drupal::entityTypeManager()->getStorage('webform_submission')->loadMultiple(array_keys($older_sids))
-      );
-    }
-
-    return $submission;
-  }
-
+  // Get current submission by user.
   $current_user = \Drupal::currentUser();
   $query = \Drupal::entityQuery('webform_submission')
   ->condition('uid', $current_user->id())
@@ -129,5 +117,28 @@ function getUserSubmission($webform_id) {
     $submission = WebformSubmission::load($sid);
   }
 
-  return isset($submission) ? $submission : false;
+  // Check for answers override.
+  $override = getSubmissionOverrides($webform_id, @$submission);
+  if ($override) {
+    $new_submission = WebformSubmission::create([
+      'webform_id' => $webform_id,
+      'data' => $override,
+      'notes' => 'Created by overridden answers.'
+    ]);
+    $new_submission->save();
+
+    if ($new_submission->id()) {
+      $older_sids = \Drupal::entityQuery('webform_submission')
+      ->condition('webform_id', $webform_id)
+      ->condition('sid', $new_submission->id(), '<>')
+      ->accessCheck(false)
+      ->execute();
+      \Drupal::entityTypeManager()->getStorage('webform_submission')->delete(
+        \Drupal::entityTypeManager()->getStorage('webform_submission')->loadMultiple(array_keys($older_sids))
+      );
+      return $new_submission;
+    }
+  }
+
+  return $submission ?? false;
 }

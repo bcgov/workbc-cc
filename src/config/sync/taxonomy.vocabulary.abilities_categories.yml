@@ -6,3 +6,4 @@ name: 'Abilities Categories'
 vid: abilities_categories
 description: 'Sub categories for Abilities quiz.'
 weight: 0
+new_revision: false

@@ -6,3 +6,4 @@ name: 'Multiple Intelligences Categories'
 vid: multiple_intelligences_categorie
 description: 'Sub categories for Multiple Intelligences quiz.'
 weight: 0
+new_revision: false

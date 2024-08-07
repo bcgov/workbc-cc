@@ -57,7 +57,7 @@ function workbc_cdq_career_match_theme($existing, $type, $theme, $path) {
         'category_all' => '',
         'category' => '',
         'email_subject' => '',
-        'email_body' => '',        
+        'email_body' => '',
         'score' => NULL
       ]
     ]
@@ -337,7 +337,6 @@ function getSubmissionScore(WebformSubmission $submission) {
   if (\Drupal::currentUser()->hasPermission('override quiz answers')) {
     $url = Url::fromRoute('<current>', [
       'answers' => $answer_string,
-      'token' => $submission->getToken(),
     ], ['absolute' => true]);
     \Drupal::messenger()->addMessage(t(
       'To reuse the current set of answers, use the following URL:<br><code>@url</code>',
@@ -583,9 +582,9 @@ function results_email_body($submission) {
   $body .= "Your result are available for next 14 days. print or download to save your results.";
   $body .= NEW_LINE . NEW_LINE;
   $body .= "Discover more! Complete other career and personality quizzes and find a career path that's right for you.";
-  $body .= NEW_LINE . NEW_LINE;    
+  $body .= NEW_LINE . NEW_LINE;
   $body .= "Career Discovery Quizzes: " . $home_link;
-  $body .= NEW_LINE . NEW_LINE;    
+  $body .= NEW_LINE . NEW_LINE;
   $body .= "Find more resources on careers, funding, education and finding jobs at https://WorkBC.ca.";
 
   return $body;
@@ -602,7 +601,7 @@ function compare_email_body($submission) {
   ];
   $compare_link = Url::fromRoute('<front>', [], $options)->toString();
   $compare_link .= "compare-careers/" . $submission->id();
-  
+
   $body = "View your compared careers: " . $compare_link;
   $body .= NEW_LINE . NEW_LINE;
   $body .= "WorkBC's Career Discovery Quizzes help you learn more about your preferences and discover careers that suit you.";
