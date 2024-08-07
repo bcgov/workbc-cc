@@ -8,7 +8,6 @@ dependencies:
   module:
     - file
     - filter
-    - search
     - shortcut
     - system
 id: authenticated
@@ -19,6 +18,5 @@ permissions:
   - 'access content'
   - 'access shortcuts'
   - 'delete own files'
-  - 'search content'
   - 'use text format basic_html'
   - 'use text format webform_default'
