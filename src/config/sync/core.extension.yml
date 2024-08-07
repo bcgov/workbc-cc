@@ -37,6 +37,7 @@ module:
   path_alias: 0
   pgsql: 0
   queue_ui: 0
+  ses_mailer: 0
   shortcut: 0
   structure_sync: 0
   system: 0
