@@ -6,23 +6,135 @@
         print-color-adjust: exact !important;
     }
 
-    .page-node-type-learning-styles-quiz  {
-        #myResult .quiz-list .title-description {
-            padding: 0 25px 0;
+    #block-workbc-cdq-branding {
+        position: absolute;
+
+        .site-title {
+            font-size: 24px;
+            padding-right: 20px;
         }
+    }
+
+    .main-quiz-container {
+        position: relative;
+        top: 70px;
+        background-color: white;
 
     }
 
-    /* Temp fix for mobile work values */
-    .page-node-type-work-values-quiz {
-        #myResult .carousel-inner.carousel-inner-device.work-value-quiz-carousel.mbohide {
-            display: block !important;
+
+    #block-workbc-cdq-breadcrumbs {
+        display: none;
+    }
+
+    .cdq-results .region-content {
+        position: relative;
+        left: -155px;
+    }
+
+    #block-workbc-cdq-workbcquizpagetitle {
+        background-color: white;
+        border-bottom: 0px;
+        padding-top: 10px;
+        .cdq-quiz-title,
+        .sub-title p {
+            color: rgb(109, 1, 1);
         }
 
-        #myResult .carousel-inner.carousel-inner-mobi.work-value-quiz-mobi-carousel.active {
-            display: none!important;
+        .cdq-quiz-title {
+            padding-bottom: 5px;
+            border-bottom: 2px solid #e6eae9;
+        }
+
+        .sub-title {
+            padding-top: 0px;
+            margin-bottom: 0px;
         }
     }
+
+    .quiz-category-results-wrapper {
+        padding-top: 10px;
+    }
+
+    .results-heading {
+        padding-bottom: 10px;
+    }
+
+    .col-print-item {
+        padding-bottom: 15px;
+    }
+
+    .category-results-toggle {
+        display: none !important;
+    }
+
+    .top-career-content .content {
+        display: none;
+    }
+
+    .careers-table-main-wrapper {
+
+        width: 600px;
+        max-height: 100%;
+        border: 0px;
+        background-color: white !important;
+        overflow-y: inherit;
+
+        table {
+
+            thead {
+                th {
+                    background-color: rgba(221, 221, 221, 1) !important;
+                    font-size: 9px !important;
+                    line-height: normal;
+
+                    a {
+                        text-decoration: none;
+                        font-size: 9px !important;
+                        line-height: normal;
+                        
+                        &:before {
+                            display: none;
+                        }
+                    }
+                    
+                    &#view-selected-table-column {
+                        display: none;
+                    }
+                }
+            }
+            tbody {
+                td {
+                    border-top: 0;
+                    border-bottom: 2px solid rgba(230, 234, 233, 1);
+                    font-size: 9px !important;
+                    font-weight: bold;
+                    line-height: normal;
+
+                    & a {
+
+                            color: black;
+   
+                         }                                    
+                    
+                }
+            }
+        }
+    }
+
+    .career-content-table-item {
+        display: none;
+    }
+
+
+    .careers-main-wrapper .bottom-links {
+        display: none;
+    }
+
+    .cdq-content {
+        border-bottom: 0px !important;
+    }
+
 
     .results-main-block {
        &:after {
@@ -386,188 +498,188 @@
     }
 
     // Result
-    .path-quiz {
-        .breadcrumb-quiz {
-            display: none;
-        }
-        .career-bottom-notes {
-            display: none;
-        }
-        .overlay-content {
-            .block-system-main-block {
-                &:not(.no-border-block) {
-                    border: 0;
-                   // border-bottom: 5px solid rgba(51, 51, 51, 1) !important;
-                }
-                &#block-bcgov-career-content.results-main-block {
-                    padding-top: 0;
-                }
-            }
-        }
-        .block-page-title-block {
-            display: block;
-            margin-top: 30px;
-            padding-bottom: 0!important;
-            position: relative;
-            h1 {
-                font-family: "BCSans";
-                font-weight: 700;
-                font-style: normal;
-                font-size: 27px;
-                line-height: 36px;
-                color: #333333;
-                padding-bottom: 10px;
-                border-bottom: 5px solid rgba(242, 242, 242, 1);
-            }
-            .sub-title p {
-                color: #333333;
-            }
-        }
-        .careers-main-wrapper {
-            display: block;
-            .top-career-content {
-                h3 {
-                    margin-bottom: 20px;
-                }
-                .content {
-                    display: none;
-                    .top-btn{
-                        display: none;
-                    }
-                }
-            }
-            .careers-table-main-wrapper {
-                width: 640px;
-                border: 0px;
-                max-height: 100%;
-                overflow-y: auto;
-                table {
-                    thead {
-                        th {
-                            background-color: rgba(221, 221, 221, 1) !important;
-                            a {
-                                text-decoration: none;
-                                &:before {
-                                    display: none;
-                                }
-                            }
-                            &#view-entity-comparison-link-career-table-column {
-                                display: none;
-                            }
-                        }
-                    }
-                    tbody {
-                        td {
-                            border-top: 0;
-                            border-bottom: 2px solid rgba(230, 234, 233, 1);
-                        }
-                    }
-                }
-            }
-            .career-content-main-wrapper.career-content-table-item {
-                width: 640px;
-                .print-career-preview-label {
-                    font-family: 'BCSans';
-                    font-weight: 400;
-                    font-style: normal;
-                    font-size: 25px;
-                    line-height: 50px;
-                    color: #333333;
-                    margin-top: 15px;
-                    padding-bottom: 10px;;
-                    border-bottom: 5px solid rgba(242, 242, 242, 1);
-                }
-                .career-content-item.active {
-                    margin-top: 30px;
-                    .career-content-item-inner {
-                        .career-inner-content {
-                            border: 0;
-                            padding: 0;
-                            min-height: auto;
-                            .bottom-btn {
-                                display: none;
-                            }
-                        }
-                    }
-                }
+    // .path-quiz {
+    //     .breadcrumb-quiz {
+    //         display: none;
+    //     }
+    //     .career-bottom-notes {
+    //         display: none;
+    //     }
+    //     .overlay-content {
+    //         .block-system-main-block {
+    //             &:not(.no-border-block) {
+    //                 border: 0;
+    //                // border-bottom: 5px solid rgba(51, 51, 51, 1) !important;
+    //             }
+    //             &#block-bcgov-career-content.results-main-block {
+    //                 padding-top: 0;
+    //             }
+    //         }
+    //     }
+    //     .block-page-title-block {
+    //         display: block;
+    //         margin-top: 30px;
+    //         padding-bottom: 0!important;
+    //         position: relative;
+    //         h1 {
+    //             font-family: "BCSans";
+    //             font-weight: 700;
+    //             font-style: normal;
+    //             font-size: 27px;
+    //             line-height: 36px;
+    //             color: #333333;
+    //             padding-bottom: 10px;
+    //             border-bottom: 5px solid rgba(242, 242, 242, 1);
+    //         }
+    //         .sub-title p {
+    //             color: #333333;
+    //         }
+    //     }
+    //     .careers-main-wrapper {
+    //         display: block;
+    //         .top-career-content {
+    //             h3 {
+    //                 margin-bottom: 20px;
+    //             }
+    //             .content {
+    //                 display: none;
+    //                 .top-btn{
+    //                     display: none;
+    //                 }
+    //             }
+    //         }
+    //         .careers-table-main-wrapper {
+    //             width: 640px;
+    //             border: 0px;
+    //             max-height: 100%;
+    //             overflow-y: auto;
+    //             table {
+    //                 thead {
+    //                     th {
+    //                         background-color: rgba(221, 221, 221, 1) !important;
+    //                         a {
+    //                             text-decoration: none;
+    //                             &:before {
+    //                                 display: none;
+    //                             }
+    //                         }
+    //                         &#view-entity-comparison-link-career-table-column {
+    //                             display: none;
+    //                         }
+    //                     }
+    //                 }
+    //                 tbody {
+    //                     td {
+    //                         border-top: 0;
+    //                         border-bottom: 2px solid rgba(230, 234, 233, 1);
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //         .career-content-main-wrapper.career-content-table-item {
+    //             width: 640px;
+    //             .print-career-preview-label {
+    //                 font-family: 'BCSans';
+    //                 font-weight: 400;
+    //                 font-style: normal;
+    //                 font-size: 25px;
+    //                 line-height: 50px;
+    //                 color: #333333;
+    //                 margin-top: 15px;
+    //                 padding-bottom: 10px;;
+    //                 border-bottom: 5px solid rgba(242, 242, 242, 1);
+    //             }
+    //             .career-content-item.active {
+    //                 margin-top: 30px;
+    //                 .career-content-item-inner {
+    //                     .career-inner-content {
+    //                         border: 0;
+    //                         padding: 0;
+    //                         min-height: auto;
+    //                         .bottom-btn {
+    //                             display: none;
+    //                         }
+    //                     }
+    //                 }
+    //             }
 
-            }
-        }
-        .bottom-links {
-            display: none;
-        }
-        .careers-mobi-main-wrapper {
-            display: none;
-        }
-    }
+    //         }
+    //     }
+    //     .bottom-links {
+    //         display: none;
+    //     }
+    //     .careers-mobi-main-wrapper {
+    //         display: none;
+    //     }
+    // }
 
-    .carousel-inner.work-value-quiz-carousel{
-        display: block !important;
-        overflow: visible;
-        .hideshow-workbc{
-            display: none !important;
-        }
-        .extradivs1{
-            width: auto !important;
-            display: block !important;
-        }
-        .quiz-list{
-            margin: 0 !important;
-            display: block !important;
-        }
-        .slick-track{
-            width: auto !important;
-            transform: none !important;
-        }
-        .slick-slide:not(.slick-current){
-            display: none !important;
-            width: auto !important;
-        }
-        .slick-list{
-            height: 100% !important;
-            transform: none;
-        }
-    }
+    // .carousel-inner.work-value-quiz-carousel{
+    //     display: block !important;
+    //     overflow: visible;
+    //     .hideshow-workbc{
+    //         display: none !important;
+    //     }
+    //     .extradivs1{
+    //         width: auto !important;
+    //         display: block !important;
+    //     }
+    //     .quiz-list{
+    //         margin: 0 !important;
+    //         display: block !important;
+    //     }
+    //     .slick-track{
+    //         width: auto !important;
+    //         transform: none !important;
+    //     }
+    //     .slick-slide:not(.slick-current){
+    //         display: none !important;
+    //         width: auto !important;
+    //     }
+    //     .slick-list{
+    //         height: 100% !important;
+    //         transform: none;
+    //     }
+    // }
 
-    #myResult .carousel-inner.carousel-inner-mobi.work-value-quiz-mobi-carousel.active{
-        display: block !important;
-        &.deskhide{
-            display: none !important;
-        }
-        .hideshow-workbc{
-            display: none !important;
-        }
-        *{
-            display: block !important;
-            overflow: inherit !important;
-        }
-        .slick-slide{
-            float: left;
-            width: 100% !important;
-        }
-        .slick-track{
-            transform: none !important;
-        }
-        .mobi-itm{
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            .quiz-list {
-                float: left;
-                width: 369px;
-                height: auto !important;
-                min-height: auto !important;
-            }
-        }
-    }
-    .page-node-type-learning-styles-quiz #myResult .quiz-list{
-        //@media all and (max-width: 767.98px){
-            height: auto!important;
-            min-height: 250px;
-            padding-bottom: 10px!important;
-       // }
-    }
-    .path-quiz.quiz-color-dark-blue .overlay-content .block-system-main-block:not(.no-border-block){
-       border-bottom: 0 !important;
-    }
+    // #myResult .carousel-inner.carousel-inner-mobi.work-value-quiz-mobi-carousel.active{
+    //     display: block !important;
+    //     &.deskhide{
+    //         display: none !important;
+    //     }
+    //     .hideshow-workbc{
+    //         display: none !important;
+    //     }
+    //     *{
+    //         display: block !important;
+    //         overflow: inherit !important;
+    //     }
+    //     .slick-slide{
+    //         float: left;
+    //         width: 100% !important;
+    //     }
+    //     .slick-track{
+    //         transform: none !important;
+    //     }
+    //     .mobi-itm{
+    //         width: 100%;
+    //         display: flex;
+    //         flex-direction: column;
+    //         .quiz-list {
+    //             float: left;
+    //             width: 369px;
+    //             height: auto !important;
+    //             min-height: auto !important;
+    //         }
+    //     }
+    // }
+    // .page-node-type-learning-styles-quiz #myResult .quiz-list{
+    //     //@media all and (max-width: 767.98px){
+    //         height: auto!important;
+    //         min-height: 250px;
+    //         padding-bottom: 10px!important;
+    //    // }
+    // }
+    // .path-quiz.quiz-color-dark-blue .overlay-content .block-system-main-block:not(.no-border-block){
+    //    border-bottom: 0 !important;
+    // }
 }

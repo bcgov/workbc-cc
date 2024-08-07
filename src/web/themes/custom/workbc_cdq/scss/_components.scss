@@ -1091,6 +1091,28 @@
         display: flex;
         justify-content: flex-end;
         align-items: center;
+
+            text-decoration: none !important;
+
+            .cdq-abilities-quiz & {
+                color: $quiz-dark-blue;
+            }
+            .cdq-work-preferences-quiz & {
+                color: $quiz-purple;
+            }
+            .cdq-interests-quiz & {
+                color: $quiz-blue;
+            }
+            .cdq-multiple-intelligences-quiz & {
+                color: $quiz-green;
+            }
+            .cdq-learning-styles-quiz & {
+                color: $quiz-light-blue;
+            }
+            .cdq-work-values-quiz & {
+                color: $quiz-pink;
+            }
+
         &:focus-visible{
             outline: none;
             > span{
@@ -1441,6 +1463,10 @@
     color: white;
     padding-top: 55px;
 
+    .cdq-results & {
+        padding-bottom: 50px;
+    }
+
     h2 {
         text-align: left;
         color: white;
@@ -1471,7 +1497,7 @@
     }
 
     .overlay-bg {
-        min-height: 395px;
+        min-height: 335px;
         position: absolute;
         z-index: 0;
         top: 34px;
@@ -1496,35 +1522,45 @@
     }
 }
 
-// .cdq-quiz {
+ .cdq-quiz {
+
+    .form-actions {
+        padding-top: 50px;
+        padding-bottom: 25px;
+    }
 //     #block-workbc-cdq-content {
 //         margin-top: 75px;
 //     }
-// }
+}
 
 .cdq-content {
+    
+    .cdq-compare & {
+        padding-bottom: 100px;
+    }
+
     .cdq-abilities-quiz & {
-        border-bottom: 6px solid $quiz-dark-blue-dark;
+        border-bottom: 4px solid $quiz-dark-blue;
     }
 
     .cdq-work-preferences-quiz & {
-        border-bottom: 6px solid $quiz-purple-dark;
+        border-bottom: 4px solid $quiz-purple;
     }
     
     .cdq-interests-quiz & {
-        border-bottom: 6px solid $quiz-blue-dark;
+        border-bottom: 4px solid $quiz-blue;
     }
     
     .cdq-multiple-intelligences-quiz & {
-        border-bottom: 6px solid $quiz-green-dark;
+        border-bottom: 4px solid $quiz-green;
     }
     
     .cdq-learning-styles-quiz & {
-        border-bottom: 6px solid $quiz-light-blue-dark;
+        border-bottom: 4px solid $quiz-light-blue;
     }
     
     .cdq-work-values-quiz & {
-        border-bottom: 6px solid $quiz-pink-dark;
+        border-bottom: 4px solid $quiz-pink;
     }    
 }
 
@@ -1644,3 +1680,4 @@
         height: 51px !important;
     }
   }
+
