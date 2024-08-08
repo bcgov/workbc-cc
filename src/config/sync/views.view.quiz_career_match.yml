@@ -131,7 +131,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: numeric
-          label: 'Career Match'
+          label: '% Match'
           exclude: false
           alter:
             alter_text: false
@@ -253,7 +253,7 @@ display:
           entity_type: node
           entity_field: title
           plugin_id: field
-          label: Title
+          label: 'Career Matches'
           exclude: false
           alter:
             alter_text: true
@@ -445,7 +445,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: numeric
-          label: Selected
+          label: 'Compare Careers'
           exclude: false
           alter:
             alter_text: false
@@ -494,6 +494,10 @@ display:
           format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
+          type: yes-no
+          type_custom_true: ''
+          type_custom_false: ''
+          not: 0
       pager:
         type: none
         options:
