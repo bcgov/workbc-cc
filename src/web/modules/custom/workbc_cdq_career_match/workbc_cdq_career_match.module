@@ -502,7 +502,11 @@ function matchWorkPreferencesCareers($submission, $score) {
   $work_preferences_matches = \Drupal::state()->get('workbc.work_preferences_matches', []);
   if (empty($work_preferences_matches)) {
     $work_preferences_matches = array_map('str_getcsv', file(__DIR__ . '/scoring/work-preferences-quiz.csv'));
-    \Drupal::state()->set('workbc.abilities_weights', $work_preferences_matches);
+    $work_preferences_matches = array_combine(
+      array_map(function($match) { return $match[COLUMN_WORK_PREFERENCES_NOC]; }, $work_preferences_matches),
+      $work_preferences_matches
+    );
+    \Drupal::state()->set('workbc.work_preferences_matches', $work_preferences_matches);
   }
 
   // 2. Generate permutations for top categories in specified order.

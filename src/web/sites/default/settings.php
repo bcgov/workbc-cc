@@ -834,6 +834,9 @@ $settings['file_public_path'] = 'sites/default/files';
 $settings['file_private_path'] = '../private';
 $settings['file_tmp_path'] = '/tmp';
 
+// Recommended setting.
+$settings['state_cache'] = true;
+
 // Trusted host entries.
 $settings['trusted_host_patterns'] = [
   '^localhost$',
