@@ -2,6 +2,9 @@
 
 use Drupal\Core\Url;
 
+/**
+ * Implements hook_preprocess_page().
+ */
 function workbc_cdq_preprocess_page(&$variables) {
 
   $variables['copyright_year'] = date("Y");
@@ -48,7 +51,35 @@ function workbc_cdq_preprocess_page(&$variables) {
   }
 }
 
+/**
+ * Implements hook_preprocess_fieldset().
+ */
+function workbc_cdq_preprocess_fieldset(&$variables) {
+  static $current = 1;
+  if (isset($variables['element']['#webform_element']) && $variables['element']['#webform_element'] && $variables['element']['#type'] == "radios") {
+    if ($current % 2 == 0) {
+      $variables['attributes']['class'][] = "workbc-quiz-fieldset-even";
+    }
+    else {
+      $variables['attributes']['class'][] = "workbc-quiz-fieldset-odd";
+    }
+    if ($current == 1) {
+      $variables['attributes']['class'][] = "workbc-quiz-fieldset-first";
+    }
+    $current++;
 
+    // Detect question number.
+    /** @var \Drupal\webform\WebformInterface $quiz */
+    $quiz = \Drupal::entityTypeManager()->getStorage('webform')->load($variables['element']['#webform']);
+    $questions = array_filter($quiz->getElementsInitializedAndFlattened(), function($question) {
+      return $question['#type'] === 'radios';
+    });
+    $question_number = array_search($variables['element']['#webform_key'], array_keys($questions)) + 1;
+    $variables['question_number'] = $question_number;
+  }
+}
+
+/*************************** HELPER FUNCTIONS ***************************/
 
 function workbc_cdq_quiz_info($id) {
   $info = [];
@@ -99,41 +130,4 @@ function workbc_cdq_quiz_info($id) {
   }
 
   return $info;
-}
-
-
-function workbc_cdq_preprocess_fieldset(&$variables) {
-  static $current = 1;
-  if (isset($variables['element']['#webform_element']) && $variables['element']['#webform_element'] && $variables['element']['#type'] == "radios") {
-    if ($current % 2 == 0) {
-      $variables['attributes']['class'][] = "workbc-quiz-fieldset-even";
-    }
-    else {
-      $variables['attributes']['class'][] = "workbc-quiz-fieldset-odd";
-    }
-    if ($current == 1) {
-      $variables['attributes']['class'][] = "workbc-quiz-fieldset-first";
-    }
-    $current++;
-  }
-}
-
-
-function workbc_cdq_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
-  if ($form_id == "webform_submission_work_preferences_quiz_edit_form") {
-    // ksm($form_id);
-    // ksm($form);
-
-    // unset($form['progress']['#weight']);
-    // $progress = $form['progress'];
-    // unset($form['progress']);
-
-    // $actions = $form['elements']['actions'];
-    // unset($form['elements']['actions']);
-
-    // $form['elements']['progress'] = $progress;
-    // $form['elements']['actions'] = $actions;
-    
-    // ksm($form);
-  }
 }
