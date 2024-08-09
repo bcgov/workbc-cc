@@ -413,19 +413,16 @@ function matchAbilitiesCareers($submission, $score) {
     $row[COLUMN_ABILITIES_MATCH] = round(100 * (36 - $total) / 36);
   });
 
-  // 4. Return top results > 70% as NOCs.
-  $results = array_filter($abilities_weights, function($row) {
-    return $row[COLUMN_ABILITIES_MATCH] > 70;
-  });
-  usort($results, function($r1, $r2) {
+  // 4. Return top 20 unique results.
+  usort($abilities_weights, function($r1, $r2) {
     return $r2[COLUMN_ABILITIES_MATCH] - $r1[COLUMN_ABILITIES_MATCH];
   });
-  $seen = [];
-  $results = array_filter($results, function($row) use(&$seen) {
-    if (array_key_exists($row[COLUMN_ABILITIES_NOC], $seen)) return false;
-    $seen[$row[COLUMN_ABILITIES_NOC]] = true;
-    return true;
-  });
+  $results = array_reduce($abilities_weights, function($results, $row) {
+    if (count($results) < 20 && !array_key_exists($row[COLUMN_ABILITIES_NOC], $results)) {
+      $results[$row[COLUMN_ABILITIES_NOC]] = $row;
+    }
+    return $results;
+  }, []);
   return array_map(function($row) {
     return [
       'noc' => $row[COLUMN_ABILITIES_NOC],
