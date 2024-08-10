@@ -101,7 +101,7 @@ function getSubmissionOverrides($webform_id, $current_submission) {
   return $submission;
 }
 
-function getUserSubmission($webform_id) {
+function getUserSubmission($webform_id, $skip_overrides = false) {
   // Get current submission by user.
   $current_user = \Drupal::currentUser();
   $query = \Drupal::entityQuery('webform_submission')
@@ -118,25 +118,27 @@ function getUserSubmission($webform_id) {
   }
 
   // Check for answers override.
-  $override = getSubmissionOverrides($webform_id, @$submission);
-  if ($override) {
-    $new_submission = WebformSubmission::create([
-      'webform_id' => $webform_id,
-      'data' => $override,
-      'notes' => 'Created by overridden answers.'
-    ]);
-    $new_submission->save();
+  if (!$skip_overrides) {
+    $override = getSubmissionOverrides($webform_id, @$submission);
+    if ($override) {
+      $new_submission = WebformSubmission::create([
+        'webform_id' => $webform_id,
+        'data' => $override,
+        'notes' => 'Created by overridden answers.'
+      ]);
+      $new_submission->save();
 
-    if ($new_submission->id()) {
-      $older_sids = \Drupal::entityQuery('webform_submission')
-      ->condition('webform_id', $webform_id)
-      ->condition('sid', $new_submission->id(), '<>')
-      ->accessCheck(false)
-      ->execute();
-      \Drupal::entityTypeManager()->getStorage('webform_submission')->delete(
-        \Drupal::entityTypeManager()->getStorage('webform_submission')->loadMultiple(array_keys($older_sids))
-      );
-      return $new_submission;
+      if ($new_submission->id()) {
+        $older_sids = \Drupal::entityQuery('webform_submission')
+        ->condition('webform_id', $webform_id)
+        ->condition('sid', $new_submission->id(), '<>')
+        ->accessCheck(false)
+        ->execute();
+        \Drupal::entityTypeManager()->getStorage('webform_submission')->delete(
+          \Drupal::entityTypeManager()->getStorage('webform_submission')->loadMultiple(array_keys($older_sids))
+        );
+        return $new_submission;
+      }
     }
   }
 
