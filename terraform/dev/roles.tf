@@ -206,8 +206,8 @@ resource "aws_iam_role_policy" "workbc_cc_container_ses" {
   EOF  
 }
 
-resource "aws_iam_role" "workbc_events_role" {
-	name = "workbc_events_role"
+resource "aws_iam_role" "workbc_cc_events_role" {
+	name = "workbc_cc_events_role"
 	assume_role_policy = jsonencode({
     "Version": "2012-10-17",
     "Statement": [
