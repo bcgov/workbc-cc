@@ -103,10 +103,6 @@ footer {
         .region-footer-left {
             margin-top: 13px;
         }
-
-        .region-footer-right {
-            margin-right: 7px;
-        }
     }
 
     .footer-bottom-wrapper {
@@ -116,7 +112,6 @@ footer {
         }
 
         .region-footer-bottom-right {
-            padding-right: 7px;
             width: 100%;
         }
     }
@@ -151,10 +146,6 @@ footer {
 
                 &.social-youtube {
                     background: #d21c22;
-                    img {
-                        width: 40px;
-                        height: 40px;
-                    }
                 }
 
                 &.social-linkedin {
@@ -214,8 +205,6 @@ footer {
     }
 
     #block-copyrights {
-        margin-left: 7px;
-
         @media all and (max-width: 991.98px) {
             margin-bottom: 30px;
         }
