@@ -93,7 +93,7 @@ function workbc_cdq_quiz_info($id) {
     if ($element['#type'] == "radios") $count++;
   }
 
-  $results = getUserSubmission($id);
+  $results = getUserSubmission($id, true);
   if ($results) {
     if (!$results->isDraft()) {
       $status = "completed";
