@@ -1,0 +1,25 @@
+uuid: 63415bc6-7d65-41f2-add4-5452d3b8c1a6
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+    - workbc_cdq_custom
+  theme:
+    - workbc_cdq
+id: workbc_cdq_workbcreproducedwithpermission
+theme: workbc_cdq
+region: content
+weight: 2
+provider: null
+plugin: workbc_reproduced_with_permission
+settings:
+  id: workbc_reproduced_with_permission
+  label: 'WorkBC Reproduced with Permission'
+  label_display: '0'
+  provider: workbc_cdq_custom
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: "/quizzes/*\r\n/compare-careers/*\r\n/form/interests-quiz\r\n/form/abilities-quiz\r\n/form/work-preferences-quiz\r\n/form/multiple-intelligences-quiz\r\n/form/learning-styles-quiz\r\n/form/work-values-quiz"
