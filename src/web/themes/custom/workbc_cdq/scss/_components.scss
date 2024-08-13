@@ -1329,7 +1329,7 @@ body.path-quiz {
     }
 
     .form-radios {
-      @media all and (max-width: 767.98px) {
+      @media all and (max-width: 1024px) {
         display: flex;
         flex-direction: column;
       }
@@ -1340,7 +1340,6 @@ body.path-quiz {
         position: relative;
         z-index: 1;
         top: 16px;
-        opacity: 0;
         &:focus-visible{
           & + label.option + span.radio {
             outline: 2px dashed #d21c22;
@@ -1350,7 +1349,7 @@ body.path-quiz {
           top: 9px;
         }
 
-          & + label.option + span.radio {
+          .form-radio {
               width: 20px;
               height: 20px;
               display: flex;
@@ -1380,20 +1379,19 @@ body.path-quiz {
           }
         }
 
-            &:checked {
-                & + label.option + span.radio {
-                    border: 2px solid $aq;
+          &:checked {
+              & + label.option {
 
-            &::before {
-              display: block;
-            }
+          &::before {
+            display: block;
+          }
           }
         }
       }
 
       label {
         position: absolute;
-        top: -70px;
+        top: -60px;
         font-size: 14px;
         font-weight: normal;
         display: block;
@@ -1406,12 +1404,12 @@ body.path-quiz {
         left: -10px;
         margin: 0 auto;
 
-        @media all and (max-width: 1024.98px) {
+        @media all and (max-width: 1024px) {
           padding: 0 5px;
           width  : auto;
         }
 
-        @media all and (max-width: 767.98px) {
+        @media all and (max-width: 1024px) {
           position: relative;
           top: 0px;
           font-size: 14px;
@@ -1437,7 +1435,7 @@ body.path-quiz {
           min-width: 31%;
         }
 
-        @media all and (max-width: 767.98px) {
+        @media all and (max-width: 1024px) {
           min-width: 100%;
           text-align: left;
           max-height: 35px;
@@ -1504,32 +1502,32 @@ body.path-quiz {
     display: none;
   }
 
-  //form {
-  //  fieldset {
-  //    display: flex;
-  //    border: red 1px solid;
-  //    margin: 10px 20px;
-  //
-  //
-  //    &.workbc-quiz-fieldset-odd {
-  //      background: rgba(242, 242, 242, 1);
-  //    }
-  //
-  //    &:not(.workbc-quiz-fieldset-first) {
-  //      label {
-  //        display: none;
-  //
-  //        @media all and (max-width: 767.98px) {
-  //          display: block;
-  //        }
-  //      }
-  //    }
-  //    &.error-class{
-  //      border: 2px solid rgba(205, 27, 33, 1);
-  //      margin: 5px;
-  //    }
-  //  }
-  //}
+  form {
+    fieldset {
+      display: flex;
+
+      &.workbc-quiz-fieldset-odd {
+        background: rgba(242, 242, 242, 1);
+      }
+
+      &:not(.workbc-quiz-fieldset-first) {
+        .fieldset-wrapper {
+          label {
+            display: none;
+
+            @media all and (max-width: 1024px) {
+              display: block;
+            }
+          }
+        }
+
+      }
+      &.error-class{
+        border: 2px solid rgba(205, 27, 33, 1);
+        margin: 5px;
+      }
+    }
+  }
 
   .preview-quiz-form{
     .form-actions.form-actions{
@@ -1668,73 +1666,78 @@ body.path-quiz {
   }
 }
 
-//.form{
-//  > .js-form-item.form-item.js-form-type-entity-autocomplete.form-type-entity-autocomplete{
-//    display: none;
-//  }
-//  > fieldset {
-//    padding: 10px 20px;
-//    border-bottom: 0px;
-//    width: 100%;
-//    display: inline-block;
-//    > legend{
-//      float: left;
-//      width: 40%;
-//      font-family: "BC Sans", sans-serif;
-//      font-weight: 400;
-//      font-style: normal;
-//      font-size: 1.5rem;
-//      line-height: 2.1rem;
-//      color: #333333;
-//      padding-top: 10px;
-//      @media all and (max-width: 1024.98px){
-//        float: none;
-//        width: 100%;
-//        padding-top: 0;
-//      }
-//      > span.question-prefix{
-//        position:absolute;
-//      }
-//      >span.fieldset-legend{
-//        margin-left: 30px;
-//        display: block;
-//      }
-//    }
-//    > .form-wrapper{
-//      float: left;
-//      width: 60%;
-//      @media all and (max-width: 1024.98px){
-//        float: none;
-//        width: 100%;
-//        .form-radios{
-//          display: flex;
-//          flex-direction: column;
-//          padding-left: 70px;
-//          padding-bottom: 30px;
-//          .form-item{
-//            min-width: 100%;
-//            text-align: left;
-//            max-height: 35px;
-//          }
-//          label{
-//            position: relative;
-//            top: auto;
-//            display: block;
-//            text-align: left;
-//            left: 30px;
-//          }
-//          input{
-//            top: 25px !important;
-//          }
-//          span.radio{
-//            margin: 0 !important;
-//            bottom: 23px !important;
-//          }
-//        }
-//      }
-//    }
-//  }
-//}
+form{
+  > .js-form-item.form-item.js-form-type-entity-autocomplete.form-type-entity-autocomplete{
+    display: none;
+  }
+  fieldset {
+    padding: 10px 20px;
+    border-bottom: 0px;
+    width: 100%;
+    display: inline-block;
+    legend{
+      float: left;
+      width: 40%;
+      font-family: "BC Sans", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 1.5rem;
+      line-height: 2.1rem;
+      color: #333333;
+      padding-top: 10px;
+      @media all and (max-width: 1024px){
+        float: none;
+        width: 100%;
+        padding-top: 0;
+      }
+      > span.question-prefix{
+        position:absolute;
+      }
+      >span.fieldset-legend{
+        margin: 30px;
+        display: block;
+        @media all and (max-width: 1024.98px){
+          margin: 0 30px;
+          padding-top: 50px;
+        }
+      }
+    }
+    .fieldset-wrapper{
+      float: left;
+      width: 60%;
+      padding-top: 20px;
+      @media all and (max-width: 1024.98px){
+        float: none;
+        width: 100%;
+        .form-radios{
+          display: flex;
+          flex-direction: column;
+          padding-left: 70px;
+          padding-bottom: 30px;
+          .form-item{
+            min-width: 100%;
+            text-align: left;
+            max-height: 35px;
+          }
+          label{
+            position: relative;
+            top: auto;
+            display: block;
+            text-align: left;
+            left: 30px;
+          }
+          input{
+            top: 25px !important;
+          }
+          span.radio{
+            margin: 0 !important;
+            bottom: 23px !important;
+          }
+        }
+      }
+    }
+  }
+}
 
 .learning-styles-quiz{
   .field--type-work-bc-quiz{

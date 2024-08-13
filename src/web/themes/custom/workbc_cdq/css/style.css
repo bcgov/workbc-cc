@@ -14935,7 +14935,7 @@ body.path-quiz {
 .path-quiz .region-content .field--type-double-reference .form-item {
   margin: 0px;
 }
-@media all and (max-width: 767.98px) {
+@media all and (max-width: 1024px) {
   .path-quiz .region-content .form-radios {
     display: flex;
     flex-direction: column;
@@ -14947,7 +14947,6 @@ body.path-quiz {
   position: relative;
   z-index: 1;
   top: 16px;
-  opacity: 0;
 }
 .path-quiz .region-content .form-radios input:focus-visible + label.option + span.radio {
   outline: 2px dashed #d21c22;
@@ -14957,7 +14956,7 @@ body.path-quiz {
     top: 9px;
   }
 }
-.path-quiz .region-content .form-radios input + label.option + span.radio {
+.path-quiz .region-content .form-radios input .form-radio {
   width: 20px;
   height: 20px;
   display: flex;
@@ -14971,12 +14970,12 @@ body.path-quiz {
   bottom: 10px;
 }
 @media all and (max-width: 767.98px) {
-  .path-quiz .region-content .form-radios input + label.option + span.radio {
+  .path-quiz .region-content .form-radios input .form-radio {
     margin: 0;
     bottom: 40px;
   }
 }
-.path-quiz .region-content .form-radios input + label.option + span.radio::before {
+.path-quiz .region-content .form-radios input .form-radio::before {
   content: "";
   background: rgb(7, 53, 115);
   width: 12px;
@@ -14986,15 +14985,12 @@ body.path-quiz {
   border-radius: 50%;
   display: none;
 }
-.path-quiz .region-content .form-radios input:checked + label.option + span.radio {
-  border: 2px solid rgb(7, 53, 115);
-}
-.path-quiz .region-content .form-radios input:checked + label.option + span.radio::before {
+.path-quiz .region-content .form-radios input:checked + label.option::before {
   display: block;
 }
 .path-quiz .region-content .form-radios label {
   position: absolute;
-  top: -70px;
+  top: -60px;
   font-size: 14px;
   font-weight: normal;
   display: block;
@@ -15007,13 +15003,13 @@ body.path-quiz {
   left: -10px;
   margin: 0 auto;
 }
-@media all and (max-width: 1024.98px) {
+@media all and (max-width: 1024px) {
   .path-quiz .region-content .form-radios label {
     padding: 0 5px;
     width: auto;
   }
 }
-@media all and (max-width: 767.98px) {
+@media all and (max-width: 1024px) {
   .path-quiz .region-content .form-radios label {
     position: relative;
     top: 0px;
@@ -15037,7 +15033,7 @@ body.path-quiz {
 .learning-styles-quiz .path-quiz .region-content .form-radios .form-item, .work-values-quiz .path-quiz .region-content .form-radios .form-item {
   min-width: 31%;
 }
-@media all and (max-width: 767.98px) {
+@media all and (max-width: 1024px) {
   .path-quiz .region-content .form-radios .form-item {
     min-width: 100%;
     text-align: left;
@@ -15091,6 +15087,24 @@ body.path-quiz {
 }
 .path-quiz .layout-region.layout-region-node-secondary {
   display: none;
+}
+.path-quiz form fieldset {
+  display: flex;
+}
+.path-quiz form fieldset.workbc-quiz-fieldset-odd {
+  background: rgb(242, 242, 242);
+}
+.path-quiz form fieldset:not(.workbc-quiz-fieldset-first) .fieldset-wrapper label {
+  display: none;
+}
+@media all and (max-width: 1024px) {
+  .path-quiz form fieldset:not(.workbc-quiz-fieldset-first) .fieldset-wrapper label {
+    display: block;
+  }
+}
+.path-quiz form fieldset.error-class {
+  border: 2px solid rgb(205, 27, 33);
+  margin: 5px;
 }
 .path-quiz .preview-quiz-form .form-actions.form-actions {
   bottom: -80px;
@@ -15227,6 +15241,83 @@ body.path-quiz {
 }
 .node-questions .quiz-questions span {
   background: url(../src/icons/list-white.svg) no-repeat;
+}
+
+form > .js-form-item.form-item.js-form-type-entity-autocomplete.form-type-entity-autocomplete {
+  display: none;
+}
+form fieldset {
+  padding: 10px 20px;
+  border-bottom: 0px;
+  width: 100%;
+  display: inline-block;
+}
+form fieldset legend {
+  float: left;
+  width: 40%;
+  font-family: "BC Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.5rem;
+  line-height: 2.1rem;
+  color: #333333;
+  padding-top: 10px;
+}
+@media all and (max-width: 1024px) {
+  form fieldset legend {
+    float: none;
+    width: 100%;
+    padding-top: 0;
+  }
+}
+form fieldset legend > span.question-prefix {
+  position: absolute;
+}
+form fieldset legend > span.fieldset-legend {
+  margin: 30px;
+  display: block;
+}
+@media all and (max-width: 1024.98px) {
+  form fieldset legend > span.fieldset-legend {
+    margin: 0 30px;
+    padding-top: 50px;
+  }
+}
+form fieldset .fieldset-wrapper {
+  float: left;
+  width: 60%;
+  padding-top: 20px;
+}
+@media all and (max-width: 1024.98px) {
+  form fieldset .fieldset-wrapper {
+    float: none;
+    width: 100%;
+  }
+  form fieldset .fieldset-wrapper .form-radios {
+    display: flex;
+    flex-direction: column;
+    padding-left: 70px;
+    padding-bottom: 30px;
+  }
+  form fieldset .fieldset-wrapper .form-radios .form-item {
+    min-width: 100%;
+    text-align: left;
+    max-height: 35px;
+  }
+  form fieldset .fieldset-wrapper .form-radios label {
+    position: relative;
+    top: auto;
+    display: block;
+    text-align: left;
+    left: 30px;
+  }
+  form fieldset .fieldset-wrapper .form-radios input {
+    top: 25px !important;
+  }
+  form fieldset .fieldset-wrapper .form-radios span.radio {
+    margin: 0 !important;
+    bottom: 23px !important;
+  }
 }
 
 .learning-styles-quiz .field--type-work-bc-quiz > fieldset > legend {
@@ -17275,11 +17366,8 @@ span.question-prefix:after {
 .cdq-quiz.cdq-abilities-quiz .main-bg .overlay-bg {
   background: #234075;
 }
-.cdq-quiz.cdq-abilities-quiz .region-content .form-radios input:checked + label.option + span.radio {
-  border: 2px solid #234075;
-}
-.cdq-quiz.cdq-abilities-quiz .region-content .form-radios input:checked + label.option + span.radio::before {
-  background: #234075;
+.cdq-quiz.cdq-abilities-quiz .region-content .form-radios input:checked {
+  accent-color: #234075;
 }
 .cdq-quiz.cdq-abilities-quiz .form-actions input[name=op] {
   background: #234075;
@@ -17420,11 +17508,8 @@ span.question-prefix:after {
 .cdq-quiz.cdq-work-preferences-quiz .main-bg .overlay-bg {
   background: #510b76;
 }
-.cdq-quiz.cdq-work-preferences-quiz .region-content .form-radios input:checked + label.option + span.radio {
-  border: 2px solid #510b76;
-}
-.cdq-quiz.cdq-work-preferences-quiz .region-content .form-radios input:checked + label.option + span.radio::before {
-  background: #510b76;
+.cdq-quiz.cdq-work-preferences-quiz .region-content .form-radios input:checked {
+  accent-color: #510b76;
 }
 .cdq-quiz.cdq-work-preferences-quiz .form-actions input[name=op] {
   background: #510b76;
@@ -17565,11 +17650,8 @@ span.question-prefix:after {
 .cdq-quiz.cdq-interests-quiz .main-bg .overlay-bg {
   background: #2671ca;
 }
-.cdq-quiz.cdq-interests-quiz .region-content .form-radios input:checked + label.option + span.radio {
-  border: 2px solid #2671ca;
-}
-.cdq-quiz.cdq-interests-quiz .region-content .form-radios input:checked + label.option + span.radio::before {
-  background: #2671ca;
+.cdq-quiz.cdq-interests-quiz .region-content .form-radios input:checked {
+  accent-color: #2671ca;
 }
 .cdq-quiz.cdq-interests-quiz .form-actions input[name=op] {
   background: #2671ca;
@@ -17710,11 +17792,8 @@ span.question-prefix:after {
 .cdq-quiz.cdq-multiple-intelligences-quiz .main-bg .overlay-bg {
   background: #216c06;
 }
-.cdq-quiz.cdq-multiple-intelligences-quiz .region-content .form-radios input:checked + label.option + span.radio {
-  border: 2px solid #216c06;
-}
-.cdq-quiz.cdq-multiple-intelligences-quiz .region-content .form-radios input:checked + label.option + span.radio::before {
-  background: #216c06;
+.cdq-quiz.cdq-multiple-intelligences-quiz .region-content .form-radios input:checked {
+  accent-color: #216c06;
 }
 .cdq-quiz.cdq-multiple-intelligences-quiz .form-actions input[name=op] {
   background: #216c06;
@@ -17867,11 +17946,8 @@ span.question-prefix:after {
 .cdq-quiz.cdq-learning-styles-quiz .main-bg .overlay-bg {
   background: #007eb4;
 }
-.cdq-quiz.cdq-learning-styles-quiz .region-content .form-radios input:checked + label.option + span.radio {
-  border: 2px solid #007eb4;
-}
-.cdq-quiz.cdq-learning-styles-quiz .region-content .form-radios input:checked + label.option + span.radio::before {
-  background: #007eb4;
+.cdq-quiz.cdq-learning-styles-quiz .region-content .form-radios input:checked {
+  accent-color: #007eb4;
 }
 .cdq-quiz.cdq-learning-styles-quiz .form-actions input[name=op] {
   background: #007eb4;

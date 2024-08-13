@@ -277,12 +277,7 @@
     .region-content{
       .form-radios{
         input:checked{
-          & + label.option + span.radio{
-            border: 2px solid $quiz-dark-blue;
-            &::before{
-              background: $quiz-dark-blue;
-            }
-          }
+            accent-color: $quiz-dark-blue;
         }
       }
     }
@@ -503,12 +498,7 @@
     .region-content{
       .form-radios{
         input:checked{
-          & + label.option + span.radio{
-            border: 2px solid $quiz-purple;
-            &::before{
-              background: $quiz-purple;
-            }
-          }
+          accent-color: $quiz-purple;
         }
       }
     }
@@ -728,12 +718,7 @@
     .region-content{
       .form-radios{
         input:checked{
-          & + label.option + span.radio{
-            border: 2px solid $quiz-blue;
-            &::before{
-              background: $quiz-blue;
-            }
-          }
+          accent-color: $quiz-blue;
         }
       }
     }
@@ -953,12 +938,7 @@
     .region-content{
       .form-radios{
         input:checked{
-          & + label.option + span.radio{
-            border: 2px solid $quiz-green;
-            &::before{
-              background: $quiz-green;
-            }
-          }
+            accent-color: $quiz-green;
         }
       }
     }
@@ -1192,12 +1172,7 @@
     .region-content{
       .form-radios{
         input:checked{
-          & + label.option + span.radio{
-            border: 2px solid $quiz-light-blue;
-            &::before{
-              background: $quiz-light-blue;
-            }
-          }
+            accent-color: $quiz-light-blue;
         }
       }
     }
