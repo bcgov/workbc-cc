@@ -1102,6 +1102,7 @@ a.quiz-link {
 
     }
     &#block-workbc-cdq-content{
+      padding-top: 0;
       padding-bottom: 70px;
       &.results-main-block{
         padding-top: 50px;
@@ -1494,8 +1495,6 @@ body.path-quiz {
     max-width: 1000px;
     margin: auto;
     position: relative;
-    padding-top: 40px;
-
     @media all and (max-width: 1024px) {
       padding-top: 0;
     }

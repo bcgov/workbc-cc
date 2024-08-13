@@ -14715,6 +14715,7 @@ a.quiz-link {
   }
 }
 .overlay-content .block-system-main-block#block-workbc-cdq-content {
+  padding-top: 0;
   padding-bottom: 70px;
 }
 .overlay-content .block-system-main-block#block-workbc-cdq-content.results-main-block {
@@ -15079,7 +15080,6 @@ body.path-quiz {
   max-width: 1000px;
   margin: auto;
   position: relative;
-  padding-top: 40px;
 }
 @media all and (max-width: 1024px) {
   .path-quiz .webform-submission-form {
