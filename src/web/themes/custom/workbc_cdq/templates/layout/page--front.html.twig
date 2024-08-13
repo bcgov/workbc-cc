@@ -114,14 +114,14 @@ set footer_classes = ' ' ~
     <div class="paragraph paragraph--type--rich-text paragraph--view-mode--default">
       <div class="intro-text-wrapper">
         <div class="container-fluid">
-          <div class="intro-content px-3">       
+          <div class="intro-content px-3">
             <div class="clearfix text-formatted field field--name-field-rich-text field--type-text-long field--label-hidden field__item"><p><span><span><span lang="EN-CA" xml:lang="EN-CA" xml:lang="EN-CA">Complete one or more of the quizzes to help you explore your career direction.</span></span></span></p></div>
           </div>
         </div>
       </div>
     </div>
 
-  <div class="{{ b5_top_container }}">
+  <div class="container"> <!-- TODO revert dynamic class variable and add "container" to Drupal config -->
 
     <div class="row g-0">
       {% if page.sidebar_first %}
@@ -130,15 +130,12 @@ set footer_classes = ' ' ~
         </div>
       {% endif %}
 
-
-
-
       <div class="order-1 order-lg-2 {{ content_classes }}">
         {{ page.content }}
 
         <div class="row">
 	        <div class="col-md-12">
-		        <div class="head-des">   
+		        <div class="head-des">
               <h2 id="career-quizzes">Career Quizzes</h2>
               <div class="description"><p>Take the career quizzes below to discover how your abilities, work preferences and interests can help you explore careers that suit you best.</p></div>
 		        </div>
@@ -174,7 +171,7 @@ set footer_classes = ' ' ~
 	          </div>
           </div>
         </div>
-  
+
         <div class="row">
 	        <div class="col-md-12">
 		        <div class="head-des">
@@ -183,8 +180,6 @@ set footer_classes = ' ' ~
 		        </div>
 	        </div>
         </div>
-
-
 
 	      <div class="row">
 		      <div class="col-md-12">
@@ -217,10 +212,6 @@ set footer_classes = ' ' ~
         </div>
 
       </div>
-      
-
-
-
 
       {% if page.sidebar_second %}
         <div class="order-3 {{ sidebar_second_classes }}">
