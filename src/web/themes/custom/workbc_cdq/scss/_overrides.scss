@@ -922,7 +922,7 @@
     }
   }
 
-  &.quiz-color-green{
+  &.cdq-multiple-intelligences-quiz{
     .careers-mobi-main-wrapper .careers-mobi-table-wrapper .tbody .tbody-main .compare-career-mobi input:checked ~ .checkmark {
       border: 1px solid $quiz-green;
 
@@ -1161,7 +1161,7 @@
     }
   }
 
-  &.quiz-color-light-blue{
+  &.cdq-learning-styles-quiz{
     .careers-mobi-main-wrapper .careers-mobi-table-wrapper .tbody .tbody-main .compare-career-mobi input:checked ~ .checkmark {
       border: 1px solid $quiz-light-blue;
 
@@ -1387,7 +1387,7 @@
     }
   }
 
-  &.quiz-color-pink{
+  &.cdq-work-values-quiz{
     .careers-mobi-main-wrapper .careers-mobi-table-wrapper .tbody .tbody-main .compare-career-mobi input:checked ~ .checkmark {
       border: 1px solid $quiz-pink;
 
