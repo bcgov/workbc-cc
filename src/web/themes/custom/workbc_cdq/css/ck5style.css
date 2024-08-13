@@ -12121,12 +12121,15 @@ a > .ck-content code {
 }
 @media all and (max-width: 991.98px) {
   .ck-content footer {
-    padding: 30px 0;
+    padding: 30px 5px;
+  }
+  .ck-content footer .row {
+    flex-wrap: wrap-reverse;
   }
 }
 @media all and (max-width: 767.98px) {
   .ck-content footer {
-    padding: 20px 0;
+    padding: 20px 5px;
   }
 }
 .ck-content footer .footer-top-wrapper {
