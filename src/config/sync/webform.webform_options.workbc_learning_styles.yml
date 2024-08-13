@@ -8,5 +8,5 @@ category: WorkBC
 likert: true
 options: |-
   '12.5': Usually
-  '6.25': Neutral
+  '6.25': Sometimes
   0: Rarely
