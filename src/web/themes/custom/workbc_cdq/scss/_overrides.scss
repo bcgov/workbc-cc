@@ -1393,12 +1393,7 @@
     .region-content{
       .form-radios{
         input:checked{
-          & + label.option + span.radio{
-            border: 2px solid $quiz-pink;
-            &::before{
-              background: $quiz-pink;
-            }
-          }
+          accent-color: $quiz-pink;
         }
       }
     }

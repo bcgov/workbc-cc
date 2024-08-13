@@ -17030,11 +17030,8 @@ a > .ck-content code {
 .ck-content .cdq-quiz.cdq-work-values-quiz .main-bg .overlay-bg {
   background: #880364;
 }
-.ck-content .cdq-quiz.cdq-work-values-quiz .region-content .form-radios input:checked + label.option + span.radio {
-  border: 2px solid #880364;
-}
-.ck-content .cdq-quiz.cdq-work-values-quiz .region-content .form-radios input:checked + label.option + span.radio::before {
-  background: #880364;
+.ck-content .cdq-quiz.cdq-work-values-quiz .region-content .form-radios input:checked {
+  accent-color: #880364;
 }
 .ck-content .cdq-quiz.cdq-work-values-quiz .form-actions input[name=op] {
   background: #880364;
