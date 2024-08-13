@@ -1,6 +1,8 @@
 <?php
 
 use Drupal\webform\Entity\WebformSubmission;
+use Drupal\views\ViewExecutable;
+use Drupal\views\Plugin\views\query\QueryPluginBase;
 
 function quizzesList() {
   $forms = \Drupal::entityTypeManager()->getStorage('webform')->loadMultiple();
@@ -143,4 +145,15 @@ function getUserSubmission($webform_id, $skip_overrides = false) {
   }
 
   return $submission ?? false;
+}
+
+
+function workbc_cdq_custom_views_query_alter(ViewExecutable $view, QueryPluginBase $query) {
+
+  if ($view->storage->get('id') == "quiz_career_match") {  
+    $query->orderby[] = [
+      'field' => 'node_field_data_workbc_cdq_career_match.title',
+      'direction' => 'ASC'
+    ];
+  }
 }
