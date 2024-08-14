@@ -36,25 +36,25 @@ elements: |-
     '#next_button_label': Next
     i_like_to_work_at_the_same_thing_for_a_long_time:
       '#type': radios
-      '#title': 'I like to work at the same thing for a long time.'
+      '#title': 'I like doing the same task for a long period of time.'
       '#options': workbc_work_preferences
       '#category': Methodical
       '#required': true
     i_like_to_build_things_and_or_repair_them:
       '#type': radios
-      '#title': 'I like to build things and/or repair them.'
+      '#title': 'I enjoy building things or repairing them.'
       '#options': workbc_work_preferences
       '#category': Objective
       '#required': true
     i_like_to_dig_deeply_into_topics_to_solve_problems:
       '#type': radios
-      '#title': 'I like to dig deeply into topics to solve problems.'
+      '#title': 'I like exploring a subject from different points of view.'
       '#options': workbc_work_preferences
       '#category': Innovative
       '#required': true
     i_like_to_finish_one_job_before_i_start_the_next:
       '#type': radios
-      '#title': 'I like to finish one job before I start the next.'
+      '#title': 'I like finishing one job before I start the next.'
       '#options': workbc_work_preferences
       '#category': Methodical
       '#required': true
@@ -71,31 +71,31 @@ elements: |-
     '#next_button_label': Next
     i_would_like_to_have_a_job_where_i_work_at_a_steady_pace_all_day:
       '#type': radios
-      '#title': 'I would like to have a job where I work at a steady pace all day.'
+      '#title': 'I prefer to maintain a steady pace throughout an activity.'
       '#options': workbc_work_preferences
       '#category': Methodical
       '#required': true
     i_enjoy_activities_which_give_me_the_opportunity_to_test_and_mea:
       '#type': radios
-      '#title': 'I enjoy activities which give me the opportunity to test and measure in some way.'
+      '#title': 'I prefer to do trial runs and apply changes.'
       '#options': workbc_work_preferences
       '#category': Innovative
       '#required': true
     i_would_like_to_be_responsible_for_organizing_an_activity_and_pl:
       '#type': radios
-      '#title': 'I would like to be responsible for organizing an activity and planning something for everyone to do.'
+      '#title': 'I like being responsible for organizing an activity and planning something for everyone to do.'
       '#options': workbc_work_preferences
       '#category': Directive
       '#required': true
     i_like_to_help_my_friends_to_solve_their_problems:
       '#type': radios
-      '#title': 'I like to help my friends to solve their problems.'
+      '#title': 'I enjoy helping people solve their problems.'
       '#options': workbc_work_preferences
       '#category': Social
       '#required': true
     i_would_like_to_be_responsible_for_a_project_or_activity_and_hav:
       '#type': radios
-      '#title': 'I would like to be responsible for a project or activity and have to look after many different details to complete it.'
+      '#title': 'I prefer being responsible for a project/activity and enjoy looking after many different details to complete it.'
       '#options': workbc_work_preferences
       '#category': Directive
       '#required': true
@@ -106,7 +106,7 @@ elements: |-
     '#next_button_label': Next
     i_enjoy_books_and_television_programs_on_scientific_subjects_suc:
       '#type': radios
-      '#title': 'I enjoy books and television programs on scientific subjects such as astronomy and biology.'
+      '#title': 'I like learning about scientific topics by reading books, watching TV or visiting websites.'
       '#options': workbc_work_preferences
       '#category': Innovative
       '#required': true
@@ -124,13 +124,13 @@ elements: |-
       '#required': true
     i_like_to_solve_my_own_problems_and_do_projects_using_my_own_ide:
       '#type': radios
-      '#title': 'I like to solve my own problems and do projects using my own ideas.'
+      '#title': 'I like solving my own problems and doing projects using my own ideas.'
       '#options': workbc_work_preferences
       '#category': Innovative
       '#required': true
     when_i_do_a_project_or_other_job_i_do_it_carefully_one_step_at_a:
       '#type': radios
-      '#title': 'When I do a project or other job, I do it carefully, one step at a time.'
+      '#title': 'I like doing a project or other job carefully, one step at a time.'
       '#options': workbc_work_preferences
       '#category': Methodical
       '#required': true
@@ -141,31 +141,31 @@ elements: |-
     '#next_button_label': Next
     i_would_like_a_job_where_i_could_direct_control_and_plan_the_act:
       '#type': radios
-      '#title': 'I would like a job where I could direct, control and plan the activities of other workers.'
+      '#title': 'Planning the tasks or activities of others.'
       '#options': workbc_work_preferences
       '#category': Directive
       '#required': true
     i_like_to_take_charge_of_things_and_get_them_done:
       '#type': radios
-      '#title': 'I like to take charge of things and get them done.'
+      '#title': 'Taking charge of things and getting them done.'
       '#options': workbc_work_preferences
       '#category': Directive
       '#required': true
     i_enjoy_experimenting_with_different_methods_to_accomplish_somet:
       '#type': radios
-      '#title': 'I enjoy experimenting with different methods to accomplish something or to solve a problem.'
+      '#title': 'Trying new ways of doing things.'
       '#options': workbc_work_preferences
       '#category': Innovative
       '#required': true
     i_would_like_to_have_a_job_operating_machinery_all_day:
       '#type': radios
-      '#title': 'I would like to have a job operating machinery all day.'
+      '#title': 'Spending my days working with machines or equipment.'
       '#options': workbc_work_preferences
       '#category': Objective
       '#required': true
     i_would_like_to_have_a_job_where_i_am_able_to_keep_equipment_or:
       '#type': radios
-      '#title': 'I would like to have a job where I am able to keep equipment or machinery in working order.'
+      '#title': 'Maintaining machinery or equipment.'
       '#options': workbc_work_preferences
       '#category': Objective
       '#required': true
@@ -176,31 +176,31 @@ elements: |-
     '#next_button_label': Next
     i_would_like_a_job_that_is_involved_in_community_service:
       '#type': radios
-      '#title': 'I would like a job that is involved in community service.'
+      '#title': 'Working to help deliver community services.'
       '#options': workbc_work_preferences
       '#category': Social
       '#required': true
     i_would_like_to_have_a_job_where_i_always_know_what_is_expected:
       '#type': radios
-      '#title': 'I would like to have a job where I always know what is expected of me.'
+      '#title': 'Doing activities where I always know what is expected of me.'
       '#options': workbc_work_preferences
       '#required': true
       '#category': Methodical
     i_would_like_a_job_where_i_had_to_deal_with_people_all_day:
       '#type': radios
-      '#title': 'I would like a job where I had to deal with people all day.'
+      '#title': 'Speaking with people and listening to them.'
       '#options': workbc_work_preferences
       '#category': Social
       '#required': true
     i_would_like_a_job_where_i_do_mathematical_calculations_as_part:
       '#type': radios
-      '#title': 'I would like a job where I do mathematical calculations as part of some technical work.'
+      '#title': 'Solving a problem.'
       '#options': workbc_work_preferences
       '#category': Innovative
       '#required': true
     i_would_like_a_job_that_is_involved_with_social_betterment:
       '#type': radios
-      '#title': 'I would like a job that is involved with social betterment.'
+      '#title': 'Helping people improve their lives.'
       '#options': workbc_work_preferences
       '#category': Social
       '#required': true
@@ -211,31 +211,31 @@ elements: |-
     '#next_button_label': Next
     i_like_working_with_my_hands_doing_things_such_as_plumbing_repai:
       '#type': radios
-      '#title': 'I like working with my hands, doing things such as plumbing repairs, sewing, fixing cars, or wallpapering.'
+      '#title': 'Working with my hands, doing things such as plumbing repairs, sewing, fixing cars, or wallpapering.'
       '#options': workbc_work_preferences
       '#category': Objective
       '#required': true
     i_enjoy_finding_out_from_books_and_tv_programs_how_things_are_ma:
       '#type': radios
-      '#title': 'I enjoy finding out from books and TV programs how things are made or how things work.'
+      '#title': 'Discovering how things are made by reading books, watching TV or searching websites.'
       '#options': workbc_work_preferences
       '#category': Objective
       '#required': true
     i_like_a_job_where_my_work_is_usually_closely_checked_and_inspec:
       '#type': radios
-      '#title': 'I like a job where my work is usually closely checked and inspected.'
+      '#title': 'Doing an activity where my work is closely checked.'
       '#options': workbc_work_preferences
       '#category': Methodical
       '#required': true
     i_like_to_assist_people_when_they_are_sick_or_in_trouble:
       '#type': radios
-      '#title': 'I like to assist people when they are sick or in trouble.'
+      '#title': 'Assisting people when they are sick or in trouble.'
       '#options': workbc_work_preferences
       '#category': Social
       '#required': true
     i_find_it_easy_to_work_with_people_and_to_cooperate_with_them:
       '#type': radios
-      '#title': 'I find it easy to work with people and to cooperate with them.'
+      '#title': 'Working with a team.'
       '#options': workbc_work_preferences
       '#category': Social
       '#required': true
@@ -246,31 +246,31 @@ elements: |-
     '#next_button_label': Next
     i_enjoy_working_with_materials_such_as_wood_stone_clay_fabric_or:
       '#type': radios
-      '#title': 'I enjoy working with materials such as wood, stone, clay, fabric or metal.'
+      '#title': 'Working with materials such as wood, stone, clay, fabric or metal.'
       '#options': workbc_work_preferences
       '#category': Objective
       '#required': true
     i_enjoy_having_a_lot_of_things_to_think_about:
       '#type': radios
-      '#title': 'I enjoy having a lot of things to think about.'
+      '#title': 'Inventing or creating.'
       '#options': workbc_work_preferences
       '#category': Innovative
       '#required': true
     i_have_been_the_leader_of_a_club_committee_team_or_organization:
       '#type': radios
-      '#title': 'I have been the leader of a club, committee, team or organization.'
+      '#title': 'Leading a committee, an association or a team.'
       '#options': workbc_work_preferences
       '#category': Directive
       '#required': true
     i_am_able_to_help_people_who_are_worried_or_upset:
       '#type': radios
-      '#title': 'I am able to help people who are worried or upset.'
+      '#title': 'Bringing comfort to others.'
       '#options': workbc_work_preferences
       '#category': Social
       '#required': true
     i_like_to_have_established_rules_to_work_by:
       '#type': radios
-      '#title': 'I like to have established rules to work by.'
+      '#title': 'Working by following well-established procedures.'
       '#options': workbc_work_preferences
       '#category': Methodical
       '#required': true
@@ -281,31 +281,31 @@ elements: |-
     '#next_button_label': Next
     i_enjoy_working_with_tools_equipment_or_technical_instruments:
       '#type': radios
-      '#title': 'I enjoy working with tools, equipment or technical instruments.'
+      '#title': 'Working with tools, equipment or technical instruments.'
       '#options': workbc_work_preferences
       '#category': Objective
       '#required': true
     i_would_like_a_job_in_which_i_work_with_machines_or_things_rathe:
       '#type': radios
-      '#title': 'I would like a job in which I work with machines or things rather than dealing with people.'
+      '#title': 'Having a job working with machines or things rather than dealing with people.'
       '#options': workbc_work_preferences
       '#category': Objective
       '#required': true
     i_prefer_being_in_control_of_a_group_rather_than_just_a_member:
       '#type': radios
-      '#title': 'I prefer being in control of a group rather than just a member.'
+      '#title': 'Being in control of a group rather than just a member.'
       '#options': workbc_work_preferences
       '#category': Directive
       '#required': true
     i_do_volunteer_work_with_organizations_that_help_people:
       '#type': radios
-      '#title': 'I do volunteer work with organizations that help people.'
+      '#title': 'Co-operating with others.'
       '#options': workbc_work_preferences
       '#category': Social
       '#required': true
     i_would_like_to_work_on_research_projects:
       '#type': radios
-      '#title': 'I would like to work on research projects.'
+      '#title': 'Working on research projects.'
       '#options': workbc_work_preferences
       '#category': Innovative
       '#required': true
@@ -316,31 +316,31 @@ elements: |-
     '#next_button_label': Next
     i_would_like_a_job_where_i_can_take_responsibility_for_decisions:
       '#type': radios
-      '#title': 'I would like a job where I can take responsibility for decisions.'
+      '#title': 'Taking responsibility for decisions.'
       '#options': workbc_work_preferences
       '#category': Directive
       '#required': true
     i_am_usually_successful_in_getting_people_to_do_what_i_want:
       '#type': radios
-      '#title': 'I am usually successful in getting people to do what I want.'
+      '#title': 'Getting people to do what I want.'
       '#options': workbc_work_preferences
       '#category': Directive
       '#required': true
     i_like_to_go_through_evidence_to_solve_problems:
       '#type': radios
-      '#title': 'I like to go through evidence to solve problems.'
+      '#title': 'Going through evidence to solve problems.'
       '#options': workbc_work_preferences
       '#category': Innovative
       '#required': true
     i_enjoy_looking_after_people:
       '#type': radios
-      '#title': 'I enjoy looking after people.'
+      '#title': 'Looking after people.'
       '#options': workbc_work_preferences
       '#category': Social
       '#required': true
     i_am_able_to_take_orders:
       '#type': radios
-      '#title': 'I am able to take orders.'
+      '#title': 'Doing an activity where I am told what to do and how.'
       '#options': workbc_work_preferences
       '#category': Methodical
       '#required': true
@@ -351,31 +351,31 @@ elements: |-
     '#next_button_label': Next
     i_would_like_a_job_interviewing_people_to_get_their_opinions_abo:
       '#type': radios
-      '#title': 'I would like a job interviewing people to get their opinions about things or events.'
+      '#title': 'Discussing with people to know their opinions.'
       '#options': workbc_work_preferences
       '#category': Social
       '#required': true
     i_would_like_a_job_where_i_am_responsible_for_organizing_my_own:
       '#type': radios
-      '#title': 'I would like a job where I am responsible for organizing my own activities the way I see fit.'
+      '#title': 'Organizing my tasks in my own way.'
       '#options': workbc_work_preferences
       '#category': Directive
       '#required': true
     i_would_like_to_work_on_projects_that_allow_me_to_discover_new_f:
       '#type': radios
-      '#title': 'I would like to work on projects that allow me to discover new facts or ideas.'
+      '#title': 'Working to discover new ideas or things.'
       '#options': workbc_work_preferences
       '#category': Innovative
       '#required': true
     i_like_to_do_the_same_task_until_it_is_finished:
       '#type': radios
-      '#title': 'I like to do the same task until it is finished.'
+      '#title': 'Working on one thing at a time.'
       '#options': workbc_work_preferences
       '#category': Methodical
       '#required': true
     i_enjoy_hobbies_i_can_do_on_my_own_such_as_building_models_garde:
       '#type': radios
-      '#title': 'I enjoy hobbies I can do on my own, such as building models, gardening, refinishing old furniture or developing photographs.'
+      '#title': 'Doing hobbies on my own such as building models, gardening or refinishing old furniture.'
       '#options': workbc_work_preferences
       '#category': Objective
       '#required': true
