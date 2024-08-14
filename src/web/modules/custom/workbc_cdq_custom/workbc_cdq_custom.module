@@ -103,17 +103,30 @@ function getSubmissionOverrides($webform_id, $current_submission) {
   return $submission;
 }
 
-function getUserSubmission($webform_id, $skip_overrides = false) {
-  // Get current submission by user.
-  $current_user = \Drupal::currentUser();
-  $query = \Drupal::entityQuery('webform_submission')
-  ->condition('uid', $current_user->id())
-  ->condition('webform_id', $webform_id)
-  ->range(0, 1)
-  ->sort('changed', 'DESC')
-  ->accessCheck(false);
 
+function getUserSubmission($webform_id, $skip_overrides = false) {
+  
+  $current_user = \Drupal::currentUser();
+
+  $token = \Drupal::request()->get('token');
+  if ($token) {
+    $query = \Drupal::entityQuery('webform_submission')
+      ->condition('token', $token)
+      ->condition('webform_id', $webform_id)
+      ->range(0, 1)
+      ->sort('changed', 'DESC')
+      ->accessCheck(false);
+  }
+  else {
+    $query = \Drupal::entityQuery('webform_submission')
+      ->condition('uid', $current_user->id())
+      ->condition('webform_id', $webform_id)
+      ->range(0, 1)
+      ->sort('changed', 'DESC')
+      ->accessCheck(false);
+  }
   $results = $query->execute();
+
   if ($results) {
     $sid = array_shift($results);
     $submission = WebformSubmission::load($sid);

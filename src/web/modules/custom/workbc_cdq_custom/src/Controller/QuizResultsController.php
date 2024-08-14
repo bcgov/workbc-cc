@@ -61,17 +61,24 @@ class QuizResultsController extends ControllerBase {
         $score[$category_name]['color'] = $info[$category_name]['color'];
         $score[$category_name]['image'] = $info[$category_name]['icon'];
       }
+      $categoryTop = $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'top_text');
+      $categoryAll = $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'all_text');
+      $emailBody = results_email_body($submission);  
     }
     else {
       $score = NULL;
+      $categoryTop = NULL;
+      $categoryAll = NULL;
+      $emailBody = NULL;      
     }
+
     return [
       '#theme' => 'workbc_cdq_quiz_results_categories',
-      '#category_top' => $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'top_text'),
-      '#category_all' => $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'all_text'),
+      '#category_top' => $categoryTop,
+      '#category_all' => $categoryAll,
       '#category' => "Abilities",
-      '#email_subject' => "WorkBC's Career Discovery Quizzes - Abilities Quiz results",
-      '#email_body' => results_email_body($submission),
+      '#email_subject' => "WorkBC.ca Career Discovery Quiz Results: Abilities Quiz",
+      '#email_body' => $emailBody,
       '#score' => $score,
       '#cache' => ['max-age' => 0],
     ];
@@ -108,18 +115,24 @@ class QuizResultsController extends ControllerBase {
         $score[$category_name]['color'] = $info[$category_name]['color'];
         $score[$category_name]['image'] = $info[$category_name]['icon'];
       }
+      $categoryTop = $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'top_text');
+      $categoryAll = $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'all_text');
+      $emailBody = results_email_body($submission);  
     }
     else {
       $score = NULL;
+      $categoryTop = NULL;
+      $categoryAll = NULL;
+      $emailBody = NULL;      
     }
 
     return [
       '#theme' => 'workbc_cdq_quiz_results_categories',
-      '#category_top' => $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'top_text'),
-      '#category_all' => $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'all_text'),
+      '#category_top' => $categoryTop,
+      '#category_all' => $categoryAll,
       '#category' => "Work Preferences",
-      '#email_subject' => "WorkBC's Career Discovery Quizzes - Work Preferences Quiz results",
-      '#email_body' => results_email_body($submission),
+      '#email_subject' => "WorkBC.ca Career Discovery Quiz Results: Work Preferences Quiz",
+      '#email_body' => $emailBody,
       '#score' => $score,
       '#cache' => ['max-age' => 0],
     ];
@@ -160,17 +173,23 @@ class QuizResultsController extends ControllerBase {
         $score[$category_name]['color'] = $info[$category_name]['color'];
         $score[$category_name]['image'] = $info[$category_name]['icon'];
       }
+      $categoryTop = $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'top_text');
+      $categoryAll = $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'all_text');
+      $emailBody = results_email_body($submission);  
     }
     else {
       $score = NULL;
+      $categoryTop = NULL;
+      $categoryAll = NULL;
+      $emailBody = NULL;      
     }
     return [
       '#theme' => 'workbc_cdq_quiz_results_categories',
-      '#category_top' => $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'top_text'),
-      '#category_all' => $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'all_text'),
+      '#category_top' => $categoryTop,
+      '#category_all' => $categoryAll,
       '#category' => "Interests",
-      '#email_subject' => "WorkBC's Career Discovery Quizzes - Interests Quiz results",
-      '#email_body' => results_email_body($submission),
+      '#email_subject' => "WorkBC.ca Career Discovery Quiz Results: Interests Quiz",
+      '#email_body' => $emailBody,
       '#score' => $score,
       '#cache' => ['max-age' => 0],
     ];
@@ -221,17 +240,23 @@ class QuizResultsController extends ControllerBase {
         $score[$category_name]['color'] = $info[$category_name]['color'];
         $score[$category_name]['image'] = $info[$category_name]['icon'];
       }
+      $categoryTop = $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'top_text');
+      $categoryAll = $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'all_text');
+      $emailBody = results_email_body($submission);  
     }
     else {
       $score = NULL;
+      $categoryTop = NULL;
+      $categoryAll = NULL;
+      $emailBody = NULL;      
     }
     return [
       '#theme' => 'workbc_cdq_quiz_results_categories',
-      '#category_top' => $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'top_text'),
-      '#category_all' => $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'all_text'),
+      '#category_top' => $categoryTop,
+      '#category_all' => $categoryAll,
       '#category' => "Types of Smart",
-      '#email_subject' => "WorkBC's Career Discovery Quizzes - Multiple Intelligences Quiz results",
-      '#email_body' => results_email_body($submission),
+      '#email_subject' => "WorkBC.ca Career Discovery Quiz Results: Multiple Intelligences Quiz",
+      '#email_body' => $emailBody,
       '#score' => $score,
       '#cache' => ['max-age' => 0],
     ];
@@ -260,17 +285,23 @@ class QuizResultsController extends ControllerBase {
         $score[$category_name]['color'] = $info[$category_name]['color'];
         $score[$category_name]['image'] = $info[$category_name]['icon'];
       }
+      $categoryTop = $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'top_text');
+      $categoryAll = $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'all_text');
+      $emailBody = results_email_body($submission);  
     }
     else {
       $score = NULL;
+      $categoryTop = NULL;
+      $categoryAll = NULL;
+      $emailBody = NULL;      
     }
     return [
       '#theme' => 'workbc_cdq_quiz_results_categories',
-      '#category_top' => $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'top_text'),
-      '#category_all' => $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'all_text'),
+      '#category_top' => $categoryTop,
+      '#category_all' => $categoryAll,
       '#category' => "Learning Styles",
-      '#email_subject' => "WorkBC's Career Discovery Quizzes - Learning Styles Quiz results",
-      '#email_body' => results_email_body($submission),
+      '#email_subject' => "WorkBC.ca Career Discovery Quiz Results: Learning Styles Quiz",
+      '#email_body' => $emailBody,
       '#score' => $score,
       '#cache' => ['max-age' => 0],
     ];
@@ -313,17 +344,23 @@ class QuizResultsController extends ControllerBase {
           return $answer['value'] == '1';
         }));
       }
+      $categoryTop = $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'top_text');
+      $categoryAll = $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'all_text');
+      $emailBody = results_email_body($submission);  
     }
     else {
       $score = NULL;
+      $categoryTop = NULL;
+      $categoryAll = NULL;
+      $emailBody = NULL;      
     }
     return [
       '#theme' => 'workbc_cdq_quiz_results_work_values',
-      '#category_top' => $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'top_text'),
-      '#category_all' => $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'all_text'),
+      '#category_top' => $categoryTop,
+      '#category_all' => $categoryAll,
       '#category' => "Work Values",
-      '#email_subject' => "WorkBC's Career Discovery Quizzes - Work Values Quiz results",
-      '#email_body' => results_email_body($submission),
+      '#email_subject' => "WorkBC.ca Career Discovery Quiz Results: Work Values Quiz",
+      '#email_body' => $emailBody,
       '#score' => $score,
       '#cache' => ['max-age' => 0],
     ];

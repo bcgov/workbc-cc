@@ -578,15 +578,13 @@ function results_email_body($submission) {
   $options['query'] = ['token' => $submission->getToken()];
   $results_link = Url::fromUri('route:workbc_cdq_custom.' . $id . '_results', $options)->toString();
 
-  $body = "View your ". $quiz_name . " results: " . $results_link;
+  $body = "You recently took the ". $quiz_name . ". Access your results for 14 days at: " . $results_link;
   $body .= NEW_LINE . NEW_LINE;
-  $body .= "Your result are available for next 14 days. print or download to save your results.";
+  $body .= "Print your results if you'd like to keep them for longer than 14 days.";
   $body .= NEW_LINE . NEW_LINE;
-  $body .= "Discover more! Complete other career and personality quizzes and find a career path that's right for you.";
+  $body .= "Learn more about yourself! Complete other quizzes to find what careers might be the best fit for you: " . $home_link;
   $body .= NEW_LINE . NEW_LINE;
-  $body .= "Career Discovery Quizzes: " . $home_link;
-  $body .= NEW_LINE . NEW_LINE;
-  $body .= "Find more resources on careers, funding, education and finding jobs at https://WorkBC.ca.";
+  $body .= "Discover more career and education resources at https://www.workbc.ca.";
 
   return $body;
 }
@@ -600,8 +598,9 @@ function compare_email_body($submission) {
     'absolute' => TRUE,
     'https' => TRUE,
   ];
-  $compare_link = Url::fromRoute('<front>', [], $options)->toString();
-  $compare_link .= "compare-careers/" . $submission->id();
+  $home_link = Url::fromRoute('<front>', [], $options)->toString();
+  $compare_link = $home_link . "compare-careers/" . $submission->id();
+
 
   $body = "View your compared careers: " . $compare_link;
   $body .= NEW_LINE . NEW_LINE;
