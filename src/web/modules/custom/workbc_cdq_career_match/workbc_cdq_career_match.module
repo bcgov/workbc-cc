@@ -353,6 +353,7 @@ function getSubmissionScore(WebformSubmission $submission) {
       'score' => 0,
       'count' => 0,
       'term' => $category,
+      'name' => $category->name,
       'answers' => [],
     ];
     return $categories;
@@ -396,9 +397,11 @@ function getSubmissionScore(WebformSubmission $submission) {
     }
   }
   if ($quiz->id() !== 'work_values_quiz') {
-    uasort($categories, function($c1, $c2) {
-      return $c2['percent'] - $c1['percent'];
-    });
+    array_multisort(
+      array_column($categories, 'percent'), SORT_DESC,
+      array_column($categories, 'name'), SORT_ASC,
+      $categories
+    );
   }
   return $categories;
 }
