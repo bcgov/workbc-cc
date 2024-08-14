@@ -205,3 +205,36 @@ resource "aws_iam_role_policy" "workbc_cc_container_ses" {
   }
   EOF  
 }
+
+resource "aws_iam_role_policy" "events_ecs" {
+	name = "EventBridgeECSPolicy_WorkBC"
+	role = aws_iam_role.workbc_cc_events_role.id
+	policy = jsonencode({
+
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ecs:RunTask"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": "iam:PassRole",
+            "Resource": [
+                "*"
+            ],
+            "Condition": {
+                "StringLike": {
+                    "iam:PassedToService": "ecs-tasks.amazonaws.com"
+                }
+            }
+        }
+    ]
+
+	})
+}
