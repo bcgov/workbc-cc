@@ -45,13 +45,19 @@
 {% set currentPath = url("<current>")|render|render %}
 <div class="careers-main-wrapper small-device-hide">
   <div class="row">
-    <div class="col-12 col-sm-12 col-md-12 col-lg-8">
+    <div class="col-sm-12 col-md-12 col-lg-8">
       <div class="top-career-content">
         <h3>Top Career Matches</h3>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-8">
+      <div class="top-career-content">
         <div class="content">
           <div class="description">
             <p><span class="bulb d-table-cell"></span><span class="dec-text d-table-cell">Select a career below to find out more information.</span></p>
-            <p><span class="bulb d-table-cell"></span><span class="dec-text d-table-cell"><strong>Compare up to three careers</strong> by selecting the</br>
+            <p><span class="bulb d-table-cell"></span><span class="dec-text d-table-cell"><strong>Compare up to three careers</strong> by selecting the
               checkboxes and clicking on the Compare Careers button.</span>
             </p>
           </div>
@@ -64,7 +70,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-12 col-md-8 col-print-12">
+    <div class="col-lg-8 col-md-12 col-sm-12 col-print-12">
       <div class="careers-table-main-wrapper">
         <table{{ attributes.addClass(classes) }}>
           {% if caption_needed %}
@@ -155,104 +161,18 @@
     </div>
 
 
-    <div class="col-12 col-md-4 col-print-12">
+    <div class="col-lg-4 col-md-12 col-sm-12 col-print-12">
       <div class="career-content-main-wrapper career-content-table-item">
         <h3 class='print-career-preview-label d-none d-print-block'>Career Preview</h3>
         {% for rowkey, row in rows %}
           <div id="career-item-{{ rowkey }}" class="career-content-item {% if rowkey == '0' %}active{% endif %}" data-url="">
             {% set career_profile = row.raw %}
             {% include '@workbc_cdq_career_match/templates/includes/career-preview-card.html.twig' %}
-          </div>              
+          </div>
         {% endfor %}
       </div>
     </div>
   </div>
 </div>
 
-{#
-<div class="careers-mobi-main-wrapper small-device-show">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-12">
-        <div class="top-career-mobi-content">
-          <h3>Top Career Matches</h3>
-          <div class="content">
-            <div class="description">
-              <p><span class="bulb d-table-cell"></span><span class="dec-text d-table-cell">Select a career below to find out more information.</span></p>
-              <p><span class="bulb d-table-cell"></span><span class="dec-text d-table-cell">
-                <strong>Compare up to three careers</strong> by selecting the checkboxes and clicking on the Compare Careers button.</span>
-              </p>
-            </div>
-            <div class="top-btn">
-              <a href="{{ remove_url }}" class="clear-compare disable">Clear Compare</a>
-              <a href="{{ '/career-compare/career/'  ~ current_nid ~ '?type=' ~ quiz_type}}" class="compare-career disable">Compare Careers</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-12">
-        <div class="careers-mobi-table-wrapper">
-          <div class="thead">
-            <div class="thead-main">
-              <p class="matches-wrap head">
-                <span class="matches">
-                  <span class="match-per">{{ match_header }}</span>
-                  <span class="match">{{ 'Match'|t }}</span>
-                </span>
-                {% if match_header == 'Your' %}
-                <span class="match-warning" title="A career marked as Best Fit is a very strong match to your interests.&#013;&#010;A career marked Great Fit is a strong match.&#013;&#010;A career marked Good Fit is a less strong match and may also be of interest to you.">
-                  <img src="/themes/custom/bcgov_career/src/icons/warning.svg"/>
-                </span>
-                {% endif %}
-              </p>
-              <p class="head">Career<br>Matches</p>
-              <p class="head">Compare Careers</p>
-            </div>
-          </div>
-          <div class="tbody">
-          {% for rowkey, row in rows %}
-            {% if row.raw.nid is not empty %}
-              {% set nodeURL =  url('entity.node.canonical', {'node': row.raw.nid}) %}
-            {% endif %}
-            <div class="tbody-main" data-id="career-item-{{ rowkey }}">
-              {% if row.raw.match is not empty %}
-                <p class="body">{{ row.raw.match }}</p>
-              {% endif %}
-              {% if row.raw.field_noc_name is not empty %}
-                <p class="body"><a href="{{ nodeURL }}/?type={{ quiz_type }}" class="career-table-mobi-row-link">{{ row.raw.field_noc_name }} </br><span class="noc">(NOC {{ row.raw.title }})</span></a></p>
-              {% endif %}
-              {% for key, column in row.columns %}
-                {% set field_nm = '' %}
-                {% for field in column.fields %}
-                  {% set field_nm = field_nm ~ field %}
-                {% endfor %}
-                {% if field_nm == 'entity-comparison-link-career'%}
-                  <p class="body">
-                    {%- if column.wrapper_element -%}
-                      <{{ column.wrapper_element }}>
-                      {% for content in column.content %}
-                        {{ content.separator }}{{ content.field_output }}
-                      {% endfor %}
-                      </{{ column.wrapper_element }}>
-                    {%- else -%}
-                      {% for content in column.content %}
-                        {{- content.separator }}{{ content.field_output -}}
-                      {% endfor %}
-                    {%- endif %}
-                    <label class="compare-career-mobi compare-carr" data-career="/entity-comparison/career/{{ row.raw.entity_comparison_link_career }}?destination=/node/{{ currentPath }}">
-                      <input type="checkbox" class="career-mobi-checkbox career-chkk">
-                      <span class="checkmark"></span>
-                    </label>
-                  </p>
-                {% endif %}
-              {% endfor %}
-            </div>
-          {% endfor %}
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-#}
 

@@ -64,7 +64,7 @@ header {
 
 footer {
     background-color: #fff;
-    padding: 50px 0;
+    padding: 50px 20px;
     margin-top: 0;
 
     @media all and (max-width: 991.98px) {
@@ -90,15 +90,12 @@ footer {
             &::before {
                 content: "";
                 height: 1px;
-                width: calc(100% - 30px);
                 background: #dbdbdb;
-                position: absolute;
                 left: 15px;
                 right: 0;
-                bottom: -20px;
 
                 @media all and (max-width: 991.98px) {
-                    bottom: -10px;
+
                 }
             }
         }
@@ -148,7 +145,7 @@ footer {
                 }
 
                 &.social-youtube {
-                    background: #d21c22;
+                  background: #d21c22;
                 }
 
                 &.social-linkedin {

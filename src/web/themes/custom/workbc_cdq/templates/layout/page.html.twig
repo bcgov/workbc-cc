@@ -129,9 +129,16 @@ set footer_classes = ' ' ~
 
               {% if is_results %}
                 <div class="careers-main-wrapper small-device-hide">
-                  <div class="row bottom-links">
-                    <a class="btn btn-modify" href="{{ quiz['quiz_link']}}" >Modify Your Answers</a>
-                    <a class="btn btn-prim" href="/" >Take Next Quiz</a>
+                  <div class="bottom-links">
+                    <div class="links-inner">
+                      <div class="link link_1">
+                        <a class="btn btn-modify" href="{{ quiz['quiz_link']}}" >Modify Your Answers</a>
+                      </div>
+                      <div class="link link_2">
+                        <a class="btn btn-prim" href="/" >Take Next Quiz</a>
+                      </div>
+                    </div>
+
                   </div>
                 </div>
               {% endif %}

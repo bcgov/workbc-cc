@@ -692,9 +692,14 @@ header {
       display: none !important;
     }
   }
+}
 
+.cdq-results {
   .bottom-links {
-    margin-top: 60px;
+    padding: 30px 20px;
+    background-color: white;
+    margin: 0 20px;
+
 
     .links-inner {
       display: flex;
@@ -1093,15 +1098,13 @@ a.quiz-link {
 
   .block-system-main-block {
     background: #fff;
-    padding-top: 60px;
     border-top: 9px solid rgb(0, 40, 85);
-    padding-bottom: 300px;
+    padding-bottom: 20px;
     @media all and (max-width: 767.98px) {
       padding-top: 0;
-      padding-bottom: 220px;
-
+      padding-bottom: 20px;
     }
-    &#block-workbc-cdq-content{
+    #block-workbc-cdq-content{
       padding-top: 0;
       padding-bottom: 70px;
       &.results-main-block{
@@ -1111,7 +1114,7 @@ a.quiz-link {
         padding-bottom: 150px;
         &.results-main-block{
           padding-bottom: 50px;
-          padding-top: 0px;
+          padding-top: 0;
         }
       }
       &.has-prev-block{
@@ -1124,9 +1127,76 @@ a.quiz-link {
           padding-bottom: 30px;
         }
       }
+
+
+
     }
   }
+  .quiz-category-results-wrapper {
+    padding: 30px 0 20px 0;
+
+    .result-heading {
+      padding-left: 20px;
+    }
+
+    .float-right{
+      text-align: right;
+      margin-right: 20px;
+
+      li {
+        display: inline-block;
+        padding-left: 20px;
+      }
+    }
+
+    #myResult {
+      padding: 20px 0;
+
+      .row {
+        margin: 10px 0;
+      }
+      .quiz-list {
+        margin: 6px 10px;
+      }
+
+      a.category-results-toggle {
+
+        float: right;
+        padding: 20px 20px;
+
+        &[aria-expanded="true"]::before {
+          content: "Show Top ";
+        }
+
+        &[aria-expanded="true"]::after {
+          content: " -";
+        }
+
+        &[aria-expanded="false"]::before {
+          content: "Show All ";
+        }
+
+        &[aria-expanded="false"]::after {
+          content: " +";
+        }
+
+      }
+
+    }
+  }
+  #block-workbc-cdq-views-block-quiz-career-match-block-1 {
+    background: #fff;
+    margin: 0 20px;
+    padding: 0 50px;
+
+    @media all and (max-width: 767.98px) {
+      margin: 0 0;
+      padding: 0 15px;
+    }
+  }
+
 }
+
 .abilities-quiz-step-8,
 .abilities-quiz-preview-step-4 {
   .overlay-content {
@@ -1193,16 +1263,13 @@ body.path-quiz {
       width: auto;
       min-height: auto;
       margin-top: 0;
-      position: relative;
+      padding: 0 15px;
       right: 0;
-      width: 100%;
 
       @media all and (max-width: 767.98px) {
         bottom: -130px;
         display: flex;
-        padding: 0 15px;
         left: 50%;
-        transform: translate(-50%, -50%);
         justify-content: center;
       }
       @media all and (max-width: 640.98px) {
@@ -1235,7 +1302,6 @@ body.path-quiz {
       font-size: 1.5rem;
       line-height: 1.8rem;
       font-family: "BC Sans", sans-serif;
-      position: absolute;
       top: 0;
       right: 15px;
       z-index: 1;
@@ -1267,7 +1333,6 @@ body.path-quiz {
       font-size: 1.5rem;
       line-height: 1.8rem;
       font-family: "BC Sans", sans-serif;
-      position: absolute;
       top: 0;
       left: 15px;
       z-index: 1;
@@ -1531,7 +1596,6 @@ body.path-quiz {
 
   .preview-quiz-form{
     .form-actions.form-actions{
-      bottom: -80px;
       margin: 0;
       @media all and (max-width:767.98px){
         display: inline-flex;
@@ -1549,7 +1613,6 @@ body.path-quiz {
         padding: 11px 24px;
         @media all and (max-width:767.98px){
           right: 40px;
-          position: absolute;
           width: auto;
         }
         &:hover{
@@ -1568,7 +1631,6 @@ body.path-quiz {
         padding: 11px 24px;
         @media all and (max-width:767.98px){
           left: 40px;
-          position: absolute;
           width: auto;
         }
         &:hover{
@@ -2259,11 +2321,6 @@ span.question-prefix {
 /* CAREER */
 
 .careers-main-wrapper {
-  &.small-device-hide {
-    @media all and (max-width: 991.98px) {
-      display: none;
-    }
-  }
 
   .top-career-content {
     h3 {
@@ -2922,14 +2979,233 @@ span.question-prefix {
   }
 }
 
-// .mfp-container .mfp-content{
-//     .career-content-item{
-//         display: block !important;
-//     }
-//     .mfp-close{
-//         background: #fff;
-//     }
-// }
+.view-cdq-compare-careers {
+  max-width: 1235px;
+
+  .float-right{
+    text-align: right;
+    margin-right: 20px;
+
+    li {
+      display: inline-block;
+      padding-left: 20px;
+    }
+  }
+  .career-content-item-inner {
+    padding-bottom: 20px;
+    height: 100%;
+
+    .career-inner-content {
+      border: 2px solid rgb(230, 234, 233);
+      padding: 20px;
+      height: calc(100% - 76px);
+      min-height: 695px;
+      @media all and (max-width: 480.98px){
+        border: 0;
+      }
+
+      @media all and (max-width: 990px) {
+        min-height: unset;
+      }
+
+      &.page {
+        border: 0;
+        padding: 20px 40px;
+        border-bottom: 4px solid #234075;
+      }
+    }
+
+    .title {
+      .quiz-color-dark-blue & {
+        background: $quiz-dark-blue
+      }
+      .quiz-color-purple & {
+        background: $quiz-purple;
+      }
+      .quiz-color-blue & {
+        background: $quiz-blue;
+      }
+      .quiz-color-green & {
+        background: $quiz-green;
+      }
+      .quiz-color-light-blue & {
+        background: $quiz-light-blue;
+      }
+      .quiz-color-pink & {
+        background: $quiz-pink;
+      }
+    }
+
+    .title {
+      background: #234075;
+      height: 75px;
+      display: flex;
+      align-items: center;
+      p {
+        color: #fff;
+        font-family: "BC Sans Bold", "BC Sans Regular", "BC Sans", sans-serif;
+        font-style: normal;
+        font-size: 1.5rem;
+        line-height: 1.8rem;
+        margin: 0;
+        padding: 20px;
+        text-decoration: none;
+
+        a {
+          color: #fff;
+          text-decoration: none;
+        }
+
+        span.noc-code {
+          font-family: "BC Sans Regular", "BC Sans", sans-serif;
+        }
+      }
+    }
+
+    .image-video {
+      width: 100%;
+      margin-bottom: 0;
+      max-height: 185px;
+      min-height: 185px;
+      overflow: hidden;
+
+      iframe {
+        width: 100%;
+        max-height: 185px;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    .data {
+      margin-bottom: 30px;
+      margin-top: 30px;
+
+      .data-item {
+        border-bottom: 2px solid rgba(51, 51, 51, 0.2);
+        padding-bottom: 5px;
+        font-family: "BC Sans Regular", "BC Sans", sans-serif;
+        font-style: normal;
+        font-size: 1.5rem;
+        line-height: 1.8rem;
+        display: flex;
+        align-items: flex-start;
+        &:last-child {
+          border-bottom: 0;
+        }
+
+        span {
+          display: inline-block;
+          width: 100%;
+        }
+
+        .s-d {
+          font-family: "BC Sans Bold", "BC Sans Regular", "BC Sans", sans-serif;
+        }
+      }
+    }
+
+    .description {
+      p {
+        font-family: "BC Sans Regular", "BC Sans", sans-serif;
+        font-style: normal;
+        font-size: 1.4rem;
+        line-height: 1.8rem;
+      }
+    }
+
+    .bottom-btn {
+      display: flex;
+      margin-top: 40px;
+
+      @media all and (max-width: 767.98px) {
+        display: block;
+      }
+
+      a.btn {
+        .quiz-color-dark-blue & {
+          background: $quiz-dark-blue;
+          border: 2px solid $quiz-blue-dark;
+        }
+        .quiz-color-purple & {
+          background: $quiz-purple;
+          border: 2px solid $quiz-purple;
+        }
+        .quiz-color-blue & {
+          background: $quiz-blue;
+          border: 2px solid $quiz-blue;
+        }
+        .quiz-color-green & {
+          background: $quiz-green;
+          border: 2px solid $quiz-green;
+        }
+        .quiz-color-light-blue & {
+          background: $quiz-light-blue;
+          border: 2px solid $quiz-light-blue;
+        }
+        .quiz-color-pink & {
+          background: $quiz-pink;
+          border: 2px solid $quiz-pink;
+        }
+      }
+      a.btn {
+        color: #fff;
+        border: 2px solid #234075;
+        background: #234075;
+        display: inline-block;
+        padding: 15px 4px;
+        text-decoration: none;
+        font-size: 1.5rem;
+        line-height: 1.8rem;
+        border-radius: 0;
+        width: 100%;
+        margin-right: 10px;
+
+        @media all and (max-width: 767.98px) {
+          margin-bottom: 10px;
+        }
+
+        &.btn-find-job {
+          .quiz-color-dark-blue & {
+            color: $quiz-dark-blue;
+            border: 2px solid $quiz-blue-dark;
+          }
+          .quiz-color-purple & {
+            color: $quiz-purple;
+          }
+          .quiz-color-blue & {
+            color: $quiz-blue;
+          }
+          .quiz-color-green & {
+            color: $quiz-green;
+          }
+          .quiz-color-light-blue & {
+            color: $quiz-light-blue;
+          }
+          .quiz-color-pink & {
+            color: $quiz-pink;
+          }
+        }
+
+        &.btn-find-job {
+          background: #fff;
+          color: #234075;
+
+          &:hover {
+            background: #ececec;
+          }
+        }
+
+        &:hover {
+          background: #002855;
+        }
+      }
+    }
+  }
+}
 
 .page-node-type-career-profile,
 .career-content-main-wrapper {
@@ -2953,6 +3229,16 @@ span.question-prefix {
       img {
         margin-right: 5px;
       }
+    }
+  }
+
+  .career-content-item.active {
+    padding: 20px 0;
+  }
+
+  .career-content-item-inner {
+    @media all and (max-width: 990px){
+      display: none;
     }
   }
 
@@ -3223,14 +3509,27 @@ span.question-prefix {
 
 /*=== CAREER COMPARE CSS ===*/
 
-.compare-career-main-wrapper {
-  .back-link {
-    padding: 20px 0;
+.cdq-compare {
+
+  .breadcrumb-quiz, #block-workbc-cdq-page-title, .overlay-bg{
+    display: none;
+  }
+
+  #block-workbc-cdq-content {
+    margin: 0 0;
+    border: none;
+    padding: 20px;
+    background-color: white;
+  }
+
+  .cdq-back-link {
+    padding: 10px 20px;
     @media all and (max-width: 767.98px) {
       padding: 5px 0;
     }
     a {
       font-family: "BC Sans", sans-serif;
+      text-decoration: none;
       font-weight: 400;
       font-style: normal;
       font-size: 18px;
@@ -3338,137 +3637,7 @@ span.question-prefix {
         margin: 0;
       }
 
-      .career-content-item-inner {
-        .career-inner-content {
-          position: relative;
-        }
 
-        .title {
-          background: rgba(35, 64, 117, 1);
-          position: relative;
-          z-index: 1;
-
-          .slide-next-prev {
-            position: absolute;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            justify-content: space-between;
-            display: none;
-
-            @media all and (max-width: 991.98px) {
-              display: flex;
-            }
-
-            .next-true {
-              height: 100%;
-              background: rgba(227, 168, 43, 1);
-              display: inline-flex;
-              align-items: center;
-              padding: 0 10px;
-              position: absolute;
-              right: 0;
-
-              img {
-                width: 16px;
-                height: 9px;
-                transform: rotate(270deg);
-              }
-            }
-
-            .prev-true {
-              height: 100%;
-              background: rgba(227, 168, 43, 1);
-              display: inline-flex;
-              align-items: center;
-              padding: 0 10px;
-              position: absolute;
-              left: 0;
-
-              img {
-                width: 16px;
-                height: 9px;
-                transform: rotate(90deg);
-              }
-            }
-          }
-
-          p {
-            @media all and (max-width: 991.98px) {
-              padding: 20px 45px;
-            }
-            @media all and (max-width: 767.98px) {
-              padding: 0px 40px 0 25px;;
-
-              &.career-title-2 {
-                padding: 0px 40px 0 60px;
-              }
-
-              &.career-title-3 {
-                padding: 0px 30px 0 60px;
-              }
-            }
-
-          }
-        }
-
-        .bottom-btn {
-          position: absolute;
-          width: 90%;
-          bottom: 25px;
-          left: 10px;
-          right: 0;
-          margin: 0 auto;
-          @media all and (max-width: 767.98px){
-            position: relative;
-            width: 100%;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            margin-top: 35px;
-            display: flex;
-            flex-direction: column;
-            > a.btn-career-profile{
-              margin-bottom: 15px;
-            }
-          }
-
-          a.btn {
-            border: 2px solid #234075;
-            background: #234075;
-            color: #fff;
-
-            &.btn-find-job {
-              border: 2px solid #234075;
-              background: #fff;
-              color: #234075;
-
-              &:hover {
-                background: #e6eae9;
-              }
-            }
-
-            &:hover {
-              background: rgba(0, 40, 85, 1);
-            }
-          }
-        }
-
-        .career-inner-content {
-          min-height: 600px;
-          padding: 20px 20px 90px;
-          height: calc(100% - 95px);
-
-          @media all and (max-width: 767.98px){
-            padding: 20px;
-          }
-        }
-
-        .description {
-          padding-bottom: 30px;
-        }
-      }
     }
 
     .slick-dots {
@@ -3787,4 +3956,9 @@ span.question-prefix {
   @media all and (max-width: 767.98px){
     margin: 0 0;
   }
+}
+
+// talk to Ray about removing the offending content.
+h2.cdq-quiz-title, .webform-submission-information {
+  display: none
 }

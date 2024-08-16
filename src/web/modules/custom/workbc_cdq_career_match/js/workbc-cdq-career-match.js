@@ -32,8 +32,8 @@
             $('.clear-compare').addClass("disable");
             $('.compare-career').addClass("disable");
           }
-        });  
-        
+        });
+
         $('.clear-compare').on('click', function() {
           $('.compare-career-checkbox').each(function() {
             if ($(this).is(':checked')) {
@@ -45,7 +45,7 @@
                 data: { 'id' : careerMatchId, 'selected': false},
                 success: function (response) {
                 }
-              });              
+              });
             }
           });
         });
@@ -81,30 +81,6 @@
         }
       });
 
-      $(once('cdqcategoryresults', '.quiz-category-results-wrapper', context)).each(function () {
-
-        $('.category-results-toggle').on('click', function() {
-          if ($(".category-results-toggle").hasClass("hide")) {
-            $(this).removeClass("hide");
-            $(".extradivs").addClass("hide");
-            $(".category-results-toggle span.vaa1").hide();
-            $(".category-results-toggle span.vaa").show();
-            $(".result-heading h3.vaa1").hide();
-            $(".result-heading h3.vaa").show();
-            $("#myResult").animate({scrollTop: 0}, "slow");
-          }
-          else {
-            $(this).addClass("hide");
-            $(".extradivs").removeClass("hide");
-            $(".category-results-toggle span.vaa").hide();
-            $(".category-results-toggle span.vaa1").show();
-            $(".result-heading h3.vaa").hide();
-            $(".result-heading h3.vaa1").show();
-          }
-          
-        });
-      });
-
       $(once('cdqworkvalues', '.quiz-work-values-wrapper', context)).each(function () {
         $('.work-values-toggle').on('click', function() {
           console.log("toggle");
@@ -127,7 +103,7 @@
             $(".result-heading h3.vaa").hide();
             $(".result-heading h3.vaa1").show();
           }
-          
+
         });
       });
 
@@ -139,5 +115,5 @@
 
     }
   };
- 
+
 })(Drupal, jQuery, once, drupalSettings);
