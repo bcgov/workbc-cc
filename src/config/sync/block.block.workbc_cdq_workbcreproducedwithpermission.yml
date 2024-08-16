@@ -10,7 +10,7 @@ dependencies:
 id: workbc_cdq_workbcreproducedwithpermission
 theme: workbc_cdq
 region: content
-weight: 2
+weight: 3
 provider: null
 plugin: workbc_reproduced_with_permission
 settings:

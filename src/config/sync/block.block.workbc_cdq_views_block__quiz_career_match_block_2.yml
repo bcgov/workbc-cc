@@ -1,4 +1,4 @@
-uuid: 0037fd20-35ad-4f33-b7c3-07c7f6ef2a39
+uuid: 5e7e840a-20c4-417b-9482-ad956a4f7fa5
 langcode: en
 status: true
 dependencies:
@@ -9,14 +9,14 @@ dependencies:
     - views
   theme:
     - workbc_cdq
-id: workbc_cdq_views_block__quiz_career_match_block_1
+id: workbc_cdq_views_block__quiz_career_match_block_2
 theme: workbc_cdq
 region: content
-weight: 1
+weight: 2
 provider: null
-plugin: 'views_block:quiz_career_match-block_1'
+plugin: 'views_block:quiz_career_match-block_2'
 settings:
-  id: 'views_block:quiz_career_match-block_1'
+  id: 'views_block:quiz_career_match-block_2'
   label: ''
   label_display: '0'
   provider: views
@@ -27,4 +27,4 @@ visibility:
   request_path:
     id: request_path
     negate: false
-    pages: "/quizzes/abilities-quiz/results\r\n/quizzes/work-preferences-quiz/results"
+    pages: /quizzes/interests-quiz/results

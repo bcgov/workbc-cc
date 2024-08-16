@@ -785,6 +785,27 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
+      block_description: 'Career Match: Abilities / Work Preferences Quiz Results'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+      tags:
+        - 'config:field.storage.node.field_annual_salary'
+        - 'config:field.storage.node.field_education_level'
+        - 'config:field.storage.node.field_noc'
+        - 'config:field.storage.taxonomy_term.field_teer'
+  block_2:
+    id: block_2
+    display_title: Block
+    display_plugin: block
+    position: 1
+    display_options:
+      display_extenders: {  }
+      block_description: 'Career Match: Interests Quiz Results'
     cache_metadata:
       max-age: -1
       contexts:
