@@ -13817,14 +13817,14 @@ a > .ck-content code {
 .ck-content .path-quiz .form-actions.form-actions {
   width: auto;
   min-height: auto;
-  margin-top: 0;
+  margin: 20px 0;
   padding: 0 15px;
   right: 0;
+  display: flex;
+  flex-direction: row-reverse;
 }
 @media all and (max-width: 767.98px) {
   .ck-content .path-quiz .form-actions.form-actions {
-    bottom: -130px;
-    display: flex;
     left: 50%;
     justify-content: center;
   }
@@ -13838,7 +13838,7 @@ a > .ck-content code {
     bottom: -220px;
   }
   .ck-content .path-quiz .form-actions.form-actions > input {
-    margin: 0;
+    margin: 10px 0;
     width: 100%;
   }
   .ck-content .path-quiz .form-actions.form-actions > input#edit-previous {
@@ -13863,7 +13863,7 @@ a > .ck-content code {
   right: 15px;
   z-index: 1;
   border-radius: 0;
-  margin: 0;
+  margin: 0 10px;
 }
 @media all and (max-width: 767.98px) {
   .ck-content .path-quiz .form-actions input[name=op] {
@@ -13874,7 +13874,7 @@ a > .ck-content code {
 }
 @media all and (max-width: 640.98px) {
   .ck-content .path-quiz .form-actions input[name=op] {
-    margin: 0;
+    margin: 5px 0;
   }
 }
 .ck-content .path-quiz .form-actions input[name=op]:hover {
@@ -14104,6 +14104,18 @@ a > .ck-content code {
 .ck-content .path-quiz form fieldset {
   display: flex;
 }
+@media all and (max-width: 1024px) {
+  .ck-content .path-quiz form fieldset {
+    flex-direction: column;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 20px 10px;
+  }
+  .ck-content .path-quiz form fieldset legend {
+    float: right;
+    margin: 0 0 0 10px;
+  }
+}
 .ck-content .path-quiz form fieldset.workbc-quiz-fieldset-odd {
   background: rgb(242, 242, 242);
 }
@@ -14287,8 +14299,8 @@ a > .ck-content code {
 }
 @media all and (max-width: 1024.98px) {
   .ck-content form fieldset legend > span.fieldset-legend {
-    margin: 0 30px;
-    padding-top: 50px;
+    margin: 0;
+    padding-top: 0;
   }
 }
 .ck-content form fieldset .fieldset-wrapper {
@@ -14296,9 +14308,10 @@ a > .ck-content code {
   width: 60%;
   padding-top: 20px;
 }
-@media all and (max-width: 1024.98px) {
+@media all and (max-width: 1024px) {
   .ck-content form fieldset .fieldset-wrapper {
-    float: none;
+    padding-top: 0;
+    float: unset;
     width: 100%;
   }
   .ck-content form fieldset .fieldset-wrapper .form-radios {

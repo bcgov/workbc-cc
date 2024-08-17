@@ -14843,14 +14843,14 @@ body.path-quiz {
 .path-quiz .form-actions.form-actions {
   width: auto;
   min-height: auto;
-  margin-top: 0;
+  margin: 20px 0;
   padding: 0 15px;
   right: 0;
+  display: flex;
+  flex-direction: row-reverse;
 }
 @media all and (max-width: 767.98px) {
   .path-quiz .form-actions.form-actions {
-    bottom: -130px;
-    display: flex;
     left: 50%;
     justify-content: center;
   }
@@ -14864,7 +14864,7 @@ body.path-quiz {
     bottom: -220px;
   }
   .path-quiz .form-actions.form-actions > input {
-    margin: 0;
+    margin: 10px 0;
     width: 100%;
   }
   .path-quiz .form-actions.form-actions > input#edit-previous {
@@ -14889,7 +14889,7 @@ body.path-quiz {
   right: 15px;
   z-index: 1;
   border-radius: 0;
-  margin: 0;
+  margin: 0 10px;
 }
 @media all and (max-width: 767.98px) {
   .path-quiz .form-actions input[name=op] {
@@ -14900,7 +14900,7 @@ body.path-quiz {
 }
 @media all and (max-width: 640.98px) {
   .path-quiz .form-actions input[name=op] {
-    margin: 0;
+    margin: 5px 0;
   }
 }
 .path-quiz .form-actions input[name=op]:hover {
@@ -15130,6 +15130,18 @@ body.path-quiz {
 .path-quiz form fieldset {
   display: flex;
 }
+@media all and (max-width: 1024px) {
+  .path-quiz form fieldset {
+    flex-direction: column;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 20px 10px;
+  }
+  .path-quiz form fieldset legend {
+    float: right;
+    margin: 0 0 0 10px;
+  }
+}
 .path-quiz form fieldset.workbc-quiz-fieldset-odd {
   background: rgb(242, 242, 242);
 }
@@ -15315,8 +15327,8 @@ form fieldset legend > span.fieldset-legend {
 }
 @media all and (max-width: 1024.98px) {
   form fieldset legend > span.fieldset-legend {
-    margin: 0 30px;
-    padding-top: 50px;
+    margin: 0;
+    padding-top: 0;
   }
 }
 form fieldset .fieldset-wrapper {
@@ -15324,9 +15336,10 @@ form fieldset .fieldset-wrapper {
   width: 60%;
   padding-top: 20px;
 }
-@media all and (max-width: 1024.98px) {
+@media all and (max-width: 1024px) {
   form fieldset .fieldset-wrapper {
-    float: none;
+    padding-top: 0;
+    float: unset;
     width: 100%;
   }
   form fieldset .fieldset-wrapper .form-radios {
