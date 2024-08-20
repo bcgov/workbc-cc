@@ -2,9 +2,9 @@
 
 /**
  * Retrieve session entry for given cookie.
- * https://drupal.stackexchange.com/a/231726/767
+ * Based on https://drupal.stackexchange.com/a/231726/767
  *
- * Usage: drush scr scripts/export_sessions.php -- --cookie=<URL-decoded value of SESSxxxx cookie>
+ * Usage: drush scr scripts/export_sessions.php -- --cookie=<value of SESSxxxx cookie>
  *
  * [
  *   {
@@ -35,14 +35,15 @@
  *
  */
 
- use Drupal\Component\Utility\Crypt;
+use Drupal\Component\Utility\Crypt;
 
 if (!empty($extra)) {
   if (!str_starts_with($extra[0], '--cookie=')) {
-    die("Usage: drush scr scripts/export_sessions.php [-- --cookie=<URL-decoded value of SESSxxxx cookie>]\n");
+    die("Usage: drush scr scripts/export_sessions.php [-- --cookie=<value of SESSxxxx cookie>]\n");
   }
   else {
     $cookie = trim(str_replace('--cookie=', '', $extra[0]));
+    $cookie = urldecode($cookie);
     $sid = Crypt::hashBase64($cookie);
   }
 }
