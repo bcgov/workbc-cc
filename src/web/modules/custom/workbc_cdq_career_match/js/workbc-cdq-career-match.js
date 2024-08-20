@@ -83,7 +83,6 @@
 
       $(once('cdqworkvalues', '.quiz-work-values-wrapper', context)).each(function () {
         $('.work-values-toggle').on('click', function() {
-          console.log("toggle");
           if ($(".important-values").hasClass("hide")) {
             $(this).removeClass("hide");
             $(".somewhat-values").addClass("hide");
