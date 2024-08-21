@@ -2351,6 +2351,10 @@ span.question-prefix {
       align-items: center;
       margin-bottom: 25px;
 
+      @media all and (max-width: 767.98px) {
+        flex-direction: column;
+      }
+
       .description {
         p {
           .dec-text {
