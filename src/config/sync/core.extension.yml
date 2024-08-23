@@ -16,6 +16,7 @@ module:
   contact: 0
   contextual: 0
   datetime: 0
+  datetime_range: 0
   dynamic_page_cache: 0
   easy_breadcrumb: 0
   editor: 0
@@ -40,6 +41,7 @@ module:
   queue_ui: 0
   ses_mailer: 0
   shortcut: 0
+  sitewide_alert: 0
   structure_sync: 0
   system: 0
   system_stream_wrapper: 0

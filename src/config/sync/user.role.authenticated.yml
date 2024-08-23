@@ -9,6 +9,7 @@ dependencies:
     - file
     - filter
     - shortcut
+    - sitewide_alert
     - system
 id: authenticated
 label: 'Authenticated user'
@@ -20,3 +21,4 @@ permissions:
   - 'delete own files'
   - 'use text format basic_html'
   - 'use text format webform_default'
+  - 'view published sitewide alert entities'

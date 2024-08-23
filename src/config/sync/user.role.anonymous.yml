@@ -6,6 +6,7 @@ dependencies:
     - filter.format.restricted_html
   module:
     - filter
+    - sitewide_alert
     - system
 id: anonymous
 label: 'Anonymous user'
@@ -14,3 +15,4 @@ is_admin: null
 permissions:
   - 'access content'
   - 'use text format restricted_html'
+  - 'view published sitewide alert entities'
