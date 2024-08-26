@@ -13664,6 +13664,7 @@ a > .ck-content code {
 }
 .ck-content .overlay-content .block-workbc-quiz-page-title, .ck-content .overlay-content #block-workbc-cdq-page-title {
   padding: 0 20px;
+  color: #fff;
 }
 .ck-content .overlay-content .block-page-title-block h1, .ck-content .overlay-content .block-page-title-block .h1 {
   color: #fff;
