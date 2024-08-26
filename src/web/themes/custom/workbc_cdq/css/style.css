@@ -15885,6 +15885,12 @@ span.question-prefix:after {
   width: 25px;
   height: 25px;
 }
+@media all and (max-width: 992px) {
+  .careers-main-wrapper table th.views-field-field-annual-salary, .careers-main-wrapper table td.views-field-field-annual-salary,
+  .careers-main-wrapper table th.views-field-field-education-level, .careers-main-wrapper table td.views-field-field-education-level {
+    display: none;
+  }
+}
 .careers-main-wrapper table thead {
   position: sticky;
   top: 0;

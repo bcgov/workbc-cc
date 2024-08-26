@@ -14843,6 +14843,12 @@ a > .ck-content code {
   width: 25px;
   height: 25px;
 }
+@media all and (max-width: 992px) {
+  .ck-content .careers-main-wrapper table th.views-field-field-annual-salary, .ck-content .careers-main-wrapper table td.views-field-field-annual-salary,
+  .ck-content .careers-main-wrapper table th.views-field-field-education-level, .ck-content .careers-main-wrapper table td.views-field-field-education-level {
+    display: none;
+  }
+}
 .ck-content .careers-main-wrapper table thead {
   position: sticky;
   top: 0;

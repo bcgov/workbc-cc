@@ -2473,6 +2473,14 @@ span.question-prefix {
   }
 
   table {
+
+    @media all and (max-width: 992px){
+      th.views-field-field-annual-salary, td.views-field-field-annual-salary,
+      th.views-field-field-education-level, td.views-field-field-education-level {
+        display: none;
+      }
+    }
+
     thead {
       position: sticky;
       top: 0;
