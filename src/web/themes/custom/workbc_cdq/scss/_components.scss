@@ -259,7 +259,7 @@ header {
       float: left;
       width: 34px;
       height: 25px;
-      background: url(../src/icons/list.svg) no-repeat;
+      background: url(../assets/icons/list.svg) no-repeat;
     }
     @media all and (max-width: 1024.98px) {
       font-size: 14px;
@@ -277,7 +277,7 @@ header {
       float: left;
       width: 34px;
       height: 25px;
-      background: url(../src/icons/time.svg) no-repeat;
+      background: url(../assets/icons/time.svg) no-repeat;
     }
     @media all and (max-width: 1024.98px) {
       font-size: 14px;
@@ -289,7 +289,7 @@ header {
       float: left;
       width: 25px;
       height: 25px;
-      background: url(../src/icons/check-dark.svg) no-repeat;
+      background: url(../assets/icons/check-dark.svg) no-repeat;
       background-position: 0px;
     }
 
@@ -1727,7 +1727,7 @@ body.path-quiz {
     align-items: center;
 
     span {
-      background: url(../src/icons/time-white.svg) no-repeat;
+      background: url(../assets/icons/time-white.svg) no-repeat;
     }
   }
 
@@ -1739,7 +1739,7 @@ body.path-quiz {
     margin-right: 24px;
 
     span {
-      background: url(../src/icons/list-white.svg) no-repeat;
+      background: url(../assets/icons/list-white.svg) no-repeat;
     }
   }
 }
@@ -2521,7 +2521,7 @@ span.question-prefix {
 
           &::before {
             content: "";
-            background: url(../src/icons/updownarrow.svg) no-repeat;
+            background: url(../assets/icons/updownarrow.svg) no-repeat;
             position: absolute;
             width: 10px;
             height: 17px;
@@ -3278,7 +3278,7 @@ span.question-prefix {
   }
 
   .career-content-item.active {
-    padding: 20px 0;
+    padding: 0 0;
   }
 
   .career-content-item {
@@ -3888,7 +3888,7 @@ span.question-prefix {
           }
           &::before {
             content: "" !important;
-            background: url(../src/icons/arrow-left.svg) no-repeat;
+            background: url(../assets/icons/arrow-left.svg) no-repeat;
             background-size: 8px 13px;
             width: 8px;
             height: 13px;
@@ -3925,7 +3925,7 @@ span.question-prefix {
       font-style: normal;
       font-size: 1.4rem;
       &::before{
-        content: url(../src/icons/alert.svg);
+        content: url(../assets/icons/alert.svg);
         position: relative;
         top: 3px;
         margin-right: 5px;

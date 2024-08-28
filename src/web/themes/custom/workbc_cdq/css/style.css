@@ -13019,11 +13019,11 @@ input:focus-visible, .btn:focus-visible, button.link:focus-visible, .button:focu
 }
 
 .icon-message {
-  mask: url(../src/icons/message.svg);
+  mask: url(../assets/icons/message.svg);
 }
 
 .icon-print {
-  mask: url(../src/icons/print.svg);
+  mask: url(../assets/icons/print.svg);
 }
 
 .icon {
@@ -13519,7 +13519,7 @@ footer #block-footerbclogo p {
   float: left;
   width: 34px;
   height: 25px;
-  background: url(../src/icons/list.svg) no-repeat;
+  background: url(../assets/icons/list.svg) no-repeat;
 }
 @media all and (max-width: 1024.98px) {
   .cari_quiz .quiz-list .quiz-questions {
@@ -13538,7 +13538,7 @@ footer #block-footerbclogo p {
   float: left;
   width: 34px;
   height: 25px;
-  background: url(../src/icons/time.svg) no-repeat;
+  background: url(../assets/icons/time.svg) no-repeat;
 }
 @media all and (max-width: 1024.98px) {
   .cari_quiz .quiz-list .quiz-duration {
@@ -13549,7 +13549,7 @@ footer #block-footerbclogo p {
   float: left;
   width: 25px;
   height: 25px;
-  background: url(../src/icons/check-dark.svg) no-repeat;
+  background: url(../assets/icons/check-dark.svg) no-repeat;
   background-position: 0px;
 }
 .cari_quiz .quiz-list .complete .cq {
@@ -13960,7 +13960,7 @@ header {
   float: left;
   width: 34px;
   height: 25px;
-  background: url(../src/icons/list.svg) no-repeat;
+  background: url(../assets/icons/list.svg) no-repeat;
 }
 @media all and (max-width: 1024.98px) {
   .cari_quiz .quiz-list .quiz-questions {
@@ -13979,7 +13979,7 @@ header {
   float: left;
   width: 34px;
   height: 25px;
-  background: url(../src/icons/time.svg) no-repeat;
+  background: url(../assets/icons/time.svg) no-repeat;
 }
 @media all and (max-width: 1024.98px) {
   .cari_quiz .quiz-list .quiz-duration {
@@ -13990,7 +13990,7 @@ header {
   float: left;
   width: 25px;
   height: 25px;
-  background: url(../src/icons/check-dark.svg) no-repeat;
+  background: url(../assets/icons/check-dark.svg) no-repeat;
   background-position: 0px;
 }
 .cari_quiz .quiz-list .complete .cq {
@@ -15287,7 +15287,7 @@ body.path-quiz {
   align-items: center;
 }
 .node-questions .quiz-duration span {
-  background: url(../src/icons/time-white.svg) no-repeat;
+  background: url(../assets/icons/time-white.svg) no-repeat;
 }
 .node-questions .quiz-questions {
   color: #fff;
@@ -15297,7 +15297,7 @@ body.path-quiz {
   margin-right: 24px;
 }
 .node-questions .quiz-questions span {
-  background: url(../src/icons/list-white.svg) no-repeat;
+  background: url(../assets/icons/list-white.svg) no-repeat;
 }
 
 form > .js-form-item.form-item.js-form-type-entity-autocomplete.form-type-entity-autocomplete {
@@ -15935,7 +15935,7 @@ span.question-prefix:after {
 }
 .careers-main-wrapper table thead th a::before {
   content: "";
-  background: url(../src/icons/updownarrow.svg) no-repeat;
+  background: url(../assets/icons/updownarrow.svg) no-repeat;
   position: absolute;
   width: 10px;
   height: 17px;
@@ -16587,7 +16587,7 @@ span.question-prefix:after {
 .career-content-main-wrapper .career-content-item.active,
 .career-content-main-wrapper .media-library-view--widget .view-header a.career-content-item.is-active,
 .media-library-view--widget .view-header .career-content-main-wrapper a.career-content-item.is-active {
-  padding: 20px 0;
+  padding: 0 0;
 }
 .page-node-type-career-profile .career-content-item,
 .career-content-main-wrapper .career-content-item {
@@ -17257,7 +17257,7 @@ span.question-prefix:after {
 }
 .breadcrumb-quiz #block-workbc-cdq-breadcrumbs .breadcrumb li:last-child::before {
   content: "" !important;
-  background: url(../src/icons/arrow-left.svg) no-repeat;
+  background: url(../assets/icons/arrow-left.svg) no-repeat;
   background-size: 8px 13px;
   width: 8px;
   height: 13px;
@@ -17290,7 +17290,7 @@ span.question-prefix:after {
   font-size: 1.4rem;
 }
 .main-bg .overlay-content .alert-error::before {
-  content: url(../src/icons/alert.svg);
+  content: url(../assets/icons/alert.svg);
   position: relative;
   top: 3px;
   margin-right: 5px;
