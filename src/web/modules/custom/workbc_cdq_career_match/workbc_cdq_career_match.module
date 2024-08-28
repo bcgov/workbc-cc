@@ -78,6 +78,8 @@ function workbc_cdq_career_match_preprocess_views_view_table(&$variables) {
       $variables['submission_id'] = $variables['view']->args[0];
       $variables['workbc_url'] = \Drupal::config('workbc')->get('workbc_url');
     }
+    $quiz = getCurrentQuiz();
+    $variables['quiz'] = workbc_cdq_quiz_info($quiz['id']);
   }
 }
 

@@ -1,0 +1,25 @@
+uuid: 563378a3-ce3d-428e-a8e1-382b310d5aad
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+    - workbc_cdq_custom
+  theme:
+    - workbc_cdq
+id: workbc_cdq_workbconetnotice
+theme: workbc_cdq
+region: content
+weight: 2
+provider: null
+plugin: workbc_onet_notice
+settings:
+  id: workbc_onet_notice
+  label: 'WorkBC ONET Notice'
+  label_display: '0'
+  provider: workbc_cdq_custom
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: "/form/interests-quiz\r\n/quizzes/interests-quiz/results\r\n/compare-careers/*"

@@ -9,7 +9,7 @@ _core:
 id: workbc_cdq_page_title
 theme: workbc_cdq
 region: content
-weight: -5
+weight: -6
 provider: null
 plugin: page_title_block
 settings:

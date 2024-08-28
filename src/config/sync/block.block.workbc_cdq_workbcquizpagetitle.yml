@@ -10,7 +10,7 @@ dependencies:
 id: workbc_cdq_workbcquizpagetitle
 theme: workbc_cdq
 region: content
-weight: -1
+weight: -2
 provider: null
 plugin: workbc_quiz_page_title
 settings:
