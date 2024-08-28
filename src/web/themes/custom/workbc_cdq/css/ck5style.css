@@ -14768,7 +14768,7 @@ a > .ck-content code {
 }
 .ck-content .careers-main-wrapper .top-career-content .content .description p .bulb::before {
   content: "";
-  background: url(../src/icons/bulb.svg) no-repeat;
+  background: url(../assets/icons/bulb.svg) no-repeat;
   width: 14px;
   height: 22px;
   position: relative;
@@ -15033,7 +15033,7 @@ a > .ck-content code {
 }
 .ck-content .careers-mobi-main-wrapper .top-career-mobi-content .content .description p .bulb::before {
   content: "";
-  background: url(../src/icons/bulb.svg) no-repeat;
+  background: url(../assets/icons/bulb.svg) no-repeat;
   width: 14px;
   height: 22px;
   position: relative;
