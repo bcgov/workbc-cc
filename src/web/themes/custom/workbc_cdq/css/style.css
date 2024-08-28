@@ -17211,17 +17211,17 @@ span.question-prefix:after {
     height: 34px;
   }
 }
-.breadcrumb-quiz #block-workbc-cdq-breadcrumbs .breadcrumb {
+.breadcrumb-quiz #block-workbc-cdq-breadcrumbs .breadcrumb, .breadcrumb-quiz #back-to-quiz-breadcrumb .breadcrumb {
   padding: 16px 1rem;
   position: relative;
   background: transparent;
 }
 @media all and (max-width: 767.98px) {
-  .breadcrumb-quiz #block-workbc-cdq-breadcrumbs .breadcrumb {
+  .breadcrumb-quiz #block-workbc-cdq-breadcrumbs .breadcrumb, .breadcrumb-quiz #back-to-quiz-breadcrumb .breadcrumb {
     padding: 5px 15px;
   }
 }
-.breadcrumb-quiz #block-workbc-cdq-breadcrumbs .breadcrumb li a {
+.breadcrumb-quiz #block-workbc-cdq-breadcrumbs .breadcrumb li a, .breadcrumb-quiz #back-to-quiz-breadcrumb .breadcrumb li a {
   font-family: "BC Sans", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -17229,19 +17229,19 @@ span.question-prefix:after {
   color: #073573;
 }
 @media all and (max-width: 767.98px) {
-  .breadcrumb-quiz #block-workbc-cdq-breadcrumbs .breadcrumb li a {
+  .breadcrumb-quiz #block-workbc-cdq-breadcrumbs .breadcrumb li a, .breadcrumb-quiz #back-to-quiz-breadcrumb .breadcrumb li a {
     font-size: 15px;
   }
 }
-.breadcrumb-quiz #block-workbc-cdq-breadcrumbs .breadcrumb li:first-child {
+.breadcrumb-quiz #block-workbc-cdq-breadcrumbs .breadcrumb li:first-child, .breadcrumb-quiz #back-to-quiz-breadcrumb .breadcrumb li:first-child {
   margin-right: 15px;
 }
 @media all and (max-width: 767.98px) {
-  .breadcrumb-quiz #block-workbc-cdq-breadcrumbs .breadcrumb li:first-child {
+  .breadcrumb-quiz #block-workbc-cdq-breadcrumbs .breadcrumb li:first-child, .breadcrumb-quiz #back-to-quiz-breadcrumb .breadcrumb li:first-child {
     margin-right: 8px;
   }
 }
-.breadcrumb-quiz #block-workbc-cdq-breadcrumbs .breadcrumb li:last-child {
+.breadcrumb-quiz #block-workbc-cdq-breadcrumbs .breadcrumb li:last-child, .breadcrumb-quiz #back-to-quiz-breadcrumb .breadcrumb li:last-child {
   font-family: "BC Sans", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -17251,11 +17251,11 @@ span.question-prefix:after {
   position: relative;
 }
 @media all and (max-width: 767.98px) {
-  .breadcrumb-quiz #block-workbc-cdq-breadcrumbs .breadcrumb li:last-child {
+  .breadcrumb-quiz #block-workbc-cdq-breadcrumbs .breadcrumb li:last-child, .breadcrumb-quiz #back-to-quiz-breadcrumb .breadcrumb li:last-child {
     font-size: 15px;
   }
 }
-.breadcrumb-quiz #block-workbc-cdq-breadcrumbs .breadcrumb li:last-child::before {
+.breadcrumb-quiz #block-workbc-cdq-breadcrumbs .breadcrumb li:last-child::before, .breadcrumb-quiz #back-to-quiz-breadcrumb .breadcrumb li:last-child::before {
   content: "" !important;
   background: url(../assets/icons/arrow-left.svg) no-repeat;
   background-size: 8px 13px;
@@ -17267,7 +17267,7 @@ span.question-prefix:after {
   left: 0;
 }
 @media all and (max-width: 767.98px) {
-  .breadcrumb-quiz #block-workbc-cdq-breadcrumbs .breadcrumb li:last-child::before {
+  .breadcrumb-quiz #block-workbc-cdq-breadcrumbs .breadcrumb li:last-child::before, .breadcrumb-quiz #back-to-quiz-breadcrumb .breadcrumb li:last-child::before {
     background-size: 5px 10px;
     width: 5px;
     height: 10px;
@@ -17354,6 +17354,24 @@ span.question-prefix:after {
 
 h2.cdq-quiz-title, .cdq-quiz-title.h2, .webform-submission-information {
   display: none;
+}
+
+.cdq-results .breadcrumb-quiz.back-to-quiz {
+  display: none;
+}
+
+@media all and (max-width: 991.98px) {
+  .user-selected .breadcrumb-quiz:not(.back-to-quiz),
+  .user-selected #block-workbc-cdq-page-title,
+  .user-selected #block-workbc-cdq-content,
+  .user-selected #block-workbc-cdq-workbcquizpagetitle,
+  .user-selected .quiz-category-results-wrapper,
+  .user-selected #mobi-career-table > .col-12 {
+    display: none;
+  }
+  .user-selected .breadcrumb-quiz.back-to-quiz {
+    display: block;
+  }
 }
 
 #comparison-table.quiz-color-dark-blue .compare-career-main-wrapper .career-content-compare, .page-node-type-career-profile.quiz-color-dark-blue .compare-career-main-wrapper .career-content-compare {

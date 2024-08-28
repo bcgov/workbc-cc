@@ -3850,7 +3850,7 @@ span.question-prefix {
   @media all and (max-width: 767.98px) {
     height: 34px;
   }
-  #block-workbc-cdq-breadcrumbs {
+  #block-workbc-cdq-breadcrumbs, #back-to-quiz-breadcrumb {
     .breadcrumb {
       padding: 16px 1rem;
       position: relative;
@@ -3996,7 +3996,32 @@ span.question-prefix {
   }
 }
 
-// talk to Ray about removing the offending content.
 h2.cdq-quiz-title, .webform-submission-information {
   display: none
+}
+
+.cdq-results {
+  .breadcrumb-quiz.back-to-quiz{
+    display:none
+  }
+}
+
+// when a mobile user selects a career profile, hide most page elements
+.user-selected {
+
+  @media all and (max-width: 991.98px){
+    .breadcrumb-quiz:not(.back-to-quiz),
+    #block-workbc-cdq-page-title,
+    #block-workbc-cdq-content,
+    #block-workbc-cdq-workbcquizpagetitle,
+    .quiz-category-results-wrapper,
+    #mobi-career-table > .col-12 {
+      display: none;
+    }
+
+    .breadcrumb-quiz.back-to-quiz {
+      display: block;
+    }
+
+  }
 }

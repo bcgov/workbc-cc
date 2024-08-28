@@ -50,7 +50,7 @@
           });
         });
 
-
+        // when user selects a career profile from the table
         $('.views-field-title').on('click', function() {
           let current_item = $(this).closest('.career-table-row').data('id');
           $('.career-content-item').each(function() {
@@ -65,7 +65,20 @@
           });
           $(this).closest('.career-table-row').addClass("active");
 
-          $('#').addClass("active");
+          $('.cdq-results').each(function() {
+            $(this).addClass("user-selected");
+          });
+        });
+
+        // when user clicks back to quiz link ...
+        $('a#back-to-quiz').on('click', function() {
+          $('.cdq-results').each(function() {
+            $(this).removeClass("user-selected");
+          });
+
+          $('.career-table-row').each(function() {
+            $(this).closest('.career-table-row').removeClass("active");
+          });
         });
 
         function totalSelected() {

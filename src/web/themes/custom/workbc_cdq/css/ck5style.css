@@ -16160,17 +16160,17 @@ a > .ck-content code {
     height: 34px;
   }
 }
-.ck-content .breadcrumb-quiz #block-workbc-cdq-breadcrumbs .breadcrumb {
+.ck-content .breadcrumb-quiz #block-workbc-cdq-breadcrumbs .breadcrumb, .ck-content .breadcrumb-quiz #back-to-quiz-breadcrumb .breadcrumb {
   padding: 16px 1rem;
   position: relative;
   background: transparent;
 }
 @media all and (max-width: 767.98px) {
-  .ck-content .breadcrumb-quiz #block-workbc-cdq-breadcrumbs .breadcrumb {
+  .ck-content .breadcrumb-quiz #block-workbc-cdq-breadcrumbs .breadcrumb, .ck-content .breadcrumb-quiz #back-to-quiz-breadcrumb .breadcrumb {
     padding: 5px 15px;
   }
 }
-.ck-content .breadcrumb-quiz #block-workbc-cdq-breadcrumbs .breadcrumb li a {
+.ck-content .breadcrumb-quiz #block-workbc-cdq-breadcrumbs .breadcrumb li a, .ck-content .breadcrumb-quiz #back-to-quiz-breadcrumb .breadcrumb li a {
   font-family: "BC Sans", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -16178,19 +16178,19 @@ a > .ck-content code {
   color: #073573;
 }
 @media all and (max-width: 767.98px) {
-  .ck-content .breadcrumb-quiz #block-workbc-cdq-breadcrumbs .breadcrumb li a {
+  .ck-content .breadcrumb-quiz #block-workbc-cdq-breadcrumbs .breadcrumb li a, .ck-content .breadcrumb-quiz #back-to-quiz-breadcrumb .breadcrumb li a {
     font-size: 15px;
   }
 }
-.ck-content .breadcrumb-quiz #block-workbc-cdq-breadcrumbs .breadcrumb li:first-child {
+.ck-content .breadcrumb-quiz #block-workbc-cdq-breadcrumbs .breadcrumb li:first-child, .ck-content .breadcrumb-quiz #back-to-quiz-breadcrumb .breadcrumb li:first-child {
   margin-right: 15px;
 }
 @media all and (max-width: 767.98px) {
-  .ck-content .breadcrumb-quiz #block-workbc-cdq-breadcrumbs .breadcrumb li:first-child {
+  .ck-content .breadcrumb-quiz #block-workbc-cdq-breadcrumbs .breadcrumb li:first-child, .ck-content .breadcrumb-quiz #back-to-quiz-breadcrumb .breadcrumb li:first-child {
     margin-right: 8px;
   }
 }
-.ck-content .breadcrumb-quiz #block-workbc-cdq-breadcrumbs .breadcrumb li:last-child {
+.ck-content .breadcrumb-quiz #block-workbc-cdq-breadcrumbs .breadcrumb li:last-child, .ck-content .breadcrumb-quiz #back-to-quiz-breadcrumb .breadcrumb li:last-child {
   font-family: "BC Sans", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -16200,11 +16200,11 @@ a > .ck-content code {
   position: relative;
 }
 @media all and (max-width: 767.98px) {
-  .ck-content .breadcrumb-quiz #block-workbc-cdq-breadcrumbs .breadcrumb li:last-child {
+  .ck-content .breadcrumb-quiz #block-workbc-cdq-breadcrumbs .breadcrumb li:last-child, .ck-content .breadcrumb-quiz #back-to-quiz-breadcrumb .breadcrumb li:last-child {
     font-size: 15px;
   }
 }
-.ck-content .breadcrumb-quiz #block-workbc-cdq-breadcrumbs .breadcrumb li:last-child::before {
+.ck-content .breadcrumb-quiz #block-workbc-cdq-breadcrumbs .breadcrumb li:last-child::before, .ck-content .breadcrumb-quiz #back-to-quiz-breadcrumb .breadcrumb li:last-child::before {
   content: "" !important;
   background: url(../assets/icons/arrow-left.svg) no-repeat;
   background-size: 8px 13px;
@@ -16216,7 +16216,7 @@ a > .ck-content code {
   left: 0;
 }
 @media all and (max-width: 767.98px) {
-  .ck-content .breadcrumb-quiz #block-workbc-cdq-breadcrumbs .breadcrumb li:last-child::before {
+  .ck-content .breadcrumb-quiz #block-workbc-cdq-breadcrumbs .breadcrumb li:last-child::before, .ck-content .breadcrumb-quiz #back-to-quiz-breadcrumb .breadcrumb li:last-child::before {
     background-size: 5px 10px;
     width: 5px;
     height: 10px;
@@ -16295,6 +16295,22 @@ a > .ck-content code {
 }
 .ck-content h2.cdq-quiz-title, .ck-content .cdq-quiz-title.h2, .ck-content .webform-submission-information {
   display: none;
+}
+.ck-content .cdq-results .breadcrumb-quiz.back-to-quiz {
+  display: none;
+}
+@media all and (max-width: 991.98px) {
+  .ck-content .user-selected .breadcrumb-quiz:not(.back-to-quiz),
+  .ck-content .user-selected #block-workbc-cdq-page-title,
+  .ck-content .user-selected #block-workbc-cdq-content,
+  .ck-content .user-selected #block-workbc-cdq-workbcquizpagetitle,
+  .ck-content .user-selected .quiz-category-results-wrapper,
+  .ck-content .user-selected #mobi-career-table > .col-12 {
+    display: none;
+  }
+  .ck-content .user-selected .breadcrumb-quiz.back-to-quiz {
+    display: block;
+  }
 }
 .ck-content #comparison-table.quiz-color-dark-blue .compare-career-main-wrapper .career-content-compare, .ck-content .page-node-type-career-profile.quiz-color-dark-blue .compare-career-main-wrapper .career-content-compare {
   border-bottom: 4px solid #234075;
