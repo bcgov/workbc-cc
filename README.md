@@ -11,6 +11,8 @@ Career Discovery Quizzes, a subsite of [WorkBC.ca](https://www.workbc.ca).
 - Adjust folder permissions:
   - `docker-compose exec php sudo chown www-data /var/www/html/private`
   - `docker-compose exec php sudo chown www-data /var/www/html/config/sync`
+  - `docker-compose exec php sudo mkdir /var/www/html/web/sites/default/files`
+  - `docker-compose exec php sudo chown www-data /var/www/html/web/sites/default/files`
 - Import the data dumps:
   - `gunzip -k -c src/scripts/workbc-cc.sql.gz | docker-compose exec -T postgres psql -U workbc workbc-cc-refactor`
   - Restore the SSOT data dump as per the [`workbc-ssot` README](https://github.com/bcgov/workbc-ssot?tab=readme-ov-file#development)

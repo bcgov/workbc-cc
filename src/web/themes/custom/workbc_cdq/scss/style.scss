@@ -21,8 +21,10 @@
 // Components
 @import 'components';
 
-// // overrides
-// @import 'overrides';
+// overrides
+@import 'overrides';
 
-// Print
-@import 'print';
+@import "slick";
+
+//// Print
+//@import 'print';

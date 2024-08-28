@@ -94,7 +94,6 @@ html {
     font-size: 10px;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
-    font-family: "BC Sans Regular", sans-serif;
 }
 body {
     background-color: #ffffff;
@@ -103,9 +102,8 @@ body {
     line-height: 2.4rem;
     margin: 0;
     overflow-x: hidden;
-    font-family:'BC Sans Regular';
+    font-family:'BC Sans';
     font-weight: 400;
-    scroll-behavior: smooth;
     &.overlayBg{
         overflow: hidden;
         &::before{
@@ -268,11 +266,11 @@ input:focus-visible, .btn:focus-visible {
 }
 
 .icon-message {
-    mask: url(../src/icons/message.svg);
+    mask: url(../assets/icons/message.svg);
 }
 
 .icon-print {
-    mask: url(../src/icons/print.svg);
+    mask: url(../assets/icons/print.svg);
 }
 
 .icon {
@@ -289,5 +287,5 @@ input:focus-visible, .btn:focus-visible {
 }
 
 html {
-    scroll-behavior: smooth !important;
+    scroll-behavior: smooth;
 }

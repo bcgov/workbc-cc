@@ -32,8 +32,8 @@
             $('.clear-compare').addClass("disable");
             $('.compare-career').addClass("disable");
           }
-        });  
-        
+        });
+
         $('.clear-compare').on('click', function() {
           $('.compare-career-checkbox').each(function() {
             if ($(this).is(':checked')) {
@@ -45,7 +45,7 @@
                 data: { 'id' : careerMatchId, 'selected': false},
                 success: function (response) {
                 }
-              });              
+              });
             }
           });
         });
@@ -81,33 +81,8 @@
         }
       });
 
-      $(once('cdqcategoryresults', '.quiz-category-results-wrapper', context)).each(function () {
-
-        $('.category-results-toggle').on('click', function() {
-          if ($(".category-results-toggle").hasClass("hide")) {
-            $(this).removeClass("hide");
-            $(".extradivs").addClass("hide");
-            $(".category-results-toggle span.vaa1").hide();
-            $(".category-results-toggle span.vaa").show();
-            $(".result-heading h3.vaa1").hide();
-            $(".result-heading h3.vaa").show();
-            $("#myResult").animate({scrollTop: 0}, "slow");
-          }
-          else {
-            $(this).addClass("hide");
-            $(".extradivs").removeClass("hide");
-            $(".category-results-toggle span.vaa").hide();
-            $(".category-results-toggle span.vaa1").show();
-            $(".result-heading h3.vaa").hide();
-            $(".result-heading h3.vaa1").show();
-          }
-          
-        });
-      });
-
       $(once('cdqworkvalues', '.quiz-work-values-wrapper', context)).each(function () {
         $('.work-values-toggle').on('click', function() {
-          console.log("toggle");
           if ($(".important-values").hasClass("hide")) {
             $(this).removeClass("hide");
             $(".somewhat-values").addClass("hide");
@@ -127,7 +102,7 @@
             $(".result-heading h3.vaa").hide();
             $(".result-heading h3.vaa1").show();
           }
-          
+
         });
       });
 
@@ -137,7 +112,60 @@
         });
       });
 
+      $(".mobi_cari_quiz").each(function () {
+        $(this).find(".carousel-inner > .career-item").slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: false,
+          dots: true,
+          arrows: false
+        });
+      });
+
+      $(".tbody-main").each(function (i) {
+        if (i % 5 === 0) {
+          $(this)
+            .nextAll()
+            .addBack()
+            .slice(0, 5)
+            .wrapAll('<div class="slide-tbody-main"></div>');
+        }
+      });
+
+      $("#mobi-career-table").each(function () {
+        $(this).find(".tbody").slick({
+          infinite: false,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          adaptiveHeight: true,
+          dots: true,
+          arrows: false,
+        });
+      });
+
+      $("#myResult").each(function () {
+        $(this).find(".carousel-inner-mobi > .row").slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: false,
+          dots: true,
+          arrows: false
+        });
+      });
+
+      $(".mobi-career-content-compare").each(function () {
+        $(this).slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: false,
+          dots: true,
+          arrows: true,
+          nextArrow: $(".next-true"),
+          prevArrow: $(".prev-true")
+        });
+      });
+
     }
   };
- 
+
 })(Drupal, jQuery, once, drupalSettings);
