@@ -2,21 +2,21 @@
 
 <div class="quiz-category-results-wrapper">
   {% if score|length > 3 %}
-    <div class="row">
-  	  <div class="col-8">
+    <div class="d-flex justify-content-between">
+  	  <div>
   		  <div class="result-heading">
   			  <h3 class="vaa">{{ category_top }}</h3>
-	        <h3 class="vaa1" style="display:none;">{{ category_all }}</h3>
-		    </div>
-	    </div>
-			<div class="col-4 col-md-4 d-print-none">
-				<div class="career-top-right">
-					<ul class="float-right">
-			  		<li class="quiz-node-print"><a href="javascript:;" class="print-window"><span title="Print Results" class="icon icon-print"></span></a></li>
-				  	<li class="quiz-node-email"><a href="mailto:?subject={{ email_subject }}&body={{ email_body }}" target="_blank" rel="noopener noreferrer"><span title="Email Results" class="icon icon-message"></span></a></li>
-					</ul>
-				</div>
-			</div>
+			  <h3 class="vaa1" style="display:none;">{{ category_all }}</h3>
+		  </div>
+	  </div>
+	  <div class="d-print-none">
+		<div class="career-top-right">
+			<ul class="float-right">
+			<li class="quiz-node-print"><a href="javascript:;" class="print-window"><span title="Print Results" class="icon icon-print"></span></a></li>
+			<li class="quiz-node-email"><a href="mailto:?subject={{ email_subject }}&body={{ email_body }}" target="_blank" rel="noopener noreferrer"><span title="Email Results" class="icon icon-message"></span></a></li>
+			</ul>
+		</div>
+	  </div>
     </div>
   {% endif %}
 
