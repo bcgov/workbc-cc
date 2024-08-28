@@ -25,10 +25,16 @@ class ReproducedWithPermissionBlock extends BlockBase {
    */
   public function build() {
 
-    $url = "https://www.jobbank.gc.ca/abilities";
-    $link = '<a href="' . $url . '" target="_blank">Government of Canada\'s National Job Bank</a>';
-    $markup = "This quiz has been reproduced with permisssion from the " . $link . ".";
+    $quiz = getCurrentQuiz();
 
+    if ($quiz['id'] <> "interests_quiz") {
+      $url = "https://www.jobbank.gc.ca/abilities";
+      $link = '<a href="' . $url . '" target="_blank">Government of Canada\'s National Job Bank</a>';
+      $markup = "This quiz has been reproduced with permisssion from the " . $link . ".";
+    }
+    else {
+      $markup = "";
+    }
     return array(
       '#type' => 'markup',
       '#markup' => $markup,
