@@ -112,6 +112,38 @@
         });
       });
 
+      $(".mobi_cari_quiz").each(function () {
+        $(this).find(".carousel-inner > .career-item").slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: false,
+          dots: true,
+          arrows: false
+        });
+      });
+
+      $("#myResult").each(function () {
+        $(this).find(".carousel-inner-mobi > .row").slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: false,
+          dots: true,
+          arrows: false
+        });
+      });
+
+      $(".mobi-career-content-compare").each(function () {
+        $(this).slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: false,
+          dots: true,
+          arrows: true,
+          nextArrow: $(".next-true"),
+          prevArrow: $(".prev-true")
+        });
+      });
+
     }
   };
 

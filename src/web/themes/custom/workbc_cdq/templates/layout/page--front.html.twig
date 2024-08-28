@@ -153,7 +153,7 @@ set footer_classes = ' ' ~
         <div id="myCarousel"  class="views-view-grid container-fluid slide carousel cari_quiz">
           <div class="carousel-inner">
 	          <div class="row career-item active">
-	            <div class="career col-md-12 col-lg-4 col-xl-4">
+	            <div class="career col-4">
                 {% set quiz = quiz_info['abilities_quiz'] %}
                 {% set item_no = 1 %}
                 {% include '@workbc_cdq/templates/includes/front-page-quiz-card.html.twig' with { quiz, quiz_no } %}
@@ -169,6 +169,27 @@ set footer_classes = ' ' ~
                 {% include '@workbc_cdq/templates/includes/front-page-quiz-card.html.twig' with { quiz, quiz_no } %}
 	            </div>
 	          </div>
+          </div>
+        </div>
+        <div id="myCarouselMobi"  class="views-view-grid container-fluid slide carousel cari_quiz mobi_cari_quiz">
+          <div class="carousel-inner">
+            <div class="row career-item active">
+              <div class="career col-md-12 col-lg-4 col-xl-4">
+                {% set quiz = quiz_info['abilities_quiz'] %}
+                {% set item_no = 1 %}
+                {% include '@workbc_cdq/templates/includes/front-page-quiz-card.html.twig' with { quiz, quiz_no } %}
+              </div>
+              <div class="career col-md-12 col-lg-4 col-xl-4">
+                {% set quiz = quiz_info['work_preferences_quiz'] %}
+                {% set item_no = 2 %}
+                {% include '@workbc_cdq/templates/includes/front-page-quiz-card.html.twig' with { quiz, quiz_no } %}
+              </div>
+              <div class="career col-md-12 col-lg-4 col-xl-4">
+                {% set quiz = quiz_info['interests_quiz'] %}
+                {% set item_no = 3 %}
+                {% include '@workbc_cdq/templates/includes/front-page-quiz-card.html.twig' with { quiz, quiz_no } %}
+              </div>
+            </div>
           </div>
         </div>
 
@@ -189,7 +210,7 @@ set footer_classes = ' ' ~
 		      </div>
 	      </div>
 
-        <div id="myCarouselMobi"  class="views-view-grid container-fluid slide carousel cari_quiz mobi_cari_quiz">
+        <div id="myCarousel1"  class="views-view-grid container-fluid slide carousel cari_quiz">
           <div class="carousel-inner">
 	          <div class="row career-item active">
 	            <div class="personality col-md-12 col-lg-4 col-xl-4">
@@ -208,6 +229,27 @@ set footer_classes = ' ' ~
                 {% include '@workbc_cdq/templates/includes/front-page-quiz-card.html.twig' with { quiz, quiz_no } %}
 	            </div>
 	          </div>
+          </div>
+        </div>
+        <div id="myCarouselMobi1"  class="views-view-grid container-fluid slide carousel cari_quiz mobi_cari_quiz">
+          <div class="carousel-inner">
+            <div class="row career-item active">
+              <div class="personality col-md-12 col-lg-4 col-xl-4">
+                {% set quiz = quiz_info['multiple_intelligences_quiz'] %}
+                {% set item_no = 1 %}
+                {% include '@workbc_cdq/templates/includes/front-page-quiz-card.html.twig' with { quiz, quiz_no } %}
+              </div>
+              <div class="personality col-md-12 col-lg-4 col-xl-4">
+                {% set quiz = quiz_info['learning_styles_quiz'] %}
+                {% set item_no = 2 %}
+                {% include '@workbc_cdq/templates/includes/front-page-quiz-card.html.twig' with { quiz, quiz_no } %}
+              </div>
+              <div class="personality col-md-12 col-lg-4 col-xl-4">
+                {% set quiz = quiz_info['work_values_quiz'] %}
+                {% set item_no = 3 %}
+                {% include '@workbc_cdq/templates/includes/front-page-quiz-card.html.twig' with { quiz, quiz_no } %}
+              </div>
+            </div>
           </div>
         </div>
 

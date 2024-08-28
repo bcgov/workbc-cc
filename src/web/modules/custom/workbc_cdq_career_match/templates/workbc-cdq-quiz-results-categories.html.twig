@@ -21,7 +21,8 @@
   {% endif %}
 
   <div id="myResult" data-ride="carousel" class="carousel slide">
-    <div class="row">
+	<div class="carousel-inner carousel-inner-device">
+    	<div class="row">
       {% for key, cat in score|slice(0,3) %}
         <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-print-item itm">
     	    <div class="quiz-list">
@@ -41,6 +42,29 @@
         </div>
       {% endfor %}
     </div>
+	</div>
+	<div class="carousel-inner carousel-inner-mobi">
+  		<div class="row active">
+	  {% for key, cat in score|slice(0,3) %}
+		  <div class="col-12">
+			  <div class="quiz-list">
+				  <div class="item field-match">
+					  {{ cat['percent'] }}% Match
+				  </div>
+				  <div class="item img-field">
+					  <img src="/themes/custom/workbc_cdq/assets/icons/{{ cat['image'] }}-icon.svg" />
+				  </div>
+				  <div class="item title-field" style="color:#{{ cat['color']}}">
+					  {{ key }}
+				  </div>
+				  <div class="item title-description _216C06">
+					  <p><span>{{ cat['description'] | raw }}</span></p>
+				  </div>
+			  </div>
+		  </div>
+	  {% endfor %}
+  	</div>
+	</div>
 
 {% if score|length > 3 %}
 

@@ -502,6 +502,7 @@ header {
   .learning-styles-quiz & {
     margin-top: 20px;
   }
+
   .carousel-inner{
     &.carousel-inner-device{
       @media all and (max-width: 767.98px){
@@ -511,9 +512,7 @@ header {
     &.carousel-inner-mobi{
       display: none;
       @media all and (max-width: 767.98px){
-        &.active{
-          display: block;
-        }
+        display: block;
       }
       .slick-dots {
         display: flex;
@@ -828,13 +827,14 @@ header {
   }
 
   &.mobi_cari_quiz{
+    display: none;
     @media all and (max-width: 991.98px) {
       display: block;
     }
   }
   &:not(.mobi_cari_quiz){
     @media all and (max-width: 991.98px) {
-      display: block;
+      display: none;
     }
   }
 }
@@ -3232,6 +3232,12 @@ span.question-prefix {
   }
 }
 
+.career-content-table-item {
+  .career-content-item {
+    display: none;
+  }
+}
+
 .page-node-type-career-profile,
 .career-content-main-wrapper {
   height: 100%;
@@ -3261,15 +3267,8 @@ span.question-prefix {
     padding: 20px 0;
   }
 
-  .career-content-item-inner {
-    @media all and (max-width: 990px){
-      display: none;
-    }
-  }
-
   .career-content-item {
     background: #fff;
-    display: none;
     height: 100%;
 
     &.active {

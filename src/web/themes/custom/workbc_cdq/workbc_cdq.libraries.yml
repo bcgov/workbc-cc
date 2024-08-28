@@ -2,8 +2,11 @@ global-styling:
   css:
     theme:
       css/style.css: {}
-  
+
+  js:
+    js/slick.min.js: {}
+
   dependencies:
     - core/jquery
     - core/drupal
-    - core/once    
+    - core/once

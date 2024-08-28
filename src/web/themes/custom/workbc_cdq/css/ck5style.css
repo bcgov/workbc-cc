@@ -25,6 +25,7 @@
   /* rtl:end:remove */
   /* CAREER */
   /*=== CAREER COMPARE CSS ===*/
+  /* Slider */
 }
 .ck-content :root,
 .ck-content [data-bs-theme=light] {
@@ -13189,7 +13190,7 @@ a > .ck-content code {
   display: none;
 }
 @media all and (max-width: 767.98px) {
-  .ck-content #myResult .carousel-inner.carousel-inner-mobi.active, .ck-content #myResult .media-library-view--widget .view-header a.carousel-inner.carousel-inner-mobi.is-active, .ck-content .media-library-view--widget .view-header #myResult a.carousel-inner.carousel-inner-mobi.is-active {
+  .ck-content #myResult .carousel-inner.carousel-inner-mobi {
     display: block;
   }
 }
@@ -13465,6 +13466,9 @@ a > .ck-content code {
 .ck-content .cari_quiz .slick-slide {
   height: inherit !important;
 }
+.ck-content .cari_quiz.mobi_cari_quiz {
+  display: none;
+}
 @media all and (max-width: 991.98px) {
   .ck-content .cari_quiz.mobi_cari_quiz {
     display: block;
@@ -13472,7 +13476,7 @@ a > .ck-content code {
 }
 @media all and (max-width: 991.98px) {
   .ck-content .cari_quiz:not(.mobi_cari_quiz) {
-    display: block;
+    display: none;
   }
 }
 .ck-content .node-questions .quiz-questions span {
@@ -15493,6 +15497,9 @@ a > .ck-content code {
 .ck-content .view-cdq-compare-careers .career-content-item-inner .bottom-btn a.btn:hover, .ck-content .view-cdq-compare-careers .career-content-item-inner .bottom-btn a.button:hover, .ck-content .view-cdq-compare-careers .career-content-item-inner .bottom-btn .node-preview-container a.node-preview-backlink:hover, .ck-content .node-preview-container .view-cdq-compare-careers .career-content-item-inner .bottom-btn a.node-preview-backlink:hover {
   background: #002855;
 }
+.ck-content .career-content-table-item .career-content-item {
+  display: none;
+}
 .ck-content .page-node-type-career-profile,
 .ck-content .career-content-main-wrapper {
   height: 100%;
@@ -15524,16 +15531,9 @@ a > .ck-content code {
 .ck-content .media-library-view--widget .view-header .career-content-main-wrapper a.career-content-item.is-active {
   padding: 20px 0;
 }
-@media all and (max-width: 990px) {
-  .ck-content .page-node-type-career-profile .career-content-item-inner,
-  .ck-content .career-content-main-wrapper .career-content-item-inner {
-    display: none;
-  }
-}
 .ck-content .page-node-type-career-profile .career-content-item,
 .ck-content .career-content-main-wrapper .career-content-item {
   background: #fff;
-  display: none;
   height: 100%;
 }
 .ck-content .page-node-type-career-profile .career-content-item.active, .ck-content .page-node-type-career-profile .media-library-view--widget .view-header a.career-content-item.is-active, .ck-content .media-library-view--widget .view-header .page-node-type-career-profile a.career-content-item.is-active,
@@ -17327,6 +17327,98 @@ a > .ck-content code {
 }
 .ck-content .display-4 {
   font-weight: 400;
+}
+.ck-content .slick-slider {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+}
+.ck-content .slick-list {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+.ck-content .slick-list:focus {
+  outline: none;
+}
+.ck-content .slick-list.dragging {
+  cursor: pointer;
+  cursor: hand;
+}
+.ck-content .slick-slider .slick-track,
+.ck-content .slick-slider .slick-list {
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.ck-content .slick-track {
+  position: relative;
+  left: 0;
+  top: 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.ck-content .slick-track:before, .ck-content .slick-track:after {
+  content: "";
+  display: table;
+}
+.ck-content .slick-track:after {
+  clear: both;
+}
+.slick-loading .ck-content .slick-track {
+  visibility: hidden;
+}
+.ck-content .slick-slide {
+  float: left;
+  min-height: 1px;
+  height: 100%;
+  display: none;
+}
+[dir=rtl] .ck-content .slick-slide {
+  float: right;
+}
+.ck-content .slick-slide img {
+  display: block;
+}
+.ck-content .slick-slide.slick-loading img {
+  display: none;
+}
+.ck-content .slick-slide > div, .ck-content .slick-slide > div > div {
+  height: 100%;
+}
+.ck-content .slick-slide.dragging img {
+  pointer-events: none;
+}
+.slick-initialized .ck-content .slick-slide {
+  display: block;
+}
+.slick-loading .ck-content .slick-slide {
+  visibility: hidden;
+}
+.slick-vertical .ck-content .slick-slide {
+  display: block;
+  height: auto;
+  border: 1px solid transparent;
+}
+.ck-content .slick-arrow.slick-hidden {
+  display: none;
+}
+.ck-content .slick-dots li:not(.slick-active) button:before {
+  opacity: 0.25;
 }
 
 /*# sourceMappingURL=ck5style.css.map */
