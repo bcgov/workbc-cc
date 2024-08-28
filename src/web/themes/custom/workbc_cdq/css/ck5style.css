@@ -13746,6 +13746,11 @@ a > .ck-content code {
   float: right;
   padding: 20px 20px;
 }
+@media all and (max-width: 767.98px) {
+  .ck-content .overlay-content .quiz-category-results-wrapper #myResult a.category-results-toggle {
+    display: none;
+  }
+}
 .ck-content .overlay-content .quiz-category-results-wrapper #myResult a.category-results-toggle[aria-expanded=true]::before {
   content: "Show Top ";
 }
@@ -14727,6 +14732,11 @@ a > .ck-content code {
   display: flex;
   justify-content: center;
 }
+@media all and (max-width: 991.98px) {
+  .ck-content .careers-main-wrapper.small-device-hide {
+    display: none;
+  }
+}
 .ck-content .careers-main-wrapper .top-career-content h3, .ck-content .careers-main-wrapper .top-career-content .h3 {
   font-family: "BC Sans", sans-serif;
   font-weight: 400;
@@ -15132,6 +15142,9 @@ a > .ck-content code {
   display: flex;
   align-items: center;
   border-top: 1px solid #dee2e6;
+}
+.ck-content .careers-mobi-main-wrapper .careers-mobi-table-wrapper .tbody .tbody-main p.field-annual-salary, .ck-content .careers-mobi-main-wrapper .careers-mobi-table-wrapper .tbody .tbody-main p.field-education-level {
+  display: none;
 }
 .ck-content .careers-mobi-main-wrapper .careers-mobi-table-wrapper .tbody .tbody-main p {
   padding: 20px;

@@ -1162,6 +1162,10 @@ a.quiz-link {
 
       a.category-results-toggle {
 
+        @media all and (max-width: 767.98px) {
+          display: none;
+        }
+
         float: right;
         padding: 20px 20px;
 
@@ -2335,6 +2339,12 @@ span.question-prefix {
 
 .careers-main-wrapper {
 
+  &.small-device-hide {
+    @media all and (max-width: 991.98px) {
+      display: none;
+    }
+  }
+
   .top-career-content {
     h3 {
       font-family: "BC Sans", sans-serif;
@@ -2816,6 +2826,10 @@ span.question-prefix {
         display: flex;
         align-items: center;
         border-top: 1px solid #dee2e6;
+
+        p.field-annual-salary, p.field-education-level {
+          display: none;
+        }
 
         p {
           padding: 20px;
