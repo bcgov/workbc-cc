@@ -165,7 +165,7 @@
       <div class="career-content-main-wrapper career-content-table-item">
         <h3 class='print-career-preview-label d-none d-print-block'>Career Preview</h3>
         {% for rowkey, row in rows %}
-          <div id="career-item-{{ rowkey }}" class="career-content-item {% if rowkey == '0' %}active{% endif %}" data-url="">
+          <div class="career-item-{{ rowkey }} career-content-item {% if rowkey == '0' %}active{% endif %}" data-url="">
             {% set career_profile = row.raw %}
             {% include '@workbc_cdq_career_match/templates/includes/career-preview-card.html.twig' %}
           </div>
@@ -213,7 +213,7 @@
       </div>
       <div class="tbody">
         {% for rowkey, row in rows %}
-          <div class="tbody-main" data-id="career-item-{{ rowkey }}">
+          <div class="tbody-main career-table-row" data-id="career-item-{{ rowkey }}">
             {% if row.raw.match is not empty %}
               <p class="body">{{ row.raw.match }}</p>
             {% endif %}
@@ -225,7 +225,7 @@
               {% for field in column.fields %}
                 {% set field_nm = field_nm ~ field %}
               {% endfor %}
-                <p class="body {{ field_nm }}">
+                <p class="body views-field-{{ field_nm }} {{ field_nm }}">
                   {% for content in column.content %}
                     {{ content.separator }}{{ content.field_output }}
                   {% endfor %}
@@ -235,6 +235,29 @@
         {% endfor %}
       </div>
     </div>
+  </div>
+  <div class="career-content-main-wrapper">
+    <div class="career-mobi-preview career-content-table-item">
+      {% for rowkey, row in rows %}
+        <div class="career-item-{{ rowkey }} career-content-item" data-url="">
+          {% set career_profile = row.raw %}
+          {% include '@workbc_cdq_career_match/templates/includes/career-preview-card.html.twig' %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+<div class="careers-main-wrapper small-device-hide">
+  <div class="bottom-links">
+    <div class="links-inner">
+      <div class="link link_1">
+        <a class="btn btn-modify" href="{{ quiz['quiz_link']}}">Modify Your Answers</a>
+      </div>
+      <div class="link link_2">
+        <a class="btn btn-prim" href="/" >Take Next Quiz</a>
+      </div>
+    </div>
+
   </div>
 </div>
 

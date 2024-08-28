@@ -52,16 +52,20 @@
 
 
         $('.views-field-title').on('click', function() {
-            let current_item = $(this).closest('.career-table-row').data('id');
-            $('.career-content-item').each(function() {
-              $(this).removeClass("active");
-            });
-            $('#' + current_item).addClass("active");
+          let current_item = $(this).closest('.career-table-row').data('id');
+          $('.career-content-item').each(function() {
+            $(this).removeClass("active");
+          });
+          $('.' + current_item).each(function() {
+            $(this).addClass("active")
+          });
 
-            $('.career-table-row').each(function() {
-              $(this).closest('.career-table-row').removeClass("active");
-            });
-            $(this).closest('.career-table-row').addClass("active");
+          $('.career-table-row').each(function() {
+            $(this).closest('.career-table-row').removeClass("active");
+          });
+          $(this).closest('.career-table-row').addClass("active");
+
+          $('#').addClass("active");
         });
 
         function totalSelected() {
