@@ -2513,19 +2513,17 @@ span.question-prefix {
           line-height: 1.8rem;
           color: #333;
           position: relative;
-          display: inline-flex;
-          align-items: center;
-          width: 80px;
+          display: flex;
+          align-items: end;
           font-family: "BC Sans Bold", sans-serif;
           font-weight: normal;
+          justify-content: space-between;
 
-          &::before {
+          div.sort {
             content: "";
             background: url(../assets/icons/updownarrow.svg) no-repeat;
-            position: absolute;
-            width: 10px;
+            width: 25px;
             height: 17px;
-            right: -8px;
           }
         }
 
