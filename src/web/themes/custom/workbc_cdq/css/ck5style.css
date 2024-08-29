@@ -13752,16 +13752,16 @@ a > .ck-content code {
   }
 }
 .ck-content .overlay-content .quiz-category-results-wrapper #myResult a.category-results-toggle[aria-expanded=true]::before {
-  content: "Show Top ";
+  content: "Show Top";
 }
 .ck-content .overlay-content .quiz-category-results-wrapper #myResult a.category-results-toggle[aria-expanded=true]::after {
-  content: " -";
+  content: "➖";
 }
 .ck-content .overlay-content .quiz-category-results-wrapper #myResult a.category-results-toggle[aria-expanded=false]::before {
-  content: "Show All ";
+  content: "Show All";
 }
 .ck-content .overlay-content .quiz-category-results-wrapper #myResult a.category-results-toggle[aria-expanded=false]::after {
-  content: " +";
+  content: "➕";
 }
 .ck-content .overlay-content #block-workbc-cdq-views-block-quiz-career-match-block-1 {
   background: #fff;
