@@ -1,5 +1,16 @@
 
 (function (Drupal, $, once, drupalSettings) {
+  
+  $(document).ready(function() {
+    if( $('.views-table').length ){
+      const queryString = window.location.search;
+      if (queryString.includes("&sort=")) {
+        $("html, body").animate({ scrollTop: $(".views-table").offset().top }, "slow");        
+      }
+    }
+  });
+
+
   Drupal.behaviors.CareerCompare = {
     attach: function (context, settings) {
 
