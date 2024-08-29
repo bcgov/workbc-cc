@@ -15932,12 +15932,13 @@ span.question-prefix:after {
   font-family: "BC Sans Bold", sans-serif;
   font-weight: normal;
   justify-content: space-between;
+  text-decoration: none;
 }
 .careers-main-wrapper table thead th a div.sort {
   content: "";
   background: url(../assets/icons/updownarrow.svg) no-repeat;
   width: 25px;
-  height: 17px;
+  height: 24px;
 }
 .careers-main-wrapper table thead th.views-field-field-education-level a::before {
   right: -55px;

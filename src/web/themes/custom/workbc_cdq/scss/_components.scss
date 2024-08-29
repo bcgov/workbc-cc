@@ -2518,12 +2518,13 @@ span.question-prefix {
           font-family: "BC Sans Bold", sans-serif;
           font-weight: normal;
           justify-content: space-between;
+          text-decoration: none;
 
           div.sort {
             content: "";
             background: url(../assets/icons/updownarrow.svg) no-repeat;
             width: 25px;
-            height: 17px;
+            height: 24px;
           }
         }
 
