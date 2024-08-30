@@ -7,7 +7,8 @@ use Drupal\Core\Url;
 use Drupal\Core\Link;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Cache\Cache;
-
+use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Session\AccountInterface;
 
 /**
  * Provides a WorkBC Career Discover Quizzes block.
@@ -25,21 +26,27 @@ class ReproducedWithPermissionBlock extends BlockBase {
    */
   public function build() {
 
-    $quiz = getCurrentQuiz();
+    $url = "https://www.jobbank.gc.ca/abilities";
+    $link = '<a href="' . $url . '" target="_blank">Government of Canada\'s National Job Bank</a>';
+    $markup = "This quiz has been reproduced with permisssion from the " . $link . ".";
 
-    if ($quiz['id'] <> "interests_quiz") {
-      $url = "https://www.jobbank.gc.ca/abilities";
-      $link = '<a href="' . $url . '" target="_blank">Government of Canada\'s National Job Bank</a>';
-      $markup = "This quiz has been reproduced with permisssion from the " . $link . ".";
-    }
-    else {
-      $markup = "";
-    }
     return array(
       '#type' => 'markup',
       '#markup' => $markup,
     );
 
+  }
+
+  /**
+   * Only display block Interests Quiz;
+   */
+  protected function blockAccess(AccountInterface $account) {
+
+    $quiz = getCurrentQuiz();
+    if ($quiz['id'] == "interests_quiz") {
+      return AccessResult::forbidden();
+    }
+    return AccessResult::allowedIfHasPermission($account, 'access content');
   }
 
   public function getCacheMaxAge() {
