@@ -1064,7 +1064,6 @@ a.quiz-link {
   position: relative;
 
   .overlay-bg {
-    background: $aq;
     min-height: 396px;
     position: absolute;
     z-index: 0;
@@ -1168,13 +1167,15 @@ a.quiz-link {
 
         float: right;
         padding: 20px 20px;
+        text-decoration: none;
 
         &[aria-expanded="true"]::before {
           content: "Show Top";
         }
 
         &[aria-expanded="true"]::after {
-          content: "\2796";  // a minus sign
+          content: "-";  // a minus sign
+          font-size: larger;
         }
 
         &[aria-expanded="false"]::before {
@@ -1182,7 +1183,8 @@ a.quiz-link {
         }
 
         &[aria-expanded="false"]::after {
-          content: '\2795';  // a plus sign
+          content: '+';  // a plus sign
+          font-size: larger;
         }
 
       }
@@ -3999,10 +4001,8 @@ h2.cdq-quiz-title, .webform-submission-information {
   display: none
 }
 
-.cdq-results {
-  .breadcrumb-quiz.back-to-quiz{
-    display:none
-  }
+.breadcrumb-quiz.back-to-quiz{
+  display:none
 }
 
 // when a mobile user selects a career profile, hide most page elements

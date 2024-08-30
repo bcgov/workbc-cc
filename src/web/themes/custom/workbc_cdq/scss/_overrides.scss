@@ -243,8 +243,8 @@
 }
 
 // page quiz multi color override
-.cdq-quiz{
-  &.cdq-abilities-quiz{
+.main-quiz-container{
+  .cdq-abilities-quiz{
     .careers-mobi-main-wrapper .careers-mobi-table-wrapper .tbody .tbody-main .compare-career-mobi input:checked ~ .checkmark {
       border: 1px solid $quiz-dark-blue;
 
@@ -313,9 +313,9 @@
     .overlay-content{
       .block-system-main-block{
         border-top: 9px solid $quiz-dark-blue-dark;
-        &:not(.no-border-block){
-          border-bottom: 5px solid $quiz-dark-blue;
-        }
+      }
+      .block-views-blockquiz-career-match-block-1{
+        border-bottom: 5px solid $quiz-dark-blue;
       }
       #block-views-block-step-form-pagination-block-1{
         border-bottom: 5px solid $quiz-dark-blue;
@@ -362,7 +362,7 @@
       }
     }
 
-    #myResult{
+    .careers-main-wrapper{
       .bottom-links .link{
         &.link_1{
           a{
@@ -471,7 +471,7 @@
     }
   }
 
-  &.cdq-work-preferences-quiz{
+  .cdq-work-preferences-quiz{
     .careers-mobi-main-wrapper .careers-mobi-table-wrapper .tbody .tbody-main .compare-career-mobi input:checked ~ .checkmark {
       border: 1px solid $quiz-purple;
 
@@ -534,9 +534,9 @@
     .overlay-content{
       .block-system-main-block{
         border-top: 9px solid $quiz-purple-dark;
-        &:not(.no-border-block){
-          border-bottom: 5px solid $quiz-purple;
-        }
+      }
+      .block-views-blockquiz-career-match-block-1{
+        border-bottom: 5px solid $quiz-purple;
       }
       #block-views-block-step-form-pagination-block-1{
         border-bottom: 5px solid $quiz-purple;
@@ -583,7 +583,7 @@
       }
     }
 
-    #myResult{
+    .careers-main-wrapper{
       .bottom-links .link{
         &.link_1{
           a{
@@ -691,7 +691,7 @@
     }
   }
 
-  &.cdq-interests-quiz{
+  .cdq-interests-quiz{
     .careers-mobi-main-wrapper .careers-mobi-table-wrapper .tbody .tbody-main .compare-career-mobi input:checked ~ .checkmark {
       border: 1px solid $quiz-blue;
 
@@ -803,7 +803,7 @@
       }
     }
 
-    #myResult{
+    .careers-main-wrapper{
       .bottom-links .link{
         &.link_1{
           a{
@@ -911,7 +911,7 @@
     }
   }
 
-  &.cdq-multiple-intelligences-quiz{
+  .cdq-multiple-intelligences-quiz{
     .careers-mobi-main-wrapper .careers-mobi-table-wrapper .tbody .tbody-main .compare-career-mobi input:checked ~ .checkmark {
       border: 1px solid $quiz-green;
 
@@ -1023,7 +1023,7 @@
       }
     }
 
-    #myResult{
+    .careers-main-wrapper{
       .bottom-links .link{
         &.link_1{
           a{
@@ -1145,7 +1145,7 @@
     }
   }
 
-  &.cdq-learning-styles-quiz{
+  .cdq-learning-styles-quiz{
     .careers-mobi-main-wrapper .careers-mobi-table-wrapper .tbody .tbody-main .compare-career-mobi input:checked ~ .checkmark {
       border: 1px solid $quiz-light-blue;
 
@@ -1257,7 +1257,7 @@
       }
     }
 
-    #myResult{
+    .careers-main-wrapper{
       .bottom-links .link{
         &.link_1{
           a{
@@ -1366,7 +1366,7 @@
     }
   }
 
-  &.cdq-work-values-quiz{
+  .cdq-work-values-quiz{
     .careers-mobi-main-wrapper .careers-mobi-table-wrapper .tbody .tbody-main .compare-career-mobi input:checked ~ .checkmark {
       border: 1px solid $quiz-pink;
 
@@ -1478,7 +1478,7 @@
       }
     }
 
-    #myResult{
+    .careers-main-wrapper{
       .bottom-links .link{
         &.link_1{
           a{
