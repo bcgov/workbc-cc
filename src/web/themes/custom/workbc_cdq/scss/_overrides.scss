@@ -457,6 +457,10 @@
         }
       }
     }
+
+    #modify-answer-buttons {
+      display: none;
+    }
   }
 
   .cdq-work-preferences-quiz{
@@ -677,6 +681,10 @@
         }
       }
     }
+
+    #modify-answer-buttons {
+      display: none;
+    }
   }
 
   .cdq-interests-quiz{
@@ -896,6 +904,10 @@
           background: $quiz-blue-dark;
         }
       }
+    }
+
+    #modify-answer-buttons {
+      display: none;
     }
   }
 
