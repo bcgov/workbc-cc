@@ -86,10 +86,10 @@
   </header>
 
   {% if is_quiz or is_results %}
-  <main role="main" class="main-quiz-container">
-    {% else %}
-    <main role="main">
-      {% endif %}
+    <main role="main" class="main-quiz-container">
+  {% else %}
+    <main role="main" class="main-quiz-container">
+  {% endif %}
       <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
       {%
