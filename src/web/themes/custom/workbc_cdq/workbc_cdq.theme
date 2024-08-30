@@ -79,6 +79,25 @@ function workbc_cdq_preprocess_fieldset(&$variables) {
   }
 }
 
+function workbc_cdq_preprocess_block(&$variables) {
+  if ($variables['plugin_id'] == "system_main_block") {
+    $quiz = getCurrentQuiz();
+    $variables['is_quiz'] = false;
+    $variables['is_results'] = false;
+    if ($quiz) {
+      $variables['attributes']['class'][] = "cdq-" . $quiz['page'];
+      $variables['attributes']['class'][] = "cdq-" . str_replace('_', '-', $quiz['id']);
+      if ($quiz['page'] == 'quiz') {
+        $variables['is_quiz'] = true;
+      }
+      else if ($quiz['page'] == 'results') {
+        $variables['is_results'] = true;
+        $variables['quiz'] = workbc_cdq_quiz_info($quiz['id']);
+      }
+    }
+  }
+}
+
 /*************************** HELPER FUNCTIONS ***************************/
 
 function workbc_cdq_quiz_info($id) {
