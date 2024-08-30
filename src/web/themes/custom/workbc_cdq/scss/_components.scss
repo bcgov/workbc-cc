@@ -1159,11 +1159,13 @@ a.quiz-link {
         margin: 6px 10px;
       }
 
-      a.category-results-toggle {
-
+      #hiddenByDefault, a.category-results-toggle {
         @media all and (max-width: 767.98px) {
           display: none;
         }
+      }
+
+      a.category-results-toggle {
 
         float: right;
         padding: 20px 20px;
@@ -1273,7 +1275,8 @@ body.path-quiz {
       padding: 0 15px;
       right: 0;
       display: flex;
-      flex-direction: row-reverse;
+      flex-direction: row;
+      justify-content: end;
       @media all and (max-width: 767.98px) {
 
         left: 50%;
