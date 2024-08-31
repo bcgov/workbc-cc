@@ -1,11 +1,11 @@
 
 (function (Drupal, $, once, drupalSettings) {
-  
+
   $(document).ready(function() {
     if( $('.views-table').length ){
       const queryString = window.location.search;
       if (queryString.includes("&sort=")) {
-        $("html, body").animate({ scrollTop: $(".views-table").offset().top }, "slow");        
+        $("html, body").animate({ scrollTop: $(".views-table").offset().top }, "slow");
       }
     }
   });
@@ -21,7 +21,6 @@
           selected = $(this).is(':checked');
           if (selected && totalSelected() > 3) {
             $(this).prop('checked', false);
-            console.log("3 Max");
             alert("You have reached the maximum number of careers you are able to add to the compare feature. Please deselect one of your selected careers to add this career.");
             // $(".popup, .popup-content").addClass("active");
           }
@@ -110,7 +109,7 @@
       });
 
       $(once('cdqworkvalues', '.quiz-work-values-wrapper', context)).each(function () {
-        $('.work-values-toggle').on('click', function() {
+        $('.work-values-toggle').on('click', function () {
           if ($(".important-values").hasClass("hide")) {
             $(this).removeClass("hide");
             $(".somewhat-values").addClass("hide");
@@ -120,8 +119,7 @@
             $(".result-heading h3.vaa1").hide();
             $(".result-heading h3.vaa").show();
             $("#myResult").animate({scrollTop: 0}, "slow");
-          }
-          else {
+          } else {
             $(this).addClass("hide");
             $(".somewhat-values").removeClass("hide");
             $(".important-values").addClass("hide");
@@ -133,6 +131,110 @@
 
         });
       });
+
+      $(once('cdqworkvalues',".hideshow-workbc", context)).each(function () {
+        $(this).on("click", function () {
+          if ($(".hideshow-workbc").hasClass("hide")) {
+            $(this).removeClass("hide");
+            $(".hideshow-workbc span.vaa1").hide();
+            $(".hideshow-workbc span.vaa").show();
+            $(".result-heading h2.vaa1").hide();
+            $(".result-heading h2.vaa").show();
+            $("#myResult").animate({scrollTop: 0}, "slow");
+          } else {
+            $(this).addClass("hide");
+            $(".hideshow-workbc span.vaa").hide();
+            $(".hideshow-workbc span.vaa1").show();
+            $(".result-heading h2.vaa").hide();
+            $(".result-heading h2.vaa1").show();
+          }
+        });
+      })
+
+        //
+        // $(".hideshow", context)
+        //   .once("workbc")
+        //   .on("click", function () {
+        //     if ($(".hideshow").hasClass("hide")) {
+        //       $(this).removeClass("hide");
+        //       $(".hideshow span.vaa1").hide();
+        //       $(".hideshow span.vaa").show();
+        //       $(".result-heading h2.vaa1").hide();
+        //       $(".result-heading h2.vaa").show();
+        //       $(".itm.hide").hide();
+        //       $(".extradivs.hide").removeClass("show");
+        //       $("html, body").animate({scrollTop: 200}, "slow");
+        //     } else {
+        //       $(this).addClass("hide");
+        //       $(".itm.hide").show();
+        //       $(".hideshow span.vaa").hide();
+        //       $(".hideshow span.vaa1").show();
+        //       $(".result-heading h2.vaa").hide();
+        //       $(".result-heading h2.vaa1").show();
+        //       $(".extradivs.hide").addClass("show");
+        //     }
+        //   });
+
+        $(".work-value-quiz-carousel > .row").slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: false,
+          arrows: true,
+          adaptiveHeight: true,
+          nextArrow: $(".hideshow-workbc"),
+        });
+
+        $(".carousel-slider-mobi-row").each(function () {
+          $(this).slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            adaptiveHeight: true,
+            infinite: false,
+            dots: true,
+            arrows: false,
+          });
+        });
+
+        $(".carousel-mobi-tabs-trigger").on("click", function () {
+          $(this).next().addClass("active");
+          $("body").addClass("overlayBg");
+        });
+        $(".carousel-mobi-tab-close").on("click", function () {
+          $(this).parent().removeClass("active");
+          $("body").removeClass("overlayBg");
+        });
+        $(".carousel-mobi-tab-item").on("click", function () {
+          $(".carousel-mobi-tab-item").removeClass("active");
+          $(this).addClass("active");
+
+          const getTabItemId = $(this).data("href");
+          console.log(getTabItemId);
+          if (getTabItemId == "bottomcarousel") {
+            $(this)
+              .parents("#myResult")
+              .find(".extradivs")
+              .addClass("displayMobiPrint");
+          } else {
+            $(this)
+              .parents("#myResult")
+              .find(".extradivs")
+              .removeClass("displayMobiPrint");
+          }
+          $(".carousel-inner-mobi").removeClass("active");
+          $(`.carousel-inner-mobi[data-id=${getTabItemId}]`).addClass("active");
+          $(".active > .carousel-slider-mobi-row").slick(
+            "slickGoTo",
+            parseInt(0),
+            true
+          );
+
+          $(this).parent().parent().removeClass("active");
+          $("body").removeClass("overlayBg");
+
+          $(".carousel-mobi-tabs-trigger > span.text").text($(this).data("text"));
+        });
+
 
       $(once('cdqprint', '.career-top-right', context)).each(function () {
         $(".compare-career-print > .print-window, .quiz-node-print > .print-window").on("click", function () {
