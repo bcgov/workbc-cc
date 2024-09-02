@@ -327,15 +327,15 @@ header {
 }
 
 .myResultHeading {
-  .row.rh{
-    @media all and (max-width: 767.98px){
-      background: #f2f2f2;
-      width: 100vw;
-      position: relative;
-      left: -15px;
-      right: 0;
-      margin: 0 auto;
-    }
+  display: flex;
+  justify-content: space-between;
+  padding-top: 30px;
+
+  @media all and (max-width: 767.98px){
+    background: #f2f2f2;
+    width: 100vw;
+    justify-content: center;
+    padding-top: 0;
   }
   .result-heading {
     margin-bottom: 40px;
@@ -431,10 +431,12 @@ header {
     font-style: normal;
     font-size: 2.5rem;
     line-height: 3.5rem;
-    display: block;
     color: #333333;
     margin-bottom: 30px;
     position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
 
     .text {
       padding-right: 25px;
@@ -442,11 +444,6 @@ header {
 
     > svg{
       width: 15px;
-      height: auto;
-      position: absolute;
-      right: 10px;
-      top: 50%;
-      transform: translateY(-50%);
     }
   }
   ul.carousel-mobi-tab-items-wrapper{
@@ -512,7 +509,9 @@ header {
     &.carousel-inner-mobi{
       display: none;
       @media all and (max-width: 767.98px){
-        display: block;
+        &.active {
+          display: block;
+        }
       }
       .slick-dots {
         display: flex;
@@ -1127,13 +1126,10 @@ a.quiz-link {
           padding-bottom: 30px;
         }
       }
-
-
-
     }
   }
   .quiz-category-results-wrapper, .quiz-work-values-wrapper {
-    padding: 30px 0 20px 0;
+    padding: 0 0;
 
     .result-heading {
       padding-left: 20px;
@@ -1145,7 +1141,6 @@ a.quiz-link {
 
       li {
         display: inline-block;
-        padding-left: 20px;
       }
     }
 
@@ -3989,6 +3984,14 @@ span.question-prefix {
 .overlay-content {
   .col-12 {
     padding: 0 0;
+  }
+}
+
+.overlay-content {
+  .quiz-work-values-wrapper {
+    .col-12 {
+      padding: 11px 11px;
+    }
   }
 }
 
