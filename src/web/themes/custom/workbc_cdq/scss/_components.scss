@@ -3046,6 +3046,9 @@ span.question-prefix {
       padding: 20px;
       height: calc(100% - 76px);
       min-height: 695px;
+      display: flex;
+      flex-direction: column;
+
       @media all and (max-width: 480.98px){
         border: 0;
       }
@@ -3165,7 +3168,7 @@ span.question-prefix {
 
     .bottom-btn {
       display: flex;
-      margin-top: 40px;
+      margin-top: auto;
 
       @media all and (max-width: 767.98px) {
         display: block;
@@ -3304,6 +3307,13 @@ span.question-prefix {
         padding: 20px;
         min-height: 695px;
         height: calc(100% - 76px);
+        display: flex;
+        flex-direction: column;
+        @media all and (max-width: 990px){
+          .bottom-btn {
+            margin-top: 20px;
+          }
+        }
         @media all and (max-width: 480.98px){
           border: 0;
         }
@@ -3419,7 +3429,7 @@ span.question-prefix {
 
       .bottom-btn {
         display: flex;
-        margin-top: 40px;
+        margin-top: auto;
 
         @media all and (max-width: 767.98px) {
           display: block;
@@ -3671,6 +3681,7 @@ span.question-prefix {
       &:not(.col) {
         max-width: 375px;
         margin: 0 11px;
+        flex: 1 1 0;
         @media all and (max-width: 991.98px){
           margin: 0 auto;
         }
