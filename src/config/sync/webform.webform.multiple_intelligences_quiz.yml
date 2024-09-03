@@ -478,6 +478,10 @@ elements: |-
       '#options': workbc_multiple_intelligences
       '#category': 'Picture Smart'
       '#required': true
+  actions:
+    '#type': webform_actions
+    '#title': 'Submit button(s)'
+    '#draft_hide': true
 css: ''
 javascript: ''
 settings:

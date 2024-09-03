@@ -449,6 +449,10 @@ elements: |-
       '#options': workbc_interests
       '#category': Conventional
       '#required': true
+  actions:
+    '#type': webform_actions
+    '#title': 'Submit button(s)'
+    '#draft_hide': true
 css: ''
 javascript: ''
 settings:

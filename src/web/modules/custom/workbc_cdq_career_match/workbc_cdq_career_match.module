@@ -78,6 +78,8 @@ function workbc_cdq_career_match_preprocess_views_view_table(&$variables) {
       $variables['submission_id'] = $variables['view']->args[0];
       $variables['workbc_url'] = \Drupal::config('workbc')->get('workbc_url');
     }
+    $quiz = getCurrentQuiz();
+    $variables['quiz'] = workbc_cdq_quiz_info($quiz['id']);
   }
 }
 
@@ -133,17 +135,19 @@ function workbc_cdq_career_match_menu_local_tasks_alter(&$data, $route_name, \Dr
   if (str_starts_with($route_name, 'entity.webform_submission.') && $route_name !== 'entity.webform_submission.collection') {
     /** @var \Drupal\webform\Entity\WebformSubmission $entity */
     $entity = \Drupal::routeMatch()->getParameter('webform_submission');
-    $quiz = $entity->getWebform();
-    $data['tabs'][0][] = [
-      '#theme' => 'menu_local_task',
-      '#link' => [
-        'title' => t('Results'),
-        'url' => Url::fromRoute("workbc_cdq_custom.{$quiz->id()}_results", ['token' => $entity->getToken()]),
-      ],
-      '#active' => false,
-      '#weight' => 15,
-      '#access' => true,
-    ];
+    if ($entity) {
+      $quiz = $entity->getWebform();
+      $data['tabs'][0][] = [
+        '#theme' => 'menu_local_task',
+        '#link' => [
+          'title' => t('Results'),
+          'url' => Url::fromRoute("workbc_cdq_custom.{$quiz->id()}_results", ['token' => $entity->getToken()]),
+        ],
+        '#active' => false,
+        '#weight' => 15,
+        '#access' => true,
+      ];
+    }
   }
 }
 

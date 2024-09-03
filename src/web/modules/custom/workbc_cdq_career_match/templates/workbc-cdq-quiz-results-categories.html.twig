@@ -2,52 +2,116 @@
 
 <div class="quiz-category-results-wrapper">
   {% if score|length > 3 %}
-    <div class="row">
-  	  <div class="col-8">
+    <div class="myResultHeading">
+  	  <div>
   		  <div class="result-heading">
   			  <h3 class="vaa">{{ category_top }}</h3>
-	        <h3 class="vaa1" style="display:none;">{{ category_all }}</h3>
-		    </div>
-	    </div>
-			<div class="col-12 col-md-4 d-print-none">
-				<div class="career-top-right">
-					<ul class="float-right">
-			  		<li class="quiz-node-print"><a href="javascript:;" class="print-window"><span title="Print Results" class="icon icon-print"></span></a></li>
-				  	<li class="quiz-node-email"><a href="mailto:?subject={{ email_subject }}&body={{ email_body }}" target="_blank" rel="noopener noreferrer"><span title="Email Results" class="icon icon-message"></span></a></li>
-					</ul>
-				</div>
-			</div>
+			  <h3 class="vaa1" style="display:none;">{{ category_all }}</h3>
+		  </div>
+	  </div>
+	  <div class="d-print-none">
+		<div class="career-top-right">
+			<ul class="float-right">
+			<li class="quiz-node-print"><a href="javascript:;" class="print-window"><span title="Print Results" class="icon icon-print"></span></a></li>
+			<li class="quiz-node-email"><a href="mailto:?subject={{ email_subject }}&body={{ email_body }}" target="_blank" rel="noopener noreferrer"><span title="Email Results" class="icon icon-message"></span></a></li>
+			</ul>
+		</div>
+	  </div>
     </div>
   {% endif %}
 
   <div id="myResult" data-ride="carousel" class="carousel slide">
-    <div class="row">
+    <div class="carousel-mobi-tabs  d-print-none">
+      <a href="javascript:;" class="carousel-mobi-tabs-trigger">
+        <span class="text vaa">{{ category_top }}</span> <span class="vaa1" style="display:none">{{ category_all }}</span>
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="24" height="24" viewBox="0 0 64.000000 64.000000">
+          <g transform="translate(0.000000,64.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+            <path d="M10 485 c-7 -8 -10 -25 -7 -37 10 -36 289 -308 317 -308 28 0 307 272 317 308 3 12 0 29 -7 37 -27 32 -54 16 -182 -112 l-128 -128 -128 128 c-128 128 -155 144 -182 112z"></path>
+          </g>
+        </svg>
+      </a>
+      <ul class="carousel-mobi-tab-items-wrapper d-print-none">
+        <a href="javascript:;" class="carousel-mobi-tab-close">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="14.6px" height="14.6px" viewBox="0 0 14.6 14.6" style="overflow:visible;enable-background:new 0 0 14.6 14.6;" xml:space="preserve">
+                   <style type="text/css">.st0{fill-rule:evenodd;clip-rule:evenodd;fill:#333333;}</style>
+            <defs></defs>
+            <path class="st0" d="M0.3,12.9c-0.4,0.4-0.4,1,0,1.4c0.4,0.4,1,0.4,1.4,0l5.6-5.6l5.6,5.6c0.4,0.4,1,0.4,1.4,0c0.4-0.4,0.4-1,0-1.4  L8.7,7.3l5.6-5.6c0.4-0.4,0.4-1,0-1.4c-0.4-0.4-1-0.4-1.4,0L7.3,5.9L1.7,0.3c-0.4-0.4-1-0.4-1.4,0c-0.4,0.4-0.4,1,0,1.4l5.6,5.6  L0.3,12.9z"></path>
+                </svg>
+        </a>
+        <li><a href="javascript:;" class="carousel-mobi-tab-item active" data-href="topcarousel" data-text="{{ category_top }}">{{ category_top }}</a></li>
+        <li><a href="javascript:;" class="carousel-mobi-tab-item" data-href="bottomcarousel" data-text="{{ category_all }}">{{ category_all }}</a></li>
+      </ul>
+    </div>
+    <div class="carousel-inner carousel-inner-device">
+        <div class="row">
+        {% for key, cat in score|slice(0,3) %}
+          <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-print-item itm">
+            <div class="quiz-list">
+              <div class="item field-match">
+                {{ cat['percent'] }}% Match
+              </div>
+              <div class="item img-field">
+                <img src="/themes/custom/workbc_cdq/assets/icons/{{ cat['image'] }}-icon.svg" />
+              </div>
+              <div class="item title-field" style="color:#{{ cat['color']}}">
+                {{ key }}
+              </div>
+              <div class="item title-description _216C06">
+                <p><span>{{ cat['description'] | raw }}</span></p>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="carousel-inner carousel-inner-mobi active d-print-none" data-id="topcarousel">
+        <div class="row active">
       {% for key, cat in score|slice(0,3) %}
-        <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-print-item itm">
-    	    <div class="quiz-list">
-    		    <div class="item field-match">
-    			    {{ cat['percent'] }}% Match
-		        </div>
-		        <div class="item img-field">
+        <div class="col-12">
+          <div class="quiz-list">
+            <div class="item field-match">
+              {{ cat['percent'] }}% Match
+            </div>
+            <div class="item img-field">
               <img src="/themes/custom/workbc_cdq/assets/icons/{{ cat['image'] }}-icon.svg" />
-			        <!-- <svg class="footer-icon-web">
-        				<use xlink:href=""></use>
-			        </svg> -->
-		        </div>
-		        <div class="item title-field" style="color:#{{ cat['color']}}">
-        			{{ key }}
-		        </div>
+            </div>
+            <div class="item title-field" style="color:#{{ cat['color']}}">
+              {{ key }}
+            </div>
             <div class="item title-description _216C06">
               <p><span>{{ cat['description'] | raw }}</span></p>
-		        </div>
-	        </div>
+            </div>
+          </div>
         </div>
       {% endfor %}
+      </div>
+    </div>
+    <div class="carousel-inner carousel-inner-mobi d-print-none" data-id="bottomcarousel">
+      <div class="row active">
+        {% for key, cat in score %}
+          <div class="col-12">
+            <div class="quiz-list">
+              <div class="item field-match">
+                {{ cat['percent'] }}% Match
+              </div>
+              <div class="item img-field">
+                <img src="/themes/custom/workbc_cdq/assets/icons/{{ cat['image'] }}-icon.svg" />
+              </div>
+              <div class="item title-field" style="color:#{{ cat['color']}}">
+                {{ key }}
+              </div>
+              <div class="item title-description _216C06">
+                <p><span>{{ cat['description'] | raw }}</span></p>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
     </div>
 
 {% if score|length > 3 %}
 
-    <div class="extradivs hide">
+    <div class="collapse" id="hiddenByDefault">
       {% for key, cat in score|slice(3) %}
         {% if loop.index0 % 3 == 0 %}
           <div class="row">
@@ -59,9 +123,6 @@
 		          </div>
 		          <div class="item img-field">
                 <img src="/themes/custom/workbc_cdq/assets/icons/{{ cat['image'] }}-icon.svg" />
-			          <!-- <svg class="footer-icon-web">
-          				<use xlink:href=""></use>
-			          </svg> -->
 		          </div>
 		          <div class="item title-field" style="color:#{{ cat['color']}}">
           			{{ key }}
@@ -77,22 +138,10 @@
       {% endfor %}
     </div>
 
-    <a href="javascript:;" class="category-results-toggle">
-      <span class="vaa">Show All {{ category }}
-        <svg fill="#216c06" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="10px" height="10px" xmlns="http://www.w3.org/2000/svg">
-          <g transform="matrix(1 0 0 1 -1148 -499 )">
-            <path d="M 9.80113636363636 3.83522727272727  C 9.93371212121212 3.96780303030303  10 4.12878787878788  10 4.31818181818182  L 10 5.68181818181818  C 10 5.87121212121212  9.93371212121212 6.03219696969697  9.80113636363636 6.16477272727273  C 9.66856060606061 6.29734848484848  9.50757575757576 6.36363636363636  9.31818181818182 6.36363636363636  L 6.36363636363636 6.36363636363636  L 6.36363636363636 9.31818181818182  C 6.36363636363636 9.50757575757576  6.29734848484849 9.66856060606061  6.16477272727273 9.80113636363636  C 6.03219696969697 9.93371212121212  5.87121212121212 10  5.68181818181818 10  L 4.31818181818182 10  C 4.12878787878788 10  3.96780303030303 9.93371212121212  3.83522727272727 9.80113636363636  C 3.70265151515152 9.66856060606061  3.63636363636364 9.50757575757576  3.63636363636364 9.31818181818182  L 3.63636363636364 6.36363636363636  L 0.681818181818182 6.36363636363636  C 0.492424242424242 6.36363636363636  0.331439393939394 6.29734848484848  0.198863636363636 6.16477272727273  C 0.0662878787878788 6.03219696969697  0 5.87121212121212  0 5.68181818181818  L 0 4.31818181818182  C 0 4.12878787878788  0.0662878787878788 3.96780303030303  0.198863636363636 3.83522727272727  C 0.331439393939394 3.70265151515151  0.492424242424242 3.63636363636364  0.681818181818182 3.63636363636364  L 3.63636363636364 3.63636363636364  L 3.63636363636364 0.681818181818182  C 3.63636363636364 0.492424242424242  3.70265151515152 0.331439393939393  3.83522727272727 0.198863636363636  C 3.96780303030303 0.0662878787878785  4.12878787878788 0  4.31818181818182 0  L 5.68181818181818 0  C 5.87121212121212 0  6.03219696969697 0.0662878787878785  6.16477272727273 0.198863636363636  C 6.29734848484849 0.331439393939393  6.36363636363636 0.492424242424242  6.36363636363636 0.681818181818182  L 6.36363636363636 3.63636363636364  L 9.31818181818182 3.63636363636364  C 9.50757575757576 3.63636363636364  9.66856060606061 3.70265151515151  9.80113636363636 3.83522727272727  Z " fill-rule="nonzero" stroke="none" transform="matrix(1 0 0 1 1148 499 )"></path>
-          </g>
-        </svg>
-      </span>
-      <span class="vaa1" style="display: none;">Show Top {{ category }}
-        <svg fill="#216c06" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="10px" height="3px" xmlns="http://www.w3.org/2000/svg">
-          <g transform="matrix(1 0 0 1 -1151 -1186 )">
-            <path d="M 9.80113636363636 0.21875  C 9.93371212121212 0.364583333333332  10 0.541666666666666  10 0.75  L 10 2.25  C 10 2.45833333333333  9.93371212121212 2.63541666666667  9.80113636363636 2.78125  C 9.66856060606061 2.92708333333333  9.50757575757576 3  9.31818181818182 3  L 0.681818181818182 3  C 0.492424242424242 3  0.331439393939394 2.92708333333333  0.198863636363636 2.78125  C 0.0662878787878788 2.63541666666667  0 2.45833333333333  0 2.25  L 0 0.75  C 0 0.541666666666666  0.0662878787878788 0.364583333333332  0.198863636363636 0.21875  C 0.331439393939394 0.0729166666666661  0.492424242424242 0  0.681818181818182 0  L 9.31818181818182 0  C 9.50757575757576 0  9.66856060606061 0.0729166666666661  9.80113636363636 0.21875  Z " fill-rule="nonzero" stroke="none" transform="matrix(1 0 0 1 1151 1186 )"></path>
-          </g>
-        </svg>
-      </span>
-    </a>
+    <a href="#hiddenByDefault"
+       data-bs-toggle="collapse"
+       class="category-results-toggle hideshow"
+       aria-expanded="false" aria-controls="hiddenByDefault">&nbsp;{{ category }}&nbsp;</a>
   </div>
 
 {% endif %}

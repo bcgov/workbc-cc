@@ -10,7 +10,7 @@ dependencies:
 id: workbc_cdq_workbcreturntoquizresultspage
 theme: workbc_cdq
 region: content
-weight: -6
+weight: -7
 provider: null
 plugin: workbc_return_to_results
 settings:

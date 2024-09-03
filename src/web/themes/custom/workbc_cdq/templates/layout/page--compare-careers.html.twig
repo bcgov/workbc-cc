@@ -43,14 +43,14 @@
  */
 #}
 {%
-set nav_classes = 'navbar navbar-expand-lg' ~
+  set nav_classes = 'navbar navbar-expand-lg' ~
   (b5_navbar_schema != 'none' ? " navbar-#{b5_navbar_schema}" : ' ') ~
   (b5_navbar_schema != 'none' ? (b5_navbar_schema == 'dark' ? ' text-light' : ' text-dark' ) : ' ') ~
   (b5_navbar_bg_schema != 'none' ? " bg-#{b5_navbar_bg_schema}" : ' ')
 %}
 
 {%
-set footer_classes = ' ' ~
+  set footer_classes = ' ' ~
   (b5_footer_schema != 'none' ? " footer-#{b5_footer_schema}" : ' ') ~
   (b5_footer_schema != 'none' ? (b5_footer_schema == 'dark' ? ' text-light' : ' text-dark' ) : ' ') ~
   (b5_footer_bg_schema != 'none' ? " bg-#{b5_footer_bg_schema}" : ' ')
@@ -63,24 +63,24 @@ set footer_classes = ' ' ~
     {{ page.header }}
 
     {% if page.nav_branding or page.nav_main or page.nav_additional %}
-    <nav class="{{ nav_classes }}">
-      <div class="{{ b5_top_container }} d-flex">
-        {{ page.nav_branding }}
+      <nav class="{{ nav_classes }}">
+        <div class="{{ b5_top_container }} d-flex">
+          {{ page.nav_branding }}
 
-        {% if page.nav_main or page.nav_additional %}
-          <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
-                  data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                  aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+          {% if page.nav_main or page.nav_additional %}
+            <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
 
-          <div class="collapse navbar-collapse justify-content-md-end" id="navbarSupportedContent">
-            {{ page.nav_main }}
-            {{ page.nav_additional }}
-          </div>
-        {% endif %}
-      </div>
-    </nav>
+            <div class="collapse navbar-collapse justify-content-md-end" id="navbarSupportedContent">
+              {{ page.nav_main }}
+              {{ page.nav_additional }}
+            </div>
+          {% endif %}
+        </div>
+      </nav>
     {% endif %}
 
   </header>
@@ -88,57 +88,30 @@ set footer_classes = ' ' ~
   {% if is_quiz or is_results %}
     <main role="main" class="main-quiz-container">
   {% else %}
-    <main role="main">
+    <main role="main" class="main-quiz-container">
   {% endif %}
-    <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+      <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
-    {%
-    set sidebar_first_classes = (page.sidebar_first and page.sidebar_second) ? 'col-12 col-sm-6 col-lg-3' : 'col-12 col-lg-3'
-    %}
+      {%
+        set sidebar_first_classes = (page.sidebar_first and page.sidebar_second) ? 'col-12 col-sm-6 col-lg-3' : 'col-12 col-lg-3'
+      %}
 
-    {%
-    set sidebar_second_classes = (page.sidebar_first and page.sidebar_second) ? 'col-12 col-sm-6 col-lg-3' : 'col-12 col-lg-3'
-    %}
+      {%
+        set sidebar_second_classes = (page.sidebar_first and page.sidebar_second) ? 'col-12 col-sm-6 col-lg-3' : 'col-12 col-lg-3'
+      %}
 
-    {%
-    set content_classes = (page.sidebar_first and page.sidebar_second) ? 'col-12 col-lg-6' : ((page.sidebar_first or page.sidebar_second) ? 'col-12 col-lg-9' : 'col-12' )
-     %}
+      {%
+        set content_classes = (page.sidebar_first and page.sidebar_second) ? 'col-12 col-lg-6' : ((page.sidebar_first or page.sidebar_second) ? 'col-12 col-lg-9' : 'col-12' )
+      %}
 
 
-    <div class="{{ attributes.class }}">
-      {% include '@workbc_cdq_career_match/templates/includes/back-to-quiz-breadcrumb.html.twig' %}
-      {% if page.breadcrumb %}
-        <div class="breadcrumb-quiz">
-          <div class="container-fluid">
-            <div class="row">
-              {{ page.breadcrumb }}
-            </div>
-          </div>
-        </div>
-      {% endif %}
-      <div class="main-bg">
-        <div class="overlay-bg"></div>
-        <div class="overlay-content container-fluid">
-          <div class="row g-0 cdq-content">
-            {% if page.sidebar_first %}
-              <div class="order-2 order-lg-1 {{ sidebar_first_classes }}">
-                {{ page.sidebar_first }}
-              </div>
-            {% endif %}
-            <div class="order-1 order-lg-2 {{ content_classes }}">
-              {{ page.content }}
-            </div>
-            {% if page.sidebar_second %}
-              <div class="order-3 {{ sidebar_second_classes }}">
-                {{ page.sidebar_second }}
-              </div>
-            {% endif %}
-          </div>
+      <div class="{{ attributes.class }}">
+        <div class="main-bg container-fluid">
+          {{ page.content }}
         </div>
       </div>
-    </div>
 
-  </main>
+    </main>
 </div>
 
 {% include '@workbc_cdq/templates/includes/workbc-cdq-footer.html.twig' %}

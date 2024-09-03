@@ -22,4 +22,4 @@ visibility:
   request_path:
     id: request_path
     negate: false
-    pages: "/quizzes/*/results\r\n/compare-careers/*\r\n/form/abilities-quiz\r\n/form/work-preferences-quiz\r\n/form/interests-quiz\r\n/form/multiple-intelligences-quiz\r\n/form/learning-styles-quiz\r\n/form/work-values-quiz"
+    pages: "/quizzes/abilities-quiz/results\r\n/quizzes/work-preferences-quiz/results\r\n/quizzes/multiple-intelligences-quiz/results\r\n/quizzes/learning-styles-quiz/results\r\n/quizzes/work-values-quiz/results\r\n/form/abilities-quiz\r\n/form/work-preferences-quiz\r\n/form/multiple-intelligences-quiz\r\n/form/learning-styles-quiz\r\n/form/work-values-quiz\r\n/compare-careers/*"

@@ -262,6 +262,10 @@ elements: |-
       '#options': workbc_work_values
       '#category': 'Your work styles'
       '#required': true
+  actions:
+    '#type': webform_actions
+    '#title': 'Submit button(s)'
+    '#draft_hide': true
 css: ''
 javascript: ''
 settings:
