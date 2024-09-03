@@ -383,6 +383,7 @@ elements: |-
     '#type': webform_actions
     '#title': 'Submit button(s)'
     '#submit__label': Submit
+    '#draft_hide': true
 css: ''
 javascript: ''
 settings:

@@ -198,6 +198,10 @@ elements: |-
       '#options': workbc_learning_styles
       '#category': Hearing
       '#required': true
+  actions:
+    '#type': webform_actions
+    '#title': 'Submit button(s)'
+    '#draft_hide': true
 css: ''
 javascript: ''
 settings:
