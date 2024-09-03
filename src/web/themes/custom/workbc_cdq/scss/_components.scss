@@ -1278,7 +1278,7 @@ body.path-quiz {
       right: 0;
       display: flex;
       flex-direction: row;
-      justify-content: end;
+      justify-content: space-between;
       @media all and (max-width: 767.98px) {
 
         left: 50%;
@@ -1304,7 +1304,7 @@ body.path-quiz {
       }
     }
 
-    input[name="op"] {
+    input#edit-wizard-next {
       background: $aq;
       min-width: 170px;
       padding: 15px 10px;
@@ -1333,7 +1333,7 @@ body.path-quiz {
       }
     }
 
-    input[name="previous_action"] {
+    input#edit-wizard-prev {
       background: transparent;
       border: 1px solid $aq;
       border-radius: 0;
