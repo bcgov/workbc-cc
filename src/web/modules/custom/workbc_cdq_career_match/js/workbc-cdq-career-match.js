@@ -93,12 +93,16 @@
 
         function totalSelected() {
           let total = 0;
-          $('.compare-career-checkbox').each(function() {
+          let target = ".careers-main-wrapper .compare-career-checkbox"; 
+
+          if ($('#mobi-career-table').css('display') == "block") {
+            target = ".careers-mobi-main-wrapper .compare-career-checkbox";
+          }
+          $(target).each(function() {
             if ($(this).is(':checked')) {
               total++;
             }
           });
-
           return total;
         }
 
