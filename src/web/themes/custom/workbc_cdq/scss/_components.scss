@@ -692,6 +692,10 @@ header {
   }
 }
 
+#modify-answer-buttons {
+  display: none;
+}
+
 .cdq-results {
   .bottom-links {
     padding: 30px 20px;
@@ -780,6 +784,9 @@ header {
         }
       }
     }
+  }
+  #modify-answer-buttons {
+    display: block;
   }
 }
 
