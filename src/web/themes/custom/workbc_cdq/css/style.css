@@ -14865,7 +14865,7 @@ body.path-quiz {
   right: 0;
   display: flex;
   flex-direction: row;
-  justify-content: end;
+  justify-content: space-around;
 }
 @media all and (max-width: 767.98px) {
   .path-quiz .form-actions.form-actions {
@@ -14893,7 +14893,7 @@ body.path-quiz {
     top: -50px;
   }
 }
-.path-quiz .form-actions input[name=op] {
+.path-quiz .form-actions input#edit-wizard-next {
   background: rgb(7, 53, 115);
   min-width: 170px;
   padding: 15px 10px;
@@ -14910,21 +14910,21 @@ body.path-quiz {
   margin: 0 10px;
 }
 @media all and (max-width: 767.98px) {
-  .path-quiz .form-actions input[name=op] {
+  .path-quiz .form-actions input#edit-wizard-next {
     position: relative;
     right: 0;
     margin: 0 15px 0 15px;
   }
 }
 @media all and (max-width: 640.98px) {
-  .path-quiz .form-actions input[name=op] {
+  .path-quiz .form-actions input#edit-wizard-next {
     margin: 5px 0;
   }
 }
-.path-quiz .form-actions input[name=op]:hover {
+.path-quiz .form-actions input#edit-wizard-next:hover {
   background: rgb(0, 30, 64);
 }
-.path-quiz .form-actions input[name=previous_action] {
+.path-quiz .form-actions input#edit-wizard-prev {
   background: transparent;
   border: 1px solid rgb(7, 53, 115);
   border-radius: 0;
@@ -14941,18 +14941,18 @@ body.path-quiz {
   z-index: 1;
 }
 @media all and (max-width: 767.98px) {
-  .path-quiz .form-actions input[name=previous_action] {
+  .path-quiz .form-actions input#edit-wizard-prev {
     position: relative;
     left: 0px;
     margin: 0 15px 0 15px;
   }
 }
 @media all and (max-width: 640.98px) {
-  .path-quiz .form-actions input[name=previous_action] {
+  .path-quiz .form-actions input#edit-wizard-prev {
     margin: 0;
   }
 }
-.path-quiz .form-actions input[name=previous_action]:hover {
+.path-quiz .form-actions input#edit-wizard-prev:hover {
   background: rgb(242, 242, 242);
 }
 .path-quiz .form-actions #edit-preview {
@@ -16380,6 +16380,8 @@ span.question-prefix:after {
   padding: 20px;
   height: calc(100% - 76px);
   min-height: 695px;
+  display: flex;
+  flex-direction: column;
 }
 @media all and (max-width: 480.98px) {
   .view-cdq-compare-careers .career-content-item-inner .career-inner-content {
@@ -16484,7 +16486,7 @@ span.question-prefix:after {
 }
 .view-cdq-compare-careers .career-content-item-inner .bottom-btn {
   display: flex;
-  margin-top: 40px;
+  margin-top: auto;
 }
 @media all and (max-width: 767.98px) {
   .view-cdq-compare-careers .career-content-item-inner .bottom-btn {
@@ -16619,6 +16621,14 @@ span.question-prefix:after {
   padding: 20px;
   min-height: 695px;
   height: calc(100% - 76px);
+  display: flex;
+  flex-direction: column;
+}
+@media all and (max-width: 990px) {
+  .page-node-type-career-profile .career-content-item .career-content-item-inner .career-inner-content .bottom-btn,
+  .career-content-main-wrapper .career-content-item .career-content-item-inner .career-inner-content .bottom-btn {
+    margin-top: 20px;
+  }
 }
 @media all and (max-width: 480.98px) {
   .page-node-type-career-profile .career-content-item .career-content-item-inner .career-inner-content,
@@ -16740,7 +16750,7 @@ span.question-prefix:after {
 .page-node-type-career-profile .career-content-item .career-content-item-inner .bottom-btn,
 .career-content-main-wrapper .career-content-item .career-content-item-inner .bottom-btn {
   display: flex;
-  margin-top: 40px;
+  margin-top: auto;
 }
 @media all and (max-width: 767.98px) {
   .page-node-type-career-profile .career-content-item .career-content-item-inner .bottom-btn,
@@ -17008,9 +17018,8 @@ span.question-prefix:after {
 .cdq-compare .career-content-compare {
   position: relative;
   display: flex;
-  justify-content: center;
   background: #fff;
-  padding: 30px 15px 100px;
+  padding: 20px 0 100px;
 }
 @media all and (max-width: 767.98px) {
   .cdq-compare .career-content-compare {
@@ -17038,7 +17047,7 @@ span.question-prefix:after {
 }
 .cdq-compare .career-content-compare .career-content-item:not(.col) {
   max-width: 375px;
-  margin: 0 11px;
+  flex: 1 1 0;
 }
 @media all and (max-width: 991.98px) {
   .cdq-compare .career-content-compare .career-content-item:not(.col) {
@@ -17050,6 +17059,12 @@ span.question-prefix:after {
     max-width: 100%;
     margin: 0;
   }
+}
+.cdq-compare .career-content-compare .career-content-item:first-child {
+  padding-right: 20px;
+}
+.cdq-compare .career-content-compare .career-content-item:last-child {
+  padding-left: 20px;
 }
 .cdq-compare .career-content-compare .slick-dots {
   position: absolute;
@@ -17079,6 +17094,12 @@ span.question-prefix:after {
 }
 .cdq-compare .career-content-compare .slick-dots > li:not(.slick-active) button {
   background: #979696;
+}
+.cdq-compare .career-content-compare:has(div:nth-child(2):last-child) {
+  justify-content: center;
+}
+.cdq-compare .career-content-compare:has(div:nth-child(3):last-child) {
+  justify-content: space-between;
 }
 
 .compare-popup-wrapper {

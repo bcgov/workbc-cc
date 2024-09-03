@@ -1278,7 +1278,7 @@ body.path-quiz {
       right: 0;
       display: flex;
       flex-direction: row;
-      justify-content: end;
+      justify-content: space-around;
       @media all and (max-width: 767.98px) {
 
         left: 50%;
@@ -1304,7 +1304,7 @@ body.path-quiz {
       }
     }
 
-    input[name="op"] {
+    input#edit-wizard-next {
       background: $aq;
       min-width: 170px;
       padding: 15px 10px;
@@ -1333,7 +1333,7 @@ body.path-quiz {
       }
     }
 
-    input[name="previous_action"] {
+    input#edit-wizard-prev {
       background: transparent;
       border: 1px solid $aq;
       border-radius: 0;
@@ -3046,6 +3046,9 @@ span.question-prefix {
       padding: 20px;
       height: calc(100% - 76px);
       min-height: 695px;
+      display: flex;
+      flex-direction: column;
+
       @media all and (max-width: 480.98px){
         border: 0;
       }
@@ -3165,7 +3168,7 @@ span.question-prefix {
 
     .bottom-btn {
       display: flex;
-      margin-top: 40px;
+      margin-top: auto;
 
       @media all and (max-width: 767.98px) {
         display: block;
@@ -3304,6 +3307,13 @@ span.question-prefix {
         padding: 20px;
         min-height: 695px;
         height: calc(100% - 76px);
+        display: flex;
+        flex-direction: column;
+        @media all and (max-width: 990px){
+          .bottom-btn {
+            margin-top: 20px;
+          }
+        }
         @media all and (max-width: 480.98px){
           border: 0;
         }
@@ -3419,7 +3429,7 @@ span.question-prefix {
 
       .bottom-btn {
         display: flex;
-        margin-top: 40px;
+        margin-top: auto;
 
         @media all and (max-width: 767.98px) {
           display: block;
@@ -3636,9 +3646,8 @@ span.question-prefix {
   .career-content-compare {
     position: relative;
     display: flex;
-    justify-content: center;
     background: #fff;
-    padding: 30px 15px 100px;
+    padding: 20px 0 100px;
     @media all and (max-width: 767.98px) {
       padding: 30px 0 100px;
     }
@@ -3670,7 +3679,7 @@ span.question-prefix {
     .career-content-item {
       &:not(.col) {
         max-width: 375px;
-        margin: 0 11px;
+        flex: 1 1 0;
         @media all and (max-width: 991.98px){
           margin: 0 auto;
         }
@@ -3681,7 +3690,12 @@ span.question-prefix {
         margin: 0;
       }
 
-
+      &:first-child {
+        padding-right: 20px;
+      }
+      &:last-child {
+        padding-left: 20px;
+      }
     }
 
     .slick-dots {
@@ -3716,6 +3730,13 @@ span.question-prefix {
           }
         }
       }
+    }
+
+    &:has(div:nth-child(2):last-child) {
+      justify-content: center;
+    }
+    &:has(div:nth-child(3):last-child) {
+      justify-content: space-between;
     }
   }
 }

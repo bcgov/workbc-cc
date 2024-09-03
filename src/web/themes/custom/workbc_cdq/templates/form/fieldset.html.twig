@@ -39,7 +39,7 @@
   {# Always wrap fieldset legends in a <span> for CSS positioning. #}
   <legend{{ legend.attributes }}>
     {% if question_number %}
-      <span{{ legend_span.attributes.addClass(legend_span_classes) }}><span class="quiz-question-number">{{ question_number }}.</span> {{ legend.title }}</span>
+      <span{{ legend_span.attributes.addClass(legend_span_classes) }}><span class="question-prefix">{{ question_number }}</span> {{ legend.title }}</span>
     {% else %}
       <span{{ legend_span.attributes.addClass(legend_span_classes) }}>{{ legend.title }}</span>
     {% endif %}
