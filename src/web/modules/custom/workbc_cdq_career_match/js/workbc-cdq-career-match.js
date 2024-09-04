@@ -21,8 +21,7 @@
           selected = $(this).is(':checked');
           if (selected && totalSelected() > 3) {
             $(this).prop('checked', false);
-            alert("You have reached the maximum number of careers you are able to add to the compare feature. Please deselect one of your selected careers to add this career.");
-            // $(".popup, .popup-content").addClass("active");
+            $(".compare-popup-wrapper").addClass("active");
           }
           else {
             $.ajax({
@@ -59,6 +58,13 @@
             }
           });
         });
+
+
+        $('.close-compare-popup, .compare-popup-close').on('click', function() {
+          console.log('close compare popup');
+            $(".compare-popup-wrapper").removeClass("active");
+        });
+
 
         // when user selects a career profile from the table
         $('.views-field-title').on('click', function() {
