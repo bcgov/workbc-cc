@@ -18011,6 +18011,12 @@ a > .ck-content code {
     display: flex;
     flex-direction: column;
   }
+  .ck-content .cdq-compare {
+    background: none;
+  }
+  .ck-content .cdq-compare .cdq-back-link {
+    display: none;
+  }
 }
 
 /*# sourceMappingURL=ck5style.css.map */

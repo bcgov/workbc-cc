@@ -575,4 +575,12 @@
             flex-direction: column;
         }
     }
+
+    .cdq-compare {
+        background: none;
+        .cdq-back-link {
+            display: none;
+        }
+    }
+
 }

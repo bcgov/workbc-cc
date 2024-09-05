@@ -19086,6 +19086,12 @@ h2.cdq-quiz-title, .cdq-quiz-title.h2, .webform-submission-information {
     display: flex;
     flex-direction: column;
   }
+  .cdq-compare {
+    background: none;
+  }
+  .cdq-compare .cdq-back-link {
+    display: none;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
