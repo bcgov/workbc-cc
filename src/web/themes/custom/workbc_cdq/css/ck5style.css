@@ -16270,7 +16270,6 @@ a > .ck-content code {
   background-size: 8px 13px;
   width: 8px;
   height: 13px;
-  transform: rotate(180deg);
   top: 6px;
   position: absolute;
   left: 0;
@@ -16282,6 +16281,12 @@ a > .ck-content code {
     height: 10px;
     top: 8px;
   }
+}
+.ck-content .breadcrumb-quiz #back-to-quiz-breadcrumb .breadcrumb li:last-child::before {
+  transform: none;
+}
+.ck-content .breadcrumb-quiz #block-workbc-cdq-breadcrumbs .breadcrumb li:last-child::before {
+  transform: rotate(180deg);
 }
 .ck-content .main-bg .overlay-content .alert-error {
   position: absolute;

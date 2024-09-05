@@ -3943,7 +3943,6 @@ span.question-prefix {
             background-size: 8px 13px;
             width: 8px;
             height: 13px;
-            transform: rotate(180deg);
             top: 6px;
             position: absolute;
             left: 0;
@@ -3955,6 +3954,22 @@ span.question-prefix {
             }
           }
         }
+      }
+    }
+  }
+  #back-to-quiz-breadcrumb {
+    .breadcrumb {
+      li:last-child::before {
+        transform: none
+
+      }
+    }
+  }
+
+  #block-workbc-cdq-breadcrumbs {
+    .breadcrumb {
+      li:last-child::before {
+        transform: rotate(180deg);
       }
     }
   }
