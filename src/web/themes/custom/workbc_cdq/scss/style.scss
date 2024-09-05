@@ -8,23 +8,10 @@
 // Include bootstrap.
 @import '../../../contrib/bootstrap5/scss/style';
 
-
-// Global
 @import 'global';
-
-// Header Footer
 @import 'header_footer';
-
-// Front Page
 @import 'front_page';
-
-// Components
 @import 'components';
-
-// overrides
 @import 'overrides';
-
 @import "slick";
-
-//// Print
-//@import 'print';
+@import 'print';

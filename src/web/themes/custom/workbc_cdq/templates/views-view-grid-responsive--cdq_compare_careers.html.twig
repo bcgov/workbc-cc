@@ -40,16 +40,14 @@
   <h3>{{ title }}</h3>
 {% endif %}
 <div{{ attributes.addClass(classes).setAttribute('style', responsive_grid_styles|join()) }}>
-  <div class="col-12">
-    <div class="career-content-compare career-content-main-wrapper">
-      {% for item in items %}
-        {{- item.content -}}
-      {% endfor %}
-    </div>
-    <div class="career-content-compare career-content-main-wrapper mobi-career-content-compare">
-      {% for item in items %}
-        {{- item.content -}}
-      {% endfor %}
-    </div>
+  <div class="career-content-compare career-content-main-wrapper">
+    {% for item in items %}
+      {{- item.content -}}
+    {% endfor %}
+  </div>
+  <div class="career-content-compare career-content-main-wrapper mobi-career-content-compare">
+    {% for item in items %}
+      {{- item.content -}}
+    {% endfor %}
   </div>
 </div>

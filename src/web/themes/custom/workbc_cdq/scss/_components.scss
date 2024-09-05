@@ -2454,8 +2454,10 @@ span.question-prefix {
   .careers-table-main-wrapper {
     height: 100%;
     border: 1px solid #e6eae9;
-    max-height: 755px;
-    overflow-y: scroll;
+    @media screen {
+      max-height: 755px;
+      overflow-y: scroll;
+    }
 
     .tablesort {
       display: none;
@@ -3044,8 +3046,10 @@ span.question-prefix {
     .career-inner-content {
       border: 2px solid rgb(230, 234, 233);
       padding: 20px;
-      height: calc(100% - 76px);
-      min-height: 695px;
+      @media screen {
+        height: calc(100% - 76px);
+        min-height: 695px;
+      }
       display: flex;
       flex-direction: column;
 
@@ -3305,8 +3309,10 @@ span.question-prefix {
       .career-inner-content {
         border: 2px solid rgb(230, 234, 233);
         padding: 20px;
-        min-height: 695px;
-        height: calc(100% - 76px);
+        @media screen {
+          min-height: 695px;
+          height: calc(100% - 76px);
+        }
         display: flex;
         flex-direction: column;
         @media all and (max-width: 990px){
