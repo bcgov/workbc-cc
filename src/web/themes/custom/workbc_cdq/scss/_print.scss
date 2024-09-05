@@ -6,11 +6,14 @@
         print-color-adjust: exact !important;
     }
 
-    .page-node-type-learning-styles-quiz  {
-        #myResult .quiz-list .title-description {
-            padding: 0 25px 0;
+    #myResult {
+        padding: 0 0;
+        .quiz-list {
+            min-height: unset;
+            .title-description {
+                padding: 0 25px 0;
+            }
         }
-
     }
 
     /* Temp fix for mobile work values */
@@ -41,25 +44,31 @@
         display: none;
     }
 
-    .myResultHeading .result-heading {
-        display: block;
-        position: static;
-        margin: 0 auto 15px;
+    .myResultHeading {
+        background: white;
+        .result-heading {
+            display: block;
+            position: static;
+            margin: 0 0;
+            padding: 0 0;
 
-        h2 {
-            text-align: left !important;
-            margin: 0;
-        }
 
-        li {
-            font-family: 'BC Sans Regular', sans-serif;
-            font-weight: 400;
-            font-style: normal;
-            font-size: 1.6rem;
-            line-height: 2.0rem;
-            color: #333333;
+            h2 {
+                text-align: left !important;
+                margin: 0;
+            }
+
+            li {
+                font-family: 'BC Sans Regular', sans-serif;
+                font-weight: 400;
+                font-style: normal;
+                font-size: 1.6rem;
+                line-height: 2.0rem;
+                color: #333333;
+            }
         }
     }
+
     .myResultHeading .row {
         margin: 0;
         display: block!important;
@@ -126,8 +135,8 @@
         //flex: 0 0 100%;
     }
     .col-print-item {
-        flex: 0 0 100%;
-        max-width: 100%;
+        flex: 0 0 auto;
+        width: 33.33333333%;
     }
     html {
         overflow: visible !important;
@@ -275,14 +284,16 @@
     }
     .career-content-compare.career-content-main-wrapper {
         display: block !important;
+        padding-bottom: 0;
     }
     .career-content-compare.career-content-main-wrapper.mobi-career-content-compare {
         display: none !important;
     }
 
-    .compare-career-main-wrapper .career-content-compare .career-content-item:not(.col) {
+    .cdq-compare .career-content-compare .career-content-item:not(.col) {
         margin-bottom: 20px;
         margin-left: 0px;
+        max-width: unset;
     }
     .career-content-main-wrapper .career-content-item.active {
         clear: both;
@@ -328,9 +339,11 @@
             }
         }
         .career-content-item {
+            page-break-inside: avoid;
             .career-content-item-inner {
                 height: auto;
                 .title {
+                    height: unset;
                     min-height: fit-content;
                     padding: 0;
                     background: transparent !important;
@@ -340,6 +353,9 @@
                         line-height: 25px;
                         padding: 0px;
                     }
+                }
+                .data {
+                    margin: 0 0;
                 }
             }
         }
@@ -362,10 +378,6 @@
     }
     .career-content-compare .career-content-item .career-content-item-inner .bottom-btn {
         display: none;
-    }
-    #comparison-table.quiz-color-dark-blue .compare-career-main-wrapper .career-content-compare {
-        border: 0 !important;
-        padding-bottom: 0;
     }
     .path-node .main-bg .overlay-bg {
         height: auto;
@@ -581,6 +593,27 @@
         .cdq-back-link {
             display: none;
         }
+        .career-content-item {
+            max-width: unset;
+        }
+    }
+
+    .sub-title p {
+        color: black;
+    }
+
+    .myResultHeading {
+        padding-top: 0;
+        justify-content: start;
+    }
+
+    .messages {
+        display: none;
+    }
+
+    #block-workbc-cdq-content {
+        margin: 0 20px 0 20px;
+        border-bottom: none !important;
     }
 
 }

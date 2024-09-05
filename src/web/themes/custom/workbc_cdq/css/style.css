@@ -14760,8 +14760,10 @@ a.quiz-link {
 .overlay-content .quiz-category-results-wrapper .float-right li, .overlay-content .quiz-work-values-wrapper .float-right li {
   display: inline-block;
 }
-.overlay-content .quiz-category-results-wrapper #myResult, .overlay-content .quiz-work-values-wrapper #myResult {
-  padding: 20px 0;
+@media screen {
+  .overlay-content .quiz-category-results-wrapper #myResult, .overlay-content .quiz-work-values-wrapper #myResult {
+    padding: 20px 0;
+  }
 }
 .overlay-content .quiz-category-results-wrapper #myResult .row, .overlay-content .quiz-work-values-wrapper #myResult .row {
   margin: 10px 0;
@@ -14775,8 +14777,7 @@ a.quiz-link {
   }
 }
 .overlay-content .quiz-category-results-wrapper #myResult a.category-results-toggle, .overlay-content .quiz-work-values-wrapper #myResult a.category-results-toggle {
-  float: right;
-  padding: 20px 20px;
+  padding: 0 20px;
   text-decoration: none;
 }
 .overlay-content .quiz-category-results-wrapper #myResult a.category-results-toggle[aria-expanded=true]::before, .overlay-content .quiz-work-values-wrapper #myResult a.category-results-toggle[aria-expanded=true]::before {
@@ -17105,11 +17106,13 @@ span.question-prefix:after {
 .cdq-compare .career-content-compare:has(div:nth-child(2):last-child) {
   justify-content: center;
 }
-.cdq-compare .career-content-compare:has(div:nth-child(2):last-child) .career-content-item:first-child {
-  padding-right: 20px;
-}
-.cdq-compare .career-content-compare:has(div:nth-child(2):last-child) .career-content-item:last-child {
-  padding-left: 20px;
+@media screen {
+  .cdq-compare .career-content-compare:has(div:nth-child(2):last-child) .career-content-item:first-child {
+    padding-right: 20px;
+  }
+  .cdq-compare .career-content-compare:has(div:nth-child(2):last-child) .career-content-item:last-child {
+    padding-left: 20px;
+  }
 }
 .cdq-compare .career-content-compare:has(div:nth-child(3):last-child) {
   justify-content: space-between;
@@ -17117,8 +17120,18 @@ span.question-prefix:after {
 .cdq-compare .career-content-compare:has(div:nth-child(3):last-child) .career-content-item:first-child {
   padding-right: 0;
 }
+@media screen and (max-width: 1190px) {
+  .cdq-compare .career-content-compare:has(div:nth-child(3):last-child) .career-content-item:first-child {
+    padding-right: 5px;
+  }
+}
 .cdq-compare .career-content-compare:has(div:nth-child(3):last-child) .career-content-item:last-child {
   padding-left: 0;
+}
+@media screen and (max-width: 1190px) {
+  .cdq-compare .career-content-compare:has(div:nth-child(3):last-child) .career-content-item:last-child {
+    padding-left: 5px;
+  }
 }
 
 .compare-popup-wrapper {
@@ -18592,7 +18605,13 @@ h2.cdq-quiz-title, .cdq-quiz-title.h2, .webform-submission-information {
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
   }
-  .page-node-type-learning-styles-quiz #myResult .quiz-list .title-description {
+  #myResult {
+    padding: 0 0;
+  }
+  #myResult .quiz-list {
+    min-height: unset;
+  }
+  #myResult .quiz-list .title-description {
     padding: 0 25px 0;
   }
   /* Temp fix for mobile work values */
@@ -18615,10 +18634,14 @@ h2.cdq-quiz-title, .cdq-quiz-title.h2, .webform-submission-information {
   .ui-tooltip {
     display: none;
   }
+  .myResultHeading {
+    background: white;
+  }
   .myResultHeading .result-heading {
     display: block;
     position: static;
-    margin: 0 auto 15px;
+    margin: 0 0;
+    padding: 0 0;
   }
   .myResultHeading .result-heading h2, .myResultHeading .result-heading .h2 {
     text-align: left !important;
@@ -18691,8 +18714,8 @@ h2.cdq-quiz-title, .cdq-quiz-title.h2, .webform-submission-information {
     float: left;
   }
   .col-print-item {
-    flex: 0 0 100%;
-    max-width: 100%;
+    flex: 0 0 auto;
+    width: 33.33333333%;
   }
   html {
     overflow: visible !important;
@@ -18829,13 +18852,15 @@ h2.cdq-quiz-title, .cdq-quiz-title.h2, .webform-submission-information {
   }
   .career-content-compare.career-content-main-wrapper {
     display: block !important;
+    padding-bottom: 0;
   }
   .career-content-compare.career-content-main-wrapper.mobi-career-content-compare {
     display: none !important;
   }
-  .compare-career-main-wrapper .career-content-compare .career-content-item:not(.col) {
+  .cdq-compare .career-content-compare .career-content-item:not(.col) {
     margin-bottom: 20px;
     margin-left: 0px;
+    max-width: unset;
   }
   .career-content-main-wrapper .career-content-item.active, .career-content-main-wrapper .media-library-view--widget .view-header a.career-content-item.is-active, .media-library-view--widget .view-header .career-content-main-wrapper a.career-content-item.is-active {
     clear: both;
@@ -18872,10 +18897,14 @@ h2.cdq-quiz-title, .cdq-quiz-title.h2, .webform-submission-information {
     left: 0 !important;
     margin-bottom: 30px;
   }
+  .career-content-main-wrapper .career-content-item {
+    page-break-inside: avoid;
+  }
   .career-content-main-wrapper .career-content-item .career-content-item-inner {
     height: auto;
   }
   .career-content-main-wrapper .career-content-item .career-content-item-inner .title {
+    height: unset;
     min-height: fit-content;
     padding: 0;
     background: transparent !important;
@@ -18885,6 +18914,9 @@ h2.cdq-quiz-title, .cdq-quiz-title.h2, .webform-submission-information {
     font-size: 20px;
     line-height: 25px;
     padding: 0px;
+  }
+  .career-content-main-wrapper .career-content-item .career-content-item-inner .data {
+    margin: 0 0;
   }
   .compare-career-main-wrapper .career-content-compare .career-content-item .career-content-item-inner .career-inner-content {
     padding: 0 0 0 0 !important;
@@ -18900,10 +18932,6 @@ h2.cdq-quiz-title, .cdq-quiz-title.h2, .webform-submission-information {
   }
   .career-content-compare .career-content-item .career-content-item-inner .bottom-btn {
     display: none;
-  }
-  #comparison-table.quiz-color-dark-blue .compare-career-main-wrapper .career-content-compare {
-    border: 0 !important;
-    padding-bottom: 0;
   }
   .path-node .main-bg .overlay-bg {
     height: auto;
@@ -19091,6 +19119,23 @@ h2.cdq-quiz-title, .cdq-quiz-title.h2, .webform-submission-information {
   }
   .cdq-compare .cdq-back-link {
     display: none;
+  }
+  .cdq-compare .career-content-item {
+    max-width: unset;
+  }
+  .sub-title p {
+    color: black;
+  }
+  .myResultHeading {
+    padding-top: 0;
+    justify-content: start;
+  }
+  .messages {
+    display: none;
+  }
+  #block-workbc-cdq-content {
+    margin: 0 20px 0 20px;
+    border-bottom: none !important;
   }
 }
 
