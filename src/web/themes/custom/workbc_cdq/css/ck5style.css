@@ -13748,7 +13748,7 @@ a > .ck-content code {
 .ck-content .overlay-content .quiz-category-results-wrapper #myResult .quiz-list, .ck-content .overlay-content .quiz-work-values-wrapper #myResult .quiz-list {
   margin: 6px 10px;
 }
-@media all and (max-width: 767.98px) {
+@media screen and (max-width: 767.98px) {
   .ck-content .overlay-content .quiz-category-results-wrapper #myResult #hiddenByDefault, .ck-content .overlay-content .quiz-category-results-wrapper #myResult a.category-results-toggle, .ck-content .overlay-content .quiz-work-values-wrapper #myResult #hiddenByDefault, .ck-content .overlay-content .quiz-work-values-wrapper #myResult a.category-results-toggle {
     display: none;
   }
@@ -18069,6 +18069,9 @@ a > .ck-content code {
   .ck-content #block-workbc-cdq-content {
     margin: 0 20px 0 20px;
     border-bottom: none !important;
+  }
+  .ck-content #myResult a#categoryToggle {
+    display: none;
   }
 }
 
