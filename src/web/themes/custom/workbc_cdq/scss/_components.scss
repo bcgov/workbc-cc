@@ -1278,9 +1278,11 @@ body.path-quiz {
       right: 0;
       display: flex;
       flex-direction: row;
-      justify-content: space-around;
+      justify-content: end;
+      &:has(input:nth-child(2)) {
+        justify-content: space-between;
+      }
       @media all and (max-width: 767.98px) {
-
         left: 50%;
         justify-content: center;
       }
@@ -1304,7 +1306,7 @@ body.path-quiz {
       }
     }
 
-    input#edit-wizard-next {
+    input#edit-actions-wizard-next {
       background: $aq;
       min-width: 170px;
       padding: 15px 10px;
@@ -1333,7 +1335,7 @@ body.path-quiz {
       }
     }
 
-    input#edit-wizard-prev {
+    input#edit-actions-wizard-prev {
       background: transparent;
       border: 1px solid $aq;
       border-radius: 0;
