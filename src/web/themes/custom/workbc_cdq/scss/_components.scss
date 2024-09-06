@@ -1152,7 +1152,9 @@ a.quiz-link {
     }
 
     #myResult {
-      padding: 20px 0;
+      @media screen {
+        padding: 20px 0;
+      }
 
       .row {
         margin: 10px 0;
@@ -1168,9 +1170,7 @@ a.quiz-link {
       }
 
       a.category-results-toggle {
-
-        float: right;
-        padding: 20px 20px;
+        padding: 0 20px;
         text-decoration: none;
 
         &[aria-expanded="true"]::before {
@@ -2454,8 +2454,10 @@ span.question-prefix {
   .careers-table-main-wrapper {
     height: 100%;
     border: 1px solid #e6eae9;
-    max-height: 755px;
-    overflow-y: scroll;
+    @media screen {
+      max-height: 755px;
+      overflow-y: scroll;
+    }
 
     .tablesort {
       display: none;
@@ -3044,8 +3046,10 @@ span.question-prefix {
     .career-inner-content {
       border: 2px solid rgb(230, 234, 233);
       padding: 20px;
-      height: calc(100% - 76px);
-      min-height: 695px;
+      @media screen {
+        height: calc(100% - 76px);
+        min-height: 695px;
+      }
       display: flex;
       flex-direction: column;
 
@@ -3305,8 +3309,10 @@ span.question-prefix {
       .career-inner-content {
         border: 2px solid rgb(230, 234, 233);
         padding: 20px;
-        min-height: 695px;
-        height: calc(100% - 76px);
+        @media screen {
+          min-height: 695px;
+          height: calc(100% - 76px);
+        }
         display: flex;
         flex-direction: column;
         @media all and (max-width: 990px){
@@ -3689,13 +3695,6 @@ span.question-prefix {
         max-width: 100%;
         margin: 0;
       }
-
-      &:first-child {
-        padding-right: 20px;
-      }
-      &:last-child {
-        padding-left: 20px;
-      }
     }
 
     .slick-dots {
@@ -3734,9 +3733,34 @@ span.question-prefix {
 
     &:has(div:nth-child(2):last-child) {
       justify-content: center;
+      .career-content-item {
+        @media screen {
+          &:first-child {
+            padding-right: 20px;
+          }
+          &:last-child {
+            padding-left: 20px;
+          }
+        }
+      }
     }
     &:has(div:nth-child(3):last-child) {
       justify-content: space-between;
+
+      .career-content-item {
+        &:first-child {
+          padding-right: 0;
+          @media screen and (max-width: 1190px){
+            padding-right: 5px;
+          }
+        }
+        &:last-child {
+          padding-left: 0;
+          @media screen and (max-width: 1190px){
+            padding-left: 5px;
+          }
+        }
+      }
     }
   }
 }
@@ -3919,7 +3943,6 @@ span.question-prefix {
             background-size: 8px 13px;
             width: 8px;
             height: 13px;
-            transform: rotate(180deg);
             top: 6px;
             position: absolute;
             left: 0;
@@ -3931,6 +3954,22 @@ span.question-prefix {
             }
           }
         }
+      }
+    }
+  }
+  #back-to-quiz-breadcrumb {
+    .breadcrumb {
+      li:last-child::before {
+        transform: none
+
+      }
+    }
+  }
+
+  #block-workbc-cdq-breadcrumbs {
+    .breadcrumb {
+      li:last-child::before {
+        transform: rotate(180deg);
       }
     }
   }
