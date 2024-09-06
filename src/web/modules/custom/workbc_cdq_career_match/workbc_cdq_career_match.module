@@ -436,15 +436,15 @@ function matchAbilitiesCareers($submission, $score) {
   // 2. Normalize category weights according to incoming category scores.
   // 3. Compute career matches.
   $mapCategories = [
-    COLUMN_ABILITIES_GLA => 'General learning ability',
-    COLUMN_ABILITIES_VA => 'Verbal ability',
-    COLUMN_ABILITIES_NA => 'Numerical ability',
-    COLUMN_ABILITIES_SP => 'Spatial perception',
-    COLUMN_ABILITIES_FP => 'Form perception',
-    COLUMN_ABILITIES_CP => 'Clerical perception',
-    COLUMN_ABILITIES_MC => 'Motor co-ordination',
-    COLUMN_ABILITIES_FD => 'Finger dexterity',
-    COLUMN_ABILITIES_MD => 'Manual dexterity',
+    COLUMN_ABILITIES_GLA => 'General Learning Ability',
+    COLUMN_ABILITIES_VA => 'Verbal Ability',
+    COLUMN_ABILITIES_NA => 'Numerical Ability',
+    COLUMN_ABILITIES_SP => 'Spatial Perception',
+    COLUMN_ABILITIES_FP => 'Form Perception',
+    COLUMN_ABILITIES_CP => 'Clerical Perception',
+    COLUMN_ABILITIES_MC => 'Motor Co-ordination',
+    COLUMN_ABILITIES_FD => 'Finger Dexterity',
+    COLUMN_ABILITIES_MD => 'Manual Dexterity',
   ];
   array_walk($abilities_weights, function(&$row) use($score, $mapCategories) {
     $total = 0;
