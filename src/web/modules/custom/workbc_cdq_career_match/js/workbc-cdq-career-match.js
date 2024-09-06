@@ -118,72 +118,18 @@
         }
       });
 
-      $(once('cdqworkvalues', '.quiz-work-values-wrapper', context)).each(function () {
-        $('.work-values-toggle').on('click', function () {
-          if ($(".important-values").hasClass("hide")) {
-            $(this).removeClass("hide");
-            $(".somewhat-values").addClass("hide");
-            $(".important-values").removeClass("hide");
-            $(".work-values-toggle span.vaa1").hide();
-            $(".work-values-toggle span.vaa").show();
+      $(once('main-content', '.category-results-toggle', context)).each(function () {
+        $(this).on('click', function () {
+          let expanded = $("#categoryToggle").attr('aria-expanded');
+          if (expanded === "false") {
             $(".result-heading h3.vaa1").hide();
             $(".result-heading h3.vaa").show();
-            $("#myResult").animate({scrollTop: 0}, "slow");
           } else {
-            $(this).addClass("hide");
-            $(".somewhat-values").removeClass("hide");
-            $(".important-values").addClass("hide");
-            $(".work-values-toggle span.vaa").hide();
-            $(".work-values-toggle span.vaa1").show();
             $(".result-heading h3.vaa").hide();
             $(".result-heading h3.vaa1").show();
           }
-
-        });
+        })
       });
-
-      $(once('cdqworkvalues',".hideshow-workbc", context)).each(function () {
-        $(this).on("click", function () {
-          if ($(".hideshow-workbc").hasClass("hide")) {
-            $(this).removeClass("hide");
-            $(".hideshow-workbc span.vaa1").hide();
-            $(".hideshow-workbc span.vaa").show();
-            $(".result-heading h2.vaa1").hide();
-            $(".result-heading h2.vaa").show();
-            $("#myResult").animate({scrollTop: 0}, "slow");
-          } else {
-            $(this).addClass("hide");
-            $(".hideshow-workbc span.vaa").hide();
-            $(".hideshow-workbc span.vaa1").show();
-            $(".result-heading h2.vaa").hide();
-            $(".result-heading h2.vaa1").show();
-          }
-        });
-      })
-
-        //
-        // $(".hideshow", context)
-        //   .once("workbc")
-        //   .on("click", function () {
-        //     if ($(".hideshow").hasClass("hide")) {
-        //       $(this).removeClass("hide");
-        //       $(".hideshow span.vaa1").hide();
-        //       $(".hideshow span.vaa").show();
-        //       $(".result-heading h2.vaa1").hide();
-        //       $(".result-heading h2.vaa").show();
-        //       $(".itm.hide").hide();
-        //       $(".extradivs.hide").removeClass("show");
-        //       $("html, body").animate({scrollTop: 200}, "slow");
-        //     } else {
-        //       $(this).addClass("hide");
-        //       $(".itm.hide").show();
-        //       $(".hideshow span.vaa").hide();
-        //       $(".hideshow span.vaa1").show();
-        //       $(".result-heading h2.vaa").hide();
-        //       $(".result-heading h2.vaa1").show();
-        //       $(".extradivs.hide").addClass("show");
-        //     }
-        //   });
 
         $(".work-value-quiz-carousel > .row").slick({
           slidesToShow: 1,
