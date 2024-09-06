@@ -17,39 +17,39 @@ class QuizResultsController extends ControllerBase {
     $submission = getUserSubmission('abilities_quiz');
     if ($submission) {
       $info = [
-        'General learning ability' => [
+        'General Learning Ability' => [
           'color' => '880364',
           'icon' => 'general-learning-ability',
         ],
-        'Verbal ability' => [
+        'Verbal Ability' => [
           'color' => '216C06',
           'icon' => 'verbal-ability',
         ],
-        'Numerical ability' => [
+        'Numerical Ability' => [
           'color' => '2671CA',
           'icon' => 'numerical-ability',
         ],
-        'Spatial perception' => [
+        'Spatial Perception' => [
           'color' => '002855',
           'icon' => 'spatial-perception',
         ],
-        'Form perception' => [
+        'Form Perception' => [
           'color' => '234075',
           'icon' => 'form-perception',
         ],
-        'Clerical perception' => [
+        'Clerical Perception' => [
           'color' => '216C06',
           'icon' => 'clerical-perception',
         ],
-        'Motor co-ordination' => [
+        'Motor Co-ordination' => [
           'color' => '007EB4',
           'icon' => 'motor-co-ordination',
         ],
-        'Finger dexterity' => [
+        'Finger Dexterity' => [
           'color' => '880364',
           'icon' => 'finger-dexterity',
         ],
-        'Manual dexterity' => [
+        'Manual Dexterity' => [
           'color' => '510B76',
           'icon' => 'manual-dexterity',
         ],

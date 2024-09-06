@@ -38,32 +38,32 @@ elements: |-
       '#type': radios
       '#title': 'I learn and understand things quickly.'
       '#options': abilities_options
-      '#category': 'General learning ability'
       '#required': true
+      '#category': 'General Learning Ability'
     i_see_fine_details_in_objects:
       '#type': radios
       '#title': 'I see fine details in objects.'
       '#options': abilities_options
-      '#category': 'Form perception'
       '#required': true
+      '#category': 'Form Perception'
     i_draw_things_accurately:
       '#type': radios
       '#title': 'I draw things accurately.'
       '#options': abilities_options
-      '#category': 'Spatial perception'
       '#required': true
+      '#category': 'Spatial Perception'
     i_use_equipment_such_as_a_computer_keyboard_or_a_cash_register:
       '#type': radios
       '#title': 'I use equipment such as a computer keyboard or a cash register.'
       '#options': abilities_options
-      '#category': 'Finger dexterity'
       '#required': true
+      '#category': 'Finger Dexterity'
     i_read_and_understand_written_material:
       '#type': radios
       '#title': 'I read and understand written material.'
       '#options': abilities_options
-      '#category': 'Verbal ability'
       '#required': true
+      '#category': 'Verbal Ability'
   page_2:
     '#type': webform_wizard_page
     '#title': 'Page 2'
@@ -73,32 +73,32 @@ elements: |-
       '#type': radios
       '#title': 'I can hit a moving object, such as a baseball with a bat.'
       '#options': abilities_options
-      '#category': 'Motor co-ordination'
       '#required': true
+      '#category': 'Motor Co-ordination'
     i_sort_things_quickly:
       '#type': radios
       '#title': 'I sort things quickly.'
       '#options': abilities_options
-      '#category': 'Manual dexterity'
       '#required': true
+      '#category': 'Manual Dexterity'
     i_can_check_for_mistakes_in_adding_or_subtracting:
       '#type': radios
       '#title': 'I can check for mistakes in adding or subtracting.'
       '#options': abilities_options
-      '#category': 'Clerical perception'
       '#required': true
+      '#category': 'Clerical Perception'
     i_can_make_change_when_working_with_money:
       '#type': radios
       '#title': 'I can make change when working with money.'
       '#options': abilities_options
-      '#category': 'Numerical ability'
       '#required': true
+      '#category': 'Numerical Ability'
     i_can_write_and_correct_text:
       '#type': radios
       '#title': 'I can write and correct text.'
       '#options': abilities_options
-      '#category': 'Verbal ability'
       '#required': true
+      '#category': 'Verbal Ability'
   page_3:
     '#type': webform_wizard_page
     '#title': 'Page 3'
@@ -108,32 +108,32 @@ elements: |-
       '#type': radios
       '#title': 'I can move my hands to manipulate things.'
       '#options': abilities_options
-      '#category': 'Manual dexterity'
       '#required': true
+      '#category': 'Manual Dexterity'
     i_can_imagine_what_a_box_would_look_like_if_unfolded:
       '#type': radios
       '#title': 'I can imagine what a box would look like if unfolded.'
       '#options': abilities_options
-      '#category': 'Spatial perception'
       '#required': true
+      '#category': 'Spatial Perception'
     i_can_thread_a_needle:
       '#type': radios
       '#title': 'I can thread a needle.'
       '#options': abilities_options
-      '#category': 'Motor co-ordination'
       '#required': true
+      '#category': 'Motor Co-ordination'
     i_can_catch_on_quickly_and_reasoning_things_out:
       '#type': radios
       '#title': 'I can catch on quickly and reasoning things out.'
       '#options': abilities_options
-      '#category': 'General learning ability'
       '#required': true
+      '#category': 'General Learning Ability'
     i_can_solve_math_problems:
       '#type': radios
       '#title': 'I can solve math problems.'
       '#options': abilities_options
-      '#category': 'Numerical ability'
       '#required': true
+      '#category': 'Numerical Ability'
   page_4:
     '#type': webform_wizard_page
     '#title': 'Page 4'
@@ -143,32 +143,32 @@ elements: |-
       '#type': radios
       '#title': 'I can proofread printed pages.'
       '#options': abilities_options
-      '#category': 'Clerical perception'
       '#required': true
+      '#category': 'Clerical Perception'
     i_am_good_at_inspecting_things_for_details_such_as_colour_scratc:
       '#type': radios
       '#title': 'I am good at inspecting things for details such as colour, scratches, dust, and flaws.'
       '#options': abilities_options
-      '#category': 'Form perception'
       '#required': true
+      '#category': 'Form Perception'
     i_can_sort_small_objects_into_trays:
       '#type': radios
       '#title': 'I can sort small objects into trays.'
       '#options': abilities_options
-      '#category': 'Finger dexterity'
       '#required': true
+      '#category': 'Finger Dexterity'
     i_can_pick_up_tiny_objects:
       '#type': radios
       '#title': 'I can pick up tiny objects.'
       '#options': abilities_options
-      '#category': 'Finger dexterity'
       '#required': true
+      '#category': 'Finger Dexterity'
     i_make_accurate_measurements:
       '#type': radios
       '#title': 'I make accurate measurements.'
       '#options': abilities_options
-      '#category': 'Numerical ability'
       '#required': true
+      '#category': 'Numerical Ability'
   page_5:
     '#type': webform_wizard_page
     '#title': 'Page 5'
@@ -178,32 +178,32 @@ elements: |-
       '#type': radios
       '#title': 'I am good at picking out differences in two similar pictures.'
       '#options': abilities_options
-      '#category': 'Form perception'
       '#required': true
+      '#category': 'Form Perception'
     i_can_figure_out_and_solving_problems:
       '#type': radios
       '#title': 'I can figure out and solving problems.'
       '#options': abilities_options
-      '#category': 'General learning ability'
       '#required': true
+      '#category': 'General Learning Ability'
     using_a_coding_system_to_classify_or_find_information:
       '#type': radios
       '#title': 'Using a coding system to classify or find information.'
       '#options': abilities_options
-      '#category': 'Clerical perception'
       '#required': true
+      '#category': 'Clerical Perception'
     moving_and_turning_objects:
       '#type': radios
       '#title': 'Moving and turning objects.'
       '#options': abilities_options
-      '#category': 'Manual dexterity'
       '#required': true
+      '#category': 'Manual Dexterity'
     understanding_and_using_new_words_easily:
       '#type': radios
       '#title': 'Understanding and using new words easily.'
       '#options': abilities_options
-      '#category': 'Verbal ability'
       '#required': true
+      '#category': 'Verbal Ability'
   page_6:
     '#type': webform_wizard_page
     '#title': 'Page 6'
@@ -213,32 +213,32 @@ elements: |-
       '#type': radios
       '#title': 'Repairing small objects using my fingers.'
       '#options': abilities_options
-      '#category': 'Finger dexterity'
       '#required': true
+      '#category': 'Finger Dexterity'
     doing_well_at_school:
       '#type': radios
       '#title': 'Doing well at school.'
       '#options': abilities_options
-      '#category': 'General learning ability'
       '#required': true
+      '#category': 'General Learning Ability'
     imagining_what_something_would_look_like_from_seeing_a_diagram_o:
       '#type': radios
       '#title': 'Imagining what something would look like from seeing a diagram of it.'
       '#options': abilities_options
-      '#category': 'Spatial perception'
       '#required': true
+      '#category': 'Spatial Perception'
     understanding_abstract_mathematical_concepts:
       '#type': radios
       '#title': 'Understanding abstract mathematical concepts.'
       '#options': abilities_options
-      '#category': 'Numerical ability'
       '#required': true
+      '#category': 'Numerical Ability'
     taking_things_apart_and_putting_them_back_together_properly:
       '#type': radios
       '#title': 'Taking things apart and putting them back together properly.'
       '#options': abilities_options
-      '#category': 'Motor co-ordination'
       '#required': true
+      '#category': 'Motor Co-ordination'
   page_7:
     '#type': webform_wizard_page
     '#title': 'Page 7'
@@ -248,32 +248,32 @@ elements: |-
       '#type': radios
       '#title': 'Making small finger movements like playing a violin.'
       '#options': abilities_options
-      '#category': 'Finger dexterity'
       '#required': true
+      '#category': 'Finger Dexterity'
     collecting_data_and_analyzing_statistics:
       '#type': radios
       '#title': 'Collecting data and analyzing statistics.'
       '#options': abilities_options
-      '#category': 'Numerical ability'
       '#required': true
+      '#category': 'Numerical Ability'
     using_hand_tools_to_adjust_machines_and_repair_things:
       '#type': radios
       '#title': 'Using hand tools to adjust machines and repair things.'
       '#options': abilities_options
-      '#category': 'Motor co-ordination'
       '#required': true
+      '#category': 'Motor Co-ordination'
     understanding_and_applying_principles_of_geometry:
       '#type': radios
       '#title': 'Understanding and applying principles of geometry.'
       '#options': abilities_options
-      '#category': 'Spatial perception'
       '#required': true
+      '#category': 'Spatial Perception'
     understanding_instructions_or_ideas_that_are_explained_to_me:
       '#type': radios
       '#title': 'Understanding instructions or ideas that are explained to me.'
       '#options': abilities_options
-      '#category': 'General learning ability'
       '#required': true
+      '#category': 'General Learning Ability'
   page_8:
     '#type': webform_wizard_page
     '#title': 'Page 8'
@@ -283,26 +283,26 @@ elements: |-
       '#type': radios
       '#title': 'Transferring numbers or other information from one place to another without errors.'
       '#options': abilities_options
-      '#category': 'Clerical perception'
       '#required': true
+      '#category': 'Clerical Perception'
     using_hand_tools:
       '#type': radios
       '#title': 'Using hand tools.'
       '#options': abilities_options
-      '#category': 'Manual dexterity'
       '#required': true
+      '#category': 'Manual Dexterity'
     expressing_information_and_ideas_easily_and_clearly:
       '#type': radios
       '#title': 'Expressing information and ideas easily and clearly.'
       '#options': abilities_options
-      '#category': 'Verbal ability'
       '#required': true
+      '#category': 'Verbal Ability'
     recognizing_small_parts_of_machinery_equipment_or_products:
       '#type': radios
       '#title': 'Recognizing small parts of machinery, equipment, or products.'
       '#options': abilities_options
-      '#category': 'Form perception'
       '#required': true
+      '#category': 'Form Perception'
   actions:
     '#type': webform_actions
     '#title': 'Submit button(s)'
