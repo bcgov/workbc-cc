@@ -92,14 +92,14 @@
             $(this).removeClass("user-selected");
           });
 
-          $('.career-table-row').each(function() {
-            $(this).closest('.career-table-row').removeClass("active");
+          $('.career-content-item').each(function() {
+            $(this).removeClass("active");
           });
         });
 
         function totalSelected() {
           let total = 0;
-          let target = ".careers-main-wrapper .compare-career-checkbox"; 
+          let target = ".careers-main-wrapper .compare-career-checkbox";
 
           if ($('#mobi-career-table').css('display') == "block") {
             target = ".careers-mobi-main-wrapper .compare-career-checkbox";
