@@ -41,6 +41,7 @@
         "drupal/printable": "^2.1",
         "drupal/redirect": "^1.9",
         "drupal/site_settings": "^1.19",
+        "drupal/sitewide_alert": "2.2.0",
         "drupal/smtp": "^1.0",
         "drupal/svg_image": "^1.15",
         "drupal/twig_tweak": "^3.1",

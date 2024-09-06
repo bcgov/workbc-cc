@@ -3,6 +3,7 @@ global-styling:
     theme:
       css/jquery-ui.css: {}
       css/style.css: {}
+      css/alert.css: {}
   js:
     js/jquery-ui.js: {}
     js/slick.min.js: {}
