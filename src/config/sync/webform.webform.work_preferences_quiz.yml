@@ -384,6 +384,7 @@ elements: |-
     '#title': 'Submit button(s)'
     '#submit__label': Submit
     '#draft_hide': true
+    '#update__label': Submit
 css: ''
 javascript: ''
 settings:
