@@ -26,7 +26,7 @@ workbc_cdq_custom.multiple_intelligences_quiz_results:
   path: '/quizzes/multiple-intelligences-quiz/results'
   defaults:
     _controller: '\Drupal\workbc_cdq_custom\Controller\QuizResultsController::multiple_intelligences_quiz_results'
-    _title: 'Multiple Intelligences Quiz Results'
+    _title: 'Multiple Intelligences Quiz - Results'
   requirements:
     _permission: 'access content'
 
@@ -34,7 +34,7 @@ workbc_cdq_custom.learning_styles_quiz_results:
   path: '/quizzes/learning-styles-quiz/results'
   defaults:
     _controller: '\Drupal\workbc_cdq_custom\Controller\QuizResultsController::learning_styles_quiz_results'
-    _title: 'Learning Styles Quiz Results'
+    _title: 'Learning Styles Quiz - Results'
   requirements:
     _permission: 'access content'
 
@@ -42,7 +42,7 @@ workbc_cdq_custom.work_values_quiz_results:
   path: '/quizzes/work-values-quiz/results'
   defaults:
     _controller: '\Drupal\workbc_cdq_custom\Controller\QuizResultsController::work_values_quiz_results'
-    _title: 'Work Values Quiz Results'
+    _title: 'Work Values Quiz - Results'
   requirements:
     _permission: 'access content'
 
