@@ -14897,7 +14897,7 @@ body.path-quiz {
     top: -50px;
   }
 }
-.path-quiz .form-actions input#edit-actions-wizard-next {
+.path-quiz .form-actions input#edit-actions-wizard-next, .path-quiz .form-actions input#edit-actions-submit {
   background: rgb(7, 53, 115);
   min-width: 170px;
   padding: 15px 10px;
@@ -14914,18 +14914,18 @@ body.path-quiz {
   margin: 0 10px;
 }
 @media all and (max-width: 767.98px) {
-  .path-quiz .form-actions input#edit-actions-wizard-next {
+  .path-quiz .form-actions input#edit-actions-wizard-next, .path-quiz .form-actions input#edit-actions-submit {
     position: relative;
     right: 0;
     margin: 0 15px 0 15px;
   }
 }
 @media all and (max-width: 640.98px) {
-  .path-quiz .form-actions input#edit-actions-wizard-next {
+  .path-quiz .form-actions input#edit-actions-wizard-next, .path-quiz .form-actions input#edit-actions-submit {
     margin: 5px 0;
   }
 }
-.path-quiz .form-actions input#edit-actions-wizard-next:hover {
+.path-quiz .form-actions input#edit-actions-wizard-next:hover, .path-quiz .form-actions input#edit-actions-submit:hover {
   background: rgb(0, 30, 64);
 }
 .path-quiz .form-actions input#edit-actions-wizard-prev {
