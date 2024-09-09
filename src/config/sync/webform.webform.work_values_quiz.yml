@@ -16,8 +16,8 @@ third_party_settings:
     description: 'Examine what values are important to you in your work environment.'
     subtitle: '<p>Reflect on your work values. This quiz can help you find out your work style and motivations, your preferred work settings and how you like to interact with others. Rate statements below according to how important each one is to you.</p>'
     results_subtitle: '<p>Based on your answers, here are the Work Values that are most important to you. Your specific results within these four categories are based on the questions you answered in the quiz.</p>'
-    top_text: 'Your Important Work Values'
-    all_text: 'Your Somewhat Important Work Values'
+    top_text: 'Your Important Values'
+    all_text: 'Your Somewhat Important Values'
 weight: 0
 open: null
 close: null
