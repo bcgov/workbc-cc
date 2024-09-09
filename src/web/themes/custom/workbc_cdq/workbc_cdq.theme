@@ -72,9 +72,11 @@ function workbc_cdq_preprocess_breadcrumb(&$variables) {
 
   if ($variables['breadcrumb']) {
     $quiz = getCurrentQuiz();
-    $info = workbc_cdq_quiz_info($quiz['id']);
-    if ($quiz['page'] == 'quiz' && $info['status'] == "completed") {
-      $variables['breadcrumb'][1]['text'] .= " - Summary";
+    if ($quiz) {
+      $info = workbc_cdq_quiz_info($quiz['id']);
+      if ($quiz['page'] == 'quiz' && $info['status'] == "completed") {
+        $variables['breadcrumb'][1]['text'] .= " - Summary";
+      }
     }
   }
 }
