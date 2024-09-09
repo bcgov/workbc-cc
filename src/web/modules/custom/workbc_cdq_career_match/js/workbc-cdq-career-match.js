@@ -144,6 +144,28 @@
         });
       });
 
+      $(once('mobi-career-table', '.careers-mobi-table-wrapper', context)).each(function () {
+
+        $(".tbody-main").each(function (i) {
+          if (i % 5 === 0) {
+            $(this)
+              .nextAll()
+              .addBack()
+              .slice(0, 5)
+              .wrapAll('<div class="slide-tbody-main"></div>');
+          }
+        });
+
+        $(this).find("> .tbody").slick({
+          infinite: false,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          adaptiveHeight: true,
+          dots: true,
+          arrows: false,
+        });
+      });
+
         $(".work-value-quiz-carousel > .row").slick({
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -221,26 +243,6 @@
         });
       });
 
-      $(".tbody-main").each(function (i) {
-        if (i % 5 === 0) {
-          $(this)
-            .nextAll()
-            .addBack()
-            .slice(0, 5)
-            .wrapAll('<div class="slide-tbody-main"></div>');
-        }
-      });
-
-      $("#mobi-career-table").each(function () {
-        $(this).find(".tbody").slick({
-          infinite: false,
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          adaptiveHeight: true,
-          dots: true,
-          arrows: false,
-        });
-      });
 
       $("#myResult").each(function () {
         $(this).find(".carousel-inner-mobi > .row").slick({
