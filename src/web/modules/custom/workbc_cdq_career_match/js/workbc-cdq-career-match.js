@@ -135,6 +135,15 @@
         })
       });
 
+      $(once('main-content', '.mobi-tools-resource', context)).each(function () {
+        $(this).find("> .field__items").slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        });
+      });
+
         $(".work-value-quiz-carousel > .row").slick({
           slidesToShow: 1,
           slidesToScroll: 1,
