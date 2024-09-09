@@ -1287,7 +1287,7 @@ body.path-quiz {
         justify-content: center;
       }
       @media all and (max-width: 640.98px) {
-        flex-direction: column;
+        flex-direction: column-reverse;
         padding: 0 30px;
         &.hasPrev{
           bottom: -220px;

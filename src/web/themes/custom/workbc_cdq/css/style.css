@@ -14879,7 +14879,7 @@ body.path-quiz {
 }
 @media all and (max-width: 640.98px) {
   .path-quiz .form-actions.form-actions {
-    flex-direction: column;
+    flex-direction: column-reverse;
     padding: 0 30px;
   }
   .path-quiz .form-actions.form-actions.hasPrev {
