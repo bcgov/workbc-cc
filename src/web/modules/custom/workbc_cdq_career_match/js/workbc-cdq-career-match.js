@@ -84,6 +84,8 @@
           $('.cdq-results').each(function() {
             $(this).addClass("user-selected");
           });
+          $('.bottom-links').hide()
+          $("html, body").animate({ scrollTop: $(".path-quiz").offset().top }, "slow");
         });
 
         // when user clicks back to quiz link ...
@@ -95,6 +97,8 @@
           $('.career-content-item').each(function() {
             $(this).removeClass("active");
           });
+          $('.bottom-links').show()
+          $("html, body").animate({ scrollTop: $(".path-quiz").offset().top }, "slow");
         });
 
         function totalSelected() {
