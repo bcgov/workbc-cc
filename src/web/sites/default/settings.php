@@ -859,7 +859,7 @@ $config['workbc']['onet'] = [
   'password' => getenv('ONET_PASSWORD')
 ];
 
-$config['workbc']['ssot_url'] = rtrim(getenv('SSOT_URL'), '/');
+$config['workbc']['ssot_url'] = getenv('PROJECT_ENVIRONMENT') === 'aws-dev' ? 'http://internal-ssot-lb-935724506.ca-central-1.elb.amazonaws.com:3000/' : rtrim(getenv('SSOT_URL'), '/');
 
 $config['workbc']['workbc_url'] = rtrim(getenv('WORKBC_URL'), '/');
 
