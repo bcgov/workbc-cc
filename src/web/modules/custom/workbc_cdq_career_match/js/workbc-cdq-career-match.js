@@ -135,6 +135,19 @@
         })
       });
 
+      $(once('main-content', '.path-quiz', context)).each(function () {
+        $(".hideshow-workbc").on('click', function () {
+          let expanded = $("#categoryToggle").attr('aria-expanded');
+          if (expanded === "false") {
+            $(".result-heading h3.vaa1").hide();
+            $(".result-heading h3.vaa").show();
+          } else {
+            $(".result-heading h3.vaa").hide();
+            $(".result-heading h3.vaa1").show();
+          }
+        })
+      });
+
       $(once('main-content', '.mobi-tools-resource', context)).each(function () {
         $(this).find("> .field__items").slick({
           slidesToShow: 1,
