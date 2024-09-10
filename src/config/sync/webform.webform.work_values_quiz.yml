@@ -155,19 +155,19 @@ elements: |-
       '#type': radios
       '#title': 'I like to work independently with little or no supervision.'
       '#options': workbc_work_values
-      '#category': 'How you like to interact with others'
+      '#category': 'Interacting with others'
       '#required': true
     i_like_work_that_lets_me_persuade_or_negotiate_with_others:
       '#type': radios
       '#title': 'I like work that lets me persuade or negotiate with others.'
       '#options': workbc_work_values
-      '#category': 'How you like to interact with others'
+      '#category': 'Interacting with others'
       '#required': true
     i_like_to_compete_and_put_my_skills_and_abilities_against_others:
       '#type': radios
       '#title': 'I like to compete and put my skills and abilities against others.'
       '#options': workbc_work_values
-      '#category': 'How you like to interact with others'
+      '#category': 'Interacting with others'
       '#required': true
   page_5:
     '#type': webform_wizard_page
@@ -178,31 +178,31 @@ elements: |-
       '#type': radios
       '#title': 'I would like to work with the public.'
       '#options': workbc_work_values
-      '#category': 'How you like to interact with others'
+      '#category': 'Interacting with others'
       '#required': true
     i_want_work_where_i_set_and_meet_my_own_personal_goals:
       '#type': radios
       '#title': 'I want work where I set and meet my own personal goals.'
       '#options': workbc_work_values
-      '#category': 'How you like to interact with others'
+      '#category': 'Interacting with others'
       '#required': true
     i_want_work_where_iget_to_interact_with_a_team_of_other_people:
       '#type': radios
       '#title': 'I want work where Iget to interact with a team of other people.'
       '#options': workbc_work_values
-      '#category': 'How you like to interact with others'
+      '#category': 'Interacting with others'
       '#required': true
     i_prefer_to_work_away_from_the_public:
       '#type': radios
       '#title': 'I prefer to work away from the public.'
       '#options': workbc_work_values
-      '#category': 'How you like to interact with others'
+      '#category': 'Interacting with others'
       '#required': true
     i_want_work_where_ican_influence_the_attitudes_or_opinions_of_ot:
       '#type': radios
       '#title': 'I want work where Ican influence the attitudes or opinions of others.'
       '#options': workbc_work_values
-      '#category': 'How you like to interact with others'
+      '#category': 'Interacting with others'
       '#required': true
   page_6:
     '#type': webform_wizard_page

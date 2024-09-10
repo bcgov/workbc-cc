@@ -418,7 +418,7 @@ taxonomies:
       vid: work_values_categories
       tid: '40'
       langcode: en
-      name: 'How you like to interact with others'
+      name: 'Interacting with others'
       description__value: null
       description__format: null
       weight: '2'

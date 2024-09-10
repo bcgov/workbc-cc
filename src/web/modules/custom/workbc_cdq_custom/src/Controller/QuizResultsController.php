@@ -63,13 +63,13 @@ class QuizResultsController extends ControllerBase {
       }
       $categoryTop = $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'top_text');
       $categoryAll = $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'all_text');
-      $emailBody = results_email_body($submission);  
+      $emailBody = results_email_body($submission);
     }
     else {
       $score = NULL;
       $categoryTop = NULL;
       $categoryAll = NULL;
-      $emailBody = NULL;      
+      $emailBody = NULL;
     }
 
     return [
@@ -117,13 +117,13 @@ class QuizResultsController extends ControllerBase {
       }
       $categoryTop = $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'top_text');
       $categoryAll = $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'all_text');
-      $emailBody = results_email_body($submission);  
+      $emailBody = results_email_body($submission);
     }
     else {
       $score = NULL;
       $categoryTop = NULL;
       $categoryAll = NULL;
-      $emailBody = NULL;      
+      $emailBody = NULL;
     }
 
     return [
@@ -175,13 +175,13 @@ class QuizResultsController extends ControllerBase {
       }
       $categoryTop = $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'top_text');
       $categoryAll = $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'all_text');
-      $emailBody = results_email_body($submission);  
+      $emailBody = results_email_body($submission);
     }
     else {
       $score = NULL;
       $categoryTop = NULL;
       $categoryAll = NULL;
-      $emailBody = NULL;      
+      $emailBody = NULL;
     }
     return [
       '#theme' => 'workbc_cdq_quiz_results_categories',
@@ -242,13 +242,13 @@ class QuizResultsController extends ControllerBase {
       }
       $categoryTop = $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'top_text');
       $categoryAll = $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'all_text');
-      $emailBody = results_email_body($submission);  
+      $emailBody = results_email_body($submission);
     }
     else {
       $score = NULL;
       $categoryTop = NULL;
       $categoryAll = NULL;
-      $emailBody = NULL;      
+      $emailBody = NULL;
     }
     return [
       '#theme' => 'workbc_cdq_quiz_results_categories',
@@ -287,13 +287,13 @@ class QuizResultsController extends ControllerBase {
       }
       $categoryTop = $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'top_text');
       $categoryAll = $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'all_text');
-      $emailBody = results_email_body($submission);  
+      $emailBody = results_email_body($submission);
     }
     else {
       $score = NULL;
       $categoryTop = NULL;
       $categoryAll = NULL;
-      $emailBody = NULL;      
+      $emailBody = NULL;
     }
     return [
       '#theme' => 'workbc_cdq_quiz_results_categories',
@@ -319,7 +319,7 @@ class QuizResultsController extends ControllerBase {
           'color' => '1E75DF',
           'icon' => 'work-settings',
         ],
-        'How you like to interact with others' => [
+        'Interacting with others' => [
           'color' => '510B76',
           'icon' => 'interacting-with-others',
         ],
@@ -346,13 +346,13 @@ class QuizResultsController extends ControllerBase {
       }
       $categoryTop = $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'top_text');
       $categoryAll = $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'all_text');
-      $emailBody = results_email_body($submission);  
+      $emailBody = results_email_body($submission);
     }
     else {
       $score = NULL;
       $categoryTop = NULL;
       $categoryAll = NULL;
-      $emailBody = NULL;      
+      $emailBody = NULL;
     }
     return [
       '#theme' => 'workbc_cdq_quiz_results_work_values',
