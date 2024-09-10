@@ -112,7 +112,7 @@ resource "aws_ecs_task_definition" "app" {
 			},
 			{
 				name = "SSOT_URL",
-				value = "https://workbc-ssot.b89n0c-dev.nimbus.cloud.gov.bc.ca"
+				value = "${local.conn_str}"
 			}
 
 
