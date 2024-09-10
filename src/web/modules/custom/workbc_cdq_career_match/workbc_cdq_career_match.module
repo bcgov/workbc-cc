@@ -71,7 +71,7 @@ function workbc_cdq_career_match_theme($existing, $type, $theme, $path) {
 function workbc_cdq_career_match_preprocess_views_view_table(&$variables) {
 
   $view = $variables['view'];
-  if ($view->id() == "quiz_career_match") {
+  if ($view->id() === "quiz_career_match") {
     foreach ($variables['result'] as $key => $result) {
       $node = $result->_relationship_entities['nid'];
       $variables['rows'][$key]['raw'] = getCareerProfileInfo($node);
@@ -83,6 +83,17 @@ function workbc_cdq_career_match_preprocess_views_view_table(&$variables) {
   }
 }
 
+/**
+ * Implements hook_views_pre_render().
+ */
+function workbc_cdq_career_match_views_pre_render($view) {
+  if ($view->id() === 'quiz_career_match') {
+    $quiz = getCurrentQuiz();
+    if ($quiz['id'] === 'interests_quiz') {
+      $view->field['career_match']->options['label'] = 'Your Match';
+    }
+  }
+}
 
 /**
 * Implements hook_preprocess_views_view_field().
