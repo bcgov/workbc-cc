@@ -274,13 +274,13 @@
       }
     }
     .form-actions{
-      input[name="op"]{
+      input#edit-actions-wizard-next, input#edit-actions-submit{
         background: $quiz-dark-blue;
         &:hover{
           background: $quiz-dark-blue-dark;
         }
       }
-      input[name="previous_action"]{
+      input#edit-actions-wizard-prev{
         border: 2px solid $quiz-dark-blue;
         color: $quiz-dark-blue;
       }
@@ -499,13 +499,13 @@
       }
     }
     .form-actions{
-      input[name="op"]{
+      input#edit-actions-wizard-next, input#edit-actions-submit{
         background: $quiz-purple;
         &:hover{
           background: $quiz-purple-dark;
         }
       }
-      input[name="previous_action"]{
+      input#edit-actions-wizard-prev{
         border: 2px solid $quiz-purple;
         color: $quiz-purple;
       }
@@ -723,13 +723,13 @@
       }
     }
     .form-actions{
-      input[name="op"]{
+      input#edit-actions-wizard-next, input#edit-actions-submit{
         background: $quiz-blue;
         &:hover{
           background: $quiz-blue-dark;
         }
       }
-      input[name="previous_action"]{
+      input#edit-actions-wizard-prev{
         border: 2px solid $quiz-blue;
         color: $quiz-blue;
       }
@@ -947,13 +947,13 @@
       }
     }
     .form-actions{
-      input[name="op"]{
+      input#edit-actions-wizard-next, input#edit-actions-submit{
         background: $quiz-green;
         &:hover{
           background: $quiz-green-dark;
         }
       }
-      input[name="previous_action"]{
+      input#edit-actions-wizard-prev{
         border: 2px solid $quiz-green;
         color: $quiz-green;
       }
@@ -1181,13 +1181,13 @@
       }
     }
     .form-actions{
-      input[name="op"]{
+      input#edit-actions-wizard-next, input#edit-actions-submit{
         background: $quiz-light-blue;
         &:hover{
           background: $quiz-light-blue-dark;
         }
       }
-      input[name="previous_action"]{
+      input#edit-actions-wizard-prev{
         border: 2px solid $quiz-light-blue;
         color: $quiz-light-blue;
       }
@@ -1402,13 +1402,13 @@
       }
     }
     .form-actions{
-      input[name="op"]{
+      input#edit-actions-wizard-next, input#edit-actions-submit{
         background: $quiz-pink;
         &:hover{
           background: $quiz-pink-dark;
         }
       }
-      input[name="previous_action"]{
+      input#edit-actions-wizard-prev{
         border: 2px solid $quiz-pink;
         color: $quiz-pink;
       }

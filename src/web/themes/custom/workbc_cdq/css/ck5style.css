@@ -16578,13 +16578,13 @@ a > .ck-content code {
 .ck-content .main-quiz-container .cdq-abilities-quiz .region-content .form-radios input:checked {
   accent-color: #234075;
 }
-.ck-content .main-quiz-container .cdq-abilities-quiz .form-actions input[name=op] {
+.ck-content .main-quiz-container .cdq-abilities-quiz .form-actions input#edit-actions-wizard-next, .ck-content .main-quiz-container .cdq-abilities-quiz .form-actions input#edit-actions-submit {
   background: #234075;
 }
-.ck-content .main-quiz-container .cdq-abilities-quiz .form-actions input[name=op]:hover {
+.ck-content .main-quiz-container .cdq-abilities-quiz .form-actions input#edit-actions-wizard-next:hover, .ck-content .main-quiz-container .cdq-abilities-quiz .form-actions input#edit-actions-submit:hover {
   background: #002855;
 }
-.ck-content .main-quiz-container .cdq-abilities-quiz .form-actions input[name=previous_action] {
+.ck-content .main-quiz-container .cdq-abilities-quiz .form-actions input#edit-actions-wizard-prev {
   border: 2px solid #234075;
   color: #234075;
 }
@@ -16723,13 +16723,13 @@ a > .ck-content code {
 .ck-content .main-quiz-container .cdq-work-preferences-quiz .region-content .form-radios input:checked {
   accent-color: #510b76;
 }
-.ck-content .main-quiz-container .cdq-work-preferences-quiz .form-actions input[name=op] {
+.ck-content .main-quiz-container .cdq-work-preferences-quiz .form-actions input#edit-actions-wizard-next, .ck-content .main-quiz-container .cdq-work-preferences-quiz .form-actions input#edit-actions-submit {
   background: #510b76;
 }
-.ck-content .main-quiz-container .cdq-work-preferences-quiz .form-actions input[name=op]:hover {
+.ck-content .main-quiz-container .cdq-work-preferences-quiz .form-actions input#edit-actions-wizard-next:hover, .ck-content .main-quiz-container .cdq-work-preferences-quiz .form-actions input#edit-actions-submit:hover {
   background: #310546;
 }
-.ck-content .main-quiz-container .cdq-work-preferences-quiz .form-actions input[name=previous_action] {
+.ck-content .main-quiz-container .cdq-work-preferences-quiz .form-actions input#edit-actions-wizard-prev {
   border: 2px solid #510b76;
   color: #510b76;
 }
@@ -16868,13 +16868,13 @@ a > .ck-content code {
 .ck-content .main-quiz-container .cdq-interests-quiz .region-content .form-radios input:checked {
   accent-color: #2671ca;
 }
-.ck-content .main-quiz-container .cdq-interests-quiz .form-actions input[name=op] {
+.ck-content .main-quiz-container .cdq-interests-quiz .form-actions input#edit-actions-wizard-next, .ck-content .main-quiz-container .cdq-interests-quiz .form-actions input#edit-actions-submit {
   background: #2671ca;
 }
-.ck-content .main-quiz-container .cdq-interests-quiz .form-actions input[name=op]:hover {
+.ck-content .main-quiz-container .cdq-interests-quiz .form-actions input#edit-actions-wizard-next:hover, .ck-content .main-quiz-container .cdq-interests-quiz .form-actions input#edit-actions-submit:hover {
   background: #0e3e75;
 }
-.ck-content .main-quiz-container .cdq-interests-quiz .form-actions input[name=previous_action] {
+.ck-content .main-quiz-container .cdq-interests-quiz .form-actions input#edit-actions-wizard-prev {
   border: 2px solid #2671ca;
   color: #2671ca;
 }
@@ -17013,13 +17013,13 @@ a > .ck-content code {
 .ck-content .main-quiz-container .cdq-multiple-intelligences-quiz .region-content .form-radios input:checked {
   accent-color: #216c06;
 }
-.ck-content .main-quiz-container .cdq-multiple-intelligences-quiz .form-actions input[name=op] {
+.ck-content .main-quiz-container .cdq-multiple-intelligences-quiz .form-actions input#edit-actions-wizard-next, .ck-content .main-quiz-container .cdq-multiple-intelligences-quiz .form-actions input#edit-actions-submit {
   background: #216c06;
 }
-.ck-content .main-quiz-container .cdq-multiple-intelligences-quiz .form-actions input[name=op]:hover {
+.ck-content .main-quiz-container .cdq-multiple-intelligences-quiz .form-actions input#edit-actions-wizard-next:hover, .ck-content .main-quiz-container .cdq-multiple-intelligences-quiz .form-actions input#edit-actions-submit:hover {
   background: #164c03;
 }
-.ck-content .main-quiz-container .cdq-multiple-intelligences-quiz .form-actions input[name=previous_action] {
+.ck-content .main-quiz-container .cdq-multiple-intelligences-quiz .form-actions input#edit-actions-wizard-prev {
   border: 2px solid #216c06;
   color: #216c06;
 }
@@ -17167,13 +17167,13 @@ a > .ck-content code {
 .ck-content .main-quiz-container .cdq-learning-styles-quiz .region-content .form-radios input:checked {
   accent-color: #007eb4;
 }
-.ck-content .main-quiz-container .cdq-learning-styles-quiz .form-actions input[name=op] {
+.ck-content .main-quiz-container .cdq-learning-styles-quiz .form-actions input#edit-actions-wizard-next, .ck-content .main-quiz-container .cdq-learning-styles-quiz .form-actions input#edit-actions-submit {
   background: #007eb4;
 }
-.ck-content .main-quiz-container .cdq-learning-styles-quiz .form-actions input[name=op]:hover {
+.ck-content .main-quiz-container .cdq-learning-styles-quiz .form-actions input#edit-actions-wizard-next:hover, .ck-content .main-quiz-container .cdq-learning-styles-quiz .form-actions input#edit-actions-submit:hover {
   background: #005f88;
 }
-.ck-content .main-quiz-container .cdq-learning-styles-quiz .form-actions input[name=previous_action] {
+.ck-content .main-quiz-container .cdq-learning-styles-quiz .form-actions input#edit-actions-wizard-prev {
   border: 2px solid #007eb4;
   color: #007eb4;
 }
@@ -17309,13 +17309,13 @@ a > .ck-content code {
 .ck-content .main-quiz-container .cdq-work-values-quiz .region-content .form-radios input:checked {
   accent-color: #880364;
 }
-.ck-content .main-quiz-container .cdq-work-values-quiz .form-actions input[name=op] {
+.ck-content .main-quiz-container .cdq-work-values-quiz .form-actions input#edit-actions-wizard-next, .ck-content .main-quiz-container .cdq-work-values-quiz .form-actions input#edit-actions-submit {
   background: #880364;
 }
-.ck-content .main-quiz-container .cdq-work-values-quiz .form-actions input[name=op]:hover {
+.ck-content .main-quiz-container .cdq-work-values-quiz .form-actions input#edit-actions-wizard-next:hover, .ck-content .main-quiz-container .cdq-work-values-quiz .form-actions input#edit-actions-submit:hover {
   background: #440031;
 }
-.ck-content .main-quiz-container .cdq-work-values-quiz .form-actions input[name=previous_action] {
+.ck-content .main-quiz-container .cdq-work-values-quiz .form-actions input#edit-actions-wizard-prev {
   border: 2px solid #880364;
   color: #880364;
 }
