@@ -109,6 +109,10 @@ resource "aws_ecs_task_definition" "app" {
 			{
 				name = "PROJECT_ENVIRONMENT",
 				value = "aws-prod"
+			},
+			{
+				name = "SSOT_URL",
+				value = "${local.conn_str}"
 			}
 
 		]
