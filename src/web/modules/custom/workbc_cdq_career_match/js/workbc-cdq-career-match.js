@@ -29,8 +29,6 @@
               type: 'POST',
               dataType: 'json',
               data: { 'id' : careerMatchId, 'selected': selected},
-              success: function (response) {
-              }
             });
           }
           if (totalSelected() > 1) {
@@ -52,8 +50,6 @@
                 type: 'POST',
                 dataType: 'json',
                 data: { 'id' : careerMatchId, 'selected': false},
-                success: function (response) {
-                }
               });
             }
           });
@@ -61,8 +57,7 @@
 
 
         $('.close-compare-popup, .compare-popup-close').on('click', function() {
-          console.log('close compare popup');
-            $(".compare-popup-wrapper").removeClass("active");
+          $(".compare-popup-wrapper").removeClass("active");
         });
 
 
@@ -214,7 +209,6 @@
           $(this).addClass("active");
 
           const getTabItemId = $(this).data("href");
-          console.log(getTabItemId);
           if (getTabItemId == "bottomcarousel") {
             $(this)
               .parents("#myResult")
