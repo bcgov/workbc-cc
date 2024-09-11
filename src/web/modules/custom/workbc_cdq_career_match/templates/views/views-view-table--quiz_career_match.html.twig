@@ -105,25 +105,35 @@
                     %}
                     {% endif %}
                       <th{{ column.attributes.addClass(column_classes).setAttribute('scope', 'col') }}>
+                        {% set extra_icon = "" %}
+                        {% if column.content == 'Your Match' %}
+                          {% set extra_icon %}
+                            <span class="match-warning" title="A career marked as Best Fit is a very strong match to your interests.&#013;&#010;A career marked Great Fit is a strong match.&#013;&#010;A career marked Good Fit is a less strong match and may also be of interest to you.">
+                              <img src="/themes/custom/workbc_cdq/assets/icons/warning.svg"/>
+                            </span>
+                          {% endset %}
+                        {% endif %}
                         {%- if column.wrapper_element -%}
                           <{{ column.wrapper_element }}>
                             {%- if column.url -%}
-                              <a href="{{ column.url }}#view-field-noc-name-table-column" title="{{ column.title|striptags }}">
-                                <div class="content">{{ column.content }}</div>
+                              <a href="{{ column.url }}#view-field-noc-name-table-column" title="{{ column.title | striptags }}">
+                                <div class="content">{{ column.content }}{{ extra_icon }}</div>
                                 <div class="sort">{{ column.sort_indicator }}</div>
                               </a>
                             {%- else -%}
-                              {{ column.content | raw }}{{ column.sort_indicator }}
+                              {{ column.content | raw }}
+                              {{ extra_icon }}
+                              {{ column.sort_indicator }}
                             {%- endif -%}
                           </{{ column.wrapper_element }}>
                         {%- else -%}
                           {%- if column.url -%}
-                            <a href="{{ column.url }}#view-field-noc-name-table-column" title="{{ column.title|striptags }}">
-                              <div class="content">{{ column.content }}</div>
+                            <a href="{{ column.url }}#view-field-noc-name-table-column" title="{{ column.title | striptags }}">
+                              <div class="content">{{ column.content }}{{ extra_icon }}</div>
                               <div class="sort">{{ column.sort_indicator }}</div>
                             </a>
                           {%- else -%}
-                          {{- column.content | raw }}{{ column.sort_indicator }}
+                          {{- column.content | raw }}{{ extra_icon }}{{ column.sort_indicator }}
                           {%- endif -%}
                       {%- endif -%}
                     </th>
@@ -203,18 +213,24 @@
       <div class="thead">
         <div class="thead-main">
           <p class="matches-wrap head">
+            {% set column = header['career_match'] %}
             <span class="matches">
-              <span class="match-per">%</span>
-              <span class="match">{{ 'Match'|t }}</span>
+              <span>{{ column.content | replace({' ':"\n"}) | nl2br }}</span>
             </span>
-            {% if match_header == 'Your' %}
+            {% if column.content == 'Your Match' %}
               <span class="match-warning" title="A career marked as Best Fit is a very strong match to your interests.&#013;&#010;A career marked Great Fit is a strong match.&#013;&#010;A career marked Good Fit is a less strong match and may also be of interest to you.">
-              <img src="/themes/custom/bcgov_career/src/icons/warning.svg"/>
-            </span>
+                <img src="/themes/custom/workbc_cdq/assets/icons/warning.svg"/>
+              </span>
             {% endif %}
           </p>
-          <p class="head">Career<br>Matches</p>
-          <p class="head">Compare Careers</p>
+          <p class="head">
+            {% set column = header['title'] %}
+            {{ column.content | replace({' ':"\n"}) | nl2br }}
+          </p>
+          <p class="head">
+            {% set column = header['selected'] %}
+            {{ column.content | replace({' ':"\n"}) | nl2br }}
+          </p>
         </div>
       </div>
       <div class="tbody">
