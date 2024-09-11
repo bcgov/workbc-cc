@@ -80,6 +80,13 @@ function workbc_cdq_career_match_preprocess_views_view_table(&$variables) {
     }
     $quiz = getCurrentQuiz();
     $variables['quiz'] = getQuizInfo($quiz['id']);
+
+    $session = \Drupal::request()->getSession();
+    $token_session = $session->get($quiz['id'].'_token')?: "";
+  
+    $token_url = \Drupal::request()->get('token');
+
+    $variables['is_quiz_owner'] = $token_session === $token_url;
   }
 }
 
@@ -133,10 +140,12 @@ function workbc_cdq_career_match_preprocess_views_view(&$variables) {
 */
 function workbc_cdq_career_match_preprocess_views_view_fields(&$variables) {
 
-  $node = $variables['row']->_relationship_entities['nid'];
-  $info = getCareerProfileInfo($node);
-  $variables['raw'] = $info;
-  $variables['workbc_url'] = \Drupal::config('workbc')->get('workbc_url');
+  if ($variables['view']->id() == 'cdq_compare_careers') {
+    $node = $variables['row']->_relationship_entities['nid'];
+    $info = getCareerProfileInfo($node);
+    $variables['raw'] = $info;
+    $variables['workbc_url'] = \Drupal::config('workbc')->get('workbc_url');
+  }
 }
 
 /**
