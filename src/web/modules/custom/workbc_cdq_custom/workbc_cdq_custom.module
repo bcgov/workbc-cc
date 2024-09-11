@@ -49,7 +49,7 @@ function getSubmissionOverrides($webform_id, $current_submission) {
   }
 
   // Check whether current user has permission to override answers.
-  if (!\Drupal::currentUser()->hasPermission('override quiz answers')) {
+  if ('aws-prod' === getenv('PROJECT_ENVIRONMENT') && !\Drupal::currentUser()->hasPermission('override quiz answers')) {
     \Drupal::messenger()->addError(t(
       'Current user cannot override quiz answers. Ignoring.'
     ));
@@ -105,7 +105,7 @@ function getSubmissionOverrides($webform_id, $current_submission) {
 
 
 function getUserSubmission($webform_id, $skip_overrides = false) {
-  
+
   $current_user = \Drupal::currentUser();
 
   $token = \Drupal::request()->get('token');
@@ -163,7 +163,7 @@ function getUserSubmission($webform_id, $skip_overrides = false) {
 
 function workbc_cdq_custom_views_query_alter(ViewExecutable $view, QueryPluginBase $query) {
 
-  if ($view->storage->get('id') == "quiz_career_match") {  
+  if ($view->storage->get('id') == "quiz_career_match") {
     $query->orderby[] = [
       'field' => 'node_field_data_workbc_cdq_career_match.title',
       'direction' => 'ASC'

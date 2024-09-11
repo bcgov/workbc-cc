@@ -30,7 +30,7 @@ class QuizPageTitleBlock extends BlockBase {
 
     $current_quiz = getCurrentQuiz();
     if ($current_quiz) {
-      $quiz = workbc_cdq_quiz_info($current_quiz['id']);
+      $quiz = getQuizInfo($current_quiz['id']);
       $markup .= '<h2 class="cdq-quiz-title">' . $quiz['title'] . ' - Results</h2>';
       if ($current_quiz['page'] == 'quiz') {
         $markup .= '<div class="sub-title">';
@@ -47,7 +47,7 @@ class QuizPageTitleBlock extends BlockBase {
         $markup .= '</div>';
       }
       else if ($current_quiz['page'] == 'results') {
-        $markup .= '<div class="sub-title">';        
+        $markup .= '<div class="sub-title">';
         $markup .= $quiz['results_subtitle'];
         $markup .= '</div>';
       }

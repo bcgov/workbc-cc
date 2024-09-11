@@ -79,7 +79,7 @@ function workbc_cdq_career_match_preprocess_views_view_table(&$variables) {
       $variables['workbc_url'] = \Drupal::config('workbc')->get('workbc_url');
     }
     $quiz = getCurrentQuiz();
-    $variables['quiz'] = workbc_cdq_quiz_info($quiz['id']);
+    $variables['quiz'] = getQuizInfo($quiz['id']);
   }
 }
 
@@ -386,7 +386,7 @@ function getSubmissionScore(WebformSubmission $submission) {
     ];
     $answer_string .= strval(array_search($value, array_keys($question['#options'])));
   }
-  if (\Drupal::currentUser()->hasPermission('override quiz answers')) {
+  if ('aws-prod' !== getenv('PROJECT_ENVIRONMENT') || \Drupal::currentUser()->hasPermission('override quiz answers')) {
     $url = Url::fromRoute('<current>', [
       'answers' => $answer_string,
     ], ['absolute' => true]);

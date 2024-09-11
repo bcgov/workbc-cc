@@ -52,6 +52,7 @@ module:
   user: 0
   webform: 0
   webform_submission_log: 0
+  webform_ui: 0
   webformautosave: 0
   workbc_cdq_career_match: 0
   workbc_cdq_custom: 0

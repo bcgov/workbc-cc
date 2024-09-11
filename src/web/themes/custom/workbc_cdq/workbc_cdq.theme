@@ -17,7 +17,7 @@ function workbc_cdq_preprocess_page(&$variables) {
     $personality_count = 0;
     $quiz_info = [];
     foreach ($quizzes as $key => $quiz) {
-      $quiz_info[$key] = workbc_cdq_quiz_info($key);
+      $quiz_info[$key] = getQuizInfo($key);
       if ($quiz_info[$key]['status'] == "completed") {
         if (in_array($key, $career_list)) {
           $career_count++;
@@ -46,7 +46,7 @@ function workbc_cdq_preprocess_page(&$variables) {
     }
     else if ($quiz['page'] == 'results') {
       $variables['is_results'] = true;
-      $variables['quiz'] = workbc_cdq_quiz_info($quiz['id']);
+      $variables['quiz'] = getQuizInfo($quiz['id']);
     }
   }
 }
@@ -58,7 +58,7 @@ function workbc_cdq_preprocess_page_title(&$variables) {
 
   $quiz = getCurrentQuiz();
   if ($quiz) {
-    $info = workbc_cdq_quiz_info($quiz['id']);
+    $info = getQuizInfo($quiz['id']);
     if ($quiz['page'] == 'quiz' && $info['status'] == "completed") {
       $variables['title'] .= " - Summary";
     }
@@ -73,7 +73,7 @@ function workbc_cdq_preprocess_breadcrumb(&$variables) {
   if ($variables['breadcrumb']) {
     $quiz = getCurrentQuiz();
     if ($quiz) {
-      $info = workbc_cdq_quiz_info($quiz['id']);
+      $info = getQuizInfo($quiz['id']);
       if ($quiz['page'] == 'quiz' && $info['status'] == "completed") {
         $variables['breadcrumb'][1]['text'] .= " - Summary";
       }
@@ -122,7 +122,7 @@ function workbc_cdq_preprocess_block(&$variables) {
       }
       else if ($quiz['page'] == 'results') {
         $variables['is_results'] = true;
-        $variables['quiz'] = workbc_cdq_quiz_info($quiz['id']);
+        $variables['quiz'] = getQuizInfo($quiz['id']);
       }
     }
   }
@@ -130,7 +130,7 @@ function workbc_cdq_preprocess_block(&$variables) {
 
 /*************************** HELPER FUNCTIONS ***************************/
 
-function workbc_cdq_quiz_info($id) {
+function getQuizInfo($id) {
   $info = [];
 
   /** @var \Drupal\webform\WebformInterface $webform */

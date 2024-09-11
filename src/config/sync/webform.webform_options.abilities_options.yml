@@ -9,6 +9,6 @@ likert: true
 options: |-
   4: 'Very Easy'
   3: Easy
-  2: 'About Average'
+  2: Average
   1: Difficult
   0: 'Very Difficult'
