@@ -365,6 +365,15 @@ function getCareerProfileInfo(\Drupal\node\NodeInterface $node) {
   return $info;
 }
 
+function canOverrideQuizAnswers() {
+  return
+    str_contains(\Drupal::routeMatch()->getRouteName(), '_quiz_results') && (
+      'aws-prod' !== getenv('PROJECT_ENVIRONMENT') ||
+      \Drupal::currentUser()->hasPermission('override quiz answers')
+    )
+  ;
+}
+
 function getSubmissionScore(WebformSubmission $submission) {
   $quiz = $submission->getWebform();
   $questions = array_filter($quiz->getElementsInitializedAndFlattened(), function($question) {
@@ -395,7 +404,7 @@ function getSubmissionScore(WebformSubmission $submission) {
     ];
     $answer_string .= strval(array_search($value, array_keys($question['#options'])));
   }
-  if ('aws-prod' !== getenv('PROJECT_ENVIRONMENT') || \Drupal::currentUser()->hasPermission('override quiz answers')) {
+  if (canOverrideQuizAnswers()) {
     $url = Url::fromRoute('<current>', [
       'answers' => $answer_string,
     ], ['absolute' => true]);

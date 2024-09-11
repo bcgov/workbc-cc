@@ -49,7 +49,7 @@ function getSubmissionOverrides($webform_id, $current_submission) {
   }
 
   // Check whether current user has permission to override answers.
-  if ('aws-prod' === getenv('PROJECT_ENVIRONMENT') && !\Drupal::currentUser()->hasPermission('override quiz answers')) {
+  if (!canOverrideQuizAnswers()) {
     \Drupal::messenger()->addError(t(
       'Current user cannot override quiz answers. Ignoring.'
     ));

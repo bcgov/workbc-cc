@@ -7,6 +7,6 @@ label: 'WorkBC: Work Values'
 category: WorkBC
 likert: false
 options: |-
-  2: 'Strongly Agree'
+  2: Agree
   1: Neutral
   0: Disagree

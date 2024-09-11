@@ -108,7 +108,7 @@
                         {%- if column.wrapper_element -%}
                           <{{ column.wrapper_element }}>
                             {%- if column.url -%}
-                              <a href="{{ column.url }}#view-field-noc-name-table-column" title="{{ column.title }}">
+                              <a href="{{ column.url }}#view-field-noc-name-table-column" title="{{ column.title|striptags }}">
                                 <div class="content">{{ column.content }}</div>
                                 <div class="sort">{{ column.sort_indicator }}</div>
                               </a>
@@ -118,7 +118,7 @@
                           </{{ column.wrapper_element }}>
                         {%- else -%}
                           {%- if column.url -%}
-                            <a href="{{ column.url }}#view-field-noc-name-table-column" title="{{ column.title }}">
+                            <a href="{{ column.url }}#view-field-noc-name-table-column" title="{{ column.title|striptags }}">
                               <div class="content">{{ column.content }}</div>
                               <div class="sort">{{ column.sort_indicator }}</div>
                             </a>
