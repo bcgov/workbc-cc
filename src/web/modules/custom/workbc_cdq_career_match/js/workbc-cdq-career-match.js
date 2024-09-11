@@ -135,10 +135,11 @@
         })
       });
 
+      // work values results - toggle sub-heading text
       $(once('main-content', '.path-quiz', context)).each(function () {
         $(".hideshow-workbc").on('click', function () {
-          let expanded = $("#categoryToggle").attr('aria-expanded');
-          if (expanded === "false") {
+          let expanded = $(".result-heading h3.vaa").is(':hidden');
+          if (expanded) {
             $(".result-heading h3.vaa1").hide();
             $(".result-heading h3.vaa").show();
           } else {
