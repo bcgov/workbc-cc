@@ -49,6 +49,10 @@ class CareerMatchWebformHandler extends WebformHandlerBase {
   public function postSave(WebformSubmissionInterface $webform_submission, $update = TRUE) {
     if ($webform_submission->getState() !== WebformSubmissionInterface::STATE_COMPLETED) return;
 
+    $request = \Drupal::request();
+    $session = $request->getSession();
+    $session->set($webform_submission->getWebform()->id().'_token', $webform_submission->getToken());
+
     $scores = getSubmissionScore($webform_submission);
     $matches = matchCareers($webform_submission, $scores);
     if (empty($matches)) return;

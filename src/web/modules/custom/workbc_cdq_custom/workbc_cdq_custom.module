@@ -108,23 +108,23 @@ function getUserSubmission($webform_id, $skip_overrides = false) {
 
   $current_user = \Drupal::currentUser();
 
-  $token = \Drupal::request()->get('token');
-  if ($token) {
-    $query = \Drupal::entityQuery('webform_submission')
-      ->condition('token', $token)
-      ->condition('webform_id', $webform_id)
-      ->range(0, 1)
-      ->sort('changed', 'DESC')
-      ->accessCheck(false);
+  $session = \Drupal::request()->getSession();
+  $token_session = $session->get($webform_id.'_token')?: "";
+
+  $token_url = \Drupal::request()->get('token');
+
+  if ($token_url) {
+    $token = $token_url;
   }
   else {
-    $query = \Drupal::entityQuery('webform_submission')
-      ->condition('uid', $current_user->id())
-      ->condition('webform_id', $webform_id)
-      ->range(0, 1)
-      ->sort('changed', 'DESC')
-      ->accessCheck(false);
+    $token = $token_session;
   }
+  $query = \Drupal::entityQuery('webform_submission')
+    ->condition('token', $token)
+    ->condition('webform_id', $webform_id)
+    ->range(0, 1)
+    ->sort('changed', 'DESC')
+    ->accessCheck(false);
   $results = $query->execute();
 
   if ($results) {
@@ -133,7 +133,7 @@ function getUserSubmission($webform_id, $skip_overrides = false) {
   }
 
   // Check for answers override.
-  if (!$skip_overrides) {
+  if (!$skip_overrides && (empty($token_url) || $token_url === $token_session)) {
     $override = getSubmissionOverrides($webform_id, @$submission);
     if ($override) {
       $new_submission = WebformSubmission::create([
@@ -156,8 +156,26 @@ function getUserSubmission($webform_id, $skip_overrides = false) {
       }
     }
   }
-
   return $submission ?? false;
+}
+
+
+function workbc_cdq_custom_entity_access(\Drupal\Core\Entity\EntityInterface $entity, $operation, \Drupal\Core\Session\AccountInterface $account) {
+
+  if ($entity->getEntityTypeId() === "webform") {
+    if ($operation == "submission_page") {
+      $webform_id = $entity->id();
+
+      $token_url = \Drupal::request()->get('token');
+      $session = \Drupal::request()->getSession();
+      $token_session = $session->get($webform_id.'_token')?: "";
+
+      if ($token_url && $token_url <> $token_session) {
+        return \Drupal\Core\Access\AccessResult::forbidden();
+      }
+    }
+  }
+  return \Drupal\Core\Access\AccessResult::neutral();
 }
 
 

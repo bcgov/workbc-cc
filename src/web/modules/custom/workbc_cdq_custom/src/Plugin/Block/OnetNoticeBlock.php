@@ -47,8 +47,7 @@ class OnetNoticeBlock extends BlockBase {
   protected function blockAccess(AccountInterface $account) {
 
     $quiz = getCurrentQuiz();
-
-    if ($quiz['id'] <> "interests_quiz") {
+    if ($quiz && $quiz['id'] <> "interests_quiz") {
       return AccessResult::forbidden();
     }
     return AccessResult::allowedIfHasPermission($account, 'access content');
