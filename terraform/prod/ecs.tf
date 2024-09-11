@@ -124,6 +124,14 @@ resource "aws_ecs_task_definition" "app" {
 			{
 				name = "POSTGRES_PASSWORD",
 				valueFrom = "${data.aws_secretsmanager_secret_version.creds.arn}:password::"
+			},
+			{
+				name = "ONET_USERNAME",
+				valueFrom = "${data.aws_secretsmanager_secret_version.creds.arn}:onet_username::"
+			},
+			{
+				name = "ONET_PASSWORD",
+				valueFrom = "${data.aws_secretsmanager_secret_version.creds.arn}:onet_password::"
 			}
 		]
 
