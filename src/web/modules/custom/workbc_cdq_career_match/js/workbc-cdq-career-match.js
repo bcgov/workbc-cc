@@ -80,10 +80,9 @@
             $(this).addClass("user-selected");
           });
           $('.bottom-links').hide()
-          $("html, body").animate({ scrollTop: $(".path-quiz").offset().top }, "slow");
         });
 
-        // when user clicks back to quiz link ...
+        // when user clicks back-to-quiz link ...
         $('a#back-to-quiz').on('click', function() {
           $('.cdq-results').each(function() {
             $(this).removeClass("user-selected");
@@ -93,7 +92,7 @@
             $(this).removeClass("active");
           });
           $('.bottom-links').show()
-          $("html, body").animate({ scrollTop: $(".path-quiz").offset().top }, "slow");
+          $("html, body").animate({scrollTop: $(".careers-mobi-table-wrapper").offset().top}, "slow");
         });
 
         function totalSelected() {
@@ -175,7 +174,8 @@
         });
       });
 
-        $(".work-value-quiz-carousel > .row").slick({
+      $(once('main-content', '.work-value-quiz-carousel', context)).each(function () {
+        $(this).find("> .row").slick({
           slidesToShow: 1,
           slidesToScroll: 1,
           infinite: true,
@@ -184,17 +184,18 @@
           adaptiveHeight: true,
           nextArrow: $(".hideshow-workbc"),
         });
+      });
 
-        $(".carousel-slider-mobi-row").each(function () {
-          $(this).slick({
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            adaptiveHeight: true,
-            infinite: false,
-            dots: true,
-            arrows: false,
-          });
+      $(once('main-content', '.carousel-slider-mobi-row', context)).each(function () {
+        $(this).slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          adaptiveHeight: true,
+          infinite: false,
+          dots: true,
+          arrows: false,
         });
+      });
 
         $(".carousel-mobi-tabs-trigger").on("click", function () {
           $(this).next().addClass("active");
@@ -241,7 +242,7 @@
         });
       });
 
-      $(".mobi_cari_quiz").each(function () {
+      $(once('main-content', '.mobi_cari_quiz', context)).each(function () {
         $(this).find(".carousel-inner > .career-item").slick({
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -251,18 +252,7 @@
         });
       });
 
-
-      $("#myResult").each(function () {
-        $(this).find(".carousel-inner-mobi > .row").slick({
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          infinite: false,
-          dots: true,
-          arrows: false
-        });
-      });
-
-      $(".mobi-career-content-compare").each(function () {
+      $(once('main-content', '.mobi-career-content-compare', context)).each(function () {
         $(this).slick({
           slidesToShow: 1,
           slidesToScroll: 1,
