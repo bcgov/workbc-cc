@@ -14310,11 +14310,27 @@ a > .ck-content code {
   }
 }
 .ck-content form fieldset legend span.question-prefix {
-  position: absolute;
+  position: relative;
+  float: left;
+  margin: 30px 20px;
+}
+@media all and (max-width: 1024.98px) {
+  .ck-content form fieldset legend span.question-prefix {
+    position: absolute;
+    margin: 0 0;
+  }
+}
+.ck-content form fieldset legend span.question-prefix:after {
+  content: ".";
 }
 .ck-content form fieldset legend span.fieldset-legend {
-  margin-left: 30px;
+  margin: 30px 30px 30px 30px;
   display: block;
+}
+@media all and (max-width: 1024.98px) {
+  .ck-content form fieldset legend span.fieldset-legend {
+    margin: 0 30px 0 30px;
+  }
 }
 .ck-content form fieldset .fieldset-wrapper {
   float: left;
@@ -14426,22 +14442,6 @@ a > .ck-content code {
     margin: 0 !important;
     bottom: 23px !important;
   }
-}
-.ck-content span.question-prefix {
-  float: left;
-  width: 29px;
-  color: #333333;
-  font-size: 1.5rem;
-}
-@media all and (max-width: 767.98px) {
-  .ck-content span.question-prefix {
-    margin-top: 1px;
-    width: 30px;
-  }
-}
-.ck-content span.question-prefix:after {
-  content: ".";
-  color: #333333;
 }
 .ck-content .progress-title h6, .ck-content .progress-title .h6, .ck-content .progress-title .form-wrapper.accordion .accordion-item h2, .ck-content .form-wrapper.accordion .accordion-item .progress-title h2, .ck-content .progress-title .form-wrapper.accordion .accordion-item .h2, .ck-content .form-wrapper.accordion .accordion-item .progress-title .h2 {
   color: #333333;
