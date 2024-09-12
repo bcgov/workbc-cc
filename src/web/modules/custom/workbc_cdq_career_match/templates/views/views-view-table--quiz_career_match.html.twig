@@ -101,6 +101,7 @@
                       set column_classes = [
                       'views-field',
                       'views-field-' ~ fields[key],
+                      'matches-wrap'
                       ]
                     %}
                     {% endif %}
@@ -108,16 +109,17 @@
                         {% set extra_icon = "" %}
                         {% if column.content == 'Your Match' %}
                           {% set extra_icon %}
-                            <span class="match-warning" title="A career marked as Best Fit is a very strong match to your interests.&#013;&#010;A career marked Great Fit is a strong match.&#013;&#010;A career marked Good Fit is a less strong match and may also be of interest to you.">
+                            <div class="match-warning" title="A career marked as Best Fit is a very strong match to your interests.&#013;&#010;A career marked Great Fit is a strong match.&#013;&#010;A career marked Good Fit is a less strong match and may also be of interest to you.">
                               <img src="/themes/custom/workbc_cdq/assets/icons/warning.svg"/>
-                            </span>
+                            </div>
                           {% endset %}
                         {% endif %}
                         {%- if column.wrapper_element -%}
                           <{{ column.wrapper_element }}>
                             {%- if column.url -%}
                               <a href="{{ column.url }}#view-field-noc-name-table-column" title="{{ column.title | striptags }}">
-                                <div class="content">{{ column.content }}{{ extra_icon }}</div>
+                                <div class="content">{{ column.content }}</div>
+                                {{ extra_icon }}
                                 <div class="sort">{{ column.sort_indicator }}</div>
                               </a>
                             {%- else -%}
@@ -129,7 +131,8 @@
                         {%- else -%}
                           {%- if column.url -%}
                             <a href="{{ column.url }}#view-field-noc-name-table-column" title="{{ column.title | striptags }}">
-                              <div class="content">{{ column.content }}{{ extra_icon }}</div>
+                              <div class="content">{{ column.content }}</div>
+                              {{ extra_icon }}
                               <div class="sort">{{ column.sort_indicator }}</div>
                             </a>
                           {%- else -%}

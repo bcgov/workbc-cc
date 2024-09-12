@@ -15887,9 +15887,6 @@ span.question-prefix:after {
   display: none;
 }
 .careers-main-wrapper .careers-table-main-wrapper .matches-wrap {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   font-size: 1.4rem;
   line-height: 1.8rem;
   color: #333;
@@ -15906,8 +15903,7 @@ span.question-prefix:after {
 .careers-main-wrapper .careers-table-main-wrapper .matches-wrap .match-warning {
   width: 25px;
   height: 25px;
-  position: relative;
-  display: inline-block;
+  margin-right: 10px;
 }
 .careers-main-wrapper .careers-table-main-wrapper .matches-wrap .match-warning img {
   width: 25px;

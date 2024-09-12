@@ -2462,9 +2462,6 @@ span.question-prefix {
     }
 
     .matches-wrap{
-      display: flex;
-      justify-content: center;
-      align-items: center;
       font-size: 1.4rem;
       line-height: 1.8rem;
       color: #333;
@@ -2480,8 +2477,7 @@ span.question-prefix {
       .match-warning{
         width: 25px;
         height: 25px;
-        position: relative;
-        display: inline-block;
+        margin-right: 10px;
         img {
           width: 25px;
           height: 25px;
