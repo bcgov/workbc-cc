@@ -15337,18 +15337,12 @@ form fieldset legend {
     padding-top: 0;
   }
 }
-form fieldset legend > span.question-prefix {
+form fieldset legend span.question-prefix {
   position: absolute;
 }
-form fieldset legend > span.fieldset-legend {
-  margin: 30px;
+form fieldset legend span.fieldset-legend {
+  margin-left: 30px;
   display: block;
-}
-@media all and (max-width: 1024.98px) {
-  form fieldset legend > span.fieldset-legend {
-    margin: 0;
-    padding-top: 0;
-  }
 }
 form fieldset .fieldset-wrapper {
   float: left;
