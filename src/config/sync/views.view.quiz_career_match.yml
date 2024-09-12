@@ -259,7 +259,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<b>{{ title }}</b><br>\r\n(NOC {{ field_noc }})"
+            text: "<a class=\"career-table-row-link\">{{ title }}<br/>\r\n<span class=\"noc\">(NOC {{ field_noc }})</span></a>"
             make_link: false
             path: ''
             absolute: false

@@ -1229,10 +1229,6 @@ body.path-quiz {
     background: #fff;
   }
 
-  .alert-success {
-    display: none;
-  }
-
   &.path-quiz-results{
     .main-bg {
       .overlay-bg {
@@ -2559,7 +2555,7 @@ span.question-prefix {
             td {
               background: rgba(238, 238, 238, 1);
 
-              &.career-table-link {
+              &.views-field-title {
                 > .career-table-row-link {
                   color: rgb(42, 125, 226);
 
@@ -2577,7 +2573,7 @@ span.question-prefix {
             padding: 20px 15px;
             font-size: 1.5rem;
 
-            &.career-table-link {
+            &.views-field-title {
               > .career-table-row-link {
                 font-family: "BC Sans Bold", sans-serif;
                 font-weight: normal;
