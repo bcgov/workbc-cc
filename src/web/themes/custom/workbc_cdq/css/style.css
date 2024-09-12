@@ -14822,9 +14822,6 @@ body.path-quiz {
 .path-quiz header {
   background: #fff;
 }
-.path-quiz .alert-success {
-  display: none;
-}
 .path-quiz.path-quiz-results .main-bg .overlay-bg {
   min-height: 338px;
 }
@@ -15967,10 +15964,10 @@ span.question-prefix:after {
 .careers-main-wrapper table tbody tr.career-table-row.active td {
   background: rgb(238, 238, 238);
 }
-.careers-main-wrapper table tbody tr.career-table-row.active td.career-table-link > .career-table-row-link {
+.careers-main-wrapper table tbody tr.career-table-row.active td.views-field-title > .career-table-row-link {
   color: rgb(42, 125, 226);
 }
-.careers-main-wrapper table tbody tr.career-table-row.active td.career-table-link > .career-table-row-link .noc {
+.careers-main-wrapper table tbody tr.career-table-row.active td.views-field-title > .career-table-row-link .noc {
   color: rgb(42, 125, 226);
 }
 .careers-main-wrapper table tbody tr.career-table-row td {
@@ -15979,7 +15976,7 @@ span.question-prefix:after {
   padding: 20px 15px;
   font-size: 1.5rem;
 }
-.careers-main-wrapper table tbody tr.career-table-row td.career-table-link > .career-table-row-link {
+.careers-main-wrapper table tbody tr.career-table-row td.views-field-title > .career-table-row-link {
   font-family: "BC Sans Bold", sans-serif;
   font-weight: normal;
   font-size: 1.5rem;
@@ -15987,13 +15984,13 @@ span.question-prefix:after {
   text-decoration: none;
   color: #333333;
 }
-.careers-main-wrapper table tbody tr.career-table-row td.career-table-link > .career-table-row-link:hover {
+.careers-main-wrapper table tbody tr.career-table-row td.views-field-title > .career-table-row-link:hover {
   color: rgb(42, 125, 226);
 }
-.careers-main-wrapper table tbody tr.career-table-row td.career-table-link > .career-table-row-link:hover .noc {
+.careers-main-wrapper table tbody tr.career-table-row td.views-field-title > .career-table-row-link:hover .noc {
   color: rgb(42, 125, 226);
 }
-.careers-main-wrapper table tbody tr.career-table-row td.career-table-link > .career-table-row-link .noc {
+.careers-main-wrapper table tbody tr.career-table-row td.views-field-title > .career-table-row-link .noc {
   font-family: "BC Sans Regular", "BC Sans", sans-serif;
   font-weight: normal;
   color: #333333;
