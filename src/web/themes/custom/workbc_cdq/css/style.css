@@ -14794,13 +14794,13 @@ a.quiz-link {
   content: "+";
   font-size: larger;
 }
-.overlay-content #block-workbc-cdq-views-block-quiz-career-match-block-1 {
+.overlay-content #block-workbc-cdq-views-block-quiz-career-match-block-1, .overlay-content #block-workbc-cdq-views-block-quiz-career-match-block-2 {
   background: #fff;
   margin: 0 20px;
   padding: 0 50px;
 }
 @media all and (max-width: 767.98px) {
-  .overlay-content #block-workbc-cdq-views-block-quiz-career-match-block-1 {
+  .overlay-content #block-workbc-cdq-views-block-quiz-career-match-block-1, .overlay-content #block-workbc-cdq-views-block-quiz-career-match-block-2 {
     margin: 0 0;
     padding: 0 15px;
   }
@@ -17945,9 +17945,6 @@ h2.cdq-quiz-title, .cdq-quiz-title.h2, .webform-submission-information {
 }
 .main-quiz-container .cdq-interests-quiz .overlay-content .block-system-main-block {
   border-top: 9px solid #0e3e75;
-}
-.main-quiz-container .cdq-interests-quiz .overlay-content .block-system-main-block:not(.no-border-block) {
-  border-bottom: 5px solid #2671ca;
 }
 .main-quiz-container .cdq-interests-quiz .overlay-content #block-views-block-step-form-pagination-block-1 {
   border-bottom: 5px solid #2671ca;
