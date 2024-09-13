@@ -895,7 +895,6 @@ if (file_exists($app_root . '/' . $site_path . '/settings.openshift.php') && get
     'devel_php',
     'webform_devel',
     'views_ui',
-    'webform_ui',
     'dblog',
     'manage_state',
   ];

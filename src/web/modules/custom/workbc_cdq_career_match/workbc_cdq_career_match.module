@@ -83,7 +83,7 @@ function workbc_cdq_career_match_preprocess_views_view_table(&$variables) {
 
     $session = \Drupal::request()->getSession();
     $token_session = $session->get($quiz['id'].'_token')?: "";
-  
+
     $token_url = \Drupal::request()->get('token');
 
     $variables['is_quiz_owner'] = $token_session === $token_url;
@@ -570,11 +570,19 @@ function matchWorkPreferencesCareers($submission, $score) {
   // 1. Load work-preferences-quiz.csv category matches.
   $work_preferences_matches = \Drupal::state()->get('workbc.work_preferences_matches', []);
   if (empty($work_preferences_matches)) {
-    $work_preferences_matches = array_map('str_getcsv', file(__DIR__ . '/scoring/work-preferences-quiz.csv'));
-    $work_preferences_matches = array_combine(
-      array_map(function($match) { return $match[COLUMN_WORK_PREFERENCES_NOC]; }, $work_preferences_matches),
-      $work_preferences_matches
-    );
+    $matches = array_map('str_getcsv', file(__DIR__ . '/scoring/work-preferences-quiz.csv'));
+    $work_preferences_matches = array_reduce($matches, function($matches, $match) {
+      if (array_key_exists($match[COLUMN_WORK_PREFERENCES_NOC], $matches)) {
+        $matches[$match[COLUMN_WORK_PREFERENCES_NOC]]['codes'][] = $match[COLUMN_WORK_PREFERENCES_CODE];
+      }
+      else {
+        $matches[$match[COLUMN_WORK_PREFERENCES_NOC]] = [
+          'noc' => $match[COLUMN_WORK_PREFERENCES_NOC],
+          'codes' => [$match[COLUMN_WORK_PREFERENCES_CODE]]
+        ];
+      }
+      return $matches;
+    }, []);
     \Drupal::state()->set('workbc.work_preferences_matches', $work_preferences_matches);
   }
 
@@ -601,18 +609,18 @@ function matchWorkPreferencesCareers($submission, $score) {
       // The match score is a normalization formula lifted from legacy CDQ because it's not coded in the original quiz sheet.
       // It is proportional to the rank of the current permutation.
       $index = $permutation_index * strlen($permutation) + $case_permutation_index;
-      $score = round((180 - $index) / 180 * 100);
+      $score = (180 - $index) / 180 * 100;
       $results = array_merge($results, array_map(function($match) use($score) {
         return [
-          'noc' => $match[COLUMN_WORK_PREFERENCES_NOC],
+          'noc' => $match['noc'],
           'match' => $score,
         ];
-      }, array_filter($work_preferences_matches, function($match) use($flip_code) {
-        return $match[COLUMN_WORK_PREFERENCES_CODE] == $flip_code;
+      }, array_filter($work_preferences_matches, function($match) use($flip_code, $results) {
+        return in_array($flip_code, $match['codes']) && !in_array($match['noc'], array_map(function($r) { return $r['noc']; }, $results));
       })));
 
-      // Abort when we have 20 results.
-      if (count($results) >= 20) break 2;
+      // We only need 20 results but keep more for sorting purposes.
+      if (count($results) >= 40) break 2;
     }
   }
 

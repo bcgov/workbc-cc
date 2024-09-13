@@ -11,6 +11,7 @@ src/web/themes/README.txt
 src/web/profiles/contrib/
 src/web/profiles/README.txt
 /console/
+src/config/stages/
 
 # ddev config
 .ddev
