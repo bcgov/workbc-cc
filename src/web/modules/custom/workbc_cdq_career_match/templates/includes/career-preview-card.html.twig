@@ -14,7 +14,7 @@
     <div class="data">            
       <p class="data-item">
         <span class="f-d">Annual Salary</span>
-        {% if career_profile.annual_salary is not empty %}
+        {% if (career_profile.annual_salary is not empty) and (career_profile.annual_salary != "Not available") %}
           <span class="s-d">${{ career_profile.annual_salary | number_format(0, '.', ',') }}</span>
         {% else %}
           <span class="s-d">Not available</span>
