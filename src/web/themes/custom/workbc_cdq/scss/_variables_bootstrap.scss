@@ -21,3 +21,10 @@ $navbar-dark-color: rgba($white, .6) !default;
 
 $form-text-margin-top: 0 !default;
 $color-dark: #333333;
+
+$tooltip-opacity:                   1;
+$tooltip-bg:                        $white;
+$tooltip-color:                     $black;
+$tooltip-arrow-color:               $tooltip-bg;
+$tooltip-arrow-height:              1rem;
+$tooltip-max-width:                 325px;

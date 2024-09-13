@@ -264,6 +264,17 @@
         });
       });
 
+      // Bootstrap tooltip initialize
+      $(once('mobi-career-table', '.matches-wrap', context)).each(function () {
+        let toolTipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        let toolTipList  = toolTipTriggerList.map(function (tooltipTriggerEl) {
+          return new bootstrap.Tooltip(tooltipTriggerEl, {
+            placement: "right",
+            customClass: "shadow p-3 mb-5 bg-body rounded"
+          })
+        });
+      });
+
     }
   };
 

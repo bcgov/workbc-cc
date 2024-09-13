@@ -5784,17 +5784,17 @@ textarea.form-control-lg {
 }
 .tooltip {
   --bs-tooltip-zindex: 1080;
-  --bs-tooltip-max-width: 200px;
+  --bs-tooltip-max-width: 325px;
   --bs-tooltip-padding-x: 0.5rem;
   --bs-tooltip-padding-y: 0.25rem;
   --bs-tooltip-margin: ;
   --bs-tooltip-font-size: 0.875rem;
-  --bs-tooltip-color: var(--bs-body-bg);
-  --bs-tooltip-bg: var(--bs-emphasis-color);
+  --bs-tooltip-color: #000;
+  --bs-tooltip-bg: #fff;
   --bs-tooltip-border-radius: var(--bs-border-radius);
-  --bs-tooltip-opacity: 0.9;
+  --bs-tooltip-opacity: 1;
   --bs-tooltip-arrow-width: 0.8rem;
-  --bs-tooltip-arrow-height: 0.4rem;
+  --bs-tooltip-arrow-height: 1rem;
   z-index: var(--bs-tooltip-zindex);
   display: block;
   margin: var(--bs-tooltip-margin);
@@ -17438,6 +17438,12 @@ h2.cdq-quiz-title, .cdq-quiz-title.h2, .webform-submission-information {
   .user-selected .breadcrumb-quiz.back-to-quiz {
     display: block;
   }
+}
+
+.tooltip-inner {
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  text-align: left;
 }
 
 .cdq-compare.cdq-abilities-quiz #block-workbc-cdq-content {
