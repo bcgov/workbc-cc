@@ -13349,32 +13349,52 @@ a > .ck-content code {
 .ck-content #modify-answer-buttons {
   display: none;
 }
-.ck-content .cdq-results .bottom-links {
+@media all and (max-width: 991.98px) {
+  .ck-content .cdq-results .bottom-links {
+    display: none;
+  }
+}
+.ck-content .cdq-results .mobi-bottom-links {
+  display: none;
+}
+@media all and (max-width: 991.98px) {
+  .ck-content .cdq-results .mobi-bottom-links {
+    display: block;
+  }
+}
+.ck-content .cdq-results .bottom-links,
+.ck-content .cdq-results .mobi-bottom-links {
   padding: 30px 20px;
   background-color: white;
   margin: 0 20px;
 }
-.ck-content .cdq-results .bottom-links .links-inner {
+.ck-content .cdq-results .bottom-links .links-inner,
+.ck-content .cdq-results .mobi-bottom-links .links-inner {
   display: flex;
   justify-content: flex-end;
 }
 @media all and (max-width: 767.98px) {
-  .ck-content .cdq-results .bottom-links .links-inner {
+  .ck-content .cdq-results .bottom-links .links-inner,
+  .ck-content .cdq-results .mobi-bottom-links .links-inner {
     padding: 0;
   }
 }
 @media all and (max-width: 640.98px) {
-  .ck-content .cdq-results .bottom-links .links-inner {
+  .ck-content .cdq-results .bottom-links .links-inner,
+  .ck-content .cdq-results .mobi-bottom-links .links-inner {
     flex-direction: column-reverse;
   }
-  .ck-content .cdq-results .bottom-links .links-inner .link.link_1 {
+  .ck-content .cdq-results .bottom-links .links-inner .link.link_1,
+  .ck-content .cdq-results .mobi-bottom-links .links-inner .link.link_1 {
     margin-bottom: 0;
   }
-  .ck-content .cdq-results .bottom-links .links-inner .link.link_2 {
+  .ck-content .cdq-results .bottom-links .links-inner .link.link_2,
+  .ck-content .cdq-results .mobi-bottom-links .links-inner .link.link_2 {
     margin-bottom: 15px;
   }
 }
-.ck-content .cdq-results .bottom-links .link a {
+.ck-content .cdq-results .bottom-links .link a,
+.ck-content .cdq-results .mobi-bottom-links .link a {
   color: #333;
   text-shadow: none;
   margin-top: 7px;
@@ -13385,10 +13405,12 @@ a > .ck-content code {
   font-family: "BC Sans Regular", "BC Sans", sans-serif;
   font-weight: normal;
 }
-.ck-content .cdq-results .bottom-links .link a:hover {
+.ck-content .cdq-results .bottom-links .link a:hover,
+.ck-content .cdq-results .mobi-bottom-links .link a:hover {
   text-decoration: none;
 }
-.ck-content .cdq-results .bottom-links .link.link_1 a {
+.ck-content .cdq-results .bottom-links .link.link_1 a,
+.ck-content .cdq-results .mobi-bottom-links .link.link_1 a {
   height: 50px;
   background: #fff;
   color: rgb(7, 53, 115);
@@ -13398,24 +13420,28 @@ a > .ck-content code {
   margin-right: 10px;
 }
 @media all and (max-width: 640.98px) {
-  .ck-content .cdq-results .bottom-links .link.link_1 a {
+  .ck-content .cdq-results .bottom-links .link.link_1 a,
+  .ck-content .cdq-results .mobi-bottom-links .link.link_1 a {
     width: 100%;
     min-width: auto;
     height: auto;
     padding: 10px 5px;
   }
 }
-.ck-content .cdq-results .bottom-links .link.link_1 a:hover {
+.ck-content .cdq-results .bottom-links .link.link_1 a:hover,
+.ck-content .cdq-results .mobi-bottom-links .link.link_1 a:hover {
   background-color: rgb(230, 234, 233);
   border-color: rgb(35, 64, 117);
   text-decoration: none;
 }
 @media all and (max-width: 640.98px) {
-  .ck-content .cdq-results .bottom-links .link.link_1 {
+  .ck-content .cdq-results .bottom-links .link.link_1,
+  .ck-content .cdq-results .mobi-bottom-links .link.link_1 {
     margin-bottom: 15px;
   }
 }
-.ck-content .cdq-results .bottom-links .link.link_2 a {
+.ck-content .cdq-results .bottom-links .link.link_2 a,
+.ck-content .cdq-results .mobi-bottom-links .link.link_2 a {
   height: 50px;
   background-color: rgb(35, 64, 117);
   color: #fff;
@@ -13426,14 +13452,16 @@ a > .ck-content code {
   width: 100%;
 }
 @media all and (max-width: 640.98px) {
-  .ck-content .cdq-results .bottom-links .link.link_2 a {
+  .ck-content .cdq-results .bottom-links .link.link_2 a,
+  .ck-content .cdq-results .mobi-bottom-links .link.link_2 a {
     width: 100%;
     min-width: auto;
     height: auto;
     padding: 10px 5px;
   }
 }
-.ck-content .cdq-results .bottom-links .link.link_2 a:hover {
+.ck-content .cdq-results .bottom-links .link.link_2 a:hover,
+.ck-content .cdq-results .mobi-bottom-links .link.link_2 a:hover {
   background-color: rgb(0, 40, 85);
 }
 .ck-content .cdq-results #modify-answer-buttons {
@@ -16623,19 +16651,23 @@ a > .ck-content code {
 .ck-content .main-quiz-container .cdq-abilities-quiz .career-content-main-wrapper .career-content-item .career-content-item-inner .bottom-btn a.btn.btn-find-job:hover, .ck-content .main-quiz-container .cdq-abilities-quiz .career-content-main-wrapper .career-content-item .career-content-item-inner .bottom-btn a.btn-find-job.button:hover, .ck-content .main-quiz-container .cdq-abilities-quiz .career-content-main-wrapper .career-content-item .career-content-item-inner .bottom-btn .node-preview-container a.btn-find-job.node-preview-backlink:hover, .ck-content .node-preview-container .main-quiz-container .cdq-abilities-quiz .career-content-main-wrapper .career-content-item .career-content-item-inner .bottom-btn a.btn-find-job.node-preview-backlink:hover {
   background: #e6eae9;
 }
-.ck-content .main-quiz-container .cdq-abilities-quiz .careers-main-wrapper .bottom-links .link.link_1 a {
+.ck-content .main-quiz-container .cdq-abilities-quiz .careers-main-wrapper .bottom-links .link.link_1 a,
+.ck-content .main-quiz-container .cdq-abilities-quiz .careers-main-wrapper .mobi-bottom-links .link.link_1 a {
   border: 2px solid #234075;
   color: #234075;
   background: transparent;
 }
-.ck-content .main-quiz-container .cdq-abilities-quiz .careers-main-wrapper .bottom-links .link.link_1 a:hover {
+.ck-content .main-quiz-container .cdq-abilities-quiz .careers-main-wrapper .bottom-links .link.link_1 a:hover,
+.ck-content .main-quiz-container .cdq-abilities-quiz .careers-main-wrapper .mobi-bottom-links .link.link_1 a:hover {
   background: #e6eae9;
 }
-.ck-content .main-quiz-container .cdq-abilities-quiz .careers-main-wrapper .bottom-links .link.link_2 a {
+.ck-content .main-quiz-container .cdq-abilities-quiz .careers-main-wrapper .bottom-links .link.link_2 a,
+.ck-content .main-quiz-container .cdq-abilities-quiz .careers-main-wrapper .mobi-bottom-links .link.link_2 a {
   background: #234075;
   border: 2px solid #234075 !important;
 }
-.ck-content .main-quiz-container .cdq-abilities-quiz .careers-main-wrapper .bottom-links .link.link_2 a:hover {
+.ck-content .main-quiz-container .cdq-abilities-quiz .careers-main-wrapper .bottom-links .link.link_2 a:hover,
+.ck-content .main-quiz-container .cdq-abilities-quiz .careers-main-wrapper .mobi-bottom-links .link.link_2 a:hover {
   background: #002855;
   border-color: #002855;
 }
@@ -16768,19 +16800,23 @@ a > .ck-content code {
 .ck-content .main-quiz-container .cdq-work-preferences-quiz .career-content-main-wrapper .career-content-item .career-content-item-inner .bottom-btn a.btn.btn-find-job:hover, .ck-content .main-quiz-container .cdq-work-preferences-quiz .career-content-main-wrapper .career-content-item .career-content-item-inner .bottom-btn a.btn-find-job.button:hover, .ck-content .main-quiz-container .cdq-work-preferences-quiz .career-content-main-wrapper .career-content-item .career-content-item-inner .bottom-btn .node-preview-container a.btn-find-job.node-preview-backlink:hover, .ck-content .node-preview-container .main-quiz-container .cdq-work-preferences-quiz .career-content-main-wrapper .career-content-item .career-content-item-inner .bottom-btn a.btn-find-job.node-preview-backlink:hover {
   background: #e6eae9;
 }
-.ck-content .main-quiz-container .cdq-work-preferences-quiz .careers-main-wrapper .bottom-links .link.link_1 a {
+.ck-content .main-quiz-container .cdq-work-preferences-quiz .careers-main-wrapper .bottom-links .link.link_1 a,
+.ck-content .main-quiz-container .cdq-work-preferences-quiz .careers-main-wrapper .mobi-bottom-links .link.link_1 a {
   border: 2px solid #510b76;
   color: #510b76;
   background: transparent;
 }
-.ck-content .main-quiz-container .cdq-work-preferences-quiz .careers-main-wrapper .bottom-links .link.link_1 a:hover {
+.ck-content .main-quiz-container .cdq-work-preferences-quiz .careers-main-wrapper .bottom-links .link.link_1 a:hover,
+.ck-content .main-quiz-container .cdq-work-preferences-quiz .careers-main-wrapper .mobi-bottom-links .link.link_1 a:hover {
   background: #e6eae9;
 }
-.ck-content .main-quiz-container .cdq-work-preferences-quiz .careers-main-wrapper .bottom-links .link.link_2 a {
+.ck-content .main-quiz-container .cdq-work-preferences-quiz .careers-main-wrapper .bottom-links .link.link_2 a,
+.ck-content .main-quiz-container .cdq-work-preferences-quiz .careers-main-wrapper .mobi-bottom-links .link.link_2 a {
   background: #510b76;
   border: 2px solid #510b76 !important;
 }
-.ck-content .main-quiz-container .cdq-work-preferences-quiz .careers-main-wrapper .bottom-links .link.link_2 a:hover {
+.ck-content .main-quiz-container .cdq-work-preferences-quiz .careers-main-wrapper .bottom-links .link.link_2 a:hover,
+.ck-content .main-quiz-container .cdq-work-preferences-quiz .careers-main-wrapper .mobi-bottom-links .link.link_2 a:hover {
   background: #310546;
   border-color: #310546;
 }
@@ -16910,19 +16946,23 @@ a > .ck-content code {
 .ck-content .main-quiz-container .cdq-interests-quiz .career-content-main-wrapper .career-content-item .career-content-item-inner .bottom-btn a.btn.btn-find-job:hover, .ck-content .main-quiz-container .cdq-interests-quiz .career-content-main-wrapper .career-content-item .career-content-item-inner .bottom-btn a.btn-find-job.button:hover, .ck-content .main-quiz-container .cdq-interests-quiz .career-content-main-wrapper .career-content-item .career-content-item-inner .bottom-btn .node-preview-container a.btn-find-job.node-preview-backlink:hover, .ck-content .node-preview-container .main-quiz-container .cdq-interests-quiz .career-content-main-wrapper .career-content-item .career-content-item-inner .bottom-btn a.btn-find-job.node-preview-backlink:hover {
   background: #e6eae9;
 }
-.ck-content .main-quiz-container .cdq-interests-quiz .careers-main-wrapper .bottom-links .link.link_1 a {
+.ck-content .main-quiz-container .cdq-interests-quiz .careers-main-wrapper .bottom-links .link.link_1 a,
+.ck-content .main-quiz-container .cdq-interests-quiz .careers-main-wrapper .mobi-bottom-links .link.link_1 a {
   border: 2px solid #2671ca;
   color: #2671ca;
   background: transparent;
 }
-.ck-content .main-quiz-container .cdq-interests-quiz .careers-main-wrapper .bottom-links .link.link_1 a:hover {
+.ck-content .main-quiz-container .cdq-interests-quiz .careers-main-wrapper .bottom-links .link.link_1 a:hover,
+.ck-content .main-quiz-container .cdq-interests-quiz .careers-main-wrapper .mobi-bottom-links .link.link_1 a:hover {
   background: #e6eae9;
 }
-.ck-content .main-quiz-container .cdq-interests-quiz .careers-main-wrapper .bottom-links .link.link_2 a {
+.ck-content .main-quiz-container .cdq-interests-quiz .careers-main-wrapper .bottom-links .link.link_2 a,
+.ck-content .main-quiz-container .cdq-interests-quiz .careers-main-wrapper .mobi-bottom-links .link.link_2 a {
   background: #2671ca;
   border: 2px solid #2671ca !important;
 }
-.ck-content .main-quiz-container .cdq-interests-quiz .careers-main-wrapper .bottom-links .link.link_2 a:hover {
+.ck-content .main-quiz-container .cdq-interests-quiz .careers-main-wrapper .bottom-links .link.link_2 a:hover,
+.ck-content .main-quiz-container .cdq-interests-quiz .careers-main-wrapper .mobi-bottom-links .link.link_2 a:hover {
   background: #0e3e75;
   border-color: #0e3e75;
 }
@@ -17055,19 +17095,23 @@ a > .ck-content code {
 .ck-content .main-quiz-container .cdq-multiple-intelligences-quiz .career-content-main-wrapper .career-content-item .career-content-item-inner .bottom-btn a.btn.btn-find-job:hover, .ck-content .main-quiz-container .cdq-multiple-intelligences-quiz .career-content-main-wrapper .career-content-item .career-content-item-inner .bottom-btn a.btn-find-job.button:hover, .ck-content .main-quiz-container .cdq-multiple-intelligences-quiz .career-content-main-wrapper .career-content-item .career-content-item-inner .bottom-btn .node-preview-container a.btn-find-job.node-preview-backlink:hover, .ck-content .node-preview-container .main-quiz-container .cdq-multiple-intelligences-quiz .career-content-main-wrapper .career-content-item .career-content-item-inner .bottom-btn a.btn-find-job.node-preview-backlink:hover {
   background: #e6eae9;
 }
-.ck-content .main-quiz-container .cdq-multiple-intelligences-quiz .careers-main-wrapper .bottom-links .link.link_1 a {
+.ck-content .main-quiz-container .cdq-multiple-intelligences-quiz .careers-main-wrapper .bottom-links .link.link_1 a,
+.ck-content .main-quiz-container .cdq-multiple-intelligences-quiz .careers-main-wrapper .mobi-bottom-links .link.link_1 a {
   border: 2px solid #216c06;
   color: #216c06;
   background: transparent;
 }
-.ck-content .main-quiz-container .cdq-multiple-intelligences-quiz .careers-main-wrapper .bottom-links .link.link_1 a:hover {
+.ck-content .main-quiz-container .cdq-multiple-intelligences-quiz .careers-main-wrapper .bottom-links .link.link_1 a:hover,
+.ck-content .main-quiz-container .cdq-multiple-intelligences-quiz .careers-main-wrapper .mobi-bottom-links .link.link_1 a:hover {
   background: #e6eae9;
 }
-.ck-content .main-quiz-container .cdq-multiple-intelligences-quiz .careers-main-wrapper .bottom-links .link.link_2 a {
+.ck-content .main-quiz-container .cdq-multiple-intelligences-quiz .careers-main-wrapper .bottom-links .link.link_2 a,
+.ck-content .main-quiz-container .cdq-multiple-intelligences-quiz .careers-main-wrapper .mobi-bottom-links .link.link_2 a {
   background: #216c06;
   border: 2px solid #216c06 !important;
 }
-.ck-content .main-quiz-container .cdq-multiple-intelligences-quiz .careers-main-wrapper .bottom-links .link.link_2 a:hover {
+.ck-content .main-quiz-container .cdq-multiple-intelligences-quiz .careers-main-wrapper .bottom-links .link.link_2 a:hover,
+.ck-content .main-quiz-container .cdq-multiple-intelligences-quiz .careers-main-wrapper .mobi-bottom-links .link.link_2 a:hover {
   background: #164c03;
   border-color: #164c03;
 }
@@ -17209,19 +17253,23 @@ a > .ck-content code {
 .ck-content .main-quiz-container .cdq-learning-styles-quiz .career-content-main-wrapper .career-content-item .career-content-item-inner .bottom-btn a.btn.btn-find-job:hover, .ck-content .main-quiz-container .cdq-learning-styles-quiz .career-content-main-wrapper .career-content-item .career-content-item-inner .bottom-btn a.btn-find-job.button:hover, .ck-content .main-quiz-container .cdq-learning-styles-quiz .career-content-main-wrapper .career-content-item .career-content-item-inner .bottom-btn .node-preview-container a.btn-find-job.node-preview-backlink:hover, .ck-content .node-preview-container .main-quiz-container .cdq-learning-styles-quiz .career-content-main-wrapper .career-content-item .career-content-item-inner .bottom-btn a.btn-find-job.node-preview-backlink:hover {
   background: #e6eae9;
 }
-.ck-content .main-quiz-container .cdq-learning-styles-quiz .careers-main-wrapper .bottom-links .link.link_1 a {
+.ck-content .main-quiz-container .cdq-learning-styles-quiz .careers-main-wrapper .bottom-links .link.link_1 a,
+.ck-content .main-quiz-container .cdq-learning-styles-quiz .careers-main-wrapper .mobi-bottom-links .link.link_1 a {
   border: 2px solid #007eb4;
   color: #007eb4;
   background: transparent;
 }
-.ck-content .main-quiz-container .cdq-learning-styles-quiz .careers-main-wrapper .bottom-links .link.link_1 a:hover {
+.ck-content .main-quiz-container .cdq-learning-styles-quiz .careers-main-wrapper .bottom-links .link.link_1 a:hover,
+.ck-content .main-quiz-container .cdq-learning-styles-quiz .careers-main-wrapper .mobi-bottom-links .link.link_1 a:hover {
   background: #e6eae9;
 }
-.ck-content .main-quiz-container .cdq-learning-styles-quiz .careers-main-wrapper .bottom-links .link.link_2 a {
+.ck-content .main-quiz-container .cdq-learning-styles-quiz .careers-main-wrapper .bottom-links .link.link_2 a,
+.ck-content .main-quiz-container .cdq-learning-styles-quiz .careers-main-wrapper .mobi-bottom-links .link.link_2 a {
   background: #007eb4;
   border: 2px solid #007eb4 !important;
 }
-.ck-content .main-quiz-container .cdq-learning-styles-quiz .careers-main-wrapper .bottom-links .link.link_2 a:hover {
+.ck-content .main-quiz-container .cdq-learning-styles-quiz .careers-main-wrapper .bottom-links .link.link_2 a:hover,
+.ck-content .main-quiz-container .cdq-learning-styles-quiz .careers-main-wrapper .mobi-bottom-links .link.link_2 a:hover {
   background: #005f88;
   border-color: #005f88;
 }
@@ -17351,19 +17399,23 @@ a > .ck-content code {
 .ck-content .main-quiz-container .cdq-work-values-quiz .career-content-main-wrapper .career-content-item .career-content-item-inner .bottom-btn a.btn.btn-find-job:hover, .ck-content .main-quiz-container .cdq-work-values-quiz .career-content-main-wrapper .career-content-item .career-content-item-inner .bottom-btn a.btn-find-job.button:hover, .ck-content .main-quiz-container .cdq-work-values-quiz .career-content-main-wrapper .career-content-item .career-content-item-inner .bottom-btn .node-preview-container a.btn-find-job.node-preview-backlink:hover, .ck-content .node-preview-container .main-quiz-container .cdq-work-values-quiz .career-content-main-wrapper .career-content-item .career-content-item-inner .bottom-btn a.btn-find-job.node-preview-backlink:hover {
   background: #e6eae9;
 }
-.ck-content .main-quiz-container .cdq-work-values-quiz .careers-main-wrapper .bottom-links .link.link_1 a {
+.ck-content .main-quiz-container .cdq-work-values-quiz .careers-main-wrapper .bottom-links .link.link_1 a,
+.ck-content .main-quiz-container .cdq-work-values-quiz .careers-main-wrapper .mobi-bottom-links .link.link_1 a {
   border: 2px solid #880364;
   color: #880364;
   background: transparent;
 }
-.ck-content .main-quiz-container .cdq-work-values-quiz .careers-main-wrapper .bottom-links .link.link_1 a:hover {
+.ck-content .main-quiz-container .cdq-work-values-quiz .careers-main-wrapper .bottom-links .link.link_1 a:hover,
+.ck-content .main-quiz-container .cdq-work-values-quiz .careers-main-wrapper .mobi-bottom-links .link.link_1 a:hover {
   background: #e6eae9;
 }
-.ck-content .main-quiz-container .cdq-work-values-quiz .careers-main-wrapper .bottom-links .link.link_2 a {
+.ck-content .main-quiz-container .cdq-work-values-quiz .careers-main-wrapper .bottom-links .link.link_2 a,
+.ck-content .main-quiz-container .cdq-work-values-quiz .careers-main-wrapper .mobi-bottom-links .link.link_2 a {
   background: #880364;
   border: 2px solid #880364 !important;
 }
-.ck-content .main-quiz-container .cdq-work-values-quiz .careers-main-wrapper .bottom-links .link.link_2 a:hover {
+.ck-content .main-quiz-container .cdq-work-values-quiz .careers-main-wrapper .bottom-links .link.link_2 a:hover,
+.ck-content .main-quiz-container .cdq-work-values-quiz .careers-main-wrapper .mobi-bottom-links .link.link_2 a:hover {
   background: #440031;
   border-color: #440031;
 }

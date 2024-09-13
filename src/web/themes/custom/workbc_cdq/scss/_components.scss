@@ -697,7 +697,23 @@ header {
 }
 
 .cdq-results {
+
   .bottom-links {
+    @media all and (max-width: 991.98px) {
+      display: none;
+    }
+  }
+
+  .mobi-bottom-links {
+    display: none;
+    
+    @media all and (max-width: 991.98px) {
+      display: block;
+    }
+  }
+
+  .bottom-links,
+  .mobi-bottom-links {
     padding: 30px 20px;
     background-color: white;
     margin: 0 20px;
