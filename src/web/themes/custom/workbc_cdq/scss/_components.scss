@@ -1195,7 +1195,7 @@ a.quiz-link {
 
     }
   }
-  #block-workbc-cdq-views-block-quiz-career-match-block-1 {
+  #block-workbc-cdq-views-block-quiz-career-match-block-1, #block-workbc-cdq-views-block-quiz-career-match-block-2 {
     background: #fff;
     margin: 0 20px;
     padding: 0 50px;
@@ -2462,9 +2462,6 @@ span.question-prefix {
     }
 
     .matches-wrap{
-      display: flex;
-      justify-content: center;
-      align-items: center;
       font-size: 1.4rem;
       line-height: 1.8rem;
       color: #333;
@@ -2480,8 +2477,7 @@ span.question-prefix {
       .match-warning{
         width: 25px;
         height: 25px;
-        position: relative;
-        display: inline-block;
+        margin-right: 10px;
         img {
           width: 25px;
           height: 25px;
@@ -4094,4 +4090,11 @@ h2.cdq-quiz-title, .webform-submission-information {
     }
 
   }
+}
+
+// Bootstrap tooltip
+.tooltip-inner {
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  text-align: left;
 }

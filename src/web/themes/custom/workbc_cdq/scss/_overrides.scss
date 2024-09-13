@@ -750,9 +750,6 @@
     .overlay-content{
       .block-system-main-block{
         border-top: 9px solid $quiz-blue-dark;
-        &:not(.no-border-block){
-          border-bottom: 5px solid $quiz-blue;
-        }
       }
       #block-views-block-step-form-pagination-block-1{
         border-bottom: 5px solid $quiz-blue;
