@@ -32,14 +32,14 @@
   {%
     set legend_span_classes = [
       'fieldset-legend',
-      required ? 'js-form-required',
-      required ? 'form-required',
+      required ? 'js-form-required'
     ]
   %}
   {# Always wrap fieldset legends in a <span> for CSS positioning. #}
   <legend{{ legend.attributes }}>
     {% if question_number %}
-      <span{{ legend_span.attributes.addClass(legend_span_classes) }}><span class="question-prefix">{{ question_number }}</span> {{ legend.title }}</span>
+        <span class="question-prefix">{{ question_number }}</span>
+        <span {{ legend_span.attributes.addClass(legend_span_classes) }}>{{ legend.title }}</span>
     {% else %}
       <span{{ legend_span.attributes.addClass(legend_span_classes) }}>{{ legend.title }}</span>
     {% endif %}

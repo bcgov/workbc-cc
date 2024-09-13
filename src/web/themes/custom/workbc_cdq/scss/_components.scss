@@ -1773,15 +1773,23 @@ form{
         width: 100%;
         padding-top: 0;
       }
-      > span.question-prefix{
-        position:absolute;
+      span.question-prefix{
+        @media all and (max-width: 1024.98px){
+          position: absolute;
+          margin: 0 0;
+        }
+        position: relative;
+        float: left;
+        margin: 30px 20px;
+        &:after {
+          content: ".";
+        }
       }
-      >span.fieldset-legend{
-        margin: 30px;
+      span.fieldset-legend{
+        margin: 30px 30px 30px 30px;
         display: block;
         @media all and (max-width: 1024.98px){
-          margin: 0;
-          padding-top: 0;
+          margin: 0 30px 0 30px;
         }
       }
     }
@@ -1904,109 +1912,6 @@ form{
         }
       }
     }
-  }
-}
-
-// .field--type-work-bc-quiz {
-//     padding: 10px 20px;
-//     border-bottom: 0px;
-//     @media all and (max-width: 767.98px){
-//         padding: 15px 25px;
-//     }
-//     fieldset {
-//         margin: 0px;
-//         flex: 74%;
-//         legend {
-//             float: left !important;
-//             width: 37%!important;
-//             min-height: auto;
-//             font-family: "BC Sans", sans-serif;
-//             font-weight: 400;
-//             font-style: normal;
-//             font-size: 1.5rem;
-//             line-height: 2.1rem;
-//             color: #333333;
-
-//             .learning-styles-quiz &,
-//             .work-values-quiz &{
-//                 width: 65%!important;
-//                 @media all and (max-width: 767.98px){
-//                     width: 100% !important;
-//                 }
-//             }
-
-//             span:last-child {
-//                 float: left;
-//                 width: 85%;
-//                 margin-left: 10px;
-//             }
-
-//             @media all and (max-width: 767.98px) {
-//                 width: 100% !important;
-//                 position: relative;
-
-//                 .learning-styles-quiz &{
-//                     width: 100%!important;
-//                 }
-//             }
-//         }
-
-//         .fieldset-wrapper {
-//             float: right;
-//             margin-right: 35px;
-//             width: 55%;
-//             margin-left: auto;
-//             @media all and (max-width: 767.98px) {
-//                 margin-left: inherit;
-//             }
-//             .learning-styles-quiz &,
-//             .work-values-quiz & {
-//                 width: 40%;
-//             }
-//         }
-//     }
-
-//     .form-item {
-//         margin: 0px;
-//         display: flex;
-//         align-items: center;
-//         @media all and (max-width: 767.98px) {
-//             display: flex;
-//             flex-direction: column;
-//         }
-//     }
-// }
-
-// .work-values-quiz{
-//     .field--type-work-bc-quiz{
-//         fieldset{
-//             legend{
-//                 width: 100% !important;
-//             }
-//             .fieldset-wrapper{
-//                 width: 60%;
-//                 .form-radios .form-item{
-//                     min-width: 27%;
-//                 }
-//             }
-//         }
-//     }
-// }
-
-span.question-prefix {
-  float: left;
-  width: 29px;
-  color: #333333;
-  font-size: 1.5rem;
-
-  @media all and (max-width: 767.98px) {
-    margin-top: 1px;
-    width: 30px;
-  }
-
-  &:after {
-    content: ".";
-    color: #333333;
   }
 }
 
