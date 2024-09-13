@@ -86,7 +86,7 @@ function workbc_cdq_career_match_preprocess_views_view_table(&$variables) {
 
     $token_url = \Drupal::request()->get('token');
 
-    $variables['is_quiz_owner'] = $token_session === $token_url;
+    $variables['is_quiz_owner'] = ($token_session === $token_url || ((is_null($token_url) && !empty($token_session))));
   }
 }
 
