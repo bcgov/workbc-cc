@@ -79,7 +79,7 @@
           $('.cdq-results').each(function() {
             $(this).addClass("user-selected");
           });
-          $('.bottom-links').hide()
+          $('.mobi-bottom-links').hide()
         });
 
         // when user clicks back-to-quiz link ...
@@ -91,7 +91,7 @@
           $('.career-content-item').each(function() {
             $(this).removeClass("active");
           });
-          $('.bottom-links').show()
+          $('.mobi-bottom-links').show()
           $("html, body").animate({scrollTop: $(".careers-mobi-table-wrapper").offset().top}, "slow");
         });
 
