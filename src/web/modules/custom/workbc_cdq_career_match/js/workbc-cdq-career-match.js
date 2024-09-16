@@ -61,8 +61,8 @@
         });
 
 
-        // when user selects a career profile from the table
-        $('.views-field-title').on('click', function() {
+        // when user selects a career profile from the table (DESKTOP only)
+        $('.careers-table-main-wrapper .views-field-title').on('click', function() {
           let current_item = $(this).closest('.career-table-row').data('id');
           $('.career-content-item').each(function() {
             $(this).removeClass("active");
@@ -79,10 +79,30 @@
           $('.cdq-results').each(function() {
             $(this).addClass("user-selected");
           });
-          $('.mobi-bottom-links').hide()
         });
 
-        // when user clicks back-to-quiz link ...
+        // when user selects a career profile from the table (MOBILE only)
+        $('.careers-mobi-main-wrapper .views-field-title').on('click', function() {
+          let current_item = $(this).closest('.career-table-row').data('id');
+          $('.career-content-item').each(function() {
+            $(this).removeClass("active");
+          });
+          $('.' + current_item).each(function() {
+            $(this).addClass("active")
+          });
+
+          $('.career-table-row').each(function() {
+            $(this).closest('.career-table-row').removeClass("active");
+          });
+          $(this).closest('.career-table-row').addClass("active");
+
+          $('.cdq-results').each(function() {
+            $(this).addClass("user-selected");
+          });
+          $('#modifyNextLinks').hide()
+        });
+
+        // when user clicks back-to-quiz link (MOBILE only)
         $('a#back-to-quiz').on('click', function() {
           $('.cdq-results').each(function() {
             $(this).removeClass("user-selected");
@@ -91,7 +111,7 @@
           $('.career-content-item').each(function() {
             $(this).removeClass("active");
           });
-          $('.mobi-bottom-links').show()
+          $('#modifyNextLinks').show()
           $("html, body").animate({scrollTop: $(".careers-mobi-table-wrapper").offset().top}, "slow");
         });
 
