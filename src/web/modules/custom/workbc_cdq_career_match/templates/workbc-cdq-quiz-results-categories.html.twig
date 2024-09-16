@@ -21,7 +21,8 @@
   {% endif %}
 
   <div id="myResult" data-ride="carousel" class="carousel slide">
-    <div class="carousel-mobi-tabs  d-print-none">
+    {% if score|length > 3 %}
+      <div class="carousel-mobi-tabs  d-print-none">
       <a href="javascript:;" class="carousel-mobi-tabs-trigger">
         <span class="text vaa">{{ category_top }}</span> <span class="vaa1" style="display:none">{{ category_all }}</span>
         <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="24" height="24" viewBox="0 0 64.000000 64.000000">
@@ -42,6 +43,7 @@
         <li><a href="javascript:;" class="carousel-mobi-tab-item" data-href="bottomcarousel" data-text="{{ category_all }}">{{ category_all }}</a></li>
       </ul>
     </div>
+    {% endif %}
     <div class="carousel-inner carousel-inner-device">
         <div class="row">
         {% for key, cat in score|slice(0,3) %}
