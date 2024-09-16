@@ -157,14 +157,14 @@ resource "aws_ecs_task_definition" "app" {
 	{
 		essential   = true
 		name        = "nginx"
-		image       = "${var.app_repo}/nginx:1.5"
+		image       = "${var.app_repo}/nginx:2.3"
 		networkMode = "awsvpc"
 		
 		logConfiguration = {
 			logDriver = "awslogs"
 			options = {
 				awslogs-create-group  = "true"
-				awslogs-group         = "/ecs/${var.app_name}"
+				awslogs-group         = "/ecs/${var.app_name}/nginx"
 				awslogs-region        = var.aws_region
 				awslogs-stream-prefix = "ecs"
 			}
