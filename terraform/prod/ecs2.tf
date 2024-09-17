@@ -29,7 +29,7 @@ resource "aws_ecs_task_definition" "cron-job" {
 		environment = [
 			{
 				name = "Cron_Url",
-				value = "https://workbc-cc.b89n0c-prod.nimbus.cloud.gov.bc.ca/cron/wxHc1VkoV0HGOG1IZDI0lL9IbsDLVckTdUfwBM6RVMym6U8t3qasEb_K6x5RnHB1R1-s6VQRCQ"
+				value = "https://workbc-cc.b89n0c-prod.nimbus.cloud.gov.bc.ca/cron/xzGQ7ccCTDI7MiSU-Sk7ANoIIkbfQEZ1pAIYZmrRRBGaKvSFVua-ZvzqR7H2Z2qH0pbNXutafQ"
 			}
 		]
 	}
