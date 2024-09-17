@@ -667,5 +667,15 @@ access:
     roles: {  }
     users: {  }
     permissions: {  }
-handlers: {  }
+handlers:
+  session_quiz_token:
+    id: session_quiz_token
+    handler_id: session_quiz_token
+    label: 'Session Quiz Token'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 0
+    settings:
+      debug: true
 variants: {  }
