@@ -104,7 +104,7 @@ function workbc_cdq_career_match_preprocess_block(&$variables) {
 
       $token_url = \Drupal::request()->get('token');
 
-      $variables['is_quiz_owner'] = ($token_session === $token_url || ((is_null($token_url) && !empty($token_session))));  
+      $variables['is_quiz_owner'] = ($token_session === $token_url || ((is_null($token_url) && !empty($token_session))));
     }
   }
 }
@@ -406,6 +406,7 @@ function getSubmissionScore(WebformSubmission $submission) {
       'count' => 0,
       'term' => $category,
       'name' => $category->name,
+      'order' => $category->weight,
       'answers' => [],
     ];
     return $categories;
@@ -448,7 +449,15 @@ function getSubmissionScore(WebformSubmission $submission) {
         break;
     }
   }
-  if ($quiz->id() !== 'work_values_quiz') {
+  if ($quiz->id() === 'work_preferences_quiz') {
+    // Use the sort order of category terms as they appear in the vocabulary.
+    array_multisort(
+      array_column($categories, 'percent'), SORT_DESC,
+      array_column($categories, 'order'), SORT_ASC,
+      $categories
+    );
+  }
+  else if ($quiz->id() !== 'work_values_quiz') {
     array_multisort(
       array_column($categories, 'percent'), SORT_DESC,
       array_column($categories, 'name'), SORT_ASC,
@@ -613,7 +622,11 @@ function matchWorkPreferencesCareers($submission, $score) {
   // 3. Lookup careers matches for each permutation and calculate match score.
   $terms = array_keys($score);
   $results = [];
-  foreach(['123', '132', '213', '231', '312', '321', '124', '142', '214'] as $permutation_index => $permutation) {
+  foreach([
+    '123', '132', '213', '231', '312', '321',
+    '124', '142', '214', '241', '412', '421',
+    '125', '152', '215', '251', '512', '521',
+  ] as $permutation_index => $permutation) {
     $raw_code = array_reduce(str_split($permutation), function($code, $digit) use($terms) {
       $code .= $terms[intval($digit)-1][0];
       return $code;
