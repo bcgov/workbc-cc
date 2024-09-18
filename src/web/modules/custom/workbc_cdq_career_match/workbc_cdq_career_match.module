@@ -91,6 +91,25 @@ function workbc_cdq_career_match_preprocess_views_view_table(&$variables) {
 }
 
 /**
+* Implements hook_preprocess_block().
+*/
+function workbc_cdq_career_match_preprocess_block(&$variables) {
+
+  $variables['is_quiz_owner'] = false;
+  if ($variables['elements']['#id'] == 'workbc_cdq_content') {
+    $quiz = getCurrentQuiz();
+    if ($quiz) {
+      $session = \Drupal::request()->getSession();
+      $token_session = $session->get($quiz['id'].'_token')?: "";
+
+      $token_url = \Drupal::request()->get('token');
+
+      $variables['is_quiz_owner'] = ($token_session === $token_url || ((is_null($token_url) && !empty($token_session))));  
+    }
+  }
+}
+
+/**
  * Implements hook_views_pre_render().
  */
 function workbc_cdq_career_match_views_pre_render($view) {
