@@ -213,7 +213,7 @@ resource "aws_ecs_task_definition" "app" {
 			},
 			{
 				name = "POSTGRES_DB",
-				value = "drupal_cc"
+				value = "drupal_cdq"
 			},
 			{
 				name = "OPENSHIFT_BUILD_NAME",
