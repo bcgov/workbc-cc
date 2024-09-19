@@ -144,14 +144,11 @@ function getUserSubmission($webform_id, $skip_overrides = false) {
       $new_submission->save();
 
       if ($new_submission->id()) {
-        $older_sids = \Drupal::entityQuery('webform_submission')
-        ->condition('webform_id', $webform_id)
-        ->condition('sid', $new_submission->id(), '<>')
-        ->accessCheck(false)
-        ->execute();
-        \Drupal::entityTypeManager()->getStorage('webform_submission')->delete(
-          \Drupal::entityTypeManager()->getStorage('webform_submission')->loadMultiple(array_keys($older_sids))
-        );
+        if (!empty($sid)) {
+          \Drupal::entityTypeManager()->getStorage('webform_submission')->delete(
+            \Drupal::entityTypeManager()->getStorage('webform_submission')->loadMultiple([$sid])
+          );
+        }
         return $new_submission;
       }
     }
