@@ -255,6 +255,11 @@
           $(".carousel-mobi-tabs-trigger > span.text").text($(this).data("text"));
         });
 
+      $(once('cdqcareercompare', '.cdq-back-link', context)).each(function () {
+        $(".back-to-results").on("click", function () {
+          history.back();
+        });
+      });
 
       $(once('cdqprint', '.career-top-right', context)).each(function () {
         $(".compare-career-print > .print-window, .quiz-node-print > .print-window").on("click", function () {
