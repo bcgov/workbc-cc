@@ -40,7 +40,7 @@ class ReturnToResultsBlock extends BlockBase {
 
     $markup = "";
     $markup .= '<div class="cdq-back-link">';
-    $markup .= '<a href="#nowhere" class="back-to-results"><img src="/themes/custom/workbc_cdq/assets/arrow-left.svg"/> Back to Quiz Results </a>';
+    $markup .= '<a href="#back" class="back-to-results"><img src="/themes/custom/workbc_cdq/assets/arrow-left.svg"/> Back to Quiz Results </a>';
     $markup .= '</div>';
   
     return array(
