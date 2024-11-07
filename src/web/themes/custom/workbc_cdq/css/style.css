@@ -15172,9 +15172,8 @@ body.path-quiz {
     display: block;
   }
 }
-.path-quiz form fieldset.error-class {
+.path-quiz form fieldset.error {
   border: 2px solid rgb(205, 27, 33);
-  margin: 5px;
 }
 .path-quiz .preview-quiz-form .form-actions.form-actions {
   margin: 0;
@@ -17437,6 +17436,27 @@ h2.cdq-quiz-title, .cdq-quiz-title.h2, .webform-submission-information {
   font-size: 1.6rem;
   line-height: 2.4rem;
   text-align: left;
+}
+
+.main-quiz-container .alert-error {
+  display: none;
+}
+
+.cdq-validation-error {
+  position: absolute;
+  z-index: 1;
+  bottom: 15px;
+  left: 400px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  color: #CD1B21;
+}
+.cdq-validation-error::before {
+  content: url(../assets/icons/alert.svg);
+  position: relative;
+  top: 3px;
+  margin-right: 5px;
 }
 
 .cdq-compare.cdq-abilities-quiz #block-workbc-cdq-content {
