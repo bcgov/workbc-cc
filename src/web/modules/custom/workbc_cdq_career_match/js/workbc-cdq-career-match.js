@@ -303,4 +303,28 @@
     }
   };
 
+
+  Drupal.behaviors.CareerQuizzes = {
+    attach: function (context, settings) {
+
+      $("#block-workbc-cdq-content > form > div.form-wrapper").each(
+        function () {
+          if ($(this).find("> fieldset").hasClass("error")) {
+              const actions = document.getElementById("edit-actions");
+              actions.insertAdjacentHTML("beforeend", '<div class="cdq-validation-error">Please answer all questions before proceeding.</div>');
+
+              const content = document.getElementById("block-workbc-cdq-content");
+              content.scrollIntoView({ behavior: "smooth", block: "end" });
+             
+            }
+          }
+      );
+
+
+    } 
+  };
+
 })(Drupal, jQuery, once, drupalSettings);
+
+
+

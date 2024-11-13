@@ -1608,9 +1608,8 @@ body.path-quiz {
         }
 
       }
-      &.error-class{
+      &.error{
         border: 2px solid rgba(205, 27, 33, 1);
-        margin: 5px;
       }
     }
   }
@@ -3997,9 +3996,37 @@ h2.cdq-quiz-title, .webform-submission-information {
   }
 }
 
+
+
 // Bootstrap tooltip
 .tooltip-inner {
   font-size: 1.6rem;
   line-height: 2.4rem;
   text-align: left;
 }
+
+
+.main-quiz-container {
+  .alert-error {
+    display: none;
+  }
+
+}
+
+.cdq-validation-error {
+    position: absolute;
+    z-index: 1;
+    bottom: 15px;
+    left: 400px;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    color: #CD1B21;
+    &::before{
+      content: url(../assets/icons/alert.svg);
+      position: relative;
+      top: 3px;
+      margin-right: 5px;
+    }  
+}
+
