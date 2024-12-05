@@ -17458,6 +17458,11 @@ h2.cdq-quiz-title, .cdq-quiz-title.h2, .webform-submission-information {
   top: 3px;
   margin-right: 5px;
 }
+@media all and (max-width: 991.98px) {
+  .cdq-validation-error {
+    position: unset;
+  }
+}
 
 .cdq-compare.cdq-abilities-quiz #block-workbc-cdq-content {
   border-bottom: 4px solid #234075;
