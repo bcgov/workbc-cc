@@ -4028,5 +4028,9 @@ h2.cdq-quiz-title, .webform-submission-information {
       top: 3px;
       margin-right: 5px;
     }  
+
+    @media all and (max-width: 991.98px) {
+      position: unset;
+    }
 }
 

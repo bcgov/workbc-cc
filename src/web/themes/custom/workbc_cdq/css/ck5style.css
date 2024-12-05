@@ -16393,6 +16393,11 @@ a > .ck-content code {
   top: 3px;
   margin-right: 5px;
 }
+@media all and (max-width: 991.98px) {
+  .ck-content .cdq-validation-error {
+    position: unset;
+  }
+}
 .ck-content .cdq-compare.cdq-abilities-quiz #block-workbc-cdq-content {
   border-bottom: 4px solid #234075;
 }
