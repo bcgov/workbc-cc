@@ -5,6 +5,7 @@ global-styling:
 
   js:
     js/slick.min.js: {}
+    js/snowplow-tracker.js: {}
 
   dependencies:
     - core/jquery

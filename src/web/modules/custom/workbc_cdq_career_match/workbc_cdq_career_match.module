@@ -128,6 +128,7 @@ function workbc_cdq_career_match_preprocess_views_view_field(&$variables) {
 
   if ($variables['view']->id() === "quiz_career_match" && $variables['field']->realField === "selected") {
     $variables['career_match_id'] = $variables['row']->id;
+    $variables['career_match_noc'] = $variables['row']->_relationship_entities['nid']->field_noc->value;
   }
   if ($variables['view']->id() === "quiz_career_match" && $variables['field']->realField === "career_match") {
     $value = $variables['field']->getValue($variables['row']);
