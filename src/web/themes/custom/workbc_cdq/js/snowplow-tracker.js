@@ -82,12 +82,6 @@
 
         function snowplow_tracker_quiz(category, quiz_type, step, status) {
             $(once('num_'+count, 'html', context)).each(function() {
-                console.log("<<<snowplow_tracker_quiz>>>");
-                console.log("  - " + category);
-                console.log("  - " + quiz_type);
-                console.log("  - " + step);
-                console.log("  - " + status);
-                console.log("<<<end>>>");
                 window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/career_quiz_step/jsonschema/1-0-0",
                     "data": {
                         "category": category,
@@ -168,13 +162,6 @@
                 noc_3 = noc_group['noc_3'];
             }
 
-            console.log("<<<snowplow_tracker_compare>>>");
-            console.log("  - " + action);
-            console.log("  - " + noc_1);
-            console.log("  - " + noc_2);
-            console.log("  - " + noc_3);
-            console.log("<<<end>>>")
-
             window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/career_quiz_compare/jsonschema/1-0-0",
                 "data": {
                     "action": action,
@@ -248,11 +235,7 @@
         });
 
         function snowplow_tracker_print_email(click_type, source) {
-            $(once('num_'+count, 'html', context)).each(function() {
-                console.log("<<<snowplow_tracker_print_email>>>");
-                console.log("  - "+click_type);
-                console.log("  - "+source);
-                console.log("<<<end>>>");                
+            $(once('num_'+count, 'html', context)).each(function() {           
                 window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/career_quiz_search_click/jsonschema/1-0-0",
                     "data": {
                         "click_type": click_type,
@@ -275,11 +258,6 @@
         })
 
         function snowplow_tracker_sort(click_type, source, text) {
-            console.log("<<<snowplow_tracker_sort>>>");
-            console.log("  - " + click_type);
-            console.log("  - " + source);
-            console.log("  - " + text);
-            console.log("<end>");
             $(this, context).once('num_'+count).each(function() {
                 window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/career_quiz_search_click/jsonschema/1-0-0",
                     "data": {
@@ -292,13 +270,7 @@
         }
 
         function snowplow_tracker_target(click_type, source, text, url) {
-            $(once('num_'+count, 'html', context)).each(function() {
-                console.log("<<<snowplow_tracker_target>>>");
-                console.log("  - "+click_type);
-                console.log("  - "+source);
-                console.log("  - "+text);
-                console.log("  - "+url);
-                console.log("<<<end>>>");                
+            $(once('num_'+count, 'html', context)).each(function() {             
                 window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/career_quiz_search_click/jsonschema/1-0-0",
                     "data": {
                         "click_type": click_type,
@@ -322,11 +294,6 @@
         
 
         function snowplow_tracker_results(category, quiz_type, appt) {
-            console.log("<<<snowplow_tracker_results>>>");
-            console.log("  - " + category);
-            console.log("  - " + quiz_type);
-            console.log("  - " + appt);
-            console.log("<<<end>>>");
             window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/career_quiz_result/jsonschema/1-0-0",
                 "data": {
                     "category": category,
@@ -355,11 +322,6 @@
         });
 
         function snowplow_preview_profile(click_type, source, text) {
-            console.log("<<<snowplow_preview_profile>>>");
-            console.log("  - " + click_type);
-            console.log("  - " + source);
-            console.log("  - " + text);
-            console.log("<end>");
             $(this, context).once('num_'+count).each(function() {
                 window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/career_quiz_search_click/jsonschema/1-0-0",
                 "data": {
@@ -388,11 +350,6 @@
         }
 
         function snowplow_error_call(category, quiz, step) {
-            console.log("<<<snowplow_error_call>>>");
-            console.log("  - " + category);
-            console.log("  - " + quiz);
-            console.log("  - " + step);
-            console.log("<end>");
             $(this, context).once('num_'+count).each(function() {
                 window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/career_quiz_error/jsonschema/1-0-0",
                     "data": {
