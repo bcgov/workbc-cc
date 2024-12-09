@@ -31,12 +31,12 @@
 	
 	<div class="views-field views-field-field-quiz-link quiz_link">
 		{% if quiz['status'] == 'completed' %}
-	  	<a href="{{ quiz['results_link'] }}" class="quiz-link text-capitalize">View Your Results</a>
-	  	<a href="{{ quiz['quiz_link'] }}" class="result-link"> Modify Your Answers </a>
+	  	<a href="{{ quiz['results_link'] }}" class="quiz-link quiz-results-link text-capitalize">View Your Results</a>
+	  	<a href="{{ quiz['quiz_link'] }}" class="result-link quiz-modify-link"> Modify Your Answers </a>
 		{% elseif quiz['status'] == 'incomplete' %}			
-			<a href="{{ quiz['quiz_link'] }}" class="quiz-link">Continue Quiz</a>		
+			<a href="{{ quiz['quiz_link'] }}" class="quiz-link quiz-new-link">Continue Quiz</a>		
 		{% else %}
-			<a href="{{ quiz['quiz_link'] }}" class="quiz-link">Take the Quiz</a>
+			<a href="{{ quiz['quiz_link'] }}" class="quiz-link quiz-new-link">Take the Quiz</a>
 		{% endif %}
 	</div>
 </div>
