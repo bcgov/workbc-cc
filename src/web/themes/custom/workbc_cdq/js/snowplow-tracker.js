@@ -16,7 +16,7 @@
                 var path = window.location.pathname.split('/');
                 var quiz_type = find_quiz_type(path);
 
-                var current_step = context.querySelector(".is-active").getAttribute("data-webform-page");
+                var current_step = context.querySelector(".progress-step.is-active").getAttribute("data-webform-page");
                 var step = parseInt(current_step.replace("page_", ""));
 
                 var category = find_quiz_category(quiz_type);
@@ -188,15 +188,13 @@
             noc_id = noc_id.split('=')[1];
 
             snowplow_tracker_target(click_type, source, noc_id, url);
-
         });
 
         
-
         //profile click
         $('.btn.btn-career-profile').click(function() {
-           count++
-           if($('main > div').hasClass("cdq-results")) {
+            count++                
+            if($('main > div').hasClass("cdq-results")) {
                 var source = "search";
             } else {
                 var source = "compare";
@@ -206,8 +204,24 @@
             var text = $(this).attr('href').split('/');
             var noc_id = text[text.length - 1];
 
-            snowplow_tracker_target(click_type, source, noc_id, url);
+            snowplow_tracker_target(click_type, source, noc_id, url);             
         });
+
+
+        function snowplow_tracker_target(click_type, source, text, url) { 
+
+            $(once(click_type+'_'+source+'_'+count, 'html', context)).each(function() { 
+                window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/career_quiz_search_click/jsonschema/1-0-0",
+                    "data": {
+                        "click_type": click_type,
+                        "source": source,
+                        "text": text,
+                        "url" : url
+                    }
+                });
+            });                
+        }
+
 
         //Print and email click
         $('.career-top-right .quiz-node-print .icon').click(function() {
@@ -254,33 +268,22 @@
             var sort_field = $(this).attr('href').split('#')[0].split('&')[1].split('=')[1];
             var sort_direction = $(this).attr('href').split('#')[0].split('&')[2].split('=')[1];
             var sort_text = sort_field + ' - ' + sort_direction;
-            snowplow_tracker_sort(click_type, source, sort_text);
+            
+            $(once('num_'+count, context)).each(function() { 
+                snowplow_tracker_sort(click_type, source, sort_text);
+            });                
         })
 
         function snowplow_tracker_sort(click_type, source, text) {
-            $(this, context).once('num_'+count).each(function() {
                 window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/career_quiz_search_click/jsonschema/1-0-0",
                     "data": {
                         "click_type": click_type,
                         "source": source,
                         "text": text
                     }
-                });
-            });
+                });            
         }
 
-        function snowplow_tracker_target(click_type, source, text, url) {
-            $(once('num_'+count, 'html', context)).each(function() {             
-                window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/career_quiz_search_click/jsonschema/1-0-0",
-                    "data": {
-                        "click_type": click_type,
-                        "source": source,
-                        "text": text,
-                        "url" : url
-                    }
-                });
-            });
-        }
 
         //Results page
         $('#edit-submit[value="Submit"]').click(function() {
@@ -322,7 +325,6 @@
         });
 
         function snowplow_preview_profile(click_type, source, text) {
-            $(this, context).once('num_'+count).each(function() {
                 window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/career_quiz_search_click/jsonschema/1-0-0",
                 "data": {
                     "click_type": click_type,
@@ -330,7 +332,6 @@
                     "text": text
                 }
               });
-            });
         } 
 
         //Error calls
@@ -343,14 +344,17 @@
             } else {
                 var category = 'personality';
             }
-            var current_step = context.querySelector(".is-active").getAttribute("data-webform-page");
-            var step = parseInt(current_step.replace("page_", ""));
+            var current_page = context.querySelector(".progress-step.is-active");
+            if (current_page != null) {
+                current_step = current_page.getAttribute("data-webform-page");
+                var step = parseInt(current_step.replace("page_", ""));
 
-            snowplow_error_call(category, quiz_type, step);
+                snowplow_error_call(category, quiz_type, step);
+            }
         }
 
         function snowplow_error_call(category, quiz, step) {
-            $(this, context).once('num_'+count).each(function() {
+            $(once('num_'+count, 'html', context)).each(function() {
                 window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/career_quiz_error/jsonschema/1-0-0",
                     "data": {
                         "error_message": "Please answer all questions before proceeding.",

@@ -311,8 +311,10 @@
         function () {
           if ($(this).find("> fieldset").hasClass("error")) {
               const actions = document.getElementById("edit-actions");
-              actions.insertAdjacentHTML("beforeend", '<div class="cdq-validation-error">Please answer all questions before proceeding.</div>');
-
+              const errors = document.getElementsByClassName("cdq-validation-error");
+              if (errors.length == 0) {
+                actions.insertAdjacentHTML("beforeend", '<div class="cdq-validation-error">Please answer all questions before proceeding.</div>');
+              }
               const content = document.getElementById("block-workbc-cdq-content");
               content.scrollIntoView({ behavior: "smooth", block: "end" });
              
