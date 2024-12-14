@@ -13189,6 +13189,13 @@ footer #block-socialnetwork .social-icons a.social-linkedin img {
   width: 40px;
   height: 40px;
 }
+footer #block-socialnetwork .social-icons a.social-instagram {
+  border-radius: 0;
+}
+footer #block-socialnetwork .social-icons a.social-instagram img {
+  width: 40px;
+  height: 40px;
+}
 footer #block-socialnetwork .social-icons span {
   text-indent: -9999px;
   overflow: hidden;
