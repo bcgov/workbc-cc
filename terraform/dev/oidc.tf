@@ -1,5 +1,5 @@
 resource "aws_iam_openid_connect_provider" "eks" {
-  url = "https://oidc.eks.ca-central-1.amazonaws.com/id/4061B11EB3AD5D20FFC6CF1540684E90"
+  url = "https://oidc.eks.ca-central-1.amazonaws.com/id/F6D93A76A741E3210217A7492185D3DA"
 
   client_id_list = [
     "sts.amazonaws.com",
