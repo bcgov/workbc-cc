@@ -12197,6 +12197,13 @@ a > .ck-content code {
   width: 40px;
   height: 40px;
 }
+.ck-content footer #block-socialnetwork .social-icons a.social-instagram {
+  border-radius: 0;
+}
+.ck-content footer #block-socialnetwork .social-icons a.social-instagram img {
+  width: 40px;
+  height: 40px;
+}
 .ck-content footer #block-socialnetwork .social-icons span {
   text-indent: -9999px;
   overflow: hidden;
