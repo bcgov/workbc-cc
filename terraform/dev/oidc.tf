@@ -25,19 +25,19 @@ resource "aws_cloudfront_distribution" "workbc-cer" {
       "TLSv1.2"]
     }
 
-    domain_name = var.cloudfront_origin_domain
+    domain_name = "k8s-demo-myapping.b89n0c-dev.nimbus.cloud.gov.bc.ca"
     origin_id   = random_integer.cf_origin_id.result
 	
 	custom_header {
 	  name = "X-Forwarded-Host"
-	  value = "careerdiscoveryquizzes-dev.workbc.ca"
+	  value = "careereducation-dev2.workbc.ca"
 	}
 	
   }
 
   enabled         = true
   is_ipv6_enabled = true
-  comment         = "Career Discovery Quizzes"
+  comment         = "Career Education Resources"
 
   default_cache_behavior {
     allowed_methods = [
