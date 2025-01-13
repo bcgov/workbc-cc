@@ -25,11 +25,6 @@ class ReturnToResultsBlock extends BlockBase {
    */
   public function build() {
 
-    global $base_url;
-
-    $theme = \Drupal::theme()->getActiveTheme();
-    $default_image_url = $base_url.'/'. $theme->getPath() .'/images/image.jpg';
-
     $path = \Drupal::service('path.current')->getPath();
     $path = explode("/", $path);
     $submission = WebformSubmission::load($path[2]);
@@ -38,11 +33,12 @@ class ReturnToResultsBlock extends BlockBase {
       'query' => ['token' => $submission->getToken()]
     ])->toString();
 
-    $markup = "";
-    $markup .= '<div class="cdq-back-link">';
-    $markup .= '<a href="#back" class="back-to-results"><img src="/themes/custom/workbc_cdq/assets/arrow-left.svg"/> Back to Quiz Results </a>';
-    $markup .= '</div>';
-  
+    $markup = <<<END
+      <div class="cdq-back-link">
+        <a href="$results_link" class="back-to-results"><img src="/themes/custom/workbc_cdq/assets/arrow-left.svg"/>Back to Quiz Results</a>
+      </div>
+    END;
+
     return array(
       '#type' => 'markup',
       '#markup' => $markup,

@@ -15,7 +15,12 @@ Career Discovery Quizzes, a subsite of [WorkBC.ca](https://www.workbc.ca).
   - `docker-compose exec php sudo chown www-data /var/www/html/web/sites/default/files`
 - Import the data dumps:
   - `gunzip -k -c src/scripts/workbc-cc.sql.gz | docker-compose exec -T postgres psql -U workbc workbc-cc-refactor`
-  - Restore the SSOT data dump as per the [`workbc-ssot` README](https://github.com/bcgov/workbc-ssot?tab=readme-ov-file#development)
+  - Restore the SSOT data dump as per the [`workbc-ssot` README](https://github.com/bcgov/workbc-ssot?tab=readme-ov-file#development). Assuming your SSOT repo lives at `../workbc-ssot`:
+  ```bash
+  docker-compose exec -T postgres psql --username workbc ssot < ../workbc-ssot/ssot-reset.sql \
+  && gunzip -k -c ../workbc-ssot/ssot-full.sql.gz | docker-compose exec -T postgres psql --username workbc ssot \
+  && docker-compose kill -s SIGUSR1 ssot
+  ```
 - Edit your `hosts` file to add the following line:
 ```
 127.0.0.1       workbc-cc.docker.localhost

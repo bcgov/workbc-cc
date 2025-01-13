@@ -102,19 +102,6 @@
           $('#modifyNextLinks').hide()
         });
 
-        // when user clicks back-to-quiz link (MOBILE only)
-        $('a#back-to-quiz').on('click', function() {
-          $('.cdq-results').each(function() {
-            $(this).removeClass("user-selected");
-          });
-
-          $('.career-content-item').each(function() {
-            $(this).removeClass("active");
-          });
-          $('#modifyNextLinks').show()
-          $("html, body").animate({scrollTop: $(".careers-mobi-table-wrapper").offset().top}, "slow");
-        });
-
         function totalSelected() {
           let total = 0;
           let target = ".careers-main-wrapper .compare-career-checkbox";
@@ -217,48 +204,42 @@
         });
       });
 
-        $(".carousel-mobi-tabs-trigger").on("click", function () {
-          $(this).next().addClass("active");
-          $("body").addClass("overlayBg");
-        });
-        $(".carousel-mobi-tab-close").on("click", function () {
-          $(this).parent().removeClass("active");
-          $("body").removeClass("overlayBg");
-        });
-        $(".carousel-mobi-tab-item").on("click", function () {
-          $(".carousel-mobi-tab-item").removeClass("active");
-          $(this).addClass("active");
+      $(".carousel-mobi-tabs-trigger").on("click", function () {
+        $(this).next().addClass("active");
+        $("body").addClass("overlayBg");
+      });
+      $(".carousel-mobi-tab-close").on("click", function () {
+        $(this).parent().removeClass("active");
+        $("body").removeClass("overlayBg");
+      });
+      $(".carousel-mobi-tab-item").on("click", function () {
+        $(".carousel-mobi-tab-item").removeClass("active");
+        $(this).addClass("active");
 
-          const getTabItemId = $(this).data("href");
-          if (getTabItemId == "bottomcarousel") {
-            $(this)
-              .parents("#myResult")
-              .find(".extradivs")
-              .addClass("displayMobiPrint");
-          } else {
-            $(this)
-              .parents("#myResult")
-              .find(".extradivs")
-              .removeClass("displayMobiPrint");
-          }
-          $(".carousel-inner-mobi").removeClass("active");
-          $(`.carousel-inner-mobi[data-id=${getTabItemId}]`).addClass("active");
-          $(".active > .carousel-slider-mobi-row").slick(
-            "slickGoTo",
-            parseInt(0),
-            true
-          );
+        const getTabItemId = $(this).data("href");
+        if (getTabItemId == "bottomcarousel") {
+          $(this)
+            .parents("#myResult")
+            .find(".extradivs")
+            .addClass("displayMobiPrint");
+        } else {
+          $(this)
+            .parents("#myResult")
+            .find(".extradivs")
+            .removeClass("displayMobiPrint");
+        }
+        $(".carousel-inner-mobi").removeClass("active");
+        $(`.carousel-inner-mobi[data-id=${getTabItemId}]`).addClass("active");
+        $(".active > .carousel-slider-mobi-row").slick(
+          "slickGoTo",
+          parseInt(0),
+          true
+        );
 
-          $(this).parent().parent().removeClass("active");
-          $("body").removeClass("overlayBg");
+        $(this).parent().parent().removeClass("active");
+        $("body").removeClass("overlayBg");
 
-          $(".carousel-mobi-tabs-trigger > span.text").text($(this).data("text"));
-        });
-
-      $(once('cdqcareercompare', '.cdq-back-link', context)).each(function () {
-        $(".back-to-results").on("click", function () {
-          history.back();
-        });
+        $(".carousel-mobi-tabs-trigger > span.text").text($(this).data("text"));
       });
 
       $(once('cdqprint', '.career-top-right', context)).each(function () {
@@ -317,13 +298,13 @@
               }
               const content = document.getElementById("block-workbc-cdq-content");
               content.scrollIntoView({ behavior: "smooth", block: "end" });
-             
+
             }
           }
       );
 
 
-    } 
+    }
   };
 
 })(Drupal, jQuery, once, drupalSettings);
