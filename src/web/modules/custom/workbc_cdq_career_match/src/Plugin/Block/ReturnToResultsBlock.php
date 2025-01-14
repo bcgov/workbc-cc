@@ -29,13 +29,17 @@ class ReturnToResultsBlock extends BlockBase {
     $path = explode("/", $path);
     $submission = WebformSubmission::load($path[2]);
 
-    $results_link = Url::fromUri('route:workbc_cdq_custom.' . $submission->getWebform()->id() . '_results', [
+    $resultsUrl = Url::fromUri('route:workbc_cdq_custom.' . $submission->getWebform()->id() . '_results', [
       'query' => ['token' => $submission->getToken()]
     ])->toString();
+    $previousUrl = \Drupal::request()->server->get('HTTP_REFERER');
+    if (empty($previousUrl) || parse_url($previousUrl, PHP_URL_PATH) !== parse_url($resultsUrl, PHP_URL_PATH)) {{
+      $previousUrl = $resultsUrl;
+    }}
 
     $markup = <<<END
       <div class="cdq-back-link">
-        <a href="$results_link" class="back-to-results"><img src="/themes/custom/workbc_cdq/assets/arrow-left.svg"/>Back to Quiz Results</a>
+        <a href="$previousUrl" class="back-to-results"><img src="/themes/custom/workbc_cdq/assets/arrow-left.svg"/>Back to Quiz Results</a>
       </div>
     END;
 
