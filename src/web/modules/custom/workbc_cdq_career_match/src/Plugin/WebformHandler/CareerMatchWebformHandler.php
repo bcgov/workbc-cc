@@ -2,13 +2,8 @@
 
 namespace Drupal\workbc_cdq_career_match\Plugin\WebformHandler;
 
-use Drupal\Component\Utility\Xss;
-use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Render\Markup;
 use Drupal\webform\Plugin\WebformHandlerBase;
-use Drupal\webform\WebformInterface;
 use Drupal\webform\WebformSubmissionInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Webform career match handler.

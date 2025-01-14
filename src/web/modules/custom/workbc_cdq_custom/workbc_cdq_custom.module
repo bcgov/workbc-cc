@@ -106,19 +106,10 @@ function getSubmissionOverrides($webform_id, $current_submission) {
 
 function getUserSubmission($webform_id, $skip_overrides = false) {
 
-  $current_user = \Drupal::currentUser();
-
   $session = \Drupal::request()->getSession();
   $token_session = $session->get($webform_id.'_token')?: "";
-
   $token_url = \Drupal::request()->get('token');
-
-  if ($token_url) {
-    $token = $token_url;
-  }
-  else {
-    $token = $token_session;
-  }
+  $token = $token_url ?? $token_session;
   $query = \Drupal::entityQuery('webform_submission')
     ->condition('token', $token)
     ->condition('webform_id', $webform_id)
@@ -153,6 +144,7 @@ function getUserSubmission($webform_id, $skip_overrides = false) {
       }
     }
   }
+
   return $submission ?? false;
 }
 

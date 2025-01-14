@@ -661,6 +661,20 @@ function matchWorkPreferencesCareers($submission, $score) {
 }
 
 function matchCareers(WebformSubmission $submission, $score) {
+  // Inject results from URL query if found.
+  $nocs_override = \Drupal::request()->get('nocs');
+  if (!empty($nocs_override)) {
+    // Check whether current user has permission to override results.
+    if (!canOverrideQuizAnswers()) {
+      \Drupal::messenger()->addWarning(t(
+        'Current user cannot override quiz results. Ignoring.'
+      ));
+    }
+    else {
+      ksm($nocs_override);
+    }
+  }
+
   switch ($submission->getWebform()->id()) {
     case 'abilities_quiz':
       return matchAbilitiesCareers($submission, $score);
