@@ -32,10 +32,10 @@ resource "aws_eks_cluster" "workbc-cluster" {
   }
   role_arn = aws_iam_role.eks-cluster-role.arn
   vpc_config {
-    subnet_ids = [
-      aws_subnet.az1.id,
-      aws_subnet.az2.id,
-      aws_subnet.az3.id,
-    ]
+    subnet_ids = module.network.aws_subnet_ids.app.ids
   }
+  depends_on = [
+    aws_iam_role_policy_attachment.eks-cluster-policy,
+    aws_iam_role.eks-cluster-role,
+  ]
 }
