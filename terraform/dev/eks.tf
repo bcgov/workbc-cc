@@ -121,9 +121,9 @@ resource "aws_iam_role_policy_attachment" "fp-AmazonEKSFargatePodExecutionRolePo
 }
 
 #Fargate profile
-resource "aws_eks_fargate_profile" "eks-fp" {
+resource "aws_eks_fargate_profile" "workbc-fp" {
   cluster_name           = aws_eks_cluster.workbc-cluster.name
-  fargate_profile_name   = "eks-fp"
+  fargate_profile_name   = "workbc-fp"
   pod_execution_role_arn = aws_iam_role.eks-fp-role.arn
   subnet_ids             = module.network.aws_subnet_ids.app.ids
 
