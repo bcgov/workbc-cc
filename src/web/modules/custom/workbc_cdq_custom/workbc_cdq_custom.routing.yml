@@ -1,3 +1,19 @@
+workbc_cdq_custom.admin_index:
+  path: '/admin/config/workbc'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'WorkBC'
+  requirements:
+    _permission: 'access administration pages'
+    
+workbc_cdq_custom.admin_settings:
+  path: '/admin/config/workbc/workbc'
+  defaults:
+    _title: 'WorkBC CDQ email content settings'
+    _form: '\Drupal\workbc_cdq_custom\Form\AdminSettingsForm'
+  requirements:
+    _permission: 'edit workbc email content'
+
 workbc_cdq_custom.abilities_quiz_results:
   path: '/quizzes/abilities-quiz/results'
   defaults:
