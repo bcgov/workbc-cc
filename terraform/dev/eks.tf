@@ -97,3 +97,37 @@ resource "aws_eks_node_group" "eks-ng" {
     aws_iam_role_policy_attachment.ng-AmazonEC2ContainerRegistryReadOnly,
   ]
 }
+
+#Fargate profile role
+resource "aws_iam_role" "eks-fp-role" {
+  name = "eks-fp-role"
+
+  assume_role_policy = jsonencode({
+    Statement = [{
+      Action = "sts:AssumeRole"
+      Effect = "Allow"
+      Principal = {
+        Service = "eks-fargate-pods.amazonaws.com"
+      }
+    }]
+    Version = "2012-10-17"
+  })
+}
+
+#Fargate profile policy
+resource "aws_iam_role_policy_attachment" "fp-AmazonEKSFargatePodExecutionRolePolicy" {
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSFargatePodExecutionRolePolicy"
+  role       = aws_iam_role.eks-fp-role.name
+}
+
+#Fargate profile
+resource "aws_eks_fargate_profile" "eks-fp" {
+  cluster_name           = aws_eks_cluster.workbc-cluster.name
+  fargate_profile_name   = "eks-fp"
+  pod_execution_role_arn = aws_iam_role.eks-fp-role.arn
+  subnet_ids             = module.network.aws_subnet_ids.app.ids
+
+  selector {
+    namespace = "app"
+  }
+}
