@@ -48,6 +48,7 @@ class AdminSettingsForm extends ConfigFormBase {
       '#title' => $this->t('Results email text'),
       '#description' => "Use token [cdq-quiz-name] for current quiz name and [cdq-results-link] for current user's results link.",
       '#default_value' => $default,
+      '#rows' => 10,
     ];
 
     $default = $config->get('compare_email_subject', '');
@@ -64,6 +65,7 @@ class AdminSettingsForm extends ConfigFormBase {
       '#title' => $this->t('Compare Careers email text'),
       '#description' => "Use token [cdq-quiz-name] for current quiz name and [cdq-compare-careers-link] for current user's compare careers link.",
       '#default_value' => $default,
+      '#rows' => 10,
     ];
 
     return parent::buildForm($form, $form_state);
