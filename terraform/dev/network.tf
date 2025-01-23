@@ -1,10 +1,11 @@
 # network.tf
 
-#module "network" {
-#  source      = "git::https://github.com/BCDevOps/terraform-octk-aws-sea-network-info.git//?ref=master"
-#  environment = var.target_env
-#}
+module "network" {
+  source      = "git::https://github.com/BCDevOps/terraform-octk-aws-sea-network-info.git//?ref=master"
+  environment = var.target_env
+}
 
+/*
 locals {
   env_map = {
     dev     = "Dev"
@@ -124,4 +125,4 @@ output "aws_security_groups" {
     "app"  = data.aws_security_group.app
     "data" = data.aws_security_group.data
   }
-}
+}*/
