@@ -27,9 +27,9 @@ resource "aws_iam_role_policy_attachment" "eks-cluster-policy" {
 #EKS cluster
 resource "aws_eks_cluster" "workbc-cluster" {
   name = "workbc-cluster"
-#  access_config {
-#    authentication_mode = "API_AND_CONFIG_MAP"
-#  }
+  access_config {
+    authentication_mode = "API_AND_CONFIG_MAP"
+  }
   role_arn = aws_iam_role.eks-cluster-role.arn
   vpc_config {
     subnet_ids = module.network.aws_subnet_ids.app.ids
