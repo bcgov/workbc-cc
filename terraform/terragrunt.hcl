@@ -19,12 +19,6 @@ terraform {
     dynamodb_table = "terraform-remote-state-lock-${local.project}"
     encrypt = true
   }
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 5.0"
-    }
-  }
 }
 EOF
 }
