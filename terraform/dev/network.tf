@@ -86,17 +86,17 @@ data "aws_subnet" "data" {
   id       = each.value
 }
 
-data "aws_security_group" "web" {
-  name = local.web_security_group_name
-}
+#data "aws_security_group" "web" {
+#  name = local.web_security_group_name
+#}
 
-data "aws_security_group" "app" {
-  name = local.app_security_group_name
-}
+#data "aws_security_group" "app" {
+#  name = local.app_security_group_name
+#}
 
-data "aws_security_group" "data" {
-  name = local.data_security_group_name
-}
+#data "aws_security_group" "data" {
+#  name = local.data_security_group_name
+#}
 
 output "aws_vpc" {
   value = data.aws_vpc.main
