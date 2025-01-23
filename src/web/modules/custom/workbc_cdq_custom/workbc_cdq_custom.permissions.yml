@@ -1,3 +1,7 @@
 'override quiz answers':
   title: 'Override quiz answers'
   description: 'Override quiz answers via the URL ?answers argument for testing purposes.'
+
+edit workbc email content:
+  title: 'Edit WorkBC email content'
+  description: 'Users with this permission are able to edit email content.'

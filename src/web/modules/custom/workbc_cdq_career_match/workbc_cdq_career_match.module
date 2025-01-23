@@ -149,7 +149,7 @@ function workbc_cdq_career_match_preprocess_views_view(&$variables) {
     $id = $view->args[0];
     $submission = WebformSubmission::load($id);
 
-    $variables['email_subject'] = "WorkBC's Career Discovery Quizzes - Compare Careers";
+    $variables['email_subject'] = compare_email_subject($submission->getWebform()->get('title'));
     $variables['email_body'] = compare_email_body($submission);
   }
 }
@@ -677,9 +677,22 @@ function matchCareers(WebformSubmission $submission, $score) {
   return [];
 }
 
+function results_email_subject($quiz_name) {
+
+  $config = \Drupal::config('workbc_cdq_custom.settings');
+
+  $subject = $config->get('results_email_subject', "WorkBC.ca Career Discovery Quiz Results");
+  $subject = str_replace('[cdq-quiz-name]', $quiz_name, $subject);
+  return $subject;
+}
+
+
 function results_email_body($submission) {
 
+  $config = \Drupal::config('workbc_cdq_custom.settings');
+
   $id = $submission->getWebform()->id();
+
   $quiz_name = $submission->getWebform()->get('title');
 
   $options = [
@@ -691,22 +704,33 @@ function results_email_body($submission) {
   $options['query'] = ['token' => $submission->getToken()];
   $results_link = Url::fromUri('route:workbc_cdq_custom.' . $id . '_results', $options)->toString();
 
-  $body = "You recently took the ". $quiz_name . ". Access your results for 14 days at: " . $results_link;
-  $body .= NEW_LINE . NEW_LINE;
-  $body .= "Print your results if you'd like to keep them for longer than 14 days.";
-  $body .= NEW_LINE . NEW_LINE;
-  $body .= "Learn more about yourself! Complete other quizzes to find what careers might be the best fit for you: " . $home_link;
-  $body .= NEW_LINE . NEW_LINE;
-  $body .= "Discover more career and education resources at https://www.workbc.ca.";
+  $email_body = $config->get('results_email_body', '');
+  $email_body = str_replace('[cdq-quiz-name]', $quiz_name, $email_body);
+  $email_body = str_replace('[cdq-results-link]', $results_link, $email_body);
+  $email_body = str_replace("\n", NEW_LINE, $email_body);
 
-  return $body;
+  return $email_body;
+}
+
+
+function compare_email_subject($quiz_name) {
+
+  $config = \Drupal::config('workbc_cdq_custom.settings');
+
+  $subject = $config->get('compare_email_subject', "WorkBC's Career Discovery Quizzes - Compare Careers");
+  $subject = str_replace('[cdq-quiz-name]', $quiz_name, $subject);
+  return $subject;
 }
 
 
 function compare_email_body($submission) {
 
+  $config = \Drupal::config('workbc_cdq_custom.settings');
+
   $id = $submission->getWebform()->id();
 
+  $quiz_name = $submission->getWebform()->get('title');
+  
   $options = [
     'absolute' => TRUE,
     'https' => TRUE,
@@ -714,10 +738,10 @@ function compare_email_body($submission) {
   $home_link = Url::fromRoute('<front>', [], $options)->toString();
   $compare_link = $home_link . "compare-careers/" . $submission->id();
 
+  $email_body = $config->get('compare_email_body', '');
+  $email_body = str_replace('[cdq-quiz-name]', $quiz_name, $email_body);
+  $email_body = str_replace('[cdq-compare-careers-link]', $compare_link, $email_body);
+  $email_body = str_replace("\n", NEW_LINE, $email_body);
 
-  $body = "View your compared careers: " . $compare_link;
-  $body .= NEW_LINE . NEW_LINE;
-  $body .= "WorkBC's Career Discovery Quizzes help you learn more about your preferences and discover careers that suit you.";
-
-  return $body;
+  return $email_body;
 }

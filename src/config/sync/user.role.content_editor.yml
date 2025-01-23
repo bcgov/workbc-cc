@@ -14,6 +14,7 @@ dependencies:
     - system
     - taxonomy
     - toolbar
+    - workbc_cdq_custom
 _core:
   default_config_hash: e_wG1u7SrGaJbY2-Szgbgl-c8T3kdirU3uTNq2c_QJQ
 id: content_editor
@@ -36,6 +37,7 @@ permissions:
   - 'edit own comments'
   - 'edit own page content'
   - 'edit terms in tags'
+  - 'edit workbc email content'
   - 'revert all revisions'
   - 'view all revisions'
   - 'view own unpublished content'
