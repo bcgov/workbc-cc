@@ -14,6 +14,7 @@ use Drupal\image\Entity\ImageStyle;
 class QuizResultsController extends ControllerBase {
 
   public function abilities_quiz_results() {
+    
     $submission = getUserSubmission('abilities_quiz');
     if ($submission) {
       $info = [
@@ -72,6 +73,7 @@ class QuizResultsController extends ControllerBase {
       $emailBody = NULL;
     }
 
+    $this->setResultsSortParameters();
     return [
       '#theme' => 'workbc_cdq_quiz_results_categories',
       '#category_top' => $categoryTop,
@@ -85,6 +87,7 @@ class QuizResultsController extends ControllerBase {
   }
 
   public function work_preferences_quiz_results() {
+
     $submission = getUserSubmission('work_preferences_quiz');
     if ($submission) {
       $info = [
@@ -126,6 +129,7 @@ class QuizResultsController extends ControllerBase {
       $emailBody = NULL;
     }
 
+    $this->setResultsSortParameters();
     return [
       '#theme' => 'workbc_cdq_quiz_results_categories',
       '#category_top' => $categoryTop,
@@ -183,6 +187,8 @@ class QuizResultsController extends ControllerBase {
       $categoryAll = NULL;
       $emailBody = NULL;
     }
+
+    $this->setResultsSortParameters();
     return [
       '#theme' => 'workbc_cdq_quiz_results_categories',
       '#category_top' => $categoryTop,
@@ -250,6 +256,7 @@ class QuizResultsController extends ControllerBase {
       $categoryAll = NULL;
       $emailBody = NULL;
     }
+
     return [
       '#theme' => 'workbc_cdq_quiz_results_categories',
       '#category_top' => $categoryTop,
@@ -364,6 +371,20 @@ class QuizResultsController extends ControllerBase {
       '#score' => $score,
       '#cache' => ['max-age' => 0],
     ];
+  }
+
+/**
+  * {@inheritdoc}
+  */
+  protected function setResultsSortParameters() {
+    $order = is_null(\Drupal::request()->get('order')) ? "" : \Drupal::request()->get('order');
+    $sort = is_null(\Drupal::request()->get('sort')) ? "" :  \Drupal::request()->get('sort');
+
+    $request = \Drupal::request();
+    $session = $request->getSession();
+    $session->set('results_order', $order);
+    $session->set('results_sort', $sort);
+
   }
 
 }
