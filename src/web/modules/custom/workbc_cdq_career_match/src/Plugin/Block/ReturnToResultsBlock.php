@@ -29,13 +29,17 @@ class ReturnToResultsBlock extends BlockBase {
     $path = explode("/", $path);
     $submission = WebformSubmission::load($path[2]);
 
-    $resultsUrl = Url::fromUri('route:workbc_cdq_custom.' . $submission->getWebform()->id() . '_results', [
+    $request = \Drupal::request();
+    $session = $request->getSession();
+    $order = $session->get("results_order");
+    $sort = $session->get("results_sort");
+
+    $previousUrl = Url::fromUri('route:workbc_cdq_custom.' . $submission->getWebform()->id() . '_results', [
       'query' => ['token' => $submission->getToken()]
     ])->toString();
-    $previousUrl = \Drupal::request()->server->get('HTTP_REFERER');
-    if (empty($previousUrl) || parse_url($previousUrl, PHP_URL_PATH) !== parse_url($resultsUrl, PHP_URL_PATH)) {{
-      $previousUrl = $resultsUrl;
-    }}
+    if ($order && $sort) {
+      $previousUrl .= "&order=" . $order . "&sort=" . $sort;
+    }
 
     $markup = <<<END
       <div class="cdq-back-link">
