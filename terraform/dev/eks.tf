@@ -152,3 +152,9 @@ resource "aws_eks_fargate_profile" "workbc-fp" {
     namespace = "app"
   }
 }
+
+#Ingress policy
+resource "aws_iam_policy" "ingress-policy" {
+  name = "AWSLoadBalancerControllerIAMPolicy"
+  policy = file("../iam_policy.json")
+}
