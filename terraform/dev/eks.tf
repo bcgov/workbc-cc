@@ -40,6 +40,27 @@ resource "aws_eks_cluster" "workbc-cluster" {
   ]
 }
 
+#EKS cluster addons
+resource "aws_eks_addon" "vpc-cni-addon" {
+  cluster_name = aws_eks_cluster.workbc-cluster.name
+  addon_name   = "vpc-cni"
+}
+
+resource "aws_eks_addon" "kube-proxy-addon" {
+  cluster_name = aws_eks_cluster.workbc-cluster.name
+  addon_name   = "kube-proxy"
+}
+
+resource "aws_eks_addon" "pod-identity-addon" {
+  cluster_name = aws_eks_cluster.workbc-cluster.name
+  addon_name   = "eks-pod-identity-agent"
+}
+
+resource "aws_eks_addon" "coredns-addon" {
+  cluster_name = aws_eks_cluster.workbc-cluster.name
+  addon_name   = "coredns"
+}
+
 #Node group role
 resource "aws_iam_role" "eks-ng-role" {
   name = "eks-ng-role"
