@@ -5,6 +5,7 @@ locals {
   environment      = reverse(split("/", get_terragrunt_dir()))[0]
   app_image        = get_env("app_image", "")
   app_repo         = split("/", get_env("app_image"))[0]
+  tfc_path         = get_terragrunt_dir()
 }
 
 generate "remote_state" {
