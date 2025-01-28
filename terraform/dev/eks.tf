@@ -154,7 +154,7 @@ resource "aws_eks_fargate_profile" "workbc-fp" {
 }
 
 #Ingress policy
-#resource "aws_iam_policy" "ingress-policy" {
-#  name = "AWSLoadBalancerControllerIAMPolicy"
-#  policy = file(${local.tfc_path})
-#}
+resource "aws_iam_policy" "ingress-policy" {
+  name = "AWSLoadBalancerControllerIAMPolicy"
+  policy = file(iam_policy.json)
+}
