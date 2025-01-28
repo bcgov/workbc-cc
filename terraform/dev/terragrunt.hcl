@@ -8,6 +8,7 @@ include {
 
 locals {
   project = get_env("LICENSE_PLATE")
+  tfc_path = "${get_terragrunt_dir()}/iam_policy.json"
 }
 
 generate "dev_tfvars" {
