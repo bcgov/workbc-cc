@@ -2,14 +2,18 @@
 
 resource "aws_ecs_cluster" "main" {
   name               = "workbc-cc-cluster"
-  capacity_providers = ["FARGATE_SPOT"]
-
-  default_capacity_provider_strategy {
-    capacity_provider = "FARGATE_SPOT"
-    weight            = 100
-  }
 
   tags = var.common_tags
+}
+
+resource "aws_ecs_cluster_capacity_providers" "main" {
+    cluster_name =  aws_ecs_cluster.main.name
+    capacity_providers = ["FARGATE_SPOT"]
+ 
+    default_capacity_provider_strategy {
+      weight            = 100
+      capacity_provider = "FARGATE_SPOT"	
+  }
 }
 
 resource "aws_ecs_task_definition" "app" {
@@ -205,7 +209,7 @@ resource "aws_ecs_task_definition" "app" {
 		networkMode = "awsvpc"
 
 		entryPoint = ["sh", "-c"]
-		command = ["drush cr; drush updb -y; drush cr; drush cim -y;"]
+		command = ["drush cr; drush updb -y; drush cim -y; drush deploy:hook -y; drush cr;"]
 		environment = [
 			{
 				name = "POSTGRES_PORT",
