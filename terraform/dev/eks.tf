@@ -61,6 +61,41 @@ resource "aws_eks_addon" "coredns-addon" {
   addon_name   = "coredns"
 }
 
+#EFS CSI role
+resource "aws_iam_role" "efs-csi-role" {
+  name = "efs-csi-role"
+
+  assume_role_policy = jsonencode({
+    Statement = [{
+      Action = [
+          "sts:AssumeRole",
+          "sts:TagSession"
+        ]
+      Effect = "Allow"
+      Principal = {
+        Service = "pods.eks.amazonaws.com"
+      }
+    }]
+    Version = "2012-10-17"
+  })
+}
+
+#EFS CSI policy
+resource "aws_iam_role_policy_attachment" "ec-AmazonEFSCSIDriverPolicy" {
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonEFSCSIDriverPolicy"
+  role       = aws_iam_role.efs-csi-role.name
+}
+
+resource "aws_eks_addon" "aws-efs-csi-driver" {
+  cluster_name = aws_eks_cluster.workbc-cluster.name
+  addon_name   = "aws-efs-csi-driver"
+
+  pod_identity_association {
+    role_arn = aws_iam_role.efs-csi-role.arn
+    service_account = "efs-csi-controller-sa"
+  }
+}
+
 #Node group role
 resource "aws_iam_role" "eks-ng-role" {
   name = "eks-ng-role"
