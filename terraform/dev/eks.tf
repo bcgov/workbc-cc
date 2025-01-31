@@ -61,6 +61,11 @@ resource "aws_eks_addon" "coredns-addon" {
   addon_name   = "coredns"
 }
 
+resource "aws_eks_addon" "aws-efs-csi-driver" {
+  cluster_name = aws_eks_cluster.workbc-cluster.name
+  addon_name   = "aws-efs-csi-driver"
+}
+
 #Node group role
 resource "aws_iam_role" "eks-ng-role" {
   name = "eks-ng-role"
