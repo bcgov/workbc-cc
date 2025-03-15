@@ -152,13 +152,13 @@
             let noc_2 = null;
             let noc_3 = null;
 
-            if(noc_group['noc_1'] != '') {
+            if('noc_1' in noc_group && noc_group['noc_1'] != '') {
                 noc_1 = noc_group['noc_1'].toString();
             }
-            if(noc_group['noc_2'] != '') {
+            if('noc_2' in noc_group && noc_group['noc_2'] != '') {
                 noc_2 = noc_group['noc_2'].toString();
             }
-            if(noc_group['noc_3'] != '') {
+            if('noc_3' in noc_group && noc_group['noc_3'] != '') {
                 noc_3 = noc_group['noc_3'].toString();
             }
             window.snowplow('trackSelfDescribingEvent', {"schema":"iglu:ca.bc.gov.workbc/career_quiz_compare/jsonschema/1-0-0",
