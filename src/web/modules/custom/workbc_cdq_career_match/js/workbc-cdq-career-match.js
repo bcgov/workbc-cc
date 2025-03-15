@@ -42,14 +42,20 @@
         });
 
         $('.clear-compare').on('click', function() {
+          console.log("clear compare click");
           $('.compare-career-checkbox').each(function() {
+            console.log("checkbox: " + $(this).data('career-match-id'));
             if ($(this).is(':checked')) {
+              console.log("selected: " + $(this).data('career-match-id'));
               let careerMatchId = $(this).data('career-match-id');
               $.ajax({
                 url: Drupal.url('career-match/update-selected'),
                 type: 'POST',
                 dataType: 'json',
                 data: { 'id' : careerMatchId, 'selected': false},
+                success: function(response) {
+                  console.log("success");
+                },               
               });
             }
           });
