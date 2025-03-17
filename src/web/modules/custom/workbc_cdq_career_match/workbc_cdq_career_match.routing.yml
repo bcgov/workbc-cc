@@ -4,3 +4,10 @@ workbc_cdq_career_match.update_selected:
     _controller: '\Drupal\workbc_cdq_career_match\Controller\cdqCareerMatch::update_selected'
   requirements:
     _permission: 'access content'
+
+workbc_cdq_career_match.clear_selected:
+  path: '/career-match/clear-selected'
+  defaults:
+    _controller: '\Drupal\workbc_cdq_career_match\Controller\cdqCareerMatch::clear_selected'
+  requirements:
+    _permission: 'access content'

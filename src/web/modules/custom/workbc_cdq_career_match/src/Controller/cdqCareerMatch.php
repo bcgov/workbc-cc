@@ -35,4 +35,21 @@ class cdqCareerMatch extends ControllerBase {
     return $response;
   }
 
+  public function clear_selected(): AjaxResponse {
+    $sid = (int)\Drupal::request()->get('sid');
+    
+    $query = \Drupal::database()->update('workbc_cdq_career_match');
+    $query->fields(['selected' => 0]);
+    $query->condition('sid', $sid);
+    $query->condition('selected', 1);
+    $query->execute();
+    
+    $response = new AjaxResponse();
+
+    // A status message added in the default location.
+    $response->addCommand(new MessageCommand('Your selections have been cleared.'));
+
+    return $response;
+  }
+
 }
