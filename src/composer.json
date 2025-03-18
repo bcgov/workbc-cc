@@ -30,7 +30,7 @@
         "drupal/devel_php": "^1.7",
         "drupal/easy_breadcrumb": "^2.0",
         "drupal/entity_comparison": "4.0",
-        "drupal/keycloak": "^1.8",
+        "drupal/keycloak": "~1.8",
         "drupal/manage_state": "^1.0",
         "drupal/queue_ui": "^3.2",
         "drupal/sitewide_alert": "^2.2",
