@@ -51,6 +51,7 @@ class CareerMatchWebformHandler extends WebformHandlerBase {
 
     $request = \Drupal::request();
     $session = $request->getSession();
+    \Drupal::logger('workbc_cdq_career_match')->notice("CareerMatch - set @quiz_id token @token", array('@quiz_id' => $webform_submission->getWebform()->id(), '@token' => $webform_submission->getToken()));
     $session->set($webform_submission->getWebform()->id().'_token', $webform_submission->getToken());
 
     $scores = getSubmissionScore($webform_submission);

@@ -39,9 +39,16 @@ class SessionQuizTokenWebformHandler extends WebformHandlerBase {
    * {@inheritdoc}
    */
   public function postSave(WebformSubmissionInterface $webform_submission, $update = TRUE) {
-    $request = \Drupal::request();
-    $session = $request->getSession();
-    $session->set($webform_submission->getWebform()->id().'_token', $webform_submission->getToken());
+    
+    \Drupal::logger('workbc_cdq_career_match')->notice("Session Quiz -oken @token", array('@quiz_id' => $webform_submission->getWebform()->id(), '@token' => $webform_submission->getToken()));
+    
+    $form = \Drupal::request()->get('ajax_form');
+    if (is_null($form)) {
+      $request = \Drupal::request();
+      $session = $request->getSession();
+      \Drupal::logger('workbc_cdq_career_match')->notice("Session Quiz - set @quiz_id token @token", array('@quiz_id' => $webform_submission->getWebform()->id(), '@token' => $webform_submission->getToken()));
+      $session->set($webform_submission->getWebform()->id().'_token', $webform_submission->getToken());
+    }
   }
 
 
