@@ -47,12 +47,15 @@ class CareerMatchWebformHandler extends WebformHandlerBase {
    * {@inheritdoc}
    */
   public function postSave(WebformSubmissionInterface $webform_submission, $update = TRUE) {
-    if ($webform_submission->getState() !== WebformSubmissionInterface::STATE_COMPLETED) return;
 
-    $request = \Drupal::request();
-    $session = $request->getSession();
-    \Drupal::logger('workbc_cdq_career_match')->notice("CareerMatch - set @quiz_id token @token", array('@quiz_id' => $webform_submission->getWebform()->id(), '@token' => $webform_submission->getToken()));
-    $session->set($webform_submission->getWebform()->id().'_token', $webform_submission->getToken());
+    if ($webform_submission->getState() == WebformSubmissionInterface::STATE_DRAFT_CREATED || 
+        $webform_submission->getState() == WebformSubmissionInterface::STATE_COMPLETED) {
+      $request = \Drupal::request();
+      $session = $request->getSession();
+      $session->set($webform_submission->getWebform()->id().'_token', $webform_submission->getToken());
+    }
+    
+    if ($webform_submission->getState() !== WebformSubmissionInterface::STATE_COMPLETED) return;
 
     $scores = getSubmissionScore($webform_submission);
     $matches = matchCareers($webform_submission, $scores);
