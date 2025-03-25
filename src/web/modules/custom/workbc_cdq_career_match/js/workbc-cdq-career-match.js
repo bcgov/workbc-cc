@@ -41,17 +41,13 @@
           }
         });
 
-        $('.clear-compare').on('click', function() {
-          $('.compare-career-checkbox').each(function() {
-            if ($(this).is(':checked')) {
-              let careerMatchId = $(this).data('career-match-id');
-              $.ajax({
-                url: Drupal.url('career-match/update-selected'),
-                type: 'POST',
-                dataType: 'json',
-                data: { 'id' : careerMatchId, 'selected': false},
-              });
-            }
+        $('.clear-compare').on('click', function() {          
+          let submissionId = $(this).data('submission-id');
+          $.ajax({
+            url: Drupal.url('career-match/clear-selected'),
+            type: 'POST',
+            dataType: 'json',
+            data: { 'sid' : submissionId },              
           });
         });
 
