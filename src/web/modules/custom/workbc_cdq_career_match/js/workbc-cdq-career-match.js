@@ -14,7 +14,7 @@
   Drupal.behaviors.CareerCompare = {
     attach: function (context, settings) {
 
-      $(once('cdqcareermatch', '.careers-main-wrapper', context)).each(function () {
+      $(once('cdqcareermatch', '.cdq-career-quiz-results', context)).each(function () {
 
         $('.compare-career-checkbox').on('click', function() {
           let careerMatchId = $(this).data('career-match-id');
@@ -95,8 +95,24 @@
           $('.cdq-results').each(function() {
             $(this).addClass("user-selected");
           });
-          $('#modifyNextLinks').hide()
+          $('#modifyNextLinks').hide();
         });
+
+        
+        $('#back-to-quiz').on('click', function() {
+          $('.career-content-item').each(function() {
+            $(this).removeClass("active");
+          });
+          $('.career-table-row').each(function() {
+            $(this).closest('.career-table-row').removeClass("active");
+          });
+
+          $('.cdq-results').each(function() {
+            $(this).removeClass("user-selected");
+          });
+          $('#modifyNextLinks').show();          
+        });
+
 
         function totalSelected() {
           let total = 0;
