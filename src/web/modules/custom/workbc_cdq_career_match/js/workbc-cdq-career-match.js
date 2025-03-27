@@ -55,6 +55,7 @@
               $('.clear-compare').addClass("disable");
               $('.compare-career').addClass("disable");
             },
+            // reset page if error
             error: function() {
               location.reload(); 
              }            
