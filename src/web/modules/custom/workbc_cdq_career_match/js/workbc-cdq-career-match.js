@@ -41,13 +41,24 @@
           }
         });
 
-        $('.clear-compare').on('click', function() {          
+        $('.clear-compare').on('click', function() {
           let submissionId = $(this).data('submission-id');
           $.ajax({
             url: Drupal.url('career-match/clear-selected'),
             type: 'POST',
             dataType: 'json',
-            data: { 'sid' : submissionId },              
+            data: { 'sid' : submissionId },
+            success:function(data) {
+              $('.compare-career-checkbox').each(function() {
+                $(this).prop('checked', false);
+              });
+              $('.clear-compare').addClass("disable");
+              $('.compare-career').addClass("disable");
+            },
+            // reset page if error
+            error: function() {
+              location.reload(); 
+             }            
           });
         });
 
