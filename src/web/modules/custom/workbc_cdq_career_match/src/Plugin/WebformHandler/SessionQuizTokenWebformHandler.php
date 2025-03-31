@@ -40,9 +40,10 @@ class SessionQuizTokenWebformHandler extends WebformHandlerBase {
    */
   public function postSave(WebformSubmissionInterface $webform_submission, $update = TRUE) {
 
-    if ($webform_submission->getState() == WebformSubmissionInterface::STATE_DRAFT_CREATED || 
-        $webform_submission->getState() == WebformSubmissionInterface::STATE_COMPLETED) {
-      $request = \Drupal::request();
+    $request = \Drupal::request();
+    $ajax_form = $request->query->get('ajax_form');
+    // only save token if not an ajax call
+    if (is_null($ajax_form)) {
       $session = $request->getSession();
       $session->set($webform_submission->getWebform()->id().'_token', $webform_submission->getToken());
     }
