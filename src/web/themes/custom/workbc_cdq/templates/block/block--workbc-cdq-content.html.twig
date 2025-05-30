@@ -33,6 +33,7 @@
     'block-' ~ plugin_id|clean_class,
   ]
 %}
+
 <div{{ attributes.addClass(classes) }}>
   {{ title_prefix }}
   {% if label %}
@@ -49,10 +50,12 @@
           <div class="link link_1">
             <a class="btn btn-modify" href="{{ quiz['quiz_link']}}">Modify Your Answers</a>
           </div>
-          {% endif %}
-        <div class="link link_2">
-          <a class="btn btn-prim" href="/" >Take Next Quiz</a>
-        </div>
+        {% endif %}
+        {% if quiz['status'] == 'completed' %}
+          <div class="link link_2">
+            <a class="btn btn-prim" href="/" >Take Next Quiz</a>
+          </div>
+        {% endif %}
       </div>
 
     </div>

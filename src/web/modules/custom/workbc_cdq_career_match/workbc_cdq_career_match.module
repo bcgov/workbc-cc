@@ -730,7 +730,7 @@ function compare_email_body($submission) {
   $id = $submission->getWebform()->id();
 
   $quiz_name = $submission->getWebform()->get('title');
-  
+
   $options = [
     'absolute' => TRUE,
     'https' => TRUE,

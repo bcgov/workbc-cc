@@ -1194,7 +1194,14 @@ a.quiz-link {
       }
 
     }
+
+    .quiz-results-expired h3 {
+      padding-top: 50px;
+      padding-left: 25px;
+      padding-bottom: 100px;
+    }
   }
+
   #block-workbc-cdq-views-block-quiz-career-match-block-1, #block-workbc-cdq-views-block-quiz-career-match-block-2 {
     background: #fff;
     margin: 0 20px;
@@ -4027,7 +4034,7 @@ h2.cdq-quiz-title, .webform-submission-information {
       position: relative;
       top: 3px;
       margin-right: 5px;
-    }  
+    }
 
     @media all and (max-width: 991.98px) {
       position: unset;

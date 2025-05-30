@@ -14,7 +14,7 @@ use Drupal\image\Entity\ImageStyle;
 class QuizResultsController extends ControllerBase {
 
   public function abilities_quiz_results() {
-    
+
     $submission = getUserSubmission('abilities_quiz');
     if ($submission) {
       $info = [
@@ -65,12 +65,14 @@ class QuizResultsController extends ControllerBase {
       $categoryTop = $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'top_text');
       $categoryAll = $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'all_text');
       $emailBody = results_email_body($submission);
+      $emailSubject = results_email_subject($submission->getWebform()->get('title'));
     }
     else {
       $score = NULL;
       $categoryTop = NULL;
       $categoryAll = NULL;
       $emailBody = NULL;
+      $emailSubject = NULL;
     }
 
     $this->setResultsSortParameters();
@@ -79,7 +81,7 @@ class QuizResultsController extends ControllerBase {
       '#category_top' => $categoryTop,
       '#category_all' => $categoryAll,
       '#category' => "Aptitudes",
-      '#email_subject' => results_email_subject($submission->getWebform()->get('title')),
+      '#email_subject' => $emailSubject,
       '#email_body' => $emailBody,
       '#score' => $score,
       '#cache' => ['max-age' => 0],
@@ -121,12 +123,14 @@ class QuizResultsController extends ControllerBase {
       $categoryTop = $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'top_text');
       $categoryAll = $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'all_text');
       $emailBody = results_email_body($submission);
+      $emailSubject = results_email_subject($submission->getWebform()->get('title'));
     }
     else {
       $score = NULL;
       $categoryTop = NULL;
       $categoryAll = NULL;
       $emailBody = NULL;
+      $emailSubject = NULL;
     }
 
     $this->setResultsSortParameters();
@@ -135,7 +139,7 @@ class QuizResultsController extends ControllerBase {
       '#category_top' => $categoryTop,
       '#category_all' => $categoryAll,
       '#category' => "Work Preferences",
-      '#email_subject' => results_email_subject($submission->getWebform()->get('title')),
+      '#email_subject' => $emailSubject,
       '#email_body' => $emailBody,
       '#score' => $score,
       '#cache' => ['max-age' => 0],
@@ -180,12 +184,14 @@ class QuizResultsController extends ControllerBase {
       $categoryTop = $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'top_text');
       $categoryAll = $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'all_text');
       $emailBody = results_email_body($submission);
+      $emailSubject = results_email_subject($submission->getWebform()->get('title'));
     }
     else {
       $score = NULL;
       $categoryTop = NULL;
       $categoryAll = NULL;
       $emailBody = NULL;
+      $emailSubject = NULL;
     }
 
     $this->setResultsSortParameters();
@@ -194,7 +200,7 @@ class QuizResultsController extends ControllerBase {
       '#category_top' => $categoryTop,
       '#category_all' => $categoryAll,
       '#category' => "Interests",
-      '#email_subject' => results_email_subject($submission->getWebform()->get('title')),
+      '#email_subject' => $emailSubject,
       '#email_body' => $emailBody,
       '#score' => $score,
       '#cache' => ['max-age' => 0],
@@ -249,12 +255,14 @@ class QuizResultsController extends ControllerBase {
       $categoryTop = $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'top_text');
       $categoryAll = $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'all_text');
       $emailBody = results_email_body($submission);
+      $emailSubject = results_email_subject($submission->getWebform()->get('title'));
     }
     else {
       $score = NULL;
       $categoryTop = NULL;
       $categoryAll = NULL;
       $emailBody = NULL;
+      $emailSubject = NULL;
     }
 
     return [
@@ -262,7 +270,7 @@ class QuizResultsController extends ControllerBase {
       '#category_top' => $categoryTop,
       '#category_all' => $categoryAll,
       '#category' => "Types of Smart",
-      '#email_subject' => results_email_subject($submission->getWebform()->get('title')),
+      '#email_subject' => $emailSubject,
       '#email_body' => $emailBody,
       '#score' => $score,
       '#cache' => ['max-age' => 0],
@@ -295,19 +303,21 @@ class QuizResultsController extends ControllerBase {
       $categoryTop = $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'top_text');
       $categoryAll = $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'all_text');
       $emailBody = results_email_body($submission);
+      $emailSubject = results_email_subject($submission->getWebform()->get('title'));
     }
     else {
       $score = NULL;
       $categoryTop = NULL;
       $categoryAll = NULL;
       $emailBody = NULL;
+      $emailSubject = NULL;
     }
     return [
       '#theme' => 'workbc_cdq_quiz_results_categories',
       '#category_top' => $categoryTop,
       '#category_all' => $categoryAll,
       '#category' => "Learning Styles",
-      '#email_subject' => results_email_subject($submission->getWebform()->get('title')),
+      '#email_subject' => $emailSubject,
       '#email_body' => $emailBody,
       '#score' => $score,
       '#cache' => ['max-age' => 0],
@@ -354,19 +364,21 @@ class QuizResultsController extends ControllerBase {
       $categoryTop = $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'top_text');
       $categoryAll = $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'all_text');
       $emailBody = results_email_body($submission);
+      $emailSubject = results_email_subject($submission->getWebform()->get('title'));
     }
     else {
       $score = NULL;
       $categoryTop = NULL;
       $categoryAll = NULL;
       $emailBody = NULL;
+      $emailSubject = NULL;
     }
     return [
       '#theme' => 'workbc_cdq_quiz_results_work_values',
       '#category_top' => $categoryTop,
       '#category_all' => $categoryAll,
       '#category' => "Values",
-      '#email_subject' => results_email_subject($submission->getWebform()->get('title')),
+      '#email_subject' => $emailSubject,
       '#email_body' => $emailBody,
       '#score' => $score,
       '#cache' => ['max-age' => 0],
