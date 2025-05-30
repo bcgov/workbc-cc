@@ -5,8 +5,6 @@ namespace Drupal\workbc_cdq_custom\Plugin\Block;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Url;
 use Drupal\Core\Link;
-use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Cache\Cache;
 use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Session\AccountInterface;
 
@@ -25,11 +23,15 @@ class ReproducedWithPermissionBlock extends BlockBase {
    * {@inheritdoc}
    */
   public function build() {
-
-    $url = "https://www.jobbank.gc.ca/abilities";
-    $link = '<a href="' . $url . '" target="_blank" rel="nofollow noopener">Government of Canada\'s National Job Bank</a>';
-    $markup = "This quiz has been reproduced with permission from the " . $link . ".";
-
+    $url = self::getCredit() ?? '';
+    $markup = $this->t('This quiz has been reproduced with permission from the @link.', [
+      '@link' => Link::fromTextAndUrl(t("Government of Canada's National Job Bank"), Url::fromUri($url, [
+        'attributes' => [
+          'target' => '_blank',
+          'rel' => 'noopener noreferrer'
+        ]
+      ]))->toString()
+    ]);
     return array(
       '#type' => 'markup',
       '#markup' => $markup,
@@ -42,8 +44,7 @@ class ReproducedWithPermissionBlock extends BlockBase {
    */
   protected function blockAccess(AccountInterface $account) {
 
-    $quiz = getCurrentQuiz();
-    if ($quiz && $quiz['id'] == "interests_quiz") {
+    if (!self::getCredit()) {
       return AccessResult::forbidden();
     }
     return AccessResult::allowedIfHasPermission($account, 'access content');
@@ -53,4 +54,16 @@ class ReproducedWithPermissionBlock extends BlockBase {
       return 0;
   }
 
+  private static function getCredit() {
+    $quiz = getCurrentQuiz();
+    $credits = [
+      'abilities_quiz' => 'https://www.jobbank.gc.ca/abilities',
+      'work_preferences_quiz' => 'https://www.jobbank.gc.ca/dpt',
+      'multiple_intelligences_quiz' => 'https://www.jobbank.gc.ca/intelligence',
+      'learning_styles_quiz' => 'https://www.jobbank.gc.ca/seeheardo',
+      'work_values_quiz' => 'https://www.jobbank.gc.ca/workvalue',
+      'interests_quiz' => false,
+    ];
+    return !empty($quiz) && array_key_exists($quiz['id'], $credits) ? $credits[$quiz['id']] : false;
+  }
 }
