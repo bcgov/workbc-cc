@@ -3032,7 +3032,7 @@ form{
     }
 
     .data {
-      margin-bottom: 30px;
+      margin-bottom: 0;
       margin-top: 30px;
 
       .data-item {
@@ -3295,7 +3295,7 @@ form{
       }
 
       .data {
-        margin-bottom: 30px;
+        margin-bottom: 0;
         margin-top: 30px;
 
         .data-item {
@@ -4027,7 +4027,7 @@ h2.cdq-quiz-title, .webform-submission-information {
       position: relative;
       top: 3px;
       margin-right: 5px;
-    }  
+    }
 
     @media all and (max-width: 991.98px) {
       position: unset;

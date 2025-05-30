@@ -11,7 +11,7 @@
       {% endif %}
     </div>
 
-    <div class="data">            
+    <div class="data">
       <p class="data-item">
         <span class="f-d">Annual Salary</span>
         {% if (career_profile.annual_salary is not empty) and (career_profile.annual_salary != "Not available") %}
@@ -37,7 +37,7 @@
       <p>{{ career_profile.job_summary }}</p>
     </div>
     <div class="bottom-btn">
-      <a class="btn btn-prim btn-career-profile" href="{{ workbc_url }}/career/{{ career_profile.noc }}" target='_blank'>View Career Profile</a>       
+      <a class="btn btn-prim btn-career-profile" href="{{ workbc_url }}/career/{{ career_profile.noc }}" target='_blank'>View Career Profile</a>
       <a class="btn btn-find-job" href="{{ workbc_url }}/search-and-prepare-job/find-jobs#/job-search;noc={{ career_profile.noc }};" target='_blank'>Find Jobs</a>
     </div>
   </div>
