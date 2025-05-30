@@ -28,7 +28,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-      
+
       # Pull AWS credentials
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -40,7 +40,7 @@ jobs:
           role-duration-seconds: 900
           role-session-name: workbc-cc-github-action
           role-skip-session-tagging: true
-          
+
       # Login to ECR
       - name: Login to Amazon ECR
         id: login-ecr
@@ -49,8 +49,8 @@ jobs:
       # Runs a single command using the runners shell
       - name: Build Drupal docker image
         run: |
-          docker build . -t ${{ secrets.AWS_ECR_URI }}:${{ github.sha }} --build-arg TIMEOUT=3s --build-arg MAX_CHILDREN=250 --build-arg START_SERVERS=10 --build-arg MIN_SPARE=5 --build-arg MAX_SPARE=15 --build-arg SPAWN_RATE=32
+          docker build . -t ${{ secrets.AWS_ECR_URI }}:${{ github.sha }} --build-arg GITHUB_SHA=${{ github.sha }} --build-arg TIMEOUT=3s --build-arg MAX_CHILDREN=250 --build-arg START_SERVERS=10 --build-arg MIN_SPARE=5 --build-arg MAX_SPARE=15 --build-arg SPAWN_RATE=32
       - name: Push Drupal docker image
         run: |
           docker push ${{ secrets.AWS_ECR_URI }}:${{ github.sha }}
-          
+
