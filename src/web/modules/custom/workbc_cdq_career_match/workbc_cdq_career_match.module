@@ -373,7 +373,7 @@ function getCareerProfileInfo(\Drupal\node\NodeInterface $node) {
   $info = array(
     'title' => $node->title->value . " (NOC " . $node->field_noc->value . ")",
     'noc' => $node->field_noc->value,
-    'job_summary' => substr(strip_tags($node->body->value), 0, 400),
+    'job_summary' => strip_tags($node->body->value),
     'video_id' => $node->field_video_id->value,
     'image' => $image_url,
     'annual_salary' => $node->field_annual_salary->value ?? 'Not available',
