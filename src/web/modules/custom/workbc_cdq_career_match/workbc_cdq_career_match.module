@@ -4,6 +4,7 @@ use Drupal\Core\Url;
 use Drupal\image\Entity\ImageStyle;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\webform\Entity\WebformSubmission;
+use Drupal\Component\Utility\Unicode;
 
 define ("NEW_LINE", "%0D%0A");
 
@@ -373,7 +374,7 @@ function getCareerProfileInfo(\Drupal\node\NodeInterface $node) {
   $info = array(
     'title' => $node->title->value . " (NOC " . $node->field_noc->value . ")",
     'noc' => $node->field_noc->value,
-    'job_summary' => strip_tags($node->body->value),
+    'job_summary' => Unicode::truncate($node->body->value, 250, true, true),
     'video_id' => $node->field_video_id->value,
     'image' => $image_url,
     'annual_salary' => $node->field_annual_salary->value ?? 'Not available',
