@@ -31,23 +31,25 @@ class WebformSubmissionByUser extends ArgumentDefaultPluginBase implements Cache
     }
     $webform_id = str_replace('-', '_', $matches[1]);
 
-    $token = \Drupal::request()->get('token');
-    if ($token) {
-      $query = \Drupal::entityQuery('webform_submission')
+    $session = \Drupal::request()->getSession();
+    $token_session = $session->get($webform_id.'_token')?: "";
+
+    $token_url = \Drupal::request()->get('token');
+
+    if ($token_url) {
+      $token = $token_url;
+    }
+    else {
+      $token = $token_session;
+    }
+
+    $query = \Drupal::entityQuery('webform_submission')
       ->condition('token', $token)
       ->condition('webform_id', $webform_id)
       ->range(0, 1)
       ->sort('changed', 'DESC')
       ->accessCheck(false);
-    }
-    else {
-      $query = \Drupal::entityQuery('webform_submission')
-        ->condition('uid', $current_user->id())
-        ->condition('webform_id', $webform_id)
-        ->range(0, 1)
-        ->sort('changed', 'DESC')
-        ->accessCheck(false);
-    }
+
     $results = $query->execute();
     if ($results) {
       return array_shift($results);

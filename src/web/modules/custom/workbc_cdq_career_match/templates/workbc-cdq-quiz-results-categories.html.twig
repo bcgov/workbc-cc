@@ -1,51 +1,53 @@
 {# quiz results - categories  #}
 
+
 <div class="quiz-category-results-wrapper">
+{% if score|length > 0 %}
   {% if score|length >= 3 %}
     <div class="myResultHeading">
   	  <div>
   		  <div class="result-heading">
   			  <h3 class="vaa">{{ category_top }}</h3>
 			    <h3 class="vaa1" style="display:none;">{{ category_all }}</h3>
-		  </div>
-	  </div>
-	  <div class="d-print-none">
-		<div class="career-top-right">
-			<ul class="float-right">
-			<li class="quiz-node-print"><a href="javascript:;" class="print-window"><span title="Print Results" class="icon icon-print"></span></a></li>
-			<li class="quiz-node-email"><a href="mailto:?subject={{ email_subject }}&body={{ email_body }}" target="_blank" rel="noopener noreferrer"><span title="Email Results" class="icon icon-message"></span></a></li>
-			</ul>
-		</div>
-	  </div>
+		    </div>
+	    </div>
+	    <div class="d-print-none">
+  		  <div class="career-top-right">
+  			  <ul class="float-right">
+			    <li class="quiz-node-print"><a href="javascript:;" class="print-window"><span title="Print Results" class="icon icon-print"></span></a></li>
+			    <li class="quiz-node-email"><a href="mailto:?subject={{ email_subject }}&body={{ email_body }}" target="_blank" rel="noopener noreferrer"><span title="Email Results" class="icon icon-message"></span></a></li>
+			    </ul>
+		    </div>
+	    </div>
     </div>
   {% endif %}
 
   <div id="myResult" data-ride="carousel" class="carousel slide">
     {% if score|length > 3 %}
       <div class="carousel-mobi-tabs  d-print-none">
-      <a href="javascript:;" class="carousel-mobi-tabs-trigger">
-        <span class="text vaa">{{ category_top }}</span> <span class="vaa1" style="display:none">{{ category_all }}</span>
-        <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="24" height="24" viewBox="0 0 64.000000 64.000000">
-          <g transform="translate(0.000000,64.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
-            <path d="M10 485 c-7 -8 -10 -25 -7 -37 10 -36 289 -308 317 -308 28 0 307 272 317 308 3 12 0 29 -7 37 -27 32 -54 16 -182 -112 l-128 -128 -128 128 c-128 128 -155 144 -182 112z"></path>
-          </g>
-        </svg>
-      </a>
-      <ul class="carousel-mobi-tab-items-wrapper d-print-none">
-        <a href="javascript:;" class="carousel-mobi-tab-close">
-          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="14.6px" height="14.6px" viewBox="0 0 14.6 14.6" style="overflow:visible;enable-background:new 0 0 14.6 14.6;" xml:space="preserve">
-                   <style type="text/css">.st0{fill-rule:evenodd;clip-rule:evenodd;fill:#333333;}</style>
-            <defs></defs>
-            <path class="st0" d="M0.3,12.9c-0.4,0.4-0.4,1,0,1.4c0.4,0.4,1,0.4,1.4,0l5.6-5.6l5.6,5.6c0.4,0.4,1,0.4,1.4,0c0.4-0.4,0.4-1,0-1.4  L8.7,7.3l5.6-5.6c0.4-0.4,0.4-1,0-1.4c-0.4-0.4-1-0.4-1.4,0L7.3,5.9L1.7,0.3c-0.4-0.4-1-0.4-1.4,0c-0.4,0.4-0.4,1,0,1.4l5.6,5.6  L0.3,12.9z"></path>
-                </svg>
+        <a href="javascript:;" class="carousel-mobi-tabs-trigger">
+          <span class="text vaa">{{ category_top }}</span> <span class="vaa1" style="display:none">{{ category_all }}</span>
+          <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="24" height="24" viewBox="0 0 64.000000 64.000000">
+            <g transform="translate(0.000000,64.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+              <path d="M10 485 c-7 -8 -10 -25 -7 -37 10 -36 289 -308 317 -308 28 0 307 272 317 308 3 12 0 29 -7 37 -27 32 -54 16 -182 -112 l-128 -128 -128 128 c-128 128 -155 144 -182 112z"></path>
+            </g>
+          </svg>
         </a>
-        <li><a href="javascript:;" class="carousel-mobi-tab-item active" data-href="topcarousel" data-text="{{ category_top }}">{{ category_top }}</a></li>
-        <li><a href="javascript:;" class="carousel-mobi-tab-item" data-href="bottomcarousel" data-text="{{ category_all }}">{{ category_all }}</a></li>
-      </ul>
-    </div>
+        <ul class="carousel-mobi-tab-items-wrapper d-print-none">
+          <a href="javascript:;" class="carousel-mobi-tab-close">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="14.6px" height="14.6px" viewBox="0 0 14.6 14.6" style="overflow:visible;enable-background:new 0 0 14.6 14.6;" xml:space="preserve">
+                    <style type="text/css">.st0{fill-rule:evenodd;clip-rule:evenodd;fill:#333333;}</style>
+              <defs></defs>
+              <path class="st0" d="M0.3,12.9c-0.4,0.4-0.4,1,0,1.4c0.4,0.4,1,0.4,1.4,0l5.6-5.6l5.6,5.6c0.4,0.4,1,0.4,1.4,0c0.4-0.4,0.4-1,0-1.4  L8.7,7.3l5.6-5.6c0.4-0.4,0.4-1,0-1.4c-0.4-0.4-1-0.4-1.4,0L7.3,5.9L1.7,0.3c-0.4-0.4-1-0.4-1.4,0c-0.4,0.4-0.4,1,0,1.4l5.6,5.6  L0.3,12.9z"></path>
+                  </svg>
+          </a>
+          <li><a href="javascript:;" class="carousel-mobi-tab-item active" data-href="topcarousel" data-text="{{ category_top }}">{{ category_top }}</a></li>
+          <li><a href="javascript:;" class="carousel-mobi-tab-item" data-href="bottomcarousel" data-text="{{ category_all }}">{{ category_all }}</a></li>
+        </ul>
+      </div>
     {% endif %}
     <div class="carousel-inner carousel-inner-device">
-        <div class="row">
+      <div class="row">
         {% for key, cat in score|slice(0,3) %}
           <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-print-item itm">
             <div class="quiz-list">
@@ -67,25 +69,25 @@
       </div>
     </div>
     <div class="carousel-inner carousel-inner-mobi active d-print-none" data-id="topcarousel">
-        <div class="row carousel-slider-mobi-row active">
-      {% for key, cat in score|slice(0,3) %}
-        <div class="col-12">
-          <div class="quiz-list">
-            <div class="item field-match">
-              {{ cat['percent'] }}% Match
-            </div>
-            <div class="item img-field">
-              <img src="/themes/custom/workbc_cdq/assets/icons/{{ cat['image'] }}-icon.svg" />
-            </div>
-            <div class="item title-field" style="color:#{{ cat['color']}}">
-              {{ key }}
-            </div>
-            <div class="item title-description _216C06">
-              <p><span>{{ cat['description'] | raw }}</span></p>
+      <div class="row carousel-slider-mobi-row active">
+        {% for key, cat in score|slice(0,3) %}
+          <div class="col-12">
+            <div class="quiz-list">
+              <div class="item field-match">
+                {{ cat['percent'] }}% Match
+              </div>
+              <div class="item img-field">
+                <img src="/themes/custom/workbc_cdq/assets/icons/{{ cat['image'] }}-icon.svg" />
+              </div>
+              <div class="item title-field" style="color:#{{ cat['color']}}">
+                {{ key }}
+              </div>
+              <div class="item title-description _216C06">
+                <p><span>{{ cat['description'] | raw }}</span></p>
+              </div>
             </div>
           </div>
-        </div>
-      {% endfor %}
+        {% endfor %}
       </div>
     </div>
     <div class="carousel-inner carousel-inner-mobi d-print-none" data-id="bottomcarousel">
@@ -111,42 +113,47 @@
       </div>
     </div>
 
-{% if score|length > 3 %}
+    {% if score|length > 3 %}
 
-    <div class="collapse" id="hiddenByDefault">
-      {% for key, cat in score|slice(3) %}
-        {% if loop.index0 % 3 == 0 %}
-          <div class="row">
-        {% endif %}
-          <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-print-item itm">
-    	      <div class="quiz-list">
-      		    <div class="item field-match">
-    			      {{ cat['percent'] }}% Match
-		          </div>
-		          <div class="item img-field">
-                <img src="/themes/custom/workbc_cdq/assets/icons/{{ cat['image'] }}-icon.svg" />
-		          </div>
-		          <div class="item title-field" style="color:#{{ cat['color']}}">
-          			{{ key }}
-		          </div>
-              <div class="item title-description _216C06">
-                <p><span>{{ cat['description'] | raw }}</span></p>
-		          </div>
-	          </div>
-          </div>
-        {% if loop.index0 % 3 == 2 or loop.last %}
-          </div>
-        {% endif %}
-      {% endfor %}
+      <div class="collapse" id="hiddenByDefault">
+        {% for key, cat in score|slice(3) %}
+          {% if loop.index0 % 3 == 0 %}
+            <div class="row">
+          {% endif %}
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-print-item itm">
+    	        <div class="quiz-list">
+        		    <div class="item field-match">
+    			        {{ cat['percent'] }}% Match
+		            </div>
+		            <div class="item img-field">
+                  <img src="/themes/custom/workbc_cdq/assets/icons/{{ cat['image'] }}-icon.svg" />
+		            </div>
+		            <div class="item title-field" style="color:#{{ cat['color']}}">
+            			{{ key }}
+		            </div>
+                <div class="item title-description _216C06">
+                  <p><span>{{ cat['description'] | raw }}</span></p>
+		            </div>
+	            </div>
+            </div>
+          {% if loop.index0 % 3 == 2 or loop.last %}
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      <a href="#hiddenByDefault"
+        id="categoryToggle"
+        data-bs-toggle="collapse"
+        class="category-results-toggle hideshow"
+        aria-expanded="false" aria-controls="hiddenByDefault">&nbsp;{{ category }}&nbsp;</a>
     </div>
+  {% endif %}
 
-    <a href="#hiddenByDefault"
-       id="categoryToggle"
-       data-bs-toggle="collapse"
-       class="category-results-toggle hideshow"
-       aria-expanded="false" aria-controls="hiddenByDefault">&nbsp;{{ category }}&nbsp;</a>
-  </div>
-
+{% else %}
+  <span class="quiz-results-expired">
+    <h3>14 days have passed and these quiz results have expired.</h3>
+  <span>
 {% endif %}
-
 </div>
+

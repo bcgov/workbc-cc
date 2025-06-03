@@ -584,20 +584,7 @@ display:
       cache:
         type: none
         options: {  }
-      empty:
-        area:
-          id: area
-          table: views
-          field: area
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: text
-          empty: true
-          content:
-            value: 'No results'
-            format: basic_html
-          tokenize: false
+      empty: {  }
       sorts:
         career_match:
           id: career_match
