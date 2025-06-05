@@ -5,7 +5,59 @@ use Drupal\views\ViewExecutable;
 use Drupal\views\Plugin\views\query\QueryPluginBase;
 use Drupal\config_ignore\ConfigIgnoreConfig;
 
+/**
+ * Implements hook_entity_access().
+ */
+function workbc_cdq_custom_entity_access(\Drupal\Core\Entity\EntityInterface $entity, $operation, \Drupal\Core\Session\AccountInterface $account) {
+
+  if ($entity->getEntityTypeId() === "webform") {
+    if ($operation == "submission_page") {
+      $webform_id = $entity->id();
+
+      $token_url = \Drupal::request()->get('token');
+      $session = \Drupal::request()->getSession();
+      $token_session = $session->get($webform_id.'_token')?: "";
+
+      if ($token_url && $token_url <> $token_session) {
+        return \Drupal\Core\Access\AccessResult::forbidden();
+      }
+    }
+  }
+  return \Drupal\Core\Access\AccessResult::neutral();
+}
+
+/**
+ * Implements hook_views_query_alter().
+ */
+function workbc_cdq_custom_views_query_alter(ViewExecutable $view, QueryPluginBase $query) {
+
+  if ($view->storage->get('id') == "quiz_career_match") {
+    $query->orderby[] = [
+      'field' => 'node_field_data_workbc_cdq_career_match.title',
+      'direction' => 'ASC'
+    ];
+  }
+}
+
+/**
+ * Implements hook_config_ignore_ignored_alter().
+ */
+function workbc_cdq_custom_config_ignore_ignored_alter(&$ignoreConfig) {
+  $override = \Drupal::config('config_ignore.settings');
+  if (!empty($override)) {
+    try {
+      $ignoreConfig = ConfigIgnoreConfig::fromConfig($override);
+    }
+    catch (\Throwable $e) {
+      \Drupal::logger('workbc')->error('Invalid value for config_ignore.settings override. Ignoring.');
+    }
+  }
+}
+
+/*************************** HELPER FUNCTIONS ***************************/
+
 function quizzesList() {
+
   $forms = \Drupal::entityTypeManager()->getStorage('webform')->loadMultiple();
   return array_reduce($forms, function($quizzes, $form) {
     if (str_ends_with($form->id(), '_quiz')) {
@@ -14,6 +66,7 @@ function quizzesList() {
     return $quizzes;
   }, []);
 }
+
 
 function getCurrentQuiz() {
 
@@ -155,47 +208,4 @@ function getUserSubmission($webform_id, $skip_overrides = false) {
     }
   }
   return $submission ?? false;
-}
-
-
-function workbc_cdq_custom_entity_access(\Drupal\Core\Entity\EntityInterface $entity, $operation, \Drupal\Core\Session\AccountInterface $account) {
-
-  if ($entity->getEntityTypeId() === "webform") {
-    if ($operation == "submission_page") {
-      $webform_id = $entity->id();
-
-      $token_url = \Drupal::request()->get('token');
-      $session = \Drupal::request()->getSession();
-      $token_session = $session->get($webform_id.'_token')?: "";
-
-      if ($token_url && $token_url <> $token_session) {
-        return \Drupal\Core\Access\AccessResult::forbidden();
-      }
-    }
-  }
-  return \Drupal\Core\Access\AccessResult::neutral();
-}
-
-
-function workbc_cdq_custom_views_query_alter(ViewExecutable $view, QueryPluginBase $query) {
-
-  if ($view->storage->get('id') == "quiz_career_match") {
-    $query->orderby[] = [
-      'field' => 'node_field_data_workbc_cdq_career_match.title',
-      'direction' => 'ASC'
-    ];
-  }
-}
-
-
-function workbc_cdq_custom_config_ignore_ignored_alter(&$ignoreConfig) {
-  $override = \Drupal::config('config_ignore.settings');
-  if (!empty($override)) {
-    try {
-      $ignoreConfig = ConfigIgnoreConfig::fromConfig($override);
-    }
-    catch (\Throwable $e) {
-      \Drupal::logger('workbc')->error('Invalid value for config_ignore.settings override. Ignoring.');
-    }
-  }
 }
