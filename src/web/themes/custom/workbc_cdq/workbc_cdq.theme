@@ -141,7 +141,6 @@ function workbc_cdq_preprocess_webform_progress_tracker(&$variables) {
     WebformSubmissionInterface::STATE_COMPLETED,
     WebformSubmissionInterface::STATE_UPDATED,
   ];
-  ksm($variables['webform_submission']->getState());
   $variables['completed'] = in_array($variables['webform_submission']->getState(), $states);
 }
 
