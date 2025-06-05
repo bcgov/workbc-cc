@@ -47,7 +47,8 @@ class CareerMatchWebformHandler extends WebformHandlerBase {
    * {@inheritdoc}
    */
   public function postSave(WebformSubmissionInterface $webform_submission, $update = TRUE) {
-    if ($webform_submission->getState() !== WebformSubmissionInterface::STATE_COMPLETED) return;
+    if ($webform_submission->getState() !== WebformSubmissionInterface::STATE_COMPLETED &&
+        $webform_submission->getState() !== WebformSubmissionInterface::STATE_UPDATED) return;
 
     $scores = getSubmissionScore($webform_submission);
     $matches = matchCareers($webform_submission, $scores);

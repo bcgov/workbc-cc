@@ -1,6 +1,7 @@
 <?php
 
 use Drupal\Core\Url;
+use Drupal\webform\WebformSubmissionInterface;
 
 /**
  * Implements hook_preprocess_page().
@@ -126,6 +127,15 @@ function workbc_cdq_preprocess_block(&$variables) {
       }
     }
   }
+}
+
+function workbc_cdq_preprocess_webform_progress_tracker(&$variables) {
+  $states = [
+    WebformSubmissionInterface::STATE_COMPLETED,
+    WebformSubmissionInterface::STATE_UPDATED,
+  ];
+  ksm($variables['webform_submission']->getState());
+  $variables['completed'] = in_array($variables['webform_submission']->getState(), $states);
 }
 
 /*************************** HELPER FUNCTIONS ***************************/
