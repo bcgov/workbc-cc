@@ -107,6 +107,13 @@ function workbc_cdq_preprocess_fieldset(&$variables) {
     });
     $question_number = array_search($variables['element']['#webform_key'], array_keys($questions)) + 1;
     $variables['question_number'] = $question_number;
+
+    // Override label.
+    $overrides = $quiz->getThirdPartySetting('workbc_cdq_career_match', 'questions', []);
+    $variables['question_title'] =
+      array_key_exists($variables['element']['#webform_key'], $overrides) && !empty($overrides[$variables['element']['#webform_key']]) ?
+        $overrides[$variables['element']['#webform_key']] :
+        $variables['element']['#title'];
   }
 }
 

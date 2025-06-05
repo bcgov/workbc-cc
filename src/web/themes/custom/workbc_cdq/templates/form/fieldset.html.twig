@@ -39,7 +39,7 @@
   <legend{{ legend.attributes }}>
     {% if question_number %}
         <span class="question-prefix">{{ question_number }}</span>
-        <span {{ legend_span.attributes.addClass(legend_span_classes) }}>{{ legend.title }}</span>
+        <span {{ legend_span.attributes.addClass(legend_span_classes) }}>{{ question_title }}</span>
     {% else %}
       <span{{ legend_span.attributes.addClass(legend_span_classes) }}>{{ legend.title }}</span>
     {% endif %}

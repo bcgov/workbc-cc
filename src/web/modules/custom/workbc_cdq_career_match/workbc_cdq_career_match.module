@@ -282,6 +282,26 @@ function workbc_cdq_career_match_webform_third_party_settings_form_alter(array &
     '#required' => false,
     '#default_value' => $webform->getThirdPartySetting('workbc_cdq_career_match', 'all_text'),
   ];
+
+  // Add an entry for the text of each question.
+  $questions = array_filter($webform->getElementsInitializedAndFlattened(), function($question) {
+    return $question['#type'] === 'radios';
+  });
+  $form['third_party_settings']['workbc_cdq_career_match']['questions'] = [
+    '#type' => 'details',
+    '#title' => t('Override question labels'),
+    '#description' => t('Override the text of the quiz questions. Leave blank to use the original text.'),
+    '#open' => FALSE,
+  ];
+  $overrides = $webform->getThirdPartySetting('workbc_cdq_career_match', 'questions', []);
+  foreach($questions as $key => $question) {
+    $form['third_party_settings']['workbc_cdq_career_match']['questions'][$key] = [
+      '#type' => 'textfield',
+      '#title' => t('Override: @question', ['@question' => $question['#title']]),
+      '#required' => false,
+      '#default_value' => array_key_exists($key, $overrides) ? $overrides[$key] : '',
+    ];
+  }
 }
 
 /**
