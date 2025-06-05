@@ -1,6 +1,7 @@
 <?php
 
 use Drupal\webform\Entity\WebformSubmission;
+use Drupal\webform\WebformSubmissionInterface;
 use Drupal\views\ViewExecutable;
 use Drupal\views\Plugin\views\query\QueryPluginBase;
 use Drupal\config_ignore\ConfigIgnoreConfig;
@@ -208,4 +209,37 @@ function getUserSubmission($webform_id, $skip_overrides = false) {
     }
   }
   return $submission ?? false;
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function workbc_cdq_custom_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+
+  $forms = [
+    "webform_submission_abilities_quiz_edit_form",
+    "webform_submission_work_preferences_quiz_edit_form",
+    "webform_submission_interests_quiz_edit_form",
+    "webform_submission_multiple_intelligences_quiz_edit_form",
+    "webform_submission_learning_styles_quiz_edit_form",
+    "webform_submission_work_values_quiz_edit_form",
+  ];
+  $states = [
+    WebformSubmissionInterface::STATE_COMPLETED,
+    WebformSubmissionInterface::STATE_UPDATED,
+  ];
+  if (in_array($form_id, $forms)) {
+    if (isset($form['information']['#webform_submission'])) {
+      $submission = $form['information']['#webform_submission'];
+      if (in_array($submission->getState(), $states)) {
+        foreach ($form['pages'] as $key => $page) {
+          if (isset($page['#type']) && $page['#type'] == "submit") {
+            if ($key <> $form['progress']['#current_page']) {
+              $form['pages'][$key]['#access'] = true;
+            }
+          }
+        }
+      }
+    }
+  }
 }
