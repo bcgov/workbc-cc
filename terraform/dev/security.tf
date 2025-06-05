@@ -13,6 +13,10 @@ data "aws_security_group" "data" {
   name = "Data_sg"
 }
 
+data "aws_security_group" "postgres" {
+  name = "allow_postgres"
+}
+
 # Traffic to the ECS cluster should only come from the ALB
 resource "aws_security_group" "ecs_tasks" {
   name        = "workbc-cc-ecs-tasks-security-group"
