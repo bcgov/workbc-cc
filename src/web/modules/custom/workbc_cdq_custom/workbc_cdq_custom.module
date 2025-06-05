@@ -211,6 +211,9 @@ function getUserSubmission($webform_id, $skip_overrides = false) {
   return $submission ?? false;
 }
 
+/**
+ * Implements hook_form_alter().
+ */
 function workbc_cdq_custom_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
 
   $forms = [
