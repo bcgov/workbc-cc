@@ -53,3 +53,6 @@ contexts:
       -
         source: resource_4_title
         translation: 'High Opportunity Occupations'
+      -
+        source: resources_section_title
+        translation: 'Tools and Resources'

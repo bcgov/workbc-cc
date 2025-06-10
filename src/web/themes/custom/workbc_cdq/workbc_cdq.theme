@@ -41,6 +41,8 @@ function workbc_cdq_preprocess_page(&$variables) {
     $variables['text']['home_page_personality_title'] = t('home_page_personality_title');
     $variables['text']['home_page_personality_text'] = t('home_page_personality_text');
 
+    $variables['resources_section_title'] = t('resources_section_title');
+
     $variables['resources'][0]['title'] = t('resource_1_title');
     $variables['resources'][0]['link'] = t('resource_1_link');
     $variables['resources'][0]['description'] = t('resource_1_description');
