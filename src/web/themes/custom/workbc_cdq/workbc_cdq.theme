@@ -32,8 +32,33 @@ function workbc_cdq_preprocess_page(&$variables) {
     $variables['career_count'] = $career_count;
     $variables['personality_count'] = $personality_count;
 
+    $variables['text']['home_page_title'] = \Drupal::config('system.site')->get('name');
+    $variables['text']['home_page_slogan'] = \Drupal::config('system.site')->get('slogan');
+    $variables['text']['home_page_banner'] = t('home_page_banner');
+
+    $variables['text']['home_page_career_title'] = t('home_page_career_title');
+    $variables['text']['home_page_career_text'] = t('home_page_career_text');
+    $variables['text']['home_page_personality_title'] = t('home_page_personality_title');
+    $variables['text']['home_page_personality_text'] = t('home_page_personality_text');
+
+    // ksm(t('resource_1_title'));
+    // ksm(t('resource_1_link'));
+    $variables['resources'][0]['title'] = t('resource_1_title');
+    $variables['resources'][0]['link'] = t('resource_1_link');
+    $variables['resources'][0]['description'] = t('resource_1_description');
+    $variables['resources'][1]['title'] = t('resource_2_title');
+    $variables['resources'][1]['link'] = t('resource_2_link');
+    $variables['resources'][1]['description'] = t('resource_2_description');
+    $variables['resources'][2]['title'] = t('resource_3_title');
+    $variables['resources'][2]['link'] = t('resource_3_link');
+    $variables['resources'][2]['description'] = t('resource_3_description');
+    $variables['resources'][3]['title'] = t('resource_4_title');
+    $variables['resources'][3]['link'] = t('resource_4_link');
+    $variables['resources'][3]['description'] = t('resource_4_description');
+
     // Disable cache on front page for the quiz links.
     $variables['#cache']['max-age'] = 0;
+    // ksm($variables);
   }
 
   $quiz = getCurrentQuiz();

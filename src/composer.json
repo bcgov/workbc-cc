@@ -34,6 +34,7 @@
         "drupal/manage_state": "^1.0",
         "drupal/queue_ui": "^3.2",
         "drupal/sitewide_alert": "^2.2",
+        "drupal/stringoverrides": "^1.8",
         "drupal/structure_sync": "^2.0",
         "drupal/svg_image": "^3.0",
         "drupal/system_stream_wrapper": "^2.0",
