@@ -102,8 +102,8 @@ set footer_classes = ' ' ~
         <div class="container-fluid">
           <div class="banner-content flex-content">
             <div class="banner-inner">
-              <h1>Career Discovery Quizzes</h1>
-              <p class="sub-title">Learn more about yourself and explore what careers might be the best fit for you.</p>
+              <h1>{{ text['home_page_title'] }}</h1>
+              <p class="sub-title">{{ text['home_page_slogan'] }}</p>
               <a class="cta-btn-blue" href="/#career-quizzes">View Quizzes</a>
             </div>
           </div>
@@ -115,8 +115,8 @@ set footer_classes = ' ' ~
             <div class="col-12">
               <div class="banner-content flex-content">
                 <div class="banner-inner">
-                  <h1>Career Discovery Quizzes</h1>
-                  <p class="sub-title">Learn more about yourself and explore what careers might be the best fit for you.</p>
+                  <h1>{{ text['home_page_title'] }}</h1>
+                  <p class="sub-title">{{ text['home_page_slogan'] }}</p>
                 </div>
               </div>
             </div>
@@ -129,7 +129,9 @@ set footer_classes = ' ' ~
       <div class="intro-text-wrapper">
         <div class="container-fluid">
           <div class="intro-content px-3">
-            <div class="clearfix text-formatted field field--name-field-rich-text field--type-text-long field--label-hidden field__item"><p><span><span><span lang="EN-CA" xml:lang="EN-CA" xml:lang="EN-CA">Complete one or more of the quizzes to help you explore your career direction.</span></span></span></p></div>
+            <div class="clearfix text-formatted field field--name-field-rich-text field--type-text-long field--label-hidden field__item"><p><span><span>
+              <span lang="EN-CA" xml:lang="EN-CA" xml:lang="EN-CA">{{ text['home_page_banner'] }}</span>
+            </span></span></p></div>
           </div>
         </div>
       </div>
@@ -150,8 +152,8 @@ set footer_classes = ' ' ~
         <div class="row">
 	        <div class="col-md-12">
 		        <div class="head-des">
-              <h2 id="career-quizzes">Career Quizzes</h2>
-              <div class="description"><p>Take the career quizzes below to discover how your abilities, work preferences and interests can help you explore careers that suit you best.</p></div>
+              <h2 id="career-quizzes">{{ text['home_page_career_title'] }}</h2>
+              <div class="description"><p>{{ text['home_page_career_text'] }}</p></div>
 		        </div>
           </div>
         </div>
@@ -210,8 +212,8 @@ set footer_classes = ' ' ~
         <div class="row">
 	        <div class="col-md-12">
 		        <div class="head-des">
-			        <h2>Personality Quizzes</h2>
-              <div class="description"><p>Take the personality quizzes below to better understand how you think, how you learn, and what matters most to you in a job</p></div>
+			        <h2>{{ text['home_page_personality_title'] }}</h2>
+              <div class="description"><p>{{ text['home_page_personality_text'] }}</p></div>
 		        </div>
 	        </div>
         </div>
@@ -278,6 +280,6 @@ set footer_classes = ' ' ~
   </div>
 </main>
 
-{% include '@workbc_cdq/templates/includes/front-page-resources.html.twig' %}
+{% include '@workbc_cdq/templates/includes/front-page-resources.html.twig' with { resources } %}
 
 {% include '@workbc_cdq/templates/includes/workbc-cdq-footer.html.twig' %}

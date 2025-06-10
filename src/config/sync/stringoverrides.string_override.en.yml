@@ -1,0 +1,55 @@
+contexts:
+  -
+    context: ''
+    translations:
+      -
+        source: home_page_banner
+        translation: 'Complete one or more of the quizzes to help you explore your career direction.'
+      -
+        source: home_page_career_text
+        translation: 'Take the career quizzes below to discover how your abilities, work preferences and interests can help you explore careers that suit you best.'
+      -
+        source: home_page_career_title
+        translation: 'Career Quizzes'
+      -
+        source: home_page_personality_text
+        translation: 'Take the personality quizzes below to better understand how you think, how you learn and what matters most to you in a job.'
+      -
+        source: home_page_personality_title
+        translation: 'Personality Quizzes'
+      -
+        source: resource_1_description
+        translation: 'Explore career opportunities that fit your interests and goals.'
+      -
+        source: resource_1_link
+        translation: 'https://www.workbc.ca/careersearchtool/'
+      -
+        source: resource_1_title
+        translation: 'Career Search Tool'
+      -
+        source: resource_2_description
+        translation: 'Discover the career of your dreams with videos highlighting careers throughout B.C.'
+      -
+        source: resource_2_link
+        translation: 'https://www.careertrekbc.ca/'
+      -
+        source: resource_2_title
+        translation: 'Career Trek Videos'
+      -
+        source: resource_3_description
+        translation: 'Looking for a new career? Find out what careers you may be able to transition to based on your current occupation.'
+      -
+        source: resource_3_link
+        translation: 'https://www.workbc.ca/careertransitiontool/'
+      -
+        source: resource_3_title
+        translation: 'Career Transition Tool'
+      -
+        source: resource_4_description
+        translation: 'Discover occupations in B.C. that are expected to offer the best opportunities over the next 10 years.'
+      -
+        source: resource_4_link
+        translation: 'https://www.workbc.ca/research-labour-market/high-opportunity-occupations'
+      -
+        source: resource_4_title
+        translation: 'High Opportunity Occupations'

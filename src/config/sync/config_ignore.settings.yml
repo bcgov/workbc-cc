@@ -5,6 +5,7 @@ ignored_config_entities:
   - mimemail.settings
   - openid_connect.settings
   - 'openid_connect.settings.*'
+  - 'stringoverrides.*'
   - system.maintenance
   - system.performance
   - system.site
