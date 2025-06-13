@@ -243,6 +243,7 @@ function workbc_cdq_custom_form_alter(&$form, FormStateInterface $form_state, $f
       }
     }
 
+    // when editing a completed quiz prevent Autosave from putting the submission in draft state.
     $webform_submission = $form_state->getFormObject()->getEntity();
     if (!is_null($webform_submission->completed->value)) {
       unset($form['webformautosave_hidden_container']['webformautosave_hidden_save_draft']['#validate']);
