@@ -2,6 +2,7 @@
 
 use Drupal\webform\Entity\WebformSubmission;
 use Drupal\webform\WebformSubmissionInterface;
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\views\ViewExecutable;
 use Drupal\views\Plugin\views\query\QueryPluginBase;
 use Drupal\config_ignore\ConfigIgnoreConfig;
@@ -214,7 +215,7 @@ function getUserSubmission($webform_id, $skip_overrides = false) {
 /**
  * Implements hook_form_alter().
  */
-function workbc_cdq_custom_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+function workbc_cdq_custom_form_alter(&$form, FormStateInterface $form_state, $form_id) {
 
   $forms = [
     "webform_submission_abilities_quiz_edit_form",
@@ -240,6 +241,12 @@ function workbc_cdq_custom_form_alter(&$form, \Drupal\Core\Form\FormStateInterfa
           }
         }
       }
+    }
+
+    // when editing a completed quiz prevent Autosave from putting the submission in draft state.
+    $webform_submission = $form_state->getFormObject()->getEntity();
+    if (!is_null($webform_submission->completed->value)) {
+      unset($form['webformautosave_hidden_container']['webformautosave_hidden_save_draft']['#validate']);
     }
   }
 }
