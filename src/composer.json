@@ -135,6 +135,9 @@
             "drupal/devel": {
                 "Fix Kint": "patches/drupal/devel/devel-ksm.patch"
             },
+            "drupal/webformautosave": {
+                "Fix context": "patches/drupal/webformautosave/webformautosave-fix-context.patch"
+            },
             "drupal/bootstrap5": {
                 "math.abs": "patches/drupal/bootstrap5/passing_percentage_units_to_the_global_abs_function_is_deprecated-3391813-015.patch"
             }
