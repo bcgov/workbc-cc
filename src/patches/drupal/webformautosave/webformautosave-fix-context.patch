@@ -1,0 +1,13 @@
+diff --git a/js/webformautosave.js b/js/webformautosave.js
+index e757e9a..9b08579 100644
+--- a/js/webformautosave.js
++++ b/js/webformautosave.js
+@@ -113,7 +113,7 @@
+       $(document, context).find('form.webform-submission-form');
+       // This runs every time we attach (on backend ajax callback).
+       store.forms = settings.webformautosave.forms;
+-      const webformForm = $('form.webform-submission-form');
++      const webformForm = $('form.webform-submission-form', context);
+       // Let's bind an input event to our inputs once.
+       if ($(webformForm).length) {
+         // eslint-disable-next-line func-names
