@@ -18,7 +18,7 @@ resource "aws_rds_cluster" "postgres" {
   db_subnet_group_name    = aws_db_subnet_group.data_subnet.name
   kms_key_id              = aws_kms_key.workbc-cc-kms-key.arn
   storage_encrypted       = true
-  vpc_security_group_ids  = [data.aws_security_group.data.id]
+  vpc_security_group_ids  = [data.aws_security_group.data.id, data.aws_security_group.postgres.id]
   skip_final_snapshot     = true
   final_snapshot_identifier = "ceu-finalsnapshot"
   
