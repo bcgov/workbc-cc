@@ -27,31 +27,39 @@ function workbc_cdq_custom_deploy_1293_bulk_image_import(&$sandbox = NULL) {
   if (!empty($career)) {
     $node = Node::load($career->entity_id);
 
-    $noc = $node->field_noc_2016->value;
 
     $extension_list = \Drupal::service('extension.list.theme');
+    $noc = $node->field_noc->value;
     $filepath = $extension_list->getPath('workbc_cdq') . '/assets/profiles/' . $noc . '-NOC-profile.png';
+    if (!file_exists($filepath)) {
+      $noc = $node->field_noc_2016->value;
+      $filepath = $extension_list->getPath('workbc_cdq') . '/assets/profiles/' . $noc . '-NOC-profile.png';
+    }
 
-    $directory = 'public://career_profile_images';
+    if (file_exists($filepath)) {
+      $directory = 'public://career_profile_images';
 
-    $file_system = \Drupal::service('file_system');
-    $file_system->prepareDirectory($directory, FileSystemInterface:: CREATE_DIRECTORY | FileSystemInterface::MODIFY_PERMISSIONS);
-    $file_system->copy($filepath, $directory . '/' . basename($filepath), FileSystemInterface::EXISTS_REPLACE);
+      $file_system = \Drupal::service('file_system');
+      $file_system->prepareDirectory($directory, FileSystemInterface:: CREATE_DIRECTORY | FileSystemInterface::MODIFY_PERMISSIONS);
+      $file_system->copy($filepath, $directory . '/' . basename($filepath), FileSystemInterface::EXISTS_REPLACE);
 
-    $file = File::create([
-      'filename' => basename($filepath),
-      'uri' => $directory . '/' . basename($filepath),
-      'status' => 1,
-      'uid' => 1,
-    ]);
-    $file->save();
+      $file = File::create([
+        'filename' => basename($filepath),
+        'uri' => $directory . '/' . basename($filepath),
+        'status' => 1,
+        'uid' => 1,
+      ]);
+      $file->save();
 
-    $node->set('field_image', [
-      'target_id' => $file->id(),
-    ]);
-    $node->save();
-
-    $message = "Career Profile: " . $node->get("field_noc")->getString() . " - populate image field";
+      $node->set('field_image', [
+        'target_id' => $file->id(),
+      ]);
+      $node->save();
+      $message = "Career Profile: " . $node->get("field_noc")->getString() . " - populate image field";
+    }
+    else {
+      $message = "Career Profile: " . $node->get("field_noc")->getString() . " - missing image " . basename($filepath);
+    }
   }
 
   $sandbox['#finished'] = empty($sandbox['career_profiles']) ? 1 : ($sandbox['count'] - count($sandbox['career_profiles'])) / $sandbox['count'];
