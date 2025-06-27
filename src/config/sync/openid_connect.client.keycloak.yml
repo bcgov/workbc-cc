@@ -1,0 +1,33 @@
+uuid: 3c8ae815-9ed6-41b4-9ef1-befd60f4045c
+langcode: en
+status: true
+dependencies:
+  module:
+    - keycloak
+id: keycloak
+label: Keycloak
+plugin: keycloak
+settings:
+  debug: false
+  client_id: work-bc-career-discovery-quizzes-3962
+  client_secret: 9a77c8d4-8528-41ad-93e1-8acfbf574031
+  iss_allowed_domains: ''
+  keycloak_base: 'https://dev.loginproxy.gov.bc.ca/auth'
+  keycloak_realm: standard
+  kc_idp_hint: ''
+  userinfo_update_email: false
+  keycloak_i18n:
+    enabled: false
+    mapping: {  }
+  keycloak_groups:
+    enabled: false
+    claim_name: groups
+    split_groups: false
+    split_groups_limit: false
+    rules: {  }
+  keycloak_sso: false
+  keycloak_sign_out: false
+  check_session:
+    enabled: false
+    interval: 2
+  keycloak_locale_param: kc_locale
