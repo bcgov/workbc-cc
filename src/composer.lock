@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0530abbc32414a2c97eeeae3af5d2bd1",
+    "content-hash": "ac0390f34a32f3da707cefc1e6c1e5fd",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -118,16 +118,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.348.0",
+            "version": "3.348.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "7ad94071b0429470e8d4f714c0bead44ea080ef2"
+                "reference": "c384263bebbfcdd0f59b459e630851f59080955f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/7ad94071b0429470e8d4f714c0bead44ea080ef2",
-                "reference": "7ad94071b0429470e8d4f714c0bead44ea080ef2",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/c384263bebbfcdd0f59b459e630851f59080955f",
+                "reference": "c384263bebbfcdd0f59b459e630851f59080955f",
                 "shasum": ""
             },
             "require": {
@@ -209,9 +209,9 @@
             "support": {
                 "forum": "https://github.com/aws/aws-sdk-php/discussions",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.348.0"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.348.1"
             },
-            "time": "2025-06-26T18:14:07+00:00"
+            "time": "2025-06-27T19:02:10+00:00"
         },
         {
             "name": "composer/installers",
@@ -1998,20 +1998,20 @@
         },
         {
             "name": "drupal/openid_connect",
-            "version": "3.0.0-alpha5",
+            "version": "3.0.0-alpha6",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/openid_connect.git",
-                "reference": "3.0.0-alpha5"
+                "reference": "3.0.0-alpha6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/openid_connect-3.0.0-alpha5.zip",
-                "reference": "3.0.0-alpha5",
-                "shasum": "6bca4f7ac0f675370008a0631095722347379b04"
+                "url": "https://ftp.drupal.org/files/projects/openid_connect-3.0.0-alpha6.zip",
+                "reference": "3.0.0-alpha6",
+                "shasum": "ae9b7a24d8ad2534756e5b2689fad6688e6b3cb0"
             },
             "require": {
-                "drupal/core": "^9.5 || ^10.2 || ^11",
+                "drupal/core": "^10.2 || ^11",
                 "drupal/externalauth": "^2.0",
                 "ext-json": "*",
                 "php": ">=8.1.0"
@@ -2019,8 +2019,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "3.0.0-alpha5",
-                    "datestamp": "1735590945",
+                    "version": "3.0.0-alpha6",
+                    "datestamp": "1739445531",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Alpha releases are not covered by Drupal security advisories."

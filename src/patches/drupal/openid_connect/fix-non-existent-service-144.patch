@@ -1,0 +1,49 @@
+From 9127728ac52cb1fed56d7b0690d76c58d432c076 Mon Sep 17 00:00:00 2001
+From: Phil Frilling <pfrilling@oomphinc.com>
+Date: Tue, 18 Feb 2025 21:00:27 -0500
+Subject: [PATCH] Remove the service provider class unsetting the
+ openid_connect.openid_connect service
+
+---
+ src/OpenidConnectServiceProvider.php | 29 ----------------------------
+ 1 file changed, 29 deletions(-)
+ delete mode 100644 src/OpenidConnectServiceProvider.php
+
+diff --git a/src/OpenidConnectServiceProvider.php b/src/OpenidConnectServiceProvider.php
+deleted file mode 100644
+index fa32a65..0000000
+--- a/src/OpenidConnectServiceProvider.php
++++ /dev/null
+@@ -1,29 +0,0 @@
+-<?php
+-
+-namespace Drupal\openid_connect;
+-
+-use Drupal\Core\DependencyInjection\ContainerBuilder;
+-use Drupal\Core\DependencyInjection\ServiceProviderBase;
+-use Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException;
+-
+-/**
+- * Service provider for the openid_connect module.
+- */
+-class OpenidConnectServiceProvider extends ServiceProviderBase {
+-
+-  /**
+-   * {@inheritdoc}
+-   */
+-  public function alter(ContainerBuilder $container) {
+-    // This service was introduced as a new dependency in version 2.0alpha3.
+-    try {
+-      $container->getDefinition('externalauth.authmap');
+-    }
+-    // If the service is not available, remove its dependent services.
+-    catch (ServiceNotFoundException $exception) {
+-      // Requires 'externalauth.authmap'.
+-      $container->removeDefinition('openid_connect.openid_connect');
+-    }
+-  }
+-
+-}
+-- 
+GitLab
+

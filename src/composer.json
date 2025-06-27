@@ -30,7 +30,7 @@
         "drupal/devel_php": "^1.7",
         "drupal/easy_breadcrumb": "^2.0",
         "drupal/keycloak": "^2.2",
-        "drupal/openid_connect": "3.0.0-alpha5",
+        "drupal/openid_connect": "3.0.0-alpha6",
         "drupal/queue_ui": "^3.2",
         "drupal/sitewide_alert": "^3.0",
         "drupal/stringoverrides": "^1.8",
@@ -133,6 +133,9 @@
             },
             "drupal/devel": {
                 "Fix Kint": "patches/drupal/devel/devel-ksm.patch"
+            },
+            "drupal/openid_connect": {
+                "Fix non-existent service": "patches/drupal/openid_connect/fix-non-existent-service-144.patch"
             },
             "drupal/stringoverrides": {
                 "d11 compatibility": "patches/drupal/stringoverrides/stringoverrides-d11-compatibility.patch"
