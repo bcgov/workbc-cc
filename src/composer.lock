@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5a9f86b8ed01a929409c9d9de0b331b0",
+    "content-hash": "49d35eb1b35be27cd14d899da5dbc2b3",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2228,7 +2228,7 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/stringoverrides.git",
-                "reference": "b606409b5a7660170bd418050c4833e716aa6c46"
+                "reference": "b606409b"
             },
             "require": {
                 "drupal/core": "^8.8 || ^9 || ^10 || ^11"
@@ -2708,7 +2708,7 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/webformautosave.git",
-                "reference": "3ab7e1490c2afe7eee2a919d6b702e5ea74bedf1"
+                "reference": "3ab7e149"
             },
             "require": {
                 "drupal/core": "^9 || ^10 || ^11",
