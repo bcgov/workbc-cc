@@ -59,6 +59,7 @@ module:
   workbc_cdq_career_match: 0
   workbc_cdq_custom: 0
   workbc_cdq_ssot: 0
+  externalauth: 10
   views: 10
   standard: 1000
 theme:
