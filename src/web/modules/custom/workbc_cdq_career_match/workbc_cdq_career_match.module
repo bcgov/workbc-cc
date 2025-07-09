@@ -368,11 +368,13 @@ function workbc_cdq_career_match_webform_element_configuration_form_alter(&$form
 
 function getCareerProfileInfo(\Drupal\node\NodeInterface $node) {
   $active_theme = \Drupal::service('theme.manager')->getActiveTheme()->getName();
-  $noc = $node->field_noc_2016->value;
-  $image_uri =  'theme://' . $active_theme . '/assets/profiles/' . $noc . '-NOC-profile.png';
-  if ($image_uri) {
-    $style = ImageStyle::load('career_profile_preview');
-    $image_url = $style->buildUrl($image_uri);
+
+  if ($node->hasField('field_image') && !$node->get('field_image')->isEmpty()) {
+    $image_uri = $node->get('field_image')->entity->getFileUri();
+    if ($image_uri) {
+      $style = ImageStyle::load('career_profile_preview');
+      $image_url = $style->buildUrl($image_uri);
+    }
   }
 
   // Get the job openings date range from the SSOT schema.
@@ -396,7 +398,7 @@ function getCareerProfileInfo(\Drupal\node\NodeInterface $node) {
     'noc' => $node->field_noc->value,
     'job_summary' => Unicode::truncate($node->body->value, 250, true, true),
     'video_id' => $node->field_video_id->value,
-    'image' => $image_url,
+    'image' => $image_url ?? "",
     'annual_salary' => $node->field_annual_salary->value ?? 'Not available',
     'education_level' => $term[0]->getName(),
     'job_openings' => $node->field_job_openings->value ?? 'Not available',
