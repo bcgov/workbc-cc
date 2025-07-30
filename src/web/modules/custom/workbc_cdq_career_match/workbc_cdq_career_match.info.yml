@@ -5,6 +5,6 @@ package: WorkBC
 dependencies:
   - webform
   - block
-core_version_requirement: ^10
+core_version_requirement: ^10 || ^11
 libraries:
   - workbc_cdq_career_match/workbc-cdq-career-match
