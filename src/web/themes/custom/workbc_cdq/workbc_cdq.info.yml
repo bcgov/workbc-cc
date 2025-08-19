@@ -1,7 +1,7 @@
 name: 'WorkBC CDQ'
 type: theme
 description: 'WorkBC CDQ subtheme based on Bootstrap 5 theme.'
-core_version_requirement: '^9.4 || ^10 || ^11'
+core_version_requirement: '^9.4 || ^10'
 'base theme': bootstrap5
 libraries:
   - workbc_cdq/global-styling

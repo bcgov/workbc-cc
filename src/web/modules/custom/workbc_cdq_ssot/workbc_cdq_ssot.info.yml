@@ -1,7 +1,7 @@
 name: WorkBC CDQ SSoT
 type: module
 description: Integrates SSoT into CDQ.
-core_version_requirement: ^10 || ^11
+core_version_requirement: ^10
 package: WorkBC
 dependencies:
   - drupal:queue_ui
