@@ -52,5 +52,7 @@ jobs:
           aws eks update-kubeconfig --name workbc-cluster --region ${{ secrets.AWS_REGION }}
 
       - name: Set image on Kubernetes deployment
+        env:
+          HEAD_BRANCH: ${{ github.event.workflow_run.head_branch }}
         run: |
-          kubectl set image deployment/cdq drupal=${{ secrets.AWS_ECR_URI }}:${{ github.event.workflow_run.head_branch }} --record --namespace=app
+          kubectl set image deployment/cdq drupal=${{ secrets.AWS_ECR_URI }}:$HEAD_BRANCH --record --namespace=app
