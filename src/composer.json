@@ -41,7 +41,7 @@
         "drupal/system_stream_wrapper": "^2.0",
         "drupal/upgrade_status": "^4.3",
         "drupal/webform": "^6.2",
-        "drupal/webformautosave": "^2.0",
+        "drupal/webformautosave": "2.0.2",
         "kint-php/kint": "^5.1.0",
         "vlucas/phpdotenv": "^5.6"
     },
