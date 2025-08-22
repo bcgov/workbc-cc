@@ -452,10 +452,10 @@ function getSubmissionScore(WebformSubmission $submission) {
     $url = Url::fromRoute('<current>', [
       'answers' => $answer_string,
     ], ['absolute' => true]);
-    \Drupal::messenger()->addMessage(t(
-      'To reuse the current set of answers, use the following URL:<br><code>@url</code>',
-      ['@url' => $url->toString()]
-    ));
+    /** \Drupal::messenger()->addMessage(t(
+    *  'To reuse the current set of answers, use the following URL:<br><code>@url</code>',
+    *  ['@url' => $url->toString()]
+   */ ));
   }
   foreach ($categories as &$category) {
     switch ($quiz->id()) {
