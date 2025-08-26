@@ -20,8 +20,10 @@ spec:
           args:
             - |
               mv /code /app
-              drush cim -y
-              drush updb -y
-              drush deploy:hook -y
-              drush cr
+              sleep infinity
+#              drush cim -y
+#              drush updb -y
+#              drush deploy:hook -y
+#              drush cr
+
   
