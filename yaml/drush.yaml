@@ -19,5 +19,6 @@ spec:
           command: ["/bin/sh", "-c"]
           args:
             - |
-              mv /code /app
+              mv -T /code /app
               sleep infinity
+
