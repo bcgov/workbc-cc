@@ -57,6 +57,7 @@ jobs:
         env:
           IMAGE: ${{ secrets.AWS_ECR_URI }}:${{ github.event.workflow_run.head_sha }}
         run: |
+          kubectl delete job drupal-drush -n app --ignore-not-found
           sed "s|__IMAGE__|$IMAGE|g" yaml/drush.yaml | kubectl apply -f -
           kubectl wait --for=condition=complete job/drupal-drush --timeout=300s -n app
           kubectl set image deployment/cdq drupal=$IMAGE --namespace=app
