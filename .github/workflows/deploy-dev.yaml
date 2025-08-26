@@ -54,5 +54,9 @@ jobs:
           aws eks update-kubeconfig --name workbc-cluster --region ${{ secrets.AWS_REGION }}
 
       - name: Set image on Kubernetes deployment
+        env:
+          IMAGE: ${{ secrets.AWS_ECR_URI }}:${{ github.event.workflow_run.head_sha }}
         run: |
-          kubectl set image deployment/cdq drupal=${{ secrets.AWS_ECR_URI }}:${{ github.event.workflow_run.head_sha }} --namespace=app
+          sed "s|__IMAGE__|$IMAGE|g" yaml/drush.yaml | kubectl apply -f -
+          kubectl wait --for=condition=complete job/drupal-drush --timeout=300s -n app
+          kubectl set image deployment/cdq drupal=$IMAGE --namespace=app
