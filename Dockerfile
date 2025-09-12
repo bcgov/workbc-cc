@@ -1,4 +1,5 @@
-FROM 075458558257.dkr.ecr.ca-central-1.amazonaws.com/drupal-base:6.0
+#FROM 075458558257.dkr.ecr.ca-central-1.amazonaws.com/drupal-base:6.0
+FROM 001674982960.dkr.ecr.ca-central-1.amazonaws.com/drupal-base:1.0
 ARG GITHUB_SHA=unknown
 ENV GITHUB_SHA=$GITHUB_SHA
 
@@ -20,4 +21,5 @@ RUN sed -i "/;pm.max_spawn_rate/c\pm.max_spawn_rate = $SPAWN_RATE" /usr/local/et
 COPY src /code
 RUN chmod -R g+rwX /code
 RUN cd /code && rm -rf .git && composer install && composer update
-RUN ln -s /app/vendor/drush/drush/drush /usr/local/bin/drush
+#RUN ln -s /app/vendor/drush/drush/drush /usr/local/bin/drush
+ENV PATH="/app/vendor/bin:${PATH}"

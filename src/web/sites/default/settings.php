@@ -852,6 +852,10 @@ $settings['trusted_host_patterns'] = [
   '^workbc-cc\.b89n0c-prod\.nimbus\.cloud\.gov\.bc\.ca$',
   '^workbc-cc\.b89n0c-dev\.nimbus\.cloud\.gov\.bc\.ca$',
   '^workbc-cc\.b89n0c-test\.nimbus\.cloud\.gov\.bc\.ca$',
+  '^workbc-cdq\.a55eb5-dev\.stratus\.cloud\.gov\.bc\.ca$',
+  '^workbc-cdq\.a55eb5-test\.stratus\.cloud\.gov\.bc\.ca$',
+  '^workbc-cdq\.a55eb5-prod\.stratus\.cloud\.gov\.bc\.ca$',
+  '^cdq-app-service$'
 ];
 
 $config['workbc']['onet'] = [

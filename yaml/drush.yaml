@@ -1,0 +1,26 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: drupal-drush
+  namespace: app
+spec:
+  backoffLimit: 1
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: drush
+          image: __IMAGE__
+          envFrom:
+            - secretRef:
+                name: cdq-secret
+            - configMapRef:
+                name: cdq-config
+          command: ["/bin/sh", "-c"]
+          args:
+            - |
+              mv -T /code /app
+              drush cim -y
+              drush updb -y
+              drush deploy:hook -y
+              drush cr
