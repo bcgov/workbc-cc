@@ -5,7 +5,7 @@
     <div class="image-video">
       {% if career_profile.video_id != false %}
         {% set video_link = 'https://www.youtube.com/embed/' ~ career_profile.video_id %}
-        <iframe width="420" height="335" data-src="{{ video_link }}" src="{{video_link}}"></iframe>
+        <iframe width="420" height="335" data-src="{{ video_link }}" src="{{video_link}}" loading="lazy"></iframe>
       {% elseif  career_profile.video_id == false %}
         <img src="{{ career_profile.image }}" alt=""/>
       {% endif %}
