@@ -57,8 +57,8 @@
             },
             // reset page if error
             error: function() {
-              location.reload(); 
-             }            
+              location.reload();
+             }
           });
         });
 
@@ -107,9 +107,10 @@
             $(this).addClass("user-selected");
           });
           $('#modifyNextLinks').hide();
+          $('html,body').scrollTop(0);
         });
 
-        
+
         $('#back-to-quiz').on('click', function() {
           $('.career-content-item').each(function() {
             $(this).removeClass("active");
@@ -121,7 +122,7 @@
           $('.cdq-results').each(function() {
             $(this).removeClass("user-selected");
           });
-          $('#modifyNextLinks').show();          
+          $('#modifyNextLinks').show();
         });
 
 
