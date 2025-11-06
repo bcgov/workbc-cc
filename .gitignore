@@ -102,3 +102,5 @@ src/web/sites/default/settings.azure-migrate.php
 
 # ignore node-modules, they should be redownloaded
 node_modules
+src/config/sync/openid_connect.settings.keycloak.yml
+src/config/sync/openid_connect.client.keycloak.yml
