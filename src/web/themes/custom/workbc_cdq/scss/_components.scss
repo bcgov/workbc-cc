@@ -1802,7 +1802,7 @@ form{
     .fieldset-wrapper{
       float: left;
       width: 60%;
-      padding-top: 20px;
+      padding-top: 15px;
       @media all and (max-width: 1024px){
         padding-top: 0;
         float: unset;
@@ -4041,3 +4041,40 @@ h2.cdq-quiz-title, .webform-submission-information {
     }
 }
 
+.main-quiz-container {
+
+  .webform-submission-form {
+
+    .webform-progress-tracker .progress-step:not(.is-active) .progress-marker::before {
+      background-color: #777;
+    }
+
+    .webform-progress-tracker .progress-step.is-complete .progress-marker::before {
+      background-color: #333;
+    }
+
+
+    .form-check .form-check-input {
+      margin-left: 1em;
+    }
+
+    .form-check-input {
+      border-color: #333;
+    }
+
+    .form-check-input:checked {
+      background-color: white;
+      border-color: #234075
+    }
+
+    .form-check-input:checked[type=radio] {
+      --bs-form-check-bg-image: url(../assets/icons/radio-button.svg);
+    }
+
+    .webform-type-radios {
+      padding-left: 0px;
+      padding-top: 0px;
+      padding-bottom: 0px;
+    }
+  }
+}
