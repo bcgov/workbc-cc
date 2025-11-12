@@ -5,6 +5,7 @@ use Drupal\image\Entity\ImageStyle;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\webform\Entity\WebformSubmission;
 use Drupal\Component\Utility\Unicode;
+use Drupal\Core\Render\BubbleableMetadata;
 
 define ("NEW_LINE", "%0D%0A");
 
@@ -150,7 +151,7 @@ function workbc_cdq_career_match_preprocess_views_view(&$variables) {
     $id = $view->args[0];
     $submission = WebformSubmission::load($id);
 
-    $variables['email_subject'] = compare_email_subject($submission->getWebform()->get('title'));
+    $variables['email_subject'] = compare_email_subject($submission);
     $variables['email_body'] = compare_email_body($submission);
   }
 }
@@ -701,12 +702,12 @@ function matchCareers(WebformSubmission $submission, $score) {
   return [];
 }
 
-function results_email_subject($quiz_name) {
+function results_email_subject($submission) {
 
   $config = \Drupal::config('workbc_cdq_custom.settings');
 
   $subject = $config->get('results_email_subject', "WorkBC.ca Career Discovery Quiz Results");
-  $subject = str_replace('[cdq-quiz-name]', $quiz_name, $subject);
+  $subject = \Drupal::token()->replace($subject, ['submission' => $submission]);
   return $subject;
 }
 
@@ -715,34 +716,19 @@ function results_email_body($submission) {
 
   $config = \Drupal::config('workbc_cdq_custom.settings');
 
-  $id = $submission->getWebform()->id();
-
-  $quiz_name = $submission->getWebform()->get('title');
-
-  $options = [
-    'absolute' => TRUE,
-    'https' => TRUE,
-  ];
-  $home_link = Url::fromRoute('<front>', [], $options)->toString();
-
-  $options['query'] = ['token' => $submission->getToken()];
-  $results_link = Url::fromUri('route:workbc_cdq_custom.' . $id . '_results', $options)->toString();
-
   $email_body = $config->get('results_email_body', '');
-  $email_body = str_replace('[cdq-quiz-name]', $quiz_name, $email_body);
-  $email_body = str_replace('[cdq-results-link]', $results_link, $email_body);
+  $email_body = \Drupal::token()->replace($email_body, ['submission' => $submission]);
   $email_body = str_replace("\n", NEW_LINE, $email_body);
-
   return $email_body;
 }
 
 
-function compare_email_subject($quiz_name) {
+function compare_email_subject($submission) {
 
   $config = \Drupal::config('workbc_cdq_custom.settings');
 
   $subject = $config->get('compare_email_subject', "WorkBC's Career Discovery Quizzes - Compare Careers");
-  $subject = str_replace('[cdq-quiz-name]', $quiz_name, $subject);
+  $subject = \Drupal::token()->replace($subject, ['submission' => $submission]);
   return $subject;
 }
 
@@ -751,21 +737,73 @@ function compare_email_body($submission) {
 
   $config = \Drupal::config('workbc_cdq_custom.settings');
 
-  $id = $submission->getWebform()->id();
+  $email_body = $config->get('compare_email_body', '');
+  $email_body = \Drupal::token()->replace($email_body, ['submission' => $submission]);
+  $email_body = str_replace("\n", NEW_LINE, $email_body);
 
-  $quiz_name = $submission->getWebform()->get('title');
+  return $email_body;
+}
+
+
+/**
+ * Implements hook_token_info()
+ */
+
+function workbc_cdq_career_match_url_token_info() {
+
+  $info['types']['cdq'] = [
+    'name' => t('CDQ Tokens'),
+    'description' => t('Tokens provided by the WorkBC CDQ Career Match module.'),
+  ];
+
+  $info['tokens']['cdq']['quiz-name'] = array(
+    'name' => t('CDQ Quiz Name'),
+    'description' => t('CDQ quiz name'),
+  );
+
+  $info['tokens']['cdq']['compare-careers-link'] = array(
+    'name' => t('CDQ Compare Careers Link'),
+    'description' => t('CDQ compare careers link'),
+  );
+
+    $info['tokens']['cdq']['results-link'] = array(
+    'name' => t('CDQ Results Link'),
+    'description' => t('CDQ results link'),
+  );
+  return $info;
+}
+
+
+/**
+ * Implements hook_tokens()
+ */
+
+function workbc_cdq_career_match_tokens($type, $tokens, array $data, array $options, BubbleableMetadata $bubbleable_metadata) {
+
+  $replacements = array();
 
   $options = [
     'absolute' => TRUE,
     'https' => TRUE,
   ];
-  $home_link = Url::fromRoute('<front>', [], $options)->toString();
-  $compare_link = $home_link . "compare-careers/" . $submission->id();
 
-  $email_body = $config->get('compare_email_body', '');
-  $email_body = str_replace('[cdq-quiz-name]', $quiz_name, $email_body);
-  $email_body = str_replace('[cdq-compare-careers-link]', $compare_link, $email_body);
-  $email_body = str_replace("\n", NEW_LINE, $email_body);
+  foreach ($tokens as $name => $original) {
+    switch ($name) {
+      case 'quiz-name':
+        $replacements[$original] = $data['submission']->getWebform()->get('title');;
+        break;
+      case 'compare-careers-link':
+        $home_link = Url::fromRoute('<front>', [], $options)->toString();
+        $replacements[$original] = $home_link . "compare-careers/" . $data['submission']->id();
+        break;
+      case 'results-link':
+        $id = $data['submission']->getWebform()->id();
+        $options['query'] = ['token' => $data['submission']->getToken()];
+        $replacements[$original] = Url::fromUri('route:workbc_cdq_custom.' . $id . '_results', $options)->toString();
+        break;
+    }
+  }
 
-  return $email_body;
+  return $replacements;
 }
+

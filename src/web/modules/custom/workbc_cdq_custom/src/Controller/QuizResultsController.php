@@ -65,7 +65,7 @@ class QuizResultsController extends ControllerBase {
       $categoryTop = $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'top_text');
       $categoryAll = $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'all_text');
       $emailBody = results_email_body($submission);
-      $emailSubject = results_email_subject($submission->getWebform()->get('title'));
+      $emailSubject = results_email_subject($submission);
     }
     else {
       $score = NULL;
@@ -123,7 +123,7 @@ class QuizResultsController extends ControllerBase {
       $categoryTop = $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'top_text');
       $categoryAll = $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'all_text');
       $emailBody = results_email_body($submission);
-      $emailSubject = results_email_subject($submission->getWebform()->get('title'));
+      $emailSubject = results_email_subject($submission);
     }
     else {
       $score = NULL;
@@ -184,7 +184,7 @@ class QuizResultsController extends ControllerBase {
       $categoryTop = $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'top_text');
       $categoryAll = $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'all_text');
       $emailBody = results_email_body($submission);
-      $emailSubject = results_email_subject($submission->getWebform()->get('title'));
+      $emailSubject = results_email_subject($submission);
     }
     else {
       $score = NULL;
@@ -255,7 +255,7 @@ class QuizResultsController extends ControllerBase {
       $categoryTop = $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'top_text');
       $categoryAll = $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'all_text');
       $emailBody = results_email_body($submission);
-      $emailSubject = results_email_subject($submission->getWebform()->get('title'));
+      $emailSubject = ($submission->getWebform()->get('title'));
     }
     else {
       $score = NULL;
@@ -303,7 +303,7 @@ class QuizResultsController extends ControllerBase {
       $categoryTop = $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'top_text');
       $categoryAll = $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'all_text');
       $emailBody = results_email_body($submission);
-      $emailSubject = results_email_subject($submission->getWebform()->get('title'));
+      $emailSubject = results_email_subject($submission);
     }
     else {
       $score = NULL;
@@ -364,7 +364,7 @@ class QuizResultsController extends ControllerBase {
       $categoryTop = $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'top_text');
       $categoryAll = $submission->getWebform()->getThirdPartySetting('workbc_cdq_career_match', 'all_text');
       $emailBody = results_email_body($submission);
-      $emailSubject = results_email_subject($submission->getWebform()->get('title'));
+      $emailSubject = results_email_subject($submission);
     }
     else {
       $score = NULL;
