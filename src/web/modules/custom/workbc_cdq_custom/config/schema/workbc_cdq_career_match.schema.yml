@@ -1,0 +1,16 @@
+workbc_cdq_custom.settings:
+  type: config_object
+  label: 'WorkBC CDQ email content settings'
+  mapping:
+    results_email_subject:
+      type: text
+      label: 'Results email subject'
+    results_email_body:
+      type: text
+      label: 'Results email text'
+    compare_email_subject:
+      type: text
+      label: 'Compare Careers email subject'
+    compare_email_body:
+      type: text
+      label: 'Compare Careers email text'

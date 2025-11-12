@@ -1,4 +1,4 @@
-results_email_subject: 'WorkBC.ca Career Discovery Quiz Results: [cdq-quiz-name]'
-results_email_body: "You recently took the [cdq-quiz-name]. Access your results for 14 days at: [cdq-results-link]\r\n\r\nPrint your results if you'd like to keep them for longer than 14 days.\r\n\r\nLearn more about yourself! Complete other quizzes to find what careers might be the best fit for you: https://workbc-cc.docker.localhost/\r\n\r\nDiscover more career and education resources at https://www.workbc.ca."
+results_email_subject: 'WorkBC.ca Career Discovery Quiz Results: [cdq:quiz-name]'
+results_email_body: "You recently took the [cdq:quiz-name]. Access your results for 14 days at: [cdq:results-link]\r\n\r\nPrint your results if you'd like to keep them for longer than 14 days.\r\n\r\nLearn more about yourself! Complete other quizzes to find what careers might be the best fit for you: [site:url]\r\n\r\nDiscover more career and education resources at https://www.workbc.ca."
 compare_email_subject: "WorkBC's Career Discovery Quizzes - Compare Careers"
-compare_email_body: "View your compared careers: [cdq-compare-careers-link]\r\n\r\nWorkBC's Career Discovery Quizzes help you learn more about your preferences and discover careers that suit you."
+compare_email_body: "View your compared careers: [cdq:compare-careers-link]\r\n\r\nWorkBC's Career Discovery Quizzes help you learn more about your preferences and discover careers that suit you."
