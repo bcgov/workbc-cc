@@ -14070,7 +14070,7 @@ a > .ck-content code {
 @media all and (max-width: 1024px) {
   .ck-content .path-quiz .region-content .form-radios label {
     position: relative;
-    top: 0px;
+    top: 15px;
     font-size: 14px;
     font-weight: normal;
     display: block;
@@ -14078,6 +14078,11 @@ a > .ck-content code {
     width: auto;
     letter-spacing: normal;
     left: 30px;
+  }
+}
+@media all and (max-width: 767.9px) {
+  .ck-content .path-quiz .region-content .form-radios label {
+    top: 10px;
   }
 }
 .ck-content .path-quiz .region-content .form-radios .form-item {
@@ -14385,9 +14390,6 @@ a > .ck-content code {
     display: block;
     text-align: left;
     left: 30px;
-  }
-  .ck-content form fieldset .fieldset-wrapper .form-radios input {
-    top: 25px !important;
   }
   .ck-content form fieldset .fieldset-wrapper .form-radios span.radio {
     margin: 0 !important;

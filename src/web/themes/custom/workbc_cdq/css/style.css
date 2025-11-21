@@ -15099,7 +15099,7 @@ body.path-quiz {
 @media all and (max-width: 1024px) {
   .path-quiz .region-content .form-radios label {
     position: relative;
-    top: 0px;
+    top: 15px;
     font-size: 14px;
     font-weight: normal;
     display: block;
@@ -15107,6 +15107,11 @@ body.path-quiz {
     width: auto;
     letter-spacing: normal;
     left: 30px;
+  }
+}
+@media all and (max-width: 767.9px) {
+  .path-quiz .region-content .form-radios label {
+    top: 10px;
   }
 }
 .path-quiz .region-content .form-radios .form-item {
@@ -15416,9 +15421,6 @@ form fieldset .fieldset-wrapper {
     display: block;
     text-align: left;
     left: 30px;
-  }
-  form fieldset .fieldset-wrapper .form-radios input {
-    top: 25px !important;
   }
   form fieldset .fieldset-wrapper .form-radios span.radio {
     margin: 0 !important;

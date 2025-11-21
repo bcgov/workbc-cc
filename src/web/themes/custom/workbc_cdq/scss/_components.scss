@@ -1493,7 +1493,7 @@ body.path-quiz {
 
         @media all and (max-width: 1024px) {
           position: relative;
-          top: 0px;
+          top: 15px;
           font-size: 14px;
           font-weight: normal;
           display: block;
@@ -1502,6 +1502,11 @@ body.path-quiz {
           letter-spacing: normal;
           left: 30px;
         }
+
+        @media all and (max-width: 767.9px){
+          top: 10px;
+        }
+
       }
 
       .form-item {
@@ -1823,9 +1828,6 @@ form{
             display: block;
             text-align: left;
             left: 30px;
-          }
-          input{
-            top: 25px !important;
           }
           span.radio{
             margin: 0 !important;
