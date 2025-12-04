@@ -7,6 +7,7 @@ ignored_config_entities:
   - openid_connect.settings
   - 'openid_connect.settings.*'
   - 'stringoverrides.*'
+  - system.mail
   - system.maintenance
   - system.performance
   - system.site
