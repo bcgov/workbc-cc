@@ -104,7 +104,7 @@ resource "aws_ecs_task_definition" "app" {
 			},
 			{
 				name = "POSTGRES_HOST",
-				value = "${aws_rds_cluster.postgres.endpoint}"
+				value = "cdq-proxy.proxy-cxq4cgogwkr9.ca-central-1.rds.amazonaws.com"
 			},
 			{
 				name = "WORKBC_URL",
