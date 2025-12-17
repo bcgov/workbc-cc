@@ -867,6 +867,16 @@ $config['workbc']['ssot_url'] = rtrim(getenv('SSOT_URL'), '/');
 
 $config['workbc']['workbc_url'] = rtrim(getenv('WORKBC_URL'), '/');
 
+// redis cache
+$settings['redis.connectoin']['interface'] = 'PhpRedis';
+$settings['cache']['default'] = 'cache.backend.redis';
+$settings['container_yamls'][] = 'modules/contrib/redis/example.services.yml';
+$settings['keyvalue.expireable'] = 'keyvalue.database.redis';
+$settings['lock']['default'] = 'lock.backend.redis';
+
+
+
+
 // Ensure it all works from the CLI too (i.e. drush)
 if (file_exists($app_root . '/' . $site_path . '/settings.openshift.php') && getenv('OPENSHIFT_BUILD_NAME') != '') {
   include $app_root . '/' . $site_path . '/settings.openshift.php';
