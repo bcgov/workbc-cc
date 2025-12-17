@@ -33,6 +33,7 @@
         "drupal/keycloak": "^2.2",
         "drupal/openid_connect": "3.0.0-alpha6",
         "drupal/queue_ui": "^3.2",
+        "drupal/redis": "^1.6",
         "drupal/sitewide_alert": "^3.0",
         "drupal/stringoverrides": "^2.0",
         "drupal/structure_sync": "^2.0",
