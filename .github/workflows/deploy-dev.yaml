@@ -48,5 +48,5 @@ jobs:
         run: |
           kubectl delete job drupal-drush -n app --ignore-not-found
           sed "s|__IMAGE__|$IMAGE|g" yaml/drush.yaml | kubectl apply -f -
-          kubectl wait --for=condition=complete job/drupal-drush --timeout=600s -n app
+          kubectl wait --for=condition=complete job/drupal-drush --timeout=300s -n app
           kubectl set image deployment/cdq drupal=$IMAGE --namespace=app
