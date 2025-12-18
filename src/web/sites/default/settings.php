@@ -868,7 +868,6 @@ $config['workbc']['ssot_url'] = rtrim(getenv('SSOT_URL'), '/');
 $config['workbc']['workbc_url'] = rtrim(getenv('WORKBC_URL'), '/');
 
 // redis cache
-
 $redis_interface = __DIR__ . '/../../modules/contrib/redis/example.services.yml';
 
 if (getenv('REDIS_HOST') && file_exists($redis_interface)) {
