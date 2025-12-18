@@ -868,7 +868,7 @@ $config['workbc']['ssot_url'] = rtrim(getenv('SSOT_URL'), '/');
 $config['workbc']['workbc_url'] = rtrim(getenv('WORKBC_URL'), '/');
 
 // redis cache
-$settings['redis.connectoin']['interface'] = 'PhpRedis';
+$settings['redis.connection']['interface'] = 'PhpRedis';
 $settings['cache']['default'] = 'cache.backend.redis';
 $settings['container_yamls'][] = 'modules/contrib/redis/example.services.yml';
 $settings['keyvalue.expireable'] = 'keyvalue.database.redis';
