@@ -869,6 +869,9 @@ $config['workbc']['workbc_url'] = rtrim(getenv('WORKBC_URL'), '/');
 
 // redis cache
 $settings['redis.connection']['interface'] = 'PhpRedis';
+$settings['redis.connection']['host'] = getenv('REDIS_HOST');
+$settings['redis.connection']['port'] = getenv('REDIS_PORT');
+
 $settings['cache']['default'] = 'cache.backend.redis';
 $settings['container_yamls'][] = 'modules/contrib/redis/example.services.yml';
 $settings['keyvalue.expireable'] = 'keyvalue.database.redis';
