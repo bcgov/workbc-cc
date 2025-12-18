@@ -868,16 +868,18 @@ $config['workbc']['ssot_url'] = rtrim(getenv('SSOT_URL'), '/');
 $config['workbc']['workbc_url'] = rtrim(getenv('WORKBC_URL'), '/');
 
 // redis cache
-$settings['redis.connection']['interface'] = 'PhpRedis';
-$settings['redis.connection']['host'] = getenv('REDIS_HOST');
-$settings['redis.connection']['port'] = getenv('REDIS_PORT');
+$redis_interface = __DIR__ . '/../../modules/contrib/redis/example.services.yml';
 
-$settings['cache']['default'] = 'cache.backend.redis';
-$settings['container_yamls'][] = 'modules/contrib/redis/example.services.yml';
-$settings['keyvalue.expireable'] = 'keyvalue.database.redis';
-$settings['lock']['default'] = 'lock.backend.redis';
+if (getenv('REDIS_HOST') && file_exists($redis_interface)) {
+	$settings['redis.connection']['interface'] = 'PhpRedis';
+	$settings['redis.connection']['host'] = getenv('REDIS_HOST');
+	$settings['redis.connection']['port'] = getenv('REDIS_PORT');
 
-
+	$settings['cache']['default'] = 'cache.backend.redis';
+	$settings['container_yamls'][] = $redis_interface;
+	$settings['keyvalue.expireable'] = 'keyvalue.database.redis';
+	$settings['lock']['default'] = 'lock.backend.redis';
+}
 
 
 // Ensure it all works from the CLI too (i.e. drush)
