@@ -877,7 +877,7 @@ if (getenv('REDIS_HOST') && file_exists($redis_interface)) {
 
 	$settings['cache']['default'] = 'cache.backend.redis';
 	$settings['container_yamls'][] = $redis_interface;
-	$settings['keyvalue.expireable'] = 'keyvalue.database.redis';
+	$settings['factory.keyvalue.expirable'] = 'keyvalue.database.redis';
 	$settings['lock']['default'] = 'lock.backend.redis';
 }
 
