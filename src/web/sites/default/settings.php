@@ -876,7 +876,7 @@ if (getenv('REDIS_HOST') && file_exists($redis_interface)) {
 	$settings['redis.connection']['port'] = getenv('REDIS_PORT');
 
 	$settings['cache']['default'] = 'cache.backend.redis';
-	$settings['container_yamls'][] = $redis_interface;
+	$settings['container_yamls'][] = 'modules/contrib/redis/example.services.yml';
 	$settings['factory.keyvalue.expirable'] = 'keyvalue.database.redis';
 	$settings['lock']['default'] = 'lock.backend.redis';
 }
