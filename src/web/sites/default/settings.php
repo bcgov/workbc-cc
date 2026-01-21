@@ -827,7 +827,13 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
  *
  * Keep this code block at the end of this file to take full effect.
  */
-#
+
+if (getenv('JSON_AWS_SECRETS') != '') {
+  $secrets = json_decode(file_get_contents(getenv('JSON_AWS_SECRETS')));
+  foreach ($secrets as $key => $value) {
+    putenv("$key=$value");
+  }
+}
 
 $settings['config_sync_directory'] = '../config/sync';
 $settings['file_public_path'] = 'sites/default/files';
@@ -883,8 +889,8 @@ if (getenv('REDIS_HOST') && file_exists($redis_interface)) {
 
 
 // Ensure it all works from the CLI too (i.e. drush)
-if (file_exists($app_root . '/' . $site_path . '/settings.openshift.php') && getenv('OPENSHIFT_BUILD_NAME') != '') {
-  include $app_root . '/' . $site_path . '/settings.openshift.php';
+if (file_exists($app_root . '/' . $site_path . '/settings.aws.php') && getenv('JSON_AWS_SECRETS') != '') {
+  include $app_root . '/' . $site_path . '/settings.aws.php';
 } else if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
   include $app_root . '/' . $site_path . '/settings.local.php';
 }
