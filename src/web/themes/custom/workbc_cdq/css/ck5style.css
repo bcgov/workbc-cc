@@ -16450,6 +16450,20 @@ a > .ck-content code {
   padding-top: 0px;
   padding-bottom: 0px;
 }
+@media all and (max-width: 1024.98px) {
+  .ck-content .main-quiz-container .webform-submission-form .webform-type-radios {
+    padding-top: 15px;
+    padding-left: 10px;
+    padding-bottom: 25px;
+  }
+  .ck-content .main-quiz-container .webform-submission-form .webform-type-radios .webform-options-display-one-column {
+    padding-left: 50px;
+  }
+  .ck-content .main-quiz-container .webform-submission-form .webform-type-radios .webform-type-radio {
+    padding-top: 15px;
+    padding-left: 0px;
+  }
+}
 .ck-content .cdq-compare.cdq-abilities-quiz #block-workbc-cdq-content {
   border-bottom: 4px solid #234075;
 }
