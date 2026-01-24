@@ -17519,6 +17519,20 @@ h2.cdq-quiz-title, .cdq-quiz-title.h2, .webform-submission-information {
   padding-top: 0px;
   padding-bottom: 0px;
 }
+@media all and (max-width: 1024.98px) {
+  .main-quiz-container .webform-submission-form .webform-type-radios {
+    padding-top: 15px;
+    padding-left: 10px;
+    padding-bottom: 25px;
+  }
+  .main-quiz-container .webform-submission-form .webform-type-radios .webform-options-display-one-column {
+    padding-left: 50px;
+  }
+  .main-quiz-container .webform-submission-form .webform-type-radios .webform-type-radio {
+    padding-top: 15px;
+    padding-left: 0px;
+  }
+}
 
 .cdq-compare.cdq-abilities-quiz #block-workbc-cdq-content {
   border-bottom: 4px solid #234075;
