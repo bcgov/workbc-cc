@@ -118,16 +118,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.369.28",
+            "version": "3.369.35",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "d19d88c4d9d709eb119f2d85a385a9e40b834e33"
+                "reference": "0f3e296342fe965271b5dd0bded4a18bdab8aba5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/d19d88c4d9d709eb119f2d85a385a9e40b834e33",
-                "reference": "d19d88c4d9d709eb119f2d85a385a9e40b834e33",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/0f3e296342fe965271b5dd0bded4a18bdab8aba5",
+                "reference": "0f3e296342fe965271b5dd0bded4a18bdab8aba5",
                 "shasum": ""
             },
             "require": {
@@ -209,9 +209,9 @@
             "support": {
                 "forum": "https://github.com/aws/aws-sdk-php/discussions",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.369.28"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.369.35"
             },
-            "time": "2026-02-05T19:09:46+00:00"
+            "time": "2026-02-16T19:15:41+00:00"
         },
         {
             "name": "composer/installers",
@@ -977,17 +977,17 @@
         },
         {
             "name": "drupal/backup_migrate",
-            "version": "5.1.3",
+            "version": "5.1.4",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/backup_migrate.git",
-                "reference": "5.1.3"
+                "reference": "5.1.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/backup_migrate-5.1.3.zip",
-                "reference": "5.1.3",
-                "shasum": "a597994dc9433516dc8ffb20725cfc6bd6b27ec4"
+                "url": "https://ftp.drupal.org/files/projects/backup_migrate-5.1.4.zip",
+                "reference": "5.1.4",
+                "shasum": "4d2c90e89bb376f07aea23bcfb5d9467ffb7d09c"
             },
             "require": {
                 "drupal/core": "^9.5 || ^10 || ^11"
@@ -998,8 +998,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "5.1.3",
-                    "datestamp": "1768291344",
+                    "version": "5.1.4",
+                    "datestamp": "1771081280",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -1051,17 +1051,17 @@
         },
         {
             "name": "drupal/bootstrap5",
-            "version": "4.0.7",
+            "version": "4.0.8",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/bootstrap5.git",
-                "reference": "4.0.7"
+                "reference": "4.0.8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/bootstrap5-4.0.7.zip",
-                "reference": "4.0.7",
-                "shasum": "1ed567303d843b1357c9d43b4b7340ae021e4619"
+                "url": "https://ftp.drupal.org/files/projects/bootstrap5-4.0.8.zip",
+                "reference": "4.0.8",
+                "shasum": "1d7dc5c04ce262628c005671117888caa498453e"
             },
             "require": {
                 "drupal/core": "^10.1 || ^11.0"
@@ -1069,8 +1069,8 @@
             "type": "drupal-theme",
             "extra": {
                 "drupal": {
-                    "version": "4.0.7",
-                    "datestamp": "1769612976",
+                    "version": "4.0.8",
+                    "datestamp": "1770988520",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4034,11 +4034,11 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "2.1.38",
+            "version": "2.1.39",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/dfaf1f530e1663aa167bc3e52197adb221582629",
-                "reference": "dfaf1f530e1663aa167bc3e52197adb221582629",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/c6f73a2af4cbcd99c931d0fb8f08548cc0fa8224",
+                "reference": "c6f73a2af4cbcd99c931d0fb8f08548cc0fa8224",
                 "shasum": ""
             },
             "require": {
@@ -4083,25 +4083,25 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-01-30T17:12:46+00:00"
+            "time": "2026-02-11T14:48:56+00:00"
         },
         {
             "name": "phpstan/phpstan-deprecation-rules",
-            "version": "2.0.3",
+            "version": "2.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan-deprecation-rules.git",
-                "reference": "468e02c9176891cc901143da118f09dc9505fc2f"
+                "reference": "6b5571001a7f04fa0422254c30a0017ec2f2cacc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan-deprecation-rules/zipball/468e02c9176891cc901143da118f09dc9505fc2f",
-                "reference": "468e02c9176891cc901143da118f09dc9505fc2f",
+                "url": "https://api.github.com/repos/phpstan/phpstan-deprecation-rules/zipball/6b5571001a7f04fa0422254c30a0017ec2f2cacc",
+                "reference": "6b5571001a7f04fa0422254c30a0017ec2f2cacc",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.4 || ^8.0",
-                "phpstan/phpstan": "^2.1.15"
+                "phpstan/phpstan": "^2.1.39"
             },
             "require-dev": {
                 "php-parallel-lint/php-parallel-lint": "^1.2",
@@ -4126,11 +4126,14 @@
                 "MIT"
             ],
             "description": "PHPStan rules for detecting usage of deprecated classes, methods, properties, constants and traits.",
+            "keywords": [
+                "static analysis"
+            ],
             "support": {
                 "issues": "https://github.com/phpstan/phpstan-deprecation-rules/issues",
-                "source": "https://github.com/phpstan/phpstan-deprecation-rules/tree/2.0.3"
+                "source": "https://github.com/phpstan/phpstan-deprecation-rules/tree/2.0.4"
             },
-            "time": "2025-05-14T10:56:57+00:00"
+            "time": "2026-02-09T13:21:14+00:00"
         },
         {
             "name": "psr/cache",
@@ -8527,16 +8530,16 @@
         },
         {
             "name": "laravel/prompts",
-            "version": "v0.3.12",
+            "version": "v0.3.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/prompts.git",
-                "reference": "4861ded9003b7f8a158176a0b7666f74ee761be8"
+                "reference": "ed8c466571b37e977532fb2fd3c272c784d7050d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/prompts/zipball/4861ded9003b7f8a158176a0b7666f74ee761be8",
-                "reference": "4861ded9003b7f8a158176a0b7666f74ee761be8",
+                "url": "https://api.github.com/repos/laravel/prompts/zipball/ed8c466571b37e977532fb2fd3c272c784d7050d",
+                "reference": "ed8c466571b37e977532fb2fd3c272c784d7050d",
                 "shasum": ""
             },
             "require": {
@@ -8580,9 +8583,9 @@
             "description": "Add beautiful and user-friendly forms to your command-line applications.",
             "support": {
                 "issues": "https://github.com/laravel/prompts/issues",
-                "source": "https://github.com/laravel/prompts/tree/v0.3.12"
+                "source": "https://github.com/laravel/prompts/tree/v0.3.13"
             },
-            "time": "2026-02-03T06:57:26+00:00"
+            "time": "2026-02-06T12:17:10+00:00"
         },
         {
             "name": "league/container",
@@ -8824,16 +8827,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.12.19",
+            "version": "v0.12.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "a4f766e5c5b6773d8399711019bb7d90875a50ee"
+                "reference": "19678eb6b952a03b8a1d96ecee9edba518bb0373"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/a4f766e5c5b6773d8399711019bb7d90875a50ee",
-                "reference": "a4f766e5c5b6773d8399711019bb7d90875a50ee",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/19678eb6b952a03b8a1d96ecee9edba518bb0373",
+                "reference": "19678eb6b952a03b8a1d96ecee9edba518bb0373",
                 "shasum": ""
             },
             "require": {
@@ -8897,9 +8900,9 @@
             ],
             "support": {
                 "issues": "https://github.com/bobthecow/psysh/issues",
-                "source": "https://github.com/bobthecow/psysh/tree/v0.12.19"
+                "source": "https://github.com/bobthecow/psysh/tree/v0.12.20"
             },
-            "time": "2026-01-30T17:33:13+00:00"
+            "time": "2026-02-11T15:05:28+00:00"
         },
         {
             "name": "symfony/polyfill-php81",
@@ -8992,5 +8995,5 @@
     "prefer-lowest": false,
     "platform": {},
     "platform-dev": {},
-    "plugin-api-version": "2.9.0"
+    "plugin-api-version": "2.6.0"
 }
