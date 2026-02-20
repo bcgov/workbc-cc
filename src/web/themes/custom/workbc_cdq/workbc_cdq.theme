@@ -82,7 +82,7 @@ function workbc_cdq_preprocess_page(&$variables) {
 function workbc_cdq_preprocess_page_title(&$variables) {
 
   $quiz = getCurrentQuiz();
-  if ($quiz) {
+  if (isset($quiz['id'])) {
     $info = getQuizInfo($quiz['id']);
     if ($quiz['page'] == 'quiz' && $info['status'] == "completed") {
       $variables['title'] .= " - Summary";
