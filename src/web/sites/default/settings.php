@@ -917,7 +917,7 @@ if (file_exists($app_root . '/' . $site_path . '/settings.aws.php') && getenv('O
   $settings['config_exclude_modules'] = [
     'devel',
     'devel_generate',
-    'devel_kint_extras',
+    'kint',
     'devel_php',
     'webform_devel',
     'views_ui',
