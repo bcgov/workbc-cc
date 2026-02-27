@@ -148,7 +148,12 @@ function workbc_cdq_preprocess_block(&$variables) {
     $variables['is_results'] = false;
     if ($quiz) {
       $variables['attributes']['class'][] = "cdq-" . $quiz['page'];
-      $variables['attributes']['class'][] = "cdq-" . str_replace('_', '-', $quiz['id']);
+      if (isset($quiz['id'])) {
+        $variables['attributes']['class'][] = "cdq-" . str_replace('_', '-', $quiz['id']);
+      }
+      else {
+        $variables['attributes']['class'][] = "cdq-expired-quiz";
+      }
       if ($quiz['page'] == 'quiz') {
         $variables['is_quiz'] = true;
       }

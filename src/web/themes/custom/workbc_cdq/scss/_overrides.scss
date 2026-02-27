@@ -230,6 +230,11 @@
   }
 }
 
+.cdq-compare.cdq-expired-quiz{
+  border-bottom: 4px solid $quiz-dark-blue !important;
+  margin-bottom: 35px !important;
+}
+
 // page quiz multi color override
 .main-quiz-container{
   .cdq-abilities-quiz{
