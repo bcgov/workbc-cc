@@ -10,6 +10,8 @@ namespace Drupal\workbc_cdq_custom\Controller;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Url;
 use Drupal\image\Entity\ImageStyle;
+use Drupal\webform\Entity\WebformSubmission;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class QuizResultsController extends ControllerBase {
 
@@ -399,4 +401,11 @@ class QuizResultsController extends ControllerBase {
 
   }
 
+
+  public function quiz_results_sid($type, $sid) {
+    $submission = WebformSubmission::load($sid);
+    $token = $submission ? $submission->getToken() : 'expired';
+    $url = t("/quizzes/@quiz_type/results?token=@token", ['@quiz_type' => $type, '@token' => $token]);
+    return new RedirectResponse($url);
+  }
 }
