@@ -71,7 +71,7 @@ workbc_cdq_custom.report_environment:
     _permission: 'administer site configuration'
 
 workbc_cdq_custom.quiz_results_by_sid:
-  path: '/quiz-results/{sid}'
+  path: '/quiz-results/{type}/{sid}'
   defaults:
     _controller: '\Drupal\workbc_cdq_custom\Controller\QuizResultsController::quiz_results_sid'
     _title: 'Display Quiz Results by Submission #'

@@ -402,16 +402,10 @@ class QuizResultsController extends ControllerBase {
   }
 
 
-  public function quiz_results_sid($sid) {
-
+  public function quiz_results_sid($type, $sid) {
     $submission = WebformSubmission::load($sid);
-    $quiz_type = str_replace('_', '-', $submission->getWebform()->id());
-    if ($submission) {
-      $url = t("/quizzes/@quiz_type/results?token=@token", ['@quiz_type' => $quiz_type, '@token' => $submission->getToken()]);
-      return new RedirectResponse($url);
-    }
-    else {
-      throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
-    }
+    $token = $submission ? $submission->getToken() : 'expired';
+    $url = t("/quizzes/@quiz_type/results?token=@token", ['@quiz_type' => $type, '@token' => $token]);
+    return new RedirectResponse($url);
   }
 }

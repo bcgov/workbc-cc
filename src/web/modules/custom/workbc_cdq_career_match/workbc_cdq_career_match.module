@@ -804,7 +804,8 @@ function workbc_cdq_career_match_tokens($type, $tokens, array $data, array $opti
         break;
       case 'results-link':
         $home_link = Url::fromRoute('<front>', [], $options)->toString();
-        $replacements[$original] = $home_link . "quiz-results/" . $data['submission']->id();
+        $quiz_type = str_replace('_', '-', $data['submission']->getWebform()->id());
+        $replacements[$original] = $home_link . "quiz-results/" . $quiz_type . "/". $data['submission']->id();
         break;
     }
   }
