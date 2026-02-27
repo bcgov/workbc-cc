@@ -794,7 +794,13 @@ function workbc_cdq_career_match_tokens($type, $tokens, array $data, array $opti
         break;
       case 'compare-careers-link':
         $home_link = Url::fromRoute('<front>', [], $options)->toString();
-        $replacements[$original] = $home_link . "compare-careers/" . $data['submission']->id();
+        if (isset($data['submission'])) {
+          $replacements[$original] = $home_link . "compare-careers/" . $data['submission']->id();
+        }
+        else {
+          $replacements[$original] = $home_link;
+        }
+
         break;
       case 'results-link':
         $home_link = Url::fromRoute('<front>', [], $options)->toString();

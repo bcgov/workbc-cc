@@ -29,23 +29,30 @@ class ReturnToResultsBlock extends BlockBase {
     $path = explode("/", $path);
     $submission = WebformSubmission::load($path[2]);
 
-    $request = \Drupal::request();
-    $session = $request->getSession();
-    $order = $session->get("results_order");
-    $sort = $session->get("results_sort");
+    if (isset($submission)) {
+      $request = \Drupal::request();
+      $session = $request->getSession();
+      $order = $session->get("results_order");
+      $sort = $session->get("results_sort");
 
-    $previousUrl = Url::fromUri('route:workbc_cdq_custom.' . $submission->getWebform()->id() . '_results', [
-      'query' => ['token' => $submission->getToken()]
-    ])->toString();
-    if ($order && $sort) {
-      $previousUrl .= "&order=" . $order . "&sort=" . $sort;
+      $previousUrl = Url::fromUri('route:workbc_cdq_custom.' . $submission->getWebform()->id() . '_results', [
+        'query' => ['token' => $submission->getToken()]
+      ])->toString();
+      if ($order && $sort) {
+        $previousUrl .= "&order=" . $order . "&sort=" . $sort;
+      }
+      $markup = <<<END
+        <div class="cdq-back-link">
+          <a href="$previousUrl" class="back-to-results"><img src="/themes/custom/workbc_cdq/assets/arrow-left.svg"/>Back to Quiz Results</a>
+        </div>
+      END;
+    }
+    else {
+      $markup = <<<END
+        <div class="cdq-back-link">&nbsp;</div>
+      END;
     }
 
-    $markup = <<<END
-      <div class="cdq-back-link">
-        <a href="$previousUrl" class="back-to-results"><img src="/themes/custom/workbc_cdq/assets/arrow-left.svg"/>Back to Quiz Results</a>
-      </div>
-    END;
 
     return array(
       '#type' => 'markup',

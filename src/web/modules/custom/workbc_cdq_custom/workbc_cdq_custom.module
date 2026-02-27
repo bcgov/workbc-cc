@@ -78,7 +78,9 @@ function getCurrentQuiz() {
   $path = explode("/", $path);
   if (isset($path[1]) && $path[1] == "compare-careers") {
     $submission = WebformSubmission::load($path[2]);
-    $quiz['id'] = $submission->getWebform()->id();
+    if ($submission) {
+      $quiz['id'] = $submission->getWebform()->id();
+    }
     $quiz['page'] = "compare";
   }
   else if (isset($path[2])) {
