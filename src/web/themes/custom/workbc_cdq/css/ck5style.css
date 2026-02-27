@@ -11283,6 +11283,31 @@ a > .ck-content code {
   --bs-btn-disabled-bg: #f8f9fa;
   --bs-btn-disabled-border-color: #f8f9fa;
 }
+.ck-content .accordion details {
+  overflow: unset;
+}
+.ck-content .accordion details[open] .accordion-button {
+  color: var(--bs-accordion-active-color);
+  background-color: var(--bs-accordion-active-bg);
+}
+.ck-content .accordion details[open] .accordion-button::after {
+  background-image: var(--bs-accordion-btn-active-icon);
+  transform: var(--bs-accordion-btn-icon-transform);
+}
+.ck-content .accordion details:not([open]) {
+  border-bottom: 0;
+}
+.ck-content .accordion details:not([open]) .accordion-button {
+  color: var(--bs-accordion-btn-color);
+  background-color: var(--bs-accordion-btn-bg);
+  border: unset;
+  border-bottom-right-radius: var(--bs-accordion-border-radius);
+  border-bottom-left-radius: var(--bs-accordion-border-radius);
+}
+.ck-content .accordion details:not([open]) .accordion-button::after {
+  background-image: var(--bs-accordion-btn-active-icon);
+  transform: unset;
+}
 .ck-content .form-control.image-button {
   width: unset;
 }
@@ -11293,6 +11318,9 @@ a > .ck-content code {
 }
 .ck-content .form-select {
   min-width: 5rem;
+}
+.ck-content input.form-text {
+  margin-top: 0;
 }
 .ck-content input[type=search] {
   box-sizing: border-box;
@@ -11468,6 +11496,11 @@ a > .ck-content code {
 .ck-content .region-nav-additional {
   flex-shrink: 0;
 }
+@media (min-width: 992px) {
+  .ck-content .region-nav-additional {
+    display: flex;
+  }
+}
 .ck-content .tabs-primary {
   margin: 1rem 0;
 }
@@ -11531,6 +11564,13 @@ a > .ck-content code {
 }
 .ck-content table {
   caption-side: unset;
+}
+.ck-content .admin-dblog .table .icon {
+  background-color: var(--bs-table-bg-state, var(--bs-table-bg-type, var(--bs-table-accent-bg, var(--bs-table-bg))));
+}
+.ck-content .admin-dblog .table > :not(caption) > * > * {
+  box-shadow: unset;
+  background-color: var(--bs-table-bg-state, var(--bs-table-bg-type, var(--bs-table-accent-bg, var(--bs-table-bg))));
 }
 .ck-content .progress {
   display: block;
@@ -16631,6 +16671,10 @@ a > .ck-content code {
 }
 .ck-content .cdq-compare.cdq-work-values-quiz .email-popup-wrapper .form-input button:hover {
   background: #440031;
+}
+.ck-content .cdq-compare.cdq-expired-quiz {
+  border-bottom: 4px solid #234075 !important;
+  margin-bottom: 35px !important;
 }
 .ck-content .main-quiz-container .cdq-abilities-quiz .careers-mobi-main-wrapper .careers-mobi-table-wrapper .tbody .tbody-main .compare-career-mobi input:checked ~ .checkmark {
   border: 1px solid #234075;
