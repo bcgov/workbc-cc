@@ -803,9 +803,9 @@ function workbc_cdq_career_match_tokens($type, $tokens, array $data, array $opti
 
         break;
       case 'results-link':
-        $id = $data['submission']->getWebform()->id();
-        $options['query'] = ['token' => $data['submission']->getToken()];
-        $replacements[$original] = str_replace("token=", "token%3D", Url::fromUri('route:workbc_cdq_custom.' . $id . '_results', $options)->toString());
+        $home_link = Url::fromRoute('<front>', [], $options)->toString();
+        $quiz_type = str_replace('_', '-', $data['submission']->getWebform()->id());
+        $replacements[$original] = $home_link . "quiz-results/" . $quiz_type . "/". $data['submission']->id();
         break;
     }
   }
