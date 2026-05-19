@@ -273,42 +273,6 @@
         }
     }
 
-    .quiz-questions {
-        padding: 0px;
-        font-family: "BC Sans", sans-serif;
-        font-size: 16px;
-        line-height: normal;
-        font-weight: 700;
-        color: #595959;
-        span {
-            float: left;
-            width: 34px;
-            height: 25px;
-            background: url(../assets/icons/list.svg) no-repeat;
-        }
-        @media all and (max-width: 1024.98px) {
-            font-size: 14px;
-        }
-    }
-
-    .quiz-duration {
-        padding: 0px;
-        font-family: "BC Sans", sans-serif;
-        font-size: 16px;
-        line-height: normal;
-        font-weight: 700;
-        color: #595959;
-        span {
-            float: left;
-            width: 34px;
-            height: 25px;
-            background: url(../assets/icons/time.svg) no-repeat;
-        }
-        @media all and (max-width: 1024.98px) {
-            font-size: 14px;
-        }
-    }
-
     .complete {
         span {
             float: left;
@@ -357,6 +321,12 @@
     }
 
     .career {
+        @media all and (min-width: 991.98px) and (max-width: 1110.98px) {
+          .title-field h4 {
+            min-height: 60px;
+          }
+        }
+
         .item_1 {
             .title-field h4 {
                 color: $aq;

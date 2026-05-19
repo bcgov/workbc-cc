@@ -13573,44 +13573,6 @@ footer #block-footerbclogo p {
     min-height: auto;
   }
 }
-.cari_quiz .quiz-list .quiz-questions {
-  padding: 0px;
-  font-family: "BC Sans", sans-serif;
-  font-size: 16px;
-  line-height: normal;
-  font-weight: 700;
-  color: #595959;
-}
-.cari_quiz .quiz-list .quiz-questions span {
-  float: left;
-  width: 34px;
-  height: 25px;
-  background: url(../assets/icons/list.svg) no-repeat;
-}
-@media all and (max-width: 1024.98px) {
-  .cari_quiz .quiz-list .quiz-questions {
-    font-size: 14px;
-  }
-}
-.cari_quiz .quiz-list .quiz-duration {
-  padding: 0px;
-  font-family: "BC Sans", sans-serif;
-  font-size: 16px;
-  line-height: normal;
-  font-weight: 700;
-  color: #595959;
-}
-.cari_quiz .quiz-list .quiz-duration span {
-  float: left;
-  width: 34px;
-  height: 25px;
-  background: url(../assets/icons/time.svg) no-repeat;
-}
-@media all and (max-width: 1024.98px) {
-  .cari_quiz .quiz-list .quiz-duration {
-    font-size: 14px;
-  }
-}
 .cari_quiz .quiz-list .complete span {
   float: left;
   width: 25px;
@@ -13649,6 +13611,11 @@ footer #block-footerbclogo p {
 
 .slide.carousel .quiz_link {
   margin-top: 15px;
+}
+@media all and (min-width: 991.98px) and (max-width: 1110.98px) {
+  .slide.carousel .career .title-field h4, .slide.carousel .career .title-field .h4 {
+    min-height: 60px;
+  }
 }
 .slide.carousel .career .item_1 .title-field h4, .slide.carousel .career .item_1 .title-field .h4 {
   color: rgb(7, 53, 115);
@@ -14021,16 +13988,19 @@ header {
   line-height: normal;
   font-weight: 700;
   color: #595959;
+  white-space: nowrap;
 }
-.cari_quiz .quiz-list .quiz-questions span {
-  float: left;
-  width: 34px;
-  height: 25px;
-  background: url(../assets/icons/list.svg) no-repeat;
+.cari_quiz .quiz-list .quiz-questions::before {
+  content: url(../assets/icons/list.svg);
+  vertical-align: -35%;
+  padding-right: 5px;
 }
 @media all and (max-width: 1200px) {
   .cari_quiz .quiz-list .quiz-questions {
-    font-size: 14px;
+    font-size: 13px;
+  }
+  .cari_quiz .quiz-list .quiz-questions::before {
+    vertical-align: -50%;
   }
 }
 .cari_quiz .quiz-list .quiz-duration {
@@ -14040,16 +14010,19 @@ header {
   line-height: normal;
   font-weight: 700;
   color: #595959;
+  white-space: nowrap;
 }
-.cari_quiz .quiz-list .quiz-duration span {
-  float: left;
-  width: 34px;
-  height: 25px;
-  background: url(../assets/icons/time.svg) no-repeat;
+.cari_quiz .quiz-list .quiz-duration::before {
+  content: url(../assets/icons/time.svg);
+  vertical-align: -35%;
+  padding-right: 5px;
 }
 @media all and (max-width: 1200px) {
   .cari_quiz .quiz-list .quiz-duration {
-    font-size: 14px;
+    font-size: 13px;
+  }
+  .cari_quiz .quiz-list .quiz-duration::before {
+    vertical-align: -50%;
   }
 }
 .cari_quiz .quiz-list .complete span {
@@ -14607,6 +14580,11 @@ a.quiz-link {
 
 .slide.carousel .quiz_link {
   margin-top: 15px;
+}
+@media all and (min-width: 991.98px) and (max-width: 1110.98px) {
+  .slide.carousel .career .title-field h4, .slide.carousel .career .title-field .h4 {
+    min-height: 60px;
+  }
 }
 .slide.carousel .career .item_1 .title-field h4, .slide.carousel .career .item_1 .title-field .h4 {
   color: rgb(7, 53, 115);
