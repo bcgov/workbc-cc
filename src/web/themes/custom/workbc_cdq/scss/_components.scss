@@ -3,347 +3,14 @@ header {
   padding-right: 20px;
 }
 
-// Banner
-.banner-main-wrapper {
-  .desktop-banner {
-    min-height: 480px;
-    background-size: 2000px 524px;
-    background-position: right bottom;
-    background-repeat: no-repeat;
-    background-color: rgb(242, 244, 243);
-
-    @media all and (min-width: 991.98px) and (max-width: 1280px) {
-      background-position: -700px bottom;
-    }
-
-    // @media all and (min-width: 991.98px) and (max-width: 1080px) {
-    //     background-position: -770px bottom;
-    // }
-
-    @media all and (max-width: 991.98px) {
-      display: none;
-    }
-
-    .banner-content {
-      &.flex-content {
-        min-height: 480px;
-        display: flex;
-        // align-items: center;
-        padding-top: 99px;
-      }
-      @media all and (max-width: 1180px) {
-        padding-left: 15px;
-      }
-
-      .sub-title {
-        font-family: "BC Sans", sans-serif;
-        font-weight: 400;
-        font-style: normal;
-        font-size: 2.5rem;
-        line-height: 3rem;
-        max-width: 360px;
-        margin-bottom: 30px;
-        color: #333333;
-      }
-
-      .banner-inner {
-        h1 {
-          font-size: 54px;
-          line-height: 54px;
-          font-family: "BC Sans Bold", sans-serif;
-          font-weight: normal;
-          font-style: normal;
-          margin-bottom: 30px;
-          @media all and (max-width: 991.98px) {
-            font-size: 40px;
-            line-height: 40px;
-          }
-          @media all and (max-width: 450.98px) {
-            font-size: 35px;
-            line-height: 40px;
-          }
-        }
-      }
-    }
-  }
-
-  .mobile-banner {
-    display: none;
-
-    @media all and (max-width: 991.98px) {
-      display: block;
-      min-height: 435px;
-      background-size: cover;
-      // padding-top: 20px;
-      background-position: right bottom;
-      background-repeat: no-repeat;
-      background-attachment: scroll;
-      background-size: cover;
-      background-origin: border-box;
-      background-color: rgba(242, 244, 243, 1);
-      overflow-y: hidden;
-      overflow-x: hidden;
-      .banner-inner {
-        h1 {
-          font-size: 40px;
-          line-height: 40px;
-          font-family: "BC Sans Bold", sans-serif;
-          margin-bottom: 10px;
-          margin-top: 20px;
-        }
-      }
-
-      .banner-content {
-        &.flex-content {
-          min-height: 435px;
-          display: flex;
-          text-align: center;
-          max-width: 350px;
-          margin: 0 auto;
-        }
-
-        p.sub-title {
-          font-size: 2.1rem;
-          font-family: "BC Sans", sans-serif;
-          line-height: 2.6rem;
-          margin-bottom: 25px;
-          padding: 0;
-          max-width: 305px;
-          margin: 0 auto;
-          color: #333333;
-          @media all and (max-width: 450.98px) {
-            font-size: 1.8rem;
-          }
-        }
-      }
-    }
-    @media all and (max-width: 450.98px) {
-      .banner-inner {
-        h1 {
-          font-size: 32px;
-          margin-bottom: 5px;
-        }
-      }
-    }
-  }
-}
-
-// Intro text
-.intro-text-wrapper {
-  min-height: 180px;
-  background: #234075;
-  display: flex;
-  align-items: center;
-  text-align: center;
-
-  @media all and (max-width: 767.98px) {
-    min-height: 160px;
-  }
-
-  .intro-content {
-    p {
-      font-family: "BC Sans", sans-serif;
-      font-weight: 400;
-      font-style: normal;
-      font-size: 2.1rem;
-      color: #ffffff;
-      text-align: center;
-      line-height: 3rem;
-      margin-bottom: 0;
-
-      @media all and (max-width: 767.98px) {
-        font-size: 1.8rem;
-        line-height: 2.5rem;
-        display: inline;
-      }
-    }
-  }
-}
-
 //Quizzes
-
-.head-des {
-  h2 {
-    font-family: "BC Sans Regular", sans-serif;
-    font-weight: normal;
-    font-size: 45px;
-    color: #333333;
-    text-align: center;
-    margin-bottom: 30px;
-    @media all and (max-width: 767.98px) {
-      font-size: 36px;
-    }
-  }
-  .description {
-    @media all and (max-width: 767.98px) {
-      padding: 0 30px;
-    }
-  }
-}
-
-.all-quiz-status {
-  background: rgb(230, 234, 233);
-  margin: 20px 0px;
-  padding: 7px 30px;
-  text-align: right;
-  margin-bottom: 30px;
-  font-family: "BC Sans", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-  font-size: 1.5rem;
-  text-align: right;
-  line-height: 3rem;
-  color: #333333;
-  @media all and (max-width: 767.98px) {
-    text-align: center;
-  }
-}
-
-.cari_quiz .quiz-list {
-  padding: 45px 12px 30px 12px;
-  border: 2px solid rgb(238, 238, 238);
-  height: 100%;
-  position: relative;
-  font-family: "BC Sans", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 14px;
-  color: rgb(102, 102, 102);
-  min-height: 450px;
-  background: #fff;
-  @media all and (max-width: 991.98px) {
-    padding: 30px 12px 70px 12px;
-    min-height: 506px;
-  }
-
-  .img-field {
-    text-align: center;
-    margin-bottom: 30px;
-    margin-top: 0;
-    min-height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .title-field {
-    margin-bottom: 20px;
-    text-align: center;
-
-    h4 {
-      font-family: "BC Sans Bold", "BC Sans Regular", "BC Sans", sans-serif;
-      font-weight: normal;
-      font-style: normal;
-      font-size: 2.4rem;
-      color: #234075;
-    }
-  }
-
-  .quiz-description {
-    padding: 18px 22px;
-    min-height: 106px;
-
-    @media all and (max-width: 991.98px) {
-      min-height: auto;
-    }
-  }
-
-  .quiz-questions {
-    padding: 0px;
-    font-family: "BC Sans", sans-serif;
-    font-size: 16px;
-    line-height: normal;
-    font-weight: 700;
-    color: #595959;
-    white-space: nowrap;
-
-    &::before {
-      content: url(../assets/icons/list.svg);
-      vertical-align: -35%;
-      padding-right: 5px;
-    }
-
-    @media all and (max-width: 1200px) {
-      font-size: 13px;
-
-      &::before {
-        vertical-align: -50%;
-      }
-    }
-  }
-
-  .quiz-duration {
-    padding: 0px;
-    font-family: "BC Sans", sans-serif;
-    font-size: 16px;
-    line-height: normal;
-    font-weight: 700;
-    color: #595959;
-    white-space: nowrap;
-
-    &::before {
-      content: url(../assets/icons/time.svg);
-      vertical-align: -35%;
-      padding-right: 5px;
-    }
-
-    @media all and (max-width: 1200px) {
-      font-size: 13px;
-
-      &::before {
-        vertical-align: -50%;
-      }
-    }
-  }
-
-  .complete {
-    span {
-      float: left;
-      width: 25px;
-      height: 25px;
-      background: url(../assets/icons/check-dark.svg) no-repeat;
-      background-position: 0px;
-    }
-
-    .cq {
-      font-family: "BC Sans", sans-serif;
-      font-size: 1.6rem;
-      text-align: center;
-      margin: auto;
-      width: 160px;
-      font-weight: bold;
-      color: #277a0f;
-    }
-    @media all and (max-width: 450.98px) {
-      font-size: 1.5rem;
-    }
-  }
-
-  .row {
-    background: rgb(242, 242, 242);
-    padding: 12px 15px;
-    margin: 0px;
-  }
-
-  p {
-    text-align: center;
-  }
-
-  .breadcrumb {
-    margin-bottom: 0px;
-  }
-
-  a.quiz-link:hover {
-    text-decoration: none;
-  }
-}
 
 .myResultHeading {
   display: flex;
   justify-content: space-between;
   padding-top: 30px;
 
-  @media all and (max-width: 767.98px){
+  @media all and (max-width: $breakpoint-md){
     background: #f2f2f2;
     width: 100vw;
     justify-content: center;
@@ -352,7 +19,7 @@ header {
   .result-heading {
     margin-bottom: 40px;
     margin-top: 0;
-    @media all and (max-width: 767.98px){
+    @media all and (max-width: $breakpoint-md){
       display: none;
     }
     @media print {
@@ -380,7 +47,7 @@ header {
       padding: 0;
       display: flex;
       align-items: center;
-      @media all and (max-width: 767.98px){
+      @media all and (max-width: $breakpoint-md){
         align-items: center;
         width: 100%;
         justify-content: center;
@@ -405,7 +72,7 @@ header {
 
         &.quiz-node-print {
           margin-right: 30px;
-          @media all and (max-width: 767.98px){
+          @media all and (max-width: $breakpoint-md){
             margin-right: 15px;
           }
         }
@@ -433,7 +100,7 @@ header {
 .carousel-mobi-tabs{
   margin-top: 20px;
   display: none;
-  @media all and (max-width: 767.98px){
+  @media all and (max-width: $breakpoint-md){
     display: block;
   }
   a.carousel-mobi-tabs-trigger{
@@ -514,13 +181,13 @@ header {
 
   .carousel-inner{
     &.carousel-inner-device{
-      @media all and (max-width: 767.98px){
+      @media all and (max-width: $breakpoint-md){
         display: none;
       }
     }
     &.carousel-inner-mobi{
       display: none;
-      @media all and (max-width: 767.98px){
+      @media all and (max-width: $breakpoint-md){
         &.active {
           display: block;
         }
@@ -583,7 +250,7 @@ header {
   .quiz-list {
     border: 2px solid rgb(238, 238, 238);
 
-    @media all and (min-width: 767.98px){
+    @media all and (min-width: $breakpoint-md){
       min-height: 365px;
       height: 100%;
     }
@@ -718,10 +385,10 @@ header {
     .links-inner {
       display: flex;
       justify-content: flex-end;
-      @media all and (max-width: 767.98px){
+      @media all and (max-width: $breakpoint-md){
         padding: 0;
       }
-      @media all and (max-width: 640.98px){
+      @media all and (max-width: breakpoint-sm){
         flex-direction: column-reverse;
         .link.link_1{
           margin-bottom: 0;
@@ -757,7 +424,7 @@ header {
           display: inline-block;
           margin-top: 0;
           margin-right: 10px;
-          @media all and (max-width: 640.98px){
+          @media all and (max-width: breakpoint-sm){
             width: 100%;
             min-width: auto;
             height: auto;
@@ -769,7 +436,7 @@ header {
             text-decoration: none;
           }
         }
-        @media all and (max-width: 640.98px){
+        @media all and (max-width: breakpoint-sm){
           margin-bottom: 15px;
         }
       }
@@ -784,7 +451,7 @@ header {
           margin: 0;
           text-align: center;
           width: 100%;
-          @media all and (max-width: 640.98px){
+          @media all and (max-width: breakpoint-sm){
             width: 100%;
             min-width: auto;
             height: auto;
@@ -846,12 +513,12 @@ header {
 
   &.mobi_cari_quiz{
     display: none;
-    @media all and (max-width: 991.98px) {
+    @media all and (max-width: $breakpoint-lg) {
       display: block;
     }
   }
   &:not(.mobi_cari_quiz){
-    @media all and (max-width: 991.98px) {
+    @media all and (max-width: $breakpoint-lg) {
       display: none;
     }
   }
@@ -879,178 +546,12 @@ header {
   margin: 30px 0px;
   margin-bottom: 0px;
   text-align: center;
-  @media all and (max-width: 767.98px) {
+  @media all and (max-width: $breakpoint-md) {
     margin: 20px 0px;
   }
   .description {
     p {
       color: #595959;
-    }
-  }
-}
-
-a.quiz-link {
-  border: 1px solid #3db2e3;
-  padding: 8px 10px;
-  color: #3db2e3;
-  text-decoration: none;
-  text-align: center;
-  width: 230px;
-  max-width: 100%;
-  margin: auto;
-  text-align: center;
-  display: block;
-  font-size: 15px;
-}
-
-.slide.carousel {
-  .quiz_link {
-    margin-top: 15px;
-  }
-
-  .career {
-    @media all and (min-width: 991.98px) and (max-width: 1200px) {
-      .title-field h4 {
-        min-height: 60px;
-      }
-    }
-
-    .item_1 {
-      .title-field h4 {
-        color: $aq;
-      }
-
-      a.quiz-link {
-        background: $aq;
-        color: #fff;
-        border-color: $aq;
-        &:hover {
-          background: $aq_h;
-        }
-        &+a.result-link{
-          color: $aq;
-          &:hover{
-            color: $aq;
-          }
-        }
-      }
-    }
-
-    .item_2 {
-      .title-field h4 {
-        color: $wpq;
-      }
-
-      a.quiz-link {
-        background: $wpq;
-        color: #fff;
-        border-color: $wpq;
-        &:hover {
-          background: $wpq_h;
-        }
-        &+a.result-link{
-          color: $wpq;
-          &:hover{
-            color: $wpq;
-          }
-        }
-      }
-    }
-
-    .item_3 {
-      .title-field h4 {
-        color: $iq;
-      }
-
-      a.quiz-link {
-        background: $iq;
-        color: #fff;
-        border-color: $iq;
-        &:hover {
-          background: $iq_h;
-        }
-        &+a.result-link{
-          color: $iq;
-          &:hover{
-            color: $iq;
-          }
-        }
-      }
-    }
-  }
-
-  .personality {
-    @media all and (min-width: 991.98px) and (max-width: 1200px) {
-      .title-field h4 {
-        min-height: 60px;
-      }
-    }
-
-    .item_1 {
-      .title-field h4 {
-        color: $miq;
-      }
-
-      a.quiz-link {
-        background: $miq;
-        color: #fff;
-        border-color: $miq;
-        &:hover {
-          background: $miq_h;
-        }
-        &+a.result-link{
-          color: $miq;
-          &:hover{
-            color: $miq;
-          }
-        }
-      }
-
-      .quiz_link {
-        // margin-top: 7px;
-      }
-    }
-
-    .item_2 {
-      .title-field h4 {
-        color: $lsq;
-      }
-
-      a.quiz-link {
-        background: $lsq;
-        color: #fff;
-        border-color: $lsq;
-        &:hover {
-          background: $lsq_h;
-        }
-        &+a.result-link{
-          color: $lsq;
-          &:hover{
-            color: $lsq;
-          }
-        }
-      }
-    }
-
-    .item_3 {
-      .title-field h4 {
-        color: $wvq;
-      }
-
-      a.quiz-link {
-        background: $wvq;
-        color: #fff;
-        border-color: $wvq;
-        &:hover {
-          background: $wvq_h;
-        }
-        &+a.result-link{
-          color: $wvq;
-          &:hover{
-            color: $wvq;
-          }
-        }
-      }
     }
   }
 }
@@ -1070,7 +571,7 @@ a.quiz-link {
     min-height: 65px;
     max-height: 65px;
     margin-bottom: 30px;
-    @media all and (max-width: 767.98px){
+    @media all and (max-width: $breakpoint-md){
       min-height: auto;
       max-height: 100%;
     }
@@ -1112,7 +613,7 @@ a.quiz-link {
       text-align: left !important;
       font-size: 4rem;
 
-      @media all and (max-width: 767.98px) {
+      @media all and (max-width: $breakpoint-md) {
         font-size: 2.4rem;
         line-height: 3.6rem;
         margin-bottom: 15px;
@@ -1124,7 +625,7 @@ a.quiz-link {
     background: #fff;
     border-top: 9px solid rgb(0, 40, 85);
     padding-bottom: 20px;
-    @media all and (max-width: 767.98px) {
+    @media all and (max-width: $breakpoint-md) {
       padding-top: 0;
       padding-bottom: 20px;
     }
@@ -1134,7 +635,7 @@ a.quiz-link {
       &.results-main-block{
         padding-top: 50px;
       }
-      @media all and (max-width: 767.98px) {
+      @media all and (max-width: $breakpoint-md) {
         padding-bottom: 150px;
         &.results-main-block{
           padding-bottom: 50px;
@@ -1142,12 +643,12 @@ a.quiz-link {
         }
       }
       &.has-prev-block{
-        @media all and (max-width: 640.98px) {
+        @media all and (max-width: breakpoint-sm) {
           padding-bottom: 200px;
         }
       }
       &.preview-block-wrapper{
-        @media all and (max-width: 767.98px) {
+        @media all and (max-width: $breakpoint-md) {
           padding-bottom: 30px;
         }
       }
@@ -1182,7 +683,7 @@ a.quiz-link {
       }
 
       #hiddenByDefault, a.category-results-toggle {
-        @media screen and (max-width: 767.98px) {
+        @media screen and (max-width: $breakpoint-md) {
           display: none;
         }
       }
@@ -1225,7 +726,7 @@ a.quiz-link {
     margin: 0 20px;
     padding: 0 50px;
 
-    @media all and (max-width: 767.98px) {
+    @media all and (max-width: $breakpoint-md) {
       margin: 0 0;
       padding: 0 15px;
     }
@@ -1270,7 +771,7 @@ body.path-quiz {
     margin-top: 55px;
     position: relative;
 
-    @media all and (max-width: 767.98px) {
+    @media all and (max-width: $breakpoint-md) {
       margin-top: 35px;
     }
     @media print {
@@ -1283,7 +784,7 @@ body.path-quiz {
       bottom: 0;
       right: 0;
 
-      @media all and (max-width: 767.98px) {
+      @media all and (max-width: $breakpoint-md) {
         right: auto;
         left: 25px;
       }
@@ -1303,11 +804,11 @@ body.path-quiz {
       &:has(input:nth-child(2)) {
         justify-content: space-between;
       }
-      @media all and (max-width: 767.98px) {
+      @media all and (max-width: $breakpoint-md) {
         left: 50%;
         justify-content: center;
       }
-      @media all and (max-width: 640.98px) {
+      @media all and (max-width: breakpoint-sm) {
         flex-direction: column-reverse;
         padding: 0 30px;
         &.hasPrev{
@@ -1342,12 +843,12 @@ body.path-quiz {
       z-index: 1;
       border-radius: 0;
       margin: 0 10px;
-      @media all and (max-width: 767.98px){
+      @media all and (max-width: $breakpoint-md){
         position: relative;
         right: 0;
         margin: 0 15px 0 15px;
       }
-      @media all and (max-width: 640.98px){
+      @media all and (max-width: breakpoint-sm){
         margin: 5px 0;
       }
 
@@ -1371,12 +872,12 @@ body.path-quiz {
       top: 0;
       left: 15px;
       z-index: 1;
-      @media all and (max-width: 767.98px){
+      @media all and (max-width: $breakpoint-md){
         position: relative;
         left: 0px;
         margin: 0 15px 0 15px;
       }
-      @media all and (max-width: 640.98px){
+      @media all and (max-width: breakpoint-sm){
         margin: 0;
       }
       &:hover {
@@ -1429,7 +930,7 @@ body.path-quiz {
     }
 
     .form-radios {
-      @media all and (max-width: 1024px) {
+      @media all and (max-width: $breakpoint-xl) {
         display: flex;
         flex-direction: column;
       }
@@ -1445,7 +946,7 @@ body.path-quiz {
             outline: 2px dashed #d21c22;
           }
         }
-        @media all and (max-width: 767.98px) {
+        @media all and (max-width: $breakpoint-md) {
           top: 9px;
         }
 
@@ -1462,7 +963,7 @@ body.path-quiz {
               position: relative;
               bottom: 10px;
 
-          @media all and (max-width: 767.98px) {
+          @media all and (max-width: $breakpoint-md) {
             margin: 0;
             bottom: 40px;
           }
@@ -1504,12 +1005,12 @@ body.path-quiz {
         left: -10px;
         margin: 0 auto;
 
-        @media all and (max-width: 1024px) {
+        @media all and (max-width: $breakpoint-xl) {
           padding: 0 5px;
           width  : auto;
         }
 
-        @media all and (max-width: 1024px) {
+        @media all and (max-width: $breakpoint-xl) {
           position: relative;
           top: 15px;
           font-size: 14px;
@@ -1521,7 +1022,7 @@ body.path-quiz {
           left: 30px;
         }
 
-        @media all and (max-width: 767.9px){
+        @media all and (max-width: $breakpoint-md){
           top: 10px;
         }
 
@@ -1540,7 +1041,7 @@ body.path-quiz {
           min-width: 31%;
         }
 
-        @media all and (max-width: 1024px) {
+        @media all and (max-width: $breakpoint-xl) {
           min-width: 100%;
           text-align: left;
           max-height: 35px;
@@ -1589,7 +1090,7 @@ body.path-quiz {
   }
 
   .block-system-main-block {
-    @media all and (max-width: 1024px) {
+    @media all and (max-width: $breakpoint-xl) {
       padding-top: 0;
     }
   }
@@ -1598,7 +1099,7 @@ body.path-quiz {
     max-width: 1000px;
     margin: auto;
     position: relative;
-    @media all and (max-width: 1024px) {
+    @media all and (max-width: $breakpoint-xl) {
       padding-top: 0;
     }
   }
@@ -1610,7 +1111,7 @@ body.path-quiz {
   form {
     fieldset {
       display: flex;
-      @media all and (max-width: 1024px){
+      @media all and (max-width: $breakpoint-xl){
         flex-direction: column;
         margin-top: 0;
         margin-bottom: 0;
@@ -1631,7 +1132,7 @@ body.path-quiz {
           label {
             display: none;
 
-            @media all and (max-width: 1024px) {
+            @media all and (max-width: $breakpoint-xl) {
               display: block;
             }
           }
@@ -1647,7 +1148,7 @@ body.path-quiz {
   .preview-quiz-form{
     .form-actions.form-actions{
       margin: 0;
-      @media all and (max-width:767.98px){
+      @media all and (max-width:$breakpoint-md){
         display: inline-flex;
         bottom: -157px; //have to fix later
       }
@@ -1661,7 +1162,7 @@ body.path-quiz {
         right: 20%;
         margin: 0;
         padding: 11px 24px;
-        @media all and (max-width:767.98px){
+        @media all and (max-width:$breakpoint-md){
           right: 40px;
           width: auto;
         }
@@ -1679,7 +1180,7 @@ body.path-quiz {
         left: 25%;
         margin: 0;
         padding: 11px 24px;
-        @media all and (max-width:767.98px){
+        @media all and (max-width:$breakpoint-md){
           left: 40px;
           width: auto;
         }
@@ -1722,7 +1223,7 @@ body.path-quiz {
         right: 0;
       }
 
-      @media all and (min-width: 767.98px) and (max-width: 1024.98px){
+      @media all and (min-width: $breakpoint-md) and (max-width: $breakpoint-xl){
         left: 10px;
 
         &.save-wrapper{
@@ -1730,7 +1231,7 @@ body.path-quiz {
         }
       }
 
-      @media all and (max-width: 767.98px) {
+      @media all and (max-width: $breakpoint-md) {
         position: relative;
         padding: 0 25px;
         bottom: -85px;
@@ -1778,8 +1279,8 @@ body.path-quiz {
   }
 }
 
-form{
-  > .js-form-item.form-item.js-form-type-entity-autocomplete.form-type-entity-autocomplete{
+form {
+  > .js-form-item.form-item.js-form-type-entity-autocomplete.form-type-entity-autocomplete {
     display: none;
   }
   fieldset {
@@ -1787,6 +1288,7 @@ form{
     border-bottom: 0px;
     width: 100%;
     display: inline-block;
+
     legend{
       float: left;
       width: 40%;
@@ -1797,13 +1299,13 @@ form{
       line-height: 2.1rem;
       color: #333333;
       padding-top: 10px;
-      @media all and (max-width: 1024px){
+      @media all and (max-width: $breakpoint-xl){
         float: none;
         width: 100%;
         padding-top: 0;
       }
       span.question-prefix{
-        @media all and (max-width: 1024.98px){
+        @media all and (max-width: $breakpoint-xl){
           position: absolute;
           margin: 0 0;
         }
@@ -1817,7 +1319,7 @@ form{
       span.fieldset-legend{
         margin: 30px 30px 30px 30px;
         display: block;
-        @media all and (max-width: 1024.98px){
+        @media all and (max-width: $breakpoint-xl){
           margin: 0 30px 0 30px;
         }
       }
@@ -1826,7 +1328,7 @@ form{
       float: left;
       width: 60%;
       padding-top: 15px;
-      @media all and (max-width: 1024px){
+      @media all and (max-width: $breakpoint-xl){
         padding-top: 0;
         float: unset;
         width: 100%;
@@ -1865,7 +1367,7 @@ form{
       }
       > .fieldset-wrapper{
         width: 35%;
-        @media all and (max-width: 1024.98px){
+        @media all and (max-width: $breakpoint-xl){
           float: none;
           width: 100%;
           .form-radios{
@@ -1907,7 +1409,7 @@ form{
       }
       > .fieldset-wrapper{
         width: 35%;
-        @media all and (max-width: 1024.98px){
+        @media all and (max-width: $breakpoint-xl){
           float: none;
           width: 100%;
           .form-radios{
@@ -1955,7 +1457,7 @@ form{
   border-bottom: 5px solid #002855;
   padding-bottom: 165px;
 
-  @media all and (max-width: 767.98px) {
+  @media all and (max-width: $breakpoint-md) {
     margin-top: 0;
     position: relative;
     padding-bottom: 40px;
@@ -1975,7 +1477,7 @@ form{
     width: 100%;
 
 
-    @media all and (max-width: 1024px){
+    @media all and (max-width: $breakpoint-xl){
       max-width: 500px;
       width: 100%;
       padding: 0 25px;
@@ -1986,7 +1488,7 @@ form{
       max-width: 430px;
     }
 
-    @media all and (max-width: 767.98px){
+    @media all and (max-width: $breakpoint-md){
       max-width: 100%;
       width: 100%;
       padding: 0 25px;
@@ -1995,7 +1497,7 @@ form{
   }
   .progress-title {
     margin-right: 10px;
-    @media all and (max-width: 767.98px){
+    @media all and (max-width: $breakpoint-md){
       position: absolute;
       top: -32px;
       left: 30px;
@@ -2005,7 +1507,7 @@ form{
 
   .status-bar {
     margin-left: 10px;
-    @media all and (max-width: 767.98px){
+    @media all and (max-width: $breakpoint-md){
       position: absolute;
       top: -32px;
       right: 30px;
@@ -2092,12 +1594,12 @@ form{
 .tools-resource-items-wrapper {
   &.mobi-tools-resource{
     display: none;
-    @media all and (max-width: 767.98px){
+    @media all and (max-width: $breakpoint-md){
       display: block;
     }
   }
   &:not(.mobi-tools-resource){
-    @media all and (max-width: 767.98px){
+    @media all and (max-width: $breakpoint-md){
       display: none;
     }
   }
@@ -2112,14 +1614,6 @@ form{
     }
   }
 }
-.result-link {
-  text-align: center;
-  width: 100%;
-  display: inline-block;
-  padding-top: 6px;
-  color: #510B76;
-  font-size: 15px;
-}
 
 .tools-resource-wrapper {
   background: rgba(35, 64, 117, 1);
@@ -2127,7 +1621,7 @@ form{
   padding: 45px 0 72px;
   margin: 45px 0 0;
 
-  @media all and (max-width: 767.98px) {
+  @media all and (max-width: $breakpoint-md) {
     padding: 45px 0 30px;
   }
 
@@ -2138,7 +1632,7 @@ form{
   .title {
     margin-bottom: 55px;
 
-    @media all and (max-width: 767.98px) {
+    @media all and (max-width: $breakpoint-md) {
       margin-bottom: 30px;
     }
 
@@ -2149,7 +1643,7 @@ form{
       line-height: 4rem;
       font-weight: normal;
       font-weight: 700;
-      @media all and (max-width: 767.98px) {
+      @media all and (max-width: $breakpoint-md) {
         font-size: 30px;
       }
 
@@ -2170,7 +1664,7 @@ form{
       right: -7px;
       bottom: -30px;
 
-      @media all and (max-width: 767.98px) {
+      @media all and (max-width: $breakpoint-md) {
         display: none;
       }
     }
@@ -2180,7 +1674,7 @@ form{
       width: auto;
       margin-bottom: 25px;
 
-      @media all and (max-width: 767.98px) {
+      @media all and (max-width: $breakpoint-md) {
         margin: 0 auto 25px auto;
         height: 95px;
       }
@@ -2196,7 +1690,7 @@ form{
       margin: 0 auto 25px;
       min-height: 52px;
       font-weight: normal;
-      @media all and (max-width: 767.98px) {
+      @media all and (max-width: $breakpoint-md) {
         font-size: 20px;
       }
       a {
@@ -2208,12 +1702,12 @@ form{
       color: #fff;
       font-size: 1.5rem;
       line-height: 1.8rem;
-      @media all and (max-width: 767.98px) {
+      @media all and (max-width: $breakpoint-md) {
         padding: 0 30px;
       }
     }
 
-    @media all and (max-width: 767.98px) {
+    @media all and (max-width: $breakpoint-md) {
       text-align: center;
       position: relative;
       max-width: 350px;
@@ -2260,7 +1754,7 @@ form{
 #block-views-block-step-form-pagination-block-1 {
   background: #fff;
   padding-bottom: 150px;
-  @media all and (max-width: 767.98px) {
+  @media all and (max-width: $breakpoint-md) {
     padding-bottom: 130px;
   }
   .views-row.row {
@@ -2276,7 +1770,7 @@ form{
 .careers-main-wrapper {
 
   &.small-device-hide {
-    @media all and (max-width: 991.98px) {
+    @media all and (max-width: $breakpoint-lg) {
       display: none;
     }
   }
@@ -2298,7 +1792,7 @@ form{
       align-items: center;
       margin-bottom: 25px;
 
-      @media all and (max-width: 767.98px) {
+      @media all and (max-width: $breakpoint-md) {
         flex-direction: column;
       }
 
@@ -2419,7 +1913,7 @@ form{
 
   table {
 
-    @media all and (max-width: 992px){
+    @media all and (max-width: $breakpoint_lg){
       th.views-field-field-annual-salary, td.views-field-field-annual-salary,
       th.views-field-field-education-level, td.views-field-field-education-level {
         display: none;
@@ -2607,7 +2101,7 @@ form{
 .careers-mobi-main-wrapper {
   display: none;
 
-  @media all and (max-width: 991.98px) {
+  @media all and (max-width: $breakpoint-lg) {
     padding-bottom: 30px;
     display: block;
     > .container-fluid{
@@ -2651,7 +2145,7 @@ form{
 
       .top-btn {
         display: flex;
-        @media all and (max-width: 640.98px){
+        @media all and (max-width: breakpoint-sm){
           flex-direction: column;
           > a{
             display: block;
@@ -2982,7 +2476,7 @@ form{
         border: 0;
       }
 
-      @media all and (max-width: 990px) {
+      @media all and (max-width: $breakpoint-lg) {
         min-height: unset;
       }
 
@@ -3099,7 +2593,7 @@ form{
       display: flex;
       margin-top: auto;
 
-      @media all and (max-width: 767.98px) {
+      @media all and (max-width: $breakpoint-md) {
         display: block;
       }
 
@@ -3142,7 +2636,7 @@ form{
         width: 100%;
         margin-right: 10px;
 
-        @media all and (max-width: 767.98px) {
+        @media all and (max-width: $breakpoint-md) {
           margin-bottom: 10px;
         }
 
@@ -3240,7 +2734,7 @@ form{
         }
         display: flex;
         flex-direction: column;
-        @media all and (max-width: 990px){
+        @media all and (max-width: $breakpoint-lg){
           .bottom-btn {
             margin-top: 20px;
           }
@@ -3362,7 +2856,7 @@ form{
         display: flex;
         margin-top: auto;
 
-        @media all and (max-width: 767.98px) {
+        @media all and (max-width: $breakpoint-md) {
           display: block;
         }
 
@@ -3405,7 +2899,7 @@ form{
           width: 100%;
           margin-right: 10px;
 
-          @media all and (max-width: 767.98px) {
+          @media all and (max-width: $breakpoint-md) {
             margin-bottom: 10px;
           }
 
@@ -3467,7 +2961,7 @@ form{
 .career-bottom-notes {
   // background: #e6eae9;
   padding: 30px 10px;
-  @media all and (max-width: 767.98px) {
+  @media all and (max-width: $breakpoint-md) {
     padding: 20px 0px;
     margin: 0 10px;
   }
@@ -3479,14 +2973,14 @@ form{
   .career-bottom-inner-notes {
     background: rgba(242, 242, 242, 1);
     padding: 16px 80px;
-    @media all and (max-width: 767.98px) {
+    @media all and (max-width: $breakpoint-md) {
       padding: 16px;
     }
 
     p {
       font-size: 13px;
       margin: 0;
-      @media all and (max-width: 450.98px) {
+      @media all and (max-width: $breakpoint-xs) {
         font-size: 12px;
       }
     }
@@ -3510,7 +3004,7 @@ form{
 
   .cdq-back-link {
     padding: 10px 20px;
-    @media all and (max-width: 767.98px) {
+    @media all and (max-width: $breakpoint-md) {
       padding: 5px 0;
     }
     a {
@@ -3525,7 +3019,7 @@ form{
       &:hover {
         text-decoration: none;
       }
-      @media all and (max-width: 767.98px) {
+      @media all and (max-width: $breakpoint-md) {
         padding-left: 15px;
       }
 
@@ -3539,7 +3033,7 @@ form{
   .career-wrapper-top {
     background: #fff;
     padding: 30px 25px 0 25px;
-    @media all and (max-width: 767.98px){
+    @media all and (max-width: $breakpoint-md){
       padding: 30px 15px 0 15px;
     }
 
@@ -3559,7 +3053,7 @@ form{
 
         &.compare-career-print {
           margin-right: 30px;
-          @media all and (max-width: 767.98px){
+          @media all and (max-width: $breakpoint-md){
             margin-right: 10px;
           }
         }
@@ -3579,12 +3073,12 @@ form{
     display: flex;
     background: #fff;
     padding: 20px 0 100px;
-    @media all and (max-width: 767.98px) {
+    @media all and (max-width: $breakpoint-md) {
       padding: 30px 0 100px;
     }
     &.mobi-career-content-compare{
       display: none;
-      @media all and (max-width: 991.98px){
+      @media all and (max-width: $breakpoint-lg){
         display: block;
         .slick-slide{
           > div{
@@ -3594,7 +3088,7 @@ form{
       }
     }
     &:not(.mobi-career-content-compare){
-      @media all and (max-width: 991.98px){
+      @media all and (max-width: $breakpoint-lg){
         display: none;
       }
     }
@@ -3611,12 +3105,12 @@ form{
       &:not(.col) {
         max-width: 375px;
         flex: 1 1 0;
-        @media all and (max-width: 991.98px){
+        @media all and (max-width: $breakpoint-lg){
           margin: 0 auto;
         }
       }
 
-      @media all and (max-width: 991.98px) {
+      @media all and (max-width: $breakpoint-lg) {
         max-width: 100%;
         margin: 0;
       }
@@ -3643,7 +3137,7 @@ form{
           font-size: 0;
           border-radius: 50%;
 
-          @media all and (max-width: 767.98px){
+          @media all and (max-width: $breakpoint-md){
             outline: none;
           }
         }
@@ -3823,7 +3317,7 @@ form{
   overflow-x: hidden;
   overflow-y: hidden;
   background-color: rgba(230, 234, 233, 1);
-  @media all and (max-width: 767.98px) {
+  @media all and (max-width: $breakpoint-md) {
     height: 34px;
   }
   #block-workbc-cdq-breadcrumbs, #back-to-quiz-breadcrumb {
@@ -3831,7 +3325,7 @@ form{
       padding: 16px 1rem;
       position: relative;
       background: transparent;
-      @media all and (max-width: 767.98px) {
+      @media all and (max-width: $breakpoint-md) {
         padding: 5px 15px;
       }
       li {
@@ -3841,13 +3335,13 @@ form{
           font-style: normal;
           font-size: 18px;
           color: #073573;
-          @media all and (max-width: 767.98px) {
+          @media all and (max-width: $breakpoint-md) {
             font-size: 15px;
           }
         }
         &:first-child {
           margin-right: 15px;
-          @media all and (max-width: 767.98px) {
+          @media all and (max-width: $breakpoint-md) {
             margin-right: 8px;
           }
         }
@@ -3859,7 +3353,7 @@ form{
           padding-left: 20px;
           color: #696969;
           position: relative;
-          @media all and (max-width: 767.98px) {
+          @media all and (max-width: $breakpoint-md) {
             font-size: 15px;
           }
           &::before {
@@ -3871,7 +3365,7 @@ form{
             top: 6px;
             position: absolute;
             left: 0;
-            @media all and (max-width: 767.98px) {
+            @media all and (max-width: $breakpoint-md) {
               background-size: 5px 10px;
               width: 5px;
               height: 10px;
@@ -3921,7 +3415,7 @@ form{
         top: 3px;
         margin-right: 5px;
       }
-      @media all and (max-width: 767.98px){
+      @media all and (max-width: $breakpoint-md){
         bottom: 105px;
         left: 30px;
         font-size: 1.3rem;
@@ -3942,7 +3436,7 @@ form{
 .path-quiz .learning-styles-quiz .region-content .form-radios .form-item,
 .path-quiz .work-values-quiz .region-content .form-radios .form-item {
   min-width: 31%;
-  @media all and (max-width: 767.98px){
+  @media all and (max-width: $breakpoint-md){
     min-width: 100%;
   }
 }
@@ -3990,7 +3484,7 @@ form{
 #block-workbc-cdq-content {
   margin: 70px 20px 0 20px;
 
-  @media all and (max-width: 767.98px){
+  @media all and (max-width: $breakpoint-md){
     margin: 0 0;
   }
 }
@@ -4006,7 +3500,7 @@ h2.cdq-quiz-title, .webform-submission-information {
 // when a mobile user selects a career profile, hide most page elements
 .user-selected {
 
-  @media all and (max-width: 991.98px){
+  @media all and (max-width: $breakpoint-lg){
     .breadcrumb-quiz:not(.back-to-quiz),
     #block-workbc-cdq-page-title,
     #block-workbc-cdq-content,
@@ -4056,7 +3550,7 @@ h2.cdq-quiz-title, .webform-submission-information {
       margin-right: 5px;
     }
 
-    @media all and (max-width: 991.98px) {
+    @media all and (max-width: $breakpoint-lg) {
       position: unset;
     }
 }
@@ -4096,7 +3590,7 @@ h2.cdq-quiz-title, .webform-submission-information {
       padding-top: 0px;
       padding-bottom: 0px;
 
-      @media all and (max-width: 1024.98px) {
+      @media all and (max-width: $breakpoint-lg) {
         padding-top: 15px;
         padding-left:10px;
         padding-bottom: 25px;
