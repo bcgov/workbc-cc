@@ -36,14 +36,17 @@
     ]
   %}
   {# Always wrap fieldset legends in a <span> for CSS positioning. #}
-  <legend{{ legend.attributes }}>
-    {% if question_number %}
-        <span class="question-prefix">{{ question_number }}</span>
-        <span {{ legend_span.attributes.addClass(legend_span_classes) }}>{{ question_title }}</span>
-    {% else %}
-      <span{{ legend_span.attributes.addClass(legend_span_classes) }}>{{ legend.title }}</span>
-    {% endif %}
-  </legend>
+<span class="quiz-question-legend">
+    <legend{{ legend.attributes }}>
+      {% if question_number %}
+          <span class="question-prefix">{{ question_number }}</span>
+          <span {{ legend_span.attributes.addClass(legend_span_classes) }}>{{ question_title }}</span>
+      {% else %}
+        <span{{ legend_span.attributes.addClass(legend_span_classes) }}>{{ legend.title }}</span>
+      {% endif %}
+    </legend>
+</span>
+
   <div class="fieldset-wrapper">
     {% if errors %}
       <div class="form-item--error-message">

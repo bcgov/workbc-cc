@@ -14817,6 +14817,7 @@ body.path-quiz {
     padding: 20px 10px;
   }
   .path-quiz form fieldset legend {
+    float: right;
     margin: 0 0 0 10px;
   }
 }
@@ -14977,43 +14978,52 @@ form fieldset {
   width: 100%;
   display: inline-block;
 }
-form fieldset legend {
+form fieldset span.quiz-question-legend {
   float: left;
   width: 40%;
+}
+@media all and (max-width: 1024px) {
+  form fieldset span.quiz-question-legend {
+    float: none;
+    width: 100%;
+    padding-top: 10px;
+    margin: 0 0 0 10px;
+  }
+}
+form fieldset span.quiz-question-legend legend {
   font-family: "BC Sans", sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   line-height: 2.1rem;
   color: #333333;
-  padding-top: 10px;
+  margin: 0px;
 }
 @media all and (max-width: 1024px) {
-  form fieldset legend {
-    width: 100%;
+  form fieldset span.quiz-question-legend legend {
     padding-top: 0;
   }
 }
-form fieldset legend span.question-prefix {
+form fieldset span.quiz-question-legend span.question-prefix {
   position: relative;
   float: left;
   margin: 30px 20px;
 }
 @media all and (max-width: 1024px) {
-  form fieldset legend span.question-prefix {
+  form fieldset span.quiz-question-legend span.question-prefix {
     position: absolute;
     margin: 0 0;
   }
 }
-form fieldset legend span.question-prefix:after {
+form fieldset span.quiz-question-legend span.question-prefix:after {
   content: ".";
 }
-form fieldset legend span.fieldset-legend {
+form fieldset span.quiz-question-legend span.fieldset-legend {
   margin: 30px 30px 30px 30px;
   display: block;
 }
 @media all and (max-width: 1024px) {
-  form fieldset legend span.fieldset-legend {
+  form fieldset span.quiz-question-legend span.fieldset-legend {
     margin: 0 30px 0 30px;
   }
 }

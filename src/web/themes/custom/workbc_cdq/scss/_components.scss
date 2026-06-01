@@ -1289,21 +1289,29 @@ form {
     width: 100%;
     display: inline-block;
 
-    legend{
+    span.quiz-question-legend{
       float: left;
       width: 40%;
-      font-family: "BC Sans", sans-serif;
-      font-weight: 400;
-      font-style: normal;
-      font-size: 1.5rem;
-      line-height: 2.1rem;
-      color: #333333;
-      padding-top: 10px;
       @media all and (max-width: $breakpoint-xl){
         float: none;
         width: 100%;
-        padding-top: 0;
+        padding-top: 10px;
+        margin: 0 0 0 10px;
       }
+
+      legend {
+        font-family: "BC Sans", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 1.6rem;
+        line-height: 2.1rem;
+        color: #333333;
+        margin: 0px;
+        @media all and (max-width: $breakpoint-xl){
+          padding-top: 0;
+        }
+      }
+
       span.question-prefix{
         @media all and (max-width: $breakpoint-xl){
           position: absolute;
