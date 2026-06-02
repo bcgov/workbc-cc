@@ -16,15 +16,11 @@
       background-repeat: no-repeat;
       background-color: rgb(242, 244, 243);
 
-      @media all and (min-width: 991.98px) and (max-width: 1280px) {
+      @media all and (min-width: $breakpoint-lg) and (max-width: 1280px) {
           background-position: -700px bottom;
       }
 
-      // @media all and (min-width: 991.98px) and (max-width: 1080px) {
-      //     background-position: -770px bottom;
-      // }
-
-      @media all and (max-width: 991.98px) {
+      @media all and (max-width: $breakpoint-lg) {
           display: none;
       }
 
@@ -58,11 +54,11 @@
                   font-weight: normal;
                   font-style: normal;
                   margin-bottom: 30px;
-                  @media all and (max-width: 991.98px) {
+                  @media all and (max-width: $breakpoint-lg) {
                       font-size: 40px;
                       line-height: 40px;
                   }
-                  @media all and (max-width: 450.98px) {
+                  @media all and (max-width: $breakpoint-xs) {
                       font-size: 35px;
                       line-height: 40px;
                   }
@@ -74,7 +70,7 @@
   .mobile-banner {
       display: none;
 
-      @media all and (max-width: 991.98px) {
+      @media all and (max-width: $breakpoint-lg) {
           display: block;
           min-height: 435px;
           background-size: cover;
@@ -115,13 +111,13 @@
                   max-width: 305px;
                   margin: 0 auto;
                   color: #333333;
-                  @media all and (max-width: 450.98px) {
+                  @media all and (max-width: $breakpoint-xs) {
                       font-size: 1.8rem;
                   }
               }
           }
       }
-      @media all and (max-width: 450.98px) {
+      @media all and (max-width: $breakpoint-xs) {
           .banner-inner {
               h1 {
                   font-size: 32px;
@@ -141,7 +137,7 @@
   align-items: center;
   text-align: center;
 
-  @media all and (max-width: 767.98px) {
+  @media all and (max-width: $breakpoint-md) {
       min-height: 160px;
   }
 
@@ -156,7 +152,7 @@
           line-height: 3rem;
           margin-bottom: 0;
 
-          @media all and (max-width: 767.98px) {
+          @media all and (max-width: $breakpoint-md) {
               font-size: 1.8rem;
               line-height: 2.5rem;
               display: inline;
@@ -172,7 +168,7 @@
   margin: 30px 0px;
   margin-bottom: 0px;
   text-align: center;
-  @media all and (max-width: 767.98px) {
+  @media all and (max-width: $breakpoint-md) {
       margin: 20px 0px;
   }
 
@@ -189,7 +185,7 @@
       color: #333333;
       text-align: center;
       margin-bottom: 30px;
-      @media all and (max-width: 767.98px) {
+      @media all and (max-width: $breakpoint-md) {
           font-size: 36px;
       }
   }
@@ -199,7 +195,7 @@
        color: #595959;
       }
 
-      @media all and (max-width: 767.98px) {
+      @media all and (max-width: $breakpoint-md) {
           padding: 0 30px;
       }
   }
@@ -207,7 +203,7 @@
 
 .all-quiz-status {
   background: rgb(230, 234, 233);
-  margin: 20px 7px;
+  margin: 20px 0px;
   padding: 7px 30px;
   text-align: right;
   margin-bottom: 30px;
@@ -218,7 +214,7 @@
   text-align: right;
   line-height: 3rem;
   color: #333333;
-  @media all and (max-width: 767.98px) {
+  @media all and (max-width: $breakpoint-md) {
       text-align: center;
   }
 }
@@ -236,7 +232,7 @@
     color: rgb(102, 102, 102);
     min-height: 450px;
     background: #fff;
-    @media all and (max-width: 991.98px) {
+    @media all and (max-width: $breakpoint-lg) {
         padding: 30px 12px 70px 12px;
         min-height: 506px;
     }
@@ -268,10 +264,58 @@
         padding: 18px 22px;
         min-height: 106px;
 
-        @media all and (max-width: 991.98px) {
+        @media all and (max-width: $breakpoint-lg) {
             min-height: auto;
         }
     }
+
+  .quiz-questions {
+    padding: 0px;
+    font-family: "BC Sans", sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    font-weight: 700;
+    color: #595959;
+    white-space: nowrap;
+
+    &::before {
+      content: url(../assets/icons/list.svg);
+      vertical-align: -35%;
+      padding-right: 5px;
+    }
+
+    @media all and (max-width: $breakpoint-xxl) {
+      font-size: 13px;
+
+      &::before {
+        vertical-align: -50%;
+      }
+    }
+  }
+
+  .quiz-duration {
+    padding: 0px;
+    font-family: "BC Sans", sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    font-weight: 700;
+    color: #595959;
+    white-space: nowrap;
+
+    &::before {
+      content: url(../assets/icons/time.svg);
+      vertical-align: -35%;
+      padding-right: 5px;
+    }
+
+    @media all and (max-width: $breakpoint-xxl) {
+      font-size: 13px;
+
+      &::before {
+        vertical-align: -50%;
+      }
+    }
+  }
 
     .complete {
         span {
@@ -291,7 +335,7 @@
             font-weight: bold;
             color: #277a0f;
         }
-        @media all and (max-width: 450.98px) {
+        @media all and (max-width: $breakpoint-xs) {
             font-size: 1.5rem;
         }
     }
@@ -321,7 +365,7 @@
     }
 
     .career {
-        @media all and (min-width: 991.98px) and (max-width: 1110.98px) {
+        @media all and (min-width: $breakpoint-lg) and (max-width: 1110.98px) {
           .title-field h4 {
             min-height: 60px;
           }
@@ -392,7 +436,7 @@
     }
 
     .personality {
-        @media all and (min-width: 991.98px) and (max-width: 1110.98px) {
+        @media all and (min-width: $breakpoint-lg) and (max-width: 1110.98px) {
             .title-field h4 {
                 min-height: 60px;
             }

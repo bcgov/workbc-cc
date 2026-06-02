@@ -148,7 +148,7 @@ h1, .h1{
     line-height: 5.2rem;
     color: #234075;
     margin-bottom: 35px;
-    @media all and (max-width: 767.98px){
+    @media all and (max-width: $breakpoint-md){
         font-size: 3.6rem;
         line-height: 4.2rem;
     }
@@ -162,7 +162,7 @@ h2, .h2{
     line-height: 4.7rem;
     color: #234075;
     text-align: center;
-    @media all and (max-width: 767.98px){
+    @media all and (max-width: $breakpoint-md){
         font-size: 2.4rem;
         line-height: 3.1rem;
     }
@@ -175,7 +175,7 @@ h3, .h3{
     font-size: 2.7rem;
     line-height: 3.4rem;
     color: #234075;
-    @media all and (max-width: 767.98px){
+    @media all and (max-width: $breakpoint-md){
         font-size: 2.4rem;
         line-height: 3.1rem;
     }
@@ -192,7 +192,7 @@ ul{
             margin: auto;
             text-align: center;
             padding: 0px 10px;
-            @media all and (max-width: 767.98px){
+            @media all and (max-width: $breakpoint-md){
                 padding: 0px;
             }
             a {
@@ -260,7 +260,7 @@ input:focus-visible, .btn:focus-visible {
 }
 
 .no-padding-device{
-    @media  all and (max-width: 767.98px){
+    @media  all and (max-width: $breakpoint-md){
         padding: 0;
     }
 }

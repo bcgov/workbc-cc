@@ -571,7 +571,7 @@
         }
     }
     .page-node-type-learning-styles-quiz #myResult .quiz-list{
-        //@media all and (max-width: 767.98px){
+        //@media all and (max-width: $breakpoint-md){
             height: auto!important;
             min-height: 250px;
             padding-bottom: 10px!important;

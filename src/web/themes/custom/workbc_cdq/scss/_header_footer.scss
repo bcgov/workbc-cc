@@ -1,6 +1,6 @@
 header {
     padding: 35px 0;
-    @media all and (max-width: 767.98px) {
+    @media all and (max-width: $breakpoint-md) {
         padding: 0px 0;
         min-height: 80px;
         display: flex;
@@ -11,14 +11,14 @@ header {
             img {
                 width: 254px;
                 height: auto;
-                @media all and (max-width: 767.98px) {
+                @media all and (max-width: $breakpoint-md) {
                     width: 120px;
                 }
             }
         }
         .site-name {
             margin: 4px 0 0 100px;
-            @media all and (max-width: 767.98px) {
+            @media all and (max-width: $breakpoint-md) {
                 margin: 4px 0 0;
                 white-space: initial;
             }
@@ -30,13 +30,13 @@ header {
                 color: #234075;
                 line-height: 54px;
                 text-transform: none;
-                @media all and (max-width: 767.98px) {
+                @media all and (max-width: $breakpoint-md) {
                     font-size: 17px;
                     letter-spacing: normal;
                     line-height: 1rem;
                     vertical-align: middle;
                 }
-                @media all and (min-width: 768px ) and ( max-width: 1000.98px) {
+                @media all and (min-width: $breakpoint-md ) and ( max-width: 1000.98px) {
                     font-size: 3rem;
                     letter-spacing: normal;
                 }
@@ -51,7 +51,7 @@ header {
     .navbar-brand .site-name {
         display: none;
     }
-    @media all and (max-width: 767.98px) {
+    @media all and (max-width: $breakpoint-md) {
         header {
             padding: 15px 15px;
             .navbar-brand {
@@ -70,20 +70,20 @@ footer {
     padding: 50px 20px;
     margin-top: 0;
 
-    @media all and (max-width: 991.98px) {
+    @media all and (max-width: $breakpoint-lg) {
       padding: 30px 5px;
       .row {
         flex-wrap: wrap-reverse;
       }
     }
-    @media all and (max-width: 767.98px) {
+    @media all and (max-width: $breakpoint-md) {
         padding: 20px 5px;
     }
 
     .footer-top-wrapper {
         padding-bottom: 60px;
 
-        @media all and (max-width: 991.98px) {
+        @media all and (max-width: $breakpoint-lg) {
             padding-bottom: 40px;
         }
 
@@ -97,7 +97,7 @@ footer {
                 left: 15px;
                 right: 0;
 
-                @media all and (max-width: 991.98px) {
+                @media all and (max-width: $breakpoint-lg) {
 
                 }
             }
@@ -123,7 +123,7 @@ footer {
         .social-icons {
             text-align: right;
 
-            @media all and (max-width: 991.98px) {
+            @media all and (max-width: $breakpoint-lg) {
                 text-align: left;
             }
 
@@ -182,7 +182,7 @@ footer {
     }
 
     nav#block-bcgov-career-footer {
-        @media all and (max-width: 991.98px) {
+        @media all and (max-width: $breakpoint-lg) {
             margin-bottom: 30px;
         }
 
@@ -217,10 +217,10 @@ footer {
     }
 
     #block-copyrights {
-        @media all and (max-width: 991.98px) {
+        @media all and (max-width: $breakpoint-lg) {
             margin-bottom: 30px;
         }
-        @media all and (max-width: 767.98px) {
+        @media all and (max-width: $breakpoint-md) {
             margin-bottom: 0px;
             margin-top: 30px;
         }
@@ -246,7 +246,7 @@ footer {
         p {
             text-align: right;
 
-            @media all and (max-width: 991.98px) {
+            @media all and (max-width: $breakpoint-lg) {
                 text-align: left;
             }
         }
