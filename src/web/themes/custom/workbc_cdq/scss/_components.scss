@@ -388,7 +388,7 @@ header {
       @media all and (max-width: $breakpoint-md){
         padding: 0;
       }
-      @media all and (max-width: breakpoint-sm){
+      @media all and (max-width: $breakpoint-sm){
         flex-direction: column-reverse;
         .link.link_1{
           margin-bottom: 0;
@@ -424,7 +424,7 @@ header {
           display: inline-block;
           margin-top: 0;
           margin-right: 10px;
-          @media all and (max-width: breakpoint-sm){
+          @media all and (max-width: $breakpoint-sm){
             width: 100%;
             min-width: auto;
             height: auto;
@@ -436,7 +436,7 @@ header {
             text-decoration: none;
           }
         }
-        @media all and (max-width: breakpoint-sm){
+        @media all and (max-width: $breakpoint-sm){
           margin-bottom: 15px;
         }
       }
@@ -451,7 +451,7 @@ header {
           margin: 0;
           text-align: center;
           width: 100%;
-          @media all and (max-width: breakpoint-sm){
+          @media all and (max-width: $breakpoint-sm){
             width: 100%;
             min-width: auto;
             height: auto;
@@ -643,7 +643,7 @@ header {
         }
       }
       &.has-prev-block{
-        @media all and (max-width: breakpoint-sm) {
+        @media all and (max-width: $breakpoint-sm) {
           padding-bottom: 200px;
         }
       }
@@ -808,7 +808,7 @@ body.path-quiz {
         left: 50%;
         justify-content: center;
       }
-      @media all and (max-width: breakpoint-sm) {
+      @media all and (max-width: $breakpoint-sm) {
         flex-direction: column-reverse;
         padding: 0 30px;
         &.hasPrev{
@@ -848,7 +848,7 @@ body.path-quiz {
         right: 0;
         margin: 0 15px 0 15px;
       }
-      @media all and (max-width: breakpoint-sm){
+      @media all and (max-width: $breakpoint-sm){
         margin: 5px 0;
       }
 
@@ -877,7 +877,7 @@ body.path-quiz {
         left: 0px;
         margin: 0 15px 0 15px;
       }
-      @media all and (max-width: breakpoint-sm){
+      @media all and (max-width: $breakpoint-sm){
         margin: 0;
       }
       &:hover {
@@ -2153,7 +2153,7 @@ form {
 
       .top-btn {
         display: flex;
-        @media all and (max-width: breakpoint-sm){
+        @media all and (max-width: $breakpoint-sm){
           flex-direction: column;
           > a{
             display: block;

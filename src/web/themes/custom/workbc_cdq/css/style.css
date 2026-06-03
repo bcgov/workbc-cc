@@ -14150,7 +14150,7 @@ header {
     padding: 0;
   }
 }
-@media all and (max-width: breakpoint-sm) {
+@media all and (max-width: 640.98px) {
   .cdq-results .bottom-links .links-inner {
     flex-direction: column-reverse;
   }
@@ -14184,7 +14184,7 @@ header {
   margin-top: 0;
   margin-right: 10px;
 }
-@media all and (max-width: breakpoint-sm) {
+@media all and (max-width: 640.98px) {
   .cdq-results .bottom-links .link.link_1 a {
     width: 100%;
     min-width: auto;
@@ -14197,7 +14197,7 @@ header {
   border-color: rgb(35, 64, 117);
   text-decoration: none;
 }
-@media all and (max-width: breakpoint-sm) {
+@media all and (max-width: 640.98px) {
   .cdq-results .bottom-links .link.link_1 {
     margin-bottom: 15px;
   }
@@ -14212,7 +14212,7 @@ header {
   text-align: center;
   width: 100%;
 }
-@media all and (max-width: breakpoint-sm) {
+@media all and (max-width: 640.98px) {
   .cdq-results .bottom-links .link.link_2 a {
     width: 100%;
     min-width: auto;
@@ -14387,7 +14387,7 @@ header {
     padding-top: 0;
   }
 }
-@media all and (max-width: breakpoint-sm) {
+@media all and (max-width: 640.98px) {
   .overlay-content .block-system-main-block #block-workbc-cdq-content.has-prev-block {
     padding-bottom: 200px;
   }
@@ -14529,7 +14529,7 @@ body.path-quiz {
     justify-content: center;
   }
 }
-@media all and (max-width: breakpoint-sm) {
+@media all and (max-width: 640.98px) {
   .path-quiz .form-actions.form-actions {
     flex-direction: column-reverse;
     padding: 0 30px;
@@ -14572,7 +14572,7 @@ body.path-quiz {
     margin: 0 15px 0 15px;
   }
 }
-@media all and (max-width: breakpoint-sm) {
+@media all and (max-width: 640.98px) {
   .path-quiz .form-actions input#edit-actions-wizard-next, .path-quiz .form-actions input#edit-actions-submit {
     margin: 5px 0;
   }
@@ -14603,7 +14603,7 @@ body.path-quiz {
     margin: 0 15px 0 15px;
   }
 }
-@media all and (max-width: breakpoint-sm) {
+@media all and (max-width: 640.98px) {
   .path-quiz .form-actions input#edit-actions-wizard-prev {
     margin: 0;
   }
@@ -15743,7 +15743,7 @@ form fieldset .fieldset-wrapper {
 .careers-mobi-main-wrapper .top-career-mobi-content .content .top-btn {
   display: flex;
 }
-@media all and (max-width: breakpoint-sm) {
+@media all and (max-width: 640.98px) {
   .careers-mobi-main-wrapper .top-career-mobi-content .content .top-btn {
     flex-direction: column;
   }
