@@ -365,7 +365,7 @@
     }
 
     .career {
-        @media all and (min-width: $breakpoint-lg) and (max-width: 1110.98px) {
+        @media all and (min-width: $breakpoint-lg) and (max-width: $breakpoint-xxl) {
           .title-field h4 {
             min-height: 60px;
           }
@@ -436,7 +436,7 @@
     }
 
     .personality {
-        @media all and (min-width: $breakpoint-lg) and (max-width: 1110.98px) {
+        @media all and (min-width: $breakpoint-lg) and (max-width: $breakpoint-xxl) {
             .title-field h4 {
                 min-height: 60px;
             }
