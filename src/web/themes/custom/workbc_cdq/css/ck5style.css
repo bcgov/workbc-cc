@@ -12652,7 +12652,7 @@ a > .ck-content code {
 .ck-content .slide.carousel .quiz_link {
   margin-top: 15px;
 }
-@media all and (min-width: 991.98px) and (max-width: 1110.98px) {
+@media all and (min-width: 991.98px) and (max-width: 1200px) {
   .ck-content .slide.carousel .career .title-field h4, .ck-content .slide.carousel .career .title-field .h4 {
     min-height: 60px;
   }
@@ -12708,7 +12708,7 @@ a > .ck-content code {
 .ck-content .slide.carousel .career .item_3 a.quiz-link + a.result-link:hover {
   color: rgb(38, 113, 202);
 }
-@media all and (min-width: 991.98px) and (max-width: 1110.98px) {
+@media all and (min-width: 991.98px) and (max-width: 1200px) {
   .ck-content .slide.carousel .personality .title-field h4, .ck-content .slide.carousel .personality .title-field .h4 {
     min-height: 60px;
   }
