@@ -34,11 +34,11 @@ class AdminSettingsForm extends ConfigFormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
     $config = $this->config('workbc_cdq_custom.settings');
 
-    $default =  $config->get('results_lifespan') ? $config->get('results_lifespan') : 336;
+    $default = !is_null($config->get('results_lifespan')) ? $config->get('results_lifespan') : 336;
     $form['results_lifespan'] = [
       '#type' => 'number',
       '#title' => $this->t('Quiz lifespan hours'),
-      '#description' => 'Quiz results lifespan in hours before they are purged from the system',
+      '#description' => 'Quiz results lifespan in hours before they are purged from the system. Enter 0 to suspend purging quiz results.',
       '#default_value' => $default,
     ];
 
