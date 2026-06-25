@@ -54,7 +54,7 @@ class AdminSettingsForm extends ConfigFormBase {
     $form['results_email_body'] = [
       '#type' => 'textarea',
       '#title' => $this->t('Results email text'),
-      '#description' => "Use token [cdq:quiz-name] for current quiz name, [cdq:results-link] for current user's results link and [site:url] for home page link.",
+      '#description' => "Use token [cdq:quiz-name] for current quiz name, [cdq:results-link] for current user's results link, [cdq:results-lifespan] for quiz results lifespan and [site:url] for home page link.",
       '#default_value' => $default,
       '#rows' => 10,
     ];
