@@ -245,6 +245,7 @@ settings:
   form_access_denied_message: ''
   form_access_denied_attributes: {  }
   form_file_limit: ''
+  form_file_limit_message: ''
   form_attributes: {  }
   form_method: ''
   form_action: ''
@@ -303,7 +304,7 @@ settings:
   preview_exclude_empty_checkbox: false
   draft: all
   draft_multiple: false
-  draft_auto_save: false
+  draft_auto_save: true
   draft_saved_message: ''
   draft_loaded_message: ''
   draft_pending_single_message: ''
@@ -331,7 +332,7 @@ settings:
   entity_limit_total_interval: null
   entity_limit_user: null
   entity_limit_user_interval: null
-  purge: all
+  purge: draft
   purge_days: 14
   results_disabled: false
   results_disabled_ignore: false

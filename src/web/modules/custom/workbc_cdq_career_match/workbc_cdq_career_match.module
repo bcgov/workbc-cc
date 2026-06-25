@@ -807,6 +807,14 @@ function workbc_cdq_career_match_tokens($type, $tokens, array $data, array $opti
         $quiz_type = str_replace('_', '-', $data['submission']->getWebform()->id());
         $replacements[$original] = $home_link . "quiz-results/" . $quiz_type . "/". $data['submission']->id();
         break;
+      case 'results-lifespan':
+        $config = \Drupal::config('workbc_cdq_custom.settings');
+        $totalHours =  $config->get('results_lifespan') ? $config->get('results_lifespan') : 336;
+        $days = floor($totalHours / 24);
+        $hours = $totalHours % 24;
+        $lifespan = ($hours > 0) ? "{$days} days and {$hours} hours" : "{$days} days";
+        $replacements[$original] = $lifespan;
+        break;
     }
   }
 

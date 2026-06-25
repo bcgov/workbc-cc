@@ -56,7 +56,44 @@ function workbc_cdq_custom_config_ignore_ignored_alter(&$ignoreConfig) {
   }
 }
 
+/**
+ * Implements hook_cron().
+ */
+function workbc_cdq_custom_cron() {
+  workbc_cdq_custom_purge_quiz_results();
+}
+
+
 /*************************** HELPER FUNCTIONS ***************************/
+
+
+function workbc_cdq_custom_purge_quiz_results() {
+  $config = \Drupal::config('workbc_cdq_custom.settings');
+  $hours =  $config->get('results_lifespan') ? $config->get('results_lifespan') : 336;
+  if ($hours > 0) {
+    $expired = strtotime("-$hours hours");
+    $quizzes = quizzesList();
+    $webform_ids = [];
+    foreach ($quizzes as $webform_id => $value) {
+      $webform_ids[] = $webform_id;
+    }
+
+    $query = \Drupal::entityQuery('webform_submission')
+      ->accessCheck(FALSE) // Always include accessCheck in Drupal 9/10+
+      ->condition('webform_id', $webform_ids, 'IN')
+      ->condition('completed', $expired, '<=');
+    $sids = $query->execute();
+    dsm($sids);
+    foreach ($sids as $sid) {
+      $submission = \Drupal::entityTypeManager()
+        ->getStorage('webform_submission')
+        ->load($sid);
+      if ($submission) {
+        $submission->delete();
+      }
+    }
+  }
+}
 
 function quizzesList() {
 

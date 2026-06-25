@@ -34,6 +34,14 @@ class AdminSettingsForm extends ConfigFormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
     $config = $this->config('workbc_cdq_custom.settings');
 
+    $default =  $config->get('results_lifespan') ? $config->get('results_lifespan') : 336;
+    $form['results_lifespan'] = [
+      '#type' => 'number',
+      '#title' => $this->t('Quiz lifespan hours'),
+      '#description' => 'Quiz results lifespan in hours before they are purged from the system',
+      '#default_value' => $default,
+    ];
+
     $default = $config->get('results_email_subject', '');
     $form['results_email_subject'] = [
       '#type' => 'textfield',
@@ -76,6 +84,7 @@ class AdminSettingsForm extends ConfigFormBase {
   */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $config = $this->config('workbc_cdq_custom.settings');
+    $config->set('results_lifespan', $form_state->getValue('results_lifespan', 336));
     $config->set('results_email_subject', $form_state->getValue('results_email_subject', ''));
     $config->set('results_email_body', $form_state->getValue('results_email_body', ''));
     $config->set('compare_email_subject', $form_state->getValue('compare_email_subject', ''));
