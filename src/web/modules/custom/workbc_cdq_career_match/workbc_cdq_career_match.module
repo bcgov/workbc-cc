@@ -812,7 +812,17 @@ function workbc_cdq_career_match_tokens($type, $tokens, array $data, array $opti
         $totalHours =  $config->get('results_lifespan') ? $config->get('results_lifespan') : 336;
         $days = floor($totalHours / 24);
         $hours = $totalHours % 24;
-        $lifespan = ($hours > 0) ? "{$days} days and {$hours} hours" : "{$days} days";
+        if ($hours > 0) {
+          if ($days > 0) {
+            $lifespan = "{$days} days and {$hours} hours";
+          }
+          else {
+            $lifespan = "{$hours} hours";
+          }
+        }
+        else {
+          $lifespan = "{$days} days";
+        }
         $replacements[$original] = $lifespan;
         break;
     }
