@@ -6,6 +6,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\webform\Entity\WebformSubmission;
 use Drupal\Component\Utility\Unicode;
 use Drupal\Core\Render\BubbleableMetadata;
+use Drupal\views\ViewExecutable;
 
 define ("NEW_LINE", "%0D%0A");
 
@@ -793,9 +794,12 @@ function workbc_cdq_career_match_tokens($type, $tokens, array $data, array $opti
         $replacements[$original] = $data['submission']->getWebform()->get('title');;
         break;
       case 'compare-careers-link':
+        $nocs = \Drupal::request()->query->get('nocs');
+        $nocs = "?nocs=" . str_replace(" ", "+", $nocs);
+
         $home_link = Url::fromRoute('<front>', [], $options)->toString();
         if (isset($data['submission'])) {
-          $replacements[$original] = $home_link . "compare-careers/" . $data['submission']->id();
+          $replacements[$original] = $home_link . "compare-careers/" . $data['submission']->id() . $nocs;
         }
         else {
           $replacements[$original] = $home_link;
@@ -831,3 +835,29 @@ function workbc_cdq_career_match_tokens($type, $tokens, array $data, array $opti
   return $replacements;
 }
 
+/**
+ * Implements hook_views_pre_view().
+ */
+function workbc_cdq_career_match_views_pre_view(ViewExecutable $view, $display_id, array &$args) {
+
+  if ($view->id() == 'cdq_compare_careers' && $display_id == 'page_1') {
+    $nocs = \Drupal::request()->query->get('nocs');
+    // if no query parameter provided, use selected nocs else use 'all' to display first 3 careers.
+    if ($nocs == "") {
+      $database = \Drupal::database();
+      $query = $database->select('workbc_cdq_career_match', 'cm');
+      $query->join('node__field_noc', 'noc', 'noc.entity_id=cm.nid');
+      $query->fields('cm', ['id', 'sid', 'selected']);
+      $query->fields('noc', ['field_noc_value']);
+      $query->condition('cm.sid', $args[0], '=');
+      $query->condition('cm.selected', 1, '=');
+      $result = $query->execute()->fetchAll(\PDO::FETCH_ASSOC);
+
+      $parameters = "all";
+      if ($result) {
+        $parameters = implode('+', array_column($result, 'field_noc_value'));
+      }
+      \Drupal::request()->query->set('nocs', $parameters);
+    }
+  }
+}
