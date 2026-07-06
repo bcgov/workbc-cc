@@ -166,7 +166,7 @@
       function updateCompareCareersURL() {
         nocs = nocsSelected();
 
-        const links = document.querySelectorAll('.compare-career');
+        const links = $.find('.compare-career');
         links.forEach(link => {
           link.href = link.href.split("?")[0] + "?nocs=" + nocs.join("+");
         });
