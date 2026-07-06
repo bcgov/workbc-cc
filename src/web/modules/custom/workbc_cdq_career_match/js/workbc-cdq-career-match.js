@@ -39,6 +39,7 @@
             $('.clear-compare').addClass("disable");
             $('.compare-career').addClass("disable");
           }
+          updateCompareCareersURL();
         });
 
         $('.clear-compare').on('click', function() {
@@ -125,27 +126,51 @@
           $('#modifyNextLinks').show();
         });
 
-
-        function totalSelected() {
-          let total = 0;
-          let target = ".careers-main-wrapper .compare-career-checkbox";
-
-          if ($('#mobi-career-table').css('display') == "block") {
-            target = ".careers-mobi-main-wrapper .compare-career-checkbox";
-          }
-          $(target).each(function() {
-            if ($(this).is(':checked')) {
-              total++;
-            }
-          });
-          return total;
-        }
-
         if (totalSelected() > 1) {
           $('.clear-compare').removeClass("disable");
           $('.compare-career').removeClass("disable");
         }
+        updateCompareCareersURL();
       });
+
+      function totalSelected() {
+        let total = 0;
+        let target = ".careers-main-wrapper .compare-career-checkbox";
+
+        if ($('#mobi-career-table').css('display') == "block") {
+          target = ".careers-mobi-main-wrapper .compare-career-checkbox";
+        }
+        $(target).each(function() {
+          if ($(this).is(':checked')) {
+            total++;
+          }
+        });
+        return total;
+      }
+
+      function nocsSelected() {
+        let target = ".careers-main-wrapper .compare-career-checkbox";
+        let list = [];
+
+        if ($('#mobi-career-table').css('display') == "block") {
+          target = ".careers-mobi-main-wrapper .compare-career-checkbox";
+        }
+        $(target).each(function() {
+          if ($(this).is(':checked')) {
+            list.push($(this).attr('data-career-match-noc'));
+          }
+        });
+        return list;
+      }
+
+      function updateCompareCareersURL() {
+        nocs = nocsSelected();
+
+        const links = document.querySelectorAll('.compare-career');
+        links.forEach(link => {
+          link.href = link.href.split("?")[0] + "?nocs=" + nocs.join("+");
+        });
+      }
 
       $(once('main-content', '.category-results-toggle', context)).each(function () {
         $(this).on('click', function () {
