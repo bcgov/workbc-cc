@@ -684,7 +684,7 @@ display:
           plugin_id: string
           default_action: default
           exception:
-            value: all
+            value: ''
             title_enable: false
             title: ''
           title_enable: false
@@ -692,7 +692,7 @@ display:
           default_argument_type: query_parameter
           default_argument_options:
             query_param: nocs
-            fallback: all
+            fallback: ''
             multiple: or
           summary_options:
             base_path: ''
@@ -703,10 +703,10 @@ display:
             sort_order: asc
             number_of_records: 0
             format: default_summary
-          specify_validation: false
+          specify_validation: true
           validate:
             type: none
-            fail: 'not found'
+            fail: empty
           validate_options: {  }
           glossary: false
           limit: 0

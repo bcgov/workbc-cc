@@ -122,6 +122,46 @@ function workbc_cdq_career_match_views_pre_render($view) {
       $view->field['career_match']->options['label'] = 'Your Match';
     }
   }
+
+  if ($view->id() === 'cdq_compare_careers' && $view->current_display === 'page_1') {
+    $message = 'Quiz results have changed since this comparison was created. Some careers are no longer part of the result set.';
+    $nocs = \Drupal::request()->query->get('nocs');
+    // Check if the view returned zero database rows
+    if (empty($view->result)) {
+      // check if submission still exists
+      $database = \Drupal::database();
+      $query = $database->select('workbc_cdq_career_match', 'cm');
+      $query->fields('cm', ['id', 'sid']);
+      $query->condition('cm.sid', $view->args[0], '=');
+      $result = $query->execute()->fetchAll(\PDO::FETCH_ASSOC);
+      if ($result) {
+        if (!empty($nocs)) {
+          \Drupal::messenger()->addMessage(t($message));
+        }
+        else {
+          \Drupal::messenger()->addMessage(t("No careers have been selected."));
+        }
+        if (isset($view->empty['area'])) {
+          $view->empty['area']->options['content']['value'] = "";
+        }
+      }
+    }
+    else {
+      $nocs = explode(' ', $nocs);
+      $database = \Drupal::database();
+      $query = $database->select('workbc_cdq_career_match', 'cm');
+      $query->join('node__field_noc', 'noc', 'noc.entity_id=cm.nid');
+      $query->fields('cm', ['id', 'sid', 'selected']);
+      $query->fields('noc', ['field_noc_value']);
+      $query->condition('cm.sid', $view->args[0], '=');
+      $query->condition('noc.field_noc_value', $nocs, "IN");
+      $results = $query->execute()->fetchAll(\PDO::FETCH_ASSOC);
+      if (count($nocs) <> count($results)) {
+        \Drupal::messenger()->addMessage(t($message));
+      }
+    }
+  }
+
 }
 
 /**
@@ -852,12 +892,10 @@ function workbc_cdq_career_match_views_pre_view(ViewExecutable $view, $display_i
       $query->condition('cm.sid', $args[0], '=');
       $query->condition('cm.selected', 1, '=');
       $result = $query->execute()->fetchAll(\PDO::FETCH_ASSOC);
-
-      $parameters = "all";
       if ($result) {
-        $parameters = implode('+', array_column($result, 'field_noc_value'));
+        $parameters = implode(' ', array_column($result, 'field_noc_value'));
+        \Drupal::request()->query->set('nocs', $parameters);
       }
-      \Drupal::request()->query->set('nocs', $parameters);
     }
   }
 }
