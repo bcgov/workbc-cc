@@ -139,7 +139,7 @@ function workbc_cdq_career_match_views_pre_render($view) {
           \Drupal::messenger()->addMessage(t($message));
         }
         else {
-          \Drupal::messenger()->addMessage(t("No careers have been selected"));
+          \Drupal::messenger()->addMessage(t("No careers have been selected."));
         }
         if (isset($view->empty['area'])) {
           $view->empty['area']->options['content']['value'] = "";
