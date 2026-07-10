@@ -124,7 +124,7 @@ function workbc_cdq_career_match_views_pre_render($view) {
   }
 
   if ($view->id() === 'cdq_compare_careers' && $view->current_display === 'page_1') {
-    $message = 'Quiz results have changed since this comparison was created.';
+    $message = 'Quiz results have changed since this comparison was created. Some careers are no longer part of the result set.';
     $nocs = \Drupal::request()->query->get('nocs');
     // Check if the view returned zero database rows
     if (empty($view->result)) {
