@@ -2,6 +2,9 @@ workbc_cdq_custom.settings:
   type: config_object
   label: 'WorkBC CDQ email content settings'
   mapping:
+    results_lifespan:
+      type: text
+      label: 'Quiz lifespan hours'
     results_email_subject:
       type: text
       label: 'Results email subject'
