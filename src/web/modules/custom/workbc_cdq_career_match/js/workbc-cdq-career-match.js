@@ -169,7 +169,6 @@
         const links = $.find('.compare-career');
         links.forEach(link => {
           const parts = link.href.split("/compare-careers/");
-          parts.slice(0, 0, '/compare-careers/');
           link.href = [parts[0], "compare-careers", parts[1].split('/')[0], nocs.join("+")].join("/");
         });
       }
