@@ -168,7 +168,8 @@
 
         const links = $.find('.compare-career');
         links.forEach(link => {
-          link.href = link.href.split("?")[0] + "?nocs=" + nocs.join("+");
+          const parts = link.href.split("/compare-careers/");
+          link.href = [parts[0], "compare-careers", parts[1].split('/')[0], nocs.join("+")].join("/");
         });
       }
 

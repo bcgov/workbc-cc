@@ -125,7 +125,7 @@ function workbc_cdq_career_match_views_pre_render($view) {
 
   if ($view->id() === 'cdq_compare_careers' && $view->current_display === 'page_1') {
     $message = 'Quiz results have changed since this comparison was created. Some careers are no longer part of the result set.';
-    $nocs = \Drupal::request()->query->get('nocs');
+    $nocs = $view->args[1];
     // Check if the view returned zero database rows
     if (empty($view->result)) {
       // check if submission still exists
@@ -147,7 +147,7 @@ function workbc_cdq_career_match_views_pre_render($view) {
       }
     }
     else {
-      $nocs = explode(' ', $nocs);
+      $nocs = explode(' ', $view->args[1]);
       $database = \Drupal::database();
       $query = $database->select('workbc_cdq_career_match', 'cm');
       $query->join('node__field_noc', 'noc', 'noc.entity_id=cm.nid');
@@ -834,12 +834,10 @@ function workbc_cdq_career_match_tokens($type, $tokens, array $data, array $opti
         $replacements[$original] = $data['submission']->getWebform()->get('title');;
         break;
       case 'compare-careers-link':
-        $nocs = \Drupal::request()->query->get('nocs');
-        $nocs = "?nocs=" . str_replace(" ", "+", $nocs);
-
+        $current_path = str_replace(" ", "+", \Drupal::service('path.current')->getPath());
         $home_link = Url::fromRoute('<front>', [], $options)->toString();
         if (isset($data['submission'])) {
-          $replacements[$original] = $home_link . "compare-careers/" . $data['submission']->id() . $nocs;
+          $replacements[$original] = $home_link . $current_path;
         }
         else {
           $replacements[$original] = $home_link;
