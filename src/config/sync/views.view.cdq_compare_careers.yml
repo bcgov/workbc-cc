@@ -674,26 +674,24 @@ display:
           validate_options: {  }
           break_phrase: false
           not: false
-        field_noc_value:
-          id: field_noc_value
+        field_noc_value_1:
+          id: field_noc_value_1
           table: node__field_noc
           field: field_noc_value
           relationship: nid
           group_type: group
           admin_label: ''
           plugin_id: string
-          default_action: default
+          default_action: ignore
           exception:
-            value: ''
+            value: all
             title_enable: false
-            title: ''
+            title: All
           title_enable: false
           title: ''
-          default_argument_type: query_parameter
+          default_argument_type: fixed
           default_argument_options:
-            query_param: nocs
-            fallback: ''
-            multiple: or
+            argument: ''
           summary_options:
             base_path: ''
             count: true
@@ -703,10 +701,10 @@ display:
             sort_order: asc
             number_of_records: 0
             format: default_summary
-          specify_validation: true
+          specify_validation: false
           validate:
             type: none
-            fail: empty
+            fail: 'not found'
           validate_options: {  }
           glossary: false
           limit: 0
@@ -782,7 +780,7 @@ display:
     position: 2
     display_options:
       display_extenders: {  }
-      path: compare-careers/%
+      path: compare-careers/%sid/%noc/%noc
     cache_metadata:
       max-age: -1
       contexts:
