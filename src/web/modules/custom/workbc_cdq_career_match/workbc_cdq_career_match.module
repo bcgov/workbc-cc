@@ -834,7 +834,7 @@ function workbc_cdq_career_match_tokens($type, $tokens, array $data, array $opti
         $replacements[$original] = $data['submission']->getWebform()->get('title');;
         break;
       case 'compare-careers-link':
-        $current_path = str_replace(" ", "+", \Drupal::service('path.current')->getPath());
+        $current_path = ltrim(str_replace(" ", "+", \Drupal::service('path.current')->getPath()), '/');
         $home_link = Url::fromRoute('<front>', [], $options)->toString();
         if (isset($data['submission'])) {
           $replacements[$original] = $home_link . $current_path;
@@ -842,7 +842,6 @@ function workbc_cdq_career_match_tokens($type, $tokens, array $data, array $opti
         else {
           $replacements[$original] = $home_link;
         }
-
         break;
       case 'results-link':
         $home_link = Url::fromRoute('<front>', [], $options)->toString();
