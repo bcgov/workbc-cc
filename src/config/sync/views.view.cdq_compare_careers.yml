@@ -780,7 +780,7 @@ display:
     position: 2
     display_options:
       display_extenders: {  }
-      path: compare-careers/%sid/%noc/%noc
+      path: compare-careers/%sid/%noc
     cache_metadata:
       max-age: -1
       contexts:
