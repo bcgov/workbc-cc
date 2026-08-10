@@ -186,20 +186,6 @@
         })
       });
 
-      // work values results - toggle sub-heading text
-      $(once('main-content', '.path-quiz', context)).each(function () {
-        $(".hideshow-workbc").on('click', function () {
-          let expanded = $(".result-heading h3.vaa").is(':hidden');
-          if (expanded) {
-            $(".result-heading h3.vaa1").hide();
-            $(".result-heading h3.vaa").show();
-          } else {
-            $(".result-heading h3.vaa").hide();
-            $(".result-heading h3.vaa1").show();
-          }
-        })
-      });
-
       $(once('main-content', '.mobi-tools-resource', context)).each(function () {
         $(this).find("> .field__items").slick({
           slidesToShow: 1,
@@ -232,6 +218,16 @@
       });
 
       $(once('main-content', '.work-value-quiz-carousel', context)).each(function () {
+        $(this).find("> .row").on('afterChange', function(event, slick, currentSlide) {
+          if (currentSlide == 0) {
+            $(".result-heading h3.vaa1").hide();
+            $(".result-heading h3.vaa").show();
+          } else {
+            $(".result-heading h3.vaa").hide();
+            $(".result-heading h3.vaa1").show();
+          }
+        });
+
         $(this).find("> .row").slick({
           slidesToShow: 1,
           slidesToScroll: 1,
