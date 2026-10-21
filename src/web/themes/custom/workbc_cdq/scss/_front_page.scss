@@ -12,14 +12,13 @@
   .desktop-banner {
       min-height: 480px;
       background-size: 2000px 524px;
-      background-position: 85% 0%;
+      background-position: right bottom;
       background-repeat: no-repeat;
       background-color: rgb(242, 244, 243);
 
       @media all and (min-width: $breakpoint-lg) and (max-width: 1280px) {
-          background-position: -675px 0%;
+          background-position: -700px bottom;
       }
-
 
       @media all and (max-width: $breakpoint-lg) {
           display: none;
@@ -30,7 +29,7 @@
               min-height: 480px;
               display: flex;
               // align-items: center;
-              padding-top: 45px;
+              padding-top: 99px;
           }
           @media all and (max-width: 1180px) {
               padding-left: 15px;
@@ -45,12 +44,6 @@
               max-width: 360px;
               margin-bottom: 30px;
               color: #333333;
-          }
-
-          .sub-slogan {
-            font-size: 1.7rem;
-            width: 65%;
-            padding-bottom: 10px;
           }
 
           .banner-inner {
@@ -70,25 +63,6 @@
                       line-height: 40px;
                   }
               }
-
-            .banner-quiz {
-                display: flex;
-                align-items: center;
-                margin-top: 15px;
-            }
-
-            .banner-quiz-icon {
-                padding-right: 15px;
-
-                img {
-                    width: 36px;
-                }
-            }
-
-            .banner-quiz-title {
-                font-weight: bold;
-            }
-
           }
       }
   }
@@ -101,21 +75,14 @@
           min-height: 435px;
           background-size: cover;
           // padding-top: 20px;
-          background-position: center top;
+          background-position: right bottom;
           background-repeat: no-repeat;
           background-attachment: scroll;
           background-size: cover;
           background-origin: border-box;
-          background-color: rgba(250, 249, 249, 0.85);
-          background-blend-mode: lighten;
+          background-color: rgba(242, 244, 243, 1);
           overflow-y: hidden;
           overflow-x: hidden;
-
-        //   @media all and (max-width: $breakpoint-md) {
-        //     background-position: -950px top;
-        //   }
-
-
           .banner-inner {
               h1 {
                   font-size: 40px;
@@ -124,34 +91,15 @@
                   margin-bottom: 10px;
                   margin-top: 20px;
               }
-
-            .banner-quiz {
-                display: flex;
-                align-items: center;
-                margin-top: 15px;
-            }
-
-            .banner-quiz-icon {
-                padding-right: 15px;
-
-                img {
-                    width: 36px;
-                }
-            }
-
-            .banner-quiz-title {
-                font-weight: bold;
-            }
-
           }
 
           .banner-content {
               &.flex-content {
                   min-height: 435px;
                   display: flex;
-                  text-align: left;
-                //   max-width: 350px;
-                  margin: 0 auto auto 25px;
+                  text-align: center;
+                  max-width: 350px;
+                  margin: 0 auto;
               }
 
               p.sub-title {
@@ -160,9 +108,8 @@
                   line-height: 2.6rem;
                   margin-bottom: 25px;
                   padding: 0;
-                  padding-bottom: 20px;
                   max-width: 305px;
-                  margin: 0 0;
+                  margin: 0 auto;
                   color: #333333;
                   @media all and (max-width: $breakpoint-xs) {
                       font-size: 1.8rem;

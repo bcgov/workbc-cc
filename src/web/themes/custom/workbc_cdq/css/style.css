@@ -13332,13 +13332,13 @@ footer #block-footerbclogo p {
 .banner-main-wrapper .desktop-banner {
   min-height: 480px;
   background-size: 2000px 524px;
-  background-position: 85% 0%;
+  background-position: right bottom;
   background-repeat: no-repeat;
   background-color: rgb(242, 244, 243);
 }
 @media all and (min-width: 991.98px) and (max-width: 1280px) {
   .banner-main-wrapper .desktop-banner {
-    background-position: -675px 0%;
+    background-position: -700px bottom;
   }
 }
 @media all and (max-width: 991.98px) {
@@ -13349,7 +13349,7 @@ footer #block-footerbclogo p {
 .banner-main-wrapper .desktop-banner .banner-content.flex-content {
   min-height: 480px;
   display: flex;
-  padding-top: 45px;
+  padding-top: 99px;
 }
 @media all and (max-width: 1180px) {
   .banner-main-wrapper .desktop-banner .banner-content {
@@ -13365,11 +13365,6 @@ footer #block-footerbclogo p {
   max-width: 360px;
   margin-bottom: 30px;
   color: #333333;
-}
-.banner-main-wrapper .desktop-banner .banner-content .sub-slogan {
-  font-size: 1.7rem;
-  width: 65%;
-  padding-bottom: 10px;
 }
 .banner-main-wrapper .desktop-banner .banner-content .banner-inner h1, .banner-main-wrapper .desktop-banner .banner-content .banner-inner .h1 {
   font-size: 54px;
@@ -13391,20 +13386,6 @@ footer #block-footerbclogo p {
     line-height: 40px;
   }
 }
-.banner-main-wrapper .desktop-banner .banner-content .banner-inner .banner-quiz {
-  display: flex;
-  align-items: center;
-  margin-top: 15px;
-}
-.banner-main-wrapper .desktop-banner .banner-content .banner-inner .banner-quiz-icon {
-  padding-right: 15px;
-}
-.banner-main-wrapper .desktop-banner .banner-content .banner-inner .banner-quiz-icon img {
-  width: 36px;
-}
-.banner-main-wrapper .desktop-banner .banner-content .banner-inner .banner-quiz-title {
-  font-weight: bold;
-}
 .banner-main-wrapper .mobile-banner {
   display: none;
 }
@@ -13413,13 +13394,12 @@ footer #block-footerbclogo p {
     display: block;
     min-height: 435px;
     background-size: cover;
-    background-position: center top;
+    background-position: right bottom;
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-size: cover;
     background-origin: border-box;
-    background-color: rgba(250, 249, 249, 0.85);
-    background-blend-mode: lighten;
+    background-color: rgb(242, 244, 243);
     overflow-y: hidden;
     overflow-x: hidden;
   }
@@ -13430,25 +13410,12 @@ footer #block-footerbclogo p {
     margin-bottom: 10px;
     margin-top: 20px;
   }
-  .banner-main-wrapper .mobile-banner .banner-inner .banner-quiz {
-    display: flex;
-    align-items: center;
-    margin-top: 15px;
-  }
-  .banner-main-wrapper .mobile-banner .banner-inner .banner-quiz-icon {
-    padding-right: 15px;
-  }
-  .banner-main-wrapper .mobile-banner .banner-inner .banner-quiz-icon img {
-    width: 36px;
-  }
-  .banner-main-wrapper .mobile-banner .banner-inner .banner-quiz-title {
-    font-weight: bold;
-  }
   .banner-main-wrapper .mobile-banner .banner-content.flex-content {
     min-height: 435px;
     display: flex;
-    text-align: left;
-    margin: 0 auto auto 25px;
+    text-align: center;
+    max-width: 350px;
+    margin: 0 auto;
   }
   .banner-main-wrapper .mobile-banner .banner-content p.sub-title {
     font-size: 2.1rem;
@@ -13456,9 +13423,8 @@ footer #block-footerbclogo p {
     line-height: 2.6rem;
     margin-bottom: 25px;
     padding: 0;
-    padding-bottom: 20px;
     max-width: 305px;
-    margin: 0 0;
+    margin: 0 auto;
     color: #333333;
   }
 }
