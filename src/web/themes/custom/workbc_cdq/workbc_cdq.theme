@@ -36,6 +36,18 @@ function workbc_cdq_preprocess_page(&$variables) {
     $variables['text']['home_page_slogan'] = \Drupal::config('system.site')->get('slogan');
     $variables['text']['home_page_banner'] = t('home_page_banner');
 
+    $variables['text']['banner_quiz1_id'] = t('banner_quiz1_id');
+    $variables['text']['banner_quiz1_title'] = t('banner_quiz1_title');
+    $variables['text']['banner_quiz1_description'] = t('banner_quiz1_description');
+
+    $variables['text']['banner_quiz2_id'] = t('banner_quiz2_id');
+    $variables['text']['banner_quiz2_title'] = t('banner_quiz2_title');
+    $variables['text']['banner_quiz2_description'] = t('banner_quiz2_description');
+
+    $variables['text']['banner_quiz3_id'] = t('banner_quiz3_id');
+    $variables['text']['banner_quiz3_title'] = t('banner_quiz3_title');
+    $variables['text']['banner_quiz3_description'] = t('banner_quiz3_description');
+
     $variables['text']['home_page_career_title'] = t('home_page_career_title');
     $variables['text']['home_page_career_text'] = t('home_page_career_text');
     $variables['text']['home_page_personality_title'] = t('home_page_personality_title');
