@@ -409,7 +409,6 @@ function workbc_cdq_career_match_webform_element_configuration_form_alter(&$form
 /*************************** HELPER FUNCTIONS ***************************/
 
 function getCareerProfileInfo(\Drupal\node\NodeInterface $node) {
-
   $active_theme = \Drupal::service('theme.manager')->getActiveTheme()->getName();
 
   if ($node->hasField('field_image') && !$node->get('field_image')->isEmpty()) {
