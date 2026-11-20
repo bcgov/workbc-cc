@@ -127,7 +127,7 @@ function ssotSources() {
 }
 
 function ssotParseDateRange($schema, $section, $field = "", $sources = null) {
-  $match = "";
+  $match = NULL;
   if (isset($schema['definitions'][$section]['properties'][$field]['description'])) {
     $text = $schema['definitions'][$section]['properties'][$field]['description'];
     preg_match('#\{(.*?)\}#', $text, $match);
