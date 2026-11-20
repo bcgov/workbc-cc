@@ -422,13 +422,11 @@ function getCareerProfileInfo(\Drupal\node\NodeInterface $node) {
   // Get the job openings date range from the SSOT schema.
   $job_openings_range = \Drupal::state()->get('workbc.ssot_job_openings_range', '');
   if (empty($job_openings_range)) {
-    $result = ssot('');
-    if ($result) {
-      $schema = json_decode($result->getBody(), true);
-      $label = $schema['definitions']['career_provincial']['properties']['expected_job_openings_10y']['description'];
-      preg_match('#\{(.*?)\}#', $label, $matches);
-      if (!empty($matches)) {
-        $job_openings_range = $matches[1];
+    $schema = ssotSchema();
+    if ($schema) {
+      $sources = ssotSources();
+      $job_openings_range = ssotParseDateRange($schema, "career_provincial", "expected_job_openings_10y", $sources);
+      if ($job_openings_range) {
         \Drupal::state()->set('workbc.ssot_job_openings_range', $job_openings_range);
       }
     }
